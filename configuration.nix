@@ -118,6 +118,7 @@
     bemenu
     keychain
     gnupg
+    kodi
     pinentry
     pinentry-curses
   ];
