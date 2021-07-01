@@ -79,7 +79,14 @@
 
   # Enable sound.
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+
+  hardware = {
+    # Use pulseaudio for sound
+    pulseaudio.enable = true;
+
+    # Enable brillo
+    brillo.enable = true;
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
