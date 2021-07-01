@@ -19,6 +19,15 @@
     };
   };
 
+  nix = {
+    allowedUsers = [ "municorn" ];
+    optimise = {
+      automatic = true;
+      dates = [ "12:00" "17:00" "9:00" ];
+    };
+    autoOptimiseStore = true;
+  };
+
   networking = {
     hostName = "hotpocket"; # Define your hostname.
     wireless = {
