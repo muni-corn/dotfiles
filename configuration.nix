@@ -115,6 +115,20 @@
     python3
   ];
 
+  fonts = {
+    fonts = with pkgs; [
+      google-fonts
+      libertine
+      inter-ui
+      iosevka
+      material-design-icons
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      noto-fonts-extra
+    ];
+  };
+
   virtualisation.docker = {
     enable = true;
     extraOptions = "--data-root /home/docker/";
