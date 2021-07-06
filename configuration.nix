@@ -57,19 +57,22 @@
   #   keyMap = "us";
   # };
 
-  services.xserver = {
-	  # Enable the Plasma 5 Desktop Environment.
-	  desktopManager.plasma5.enable = true;
+  services = {
 
-    # Configure keymap in X11
-    layout = "us";
+    xserver = {
+      # Enable the Plasma 5 Desktop Environment.
+      desktopManager.plasma5.enable = true;
 
-    # Enable touchpad support (enabled default in most desktopManager).
-    libinput.enable = true;
+      # Configure keymap in X11
+      layout = "us";
+
+      # Enable touchpad support (enabled default in most desktopManager).
+      libinput.enable = true;
+    };
+
+    # Enable CUPS to print documents.
+    # printing.enable = true;
   };
-  
-  # Enable CUPS to print documents.
-  # services.printing.enable = true;
 
   # Enable sound.
   sound.enable = true;
