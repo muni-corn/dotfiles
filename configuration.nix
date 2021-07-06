@@ -91,7 +91,7 @@
     users = {
       municorn = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "audio" "video" "kvm" "plugdev" "nixos-config" ];
+        extraGroups = [ "wheel" "audio" "video" "docker" "kvm" "plugdev" "nixos-config" ];
         uid = 1000;
       };
       beans = {
