@@ -58,6 +58,9 @@
   # };
 
   services = {
+    geoclue2 = {
+      enable = true;
+    };
 
     xserver = {
       # Enable the Plasma 5 Desktop Environment.
