@@ -127,6 +127,15 @@
       noto-fonts-emoji
       noto-fonts-extra
     ];
+
+    fontconfig = {
+      defaultFonts = {
+        emoji = [ "Noto Color Emoji" ];
+        monospace = [ "Iosevka" ];
+        sansSerif = [ "Inter" ];
+        serif = [ "Noto Serif" ];
+      };
+    };
   };
 
   virtualisation.docker = {
