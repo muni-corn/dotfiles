@@ -60,7 +60,15 @@
   services = {
     geoclue2 = {
       enable = true;
+      appConfig = {
+        localtimed = {
+          isSystem = true;
+          isAllowed = true;
+        };
+      };
     };
+
+    localtime.enable = true;
 
     xserver = {
       # Enable the Plasma 5 Desktop Environment.
