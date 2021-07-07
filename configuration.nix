@@ -41,6 +41,9 @@
     interfaces = {
       wlan0.useDHCP = true;
     };
+
+    # Encrypts network traffic where possible (i think)
+    tcpcrypt.enable = true;
   };
 
   # Set your time zone.
@@ -94,7 +97,20 @@
 
     # Enable brillo
     brillo.enable = true;
+
+    # Bluetooth
+    bluetooth = {
+      enable = true;
+    };
+
+    # CPU microcode
+    cpu.amd.updateMicrocode = true;
+
+    # Ledger
+    ledger.enable = true;
   };
+
+  location.provider = "geoclue2";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
