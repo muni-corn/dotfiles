@@ -68,6 +68,10 @@
           isSystem = true;
           isAllowed = true;
         };
+        gammastep = {
+          isSystem = false;
+          isAllowed = true;
+        };
       };
     };
 
