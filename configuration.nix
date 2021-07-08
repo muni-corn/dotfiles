@@ -17,6 +17,7 @@
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
     };
+    kernelModules = [ "i2c-dev" "i2c-piix4" ];
   };
 
   nix = {
@@ -143,11 +144,9 @@
     firefox
     git
     kodi
-    nodejs
-    pinentry
-    pinentry-curses
+    openrazer-daemon
+    openrgb
     psmisc
-    python3
   ];
 
   fonts = {
