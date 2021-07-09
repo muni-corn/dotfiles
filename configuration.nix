@@ -146,6 +146,8 @@
     kodi
     openrazer-daemon
     openrgb
+    pinentry
+    pinentry-curses
     psmisc
   ];
 
