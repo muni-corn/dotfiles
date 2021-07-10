@@ -21,6 +21,11 @@
   };
 
   nix = {
+    # # enables flakes
+    # package = pkgs.nixUnstable;
+    # extraOptions = ''
+    #   experimental-features = nix-command flakes
+    # '';
     allowedUsers = [ "municorn" ];
     optimise = {
       automatic = true;
