@@ -154,6 +154,9 @@
     pinentry
     pinentry-curses
     psmisc
+
+    # needed for sway
+    qt5.qtwayland
   ];
 
   fonts = {
