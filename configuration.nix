@@ -154,6 +154,7 @@
     firefox
     git
     kodi
+    ksshaskpass
     openrazer-daemon
     openrgb
     pinentry
