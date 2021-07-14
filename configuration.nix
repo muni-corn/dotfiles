@@ -66,6 +66,9 @@
   #   keyMap = "us";
   # };
 
+  # for pipewire. optional, but recommended
+  security.rtkit.enable = true;
+
   services = {
     geoclue2 = {
       enable = true;
@@ -83,6 +86,14 @@
 
     localtime.enable = true;
 
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      jack.enable = true;
+    };
+
     xserver = {
       # Enable the Plasma 5 Desktop Environment.
       desktopManager.plasma5.enable = true;
@@ -98,13 +109,7 @@
     # printing.enable = true;
   };
 
-  # Enable sound.
-  sound.enable = true;
-
   hardware = {
-    # Use pulseaudio for sound
-    pulseaudio.enable = true;
-
     # Enable brillo
     brillo.enable = true;
 
