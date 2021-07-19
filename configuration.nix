@@ -35,7 +35,7 @@
   };
 
   networking = {
-    hostName = "hotpocket"; # Define your hostname.
+    hostName = import ./hostname.nix; # Define your hostname.
     wireless = {
       iwd.enable = true; # Enables wireless support via iwd.
     };
