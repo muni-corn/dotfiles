@@ -21,11 +21,11 @@
   };
 
   nix = {
-    # # enables flakes
-    # package = pkgs.nixUnstable;
-    # extraOptions = ''
-    #   experimental-features = nix-command flakes
-    # '';
+    # enables flakes
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
     allowedUsers = [ "municorn" ];
     optimise = {
       automatic = true;
@@ -35,7 +35,7 @@
   };
 
   networking = {
-    hostName = import ./hostname.nix; # Define your hostname.
+    hostName = "hotpocket";
     wireless = {
       iwd.enable = true; # Enables wireless support via iwd.
     };
