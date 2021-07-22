@@ -6,13 +6,26 @@
 { config, pkgs, ... }:
 
 {
-  # Use the systemd-boot EFI boot loader.
   boot = {
-    loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
-    };
     kernelModules = [ "i2c-dev" "i2c-piix4" ];
+    loader = {
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot";
+      };
+      grub = {
+        enable = true;
+
+        devices = [ "nodev" ];
+        efiSupport = true;
+        splashMode = "normal";
+        useOSProber = true;
+        version = 2;
+      };
+    };
+    plymouth = {
+      enable = true;
+    };
   };
 
   nix = {
