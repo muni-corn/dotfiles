@@ -28,19 +28,64 @@
     };
   };
 
-  nix = {
-    # enables flakes
-    package = pkgs.nixUnstable;
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-    allowedUsers = [ "municorn" ];
-    optimise = {
-      automatic = true;
-      dates = [ "12:00" "17:00" "9:00" ];
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    firefox
+    git
+    kodi
+    ksshaskpass
+    openrazer-daemon
+    openrgb
+    pinentry
+    pinentry-curses
+    psmisc
+
+    # needed for sway
+    qt5.qtwayland
+  ];
+
+  fonts = {
+    fonts = with pkgs; [
+      google-fonts
+      libertine
+      inter-ui
+      iosevka
+      material-design-icons
+      noto-fonts
+      noto-fonts-cjk
+      noto-fonts-emoji
+      noto-fonts-extra
+    ];
+
+    fontconfig = {
+      defaultFonts = {
+        emoji = [ "Noto Color Emoji" ];
+        monospace = [ "Iosevka" ];
+        sansSerif = [ "Inter" ];
+        serif = [ "Noto Serif" ];
+      };
     };
-    autoOptimiseStore = true;
   };
+
+  hardware = {
+    # Enable brillo
+    brillo.enable = true;
+
+    # Bluetooth
+    bluetooth = {
+      enable = true;
+    };
+
+    # CPU microcode
+    cpu.amd.updateMicrocode = true;
+
+    # Ledger
+    ledger.enable = true;
+  };
+
+  location.provider = "geoclue2";
 
   networking = {
     wireless = {
@@ -57,21 +102,34 @@
 
     # Encrypts network traffic where possible (i think)
     tcpcrypt.enable = true;
+
+    # Configure network proxy if necessary
+    # proxy.default = "http://user:password@proxy:port/";
+    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+
+    # Open ports in the firewall.
+    # firewall.allowedTCPPorts = [ ... ];
+    # firewall.allowedUDPPorts = [ ... ];
+
+    # Or disable the firewall altogether.
+    # firewall.enable = false;
   };
 
-  # Set your time zone.
-  time.timeZone = "America/Boise";
+  nix = {
+    # enables flakes
+    package = pkgs.nixUnstable;
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+    allowedUsers = [ "municorn" ];
+    optimise = {
+      automatic = true;
+      dates = [ "12:00" "17:00" "9:00" ];
+    };
+    autoOptimiseStore = true;
+  };
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-  # Select internationalisation properties.
-  # i18n.defaultLocale = "en_US.UTF-8";
-  # console = {
-  #   font = "Lat2-Terminus16";
-  #   keyMap = "us";
-  # };
+  programs.sway.enable = true;
 
   # for pipewire. optional, but recommended
   security.rtkit.enable = true;
@@ -116,23 +174,8 @@
     # printing.enable = true;
   };
 
-  hardware = {
-    # Enable brillo
-    brillo.enable = true;
-
-    # Bluetooth
-    bluetooth = {
-      enable = true;
-    };
-
-    # CPU microcode
-    cpu.amd.updateMicrocode = true;
-
-    # Ledger
-    ledger.enable = true;
-  };
-
-  location.provider = "geoclue2";
+  # Set your time zone.
+  time.timeZone = "America/Boise";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
@@ -154,71 +197,11 @@
     defaultUserShell = pkgs.fish;
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    firefox
-    git
-    kodi
-    ksshaskpass
-    openrazer-daemon
-    openrgb
-    pinentry
-    pinentry-curses
-    psmisc
-
-    # needed for sway
-    qt5.qtwayland
-  ];
-
-  fonts = {
-    fonts = with pkgs; [
-      google-fonts
-      libertine
-      inter-ui
-      iosevka
-      material-design-icons
-      noto-fonts
-      noto-fonts-cjk
-      noto-fonts-emoji
-      noto-fonts-extra
-    ];
-
-    fontconfig = {
-      defaultFonts = {
-        emoji = [ "Noto Color Emoji" ];
-        monospace = [ "Iosevka" ];
-        sansSerif = [ "Inter" ];
-        serif = [ "Noto Serif" ];
-      };
-    };
-  };
-
   virtualisation.docker = {
     enable = true;
     extraOptions = "--data-root /home/docker/";
     autoPrune.enable = true;
   };
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  programs.sway.enable = true;
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
-
-  # List services that you want to enable:
-
-  # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 }
 
