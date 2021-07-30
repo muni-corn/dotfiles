@@ -13,7 +13,7 @@
     ];
 
   networking = {
-    hostName = "hotpocket";
+    hostName = "littlepony";
   };
 
   # Set your time zone.
