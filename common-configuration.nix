@@ -8,6 +8,7 @@
 {
   boot = {
     kernelModules = [ "i2c-dev" "i2c-piix4" ];
+    kernelParams = [ "quiet" "fbcon=nodefer" ];
     loader = {
       efi = {
         canTouchEfiVariables = true;
