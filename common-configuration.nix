@@ -3,7 +3,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   boot = {
@@ -130,7 +130,17 @@
     autoOptimiseStore = true;
   };
 
-  programs.sway.enable = true;
+  # allow steam to be installed (it's unfree)
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "steam"
+    "steam-original"
+    "steam-runtime"
+  ];
+
+  programs = {
+    steam.enable = true;
+    sway.enable = true;
+  };
 
   # for pipewire. optional, but recommended
   security.rtkit.enable = true;
