@@ -12,9 +12,17 @@
       ./desktop-hardware.nix
     ];
 
-
   networking = {
     hostName = "ponytower";
+  };
+
+  systemd.services.openrgb = {
+    enable = true;
+    description = "OpenRGB server";
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = "${pkgs.openrgb}/bin/openrgb --server";
+    };
   };
 
   # Set your time zone.
