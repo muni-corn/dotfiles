@@ -45,6 +45,9 @@
 
     # needed for sway
     qt5.qtwayland
+
+    # for creating bootable usbs
+    ntfs3g
   ];
 
   fonts = {
