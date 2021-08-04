@@ -52,18 +52,22 @@
       google-fonts
       libertine
       inter-ui
-      iosevka
       material-design-icons
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
       noto-fonts-extra
+
+      (iosevka.override {
+        privateBuildPlan = builtins.readFile ./iosevka-muse.toml;
+        set = "muse";
+      })
     ];
 
     fontconfig = {
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
-        monospace = [ "Iosevka" ];
+        monospace = [ "Iosevka Muse" ];
         sansSerif = [ "Inter" ];
         serif = [ "Noto Serif" ];
       };
