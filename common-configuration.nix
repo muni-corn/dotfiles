@@ -210,7 +210,7 @@
     };
     groups = {
       municorn.gid = 1000;
-      "nixos-config" = {};
+      "nixos-config" = { };
     };
     defaultUserShell = pkgs.fish;
   };
