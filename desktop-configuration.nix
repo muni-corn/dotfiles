@@ -18,11 +18,13 @@
 
   systemd.services.openrgb = {
     enable = true;
+
     description = "OpenRGB server";
     serviceConfig = {
       Type = "simple";
       ExecStart = "${pkgs.openrgb}/bin/openrgb --server";
     };
+    wantedBy = [ "multi-user.target" ];
   };
 
   # Set your time zone.
