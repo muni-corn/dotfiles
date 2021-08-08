@@ -201,16 +201,16 @@
       municorn = {
         isNormalUser = true;
         extraGroups = [ "wheel" "audio" "video" "docker" "kvm" "plugdev" "nixos-config" ];
-        uid = 1000;
+        home = "/home/municorn";
       };
       beans = {
         isNormalUser = true;
         extraGroups = [ "audio" "video" ];
+        home = "/home/beans";
       };
     };
     groups = {
-      municorn.gid = 1000;
-      "nixos-config" = { };
+      nixos-config = { };
     };
     defaultUserShell = pkgs.fish;
   };
