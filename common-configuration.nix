@@ -186,9 +186,6 @@
       # Enable touchpad support (enabled default in most desktopManager).
       libinput.enable = true;
     };
-
-    # Enable CUPS to print documents.
-    # printing.enable = true;
   };
 
   # Set your time zone.
