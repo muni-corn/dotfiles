@@ -11,7 +11,7 @@
 
   boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ "kvm-amd" ];
+  boot.kernelModules = [ "i2c-dev" "i2c-piix4" "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
@@ -20,19 +20,19 @@
       fsType = "btrfs";
     };
 
-  fileSystems."/boot" =
-    {
-      device = "/dev/disk/by-uuid/C868-EEA1";
-      fsType = "vfat";
-    };
-
   fileSystems."/home" =
     {
-      device = "/dev/disk/by-uuid/63705b43-0777-4440-be2d-1695b48d4814";
+      device = "/dev/sda3";
       fsType = "btrfs";
     };
 
+  fileSystems."/boot" =
+    {
+      device = "/dev/disk/by-uuid/4D8E-D4A8";
+      fsType = "vfat";
+    };
+
   swapDevices =
-    [{ device = "/dev/disk/by-uuid/674f2f31-9d4d-4816-959a-fea3ef1e04c3"; }];
+    [{ device = "/dev/disk/by-uuid/b1a732c8-44ba-4674-b962-178ecacfe425"; }];
 
 }
