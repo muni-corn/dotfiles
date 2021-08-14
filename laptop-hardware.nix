@@ -14,15 +14,15 @@
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/home" =
-    {
-      device = "/dev/disk/by-uuid/460067c6-52bd-4177-a52a-ebf9d12dbcd6";
-      fsType = "btrfs";
-    };
-
   fileSystems."/" =
     {
       device = "/dev/disk/by-uuid/b129723b-4861-4ace-b97d-93272c9cfcbc";
+      fsType = "btrfs";
+    };
+
+  fileSystems."/home" =
+    {
+      device = "/dev/sda3";
       fsType = "btrfs";
     };
 
@@ -33,6 +33,6 @@
     };
 
   swapDevices =
-    [{ device = "/dev/disk/by-uuid/fea275f0-2f2b-43d5-8ade-dedc29d3934f"; }];
+    [{ device = "/dev/disk/by-uuid/8a419000-8610-4b68-a22c-dd92a0c0b5d7"; }];
 
 }
