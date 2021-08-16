@@ -98,9 +98,9 @@ in
   "--no-repeat ${sup}+Escape" = "exec ${lockCmd}";
 
   # notifications
-  "--no-repeat Control+Escape" = "exec dunstctl history-pop";
-  "--no-repeat ${sup}+Minus" = "exec dunstctl history-pop";
-  "--no-repeat ${sup}+Equal" = "exec dunstctl restore";
+  "--no-repeat Control+Escape" = "exec dunstctl close";
+  "--no-repeat ${sup}+Minus" = "exec dunstctl close";
+  "--no-repeat ${sup}+Equal" = "exec dunstctl history-pop";
   "--no-repeat ${sup}+Space" = "exec dunstctl context";
 
   # toggle floating. also set border in case we're coming from floating video mode
