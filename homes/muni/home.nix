@@ -108,6 +108,7 @@ in
       keepassxc
       kodi
       ledger-live-desktop
+      libreoffice-fresh
       pavucontrol
       signal-desktop
       slack
