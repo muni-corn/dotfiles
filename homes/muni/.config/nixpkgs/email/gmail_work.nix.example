@@ -1,0 +1,26 @@
+let
+  # change these
+  domain = "example.com";
+  realName = "First Last";
+  userName = "???";
+in
+{
+  address = "${userName}@${domain}";
+  flavor = "gmail.com";
+  maildir.path = "work";
+  passwordCommand = "pass work/email";
+  realName = realName;
+  primary = true;
+
+  himalaya = {
+    enable = true;
+  };
+  mbsync = {
+    enable = true;
+    create = "maildir";
+  };
+  msmtp.enable = true;
+  neomutt = {
+    enable = true;
+  };
+}

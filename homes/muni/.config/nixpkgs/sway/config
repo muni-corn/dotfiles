@@ -1,0 +1,47 @@
+set {
+    $mod Mod4
+    $alt Mod1
+
+    $volume_down "$HOME/.nix-profile/share/sounds/musicaflight/stereo/VolumeDown.oga"
+    $volume_up "$HOME/.nix-profile/share/sounds/musicaflight/stereo/Volume.oga"
+
+    # apps
+    $screenshot $HOME/.config/sway/scripts/screenshot.fish
+}
+
+# some options
+default_orientation auto
+floating_maximum_size 1856 x 1016
+floating_minimum_size -1 x -1
+floating_modifier $mod
+title_align center
+titlebar_padding 4
+titlebar_border_thickness 4
+xwayland force
+
+# volume and brightness controls
+bindsym --locked {
+    XF86AudioLowerVolume exec "pamixer -d 5; muse-status notify volume; pw-play $volume_down; pamixer --get-volume > $SWAYSOCK.wob"
+    --no-repeat XF86AudioRaiseVolume exec "pamixer -ui 5; muse-status notify volume; pw-play $volume_up; pamixer --get-volume > $SWAYSOCK.wob"
+    --no-repeat XF86AudioMute exec "pamixer --toggle-mute; muse-status notify volume; pw-play $volume_up; pamixer --get-volume > $SWAYSOCK.wob"
+
+    XF86MonBrightnessUp exec "brillo -q -A 2; muse-status notify brightness; brillo -G | cut -d'.' -f1 > $SWAYSOCK.wob"
+    XF86MonBrightnessDown exec "brillo -q -U 2; muse-status notify brightness; brillo -G | cut -d'.' -f1 > $SWAYSOCK.wob"
+}
+
+# player controls
+bindsym --locked --no-repeat {
+    XF86AudioPlay exec mpc toggle || $HOME/.config/sway/scripts/mpris_toggle.sh
+    XF86AudioNext exec mpc next || playerctl next
+    XF86AudioPrev exec mpc cdprev || playerctl previous
+}
+
+# screen capture
+bindsym --release {
+    $mod+Print exec $screenshot
+    $mod+Control+Print exec $screenshot -s
+    $mod+Control+$alt+Print exec $screenshot -o
+    $mod+Shift+Print exec $HOME/.config/sway/scripts/video_capture.fish
+}
+
+# vim: ft=conf
