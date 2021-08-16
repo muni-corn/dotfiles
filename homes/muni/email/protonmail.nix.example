@@ -5,7 +5,7 @@ let
   userName = "???";
 in
 {
-  address = "${username}@protonmail.com";
+  address = "${userName}@protonmail.com";
   flavor = "plain";
   maildir.path = "protonmail";
   passwordCommand = "pass protonmail/hydroxide";
