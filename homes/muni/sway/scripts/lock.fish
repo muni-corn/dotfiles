@@ -6,7 +6,7 @@ if pgrep -x swaylock > /dev/null
 end
 
 # parse args
-argparse "n/no-fork" "s/startup" "bg-color=" "fg-color=" "primary-color=" "warning-color=" "error-color=" -- $argv
+argparse "n/no-fork" "s/startup" "b/bg-color=" "f/fg-color=" "p/primary-color=" "w/warning-color=" "e/error-color=" -- $argv
 
 set fork_arg ""
 if ! set -q $_flag_no_fork
@@ -21,22 +21,22 @@ else
     echo "running in startup mode"
 end
 
-set background $_flag_bg_color
-set error "{$_flag_error_color}c0"
-set foreground "{$_flag_fg_color}c0"
-set foreground_faded "{$_flag_fg_color}80"
-set primary "{$_flag_primary_color}80"
-set transparent "00000000"
-set warning "{$_fg_warning_color}"
+set --local background $_flag_bg_color
+set --local error {$_flag_error_color}c0
+set --local foreground {$_flag_fg_color}c0
+set --local foreground_faded {$_flag_fg_color}80
+set --local primary {$_flag_primary_color}80
+set --local transparent "00000000"
+set --local warning {$_fg_warning_color}
 
-set image_args ""
-set images
+set --local image_args ""
+set --local images
 
 # take screenshot of each output and blur it
 for output in (swaymsg -t get_outputs | jq -r '.[] | select(.active == true) | .name')
     set --local image_file "$HOME/.lock-$output.jpg"
     grim -o $output $image_file
-    convert "$image_file" -resize 5% -fill $background -colorize 25% -blur 10x2 -resize 2000% "$image_file"
+    convert "$image_file" -resize 5% -fill "#$background" -colorize 25% -blur 15x1 -resize 2000% "$image_file"
     # TODO: use `composite` to overlay a lock icon
     set image_args $image_args "--image" "$output:$image_file"
     set images $images $image_file
