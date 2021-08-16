@@ -6,12 +6,11 @@ if pgrep -x swaylock > /dev/null
 end
 
 # parse args
-argparse "n/no-fork" "s/startup" "bg-color=" "fg-color=" "primary-color=" "warning-color=" "error-color=" -- $argv; or exit $status
+argparse "n/no-fork" "s/startup" "bg-color=" "fg-color=" "primary-color=" "warning-color=" "error-color=" -- $argv
 
-set fork_arg
-if set -q $_flag_no_fork
+set fork_arg ""
+if ! set -q $_flag_no_fork
     echo "swaylock won't fork"
-    set fork_arg ""
 else
     set fork_arg '-f'
 end
@@ -35,15 +34,9 @@ set images
 
 # take screenshot of each output and blur it
 for output in (swaymsg -t get_outputs | jq -r '.[] | select(.active == true) | .name')
-    set image_file "$HOME/.lock-$output.jpg"
+    set --local image_file "$HOME/.lock-$output.jpg"
     grim -o $output $image_file
-    convert $image_file \
-       -resize 5% \
-       -fill $background \
-       -colorize 25% \
-       -blur 10x2 \
-       -resize 2000% \
-       $image_file
+    convert "$image_file" -resize 5% -fill $background -colorize 25% -blur 10x2 -resize 2000% "$image_file"
     # TODO: use `composite` to overlay a lock icon
     set image_args $image_args "--image" "$output:$image_file"
     set images $images $image_file
@@ -91,6 +84,6 @@ swaylock $fork_arg \
 
 rm $images
 
-if set -q _flag_startup
+if ! set -q _flag_startup
     pw-play "$HOME/Music/MuseSounds/stereo/Hello.oga"
 end
