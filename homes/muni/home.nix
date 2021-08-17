@@ -78,9 +78,10 @@ in
       fishPlugins.done
       fishPlugins.foreign-env
 
-      # programming
+      # development/programming
       docker-compose
       gcc
+      git-crypt
       lld
       nodejs
       nodePackages.npm

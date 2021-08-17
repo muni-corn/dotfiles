@@ -1,6 +1,6 @@
 { pkgs, ... }:
 
-with (import ./spotify-info.nix); {
+with (import ../secret/spotify-info.nix); {
   enable = true;
   package = pkgs.spotifyd.override {
     withPulseAudio = true;

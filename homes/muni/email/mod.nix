@@ -3,7 +3,7 @@
 {
   maildirBasePath = "${config.home.homeDirectory}/.mail";
   accounts = {
-    work = import ./gmail_work.nix;
-    protonmail = import ./protonmail.nix;
+    work = import ../secret/gmail_work.nix;
+    protonmail = import ../secret/protonmail.nix;
   };
 }
