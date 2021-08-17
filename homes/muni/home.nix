@@ -225,6 +225,9 @@ in
   xdg = {
     enable = true;
     configFile = {
+      "inkscape/palettes/solarized_dark.gpl" = {
+        source = ./inkscape/solarized_dark.gpl;
+      };
       "muse-status/daemon.yaml" = {
         source = ./muse_status_daemon.yaml;
       };
