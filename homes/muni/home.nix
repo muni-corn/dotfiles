@@ -99,7 +99,7 @@ in
       # email
       hydroxide
 
-      # other apps
+      # apps
       android-file-transfer
       awf
       element-desktop
@@ -110,6 +110,7 @@ in
       kodi
       ledger-live-desktop
       libreoffice-fresh
+      lutris
       pavucontrol
       signal-desktop
       slack
