@@ -62,6 +62,7 @@ in
       gnupg
       jdupes
       jq
+      libqalculate
       neovim-remote
       notify-desktop
       pinentry
@@ -120,6 +121,7 @@ in
 
       # other things
       imagemagick
+      libnotify
       nixpkgs-fmt
       xorg.xcursorgen
     ];
