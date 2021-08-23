@@ -116,7 +116,7 @@ map('i', "<c-q>", "compe#close('<c-q>')", { noremap = true, expr = true })
 map('i', "<c-n>", "pumvisible() ? '<c-n>' : compe#complete()", { noremap = true, silent = true, expr = true})
 map('i', "<c-j>", "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<c-j>'", { noremap = true, expr = true }) 
 map('i', "<c-k>", "vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<c-k>'", { noremap = true, expr = true }) 
-map('i', "<c-]>", "vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<c-;>'", { noremap = true, expr = true })
+map('i', "<c-l>", "vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<c-l>'", { noremap = true, expr = true })
 
 -- Terminal shortcuts
 map('n', "<leader>tx", ":tabnew<cr>:terminal<cr>i", { noremap = true, silent = true})
