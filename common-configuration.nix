@@ -196,7 +196,7 @@
     users = {
       municorn = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "audio" "video" "docker" "kvm" "plugdev" "nixos-config" ];
+        extraGroups = [ "wheel" "audio" "video" "docker" "kvm" "plugdev" "libvirtd" "nixos-config" ];
         home = "/home/municorn";
       };
       beans = {
