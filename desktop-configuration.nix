@@ -11,6 +11,7 @@
       # Include shared configuration between systems and hardware configuration
       ./common-configuration.nix
       ./desktop-hardware.nix
+      ./vfio.nix
     ];
 
   networking = {
