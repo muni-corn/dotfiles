@@ -111,12 +111,11 @@ map('n', "<leader>?", "<cmd>lua vim.lsp.buf.hover()<cr>", { noremap = true, sile
 map('n', "K", "<cmd>lua vim.lsp.buf.hover()<cr>", { noremap = true, silent = true })
 
 -- Completion/snippets
-map('i', "<c-a>", "compe#confirm('<c-a>')", { noremap = true, expr = true })
-map('i', "<c-q>", "compe#close('<c-q>')", { noremap = true, expr = true })
+map('i', "<c-l>", "compe#confirm('<c-l>')", { noremap = true, silent = true, expr = true })
+map('i', "<c-q>", "compe#close('<c-q>')", { noremap = true, silent = true, expr = true })
 map('i', "<c-n>", "pumvisible() ? '<c-n>' : compe#complete()", { noremap = true, silent = true, expr = true})
-map('i', "<c-j>", "vsnip#jumpable(1) ? '<Plug>(vsnip-jump-next)' : '<c-j>'", { noremap = true, expr = true }) 
-map('i', "<c-k>", "vsnip#jumpable(-1) ? '<Plug>(vsnip-jump-prev)' : '<c-k>'", { noremap = true, expr = true }) 
-map('i', "<c-l>", "vsnip#available(1) ? '<plug>(vsnip-expand-or-jump)' : '<c-l>'", { noremap = true, expr = true })
+map('i', "<c-j>", "vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-j>'", { expr = true }) 
+map('i', "<c-h>", "vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-h>'", { expr = true }) 
 
 -- Terminal shortcuts
 map('n', "<leader>tx", ":tabnew<cr>:terminal<cr>i", { noremap = true, silent = true})
