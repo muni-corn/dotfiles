@@ -2,12 +2,14 @@
 
 {
   user = {
-    sessionVariables = let
-      homeDir = config.home.homeDirectory;
-    in {
-      HOME = homeDir;
-      CARGO_PATH = "${homeDir}/.cargo/bin/";
-    };
+    sessionVariables =
+      let
+        homeDir = config.home.homeDirectory;
+      in
+      {
+        HOME = homeDir;
+        CARGO_PATH = "${homeDir}/.cargo/bin/";
+      };
     services = {
       hydroxide = {
         Unit = {
