@@ -74,8 +74,9 @@ in
   "${sup}+${alt}+Up" = "resize shrink height 20 px";
   "${sup}+${alt}+Right" = "resize grow width 20 px";
 
-  # close window
+  # other window controls
   "--no-repeat ${sup}+q" = "kill";
+  "--no-repeat ${sup}+x" = "sticky toggle";
 
   # switch between floating/tiled layers
   "--no-repeat ${sup}+z" = "focus mode_toggle";
