@@ -53,20 +53,6 @@
     userEmail = "municorn@musicaloft.com";
     userName = "municorn";
     extraConfig = {
-      url = {
-        "git@github.com:".insteadOf = "https://github.com/";
-        "git@bitbucket.org:".insteadOf = "https://bitbucket.org/";
-        "git@codeberg.org:".insteadOf = "https://codeberg.org/";
-      };
-      diff = {
-        tool = "vimdiff2";
-        colorMoved = "zebra";
-      };
-      fetch.prune = true;
-      pull.rebase = true;
-      lfs = {
-        enable = true;
-      };
       color = {
         ui = "auto";
         diff = {
@@ -76,8 +62,21 @@
           newMoved = 226;
         };
       };
+      core.autocrlf = "input";
+      diff = {
+        tool = "vimdiff2";
+        colorMoved = "zebra";
+      };
+      fetch.prune = true;
       init.defaultBranch = "main";
+      lfs.enable = true;
       merge.renamelimit = 2016;
+      pull.rebase = true;
+      url = {
+        "git@github.com:".insteadOf = "https://github.com/";
+        "git@bitbucket.org:".insteadOf = "https://bitbucket.org/";
+        "git@codeberg.org:".insteadOf = "https://codeberg.org/";
+      };
     };
   };
 
