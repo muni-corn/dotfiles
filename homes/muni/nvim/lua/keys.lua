@@ -45,7 +45,7 @@ map('n', "k", "v:count ? 'k' : 'gk'", { noremap = true, expr = true });
 map('n', "$", "g$", { noremap = true });
 
 -- easily edit config
-map('', "<leader>rc", ":tabe ~/.config/nvim<cr>", {})
+map('', "<leader>rc", ":tabe ~/.config/nixpkgs/nvim<cr>", {})
 
 -- easy window resizing in normal mode
 map('n', "+", ":5wincmd ><cr>", { noremap = true, silent = true })
