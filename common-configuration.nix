@@ -188,6 +188,16 @@
     };
   };
 
+  system = {
+    autoUpgrade = {
+      enable = true;
+      allowReboot = true;
+      flags = [ "--update-input" "nixpkgs" "--commit-lock-file" ];
+      flake = "/etc/nixos";
+      dates = "03:00";
+    };
+  };
+
   # Set your time zone.
   time.timeZone = "America/Boise";
 
