@@ -199,7 +199,7 @@
   };
 
   # Set your time zone.
-  time.timeZone = "America/Boise";
+  time.timeZone = "America/Chicago";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
