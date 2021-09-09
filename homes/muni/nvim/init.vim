@@ -259,7 +259,7 @@ endfunction
 
 fu! SetupMarkdown()
     setlocal noexpandtab
-    setlocal tw=30
+    setlocal tw=80
     setlocal shiftwidth=4
     setlocal tabstop=4
     setlocal foldtext=MarkdownFoldText()
