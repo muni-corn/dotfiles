@@ -6,7 +6,7 @@
   gammastep = {
     enable = true;
     dawnTime = "6:30-7:00";
-    duskTime = "21:00-21:30";
+    duskTime = "20:30-21:00";
     temperature = {
       night = 1500;
     };
