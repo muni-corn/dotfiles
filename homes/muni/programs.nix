@@ -217,10 +217,18 @@
 
   password-store = {
     enable = true;
-    settings = {
-      PASSWORD_STORE_DIR = "$HOME/.password-store";
-      PASSWORD_STORE_KEY = "4B21310A52B15162";
-    };
+    package = pkgs.pass.withExtensions
+      (exts: [
+        exts.pass-audit
+        exts.pass-import
+        exts.pass-otp
+        exts.pass-update
+      ]);
+    settings =
+      {
+        PASSWORD_STORE_DIR = "$HOME/.password-store";
+        PASSWORD_STORE_KEY = "4B21310A52B15162";
+      };
   };
 
   mpv = with pkgs; {
