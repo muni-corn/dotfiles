@@ -127,6 +127,9 @@ in
   move position 1209 px 0 px,\\
   inhibit_idle open";
 
+  # mobile (as in cell phone) width
+  "${sup}+m" = "resize set width 512 px";
+
   # switch to workspace
   "${sup}+1" = "workspace ${workspace 0}";
   "${sup}+2" = "workspace ${workspace 1}";
