@@ -213,7 +213,7 @@ in
 
   manual.html.enable = true;
 
-  programs = import ./programs.nix { inherit pkgs colors; };
+  programs = import ./programs.nix { inherit config pkgs colors; };
 
   qt = {
     enable = true;
