@@ -42,7 +42,6 @@ map('n', "<leader>gg", telescope_ripgrep, { noremap = true, silent = true })
 -- smart up/down
 map('n', "j", "v:count ? 'j' : 'gj'", { noremap = true, expr = true });
 map('n', "k", "v:count ? 'k' : 'gk'", { noremap = true, expr = true });
-map('n', "$", "g$", { noremap = true });
 
 -- easily edit config
 map('', "<leader>rc", ":tabe ~/.config/nixpkgs/nvim<cr>", {})
