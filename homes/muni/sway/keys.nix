@@ -180,7 +180,7 @@ in
   "XF86MonBrightnessDown" = ''exec "brillo -q -U 2; muse-status notify brightness; brillo -G | cut -d'.' -f1 > $SWAYSOCK.wob"'';
 
   # player controls
-  "--locked --no-repeat XF86AudioPlay" = "exec mpc toggle || $HOME/.config/sway/scripts/mpris_toggle.sh";
+  "--locked --no-repeat XF86AudioPlay" = "exec mpc toggle || playerctl play-pause";
   "--locked --no-repeat XF86AudioNext" = "exec mpc next || playerctl next";
   "--locked --no-repeat XF86AudioPrev" = "exec mpc cdprev || playerctl previous";
 
