@@ -168,12 +168,21 @@
 
     localtime.enable = true;
 
+    logind.extraConfig = ''
+      RuntimeDirectorySize=2G
+    '';
+
     pipewire = {
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
       pulse.enable = true;
       jack.enable = true;
+    };
+
+    psd = {
+      enable = true;
+      resyncTimer = "20m";
     };
 
     xserver = {
