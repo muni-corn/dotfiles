@@ -152,6 +152,7 @@
   security.rtkit.enable = true;
 
   services = {
+    atd.enable = true;
     geoclue2 = {
       enable = true;
       appConfig = {
