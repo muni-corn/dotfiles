@@ -214,9 +214,11 @@
         extraGroups = [ "audio" "video" ];
         home = "/home/beans";
       };
+      tcpcryptd.group = "tcpcryptd";
     };
     groups = {
       nixos-config = { };
+      tcpcryptd = { };
     };
     defaultUserShell = pkgs.fish;
   };
