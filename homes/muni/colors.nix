@@ -40,6 +40,43 @@
     };
   };
 
+  # nord
+  nord = rec {
+    base00 = "2e3440";
+    base01 = "3b4252";
+    base02 = "434c5e";
+    base03 = "4c566a";
+    base04 = "8fbcbb";
+    base05 = "d8dee9";
+    base06 = "e5e9f0";
+    base07 = "eceff4";
+    base08 = "bf616a";
+    base09 = "d08770";
+    base0A = "ebcb8b";
+    base0B = "a3be8c";
+    base0C = "88c0d0";
+    base0D = "81a1c1";
+    base0E = "5e81ac";
+    base0F = "b48ead";
+
+    palette = {
+      # background bases
+      background = base00;
+      black = base00;
+      gray = base01;
+
+      # foreground bases
+      foreground = base06;
+      white = base06;
+      silver = base05;
+
+      # other bases
+      primary = base04;
+      warning = "ffaa00";
+      alert = "ff0000";
+    };
+  };
+
   # solarized dark
   solarizedDark = rec {
     base00 = "002b36";
