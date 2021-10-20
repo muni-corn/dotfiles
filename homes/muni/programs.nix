@@ -42,6 +42,8 @@
       nb = "notebook";
       hm = "home-manager";
       yt = "ytfzf --thumb-disp-method=chafa -t --detach";
+
+      todo = "nvim $HOME/notebook/todo.md";
     };
     shellInit = ''
       ${builtins.readFile ./fish/colors.fish}
