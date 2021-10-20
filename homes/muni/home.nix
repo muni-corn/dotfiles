@@ -97,6 +97,9 @@ in
       # video
       blender
 
+      # writing
+      pandoc
+
       # email
       hydroxide
 
@@ -118,6 +121,10 @@ in
       spotify
       torbrowser
       xournalpp
+
+      # games
+      vitetris
+      gnome.aisleriot
 
       # other things
       imagemagick

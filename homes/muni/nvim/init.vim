@@ -224,11 +224,14 @@ hi! link SpellLocal SpellRare
 " other highlights
 hi! link NvimInternalError Error
 hi! link javaScriptLineComment Comment
+hi! link pandocBlockQuote String
 hi! Bold                                        cterm=bold
 hi! FoldColumn                  ctermbg=none
 hi! Italic                                      cterm=italic
 hi! SignColumn                  ctermbg=none
 hi! TabLineFill                 ctermbg=none    cterm=none
+hi! mkdStrike                                   cterm=strikethrough
+hi! pandocStrikeout                             cterm=strikethrough
 
 " signs
 sign define LspDiagnosticsSignError text=X texthl=LspDiagnosticsSignError linehl= numhl=
