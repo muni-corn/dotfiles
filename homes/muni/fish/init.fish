@@ -123,7 +123,7 @@ function sleep-timer
         sleep 1
     end
     echo -e "\r\033[Ksweet dreams :)"
-    sudo zzz
+    systemctl suspend
     echo -e "\r\033[Kgood morning!"
 end
 
