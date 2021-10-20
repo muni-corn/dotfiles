@@ -79,6 +79,7 @@
       lfs.enable = true;
       merge.renamelimit = 2016;
       pull.rebase = true;
+      tag.gpgSign = true;
       url = {
         "git@github.com:".insteadOf = "https://github.com/";
         "git@bitbucket.org:".insteadOf = "https://bitbucket.org/";
