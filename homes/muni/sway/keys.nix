@@ -99,7 +99,7 @@ in
   "--no-repeat ${sup}+b" = "exec ${music}";
   "--no-repeat ${sup}+e" = "exec ${terminal} ${execWithShell} ranger";
   "--no-repeat ${sup}+n" = "exec ${terminal} ${execWithShell} nvim";
-  "--no-repeat ${sup}+p" = "exec ${terminal} ${execWithShell} htop";
+  "--no-repeat ${sup}+p" = "exec ${terminal} ${execWithShell} bpytop";
   "--no-repeat ${sup}+w" = "exec ${browser}";
 
   # lock
