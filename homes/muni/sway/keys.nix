@@ -14,7 +14,10 @@ let
   media = "kodi --windowing=x11";
 
   # scripts
-  screenshot = "$HOME/.config/sway/scripts/screenshot.fish";
+  scripts_dir = "$HOME/.config/sway/scripts/";
+  screenshot = "${scripts_dir}/screenshot.fish";
+
+  # sounds
   volume_down = "$HOME/.nix-profile/share/sounds/musicaflight/stereo/VolumeDown.oga";
   volume_up = "$HOME/.nix-profile/share/sounds/musicaflight/stereo/Volume.oga";
 in
@@ -83,10 +86,10 @@ in
   "--no-repeat ${sup}+f" = "fullscreen toggle";
 
   # shortcuts for apps
-  "--no-repeat ${sup}+Control+e" = "exec $HOME/.config/sway/scripts/emoji_menu.fish ${bemenuOpts}";
+  "--no-repeat ${sup}+Control+e" = "exec ${scripts_dir}/emoji_menu.fish ${bemenuOpts}";
   "--no-repeat ${sup}+Control+n" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).md"'';
   "--no-repeat ${sup}+Control+p" = "exec pavucontrol";
-  "--no-repeat ${sup}+Control+r" = "exec $HOME/.config/sway/scripts/toggle_gammastep.fish";
+  "--no-repeat ${sup}+Control+r" = "exec ${scripts_dir}/toggle_gammastep.fish";
   "--no-repeat ${sup}+Return" = "exec ${terminal}";
   "--no-repeat ${sup}+Shift+b" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "nvim ${notebookDir}/bored.md"'';
   "--no-repeat ${sup}+Shift+m" = "exec ${media}";
@@ -161,13 +164,16 @@ in
   # reload
   "--no-repeat ${sup}+Shift+r" = "reload";
 
+  # change wallpaper
+  "--no-repeat ${sup}+Control+w" = "exec ${scripts_dir}/random_wallpaper.fish";
+
   # record clock times (easy clock-in or clock-out :))
   "--no-repeat ${sup}+Delete" = "exec ${notebookDir}/record_time.fish";
   "--no-repeat ${sup}+Home" = "exec ${notebookDir}/record_time.fish '(clock-in)'";
   "--no-repeat ${sup}+End" = "exec ${notebookDir}/record_time.fish '(clock-out)'";
-  "--no-repeat ${sup}+Shift+Delete" = "exec $HOME/.config/sway/scripts/prompt_timestamp.fish ${bemenuOpts}";
-  "--no-repeat ${sup}+Shift+Home" = "exec $HOME/.config/sway/scripts/prompt_clock_in.fish ${bemenuOpts}";
-  "--no-repeat ${sup}+Shift+End" = "exec $HOME/.config/sway/scripts/prompt_clock_out.fish ${bemenuOpts}";
+  "--no-repeat ${sup}+Shift+Delete" = "exec ${scripts_dir}/prompt_timestamp.fish ${bemenuOpts}";
+  "--no-repeat ${sup}+Shift+Home" = "exec ${scripts_dir}/prompt_clock_in.fish ${bemenuOpts}";
+  "--no-repeat ${sup}+Shift+End" = "exec ${scripts_dir}/prompt_clock_out.fish ${bemenuOpts}";
 
   # exit sway
   "${sup}+Shift+e" = ''exec "pw-play $HOME/.nix-profile/share/sounds/musicaflight/stereo/Goodbye.oga; swaymsg exit"'';
@@ -188,5 +194,5 @@ in
   "--release ${sup}+Print" = "exec ${screenshot}";
   "--release ${sup}+Control+Print" = "exec ${screenshot} -s";
   "--release ${sup}+Control+${alt}+Print" = "exec ${screenshot} -o";
-  "--release ${sup}+Shift+Print" = "exec $HOME/.config/sway/scripts/video_capture.fish";
+  "--release ${sup}+Shift+Print" = "exec ${scripts_dir}/video_capture.fish";
 }
