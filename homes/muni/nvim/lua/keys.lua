@@ -112,9 +112,9 @@ map('n', "K", "<cmd>lua vim.lsp.buf.hover()<cr>", { noremap = true, silent = tru
 -- Completion/snippets
 map('i', "<c-l>", "compe#confirm('<c-l>')", { silent = true, expr = true })
 map('i', "<c-q>", "compe#close('<c-q>')", { silent = true, expr = true })
-map('i', "<c-n>", "pumvisible() ? '<c-n>' : compe#complete()", { silent = true, expr = true})
-map('i', "<c-j>", "vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-j>'", { expr = true }) 
-map('i', "<c-h>", "vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-h>'", { expr = true }) 
+map('i', "<c-n>", "pumvisible() ? '<c-n>' : compe#complete()", { silent = true, expr = true })
+map('i', "<c-j>", "vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-j>'", { expr = true })
+map('i', "<c-h>", "vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-h>'", { expr = true, noremap = true })
 
 -- Terminal shortcuts
 map('n', "<leader>tx", ":tabnew<cr>:terminal<cr>i", { noremap = true, silent = true})
