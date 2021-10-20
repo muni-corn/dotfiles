@@ -44,6 +44,7 @@
       yt = "ytfzf --thumb-disp-method=chafa -t --detach";
 
       todo = "nvim $HOME/notebook/todo.md";
+      scanqr = ''geo=(slurp) grim -g "$geo" - | zbarimg --quiet --raw PNG:- 2> /dev/null | tr -d "\n"'';
     };
     shellInit = ''
       ${builtins.readFile ./fish/colors.fish}
