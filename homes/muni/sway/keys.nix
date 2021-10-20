@@ -23,7 +23,7 @@ let
 in
 {
   # power controls
-  "${sup}+Control+${alt}+p" = "exec systemctl poweroff";
+  "${sup}+Control+${alt}+o" = "exec systemctl poweroff";
   "${sup}+Control+${alt}+r" = "exec systemctl reboot";
   "${sup}+Control+${alt}+s" = "exec systemctl suspend";
   "${sup}+Control+${alt}+b" = "exec systemctl hibernate";
