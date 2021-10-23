@@ -13,6 +13,15 @@
 
   command-not-found.enable = true;
 
+  direnv = {
+    enable = true;
+    enableFishIntegration = true;
+    nix-direnv = {
+      enable = true;
+      enableFlakes = true;
+    };
+  };
+
   exa = {
     enable = true;
     enableAliases = true;
