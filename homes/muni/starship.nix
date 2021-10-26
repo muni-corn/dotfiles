@@ -6,6 +6,9 @@
     battery = {
       display.threshold = 30;
     };
+    memory_usage = {
+      disabled = false;
+    };
     package = {
       disabled = true;
     };
