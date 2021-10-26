@@ -18,52 +18,74 @@ function on_lsp_attach(client)
 end
 
 -- Enable completion
-
-require'compe'.setup {
-    enabled = true;
-    autocomplete = true;
-    debug = false;
-    min_length = 1;
-    preselect = 'enable';
-    throttle_time = 80;
-    source_timeout = 200;
-    resolve_timeout = 800;
-    incomplete_delay = 400;
-    max_abbr_width = 100;
-    max_kind_width = 100;
-    max_menu_width = 100;
+local cmp = require'cmp'
+cmp.setup {
     documentation = {
-        border = { '', '' ,'', ' ', '', '', '', ' ' }, -- the border option is the same as `|help nvim_open_win|`
-        winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
-        max_width = 120,
-        min_width = 60,
-        max_height = math.floor(vim.o.lines * 0.3),
-        min_height = 1,
+        border = { '', '' ,'', ' ', '', '', '', ' ' },
+        -- winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
+        maxwidth = 120,
+        minwidth = 60,
+        maxheight = math.floor(vim.o.lines * 0.3),
+        minheight = 1,
     };
+    snippet = {
+        expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body)
+        end,
+    },
+    mapping = {
+        ['<c-u>'] = cmp.mapping.scroll_docs(-4),
+        ['<c-d>'] = cmp.mapping.scroll_docs(4),
+        ['<c-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+        ['<c-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
+        ['<c-l>'] = cmp.mapping.confirm({ select = true, behavior = cmp.SelectBehavior.Replace }),
+        ['<c-q>'] = cmp.mapping.close(),
+        ['<c-y>'] = cmp.config.disable,
+    },
+    sources = {
+        { name = 'path' },
+        { name = 'buffer' },
+        { name = 'calc' },
+        { name = 'nvim_lsp' },
+        { name = 'nvim_lua' },
+        { name = 'vsnip' },
+    },
 
-    source = {
-        path = true;
-        buffer = true;
-        calc = true;
-        nvim_lsp = true;
-        nvim_lua = true;
-        vsnip = true;
-        ultisnips = true;
-        luasnip = true;
-    };
+    -- autocomplete = true;
+    -- debug = false;
+    -- min_length = 1;
+    -- preselect = 'enable';
+    -- throttle_time = 80;
+    -- source_timeout = 200;
+    -- resolve_timeout = 800;
+    -- incomplete_delay = 400;
+    -- max_abbr_width = 100;
+    -- max_kind_width = 100;
+    -- max_menu_width = 100;
+
+    -- source = {
+    --     path = true;
+    --     buffer = true;
+    --     calc = true;
+    --     nvim_lsp = true;
+    --     nvim_lua = true;
+    --     vsnip = true;
+    --     ultisnips = true;
+    --     luasnip = true;
+    -- };
 }
 
 -- Enable language servers
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
-capabilities.textDocument.completion.completionItem.resolveSupport = {
-  properties = {
-    'documentation',
-    'detail',
-    'additionalTextEdits',
-  }
-}
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- capabilities.textDocument.completion.completionItem.snippetSupport = true
+-- capabilities.textDocument.completion.completionItem.resolveSupport = {
+--   properties = {
+--     'documentation',
+--     'detail',
+--     'additionalTextEdits',
+--   }
+-- }
 
 lspconfig.rust_analyzer.setup({
     on_attach = on_lsp_attach,
@@ -85,7 +107,7 @@ lspconfig.rust_analyzer.setup({
             diagnostics = { disabled = { "unresolved-proc-macro", "unresolved-macro-call", "macro-error" } },
         }
     },
-    capabilities = lsp_status.capabilities
+    capabilities = capabilities
 })
 
 lspconfig.vuels.setup{}

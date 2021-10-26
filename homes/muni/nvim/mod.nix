@@ -8,11 +8,17 @@
   ];
   plugins = with pkgs.vimPlugins; [
     FixCursorHold-nvim
+    cmp-buffer
+    cmp-calc
+    cmp-nvim-lsp
+    cmp-nvim-lua
+    cmp-path
+    cmp-vsnip
     emmet-vim
     friendly-snippets
     hop-nvim
     lsp-status-nvim
-    nvim-compe
+    nvim-cmp
     nvim-lspconfig
     nvim-treesitter
     plenary-nvim
