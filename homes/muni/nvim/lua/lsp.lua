@@ -6,7 +6,7 @@ lsp_status.config {
     indicator_warnings = '!',
     indicator_info = 'i',
     indicator_hint = '?',
-    indicator_ok = 'All good!',
+    indicator_ok = '^o^',
     indicator_separator = ' ',
     component_separator = '  ',
     status_symbol = '',
