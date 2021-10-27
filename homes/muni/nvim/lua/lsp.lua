@@ -20,6 +20,9 @@ end
 -- Enable completion
 local cmp = require'cmp'
 cmp.setup {
+    completion = {
+        completeopt = 'menu,menuone,noinsert',
+    },
     documentation = {
         border = { '', '' ,'', ' ', '', '', '', ' ' },
         -- winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
