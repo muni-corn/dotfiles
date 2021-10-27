@@ -28,11 +28,6 @@ cmp.setup {
         maxheight = math.floor(vim.o.lines * 0.3),
         minheight = 1,
     };
-    snippet = {
-        expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
-        end,
-    },
     mapping = {
         ['<c-u>'] = cmp.mapping.scroll_docs(-4),
         ['<c-d>'] = cmp.mapping.scroll_docs(4),
@@ -41,6 +36,11 @@ cmp.setup {
         ['<c-l>'] = cmp.mapping.confirm({ select = true, behavior = cmp.SelectBehavior.Replace }),
         ['<c-q>'] = cmp.mapping.close(),
         ['<c-y>'] = cmp.config.disable,
+    },
+    snippet = {
+        expand = function(args)
+            vim.fn["vsnip#anonymous"](args.body)
+        end,
     },
     sources = {
         { name = 'path' },
