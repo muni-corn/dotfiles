@@ -32,9 +32,9 @@ cmp.setup {
         minheight = 1,
     };
     mapping = {
-        ['<c-u>'] = cmp.mapping.scroll_docs(-4),
-        ['<c-d>'] = cmp.mapping.scroll_docs(4),
         ['<c-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
+        ['<c-u>'] = cmp.mapping.scroll_docs(-3),
+        ['<c-d>'] = cmp.mapping.scroll_docs(3),
         ['<c-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
         ['<c-l>'] = cmp.mapping.confirm({ select = true, behavior = cmp.SelectBehavior.Replace }),
         ['<c-q>'] = cmp.mapping.close(),
