@@ -53,11 +53,11 @@ cmp.setup {
     },
     sources = {
         { name = 'path' },
+        { name = 'vsnip' },
+        { name = 'nvim_lsp' },
         { name = 'buffer' },
         { name = 'calc' },
-        { name = 'nvim_lsp' },
         { name = 'nvim_lua' },
-        { name = 'vsnip' },
     },
 
     -- autocomplete = true;
