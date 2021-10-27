@@ -25,7 +25,6 @@ cmp.setup {
     },
     documentation = {
         border = { '', '' ,'', ' ', '', '', '', ' ' },
-        -- winhighlight = "NormalFloat:CompeDocumentation,FloatBorder:CompeDocumentationBorder",
         maxwidth = 120,
         minwidth = 60,
         maxheight = math.floor(vim.o.lines * 0.3),
@@ -59,29 +58,6 @@ cmp.setup {
         { name = 'calc' },
         { name = 'nvim_lua' },
     },
-
-    -- autocomplete = true;
-    -- debug = false;
-    -- min_length = 1;
-    -- preselect = 'enable';
-    -- throttle_time = 80;
-    -- source_timeout = 200;
-    -- resolve_timeout = 800;
-    -- incomplete_delay = 400;
-    -- max_abbr_width = 100;
-    -- max_kind_width = 100;
-    -- max_menu_width = 100;
-
-    -- source = {
-    --     path = true;
-    --     buffer = true;
-    --     calc = true;
-    --     nvim_lsp = true;
-    --     nvim_lua = true;
-    --     vsnip = true;
-    --     ultisnips = true;
-    --     luasnip = true;
-    -- };
 }
 
 -- Enable language servers
