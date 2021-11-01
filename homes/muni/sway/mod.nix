@@ -164,6 +164,7 @@ in
       commands = [
         { command = "floating enable"; criteria = { title = "Lutris"; }; }
         { command = "floating enable"; criteria = { title = "OpenRGB"; }; }
+        { command = "floating enable"; criteria = { title = "Extension:.*Firefox"; }; }
         { command = "floating enable, resize set 600 px 400 px"; criteria = { title = "Page Unresponsive"; }; }
         { command = "floating enable, resize set 64 px 32 px, move position 256 px -70 px, border csd"; criteria = { title = "Firefox — Sharing Indicator"; }; }
         { command = "floating enable, sticky enable, resize set 30 ppt 60 ppt"; criteria = { app_id = "^launcher$"; }; }
