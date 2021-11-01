@@ -43,7 +43,7 @@ cmp.setup {
         ['<c-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
         ['<c-l>'] = cmp.mapping.confirm({ select = true, behavior = cmp.SelectBehavior.Replace }),
         ['<c-q>'] = cmp.mapping.close(),
-        ['<c-y>'] = cmp.config.disable,
+        -- ['<c-y>'] = cmp.config.disable,
     },
     snippet = {
         expand = function(args)
