@@ -11,6 +11,11 @@
     browsers = [ "firefox" ];
   };
 
+  chromium = {
+    enable = true;
+    package = pkgs.ungoogled-chromium;
+  };
+
   command-not-found.enable = true;
 
   direnv = {
