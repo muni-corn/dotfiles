@@ -138,7 +138,6 @@ in
       in
       [
         # this lets gammastep and xdg desktop portal wlr start correctly
-        { command = ''systemctl --user import-environment''; }
         { command = ''systemctl --user start graphical-session.target''; }
 
         # startup other things
