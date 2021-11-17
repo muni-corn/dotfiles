@@ -1,5 +1,3 @@
-fenv source /etc/profile
-
 if [ -f $HOME/.config/fish/colors.fish ]
     source $HOME/.config/fish/colors.fish
 end > /dev/null
