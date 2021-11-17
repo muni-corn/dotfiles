@@ -10,6 +10,9 @@ let
   white = "#${colors.palette.foreground}";
   primary = "#${colors.palette.primary}e5";
   bemenuOpts = ''-H 32 --fn ${fontText} --tb '${black}' --tf '${primary}' --fb '${black}' --ff '${white}' --nb '${black}' --nf '${primary}' --hb '${primary}' --hf '${black}' --sb '${primary}' --sf '${white}' --scrollbar autohide -f -m all'';
+
+  gtkThemeName = "Orchis-dark";
+  gtkIconThemeName = "Papirus-Dark";
 in
 {
   nixpkgs = {
@@ -151,7 +154,7 @@ in
       EIX_LIMIT = 0;
       FZF_DEFAULT_COMMAND = ''ag --hidden --ignore .git --ignore node_modules -g ""'';
       GPG_TTY = "$(tty)";
-      GTK_THEME = "Arc-Dark";
+      GTK_THEME = gtkThemeName;
       LEDGER_FILE = "$HOME/Notebook/ledger/main.sfox";
       MOZ_ENABLE_WAYLAND = 1;
       MOZ_DBUS_REMOTE = 1;
@@ -179,8 +182,8 @@ in
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
-      gtk-theme = "Arc-Dark";
-      icon-theme = "Arc";
+      gtk-theme = gtkThemeName;
+      icon-theme = gtkIconThemeName;
       cursor-theme = "Bibata_Classic";
       font-name = "Inter 12";
     };
@@ -201,12 +204,12 @@ in
       size = 12;
     };
     iconTheme = {
-      package = pkgs.arc-icon-theme;
-      name = "Arc";
+      package = pkgs.papirus-icon-theme;
+      name = gtkIconThemeName;
     };
     theme = {
-      package = pkgs.arc-theme;
-      name = "Arc-Dark";
+      package = pkgs.orchis-theme;
+      name = gtkThemeName;
     };
     gtk2.extraConfig = ''
       gtk-cursor-theme-name="Bibata_Classic"
@@ -225,6 +228,10 @@ in
   qt = {
     enable = true;
     platformTheme = "gtk";
+    style = {
+      name = "gtk2";
+      package = pkgs.libsForQt5.qtstyleplugins;
+    };
   };
 
   services = import ./services.nix { inherit pkgs bemenuOpts colors; };
