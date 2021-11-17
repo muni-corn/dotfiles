@@ -9,28 +9,6 @@ if [ -f $HOME/.config/fish/private.fish ]
 end > /dev/null
 
 set fish_greeting ""
-set -gx ANDROID_EMULATOR_USE_SYSTEM_LIBS 1
-set -gx BAT_THEME base16
-set -gx BEMENU_BACKEND wayland
-set -gx BROWSER firefox
-set -gx EDITOR nvim
-set -gx EIX_LIMIT 0
-set -gx FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git --ignore node_modules -g ""'
-set -gx GOPATH $HOME/go
-set -gx GPG_TTY (tty)
-set -gx GTK_THEME "Arc-Dark"
-set -gx LEDGER_FILE $HOME/Notebook/ledger/main.sfox
-set -gx NODE_BIN $HOME/.npm-global/bin $HOME/.npm-packages/bin
-set -gx QT_QPA_PLATFORMTHEME qt5ct
-set -gx RUSTBIN $HOME/.cargo/bin
-set -gx SUDO_ASKPASS ksshaskpass
-set -gx SXHKD_SHELL /bin/sh
-set -gx TEXLIVE_PATH /opt/texlive/2021/bin/x86_64-linux/
-set -gx WINEPREFIX $HOME/.wine/
-set -gx XBPS_DISTDIR $HOME/code/void/packages
-
-# path. you know it, you love it
-set -gx PATH $GOPATH/bin $RUSTBIN $PATH $HOME/.local/bin $NODE_BIN /usr/lib $HOME/bin $TEXLIVE_PATH
 
 function fish_prompt --description 'Write out the prompt'
     set -l color_cwd
@@ -139,8 +117,4 @@ end
 
 function btrfs-du
     sudo btrfs fi du --si $argv | tee du_full.txt | sort -h | tee du_sorted.txt | tail -n3000 | tee du.txt
-end
-
-if ! status is-login && status is-interactive
-    unlock-keychain
 end
