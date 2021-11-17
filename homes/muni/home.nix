@@ -155,7 +155,7 @@ in
       FZF_DEFAULT_COMMAND = ''ag --hidden --ignore .git --ignore node_modules -g ""'';
       GPG_TTY = "$(tty)";
       GTK_THEME = gtkThemeName;
-      LEDGER_FILE = "$HOME/Notebook/ledger/main.sfox";
+      LEDGER_FILE = "$HOME/notebook/ledger/main.sfox";
       MOZ_ENABLE_WAYLAND = 1;
       MOZ_DBUS_REMOTE = 1;
       SUDO_ASKPASS = "ksshaskpass";
