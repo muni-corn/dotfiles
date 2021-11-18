@@ -144,9 +144,6 @@ in
         lockWarningCmd = "notify-send -u low -t 29500 -- 'Are you still there?' 'Your system will lock itself soon.'";
       in
       [
-        # this lets gammastep and xdg desktop portal wlr start correctly
-        { command = ''systemctl --user start graphical-session.target''; }
-
         # startup other things
         { command = ''brillo -I''; }
         { command = ''swayidle -w timeout 570 "${lockWarningCmd}" timeout 600 "${lockCmd}" timeout 630 "${dpmsOff}" resume "${dpmsOn}" before-sleep "${lockCmd}"''; }
@@ -191,6 +188,9 @@ in
     export XDG_CURRENT_DESKTOP=sway 
     export XDG_SESSION_TYPE=wayland 
   '';
+
+  systemdIntegration = true;
+
   wrapperFeatures = {
     base = true;
     gtk = true;
