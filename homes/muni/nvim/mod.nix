@@ -14,6 +14,7 @@
     cmp-nvim-lua
     cmp-path
     cmp-vsnip
+    direnv-vim
     emmet-vim
     friendly-snippets
     hop-nvim
