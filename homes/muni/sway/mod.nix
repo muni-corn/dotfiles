@@ -71,6 +71,7 @@ in
 
     floating = {
       border = 6;
+      modifier = sup;
       titlebar = true;
     };
 
@@ -191,4 +192,6 @@ in
     base = true;
     gtk = true;
   };
+
+  xwayland = true;
 }
