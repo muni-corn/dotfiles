@@ -174,7 +174,9 @@ in
 
     workspaceAutoBackAndForth = true;
   };
+
   extraConfig = builtins.readFile ./config;
+
   extraSessionCommands = ''
     export CLUTTER_BACKEND=wayland
     export ECORE_EVAS_ENGINE=wayland-egl
