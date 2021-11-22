@@ -131,12 +131,19 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
+
     allowedUsers = [ "municorn" ];
+    autoOptimiseStore = true;
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 5d";
+      persistent = true;
+    };
     optimise = {
       automatic = true;
-      dates = [ "12:00" "17:00" "9:00" ];
+      dates = [ "weekly" ];
     };
-    autoOptimiseStore = true;
   };
 
   # allow steam to be installed (it's unfree)
