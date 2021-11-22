@@ -1,3 +1,4 @@
+{ overlays }:
 { config, lib, pkgs, ... }:
 
 let
@@ -16,9 +17,8 @@ let
 in
 {
   nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
+    inherit overlays;
+    config.allowUnfree = true;
   };
 
   accounts.email = import ./email/mod.nix { inherit config; };

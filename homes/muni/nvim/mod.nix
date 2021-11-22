@@ -2,6 +2,8 @@
 
 {
   enable = true;
+  package = pkgs.neovim-nightly;
+
   extraConfig = builtins.readFile ./init.vim;
   extraPackages = with pkgs; [
     tree-sitter
