@@ -6,6 +6,10 @@
 { config, lib, pkgs, ... }:
 
 {
+  imports = [
+    ./cachix.nix
+  ];
+
   boot = {
     kernelParams = [ "quiet" "fbcon=nodefer" ];
     loader = {
@@ -32,6 +36,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    cachix
     firefox
     git
     kodi
