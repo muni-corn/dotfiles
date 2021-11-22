@@ -47,6 +47,9 @@
 
     # for creating bootable usbs
     ntfs3g
+
+    # needed for xdg-open and such
+    xdg-utils
   ];
 
   fonts = {
