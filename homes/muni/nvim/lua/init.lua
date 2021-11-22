@@ -9,4 +9,5 @@ vim.g.mapleader = ","
 require("lsp")
 require("telescope-setup")
 require("treesitter")
+require("neorg")
 require("keys")

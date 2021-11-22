@@ -45,6 +45,7 @@ cmp.setup {
         end,
     },
     sources = {
+        { name = 'neorg' },
         { name = 'path' },
         { name = 'vsnip' },
         { name = 'nvim_lsp' },

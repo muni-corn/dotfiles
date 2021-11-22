@@ -21,6 +21,7 @@
     friendly-snippets
     hop-nvim
     lsp-status-nvim
+    neorg
     nvim-cmp
     nvim-lspconfig
     nvim-treesitter
