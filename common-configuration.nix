@@ -154,6 +154,7 @@
   ];
 
   programs = {
+    adb.enable = true;
     steam.enable = true;
     sway.enable = true;
   };
@@ -216,7 +217,7 @@
     users = {
       municorn = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "audio" "video" "docker" "kvm" "plugdev" "libvirtd" "nixos-config" ];
+        extraGroups = [ "wheel" "audio" "video" "docker" "kvm" "plugdev" "libvirtd" "nixos-config" "adbusers" ];
         home = "/home/municorn";
       };
       beans = {
