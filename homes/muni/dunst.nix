@@ -18,7 +18,9 @@
       format = "<b>%s</b>\\n%b";
       frame_color = "#${colors.palette.gray}e5";
       frame_width = 4;
-      geometry = "512x512-0";
+      width = 384;
+      height = 384;
+      offset = "0x0";
       highlight = "#${colors.palette.alert}";
       history_length = -1;
       horizontal_padding = 32;
