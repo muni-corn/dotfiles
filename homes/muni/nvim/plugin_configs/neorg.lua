@@ -1,4 +1,3 @@
--- init neorg
 require('neorg').setup {
     load = {
         ["core.defaults"] = {}, -- Load all the default modules

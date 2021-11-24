@@ -2,8 +2,6 @@ filetype on
 filetype plugin indent on
 syntax on
 
-let g:polyglot_disabled = ['markdown.plugin', 'pandoc.plugin', 'rust.plugin', 'typescript.plugin', 'javascript.plugin', 'html.plugin', 'css.plugin', 'scss.plugin', 'yaml.plugin', 'vim.plugin']
-
 lua require('init')
 
 set noswapfile
@@ -12,15 +10,6 @@ set undodir="$HOME/.local/share/nvim/undodir"
 set undolevels=100
 set undoreload=1000
 set updatetime=300
-
-let g:startify_custom_header = startify#fortune#cowsay('', '═','║','╔','╗','╝','╚')
-let g:startify_lists = [
-            \ { 'type': 'sessions',  'header': ['   Sessions']             },
-            \ { 'type': 'dir',       'header': ['   Recent in '. getcwd()] },
-            \ { 'type': 'files',     'header': ['   Recent']               },
-            \ { 'type': 'bookmarks', 'header': ['   Bookmarks']            },
-            \ { 'type': 'commands',  'header': ['   Commands']             },
-            \ ]
 
 " get highlight under cursor
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'

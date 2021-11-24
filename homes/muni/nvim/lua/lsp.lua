@@ -99,4 +99,3 @@ lspconfig.html.setup {
 }
 
 vim.api.nvim_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
-

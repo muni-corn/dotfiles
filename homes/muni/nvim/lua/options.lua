@@ -8,16 +8,9 @@ g.mapleader = ','
 g.diagnostic_auto_popup_while_jump = 1
 g.diagnostic_enable_virtual_text = 1
 g.diagnostic_insert_delay = 1
-g.gitgutter_map_keys = 0
-g.gitgutter_sign_allow_clobber = 0
-g.table_mode_corner = '+'
-g.table_mode_corner_corner = '+'
-g.table_mode_header_fillchar = '='
 g.pandoc_preview_pdf_cmd = "zathura"
 g.space_before_virtual_text = 2
-g.startify_session_persistence = 1
 g.tex_conceal = ""
-g.user_emmet_leader_key='<leader>a'
 
 o.autowriteall = true
 o.autoread = true

@@ -1,10 +1,18 @@
 { pkgs, ... }:
 
+let
+  vimscript = builtins.readFile;
+  lua = path: ''
+    lua << EOF
+    ${builtins.readFile path}
+    EOF
+  '';
+in
 {
   enable = true;
   package = pkgs.neovim-nightly;
 
-  extraConfig = builtins.readFile ./init.vim;
+  extraConfig = vimscript ./init.vim;
   extraPackages = with pkgs; [
     tree-sitter
   ];
@@ -17,29 +25,55 @@
     cmp-path
     cmp-vsnip
     direnv-vim
-    emmet-vim
     friendly-snippets
     hop-nvim
     lsp-status-nvim
-    neorg
     nvim-cmp
     nvim-lspconfig
-    nvim-treesitter
     plenary-nvim
     popup-nvim
-    telescope-nvim
     vim-commentary
     vim-fugitive
-    vim-gitgutter
     vim-pandoc
     vim-pandoc-syntax
-    vim-polyglot
     vim-smoothie
-    vim-startify
     vim-surround
     vim-table-mode
     vim-vsnip
     vim-vsnip-integ
+
+    {
+      plugin = emmet-vim;
+      config = vimscript ./plugin_configs/emmet_vim.vim;
+    }
+    {
+      plugin = neorg;
+      config = lua ./plugin_configs/neorg.lua;
+    }
+    {
+      plugin = telescope-nvim;
+      config = lua ./plugin_configs/telescope_nvim.lua;
+    }
+    {
+      plugin = nvim-treesitter;
+      config = lua ./plugin_configs/nvim_treesitter.lua;
+    }
+    {
+      plugin = vim-gitgutter;
+      config = vimscript ./plugin_configs/vim_gitgutter.vim;
+    }
+    {
+      plugin = vim-polyglot;
+      config = vimscript ./plugin_configs/vim_polyglot.vim;
+    }
+    {
+      plugin = vim-startify;
+      config = vimscript ./plugin_configs/vim_startify.vim;
+    }
+    {
+      plugin = vim-table-mode;
+      config = vimscript ./plugin_configs/vim_table_mode.vim;
+    }
   ];
   viAlias = true;
   vimAlias = true;
