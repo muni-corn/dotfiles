@@ -44,6 +44,7 @@ in
       # desktop environment
       bemenu
       bibata-cursors
+      eww-wayland
       grim
       ksshaskpass
       polkit_gnome
