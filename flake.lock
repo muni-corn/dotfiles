@@ -17,11 +17,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1637119854,
-        "narHash": "sha256-Y1+OpM3yH19E7fvZbKEd/QRGIlnEKuAkgld0OX3Wwn0=",
+        "lastModified": 1637814283,
+        "narHash": "sha256-Jes/6j817B9kIhxYLuWkLhwppv+CQWYX96f7ps1Z6v4=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "7a9682ad1283e41353ef35e93faeb26b4e43104a",
+        "rev": "2d461423f7abcd7df24eedb2610fe19e4fcf130b",
         "type": "github"
       },
       "original": {
@@ -49,11 +49,11 @@
         "nixpkgs": "nixpkgs_2"
       },
       "locked": {
-        "lastModified": 1637733701,
-        "narHash": "sha256-FuflkqPaAl1hI7nTGSFQkYfP/YDihv5zu8qiEjclVYE=",
+        "lastModified": 1637816093,
+        "narHash": "sha256-ZVc94nPDl0hCZvZsO7H8GvxI0iuZIu2dWBnXPGaKZUw=",
         "ref": "main",
-        "rev": "f21eaf0ac44a94b9073ebf0923c285d5cef37a2c",
-        "revCount": 6,
+        "rev": "d0cf792b6dbe7e306a7de5a80f80a4d497ae4628",
+        "revCount": 7,
         "type": "git",
         "url": "https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow"
       },
