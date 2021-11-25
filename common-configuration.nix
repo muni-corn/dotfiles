@@ -29,6 +29,10 @@
     };
     plymouth = {
       enable = true;
+      theme = "musicaloft-rainbow";
+      themePackages = [
+        pkgs.plymouth-theme-musicaloft-rainbow
+      ];
     };
   };
 

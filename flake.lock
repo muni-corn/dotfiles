@@ -1,5 +1,20 @@
 {
   "nodes": {
+    "flake-utils": {
+      "locked": {
+        "lastModified": 1637014545,
+        "narHash": "sha256-26IZAc5yzlD9FlDT54io1oqG/bBoyka+FJk5guaX4x4=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "bba5dcc8e0b20ab664967ad83d24d64cb64ec4f4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1637119854,
@@ -14,9 +29,44 @@
         "type": "indirect"
       }
     },
+    "nixpkgs_2": {
+      "locked": {
+        "lastModified": 1637725273,
+        "narHash": "sha256-z+qWV5jZCwCHdgArCaI0mFebI/8eicvi/2q3XfzlNcQ=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "5201be2d3a10da36d7196c13464ee65d84e02582",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "type": "indirect"
+      }
+    },
+    "plymouth-theme-musicaloft-rainbow": {
+      "inputs": {
+        "flake-utils": "flake-utils",
+        "nixpkgs": "nixpkgs_2"
+      },
+      "locked": {
+        "lastModified": 1637733701,
+        "narHash": "sha256-FuflkqPaAl1hI7nTGSFQkYfP/YDihv5zu8qiEjclVYE=",
+        "ref": "main",
+        "rev": "f21eaf0ac44a94b9073ebf0923c285d5cef37a2c",
+        "revCount": 6,
+        "type": "git",
+        "url": "https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow"
+      }
+    },
     "root": {
       "inputs": {
-        "nixpkgs": "nixpkgs"
+        "nixpkgs": "nixpkgs",
+        "plymouth-theme-musicaloft-rainbow": "plymouth-theme-musicaloft-rainbow"
       }
     }
   },
