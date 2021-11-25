@@ -98,6 +98,12 @@
 
     # Ledger
     ledger.enable = true;
+
+    # OpenGL, for sway
+    opengl = {
+      enable = true;
+      driSupport = true;
+    };
   };
 
   location.provider = "geoclue2";
