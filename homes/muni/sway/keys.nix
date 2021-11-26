@@ -87,14 +87,14 @@ in
 
   # shortcuts for apps
   "--no-repeat ${sup}+Control+e" = "exec ${scripts_dir}/emoji_menu.fish ${bemenuOpts}";
-  "--no-repeat ${sup}+Control+n" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).md"'';
+  "--no-repeat ${sup}+Control+n" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).norg"'';
   "--no-repeat ${sup}+Control+p" = "exec pavucontrol";
   "--no-repeat ${sup}+Control+r" = "exec ${scripts_dir}/toggle_gammastep.fish";
   "--no-repeat ${sup}+Return" = "exec ${terminal}";
-  "--no-repeat ${sup}+Shift+b" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "nvim ${notebookDir}/bored.md"'';
+  "--no-repeat ${sup}+Shift+b" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "nvim ${notebookDir}/bored.norg"'';
   "--no-repeat ${sup}+Shift+m" = "exec ${media}";
   "--no-repeat ${sup}+Shift+n" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "ranger ${notebookDir}"'';
-  "--no-repeat ${sup}+Shift+t" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "nvim ${notebookDir}/todo.md"'';
+  "--no-repeat ${sup}+Shift+t" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "nvim ${notebookDir}/todo.norg"'';
   "--no-repeat ${sup}+a" = "exec ${config.wayland.windowManager.sway.config.menu}";
   "--no-repeat ${sup}+c" = "exec ${terminal} ${execWithShell} qalc";
   "--no-repeat ${sup}+b" = "exec ${music}";
