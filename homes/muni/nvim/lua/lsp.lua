@@ -2,11 +2,11 @@ local lspconfig = require'lspconfig'
 
 local lsp_status = require('lsp-status')
 lsp_status.config {
-    indicator_errors = 'X',
-    indicator_warnings = '!',
-    indicator_info = 'i',
-    indicator_hint = '?',
-    indicator_ok = '^o^',
+    indicator_errors = '',
+    indicator_warnings = '',
+    indicator_info = '',
+    indicator_hint = '',
+    indicator_ok = 'ﮚ',
     indicator_separator = ' ',
     component_separator = '  ',
     status_symbol = '',
