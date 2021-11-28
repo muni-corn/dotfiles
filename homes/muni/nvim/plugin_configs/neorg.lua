@@ -31,6 +31,6 @@ require('neorg').setup {
                 }
             }
         },
-        ["core.norg.keybinds"] = {}, -- Load all the default modules
+        ["core.keybinds"] = {}, -- Load all the default modules
     }
 }
