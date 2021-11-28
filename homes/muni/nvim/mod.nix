@@ -74,6 +74,10 @@ in
       plugin = vim-table-mode;
       config = vimscript ./plugin_configs/vim_table_mode.vim;
     }
+    {
+      plugin = which-key-nvim;
+      config = lua ./plugin_configs/which_key_nvim.lua;
+    }
   ];
   viAlias = true;
   vimAlias = true;
