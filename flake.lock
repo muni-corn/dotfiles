@@ -1,5 +1,37 @@
 {
   "nodes": {
+    "flake-compat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1627913399,
+        "narHash": "sha256-hY8g6H2KFL8ownSiFeMOjwPC8P0ueXpCVEbxgda3pko=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "12c64ca55c1014cdc1b16ed5a804aa8576601ff2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "flake-compat_2": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1627913399,
+        "narHash": "sha256-hY8g6H2KFL8ownSiFeMOjwPC8P0ueXpCVEbxgda3pko=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "12c64ca55c1014cdc1b16ed5a804aa8576601ff2",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "locked": {
         "lastModified": 1637014545,
@@ -15,27 +47,51 @@
         "type": "github"
       }
     },
-    "nixpkgs": {
+    "flake-utils_2": {
       "locked": {
-        "lastModified": 1637814283,
-        "narHash": "sha256-Jes/6j817B9kIhxYLuWkLhwppv+CQWYX96f7ps1Z6v4=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "2d461423f7abcd7df24eedb2610fe19e4fcf130b",
+        "lastModified": 1637014545,
+        "narHash": "sha256-26IZAc5yzlD9FlDT54io1oqG/bBoyka+FJk5guaX4x4=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "bba5dcc8e0b20ab664967ad83d24d64cb64ec4f4",
         "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
-        "type": "indirect"
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
       }
     },
-    "nixpkgs_2": {
+    "iosevka-muse": {
+      "inputs": {
+        "flake-compat": "flake-compat",
+        "flake-utils": "flake-utils",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1637725273,
-        "narHash": "sha256-z+qWV5jZCwCHdgArCaI0mFebI/8eicvi/2q3XfzlNcQ=",
+        "lastModified": 1638083815,
+        "narHash": "sha256-bAYMOz38M01Dr53ht55l7BnKYFVPM4DEkB1v+jCzSjk=",
+        "ref": "main",
+        "rev": "a216d215d4683d280aa6f9fb3346da82d5ec3cc4",
+        "revCount": 7,
+        "type": "git",
+        "url": "https://codeberg.org/municorn/iosevka-muse"
+      },
+      "original": {
+        "ref": "main",
+        "type": "git",
+        "url": "https://codeberg.org/municorn/iosevka-muse"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1638077292,
+        "narHash": "sha256-5g2CUZ7Zgafxi4A2FHPXZHuuXq6n1JFF51C9xSDCiAc=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "5201be2d3a10da36d7196c13464ee65d84e02582",
+        "rev": "f3e7e37dfb30f3380832c653867368180deaae93",
         "type": "github"
       },
       "original": {
@@ -45,15 +101,18 @@
     },
     "plymouth-theme-musicaloft-rainbow": {
       "inputs": {
-        "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs_2"
+        "flake-compat": "flake-compat_2",
+        "flake-utils": "flake-utils_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
       },
       "locked": {
-        "lastModified": 1637816093,
-        "narHash": "sha256-ZVc94nPDl0hCZvZsO7H8GvxI0iuZIu2dWBnXPGaKZUw=",
+        "lastModified": 1638083772,
+        "narHash": "sha256-Z7EriIJGl9YZ2Itb9dZvqDmiSgfOOf8sRj9CJRKhDrI=",
         "ref": "main",
-        "rev": "d0cf792b6dbe7e306a7de5a80f80a4d497ae4628",
-        "revCount": 7,
+        "rev": "21122eb9dc27aa47c21967fcb04cc3e5c2fde228",
+        "revCount": 16,
         "type": "git",
         "url": "https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow"
       },
@@ -65,6 +124,7 @@
     },
     "root": {
       "inputs": {
+        "iosevka-muse": "iosevka-muse",
         "nixpkgs": "nixpkgs",
         "plymouth-theme-musicaloft-rainbow": "plymouth-theme-musicaloft-rainbow"
       }

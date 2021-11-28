@@ -72,16 +72,13 @@
       noto-fonts-emoji
       noto-fonts-extra
 
-      (iosevka.override {
-        privateBuildPlan = builtins.readFile ./iosevka-muse.toml;
-        set = "muse";
-      })
+      iosevka-muse.nerd-font
     ];
 
     fontconfig = {
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
-        monospace = [ "Iosevka Muse" ];
+        monospace = [ "Iosevka Muse Nerd Font Complete" ];
         sansSerif = [ "Inter" ];
         serif = [ "Noto Serif" ];
       };
