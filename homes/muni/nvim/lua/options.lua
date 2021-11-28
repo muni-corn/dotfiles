@@ -51,6 +51,7 @@ o.tabstop = 4 -- Tab size is 4
 o.tags = "./tags;"
 o.termguicolors = false
 o.textwidth = 80
+o.timeoutlen = 2000
 o.title = true;
 o.updatetime = 300
 o.vb = false
