@@ -24,7 +24,6 @@ in
     cmp-nvim-lua
     cmp-path
     cmp-vsnip
-    direnv-vim
     friendly-snippets
     hop-nvim
     lsp-status-nvim
@@ -37,7 +36,6 @@ in
     vim-pandoc
     vim-pandoc-syntax
     vim-smoothie
-    vim-surround
     vim-table-mode
     vim-vsnip
     vim-vsnip-integ
