@@ -2,16 +2,20 @@ require('neorg').setup {
     load = {
         ["core.defaults"] = {}, -- Load all the default modules
         ["core.norg.concealer"] = { -- Allows for use of icons
-            todo = {
-                done = {
-                    icon = "✔",
+            config = {
+                icons = {
+                    todo = {
+                        done = {
+                            icon = "✔",
+                        },
+                        pending = {
+                            icon = "◷",
+                        },
+                        undone = {
+                            icon = " ",
+                        }
+                    },
                 },
-                pending = {
-                    icon = "◷",
-                },
-                undone = {
-                    icon = " ",
-                }
             }
         },
         ["core.norg.completion"] = {
