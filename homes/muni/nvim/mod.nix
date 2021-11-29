@@ -29,6 +29,8 @@ in
     lsp-status-nvim
     nvim-cmp
     nvim-lspconfig
+    nvim-tree-lua
+    nvim-web-devicons
     plenary-nvim
     popup-nvim
     vim-commentary
