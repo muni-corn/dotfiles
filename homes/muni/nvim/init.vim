@@ -167,9 +167,9 @@ hi! Delimiter                   ctermfg=17
 hi! SpecialChar                 ctermfg=17
 
 " errors, warnings, info
-hi! Error                       ctermfg=196 ctermbg=none    cterm=bold
-hi! Warning                     ctermfg=226 ctermbg=none    cterm=bold
-hi! Info                        ctermfg=51  ctermbg=none    cterm=bold
+hi! Error                       ctermfg=1   ctermbg=none    cterm=bold
+hi! Warning                     ctermfg=3   ctermbg=none    cterm=bold
+hi! Info                        ctermfg=6   ctermbg=none    cterm=bold
 hi! link ErrorMsg Error
 hi! link WarningMsg Warning
 hi! link InfoMsg Info
@@ -193,10 +193,10 @@ hi! link LspDiagnosticsInformationSign Info
 hi! link LspDiagnosticsWarningSign Warning
 
 " diff highlights
-hi! DiffAdd                     ctermfg=48  ctermbg=none
-hi! DiffChange                  ctermfg=214 ctermbg=none
-hi! DiffDelete                  ctermfg=196 ctermbg=none
-hi! DiffText                    ctermfg=214 ctermbg=none    cterm=undercurl
+hi! DiffAdd                     ctermfg=2   ctermbg=none
+hi! DiffChange                  ctermfg=16  ctermbg=none
+hi! DiffDelete                  ctermfg=1   ctermbg=none
+hi! DiffText                    ctermfg=3   ctermbg=none    cterm=undercurl
 hi! link GitGutterAdd DiffAdd
 hi! link GitGutterChange DiffChange
 hi! link GitGutterDelete DiffDelete
