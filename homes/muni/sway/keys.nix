@@ -4,12 +4,13 @@ let
   notebookDir = "$HOME/notebook/";
   shell = "fish";
   terminal = config.wayland.windowManager.sway.config.terminal;
+  terminalInDir = dir: "${terminal} -D ${dir}";
 
-  execWithShell = "${shell} -i -c";
+  withShell = cmd: ''${shell} -i -c "${cmd}"'';
 
   # apps
   browser = "firefox";
-  music = "${terminal} ${execWithShell} spt";
+  music = ''${terminal} ${withShell "spt"}'';
   email = "evolution";
   media = "kodi --windowing=x11";
 
@@ -87,20 +88,20 @@ in
 
   # shortcuts for apps
   "--no-repeat ${sup}+Control+e" = "exec ${scripts_dir}/emoji_menu.fish ${bemenuOpts}";
-  "--no-repeat ${sup}+Control+n" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).norg"'';
+  "--no-repeat ${sup}+Control+n" = ''exec ${terminalInDir notebookDir} ${withShell "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).norg"}'';
   "--no-repeat ${sup}+Control+p" = "exec pavucontrol";
   "--no-repeat ${sup}+Control+r" = "exec ${scripts_dir}/toggle_gammastep.fish";
   "--no-repeat ${sup}+Return" = "exec ${terminal}";
-  "--no-repeat ${sup}+Shift+b" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "nvim ${notebookDir}/bored.norg"'';
+  "--no-repeat ${sup}+Shift+b" = ''exec ${terminalInDir notebookDir} ${withShell "nvim ${notebookDir}/bored.norg"}'';
   "--no-repeat ${sup}+Shift+m" = "exec ${media}";
-  "--no-repeat ${sup}+Shift+n" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "ranger ${notebookDir}"'';
-  "--no-repeat ${sup}+Shift+t" = ''exec ${terminal} -d ${notebookDir} ${execWithShell} "nvim ${notebookDir}/todo.norg"'';
+  "--no-repeat ${sup}+Shift+n" = ''exec ${terminalInDir notebookDir} ${withShell "ranger ${notebookDir}"}'';
+  "--no-repeat ${sup}+Shift+t" = ''exec ${terminalInDir notebookDir} ${withShell "nvim ${notebookDir}/todo.norg"}'';
   "--no-repeat ${sup}+a" = "exec ${config.wayland.windowManager.sway.config.menu}";
-  "--no-repeat ${sup}+c" = "exec ${terminal} ${execWithShell} qalc";
+  "--no-repeat ${sup}+c" = ''exec ${terminal} ${withShell "qalc"}'';
   "--no-repeat ${sup}+b" = "exec ${music}";
-  "--no-repeat ${sup}+e" = "exec ${terminal} ${execWithShell} ranger";
-  "--no-repeat ${sup}+n" = "exec ${terminal} ${execWithShell} nvim";
-  "--no-repeat ${sup}+p" = "exec ${terminal} ${execWithShell} bpytop";
+  "--no-repeat ${sup}+e" = ''exec ${terminal} ${withShell "ranger"}'';
+  "--no-repeat ${sup}+n" = ''exec ${terminal} ${withShell "nvim"}'';
+  "--no-repeat ${sup}+p" = ''exec ${terminal} ${withShell "bpytop"}'';
   "--no-repeat ${sup}+w" = "exec ${browser}";
 
   # lock
