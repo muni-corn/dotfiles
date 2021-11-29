@@ -45,7 +45,7 @@ which_key.register({
             p = { "<cmd>cprev<cr>", "previous" },
         },
 
-        cd = { ":cd %:p:h<cr>:pwd<cr>", },
+        cd = { ":cd %:p:h<cr>:pwd<cr>", "change directory to file" },
 
         -- diffs
         d = {
