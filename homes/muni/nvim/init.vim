@@ -175,22 +175,22 @@ hi! link WarningMsg Warning
 hi! link InfoMsg Info
 
 " LSP highlights
-hi! link LspDiagnosticsDefaultError Error
-hi! link LspDiagnosticsDefaultHint Info
-hi! link LspDiagnosticsDefaultInformation Info
-hi! link LspDiagnosticsDefaultWarning Warning
-hi! link LspDiagnosticsUnderlineError Error
-hi! link LspDiagnosticsUnderlineHint Info
-hi! link LspDiagnosticsUnderlineInformation Info
-hi! link LspDiagnosticsUnderlineWarning Warning
-hi! link LspDiagnosticsVirtualTextError Error
-hi! link LspDiagnosticsVirtualTextHint Info
-hi! link LspDiagnosticsVirtualTextInformation Info
-hi! link LspDiagnosticsVirtualTextWarning Warning
-hi! link LspDiagnosticsErrorSign Error
-hi! link LspDiagnosticsHintSign Info
-hi! link LspDiagnosticsInformationSign Info
-hi! link LspDiagnosticsWarningSign Warning
+hi! link DiagnosticError Error
+hi! link DiagnosticHint Info
+hi! link DiagnosticInfo Info
+hi! link DiagnosticWarning Warning
+hi! link DiagnosticVirtualTextError Error
+hi! link DiagnosticVirtualTextHint Info
+hi! link DiagnosticVirtualTextInfo Info
+hi! link DiagnosticVirtualTextWarning Warning
+hi! link DiagnosticSignError Error
+hi! link DiagnosticSignHint Info
+hi! link DiagnosticSignInfo Info
+hi! link DiagnosticSignWarning Warning
+hi! DiagnosticUnderlineError    cterm=undercurl guisp=Red
+hi! DiagnosticUnderlineHint     cterm=undercurl guisp=Cyan
+hi! DiagnosticUnderlineInfo     cterm=undercurl guisp=Cyan
+hi! DiagnosticUnderlineWarning  cterm=undercurl guisp=Yellow
 
 " diff highlights
 hi! DiffAdd                     ctermfg=2   ctermbg=none
@@ -220,16 +220,6 @@ hi! pandocStrikeout                                         cterm=strikethrough
 hi! link NvimInternalError Error
 hi! link javaScriptLineComment Comment
 hi! link pandocBlockQuote String
-
-" signs
-sign define LspDiagnosticsSignError text=X texthl=LspDiagnosticsSignError linehl= numhl=
-sign define LspDiagnosticsSignWarning text=! texthl=LspDiagnosticsSignWarning linehl= numhl=
-sign define LspDiagnosticsSignInformation text=i texthl=LspDiagnosticsSignInformation linehl= numhl=
-sign define LspDiagnosticsSignHint text=? texthl=LspDiagnosticsSignHint linehl= numhl=
-call sign_define("LspDiagnosticsErrorSign", {"text" : "X", "texthl" : "LspDiagnosticsError"})
-call sign_define("LspDiagnosticsWarningSign", {"text" : "!", "texthl" : "LspDiagnosticsWarning"})
-call sign_define("LspDiagnosticsInformationSign", {"text" : "i", "texthl" : "LspDiagnosticsInformation"})
-call sign_define("LspDiagnosticsHintSign", {"text" : "?", "texthl" : "LspDiagnosticsHint"})
 
 fu! UpdateGitInfo()
     let b:custom_git_branch = ''

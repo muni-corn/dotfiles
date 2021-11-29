@@ -6,10 +6,10 @@ require('neorg').setup {
                 icons = {
                     todo = {
                         done = {
-                            icon = "✔",
+                            icon = "",
                         },
                         pending = {
-                            icon = "◷",
+                            icon = "",
                         },
                         undone = {
                             icon = " ",

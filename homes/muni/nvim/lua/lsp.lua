@@ -1,12 +1,28 @@
 local lspconfig = require'lspconfig'
-
 local lsp_status = require('lsp-status')
+
+-- set up diagnostic icons
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
+
+-- set line prefix
+vim.diagnostic.config({
+    virtual_text = {
+        prefix = '●',
+    },
+    update_in_insert = true,
+})
+
+-- set up lsp-status
 lsp_status.config {
-    indicator_errors = '',
-    indicator_warnings = '',
-    indicator_info = '',
-    indicator_hint = '',
-    indicator_ok = 'ﮚ',
+    indicator_errors = signs["Error"],
+    indicator_warnings = signs["Warn"],
+    indicator_info = signs["Info"],
+    indicator_hint = signs["Hint"],
+    indicator_ok = 'All good!',
     indicator_separator = ' ',
     component_separator = '  ',
     status_symbol = '',
@@ -17,7 +33,7 @@ function on_lsp_attach(client)
     lsp_status.on_attach(client)
 end
 
--- Enable completion
+-- enable completion {{{
 local cmp = require'cmp'
 cmp.setup {
     completion = {
@@ -55,7 +71,10 @@ cmp.setup {
     },
 }
 
--- Enable language servers
+vim.api.nvim_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+-- }}}
+
+-- enable language servers {{{
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(lsp_status.capabilities)
 -- capabilities.textDocument.completion.completionItem.snippetSupport = true
@@ -97,5 +116,4 @@ lspconfig.intelephense.setup{}
 lspconfig.html.setup {
   capabilities = capabilities,
 }
-
-vim.api.nvim_set_option("omnifunc", "v:lua.vim.lsp.omnifunc")
+-- }}}
