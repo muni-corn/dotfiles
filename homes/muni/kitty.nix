@@ -27,22 +27,22 @@
     color4 #${colors.base0D}
     color5 #${colors.base0E}
     color6 #${colors.base0C}
-    color7 #${colors.base05}
-    color8 #${colors.base03}
+    color7 #${colors.base04}
+    color8 #${colors.base01}
     color9 #${colors.base08}
     color10 #${colors.base0B}
     color11 #${colors.base0A}
     color12 #${colors.base0D}
     color13 #${colors.base0E}
     color14 #${colors.base0C}
-    color15 #${colors.base07}
+    color15 #${colors.base05}
 
     color16 #${colors.base09}
     color17 #${colors.base0F}
-    color18 #${colors.base01}
-    color19 #${colors.base02}
-    color20 #${colors.base04}
-    color21 #${colors.base06}
+    color18 #${colors.base02}
+    color19 #${colors.base03}
+    color20 #${colors.base06}
+    color21 #${colors.base07}
   '';
   font = with pkgs; {
     name = "Iosevka Muse";

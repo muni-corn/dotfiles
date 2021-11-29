@@ -38,62 +38,62 @@ hi! CustomFuchsiaPillInside     ctermfg=0                   cterm=bold
 hi! VirtualText                             ctermbg=none    cterm=italic
 
 " base01
-hi! ColorColumn                             ctermbg=18      cterm=none
-hi! CursorColumn                            ctermbg=18      cterm=none
-hi! CursorLine                              ctermbg=18      cterm=none
-hi! CursorLineNr                            ctermbg=18      cterm=bold
-hi! IncSearch                   ctermfg=18                  cterm=none
-hi! PMenuSel                    ctermfg=18                  cterm=bold
-hi! QuickFixLine                            ctermbg=18      cterm=none
-hi! Substitute                  ctermfg=18                  cterm=none
-hi! TabLineSel                              ctermbg=18      cterm=none
-hi! TabLine                                 ctermbg=18      cterm=none
-hi! PMenu                                   ctermbg=18      cterm=none
-hi! MatchParen                              ctermbg=18      cterm=bold
-hi! Todo                                    ctermbg=18      cterm=bold,italic
-hi! Folded                                  ctermbg=18
-hi! CustomGrayPillOutside       ctermfg=18  ctermbg=none
-hi! CustomGrayPillInside                    ctermbg=18      cterm=italic
-hi! CustomClosePillInside                   ctermbg=18      cterm=bold
+hi! ColorColumn                             ctermbg=8       cterm=none
+hi! CursorColumn                            ctermbg=8       cterm=none
+hi! CursorLine                              ctermbg=8       cterm=none
+hi! CursorLineNr                            ctermbg=8       cterm=bold
+hi! IncSearch                   ctermfg=8                   cterm=none
+hi! PMenuSel                    ctermfg=8                   cterm=bold
+hi! QuickFixLine                            ctermbg=8       cterm=none
+hi! Substitute                  ctermfg=8                   cterm=none
+hi! TabLineSel                              ctermbg=8       cterm=none
+hi! TabLine                                 ctermbg=8       cterm=none
+hi! PMenu                                   ctermbg=8       cterm=none
+hi! MatchParen                              ctermbg=8       cterm=bold
+hi! Todo                                    ctermbg=8       cterm=bold,italic
+hi! Folded                                  ctermbg=8 
+hi! CustomGrayPillOutside       ctermfg=8   ctermbg=none
+hi! CustomGrayPillInside                    ctermbg=8       cterm=italic
+hi! CustomClosePillInside                   ctermbg=8       cterm=bold
 
 " base02
-hi! IncSearch                               ctermbg=19      cterm=none
-hi! Search                      ctermfg=19
-hi! StatusLine                  ctermfg=19  ctermbg=none    cterm=underline
-hi! StatusLineNC                ctermfg=19  ctermbg=none    cterm=underline
-hi! VertSplit                   ctermfg=19  ctermbg=none    cterm=none
-hi! Visual                                  ctermbg=19
-hi! Whitespace                  ctermfg=19
+hi! IncSearch                               ctermbg=18      cterm=none
+hi! Search                      ctermfg=18
+hi! StatusLine                  ctermfg=18  ctermbg=none    cterm=underline
+hi! StatusLineNC                ctermfg=18  ctermbg=none    cterm=underline
+hi! VertSplit                   ctermfg=18  ctermbg=none    cterm=none
+hi! Visual                                  ctermbg=18
+hi! Whitespace                  ctermfg=18
 
 " base03
-hi! Comment                     ctermfg=8
-hi! Conceal                     ctermfg=8
-hi! Folded                      ctermfg=8
-hi! LineNr                      ctermfg=8   ctermbg=none    cterm=none
-hi! NonText                     ctermfg=8
-hi! SpecialKey                  ctermfg=8
-hi! TabLine                     ctermfg=8                   cterm=none
-hi! TabLineFill                 ctermfg=8                   cterm=none
-hi! VirtualText                 ctermfg=8                   cterm=italic
+hi! Comment                     ctermfg=19
+hi! Conceal                     ctermfg=19
+hi! Folded                      ctermfg=19
+hi! LineNr                      ctermfg=19   ctermbg=none    cterm=none
+hi! NonText                     ctermfg=19
+hi! SpecialKey                  ctermfg=19
+hi! TabLine                     ctermfg=19                   cterm=none
+hi! TabLineFill                 ctermfg=19                   cterm=none
+hi! VirtualText                 ctermfg=19                   cterm=italic
 
 " base04
-hi! CursorLineNr                ctermfg=20                  cterm=bold
-hi! CustomGrayPillInside        ctermfg=20                  cterm=italic
+hi! CursorLineNr                ctermfg=7                   cterm=bold
+hi! CustomGrayPillInside        ctermfg=7                   cterm=italic
 
 " base05
-hi! Cursor                                  ctermbg=7
-hi! Normal                      ctermfg=7   ctermbg=none
-hi! Operator                    ctermfg=7                   cterm=none
-hi! PMenu                       ctermfg=7                   cterm=none
-hi! PMenuThumb                  ctermfg=7   ctermbg=7       cterm=none
-hi! PMenuSel                                ctermbg=7       cterm=bold
+hi! Cursor                                  ctermbg=15
+hi! Normal                      ctermfg=15  ctermbg=none
+hi! Operator                    ctermfg=15                  cterm=none
+hi! PMenu                       ctermfg=15                  cterm=none
+hi! PMenuThumb                  ctermfg=15  ctermbg=15      cterm=none
+hi! PMenuSel                                ctermbg=15      cterm=bold
 
 " base06
 " nothing here!
 
 " base07
-hi! MatchParen                  ctermfg=15                  cterm=bold
-hi! Visual                      ctermfg=15
+hi! MatchParen                  ctermfg=21                  cterm=bold
+hi! Visual                      ctermfg=21
 
 " base08
 hi! Character                   ctermfg=1
