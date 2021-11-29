@@ -63,6 +63,8 @@
     '';
   };
 
+  foot = import ./foot.nix { inherit colors pkgs; };
+
   git = {
     enable = true;
     signing = {

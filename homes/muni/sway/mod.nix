@@ -157,7 +157,7 @@ in
         { command = ''canberra-gtk-play --id=desktop-login''; }
       ];
 
-    terminal = "kitty";
+    terminal = "foot";
 
     window = {
       border = 6;
