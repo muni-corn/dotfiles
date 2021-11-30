@@ -64,7 +64,7 @@ in
     }
     {
       plugin = nvim-treesitter;
-      config = lua "config.treesitter";
+      config = fnl "config.treesitter";
     }
     {
       plugin = vim-gitgutter;
