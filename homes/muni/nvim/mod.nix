@@ -2,16 +2,12 @@
 
 let
   vimscript = builtins.readFile;
-  lua = path: ''
+  lua = moduleName: ''
     lua << EOF
-    ${builtins.readFile path}
+    require("${moduleName}")
     EOF
   '';
-  fnl = fnlModuleName: ''
-    lua << EOF
-    require("${fnlModuleName}")
-    EOF
-  '';
+  fnl = lua;
 in
 {
   enable = true;
@@ -24,7 +20,7 @@ in
   plugins = with pkgs.vimPlugins; [
     {
       plugin = hotpot-nvim;
-      config = lua ./plugin_configs/hotpot-nvim.lua;
+      config = lua "config.hotpot";
     }
 
     FixCursorHold-nvim
@@ -54,11 +50,11 @@ in
 
     {
       plugin = emmet-vim;
-      config = vimscript ./plugin_configs/emmet_vim.vim;
+      config = vimscript ./vimscript/emmet-vim.vim;
     }
     {
       plugin = neorg;
-      config = lua ./plugin_configs/neorg.lua;
+      config = lua "config.neorg";
     }
     {
       plugin = telescope-nvim;
@@ -66,27 +62,27 @@ in
     }
     {
       plugin = nvim-treesitter;
-      config = lua ./plugin_configs/nvim_treesitter.lua;
+      config = lua "config.treesitter";
     }
     {
       plugin = vim-gitgutter;
-      config = vimscript ./plugin_configs/vim_gitgutter.vim;
+      config = vimscript ./vimscript/vim-gitgutter.vim;
     }
     {
       plugin = vim-polyglot;
-      config = vimscript ./plugin_configs/vim_polyglot.vim;
+      config = vimscript ./vimscript/vim-polyglot.vim;
     }
     {
       plugin = vim-startify;
-      config = vimscript ./plugin_configs/vim_startify.vim;
+      config = vimscript ./vimscript/vim-startify.vim;
     }
     {
       plugin = vim-table-mode;
-      config = vimscript ./plugin_configs/vim_table_mode.vim;
+      config = vimscript ./vimscript/vim-table-mode.vim;
     }
     {
       plugin = which-key-nvim;
-      config = lua ./plugin_configs/which_key_nvim.lua;
+      config = lua "config.which-key";
     }
   ];
   viAlias = true;
