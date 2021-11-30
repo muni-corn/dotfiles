@@ -2,6 +2,8 @@
 
 let
   vimscript = builtins.readFile;
+
+  # fnl and lua are the same, but the distinction might as well be there
   lua = moduleName: ''
     lua << EOF
     require("${moduleName}")
@@ -54,7 +56,7 @@ in
     }
     {
       plugin = neorg;
-      config = lua "config.neorg";
+      config = fnl "config.neorg";
     }
     {
       plugin = telescope-nvim;
