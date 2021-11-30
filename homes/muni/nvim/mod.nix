@@ -7,6 +7,11 @@ let
     ${builtins.readFile path}
     EOF
   '';
+  fnl = fnlModuleName: ''
+    lua << EOF
+    require("${fnlModuleName}")
+    EOF
+  '';
 in
 {
   enable = true;
@@ -57,7 +62,7 @@ in
     }
     {
       plugin = telescope-nvim;
-      config = lua ./plugin_configs/telescope_nvim.lua;
+      config = fnl "config.telescope";
     }
     {
       plugin = nvim-treesitter;

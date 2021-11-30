@@ -254,6 +254,10 @@ in
         recursive = true;
         source = ./nvim/lua;
       };
+      "nvim/fnl" = {
+        recursive = true;
+        source = ./nvim/fnl;
+      };
       "nvim/pandoc-preview.sh" = {
         executable = true;
         source = ./nvim/pandoc-preview.sh;
