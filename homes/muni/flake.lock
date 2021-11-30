@@ -51,6 +51,22 @@
         "type": "github"
       }
     },
+    "hotpot-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1637846292,
+        "narHash": "sha256-w/rpE/tZ1sRKAXonbuhgTTtRAsScAw4PtpQ+pmQU9Bc=",
+        "owner": "rktjmp",
+        "repo": "hotpot.nvim",
+        "rev": "7db3e2e2ed6227354f2950b94b895efb0da433fd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "rktjmp",
+        "repo": "hotpot.nvim",
+        "type": "github"
+      }
+    },
     "neovim-flake": {
       "inputs": {
         "flake-utils": "flake-utils",
@@ -116,6 +132,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
+        "hotpot-nvim": "hotpot-nvim",
         "neovim-nightly-overlay": "neovim-nightly-overlay",
         "nixpkgs": "nixpkgs"
       }

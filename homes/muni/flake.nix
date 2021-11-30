@@ -11,17 +11,40 @@
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # hotpot.nvim plugin
+    hotpot-nvim = {
+      url = "github:rktjmp/hotpot.nvim";
+      flake = false;
+    };
   };
 
-  outputs = { self, ... } @ inputs: {
+  outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay, hotpot-nvim }: {
     homeConfigurations =
       let
+        vimPluginOverlay = final: prev: 
+          let
+            pkgs = nixpkgs.legacyPackages.${final.system};
+            lock = builtins.fromJSON (builtins.readFile ./flake.lock);
+            hotpotLock = lock.nodes.hotpot-nvim.locked;
+          in {
+            vimPlugins = {
+              hotpot-nvim = pkgs.vimUtils.buildVimPlugin {
+                name = "hotpot.nvim";
+                src = pkgs.fetchFromGitHub {
+                  inherit (hotpotLock) owner repo rev;
+                  sha256 = hotpotLock.narHash;
+                };
+              };
+            } // pkgs.vimPlugins;
+          };
         overlays = [
-          inputs.neovim-nightly-overlay.overlay
+          neovim-nightly-overlay.overlay
+          vimPluginOverlay
         ];
       in
       {
-        municorn = inputs.home-manager.lib.homeManagerConfiguration {
+        municorn = home-manager.lib.homeManagerConfiguration {
           system = "x86_64-linux";
           homeDirectory = "/home/municorn";
           username = "municorn";

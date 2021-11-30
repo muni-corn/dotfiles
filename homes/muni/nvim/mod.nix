@@ -17,6 +17,11 @@ in
     tree-sitter
   ];
   plugins = with pkgs.vimPlugins; [
+    {
+      plugin = hotpot-nvim;
+      config = lua ./plugin_configs/hotpot-nvim.lua;
+    }
+
     FixCursorHold-nvim
     cmp-buffer
     cmp-calc
