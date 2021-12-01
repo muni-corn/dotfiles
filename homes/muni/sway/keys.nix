@@ -4,7 +4,7 @@ let
   notebookDir = "$HOME/notebook/";
   shell = "fish";
   terminal = config.wayland.windowManager.sway.config.terminal;
-  terminalInDir = dir: "${terminal} -D ${dir}";
+  terminalInDir = dir: "${terminal} -d ${dir}";
 
   withShell = cmd: ''${shell} -i -c "${cmd}"'';
 
