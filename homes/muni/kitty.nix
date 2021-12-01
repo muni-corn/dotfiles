@@ -46,7 +46,7 @@
   '';
   font = with pkgs; {
     name = "Iosevka Muse";
-    size = 11;
+    size = 12;
   };
   settings.background_opacity = "0.90";
 }
