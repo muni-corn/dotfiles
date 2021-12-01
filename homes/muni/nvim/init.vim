@@ -93,7 +93,6 @@ hi! PMenuSel                                ctermbg=15      cterm=bold
 
 " base07
 hi! MatchParen                  ctermfg=21                  cterm=bold
-hi! Visual                      ctermfg=21
 
 " base08
 hi! Character                   ctermfg=1
