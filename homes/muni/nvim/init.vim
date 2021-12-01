@@ -207,8 +207,8 @@ hi! SpellRare                   ctermfg=214 ctermbg=none    cterm=italic
 hi! link SpellLocal SpellRare
 
 " other highlights
-hi! CustomGrayPillInsideTrueGreenFg ctermfg=48 ctermbg=18   cterm=bold
-hi! CustomGrayPillInsideTrueRedFg ctermfg=196 ctermbg=18    cterm=bold
+hi! CustomGrayGreenFgPillInside ctermfg=2   ctermbg=8       cterm=bold
+hi! CustomGrayRedFgPillInside   ctermfg=1   ctermbg=8       cterm=bold
 hi! Bold                                                    cterm=bold
 hi! FoldColumn                              ctermbg=none
 hi! Italic                                                  cterm=italic
@@ -328,11 +328,11 @@ fu! ActiveStatus()
     if &modified || &readonly || !&modifiable
         let l:s .= "%#CustomGrayPillOutside#"
         if &modified && (&readonly || !&modifiable)
-            let l:s .= "%#CustomGrayPillInsideTrueRedFg# +"
+            let l:s .= "%#CustomGrayRedFgPillInside# +"
         elseif &modified
-            let l:s .= "%#CustomGrayPillInsideTrueGreenFg#+"
+            let l:s .= "%#CustomGrayGreenFgPillInside#+"
         else
-            let l:s .= "%#CustomGrayPillInsideTrueRedFg#"
+            let l:s .= "%#CustomGrayRedFgPillInside#"
         endif
         let l:s .= "%#CustomGrayPillOutside#"
     endif
