@@ -84,7 +84,7 @@ in
     }
     {
       plugin = which-key-nvim;
-      config = lua "config.which-key";
+      config = fnl "config.which-key";
     }
   ];
   viAlias = true;
