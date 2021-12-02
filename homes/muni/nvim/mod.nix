@@ -4,11 +4,7 @@ let
   vimscript = builtins.readFile;
 
   # fnl and lua are the same, but the distinction might as well be there
-  lua = moduleName: ''
-    lua << EOF
-    require("${moduleName}")
-    EOF
-  '';
+  lua = moduleName: ''lua require('${moduleName}')'';
   fnl = lua;
 in
 {
