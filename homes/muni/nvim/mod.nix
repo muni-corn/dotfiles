@@ -49,7 +49,7 @@ in
 
     {
       plugin = emmet-vim;
-      config = vimscript ./vimscript/emmet-vim.vim;
+      config = fnl "config.emmet";
     }
     {
       plugin = neorg;
