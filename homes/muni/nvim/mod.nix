@@ -73,7 +73,7 @@ in
     }
     {
       plugin = vim-startify;
-      config = vimscript ./vimscript/vim-startify.vim;
+      config = fnl "config.startify";
     }
     {
       plugin = vim-table-mode;
