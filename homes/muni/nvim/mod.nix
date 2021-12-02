@@ -1,24 +1,20 @@
 { pkgs, ... }:
 
 let
-  vimscript = builtins.readFile;
-
-  # fnl and lua are the same, but the distinction might as well be there
-  lua = moduleName: ''lua require('${moduleName}')'';
-  fnl = lua;
+  fnl = moduleName: ''lua require('${moduleName}')'';
 in
 {
   enable = true;
   package = pkgs.neovim-nightly;
 
-  extraConfig = vimscript ./init.vim;
+  extraConfig = builtins.readFile ./init.vim;
   extraPackages = with pkgs; [
     tree-sitter
   ];
   plugins = with pkgs.vimPlugins; [
     {
       plugin = hotpot-nvim;
-      config = lua "config.hotpot";
+      config = "lua require('config.hotpot')";
     }
 
     FixCursorHold-nvim
