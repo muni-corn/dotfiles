@@ -77,7 +77,7 @@ in
     }
     {
       plugin = vim-table-mode;
-      config = vimscript ./vimscript/vim-table-mode.vim;
+      config = fnl "config.table-mode";
     }
     {
       plugin = which-key-nvim;
