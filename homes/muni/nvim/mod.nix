@@ -69,7 +69,7 @@ in
     }
     {
       plugin = vim-polyglot;
-      config = vimscript ./vimscript/vim-polyglot.vim;
+      config = fnl "config.polyglot";
     }
     {
       plugin = vim-startify;
