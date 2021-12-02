@@ -65,7 +65,7 @@ in
     }
     {
       plugin = vim-gitgutter;
-      config = vimscript ./vimscript/vim-gitgutter.vim;
+      config = fnl "config.gitgutter";
     }
     {
       plugin = vim-polyglot;
