@@ -34,6 +34,7 @@ in
     nvim-cmp
     nvim-lspconfig
     nvim-tree-lua
+    nvim-ts-rainbow
     nvim-web-devicons
     plenary-nvim
     popup-nvim
