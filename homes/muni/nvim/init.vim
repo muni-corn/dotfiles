@@ -18,12 +18,6 @@ augroup auto_commands
     autocmd FileType markdown,pandoc call SetupMarkdown()
 augroup END
 
-" LSP highlights
-hi! DiagnosticUnderlineError    guisp=Red
-hi! DiagnosticUnderlineHint     guisp=Cyan
-hi! DiagnosticUnderlineInfo     guisp=Cyan
-hi! DiagnosticUnderlineWarning  guisp=Yellow
-
 fu! UpdateGitInfo()
     let b:custom_git_branch = ''
     try

@@ -1,4 +1,8 @@
-(let [base-cterm-map {:NONE :NONE
+(let [cterm-fg (fn [hlgroup color]
+                 (vim.cmd (string.format "hi %s ctermfg=%s" hlgroup color)))
+      guisp (fn [hlgroup color]
+              (vim.cmd (string.format "hi %s guisp=%s" hlgroup color)))
+      base-cterm-map {:NONE :NONE
                       ; dark 0
                       :0 :0
                       ; dark 1
@@ -34,8 +38,7 @@
       base-to-cterm (fn [base]
                       (. base-cterm-map base))
       base-fg (fn [hlgroup base]
-                (vim.cmd (string.format "hi %s ctermfg=%s" hlgroup
-                                        (base-to-cterm base))))
+                (cterm-fg hlgroup (base-to-cterm base)))
       base-fg-all (fn [base hlgroups]
                     (each [i hlgroup (ipairs hlgroups)]
                       (base-fg hlgroup base)))
@@ -233,9 +236,15 @@
              :InfoMsg :Info
              :SpellLocal :SpellRare}]
   ;; }}}
+  ;; base16-based colors
   (each [base groups (pairs fgs)]
     (base-fg-all base groups))
   (each [base groups (pairs bgs)]
     (base-bg-all base groups))
   (each [style groups (pairs styles)]
-    (hl-style-all style groups)))
+    (hl-style-all style groups))
+  ;; undercurl colors
+  (guisp :DiagnosticUnderlineError :Red)
+  (guisp :DiagnosticUnderlineHint :Cyan)
+  (guisp :DiagnosticUnderlineInfo :Cyan)
+  (guisp :DiagnosticUnderlineWarning :Yellow))
