@@ -192,11 +192,11 @@
                      :MatchParen
                      :PMenuSel
                      :Warning]
-              :italic [:VirtualText
-                       :CustomGrayPillInside
-                       :VirtualText
-                       :CustomGrayPillInside
-                       :Italic]
+              :italic [:CustomGrayPillInside
+                       :Italic
+                       :SpellBad
+                       :SpellRare
+                       :VirtualText]
               "bold,italic" [:Todo]
               :underline [:StatusLine :StatusLineNC]
               :undercurl [:DiagnosticUnderlineError
