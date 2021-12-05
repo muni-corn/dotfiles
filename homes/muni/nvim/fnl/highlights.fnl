@@ -1,36 +1,52 @@
 (let [base-cterm-map {:NONE :NONE
-                      :0 :0 ; dark 0
-                      :1 :8 ; dark 1
-                      :2 :18 ; dark 2
-                      :3 :19 ; dark 3
-                      :4 :7 ; light 0
-                      :5 :15 ; light 1
-                      :6 :20 ; light 2
-                      :7 :21 ; light 3
-                      :8 :1 ; red
-                      :9 :16 ; orange
-                      :A :3 ; yellow
-                      :B :2 ; green
-                      :C :6 ; cyan
-                      :D :4 ; blue
-                      :E :5 ; purple
-                      :F :17} ; brown
+                      ; dark 0
+                      :0 :0
+                      ; dark 1
+                      :1 :8
+                      ; dark 2
+                      :2 :18
+                      ; dark 3
+                      :3 :19
+                      ; light 0
+                      :4 :7
+                      ; light 1
+                      :5 :15
+                      ; light 2
+                      :6 :20
+                      ; light 3
+                      :7 :21
+                      ; red
+                      :8 :1
+                      ; orange
+                      :9 :16
+                      ; yellow
+                      :A :3
+                      ; green
+                      :B :2
+                      ; cyan
+                      :C :6
+                      ; blue
+                      :D :4
+                      ; purple
+                      :E :5
+                      ; brown
+                      :F :17}
       base-to-cterm (fn [base]
                       (. base-cterm-map base))
       base-fg (fn [hlgroup base]
                 (vim.cmd (string.format "hi %s ctermfg=%s" hlgroup
                                         (base-to-cterm base))))
-      base-bg (fn [hlgroup base]
-                (vim.cmd (string.format "hi %s ctermbg=%s" hlgroup
-                                        (base-to-cterm base))))
-      hl-style (fn [hlgroup style]
-                 (vim.cmd (string.format "hi %s cterm=%s" hlgroup style)))
       base-fg-all (fn [base hlgroups]
                     (each [i hlgroup (ipairs hlgroups)]
                       (base-fg hlgroup base)))
+      base-bg (fn [hlgroup base]
+                (vim.cmd (string.format "hi %s ctermbg=%s" hlgroup
+                                        (base-to-cterm base))))
       base-bg-all (fn [base hlgroups]
                     (each [i hlgroup (ipairs hlgroups)]
                       (base-bg hlgroup base)))
+      hl-style (fn [hlgroup style]
+                 (vim.cmd (string.format "hi %s cterm=%s" hlgroup style)))
       hl-style-all (fn [style hlgroups]
                      (each [i hlgroup (ipairs hlgroups)]
                        (hl-style hlgroup style)))
@@ -100,8 +116,7 @@
                :Title
                :CustomBluePillOutside]
            :E [:Define :Keyword :Structure :CustomFuchsiaPillOutside]
-           :F [:Conditional :Delimiter :SpecialChar]}
-      ;; }}}
+           :F [:Conditional :Delimiter :SpecialChar]} ;; }}}
       ;; backgrounds {{{
       bgs {:NONE [:DiffAdd
                   :DiffChange
@@ -139,8 +154,7 @@
            :B [:CustomLimePillInside]
            :C [:CustomAquaPillInside]
            :D [:CustomBluePillInside]
-           :E [:CustomFuchsiaPillInside]}
-      ;; }}}
+           :E [:CustomFuchsiaPillInside]} ;; }}}
       ;; styles {{{
       styles {:NONE [:ColorColumn
                      :CursorColumn
