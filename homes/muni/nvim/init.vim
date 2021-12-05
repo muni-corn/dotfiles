@@ -4,13 +4,6 @@ syntax on
 
 lua require('init')
 
-set noswapfile
-set undofile
-set undodir="$HOME/.local/share/nvim/undodir"
-set undolevels=100
-set undoreload=1000
-set updatetime=300
-
 " get highlight under cursor
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
