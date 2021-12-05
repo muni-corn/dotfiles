@@ -25,150 +25,7 @@ augroup auto_commands
     autocmd FileType markdown,pandoc call SetupMarkdown()
 augroup END
 
-" base00
-hi! Conceal                                 ctermbg=0
-hi! Cursor                      ctermfg=0
-hi! PmenuSbar                   ctermfg=0   ctermbg=0       cterm=none
-hi! CustomRedPillInside         ctermfg=0                   cterm=bold
-hi! CustomYellowPillInside      ctermfg=0                   cterm=bold
-hi! CustomLimePillInside        ctermfg=0                   cterm=bold
-hi! CustomAquaPillInside        ctermfg=0                   cterm=bold
-hi! CustomBluePillInside        ctermfg=0                   cterm=bold
-hi! CustomFuchsiaPillInside     ctermfg=0                   cterm=bold
-hi! VirtualText                             ctermbg=none    cterm=italic
-
-" base01
-hi! ColorColumn                             ctermbg=8       cterm=none
-hi! CursorColumn                            ctermbg=8       cterm=none
-hi! CursorLine                              ctermbg=8       cterm=none
-hi! CursorLineNr                            ctermbg=8       cterm=bold
-hi! IncSearch                   ctermfg=8                   cterm=none
-hi! PMenuSel                    ctermfg=8                   cterm=bold
-hi! QuickFixLine                            ctermbg=8       cterm=none
-hi! Substitute                  ctermfg=8                   cterm=none
-hi! TabLineSel                              ctermbg=8       cterm=none
-hi! TabLine                                 ctermbg=8       cterm=none
-hi! PMenu                                   ctermbg=8       cterm=none
-hi! MatchParen                              ctermbg=8       cterm=bold
-hi! Todo                                    ctermbg=8       cterm=bold,italic
-hi! Folded                                  ctermbg=8 
-hi! CustomGrayPillOutside       ctermfg=8   ctermbg=none
-hi! CustomGrayPillInside                    ctermbg=8       cterm=italic
-hi! CustomClosePillInside                   ctermbg=8       cterm=bold
-
-" base02
-hi! IncSearch                               ctermbg=18      cterm=none
-hi! Search                      ctermfg=18
-hi! StatusLine                  ctermfg=18  ctermbg=none    cterm=underline
-hi! StatusLineNC                ctermfg=18  ctermbg=none    cterm=underline
-hi! VertSplit                   ctermfg=18  ctermbg=none    cterm=none
-hi! Visual                                  ctermbg=18
-hi! Whitespace                  ctermfg=18
-
-" base03
-hi! Comment                     ctermfg=19
-hi! Conceal                     ctermfg=19
-hi! Folded                      ctermfg=19
-hi! LineNr                      ctermfg=19   ctermbg=none    cterm=none
-hi! NonText                     ctermfg=19
-hi! SpecialKey                  ctermfg=19
-hi! TabLine                     ctermfg=19                   cterm=none
-hi! TabLineFill                 ctermfg=19                   cterm=none
-hi! VirtualText                 ctermfg=19                   cterm=italic
-
-" base04
-hi! CursorLineNr                ctermfg=7                   cterm=bold
-hi! CustomGrayPillInside        ctermfg=7                   cterm=italic
-
-" base05
-hi! Cursor                                  ctermbg=15
-hi! Normal                      ctermfg=15  ctermbg=none
-hi! Operator                    ctermfg=15                  cterm=none
-hi! PMenu                       ctermfg=15                  cterm=none
-hi! PMenuThumb                  ctermfg=15  ctermbg=15      cterm=none
-hi! PMenuSel                                ctermbg=15      cterm=bold
-
-" base06
-" nothing here!
-
-" base07
-hi! MatchParen                  ctermfg=21                  cterm=bold
-
-" base08
-hi! Character                   ctermfg=1
-hi! Debug                       ctermfg=1
-hi! Exception                   ctermfg=1
-hi! Identifier                  ctermfg=1                   cterm=none
-hi! Macro                       ctermfg=1
-hi! TooLong                     ctermfg=1
-hi! Underlined                  ctermfg=1
-hi! VisualNOS                   ctermfg=1
-hi! WarningMsg                  ctermfg=1
-hi! WildMenu                    ctermfg=1
-hi! Statement                   ctermfg=1
-hi! CustomClosePillInside       ctermfg=1                   cterm=bold
-hi! CustomRedPillInside         ctermbg=1                   cterm=bold
-hi! CustomRedPillOutside        ctermfg=1   ctermbg=none
-
-" base09
-hi! Boolean                     ctermfg=16
-hi! Constant                    ctermfg=16
-hi! Float                       ctermfg=16
-hi! Number                      ctermfg=16
-
-" base0A
-hi! Label                       ctermfg=3
-hi! PreProc                     ctermfg=3
-hi! Todo                        ctermfg=3                   cterm=bold,italic
-hi! Type                        ctermfg=3                   cterm=none
-hi! Typedef                     ctermfg=3
-hi! Repeat                      ctermfg=3
-hi! Tag                         ctermfg=3
-hi! StorageClass                ctermfg=3
-hi! Substitute                              ctermbg=3       cterm=none
-hi! Search                                  ctermbg=3
-hi! CustomYellowPillInside      ctermfg=0   ctermbg=3       cterm=bold
-hi! CustomYellowPillOutside     ctermfg=3   ctermbg=none
-
-" base0B
-hi! ModeMsg                     ctermfg=2
-hi! MoreMsg                     ctermfg=2
-hi! String                      ctermfg=2
-hi! TabLineSel                  ctermfg=2                   cterm=none
-hi! CustomLimePillInside        ctermbg=2                   cterm=bold
-hi! CustomLimePillOutside       ctermfg=2   ctermbg=none
-
-" base0C
-hi! FoldColumn                  ctermfg=6
-hi! Special                     ctermfg=6
-hi! CustomAquaPillInside                    ctermbg=6       cterm=bold
-hi! CustomAquaPillOutside       ctermfg=6   ctermbg=none
-
-" base0D
-hi! Directory                   ctermfg=4
-hi! Function                    ctermfg=4
-hi! Include                     ctermfg=4
-hi! Question                    ctermfg=4
-hi! Title                       ctermfg=4                   cterm=none
-hi! CustomBluePillInside                    ctermbg=4       cterm=bold
-hi! CustomBluePillOutside       ctermfg=4   ctermbg=none
-
-" base0E
-hi! Define                      ctermfg=5                   cterm=none
-hi! Keyword                     ctermfg=5
-hi! Structure                   ctermfg=5
-hi! CustomFuchsiaPillInside     ctermfg=0   ctermbg=5       cterm=bold
-hi! CustomFuchsiaPillOutside    ctermfg=5   ctermbg=none
-
-" base0F
-hi! Conditional                 ctermfg=17
-hi! Delimiter                   ctermfg=17
-hi! SpecialChar                 ctermfg=17
-
 " errors, warnings, info
-hi! Error                       ctermfg=1   ctermbg=none    cterm=bold
-hi! Warning                     ctermfg=3   ctermbg=none    cterm=bold
-hi! Info                        ctermfg=6   ctermbg=none    cterm=bold
 hi! link ErrorMsg Error
 hi! link WarningMsg Warning
 hi! link InfoMsg Info
@@ -186,16 +43,12 @@ hi! link DiagnosticSignError Error
 hi! link DiagnosticSignHint Info
 hi! link DiagnosticSignInfo Info
 hi! link DiagnosticSignWarning Warning
-hi! DiagnosticUnderlineError    cterm=undercurl guisp=Red
-hi! DiagnosticUnderlineHint     cterm=undercurl guisp=Cyan
-hi! DiagnosticUnderlineInfo     cterm=undercurl guisp=Cyan
-hi! DiagnosticUnderlineWarning  cterm=undercurl guisp=Yellow
+hi! DiagnosticUnderlineError    guisp=Red
+hi! DiagnosticUnderlineHint     guisp=Cyan
+hi! DiagnosticUnderlineInfo     guisp=Cyan
+hi! DiagnosticUnderlineWarning  guisp=Yellow
 
 " diff highlights
-hi! DiffAdd                     ctermfg=2   ctermbg=none
-hi! DiffChange                  ctermfg=16  ctermbg=none
-hi! DiffDelete                  ctermfg=1   ctermbg=none
-hi! DiffText                    ctermfg=3   ctermbg=none    cterm=undercurl
 hi! link GitGutterAdd DiffAdd
 hi! link GitGutterChange DiffChange
 hi! link GitGutterDelete DiffDelete
@@ -207,15 +60,6 @@ hi! SpellRare                   ctermfg=214 ctermbg=none    cterm=italic
 hi! link SpellLocal SpellRare
 
 " other highlights
-hi! CustomGrayGreenFgPillInside ctermfg=2   ctermbg=8       cterm=bold
-hi! CustomGrayRedFgPillInside   ctermfg=1   ctermbg=8       cterm=bold
-hi! Bold                                                    cterm=bold
-hi! FoldColumn                              ctermbg=none
-hi! Italic                                                  cterm=italic
-hi! SignColumn                              ctermbg=none
-hi! TabLineFill                             ctermbg=none    cterm=none
-hi! mkdStrike                                               cterm=strikethrough
-hi! pandocStrikeout                                         cterm=strikethrough
 hi! link NvimInternalError Error
 hi! link javaScriptLineComment Comment
 hi! link pandocBlockQuote String

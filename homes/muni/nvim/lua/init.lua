@@ -3,5 +3,6 @@
 -- syntax on
 
 require("options")
+require("highlights")
 require("lsp")
 require("keys")
