@@ -88,9 +88,7 @@ fu! AutoSave()
     silent! wa
 endfunction
 
-"" Status bar
-
-
+" Status bar {{{
 
 let g:currentmode={
     \ 'n'  : 'n',
@@ -224,8 +222,9 @@ augroup status
     autocmd BufEnter,WinEnter,BufRead,BufWinEnter * :setlocal statusline=%!ActiveStatus()
     autocmd BufLeave,WinLeave * :setlocal statusline=%!InactiveStatus()
 augroup END
+" }}}
 
-"" Tab line
+" Tab line {{{
 
 fu! TabLine()
     let l:s = ''
@@ -278,6 +277,7 @@ fu! TabLine()
 
     return s
 endfunction
+" }}}
 
 " sudo write
 com! -bar W exe 'w !sudo tee >/dev/null %:p:S' | setl nomod
