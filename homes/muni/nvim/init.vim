@@ -24,11 +24,6 @@ hi! DiagnosticUnderlineHint     guisp=Cyan
 hi! DiagnosticUnderlineInfo     guisp=Cyan
 hi! DiagnosticUnderlineWarning  guisp=Yellow
 
-" spell highlights
-hi! SpellBad ctermfg=196
-hi! SpellCap ctermfg=201
-hi! SpellRare ctermfg=214
-
 fu! UpdateGitInfo()
     let b:custom_git_branch = ''
     try

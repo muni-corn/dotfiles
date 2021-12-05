@@ -82,6 +82,7 @@
                :Exception
                :Identifier
                :Macro
+               :SpellBad
                :Statement
                :TooLong
                :Underlined
@@ -97,6 +98,7 @@
                :Label
                :PreProc
                :Repeat
+               :SpellRare
                :StorageClass
                :Tag
                :Todo
@@ -117,7 +119,7 @@
                :Question
                :Title
                :CustomBluePillOutside]
-           :E [:Define :Keyword :Structure :CustomFuchsiaPillOutside]
+           :E [:Define :Keyword :Structure :CustomFuchsiaPillOutside :SpellCap]
            :F [:Conditional :Delimiter :SpecialChar]} ;; }}}
       ;; backgrounds {{{
       bgs {:NONE [:DiffAdd
