@@ -1,63 +1,74 @@
-(let [g vim.g
-      o vim.o
-      bo vim.bo
-      wo vim.wo]
-  (tset g :mapleader ",")
-  (tset g :diagnostic_auto_popup_while_jump 1)
-  (tset g :diagnostic_enable_virtual_text 1)
-  (tset g :diagnostic_insert_delay 1)
-  (tset g :pandoc_preview_pdf_cmd :zathura)
-  (tset g :space_before_virtual_text 2)
-  (tset g :tex_conceal "")
-  (tset o :autoread true)
-  (tset o :autowriteall true)
-  (tset o :background :dark)
-  (tset o :backup false)
-  (tset o :breakindent true) ; Indents word-wrapped lines as much as the line above
-  (tset o :clipboard :unnamedplus)
-  (tset o :cmdheight 2)
-  (tset o :complete ".,w,b,u,t,kspell") ; spell check
-  (tset o :completeopt "menuone,noselect")
-  (tset o :conceallevel 1)
-  (tset o :cursorline true)
-  (tset o :diffopt :hiddenoff)
-  (tset o :eb false) ; no error bells
-  (tset o :equalalways true)
-  (tset o :expandtab true)
-  (tset o :fillchars "vert:│,fold:~,stl: ,stlnc: ")
-  (tset o :formatoptions :lt) ; Ensures word-wrap does not split words
-  (tset o :hidden true)
-  (tset o :ignorecase true)
-  (tset o :lazyredraw true)
-  (tset o :lbr true)
-  (tset o :list true)
-  (tset o :listchars "tab:> ,trail:·")
-  (tset o :mouse :a)
-  (tset o :pumheight 20)
-  (tset o :pumwidth 80)
-  (tset o :scrolloff 5)
-  (tset o :shiftwidth 4)
-  (tset o :shortmess :caFTW)
-  (tset o :showmode false) ; hides -- INSERT --
-  (tset o :si true) ; Smart indent
-  (tset o :smartcase true)
-  (tset o :softtabstop 4)
-  (tset o :splitbelow true)
-  (tset o :splitright true)
-  (tset o :tabstop 4) ; Tab size is 4
-  (tset o :tags "./tags;")
-  (tset o :termguicolors false)
-  (tset o :textwidth 80)
-  (tset o :timeoutlen 2000)
-  (tset o :title true)
-  (tset o :updatetime 300)
-  (tset o :vb false)
-  (tset o :wb false)
-  (tset o :whichwrap "<,>,h,l")
-  (tset o :wildignore
-        "*/node_modules,*/node_modules/*,.git,.git/*,tags,*/dist,*/dist/*")
-  (tset o :wrap true)
-  (tset o :writebackup false)
-  (tset wo :number true)
-  (tset wo :relativenumber true)
-  (tset wo :signcolumn "yes:1"))
+(let [g (fn [key value]
+          (tset vim.g key value))
+      o (fn [key value]
+          (tset vim.o key value))
+      bo (fn [key value]
+           (tset vim.bo key value))
+      wo (fn [key value]
+           (tset vim.wo key value))]
+  (g :mapleader ",")
+  ;; plugin config
+  (g :diagnostic_auto_popup_while_jump 1)
+  (g :diagnostic_enable_virtual_text 1)
+  (g :diagnostic_insert_delay 1)
+  (g :pandoc_preview_pdf_cmd :zathura)
+  (g :space_before_virtual_text 2)
+  (g :tex_conceal "")
+  ;; neovim options
+  (o :autoread true)
+  (o :autowriteall true)
+  (o :background :dark)
+  (o :backup false)
+  (o :breakindent true) ; Indents word-wrapped lines as much as the line above
+  (o :clipboard :unnamedplus)
+  (o :cmdheight 2)
+  (o :complete ".,w,b,u,t,kspell") ; spell check
+  (o :completeopt "menuone,noselect")
+  (o :conceallevel 1)
+  (o :cursorline true)
+  (o :diffopt :hiddenoff)
+  (o :eb false) ; no error bells
+  (o :equalalways true)
+  (o :expandtab true)
+  (o :fillchars "vert:│,fold:~,stl: ,stlnc: ")
+  (o :formatoptions :lt) ; Ensures word-wrap does not split words
+  (o :hidden true)
+  (o :ignorecase true)
+  (o :lazyredraw true)
+  (o :lbr true)
+  (o :list true)
+  (o :listchars "tab:> ,trail:·")
+  (o :mouse :a)
+  (o :pumheight 20)
+  (o :pumwidth 80)
+  (o :scrolloff 5)
+  (o :shiftwidth 4)
+  (o :shortmess :caFTW)
+  (o :showmode false) ; hides -- INSERT --
+  (o :si true) ; Smart indent
+  (o :smartcase true)
+  (o :softtabstop 4)
+  (o :splitbelow true)
+  (o :splitright true)
+  (o :tabstop 4) ; Tab size is 4
+  (o :tags "./tags;")
+  (o :termguicolors false)
+  (o :textwidth 80)
+  (o :timeoutlen 2000)
+  (o :title true)
+  (o :updatetime 300)
+  (o :vb false)
+  (o :wb false)
+  (o :whichwrap "<,>,h,l")
+  (o :wildignore
+     "*/node_modules,*/node_modules/*,.git,.git/*,tags,*/dist,*/dist/*")
+  (o :wrap true)
+  (o :writebackup false)
+  (o :swapfile false)
+  (o :undofile false)
+  (o :undolevels 100)
+  (o :undoreload 1000)
+  (o :updatetime 300)
+  (wo :number true)
+  (wo :relativenumber true)
+  (wo :signcolumn "yes:1"))
