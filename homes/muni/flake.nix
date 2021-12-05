@@ -17,9 +17,13 @@
       url = "github:rktjmp/hotpot.nvim";
       flake = false;
     };
+
+    # iosevka muse
+    iosevka-muse.url =
+      "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
   };
 
-  outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay, hotpot-nvim }: {
+  outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay, hotpot-nvim, iosevka-muse }: {
     homeConfigurations =
       let
         vimPluginOverlay = final: prev: 
@@ -40,6 +44,7 @@
           };
         overlays = [
           neovim-nightly-overlay.overlay
+          iosevka-muse.overlay
           vimPluginOverlay
         ];
       in

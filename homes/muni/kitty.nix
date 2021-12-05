@@ -45,6 +45,7 @@
     color21 #${colors.base07}
   '';
   font = with pkgs; {
+    package = pkgs.iosevka-muse.nerd-font;
     name = "Iosevka Muse";
     size = 12;
   };
