@@ -95,7 +95,10 @@ in
       rust-analyzer
       tree-sitter
 
-      # sound
+      # sound and music
+      ardour
+      linuxsampler
+      musescore
       pamixer
 
       # video
