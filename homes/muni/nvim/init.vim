@@ -18,44 +18,16 @@ augroup auto_commands
     autocmd FileType markdown,pandoc call SetupMarkdown()
 augroup END
 
-" errors, warnings, info
-hi! link ErrorMsg Error
-hi! link WarningMsg Warning
-hi! link InfoMsg Info
-
 " LSP highlights
-hi! link DiagnosticError Error
-hi! link DiagnosticHint Info
-hi! link DiagnosticInfo Info
-hi! link DiagnosticWarning Warning
-hi! link DiagnosticVirtualTextError Error
-hi! link DiagnosticVirtualTextHint Info
-hi! link DiagnosticVirtualTextInfo Info
-hi! link DiagnosticVirtualTextWarning Warning
-hi! link DiagnosticSignError Error
-hi! link DiagnosticSignHint Info
-hi! link DiagnosticSignInfo Info
-hi! link DiagnosticSignWarning Warning
 hi! DiagnosticUnderlineError    guisp=Red
 hi! DiagnosticUnderlineHint     guisp=Cyan
 hi! DiagnosticUnderlineInfo     guisp=Cyan
 hi! DiagnosticUnderlineWarning  guisp=Yellow
 
-" diff highlights
-hi! link GitGutterAdd DiffAdd
-hi! link GitGutterChange DiffChange
-hi! link GitGutterDelete DiffDelete
-
 " spell highlights
-hi! SpellBad                    ctermfg=196 ctermbg=none    cterm=italic,undercurl
-hi! SpellCap                    ctermfg=201 ctermbg=none
-hi! SpellRare                   ctermfg=214 ctermbg=none    cterm=italic
-hi! link SpellLocal SpellRare
-
-" other highlights
-hi! link NvimInternalError Error
-hi! link javaScriptLineComment Comment
-hi! link pandocBlockQuote String
+hi! SpellBad ctermfg=196
+hi! SpellCap ctermfg=201
+hi! SpellRare ctermfg=214
 
 fu! UpdateGitInfo()
     let b:custom_git_branch = ''

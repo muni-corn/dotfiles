@@ -50,6 +50,8 @@
       hl-style-all (fn [style hlgroups]
                      (each [i hlgroup (ipairs hlgroups)]
                        (hl-style hlgroup style)))
+      link (fn [dest src]
+             (vim.cmd (string.format "hi link %s %s" dest src)))
       ;; foregrounds {{{
       fgs {:0 [:Cursor
                :PmenuSbar
@@ -204,8 +206,31 @@
                           :DiagnosticUnderlineInfo
                           :DiagnosticUnderlineWarning
                           :DiffText]
-              :strikethrough [:mkdStrike :pandocStrikeout]}]
-                   ;; }}}
+              :strikethrough [:mkdStrike :pandocStrikeout]} ;; }}}
+      ;; links {{{
+      links {:DiagnosticError :Error
+             :DiagnosticHint :Info
+             :DiagnosticInfo :Info
+             :DiagnosticWarning :Warning
+             :DiagnosticVirtualTextError :Error
+             :DiagnosticVirtualTextHint :Info
+             :DiagnosticVirtualTextInfo :Info
+             :DiagnosticVirtualTextWarning :Warning
+             :DiagnosticSignError :Error
+             :DiagnosticSignHint :Info
+             :DiagnosticSignInfo :Info
+             :DiagnosticSignWarning :Warning
+             :NvimInternalError :Error
+             :javaScriptLineComment :Comment
+             :pandocBlockQuote :String
+             :GitGutterAdd :DiffAdd
+             :GitGutterChange :DiffChange
+             :GitGutterDelete :DiffDelete
+             :ErrorMsg :Error
+             :WarningMsg :Warning
+             :InfoMsg :Info
+             :SpellLocal :SpellRare}]
+  ;; }}}
   (each [base groups (pairs fgs)]
     (base-fg-all base groups))
   (each [base groups (pairs bgs)]
