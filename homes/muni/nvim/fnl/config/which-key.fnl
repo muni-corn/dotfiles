@@ -34,7 +34,7 @@
                                           :off]
                                       :p [:<cmd>diffput<cr> :put]
                                       :t [:<cmd>diffthis<cr> :on]}
-                                  :e [:<cmd>Lex<cr> "explore files"]
+                                  :e [:<cmd>NvimTreeFocus<cr> "explore files"]
                                   :f {:name "find ..."
                                       :d [telescope-fd :files]
                                       :f [telescope-builtin :telescopes]

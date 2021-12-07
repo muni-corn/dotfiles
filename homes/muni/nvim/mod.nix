@@ -29,7 +29,6 @@ in
     lsp-status-nvim
     nvim-cmp
     nvim-lspconfig
-    nvim-tree-lua
     nvim-ts-rainbow
     plenary-nvim
     popup-nvim
@@ -49,6 +48,10 @@ in
     {
       plugin = neorg;
       config = fnl "config.neorg";
+    }
+    {
+      plugin = nvim-tree-lua;
+      config = fnl "config.nvim-tree";
     }
     {
       plugin = nvim-web-devicons;
