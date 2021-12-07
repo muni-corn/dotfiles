@@ -64,7 +64,14 @@
                :CustomLimePillInside
                :CustomRedPillInside
                :CustomYellowPillInside]
-           :1 [:IncSearch :PMenuSel :Substitute :CustomGrayPillOutside]
+           :1 [:IncSearch
+               :PMenuSel
+               :Substitute
+               :CustomGrayPillOutside
+               :IndentBlanklineChar
+               :IndentBlanklineSpaceChar
+               :IndentBlanklineSpaceCharBlankline
+               :IndentBlanklineSpaceCharBlankline]
            :2 [:Search :StatusLine :StatusLineNC :VertSplit :Whitespace]
            :3 [:Comment
                :Conceal

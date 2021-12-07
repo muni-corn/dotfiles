@@ -46,6 +46,10 @@ in
       config = fnl "config.emmet";
     }
     {
+      plugin = indent-blankline-nvim;
+      config = fnl "config.indent-blankline";
+    }
+    {
       plugin = neorg;
       config = fnl "config.neorg";
     }
