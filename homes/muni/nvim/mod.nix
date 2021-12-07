@@ -31,7 +31,6 @@ in
     nvim-lspconfig
     nvim-tree-lua
     nvim-ts-rainbow
-    nvim-web-devicons
     plenary-nvim
     popup-nvim
     vim-commentary
@@ -50,6 +49,10 @@ in
     {
       plugin = neorg;
       config = fnl "config.neorg";
+    }
+    {
+      plugin = nvim-web-devicons;
+      config = fnl "config.devicons";
     }
     {
       plugin = telescope-nvim;
