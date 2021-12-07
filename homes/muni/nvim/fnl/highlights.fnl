@@ -189,8 +189,7 @@
                      :Title
                      :Type
                      :VertSplit]
-              :bold [:CustomRedPillInside
-                     :Bold
+              :bold [:Bold
                      :CursorLineNr
                      :CustomAquaPillInside
                      :CustomBluePillInside
