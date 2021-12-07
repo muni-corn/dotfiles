@@ -46,6 +46,10 @@ in
       config = fnl "config.emmet";
     }
     {
+      plugin = gitsigns-nvim;
+      config = fnl "config.gitsigns";
+    }
+    {
       plugin = indent-blankline-nvim;
       config = fnl "config.indent-blankline";
     }
@@ -68,10 +72,6 @@ in
     {
       plugin = nvim-treesitter;
       config = fnl "config.treesitter";
-    }
-    {
-      plugin = vim-gitgutter;
-      config = fnl "config.gitgutter";
     }
     {
       plugin = vim-polyglot;
