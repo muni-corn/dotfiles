@@ -137,6 +137,7 @@ in
       imagemagick
       libnotify
       nixpkgs-fmt
+      qrencode
       xorg.xcursorgen
     ];
 
