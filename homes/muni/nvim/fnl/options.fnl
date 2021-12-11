@@ -34,6 +34,7 @@
   (o :formatoptions :lt) ; Ensures word-wrap does not split words
   (o :hidden true)
   (o :ignorecase true)
+  (o :showmode false)
   (o :lazyredraw true)
   (o :lbr true)
   (o :list true)
