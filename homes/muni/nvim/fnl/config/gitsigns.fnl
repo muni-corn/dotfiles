@@ -1,2 +1,2 @@
 (let [gitsigns (require :gitsigns)]
-  (gitsigns.setup))
+  (gitsigns.setup {:keymaps {}}))
