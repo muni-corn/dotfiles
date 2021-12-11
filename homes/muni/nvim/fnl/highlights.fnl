@@ -68,6 +68,8 @@
                :PMenuSel
                :Substitute
                :CustomGrayPillOutside
+               :CustomGrayGreenFgPillOutside
+               :CustomGrayRedFgPillOutside
                :IndentBlanklineChar
                :IndentBlanklineSpaceChar
                :IndentBlanklineSpaceCharBlankline

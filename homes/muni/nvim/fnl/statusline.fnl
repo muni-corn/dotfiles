@@ -18,8 +18,8 @@
                 :ce :x
                 :r :p
                 :rm :m
-                :r? "?"
-                :! "!"
+                :r? "!"
+                :! "..."
                 :t :t}
       pill (fn [content hl-color]
              ;; if no content, no pill
@@ -41,11 +41,11 @@
                           (let [modified? vim.bo.modified
                                 readonly? vim.bo.readonly]
                             (if modified?
-                                (pill :GrayGreenFg "+")
+                                (pill "+" :GrayGreenFg)
                                 readonly?
-                                (pill :GrayRedFg "")
+                                (pill "" :GrayRedFg)
                                 (and modified? readonly?)
-                                (pill :GrayRedFg " +")
+                                (pill " +" :GrayRedFg)
                                 "")))
       percent-scroll "%p%%"
       line-column "%l:%2c"
@@ -60,7 +60,7 @@
       current-mode (fn []
                      (let [api-mode (vim.api.nvim_get_mode)
                            paste-mode-enabled? (vim.api.nvim_get_option :paste)
-                           mode (. mode-map (. api-mode :mode))
+                           mode (or (. mode-map (. api-mode :mode)) "?")
                            paste-str (if paste-mode-enabled? " " "")]
                        (.. paste-str mode)))
       right-pills (fn []
