@@ -1,5 +1,5 @@
 (fn trim [str]
-  (str:match "^%s*(.-)%s*$"))
+  (if (= str nil) "" (str:match "^%s*(.-)%s*$")))
 
 ;; has to be global for v:lua to work
 (let [mode-map {:n :n
