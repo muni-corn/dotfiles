@@ -13,21 +13,10 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 augroup auto_commands
     autocmd!
     autocmd BufEnter * checktime
-    autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
+    autocmd CursorHold * lua vim.diagnostic.open_float()
     autocmd CursorHold,InsertLeave * nested call AutoSave()
     autocmd FileType markdown,pandoc call SetupMarkdown()
 augroup END
-
-fu! UpdateGitInfo()
-    let b:custom_git_branch = ''
-    try
-        if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
-            b:custom_git_branch = fugitive#head
-        endif
-    catch
-    endtry
-    return b:custom_git_branch
-endfu
 
 fu! MarkdownFoldText()
     let linetext = getline(v:foldstart)
