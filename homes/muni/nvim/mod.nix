@@ -14,7 +14,7 @@ in
   plugins = with pkgs.vimPlugins; [
     {
       plugin = hotpot-nvim;
-      config = "lua require('config.hotpot')";
+      config = "lua require('hotpot')";
     }
 
     FixCursorHold-nvim
