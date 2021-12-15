@@ -24,6 +24,14 @@ in
   accounts.email = import ./email/mod.nix { inherit config; };
 
   home = {
+    # clear hotpot cache on upgrades
+    activation.clearHotpotCache = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      HOTPOT_CACHE="${config.xdg.cacheHome}/nvim/hotpot"
+      if [[ -d "$HOTPOT_CACHE" ]]; then
+        $DRY_RUN_CMD rm -rf "$VERBOSE_ARG" "$HOTPOT_CACHE"
+      fi
+    '';
+
     file = {
       ".vsnip" = {
         recursive = true;
@@ -142,6 +150,7 @@ in
     ];
 
     extraOutputsToInstall = [ "doc" "info" "devdoc" ];
+
     sessionPath = [
       "$HOME/.npm-global/bin"
       "$HOME/.npm-packages/bin"
