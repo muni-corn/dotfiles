@@ -1,13 +1,7 @@
 (let [treesitter-configs (require :nvim-treesitter.configs)
       parsers (require :nvim-treesitter.parsers)
       parser-configs (parsers.get_parser_configs)]
-  ; sets up treesitter with neorg
-  (tset parser-configs :norg
-        {:install_info {:url "https://github.com/nvim-neorg/tree-sitter-norg"
-                        :files [:src/parser.c :src/scanner.cc]
-                        :branch :main}})
-  (treesitter-configs.setup {:ensure_installed :all
-                             :highlight {:enable true}
+  (treesitter-configs.setup {:highlight {:enable true}
                              :rainbow {:enable true
                                        :extended_mode true
                                        :max_file_lines nil
@@ -23,4 +17,3 @@
                                                                         (set disable
                                                                              false)))) disable) (parsers.available_parsers))}}))
 
-; set up treesitter

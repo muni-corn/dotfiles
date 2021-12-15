@@ -8,7 +8,6 @@ in
   package = pkgs.neovim-nightly;
 
   extraConfig = builtins.readFile ./init.vim;
-  extraPackages = [ (pkgs.tree-sitter.withPlugins (p: builtins.attrValues p)) ]; # installs all tree-sitter grammars
   plugins = with pkgs.vimPlugins; [
     {
       plugin = hotpot-nvim;
@@ -68,7 +67,7 @@ in
       config = fnl "config.telescope";
     }
     {
-      plugin = nvim-treesitter;
+      plugin = (nvim-treesitter.withPlugins (p: pkgs.tree-sitter.allGrammars));
       config = fnl "config.treesitter";
     }
     {
