@@ -53,6 +53,7 @@ in
       bemenu
       bibata-cursors
       eww-wayland
+      glib # for gtk theming
       grim
       ksshaskpass
       polkit_gnome
