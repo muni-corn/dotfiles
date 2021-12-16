@@ -145,6 +145,7 @@ in
       # other things
       imagemagick
       libnotify
+      nerdfonts
       nixpkgs-fmt
       qrencode
       xorg.xcursorgen
