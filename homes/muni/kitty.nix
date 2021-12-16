@@ -1,5 +1,8 @@
 { colors, pkgs, ... }:
 
+let
+  fontName = "Iosevka Muse";
+in
 {
   enable = true;
 
@@ -45,9 +48,14 @@
     color21 #${colors.base07}
   '';
   font = with pkgs; {
-    package = pkgs.iosevka-muse.nerd-font;
-    name = "Iosevka Muse";
+    package = pkgs.iosevka-muse.normal;
+    name = fontName;
     size = 12;
   };
-  settings.background_opacity = "0.90";
+  settings = {
+    background_opacity = "0.90";
+    bold_font = "${fontName} Bold";
+    italic_font = "${fontName} Italic";
+    bold_italic_font = "${fontName} Bold Italic";
+  };
 }
