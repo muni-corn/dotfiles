@@ -71,10 +71,6 @@ in
       config = fnl "config.treesitter";
     }
     {
-      plugin = vim-polyglot;
-      config = fnl "config.polyglot";
-    }
-    {
       plugin = vim-startify;
       config = fnl "config.startify";
     }
