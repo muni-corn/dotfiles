@@ -30,12 +30,11 @@
                                                 hl-color)]
                    (.. outside-hl "" inside-hl content outside-hl ""))))
       pill-separator "%#StatusLine#  "
-      paste-mode (fn []
-                   (if :paste ""))
       lsp-status (fn []
-                   (let [num-clients (length (vim.lsp.buf_get_clients))]
+                   (let [num-clients (length (vim.lsp.buf_get_clients))
+                         lsp-status (require :lsp-status)]
                      (if (> num-clients 0)
-                         (trim (. (require :lsp-status) status))
+                         (trim (lsp-status.status))
                          "")))
       modification-pill (fn []
                           (let [modified? vim.bo.modified
@@ -75,12 +74,11 @@
                         (when (> (length p) 0)
                           p))))
       active-status (fn []
-                      (.. (pill (lsp-status) :Gray) "%="
+                      (.. "  %<" (lsp-status) "%="
                           (table.concat (right-pills) pill-separator)))
       inactive-status (fn []
-                        (.. "%=" (pill (table.concat [file-path percent-scroll]
-                                                     "  ")
-                                       :Gray)))]
+                        (.. "%=" (table.concat [file-path percent-scroll] "  ")
+                            " "))]
   (global active_statusline active-status)
   (global inactive_statusline inactive-status)
   (vim.api.nvim_exec "
