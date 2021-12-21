@@ -213,7 +213,7 @@
                        :SpellRare
                        :VirtualText]
               "bold,italic" [:Todo]
-              :underline [:StatusLine :StatusLineNC]
+              "underline,italic" [:StatusLine :StatusLineNC]
               :undercurl [:DiagnosticUnderlineError
                           :DiagnosticUnderlineHint
                           :DiagnosticUnderlineInfo
