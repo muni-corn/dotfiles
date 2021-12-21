@@ -1,4 +1,4 @@
-{ config, lib, colors, bemenuOpts, ... }:
+{ config, lib, pkgs, colors, bemenuOpts, ... }:
 
 let
   sup = "Mod4";
@@ -44,7 +44,7 @@ in
         height 32
         modifier "${sup}"
       '';
-      statusCommand = "muse-status sub a -m i3 -p ${colors.palette.white} -s ${colors.palette.primary}";
+      statusCommand = "${pkgs.muse-status}/bin/muse-status sub a -m i3 -p ${colors.palette.white} -s ${colors.palette.primary}";
       trayOutput = "none";
       workspaceButtons = true;
       colors = {
@@ -109,7 +109,7 @@ in
       };
     };
 
-    keybindings = import ./keys.nix { inherit config lib sup alt bemenuOpts lockCmd workspace; };
+    keybindings = import ./keys.nix { inherit config lib pkgs sup alt bemenuOpts lockCmd workspace; };
 
     menu = "bemenu-run -p 'Run what?' ${bemenuOpts}";
 

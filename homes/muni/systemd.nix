@@ -2,14 +2,6 @@
 
 {
   user = {
-    sessionVariables =
-      let
-        homeDir = config.home.homeDirectory;
-      in
-      {
-        HOME = homeDir;
-        CARGO_PATH = "${homeDir}/.cargo/bin/";
-      };
     services = {
       hydroxide = {
         Unit = {
@@ -33,7 +25,7 @@
         };
 
         Service = {
-          ExecStart = "/home/muni/.cargo/bin/muse-status-daemon";
+          ExecStart = "${pkgs.muse-status}/bin/muse-status-daemon";
         };
 
         Install = {

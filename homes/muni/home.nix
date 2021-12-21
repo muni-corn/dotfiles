@@ -254,7 +254,7 @@ in
 
   systemd = import ./systemd.nix { inherit config pkgs; };
 
-  wayland.windowManager.sway = import ./sway/mod.nix { inherit config lib colors bemenuOpts; };
+  wayland.windowManager.sway = import ./sway/mod.nix { inherit config lib pkgs colors bemenuOpts; };
 
   xdg = {
     enable = true;

@@ -1,4 +1,4 @@
-{ config, lib, sup, alt, bemenuOpts, lockCmd, workspace, ... }:
+{ config, lib, pkgs, sup, alt, bemenuOpts, lockCmd, workspace, ... }:
 
 let
   notebookDir = "$HOME/notebook/";
@@ -21,6 +21,9 @@ let
   # sounds
   volume_down = "$HOME/.nix-profile/share/sounds/musicaflight/stereo/VolumeDown.oga";
   volume_up = "$HOME/.nix-profile/share/sounds/musicaflight/stereo/Volume.oga";
+
+  # muse-status convenience variable
+  ms = "${pkgs.muse-status}/bin/muse-status";
 in
 {
   # power controls
@@ -181,11 +184,11 @@ in
   "${sup}+Shift+e" = ''exec "pw-play $HOME/.nix-profile/share/sounds/musicaflight/stereo/Goodbye.oga; swaymsg exit"'';
 
   # volume and brightness controls
-  "--locked XF86AudioLowerVolume" = ''exec "pamixer -d 5; muse-status notify volume; pw-play ${volume_down}; pamixer --get-volume > $SWAYSOCK.wob"'';
-  "--locked --no-repeat XF86AudioRaiseVolume" = ''exec "pamixer -ui 5; muse-status notify volume; pw-play ${volume_up}; pamixer --get-volume > $SWAYSOCK.wob"'';
-  "--locked --no-repeat XF86AudioMute" = ''exec "pamixer --toggle-mute; muse-status notify volume; pw-play ${volume_up}; pamixer --get-volume > $SWAYSOCK.wob"'';
-  "XF86MonBrightnessUp" = ''exec "brillo -q -A 2; muse-status notify brightness; brillo -G | cut -d'.' -f1 > $SWAYSOCK.wob"'';
-  "XF86MonBrightnessDown" = ''exec "brillo -q -U 2; muse-status notify brightness; brillo -G | cut -d'.' -f1 > $SWAYSOCK.wob"'';
+  "--locked XF86AudioLowerVolume" = ''exec "pamixer -d 5; ${ms} notify volume; pw-play ${volume_down}; pamixer --get-volume > $SWAYSOCK.wob"'';
+  "--locked --no-repeat XF86AudioRaiseVolume" = ''exec "pamixer -ui 5; ${ms} notify volume; pw-play ${volume_up}; pamixer --get-volume > $SWAYSOCK.wob"'';
+  "--locked --no-repeat XF86AudioMute" = ''exec "pamixer --toggle-mute; ${ms} notify volume; pw-play ${volume_up}; pamixer --get-volume > $SWAYSOCK.wob"'';
+  "XF86MonBrightnessUp" = ''exec "brillo -q -A 2; ${ms} notify brightness; brillo -G | cut -d'.' -f1 > $SWAYSOCK.wob"'';
+  "XF86MonBrightnessDown" = ''exec "brillo -q -U 2; ${ms} notify brightness; brillo -G | cut -d'.' -f1 > $SWAYSOCK.wob"'';
 
   # player controls
   "--locked --no-repeat XF86AudioPlay" = "exec mpc toggle || playerctl play-pause";
