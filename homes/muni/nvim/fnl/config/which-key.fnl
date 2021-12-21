@@ -118,9 +118,9 @@
                                       :f [telescope-lsp-references :references]
                                       :i [telescope-lsp-implementations
                                           :implementations]
-                                      :n ["<cmd>lua vim.lsp.diagnostic.goto_next({ enable_popup = false })<cr>"
+                                      :n ["<cmd>lua vim.diagnostic.goto_next({ enable_popup = false })<cr>"
                                           "next diagnostic"]
-                                      :p ["<cmd>lua vim.lsp.diagnostic.goto_prev({ enable_popup = false })<cr>"
+                                      :p ["<cmd>lua vim.diagnostic.goto_prev({ enable_popup = false })<cr>"
                                           "last diagnostic"]
                                       :x [:<cmd>terminal<cr>i "open terminal"]}
                                   :/ [telescope-lsp-definition "lsp defintion"]
