@@ -67,18 +67,19 @@
       libertine
       inter-ui
       material-design-icons
+      nerdfonts
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
       noto-fonts-extra
 
-      iosevka-muse.nerd-font
+      iosevka-muse.normal
     ];
 
     fontconfig = {
       defaultFonts = {
         emoji = [ "Noto Color Emoji" ];
-        monospace = [ "Iosevka Muse Nerd Font Complete" ];
+        monospace = [ "Iosevka Muse" "Iosevka Nerd Font" ];
         sansSerif = [ "Inter" ];
         serif = [ "Noto Serif" ];
       };
