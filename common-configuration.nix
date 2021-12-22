@@ -43,6 +43,8 @@
     git
     kodi
     ksshaskpass
+    libcanberra
+    libcanberra-gtk3
     openrazer-daemon
     openrgb
     pinentry
@@ -253,6 +255,7 @@
       gtkUsePortal = true;
       wlr.enable = true;
     };
+    sounds.enable = true;
   };
 }
 
