@@ -8,14 +8,19 @@
       url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    muse-sounds = {
+      url = "git+https://codeberg.org/municorn/muse-sounds";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, plymouth-theme-musicaloft-rainbow, iosevka-muse }:
+  outputs = { self, nixpkgs, plymouth-theme-musicaloft-rainbow, iosevka-muse, muse-sounds }:
     let
       overlaysModule = { config, pkgs, ... }: {
         nixpkgs.overlays = [
           plymouth-theme-musicaloft-rainbow.overlay
           iosevka-muse.overlay
+          muse-sounds.overlay
         ];
       };
     in

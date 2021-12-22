@@ -43,6 +43,7 @@
     git
     kodi
     ksshaskpass
+    muse-sounds
     libcanberra
     libcanberra-gtk3
     openrazer-daemon
