@@ -51,7 +51,6 @@ in
     packages = with pkgs; [
       # desktop environment
       bemenu
-      bibata-cursors
       eww-wayland
       glib # for gtk theming
       grim
@@ -227,14 +226,6 @@ in
       package = pkgs.orchis-theme;
       name = gtkThemeName;
     };
-    gtk2.extraConfig = ''
-      gtk-cursor-theme-name="Bibata_Classic"
-      gtk-cursor-theme-size=24
-    '';
-    gtk3.extraConfig = {
-      gtk-cursor-theme-name = "Bibata_Classic";
-      gtk-cursor-theme-size = 24;
-    };
   };
 
   manual.html.enable = true;
@@ -301,10 +292,11 @@ in
     };
   };
 
+  # this takes care of gtk config files
   xsession = {
     pointerCursor = {
       package = pkgs.bibata-cursors;
-      name = "Bibata_Classic";
+      name = "Bibata-Original-Classic";
       size = 24;
     };
   };
