@@ -1,7 +1,7 @@
 { config, lib, pkgs, sup, alt, bemenuOpts, lockCmd, workspace, ... }:
 
 let
-  notebookDir = "$HOME/notebook/";
+  notebookDir = "${config.home.homeDirectory}/notebook/";
   shell = "fish";
   terminal = config.wayland.windowManager.sway.config.terminal;
   terminalInDir = dir: "${terminal} -d ${dir}";
@@ -15,12 +15,12 @@ let
   media = "kodi --windowing=x11";
 
   # scripts
-  scripts_dir = "$HOME/.config/sway/scripts/";
-  screenshot = "${scripts_dir}/screenshot.fish";
+  scriptsDir = "${config.xdg.configHome}/sway/scripts/";
+  screenshot = "${scriptsDir}/screenshot.fish";
 
   # sounds
-  volume_down = "$HOME/.nix-profile/share/sounds/musicaflight/stereo/VolumeDown.oga";
-  volume_up = "$HOME/.nix-profile/share/sounds/musicaflight/stereo/Volume.oga";
+  volumeDown = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/VolumeDown.oga";
+  volumeUp = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/Volume.oga";
 
   # muse-status convenience variable
   ms = "${pkgs.muse-status}/bin/muse-status";
@@ -90,10 +90,10 @@ in
   "--no-repeat ${sup}+f" = "fullscreen toggle";
 
   # shortcuts for apps
-  "--no-repeat ${sup}+Control+e" = "exec ${scripts_dir}/emoji_menu.fish ${bemenuOpts}";
+  "--no-repeat ${sup}+Control+e" = "exec ${scriptsDir}/emoji_menu.fish ${bemenuOpts}";
   "--no-repeat ${sup}+Control+n" = ''exec ${terminalInDir notebookDir} ${withShell "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).norg"}'';
   "--no-repeat ${sup}+Control+p" = "exec pavucontrol";
-  "--no-repeat ${sup}+Control+r" = "exec ${scripts_dir}/toggle_gammastep.fish";
+  "--no-repeat ${sup}+Control+r" = "exec ${scriptsDir}/toggle_gammastep.fish";
   "--no-repeat ${sup}+Return" = "exec ${terminal}";
   "--no-repeat ${sup}+Shift+b" = ''exec ${terminalInDir notebookDir} ${withShell "nvim ${notebookDir}/bored.norg"}'';
   "--no-repeat ${sup}+Shift+m" = "exec ${media}";
@@ -170,23 +170,23 @@ in
   "--no-repeat ${sup}+Shift+r" = "reload";
 
   # change wallpaper
-  "--no-repeat ${sup}+Control+w" = "exec ${scripts_dir}/random_wallpaper.fish";
+  "--no-repeat ${sup}+Control+w" = "exec ${scriptsDir}/random_wallpaper.fish";
 
   # record clock times (easy clock-in or clock-out :))
   "--no-repeat ${sup}+Delete" = "exec ${notebookDir}/record_time.fish";
   "--no-repeat ${sup}+Home" = "exec ${notebookDir}/record_time.fish '(clock-in)'";
   "--no-repeat ${sup}+End" = "exec ${notebookDir}/record_time.fish '(clock-out)'";
-  "--no-repeat ${sup}+Shift+Delete" = "exec ${scripts_dir}/prompt_timestamp.fish ${bemenuOpts}";
-  "--no-repeat ${sup}+Shift+Home" = "exec ${scripts_dir}/prompt_clock_in.fish ${bemenuOpts}";
-  "--no-repeat ${sup}+Shift+End" = "exec ${scripts_dir}/prompt_clock_out.fish ${bemenuOpts}";
+  "--no-repeat ${sup}+Shift+Delete" = "exec ${scriptsDir}/prompt_timestamp.fish ${bemenuOpts}";
+  "--no-repeat ${sup}+Shift+Home" = "exec ${scriptsDir}/prompt_clock_in.fish ${bemenuOpts}";
+  "--no-repeat ${sup}+Shift+End" = "exec ${scriptsDir}/prompt_clock_out.fish ${bemenuOpts}";
 
   # exit sway
-  "${sup}+Shift+e" = ''exec "pw-play $HOME/.nix-profile/share/sounds/musicaflight/stereo/Goodbye.oga; swaymsg exit"'';
+  "${sup}+Shift+e" = ''exec "pw-play ${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/Goodbye.oga; swaymsg exit"'';
 
   # volume and brightness controls
-  "--locked XF86AudioLowerVolume" = ''exec "pamixer -d 5; ${ms} notify volume; pw-play ${volume_down}; pamixer --get-volume > $SWAYSOCK.wob"'';
-  "--locked --no-repeat XF86AudioRaiseVolume" = ''exec "pamixer -ui 5; ${ms} notify volume; pw-play ${volume_up}; pamixer --get-volume > $SWAYSOCK.wob"'';
-  "--locked --no-repeat XF86AudioMute" = ''exec "pamixer --toggle-mute; ${ms} notify volume; pw-play ${volume_up}; pamixer --get-volume > $SWAYSOCK.wob"'';
+  "--locked XF86AudioLowerVolume" = ''exec "pamixer -d 5; ${ms} notify volume; pw-play ${volumeDown}; pamixer --get-volume > $SWAYSOCK.wob"'';
+  "--locked --no-repeat XF86AudioRaiseVolume" = ''exec "pamixer -ui 5; ${ms} notify volume; pw-play ${volumeUp}; pamixer --get-volume > $SWAYSOCK.wob"'';
+  "--locked --no-repeat XF86AudioMute" = ''exec "pamixer --toggle-mute; ${ms} notify volume; pw-play ${volumeUp}; pamixer --get-volume > $SWAYSOCK.wob"'';
   "XF86MonBrightnessUp" = ''exec "brillo -q -A 2; ${ms} notify brightness; brillo -G | cut -d'.' -f1 > $SWAYSOCK.wob"'';
   "XF86MonBrightnessDown" = ''exec "brillo -q -U 2; ${ms} notify brightness; brillo -G | cut -d'.' -f1 > $SWAYSOCK.wob"'';
 
@@ -199,5 +199,5 @@ in
   "--release ${sup}+Print" = "exec ${screenshot}";
   "--release ${sup}+Control+Print" = "exec ${screenshot} -s";
   "--release ${sup}+Control+${alt}+Print" = "exec ${screenshot} -o";
-  "--release ${sup}+Shift+Print" = "exec ${scripts_dir}/video_capture.fish";
+  "--release ${sup}+Shift+Print" = "exec ${scriptsDir}/video_capture.fish";
 }
