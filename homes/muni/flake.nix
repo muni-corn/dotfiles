@@ -25,9 +25,13 @@
     # muse-status
     muse-status.url =
       "git+https://codeberg.org/municorn/muse-status";
+
+    # muse-sounds
+    muse-sounds.url =
+      "git+https://codeberg.org/municorn/muse-sounds";
   };
 
-  outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay, hotpot-nvim, iosevka-muse, muse-status }: {
+  outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay, hotpot-nvim, iosevka-muse, muse-status, muse-sounds }: {
     homeConfigurations =
       let
         vimPluginOverlay = final: prev: 
@@ -49,6 +53,7 @@
         overlays = [
           neovim-nightly-overlay.overlay
           iosevka-muse.overlay
+          muse-sounds.overlay
           muse-status.overlay
           vimPluginOverlay
         ];
