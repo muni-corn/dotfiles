@@ -107,7 +107,6 @@ in
       ardour
       linuxsampler
       musescore
-      pamixer
 
       # video
       blender

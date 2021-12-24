@@ -22,8 +22,9 @@ let
   volumeDown = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/VolumeDown.oga";
   volumeUp = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/Volume.oga";
 
-  # muse-status convenience variable
+  # package path convenience variables
   ms = "${pkgs.muse-status}/bin/muse-status";
+  pamixer = "${pkgs.pamixer}/bin/pamixer";
 in
 {
   # power controls
@@ -184,9 +185,9 @@ in
   "${sup}+Shift+e" = ''exec "pw-play ${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/Goodbye.oga; swaymsg exit"'';
 
   # volume and brightness controls
-  "--locked XF86AudioLowerVolume" = ''exec "pamixer -d 5; ${ms} notify volume; pw-play ${volumeDown}; pamixer --get-volume > $SWAYSOCK.wob"'';
-  "--locked --no-repeat XF86AudioRaiseVolume" = ''exec "pamixer -ui 5; ${ms} notify volume; pw-play ${volumeUp}; pamixer --get-volume > $SWAYSOCK.wob"'';
-  "--locked --no-repeat XF86AudioMute" = ''exec "pamixer --toggle-mute; ${ms} notify volume; pw-play ${volumeUp}; pamixer --get-volume > $SWAYSOCK.wob"'';
+  "--locked XF86AudioLowerVolume" = ''exec "${pamixer} -d 5; ${ms} notify volume; pw-play ${volumeDown}; ${pamixer} --get-volume > $SWAYSOCK.wob"'';
+  "--locked --no-repeat XF86AudioRaiseVolume" = ''exec "${pamixer} -ui 5; ${ms} notify volume; pw-play ${volumeUp}; ${pamixer} --get-volume > $SWAYSOCK.wob"'';
+  "--locked --no-repeat XF86AudioMute" = ''exec "${pamixer} --toggle-mute; ${ms} notify volume; pw-play ${volumeUp}; ${pamixer} --get-volume > $SWAYSOCK.wob"'';
   "XF86MonBrightnessUp" = ''exec "brillo -q -A 2; ${ms} notify brightness; brillo -G | cut -d'.' -f1 > $SWAYSOCK.wob"'';
   "XF86MonBrightnessDown" = ''exec "brillo -q -U 2; ${ms} notify brightness; brillo -G | cut -d'.' -f1 > $SWAYSOCK.wob"'';
 
