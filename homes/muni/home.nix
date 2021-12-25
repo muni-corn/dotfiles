@@ -14,6 +14,7 @@ let
 
   gtkThemeName = "Orchis-dark";
   gtkIconThemeName = "Papirus-Dark";
+  cursorThemeName = "Bibata-Original-Classic";
 in
 {
   nixpkgs = {
@@ -198,7 +199,7 @@ in
     "org/gnome/desktop/interface" = {
       gtk-theme = gtkThemeName;
       icon-theme = gtkIconThemeName;
-      cursor-theme = "Bibata_Classic";
+      cursor-theme = cursorThemeName;
       font-name = "Inter 12";
     };
     "org/gnome/desktop/sound" = {
@@ -295,7 +296,7 @@ in
   xsession = {
     pointerCursor = {
       package = pkgs.bibata-cursors;
-      name = "Bibata-Original-Classic";
+      name = cursorThemeName;
       size = 24;
     };
   };
