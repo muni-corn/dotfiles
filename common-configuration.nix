@@ -210,6 +210,8 @@
       resyncTimer = "20m";
     };
 
+    tlp.enable = true;
+
     xserver = {
       # Enable the Plasma 5 Desktop Environment.
       desktopManager.plasma5.enable = true;
