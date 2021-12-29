@@ -36,31 +36,37 @@
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    cachix
-    firefox
-    git
-    kodi
-    ksshaskpass
-    muse-sounds
-    libcanberra
-    libcanberra-gtk3
-    openrazer-daemon
-    openrgb
-    pinentry
-    pinentry-curses
-    psmisc
+  environment = {
+    defaultPackages = with pkgs; [
+      cachix
+      ungoogled-chromium
+      firefox
+      kodi
+      konsole
+      ksshaskpass
+      libcanberra
+      libcanberra-gtk3
+      muse-sounds
+      openrazer-daemon
+      openrgb
+      pinentry
+      pinentry-curses
 
-    # needed for sway
-    qt5.qtwayland
+      # needed for xdg-open and such
+      xdg-utils
 
-    # for creating bootable usbs
-    ntfs3g
+      # needed for sway
+      qt5.qtwayland
+    ];
 
-    # needed for xdg-open and such
-    xdg-utils
-  ];
+    systemPackages = with pkgs; [
+      neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      psmisc
+
+      # for creating bootable usbs
+      ntfs3g
+    ];
+  };
 
   fonts = {
     fonts = with pkgs; [
@@ -162,6 +168,7 @@
 
   programs = {
     adb.enable = true;
+    git.enable = true;
     sway.enable = true;
   };
 
