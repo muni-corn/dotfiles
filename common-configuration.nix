@@ -205,10 +205,7 @@
       jack.enable = true;
     };
 
-    psd = {
-      enable = true;
-      resyncTimer = "20m";
-    };
+    psd.enable = true;
 
     tlp.enable = true;
 
