@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
-with (import ../secret/spotify-info.nix); {
+let
+  inherit (import ../secret/spotify-info.nix) username deviceName;
+in
+{
   enable = true;
   package = pkgs.spotifyd.override {
     withPulseAudio = true;
@@ -9,7 +12,7 @@ with (import ../secret/spotify-info.nix); {
   settings = {
     global = {
       username = username;
-      password_cmd = "pass spotify";
+      password_cmd = "${pkgs.pass}/bin/pass spotify";
       device_name = deviceName;
       device_type = "computer";
       use_keyring = true;
