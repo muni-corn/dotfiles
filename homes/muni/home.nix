@@ -7,10 +7,10 @@ let
   fontText = "Inter 12";
 
   # bemenu
-  black = "#${colors.palette.background}e5";
-  white = "#${colors.palette.foreground}";
-  primary = "#${colors.palette.primary}e5";
-  bemenuOpts = ''-H 32 --fn ${fontText} --tb '${black}' --tf '${primary}' --fb '${black}' --ff '${white}' --nb '${black}' --nf '${primary}' --hb '${primary}' --hf '${black}' --sb '${primary}' --sf '${white}' --scrollbar autohide -f -m all'';
+  black = "#${colors.swatch.background}e5";
+  white = "#${colors.swatch.foreground}";
+  accent = "#${colors.swatch.accent}e5";
+  bemenuOpts = ''-H 32 --fn ${fontText} --tb '${black}' --tf '${accent}' --fb '${black}' --ff '${white}' --nb '${black}' --nf '${accent}' --hb '${accent}' --hf '${black}' --sb '${accent}' --sf '${white}' --scrollbar autohide -f -m all'';
 
   gtkThemeName = "Orchis-dark";
   gtkIconThemeName = "Papirus-Dark";
@@ -289,9 +289,9 @@ in
       "sway/scripts/start_wob.sh" = {
         executable = true;
         text = import ./sway/wob_script.nix {
-          backgroundColor = colors.palette.black;
-          borderColor = colors.palette.gray;
-          barColor = colors.palette.primary;
+          backgroundColor = colors.swatch.black;
+          borderColor = colors.swatch.gray;
+          barColor = colors.swatch.accent;
         };
       };
       "waybar" = {

@@ -22,7 +22,7 @@
     base07 = "eeeeee";
     base0F = "ffffff";
 
-    palette = {
+    swatch = {
       # background bases
       background = base00;
       black = base00;
@@ -34,7 +34,7 @@
       silver = base04;
 
       # other bases
-      primary = base0D;
+      accent = base0D;
       warning = "ffaa00";
       alert = "ff0000";
     };
@@ -59,7 +59,7 @@
     base0E = "5e81ac";
     base0F = "b48ead";
 
-    palette = {
+    swatch = {
       # background bases
       background = base00;
       black = base00;
@@ -71,7 +71,7 @@
       silver = base05;
 
       # other bases
-      primary = base04;
+      accent = base04;
       warning = "ffaa00";
       alert = "ff0000";
     };
@@ -96,7 +96,7 @@
     base0E = "6c71c4";
     base0F = "d33682";
 
-    palette = {
+    swatch = {
       # background bases
       background = base00;
       black = base00;
@@ -108,7 +108,7 @@
       silver = base04;
 
       # other bases
-      primary = base0C;
+      accent = base0C;
       warning = "ffaa00";
       alert = "ff0000";
     };
@@ -133,7 +133,7 @@
     base0E = "6c71c4";
     base0F = "d33682";
 
-    palette = {
+    swatch = {
       # background bases
       background = base00;
       black = base00;
@@ -145,7 +145,7 @@
       silver = base05;
 
       # other bases
-      primary = base0C;
+      accent = base0C;
       warning = "ffaa00";
       alert = "ff0000";
     };
@@ -169,7 +169,7 @@
     base0E = "724f9a";
     base0F = "b87e4c";
 
-    palette = {
+    swatch = {
       # background bases
       background = base00;
       black = base00;
@@ -181,7 +181,7 @@
       silver = base05;
 
       # other bases
-      primary = base0F;
+      accent = base0F;
       warning = "ffaa00";
       alert = "ff0000";
     };

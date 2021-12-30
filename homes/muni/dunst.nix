@@ -14,14 +14,14 @@
       ellipsize = "end";
       follow = "mouse";
       font = "Inter 12";
-      foreground = "#${colors.palette.white}";
+      foreground = "#${colors.swatch.white}";
       format = "<b>%s</b>\\n%b";
-      frame_color = "#${colors.palette.gray}e5";
+      frame_color = "#${colors.swatch.gray}e5";
       frame_width = 4;
       width = 384;
       height = 384;
       offset = "0x0";
-      highlight = "#${colors.palette.alert}";
+      highlight = "#${colors.swatch.alert}";
       history_length = -1;
       horizontal_padding = 32;
       icon_position = "left";
@@ -42,17 +42,17 @@
       word_wrap = true;
     };
     "urgency_low" = {
-      background = "#${colors.palette.black}e5";
-      foreground = "#${colors.palette.primary}";
+      background = "#${colors.swatch.black}e5";
+      foreground = "#${colors.swatch.accent}";
     };
     "urgency_normal" = {
-      background = "#${colors.palette.black}e5";
-      foreground = "#${colors.palette.white}";
+      background = "#${colors.swatch.black}e5";
+      foreground = "#${colors.swatch.white}";
     };
     "urgency_critical" = {
-      background = "#${colors.palette.black}e5";
-      foreground = "#${colors.palette.white}";
-      frame_color = "#${colors.palette.warning}e5";
+      background = "#${colors.swatch.black}e5";
+      foreground = "#${colors.swatch.white}";
+      frame_color = "#${colors.swatch.warning}e5";
       timeout = "10s";
     };
   };

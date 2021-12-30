@@ -11,18 +11,18 @@ let
   };
 
   # background colors
-  black = "#${colors.palette.background}e5";
-  gray = "#${colors.palette.gray}e5";
+  black = "#${colors.swatch.background}e5";
+  gray = "#${colors.swatch.gray}e5";
 
   # foreground colors
-  white = "#${colors.palette.foreground}";
-  silver = "#${colors.palette.silver}";
+  white = "#${colors.swatch.foreground}";
+  silver = "#${colors.swatch.silver}";
 
   # other colors
-  primary = "#${colors.palette.primary}e5";
-  warning = "#${colors.palette.warning}e5";
+  accent = "#${colors.swatch.accent}e5";
+  warning = "#${colors.swatch.warning}e5";
 
-  lockCmd = "$HOME/.config/sway/scripts/lock.fish --bg-color ${colors.palette.background} --fg-color ${colors.palette.foreground} --primary-color ${colors.palette.primary} --warning-color ${colors.palette.warning} --error-color ${colors.palette.alert}";
+  lockCmd = "$HOME/.config/sway/scripts/lock.fish --bg-color ${colors.swatch.background} --fg-color ${colors.swatch.foreground} --primary-color ${colors.swatch.accent} --warning-color ${colors.swatch.warning} --error-color ${colors.swatch.alert}";
 
   dpmsOff = "swaymsg 'output * dpms off'";
   dpmsOn = "swaymsg 'output * dpms on'";
@@ -44,7 +44,7 @@ in
         height 32
         modifier "${sup}"
       '';
-      statusCommand = "${pkgs.muse-status}/bin/muse-status sub a -m i3 -p ${colors.palette.white} -s ${colors.palette.primary}";
+      statusCommand = "${pkgs.muse-status}/bin/muse-status sub a -m i3 -p ${colors.swatch.white} -s ${colors.swatch.accent}";
       trayOutput = "none";
       workspaceButtons = true;
       colors = {
@@ -53,18 +53,18 @@ in
         bindingMode = { background = black; border = black; text = warning; };
         focusedWorkspace = { background = black; border = black; text = white; };
         statusline = white;
-        inactiveWorkspace = { background = black; border = black; text = primary; };
-        separator = primary;
+        inactiveWorkspace = { background = black; border = black; text = accent; };
+        separator = accent;
         urgentWorkspace = { background = warning; border = warning; text = black; };
       };
     }];
 
     colors = {
       background = black;
-      focused = { border = gray; background = gray; text = white; indicator = primary; childBorder = gray; };
+      focused = { border = gray; background = gray; text = white; indicator = accent; childBorder = gray; };
       focusedInactive = { border = black; background = black; text = silver; indicator = black; childBorder = black; };
-      unfocused = { border = black; background = black; text = primary; indicator = black; childBorder = black; };
-      urgent = { border = warning; background = warning; text = black; indicator = primary; childBorder = warning; };
+      unfocused = { border = black; background = black; text = accent; indicator = black; childBorder = black; };
+      urgent = { border = warning; background = warning; text = black; indicator = accent; childBorder = warning; };
     };
 
     defaultWorkspace = "workspace ${workspace 0}";
