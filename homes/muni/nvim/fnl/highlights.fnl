@@ -119,6 +119,7 @@
                :Warning]
            :B [:ModeMsg
                :DiffAdd
+               :diffAdded
                :MoreMsg
                :String
                :TabLineSel
@@ -137,6 +138,7 @@
       bgs {:NONE [:DiffAdd
                   :DiffChange
                   :DiffDelete
+                  :diffRemoved
                   :DiffText
                   :Error
                   :FoldColumn
@@ -218,7 +220,9 @@
                           :DiagnosticUnderlineHint
                           :DiagnosticUnderlineInfo
                           :DiagnosticUnderlineWarning
-                          :DiffText]
+                          :DiffText
+                          :SpellBad
+                          :SpellRare]
               :strikethrough [:mkdStrike :pandocStrikeout]} ;; }}}
       ;; links {{{
       links {:DiagnosticError :Error
