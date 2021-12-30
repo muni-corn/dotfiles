@@ -16,8 +16,6 @@
     package = pkgs.ungoogled-chromium;
   };
 
-  command-not-found.enable = true;
-
   direnv = {
     enable = true;
     enableFishIntegration = true;
@@ -181,6 +179,9 @@
   neomutt = { enable = true; };
 
   neovim = import ./nvim/mod.nix { inherit pkgs; };
+
+  # fish integration enabled by default
+  nix-index.enable = true;
 
   password-store = {
     enable = true;
