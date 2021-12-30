@@ -109,10 +109,14 @@ in
       rust-analyzer
       tree-sitter
 
-      # sound and music
+      # audio, sound, and music
       ardour
+      calf
+      helm
       linuxsampler
       musescore
+      qsampler
+      zyn-fusion
 
       # video
       blender
