@@ -112,7 +112,3 @@ end
 function unlock-keychain
     eval (keychain -q --gpg2 --agents "gpg,ssh" --eval id_rsa_github id_rsa_bitbucket id_ed25519 4B21310A52B15162) 2> /dev/null
 end
-
-function btrfs-du
-    sudo btrfs fi du --si $argv | tee du_full.txt | sort -h | tee du_sorted.txt | tail -n3000 | tee du.txt
-end
