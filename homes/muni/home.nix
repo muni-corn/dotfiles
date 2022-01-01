@@ -102,6 +102,7 @@ in
       gcc
       git-crypt
       lld
+      meld
       nodejs
       nodePackages.npm
       python3

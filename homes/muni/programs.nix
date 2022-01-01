@@ -81,13 +81,16 @@
       };
       core.autocrlf = "input";
       diff = {
-        tool = "vimdiff2";
+        tool = "meld";
         colorMoved = "zebra";
       };
       fetch.prune = true;
       init.defaultBranch = "main";
       lfs.enable = true;
-      merge.renamelimit = 2016;
+      merge = {
+        renamelimit = 2016;
+        tool = "meld";
+      };
       pull.rebase = true;
       tag.gpgSign = true;
       url = {
