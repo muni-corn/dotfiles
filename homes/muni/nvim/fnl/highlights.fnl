@@ -53,9 +53,11 @@
       hl-style-all (fn [style hlgroups]
                      (each [i hlgroup (ipairs hlgroups)]
                        (hl-style hlgroup style)))
-      link (fn [dest src]
+      link (fn [src dest]
              (vim.cmd (string.format "hi link %s %s" dest src)))
-      ;; foregrounds {{{
+      link-all (fn [src dests]
+                 (each [_ dest (ipairs dests)]
+                   (link src dest))) ;; foregrounds {{{
       fgs {:0 [:Cursor
                :PmenuSbar
                :CustomAquaPillInside
@@ -225,28 +227,28 @@
                           :SpellRare]
               :strikethrough [:mkdStrike :pandocStrikeout]} ;; }}}
       ;; links {{{
-      links {:DiagnosticError :Error
-             :DiagnosticHint :Info
-             :DiagnosticInfo :Info
-             :DiagnosticWarning :Warning
-             :DiagnosticVirtualTextError :Error
-             :DiagnosticVirtualTextHint :Info
-             :DiagnosticVirtualTextInfo :Info
-             :DiagnosticVirtualTextWarning :Warning
-             :DiagnosticSignError :Error
-             :DiagnosticSignHint :Info
-             :DiagnosticSignInfo :Info
-             :DiagnosticSignWarning :Warning
-             :NvimInternalError :Error
-             :javaScriptLineComment :Comment
-             :pandocBlockQuote :String
-             :GitGutterAdd :DiffAdd
-             :GitGutterChange :DiffChange
-             :GitGutterDelete :DiffDelete
-             :ErrorMsg :Error
-             :WarningMsg :Warning
-             :InfoMsg :Info
-             :SpellLocal :SpellRare}]
+      links {:Comment [:javaScriptLineComment]
+             :DiffAdd [:GitGutterAdd :diffAdded]
+             :DiffChange [:GitGutterChange]
+             :DiffDelete [:GitGutterDelete :diffRemoved]
+             :Error [:DiagnosticError
+                     :DiagnosticSignError
+                     :DiagnosticVirtualTextError
+                     :ErrorMsg
+                     :NvimInternalError]
+             :Info [:DiagnosticHint
+                    :DiagnosticInfo
+                    :DiagnosticSignHint
+                    :DiagnosticSignInfo
+                    :DiagnosticVirtualTextHint
+                    :DiagnosticVirtualTextInfo
+                    :InfoMsg]
+             :SpellRare [:SpellLocal]
+             :String [:pandocBlockQuote]
+             :Warning [:DiagnosticSignWarning
+                       :DiagnosticVirtualTextWarning
+                       :DiagnosticWarning
+                       :WarningMsg]}]
   ;; }}}
   ;; base16-based colors
   (each [base groups (pairs fgs)]
@@ -255,6 +257,8 @@
     (base-bg-all base groups))
   (each [style groups (pairs styles)]
     (hl-style-all style groups))
+  (each [src dests (pairs links)]
+    (link-all src dests))
   ;; undercurl colors
   (guisp :DiagnosticUnderlineError :Red)
   (guisp :DiagnosticUnderlineHint :Cyan)
