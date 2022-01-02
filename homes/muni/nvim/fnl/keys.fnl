@@ -17,8 +17,8 @@
   (map :n :<leader>W ":windo set nowinfixwidth nowinfixheight<cr>"
        {:noremap true :silent true})
   ;; move tabs
-  (map :n "<leader>>" ":tabm +" {:noremap true :silent true})
-  (map :n "<leader><" ":tabm -" {:noremap true :silent true})
+  (map :n :<leader>> ":tabm +" {:noremap true :silent true})
+  (map :n :<leader>< ":tabm -" {:noremap true :silent true})
   ;; trim whitespace
   (map :n :<leader>tw ":%s/\\s\\+$//e<cr>:noh<cr>" {:noremap true :silent true})
   ;; fugitive shortcuts
