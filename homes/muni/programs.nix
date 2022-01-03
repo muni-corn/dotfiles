@@ -1,7 +1,7 @@
-{ config, pkgs, colors, ... }:
+{ config, lib, pkgs, colors, bemenuArgs }:
 
 {
-  # Let Home Manager install and manage itself.
+  # let home-manager install and manage itself
   home-manager.enable = true;
 
   bat.enable = true;

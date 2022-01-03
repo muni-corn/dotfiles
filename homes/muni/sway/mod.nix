@@ -1,4 +1,4 @@
-{ config, lib, pkgs, colors, bemenuOpts, ... }:
+{ config, lib, pkgs, colors, bemenuArgs, ... }:
 
 let
   sup = "Mod4";
@@ -9,6 +9,9 @@ let
     style = "Regular";
     size = 12.0;
   };
+
+  # bemenuArgs as a string
+  bemenuArgsJoined = lib.strings.concatStringsSep " " bemenuArgs;
 
   # background colors
   black = "#${colors.swatch.background}e5";
@@ -26,6 +29,8 @@ let
 
   dpmsOff = "swaymsg 'output * dpms off'";
   dpmsOn = "swaymsg 'output * dpms on'";
+
+  scriptsDir = builtins.path { name = "sway-scripts"; path = ./scripts; };
 
   # define names for default workspaces for which we configure key bindings later
   # on. we use variables to avoid repeating the names in multiple places.
@@ -109,9 +114,9 @@ in
       };
     };
 
-    keybindings = import ./keys.nix { inherit config lib pkgs sup alt bemenuOpts lockCmd workspace; };
+    keybindings = import ./keys.nix { inherit config lib pkgs sup alt bemenuArgsJoined lockCmd workspace scriptsDir; };
 
-    menu = "bemenu-run -p 'Run what?' ${bemenuOpts}";
+    menu = "bemenu-run -p 'Run what?' ${bemenuArgsJoined}";
 
     # no modes
     modes = { };

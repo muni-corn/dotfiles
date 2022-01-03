@@ -1,4 +1,4 @@
-{ config, lib, pkgs, sup, alt, bemenuOpts, lockCmd, workspace, ... }:
+{ config, lib, pkgs, sup, alt, bemenuArgsJoined, lockCmd, workspace, scriptsDir, ... }:
 
 let
   notebookDir = "${config.home.homeDirectory}/notebook/";
@@ -15,7 +15,6 @@ let
   media = "kodi --windowing=x11";
 
   # scripts
-  scriptsDir = "${config.xdg.configHome}/sway/scripts/";
   screenshot = "${scriptsDir}/screenshot.fish";
 
   # sounds
@@ -91,7 +90,7 @@ in
   "--no-repeat ${sup}+f" = "fullscreen toggle";
 
   # shortcuts for apps
-  "--no-repeat ${sup}+Control+e" = "exec ${scriptsDir}/emoji_menu.fish ${bemenuOpts}";
+  "--no-repeat ${sup}+Control+e" = "exec ${scriptsDir}/emoji_menu.fish ${bemenuArgsJoined}";
   "--no-repeat ${sup}+Control+n" = ''exec ${terminalInDir notebookDir} ${withShell "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).norg"}'';
   "--no-repeat ${sup}+Control+p" = "exec pavucontrol";
   "--no-repeat ${sup}+Control+r" = "exec ${scriptsDir}/toggle_gammastep.fish";
@@ -177,9 +176,9 @@ in
   "--no-repeat ${sup}+Delete" = "exec ${notebookDir}/record_time.fish";
   "--no-repeat ${sup}+Home" = "exec ${notebookDir}/record_time.fish '(clock-in)'";
   "--no-repeat ${sup}+End" = "exec ${notebookDir}/record_time.fish '(clock-out)'";
-  "--no-repeat ${sup}+Shift+Delete" = "exec ${scriptsDir}/prompt_timestamp.fish ${bemenuOpts}";
-  "--no-repeat ${sup}+Shift+Home" = "exec ${scriptsDir}/prompt_clock_in.fish ${bemenuOpts}";
-  "--no-repeat ${sup}+Shift+End" = "exec ${scriptsDir}/prompt_clock_out.fish ${bemenuOpts}";
+  "--no-repeat ${sup}+Shift+Delete" = "exec ${scriptsDir}/prompt_timestamp.fish ${bemenuArgsJoined}";
+  "--no-repeat ${sup}+Shift+Home" = "exec ${scriptsDir}/prompt_clock_in.fish ${bemenuArgsJoined}";
+  "--no-repeat ${sup}+Shift+End" = "exec ${scriptsDir}/prompt_clock_out.fish ${bemenuArgsJoined}";
 
   # exit sway
   "${sup}+Shift+e" = ''exec "pw-play ${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/Goodbye.oga; swaymsg exit"'';

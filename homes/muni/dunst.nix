@@ -1,5 +1,8 @@
-{ pkgs, bemenuOpts, colors, ... }:
+{ lib, pkgs, bemenuArgs, colors }:
 
+let
+  bemenuArgsJoined = lib.strings.concatStringsSep " " bemenuArgs;
+in
 {
   enable = true;
   iconTheme = {
@@ -10,7 +13,7 @@
   settings = {
     global = {
       browser = "firefox";
-      dmenu = "bemenu -p 'Do what?' ${bemenuOpts}";
+      dmenu = "bemenu -p 'Do what?' ${bemenuArgsJoined}";
       ellipsize = "end";
       follow = "mouse";
       font = "Inter 12";

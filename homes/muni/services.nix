@@ -1,7 +1,7 @@
-{ pkgs, bemenuOpts, colors, ... }:
+{ lib, pkgs, bemenuArgs, colors }:
 
 {
-  dunst = import ./dunst.nix { inherit pkgs bemenuOpts colors; };
+  dunst = import ./dunst.nix { inherit lib pkgs bemenuArgs colors; };
 
   gammastep = {
     enable = true;
