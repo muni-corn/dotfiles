@@ -27,16 +27,16 @@
   (o :conceallevel 1)
   (o :cursorline true)
   (o :diffopt "hiddenoff,closeoff,internal,filler,indent-heuristic")
-  (o :eb false) ; no error bells
+  (o :errorbells false)
   (o :equalalways true)
   (o :expandtab true)
   (o :fillchars "vert:│,fold:~,stl: ,stlnc: ")
-  (o :formatoptions :lt) ; Ensures word-wrap does not split words
+  (o :formatoptions :lt) ; ensures word-wrap does not split words
   (o :hidden true)
   (o :ignorecase true)
   (o :showmode false)
   (o :lazyredraw true)
-  (o :lbr true)
+  (o :linebreak true)
   (o :list true)
   (o :listchars "tab:> ,trail:·")
   (o :mouse :a)
@@ -45,21 +45,21 @@
   (o :scrolloff 5)
   (o :shiftwidth 4)
   (o :shortmess :caFTW)
-  (o :showmode false) ; hides -- INSERT --
-  (o :si true) ; Smart indent
+  (o :showmode false)
+  (o :smartindent true)
   (o :smartcase true)
   (o :softtabstop 4)
   (o :splitbelow true)
   (o :splitright true)
-  (o :tabstop 4) ; Tab size is 4
+  (o :tabstop 4)
   (o :tags "./tags;")
   (o :termguicolors false)
   (o :textwidth 80)
   (o :timeoutlen 2000)
   (o :title true)
   (o :updatetime 300)
-  (o :vb false)
-  (o :wb false)
+  (o :visualbell false)
+  (o :writebackup false)
   (o :whichwrap "<,>,h,l")
   (o :wildignore
      "*/node_modules,*/node_modules/*,.git,.git/*,tags,*/dist,*/dist/*")
