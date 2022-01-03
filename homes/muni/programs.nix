@@ -79,15 +79,17 @@
       };
       core.autocrlf = "input";
       diff = {
-        tool = "meld";
         colorMoved = "zebra";
+        guitool = "meld";
+        tool = "vimdiff";
       };
       fetch.prune = true;
       init.defaultBranch = "main";
       lfs.enable = true;
       merge = {
+        guitool = "meld";
         renamelimit = 2016;
-        tool = "meld";
+        tool = "vimdiff";
       };
       pull.rebase = true;
       tag.gpgSign = true;
