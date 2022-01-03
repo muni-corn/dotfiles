@@ -26,7 +26,7 @@
   (o :completeopt "menuone,noselect")
   (o :conceallevel 1)
   (o :cursorline true)
-  (o :diffopt :hiddenoff)
+  (o :diffopt "hiddenoff,closeoff,internal,filler,indent-heuristic")
   (o :eb false) ; no error bells
   (o :equalalways true)
   (o :expandtab true)
