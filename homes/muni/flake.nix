@@ -36,19 +36,18 @@
       let
         vimPluginOverlay = final: prev: 
           let
-            pkgs = nixpkgs.legacyPackages.${final.system};
             lock = builtins.fromJSON (builtins.readFile ./flake.lock);
             hotpotLock = lock.nodes.hotpot-nvim.locked;
           in {
-            vimPlugins = {
-              hotpot-nvim = pkgs.vimUtils.buildVimPlugin {
+            vimPlugins = prev.vimPlugins // {
+              hotpot-nvim = prev.vimUtils.buildVimPlugin {
                 name = "hotpot.nvim";
-                src = pkgs.fetchFromGitHub {
+                src = prev.fetchFromGitHub {
                   inherit (hotpotLock) owner repo rev;
                   sha256 = hotpotLock.narHash;
                 };
               };
-            } // pkgs.vimPlugins;
+            };
           };
         overlays = [
           neovim-nightly-overlay.overlay
