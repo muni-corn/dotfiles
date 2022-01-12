@@ -17,6 +17,10 @@ let
   cursorThemeName = "Bibata-Original-Classic";
 in
 {
+  imports = [
+    ./muse-status.nix
+  ];
+
   nixpkgs = {
     inherit overlays;
     config.allowUnfree = true;
@@ -117,6 +121,7 @@ in
       helm
       linuxsampler
       musescore
+      pamixer # for muse-status, at least
       qsampler
       zyn-fusion
 

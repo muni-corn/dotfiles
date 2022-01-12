@@ -18,20 +18,6 @@
           WantedBy = [ "default.target" ];
         };
       };
-
-      muse-status-daemon = {
-        Unit = {
-          Description = "muse-status daemon";
-        };
-
-        Service = {
-          ExecStart = "${pkgs.muse-status}/bin/muse-status-daemon";
-        };
-
-        Install = {
-          WantedBy = [ "graphical-session.target" ];
-        };
-      };
     };
   };
 }
