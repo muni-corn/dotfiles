@@ -162,7 +162,9 @@ in
       libnotify
       nerdfonts
       nixpkgs-fmt
+      openvpn
       qrencode
+      rsync
       xorg.xcursorgen
     ];
 
