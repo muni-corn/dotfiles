@@ -121,7 +121,6 @@
                :Warning]
            :B [:ModeMsg
                :DiffAdd
-               :diffAdded
                :MoreMsg
                :String
                :TabLineSel
@@ -140,7 +139,6 @@
       bgs {:NONE [:DiffAdd
                   :DiffChange
                   :DiffDelete
-                  :diffRemoved
                   :DiffText
                   :Error
                   :FoldColumn

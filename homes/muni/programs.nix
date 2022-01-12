@@ -71,10 +71,10 @@
       color = {
         ui = "auto";
         diff = {
-          old = 196;
-          new = 48;
-          oldMoved = 201;
-          newMoved = 226;
+          old = 1;
+          new = 2;
+          oldMoved = 5;
+          newMoved = 6;
         };
       };
       core.autocrlf = "input";
