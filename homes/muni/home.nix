@@ -86,6 +86,7 @@ in
       pinentry
       pinentry-curses
       playerctl
+      pv
       ranger
       ripgrep
       sd
