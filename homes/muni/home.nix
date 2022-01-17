@@ -1,4 +1,4 @@
-{ overlays }:
+{ overlays ? [ ] }:
 { config, lib, pkgs, ... }:
 
 let
