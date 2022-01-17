@@ -16,6 +16,7 @@ augroup auto_commands
     autocmd CursorHold * lua vim.diagnostic.open_float()
     autocmd CursorHold,InsertLeave * nested call AutoSave()
     autocmd FileType markdown,pandoc call SetupMarkdown()
+    autocmd FileType nix setlocal shiftwidth=2 tabstop=2
 augroup END
 
 fu! MarkdownFoldText()
