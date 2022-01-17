@@ -20,19 +20,19 @@
                       ; light 3
                       :7 :21
                       ; red
-                      :8 :1
+                      :8 :9
                       ; orange
                       :9 :16
                       ; yellow
-                      :A :3
+                      :A :11
                       ; green
-                      :B :2
+                      :B :10
                       ; cyan
-                      :C :6
+                      :C :14
                       ; blue
-                      :D :4
+                      :D :12
                       ; purple
-                      :E :5
+                      :E :13
                       ; brown
                       :F :17}
       base-to-cterm (fn [base]
