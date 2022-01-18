@@ -34,11 +34,12 @@
   outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay, hotpot-nvim, iosevka-muse, muse-status, muse-sounds }: {
     homeConfigurations =
       let
-        vimPluginOverlay = final: prev: 
+        vimPluginOverlay = final: prev:
           let
             lock = builtins.fromJSON (builtins.readFile ./flake.lock);
             hotpotLock = lock.nodes.hotpot-nvim.locked;
-          in {
+          in
+          {
             vimPlugins = prev.vimPlugins // {
               hotpot-nvim = prev.vimUtils.buildVimPlugin {
                 name = "hotpot.nvim";

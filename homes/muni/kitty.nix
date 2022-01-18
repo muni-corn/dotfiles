@@ -18,8 +18,8 @@ in
     bold_italic_font = "${fontName} Bold Italic";
 
     # colors (using base16)
-    foreground  = "#${colors.swatch.foreground}";
-    background  = "#${colors.swatch.background}";
+    foreground = "#${colors.swatch.foreground}";
+    background = "#${colors.swatch.background}";
 
     selection_background = "#${colors.base05}";
     selection_foreground = "#${colors.base00}";
