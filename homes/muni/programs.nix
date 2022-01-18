@@ -37,20 +37,19 @@
       btrfs-csum-errors = "sudo dmesg | grep 'checksum error at' | cut -d\  -f27- | sed 's/.\$//' | sort | uniq";
       btrfs-du = "sudo btrfs fi du --si $argv | tee du_full.txt | cut -b 11- | sort -h | tee du_sorted.txt | tail -n3000 | tee du.txt";
       notebook = "git --git-dir=$HOME/.notebook.git/ --work-tree=$HOME/notebook";
-
+      scanqr = ''geo=(slurp) grim -g "$geo" - | zbarimg --quiet --raw PNG:- 2> /dev/null | tr -d "\n"'';
+      todo = "nvim $HOME/notebook/todo.norg";
+      yt = "ytfzf --thumb-viewer=chafa -t --detach";
+    };
+    shellAbbrs = {
       g = "git";
       h = "himalaya";
       n = "nvim";
       q = "exit";
       r = "ranger";
       s = "sway";
-
       nb = "notebook";
       hm = "home-manager";
-      yt = "ytfzf --thumb-disp-method=chafa -t --detach";
-
-      todo = "nvim $HOME/notebook/todo.md";
-      scanqr = ''geo=(slurp) grim -g "$geo" - | zbarimg --quiet --raw PNG:- 2> /dev/null | tr -d "\n"'';
     };
     shellInit = ''
       ${builtins.readFile ./fish/colors.fish}
