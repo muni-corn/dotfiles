@@ -85,6 +85,7 @@
       init.defaultBranch = "main";
       lfs.enable = true;
       merge = {
+        conflictStyle = "diff3";
         guitool = "meld";
         renamelimit = 2016;
         tool = "vimdiff";
