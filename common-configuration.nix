@@ -11,6 +11,7 @@
   ];
 
   boot = {
+    kernel.sysctl = { "fs.inotify.max_user_watches" = 524288; };
     kernelParams = [ "quiet" "fbcon=nodefer" ];
     loader = {
       efi = {
