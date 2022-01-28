@@ -51,7 +51,7 @@
             };
           };
         overlays = [
-          # neovim-nightly-overlay.overlay
+          neovim-nightly-overlay.overlay
           iosevka-muse.overlay
           muse-sounds.overlay
           muse-status.overlay
