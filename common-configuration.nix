@@ -114,6 +114,8 @@
       enable = true;
       driSupport = true;
     };
+
+    xpadneo.enable = true;
   };
 
   location.provider = "geoclue2";
