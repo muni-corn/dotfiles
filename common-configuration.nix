@@ -109,7 +109,7 @@
     # Ledger
     ledger.enable = true;
 
-    # OpenGL, for sway
+    # enable driSupport for sway
     opengl = {
       enable = true;
       driSupport = true;
@@ -171,7 +171,21 @@
   programs = {
     adb.enable = true;
     git.enable = true;
-    sway.enable = true;
+    sway = {
+      enable = true;
+      extraPackages = builtins.attrValues {
+        inherit (pkgs)
+          grim
+          kitty
+          slurp
+          swaybg
+          swayidle
+          swaylock
+          wf-recorder
+          wl-clipboard
+          wob;
+      };
+    };
   };
 
   # for pipewire. optional, but recommended
