@@ -152,9 +152,6 @@
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
-
-    allowedUsers = [ "municorn" ];
-    autoOptimiseStore = true;
     gc = {
       automatic = true;
       dates = "weekly";
@@ -164,6 +161,10 @@
     optimise = {
       automatic = true;
       dates = [ "weekly" ];
+    };
+    settings = {
+      auto-optimise-store = true;
+      allowed-users = [ "municorn" ];
     };
   };
 
