@@ -115,11 +115,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1642882610,
-        "narHash": "sha256-pmdgeJ9v6y+T0UfNQ/Z+Hdv5tPshFFra5JLF/byUA/Y=",
+        "lastModified": 1643579427,
+        "narHash": "sha256-tV4M4+Aqd/3ZjEz1Q07j89KIlkt1oFH34RzpBkUeO/0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c47c350f6518ed39c2a16e4fadf9137b6c559ddc",
+        "rev": "a52aed72c84a2a10102a92397339fa01fc0fe9cf",
         "type": "github"
       },
       "original": {
@@ -192,11 +192,11 @@
         "nixpkgs": "nixpkgs_4"
       },
       "locked": {
-        "lastModified": 1640575156,
-        "narHash": "sha256-63qXCRmwZ10ej29Hb9bruBHGkWNUV1Dq9+k+aW7RiyE=",
+        "lastModified": 1643693704,
+        "narHash": "sha256-IYxapOJ+BcpjRSu5NITGhHf/60u+GCFyj0hi2PQQTs8=",
         "ref": "master",
-        "rev": "e0dd880be7f2f9f5d5c744221baa7f3d03822622",
-        "revCount": 126,
+        "rev": "a34e997324fa740486babf94e72f7766a688f353",
+        "revCount": 127,
         "type": "git",
         "url": "https://codeberg.org/municorn/muse-status"
       },
@@ -233,11 +233,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1642963350,
-        "narHash": "sha256-5d5EwdFSy5WAmOTmfxG8q+xwHiWF58xNHybrAMhtSCA=",
+        "lastModified": 1643767869,
+        "narHash": "sha256-Oyno3HHIKfOdb6Ij6lRxOBp0urPhXBskh/I5l5O5GSM=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "7e2ce35e3b7f8be5e8d01b44c2fdba0b4e23fbd4",
+        "rev": "2559359035b7b0dd6f94fef9573e8133176c1553",
         "type": "github"
       },
       "original": {
@@ -256,11 +256,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1643012019,
-        "narHash": "sha256-7arvi0p2nTmNeJkr2zt/yBldX1WfhaEVhlvAJRn7wbg=",
+        "lastModified": 1643789594,
+        "narHash": "sha256-mxEkC78afrg1KtRhlpdJ5mPLRFFCC+1LcSGpwUYgEBA=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "5c93825dc18a5cfca177bf25dacf2d552d0e88db",
+        "rev": "d60554a6e96d9ba2da46cd91a4e67c06912f8da4",
         "type": "github"
       },
       "original": {
@@ -327,11 +327,11 @@
     },
     "nixpkgs_5": {
       "locked": {
-        "lastModified": 1642903813,
-        "narHash": "sha256-0lNfGW8sNfyTrixoQhVG00Drl/ECaf5GbfKAQ1ZDoyE=",
+        "lastModified": 1643524588,
+        "narHash": "sha256-Qh5AazxdOQRORbGkkvpKoovDl6ej/4PhDabFsqnueqw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "689b76bcf36055afdeb2e9852f5ecdd2bf483f87",
+        "rev": "efeefb2af1469a5d1f0ae7ca8f0dfd9bb87d5cfb",
         "type": "github"
       },
       "original": {
