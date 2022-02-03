@@ -67,6 +67,7 @@ in
       polkit_gnome
 
       # terminal/cli stuff
+      bpytop
       cava
       chafa
       fd
@@ -86,6 +87,7 @@ in
       ripgrep
       sd
       spotify-tui
+      unar
       ytfzf
       zip
 
@@ -101,6 +103,8 @@ in
       meld
       nodejs
       nodePackages.npm
+      nodePackages.typescript
+      nodePackages.typescript-language-server
       python3
       rustup
       rust-analyzer
@@ -108,6 +112,7 @@ in
 
       # audio, sound, and music
       ardour
+      audacity
       calf
       helm
       linuxsampler
@@ -148,7 +153,12 @@ in
       vitetris
       gnome.aisleriot
 
+      # wine
+      wine
+
       # other things
+      ffmpeg
+      fnlfmt
       imagemagick
       libnotify
       nerdfonts
@@ -156,7 +166,9 @@ in
       openvpn
       qrencode
       rsync
+      tldr
       xorg.xcursorgen
+      youtube-dl
     ];
 
     extraOutputsToInstall = [ "doc" "info" "devdoc" ];
