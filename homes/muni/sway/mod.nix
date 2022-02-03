@@ -39,6 +39,8 @@ let
 in
 {
   enable = true;
+  package = null;
+
   config = {
     bars = [{
       fonts = font;

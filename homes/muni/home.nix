@@ -63,17 +63,8 @@ in
       bemenu
       eww-wayland
       glib # for gtk theming
-      grim
       ksshaskpass
       polkit_gnome
-      slurp
-      swaybg
-      swayidle
-      swaylock
-      wf-recorder
-      wl-clipboard
-      wob
-      wpgtk
 
       # terminal/cli stuff
       cava
