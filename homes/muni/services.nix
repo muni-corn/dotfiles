@@ -5,11 +5,9 @@
 
   gammastep = {
     enable = true;
-    dawnTime = "6:30-7:00";
-    duskTime = "20:30-21:00";
-    temperature = {
-      night = 1500;
-    };
+    provider = "geoclue2";
+    temperature.night = 1500;
+
     settings = {
       general = {
         adjustment-method = "wayland";
