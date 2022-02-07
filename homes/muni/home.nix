@@ -168,7 +168,7 @@ in
       rsync
       tldr
       xorg.xcursorgen
-      youtube-dl
+      yt-dlp
     ];
 
     extraOutputsToInstall = [ "doc" "info" "devdoc" ];
