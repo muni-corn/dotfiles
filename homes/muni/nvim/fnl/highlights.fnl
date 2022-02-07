@@ -59,19 +59,19 @@
                  (each [_ dest (ipairs dests)]
                    (link src dest))) ;; foregrounds {{{
       fgs {:0 [:Cursor
-               :PmenuSbar
-               :CustomAquaPillInside
-               :CustomBluePillInside
-               :CustomFuchsiaPillInside
-               :CustomLimePillInside
-               :CustomRedPillInside
-               :CustomYellowPillInside]
+               :PmenuSbar]
            :1 [:IncSearch
                :PMenuSel
                :Substitute
+               :CustomAquaPillOutside
+               :CustomBluePillOutside
+               :CustomFuchsiaPillOutside
                :CustomGrayPillOutside
                :CustomGrayGreenFgPillOutside
                :CustomGrayRedFgPillOutside
+               :CustomLimePillOutside
+               :CustomRedPillOutside
+               :CustomYellowPillOutside
                :IndentBlanklineChar
                :IndentBlanklineSpaceChar
                :IndentBlanklineSpaceCharBlankline
@@ -105,9 +105,9 @@
                :WildMenu
                :CustomClosePillInside
                :CustomGrayRedFgPillInside
-               :CustomRedPillOutside]
+               :CustomRedPillInside]
            :9 [:Boolean :Constant :DiffChange :Float :Number]
-           :A [:CustomYellowPillOutside
+           :A [:CustomYellowPillInside
                :DiffText
                :Label
                :PreProc
@@ -124,16 +124,16 @@
                :MoreMsg
                :String
                :TabLineSel
-               :CustomLimePillOutside
+               :CustomLimePillInside
                :CustomGrayGreenFgPillInside]
-           :C [:FoldColumn :Info :Special :CustomAquaPillOutside]
+           :C [:FoldColumn :Info :Special :CustomAquaPillInside]
            :D [:Directory
                :Function
                :Include
                :Question
                :Title
-               :CustomBluePillOutside]
-           :E [:Define :Keyword :Structure :CustomFuchsiaPillOutside :SpellCap]
+               :CustomBluePillInside]
+           :E [:Define :Keyword :Structure :CustomFuchsiaPillInside :SpellCap]
            :F [:Conditional :Delimiter :SpecialChar]} ;; }}}
       ;; backgrounds {{{
       bgs {:NONE [:DiffAdd
@@ -158,6 +158,12 @@
                :CustomGrayGreenFgPillInside
                :CustomGrayPillInside
                :CustomGrayRedFgPillInside
+               :CustomAquaPillInside
+               :CustomBluePillInside
+               :CustomFuchsiaPillInside
+               :CustomLimePillInside
+               :CustomRedPillInside
+               :CustomYellowPillInside
                :Folded
                :MatchParen
                :PMenu
@@ -167,12 +173,7 @@
                :Todo]
            :2 [:IncSearch :Visual]
            :5 [:Cursor :PMenuThumb :PMenuSel]
-           :8 [:CustomRedPillInside]
-           :A [:CustomYellowPillInside :Substitute :Search]
-           :B [:CustomLimePillInside]
-           :C [:CustomAquaPillInside]
-           :D [:CustomBluePillInside]
-           :E [:CustomFuchsiaPillInside]} ;; }}}
+           :A [:Substitute :Search]} ;; }}}
       ;; styles {{{
       styles {:NONE [:ColorColumn
                      :CursorColumn
