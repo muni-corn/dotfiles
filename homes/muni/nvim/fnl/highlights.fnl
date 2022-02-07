@@ -63,15 +63,7 @@
            :1 [:IncSearch
                :PMenuSel
                :Substitute
-               :CustomAquaPillOutside
-               :CustomBluePillOutside
-               :CustomFuchsiaPillOutside
-               :CustomGrayPillOutside
-               :CustomGrayGreenFgPillOutside
-               :CustomGrayRedFgPillOutside
-               :CustomLimePillOutside
-               :CustomRedPillOutside
-               :CustomYellowPillOutside
+               :CustomPillOutside
                :IndentBlanklineChar
                :IndentBlanklineSpaceChar
                :IndentBlanklineSpaceCharBlankline

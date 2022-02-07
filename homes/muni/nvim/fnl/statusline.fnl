@@ -24,7 +24,7 @@
       pill (fn [content hl-color]
              ;; if no content, no pill
              (if (= (length content) 0) ""
-                 (let [outside-hl (string.format "%%#Custom%sPillOutside#"
+                 (let [outside-hl (string.format "%%#CustomPillOutside#"
                                                  hl-color)
                        inside-hl (string.format "%%#Custom%sPillInside#"
                                                 hl-color)]

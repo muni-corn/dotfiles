@@ -55,10 +55,10 @@ fu! TabLine()
 
         " opening pill end
         if tabnr == tabpagenr()
-            let l:s .= "%#CustomAquaPillOutside#"
+            let l:s .= "%#CustomPillOutside#"
             let l:s .= "%#CustomAquaPillInside#"
         else
-            let l:s .= "%#CustomGrayPillOutside#"
+            let l:s .= "%#CustomPillOutside#"
             let l:s .= "%#CustomGrayPillInside#"
         endif
 
@@ -73,9 +73,9 @@ fu! TabLine()
 
         " closing pill end
         if tabnr == tabpagenr()
-            let l:s .= "%#CustomAquaPillOutside#"
+            let l:s .= "%#CustomPillOutside#"
         else
-            let l:s .= "%#CustomGrayPillOutside#"
+            let l:s .= "%#CustomPillOutside#"
         endif
     endfor
 
@@ -84,10 +84,10 @@ fu! TabLine()
 
     " right-align the 'X' button
     if tabpagenr('$') > 1
-        let l:s .= "%=%#CustomGrayPillOutside#"
+        let l:s .= "%=%#CustomPillOutside#"
         let l:s .= "%#CustomClosePillInside#"
         let l:s .= '%999XX'
-        let l:s .= "%#CustomGrayPillOutside# "
+        let l:s .= "%#CustomPillOutside# "
     endif
 
     return s
