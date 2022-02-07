@@ -64,12 +64,12 @@
                        (.. paste-str mode)))
       right-pills (fn []
                     (let [pills [(modification-pill)
-                                 (pill percent-scroll :Blue)
-                                 (pill line-column :Aqua)
-                                 (pill (file-type) :Lime)
-                                 (pill (git-branch) :Yellow)
-                                 (pill file-path :Red)
-                                 (pill (current-mode) :Fuchsia)]]
+                                 (pill percent-scroll :Fuchsia)
+                                 (pill line-column :Blue)
+                                 (pill (file-type) :Aqua)
+                                 (pill (git-branch) :Lime)
+                                 (pill file-path :Yellow)
+                                 (pill (current-mode) :Red)]]
                       (icollect [_ p (ipairs pills)]
                         (when (> (length p) 0)
                           p))))
