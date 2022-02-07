@@ -29,10 +29,8 @@
                                   :cd [":cd %:p:h<cr>:pwd<cr>"
                                        "change directory to file"]
                                   :d {:name "diff ..."
-                                      :g [:<cmd>diffget<cr> :get]
                                       :o ["<cmd>diffoff<cr>:set noscrollbind<cr>:set nocursorbind<cr>"
                                           :off]
-                                      :p [:<cmd>diffput<cr> :put]
                                       :t [:<cmd>diffthis<cr> :on]}
                                   :e [:<cmd>NvimTreeFocus<cr> "explore files"]
                                   :f {:name "find ..."
