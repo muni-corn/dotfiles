@@ -1,4 +1,4 @@
-{ config, lib, pkgs, colors, bemenuArgs, ... }:
+{ config, lib, pkgs, bemenuArgs, colors, lockCmd, ... }:
 
 let
   sup = "Mod4";
@@ -24,11 +24,6 @@ let
   # other colors
   accent = "#${colors.swatch.accent}e5";
   warning = "#${colors.swatch.warning}e5";
-
-  lockCmd = "$HOME/.config/sway/scripts/lock.fish --bg-color ${colors.swatch.background} --fg-color ${colors.swatch.foreground} --primary-color ${colors.swatch.accent} --warning-color ${colors.swatch.warning} --error-color ${colors.swatch.alert}";
-
-  dpmsOff = "swaymsg 'output * dpms off'";
-  dpmsOn = "swaymsg 'output * dpms on'";
 
   scriptsDir = builtins.path { name = "sway-scripts"; path = ./scripts; };
 
@@ -147,13 +142,9 @@ in
 
     # startup apps
     startup =
-      let
-        lockWarningCmd = "notify-send -u low -t 29500 -- 'Are you still there?' 'Your system will lock itself soon.'";
-      in
       [
         # startup other things
         { command = ''brillo -I''; }
-        { command = ''swayidle -w timeout 570 "${lockWarningCmd}" timeout 600 "${lockCmd}" timeout 630 "${dpmsOff}" resume "${dpmsOn}" before-sleep "${lockCmd}"''; }
         { command = ''xhost si:localuser:root''; }
         { command = ''xrdb -load ~/.Xresources''; }
 

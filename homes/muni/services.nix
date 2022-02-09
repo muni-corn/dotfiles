@@ -1,4 +1,4 @@
-{ lib, pkgs, bemenuArgs, colors }:
+{ lib, pkgs, bemenuArgs, colors, lockCmd }:
 
 {
   dunst = import ./dunst.nix { inherit lib pkgs bemenuArgs colors; };
@@ -19,6 +19,25 @@
   muse-status.enable = true;
 
   spotifyd = import ./spotifyd/mod.nix { inherit pkgs; };
+
+  swayidle = {
+    enable = true;
+
+    events = [
+      { event = "after-resume"; command = lockCmd; }
+    ];
+    timeouts =
+      let
+        lockWarningCmd = ''"notify-send -u low -t 29500 -- 'Are you still there?' 'Your system will lock itself soon.'"'';
+        dpmsOff = ''"swaymsg 'output * dpms off'"'';
+        dpmsOn = ''"swaymsg 'output * dpms on'"'';
+      in
+      [
+        { timeout = 570; command = lockWarningCmd; }
+        { timeout = 600; command = lockCmd; }
+        { timeout = 630; command = dpmsOff; resumeCommand = dpmsOn; }
+      ];
+  };
 
   syncthing.enable = true;
 }

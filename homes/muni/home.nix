@@ -11,6 +11,7 @@ let
   white = "#${colors.swatch.foreground}";
   accent = "#${colors.swatch.accent}e5";
   bemenuArgs = [ "-H" "32" "--fn" fontText "--tb" "'${black}'" "--tf" "'${accent}'" "--fb" "'${black}'" "--ff" "'${white}'" "--nb" "'${black}'" "--nf" "'${accent}'" "--hb" "'${accent}'" "--hf" "'${black}'" "--sb" "'${accent}'" "--sf" "'${white}'" "--scrollbar" "autohide" "-f" "-m" "all" ];
+  lockCmd = ''"$HOME/.config/sway/scripts/lock.fish --bg-color ${colors.swatch.background} --fg-color ${colors.swatch.foreground} --primary-color ${colors.swatch.accent} --warning-color ${colors.swatch.warning} --error-color ${colors.swatch.alert}"'';
 
   gtkThemeName = "Orchis-dark";
   gtkIconThemeName = "Papirus-Dark";
@@ -262,11 +263,11 @@ in
     };
   };
 
-  services = import ./services.nix { inherit lib pkgs bemenuArgs colors; };
+  services = import ./services.nix { inherit lib pkgs bemenuArgs colors lockCmd; };
 
   systemd = import ./systemd.nix { inherit config pkgs; };
 
-  wayland.windowManager.sway = import ./sway/mod.nix { inherit config lib pkgs colors bemenuArgs; };
+  wayland.windowManager.sway = import ./sway/mod.nix { inherit config lib pkgs colors bemenuArgs lockCmd; };
 
   xdg = {
     enable = true;
