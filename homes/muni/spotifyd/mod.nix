@@ -11,11 +11,11 @@ in
   };
   settings = {
     global = {
-      username = username;
+      inherit username;
       password_cmd = "${pkgs.pass}/bin/pass spotify";
       device_name = deviceName;
       device_type = "computer";
-      use_keyring = true;
+      use_keyring = false;
       use_mpris = true;
       backend = "pulseaudio";
     };
