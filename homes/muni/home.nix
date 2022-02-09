@@ -120,6 +120,8 @@ in
       musescore
       pamixer # for muse-status, at least
       qsampler
+      x42-gmsynth
+      x42-plugins
       zyn-fusion
 
       # video
