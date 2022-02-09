@@ -59,119 +59,129 @@ in
       };
     };
 
-    packages = with pkgs; [
-      # desktop environment
-      bemenu
-      eww-wayland
-      glib # for gtk theming
-      ksshaskpass
-      polkit_gnome
+    packages = builtins.attrValues
+      {
+        inherit (pkgs)
 
-      # terminal/cli stuff
-      bpytop
-      cava
-      chafa
-      fd
-      fish
-      glances
-      gnupg
-      jdupes
-      jq
-      libqalculate
-      neovim-remote
-      notify-desktop
-      pinentry
-      pinentry-curses
-      playerctl
-      pv
-      ranger
-      ripgrep
-      sd
-      spotify-tui
-      unar
-      ytfzf
-      zip
+          # desktop environment
+          bemenu
+          eww-wayland
+          glib# for gtk theming
+          ksshaskpass
+          polkit_gnome
 
-      # fish plugins
-      fishPlugins.done
-      fishPlugins.foreign-env
+          # terminal/cli stuff
+          bpytop
+          cava
+          chafa
+          fd
+          fish
+          glances
+          gnupg
+          jdupes
+          jq
+          libqalculate
+          neovim-remote
+          notify-desktop
+          pinentry
+          pinentry-curses
+          playerctl
+          pv
+          ranger
+          ripgrep
+          sd
+          spotify-tui
+          unar
+          ytfzf
+          zip
 
-      # development/programming
-      docker-compose
-      gcc
-      git-crypt
-      lld
-      meld
-      nodejs
-      nodePackages.npm
-      nodePackages.typescript
-      nodePackages.typescript-language-server
-      python3
-      rustup
-      rust-analyzer
-      tree-sitter
+          # development/programming
+          docker-compose
+          gcc
+          git-crypt
+          lld
+          meld
+          nodejs
+          python3
+          rustup
+          rust-analyzer
+          tree-sitter
 
-      # audio, sound, and music
-      ardour
-      audacity
-      calf
-      helm
-      linuxsampler
-      musescore
-      pamixer # for muse-status, at least
-      qsampler
-      x42-gmsynth
-      x42-plugins
-      zyn-fusion
+          # audio, sound, and music
+          ardour
+          audacity
+          calf
+          helm
+          linuxsampler
+          musescore
+          pamixer# for muse-status, at least
+          qsampler
+          x42-gmsynth
+          x42-plugins
+          zyn-fusion
 
-      # video
-      blender
+          # video
+          blender
 
-      # writing
-      pandoc
+          # writing
+          pandoc
 
-      # email
-      hydroxide
+          # email
+          hydroxide
 
-      # apps
-      android-file-transfer
-      awf
-      element-desktop
-      gimp
-      inkscape
-      imv
-      keepassxc
-      kodi
-      ledger-live-desktop
-      libreoffice-fresh
-      lutris
-      pavucontrol
-      signal-desktop
-      slack
-      spotify
-      torbrowser
-      xournalpp
+          # apps
+          android-file-transfer
+          awf
+          element-desktop
+          gimp
+          inkscape
+          imv
+          keepassxc
+          kodi
+          ledger-live-desktop
+          libreoffice-fresh
+          lutris
+          pavucontrol
+          signal-desktop
+          slack
+          spotify
+          torbrowser
+          xournalpp
+
+          # wine
+          wine
+
+          # other things
+          ffmpeg
+          fnlfmt
+          imagemagick
+          libnotify
+          nerdfonts
+          nixpkgs-fmt
+          openvpn
+          qrencode
+          rsync
+          tldr
+          yt-dlp;
+
+        # fish plugins
+        inherit (pkgs.fishPlugins)
+          done
+          foreign-env;
+
+        # (global) npm packages
+        inherit (pkgs.nodePackages)
+          npm
+          typescript
+          typescript-language-server;
+
+      } ++ [
+      # other + xorg
+      pkgs.xorg.xcursorgen
 
       # games
-      vitetris
-      gnome.aisleriot
-
-      # wine
-      wine
-
-      # other things
-      ffmpeg
-      fnlfmt
-      imagemagick
-      libnotify
-      nerdfonts
-      nixpkgs-fmt
-      openvpn
-      qrencode
-      rsync
-      tldr
-      xorg.xcursorgen
-      yt-dlp
+      pkgs.vitetris
+      pkgs.gnome.aisleriot
     ];
 
     extraOutputsToInstall = [ "doc" "info" "devdoc" ];

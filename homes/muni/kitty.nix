@@ -6,7 +6,7 @@ in
 {
   enable = true;
 
-  font = with pkgs; {
+  font = {
     package = pkgs.iosevka-muse.normal;
     name = fontName;
     size = 12;
