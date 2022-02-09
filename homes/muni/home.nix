@@ -188,8 +188,7 @@ in
       BEMENU_BACKEND = "wayland";
       BROWSER = "firefox";
       EDITOR = "nvim";
-      EIX_LIMIT = 0;
-      FZF_DEFAULT_COMMAND = ''ag --hidden --ignore .git --ignore node_modules -g ""'';
+      # FZF_DEFAULT_COMMAND = ''ag --hidden --ignore .git --ignore node_modules -g ""'';
       GPG_TTY = "$(tty)";
       GTK_THEME = gtkThemeName;
       LEDGER_FILE = "$HOME/notebook/ledger/main.sfox";
@@ -197,8 +196,6 @@ in
       MOZ_DBUS_REMOTE = 1;
       SUDO_ASKPASS = "ksshaskpass";
       WINEPREFIX = "$HOME/.wine/";
-      XBPS_DISTDIR = "$HOME/code/void/packages";
-      XDG_CURRENT_DESKTOP = "sway";
     };
 
     # Home Manager needs a bit of information about you and the
