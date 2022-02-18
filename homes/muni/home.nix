@@ -106,6 +106,7 @@ in
           rustup
           rust-analyzer
           tree-sitter
+          zls
 
           # audio, sound, and music
           ardour

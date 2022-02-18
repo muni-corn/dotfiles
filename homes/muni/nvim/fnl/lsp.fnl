@@ -67,4 +67,5 @@
   (lspconfig.vuels.setup {})
   (lspconfig.tsserver.setup {})
   (lspconfig.intelephense.setup {})
+  (lspconfig.zls.setup {})
   (lspconfig.html.setup {: capabilities}))
