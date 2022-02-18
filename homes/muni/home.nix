@@ -120,8 +120,9 @@ in
           x42-plugins
           zyn-fusion
 
-          # video
+          # photo and video
           blender
+          rawtherapee
 
           # writing
           pandoc
