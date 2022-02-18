@@ -39,7 +39,7 @@
       notebook = "git --git-dir=$HOME/.notebook.git/ --work-tree=$HOME/notebook";
       scanqr = ''geo=(slurp) grim -g "$geo" - | zbarimg --quiet --raw PNG:- 2> /dev/null | tr -d "\n"'';
       todo = "nvim $HOME/notebook/todo.norg";
-      yt = "ytfzf --thumb-viewer=chafa -t --detach";
+      yt = "ytfzf --thumb-viewer=imv -t";
     };
     shellAbbrs = {
       g = "git";
