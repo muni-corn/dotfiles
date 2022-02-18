@@ -112,25 +112,24 @@
     enable = true;
     settings =
       let
-        inherit (config.lib.htop) text bar leftMeters rightMeters;
+        inherit (config.lib.htop) fields text bar leftMeters rightMeters;
       in
       {
-        fields = builtins.attrValues
-          {
-            inherit (config.lib.htop.fields)
-              PID
-              USER
-              PRIORITY
-              NICE
-              M_SIZE
-              M_RESIDENT
-              M_SHARE
-              STATE
-              PERCENT_CPU
-              PERCENT_MEM
-              TIME
-              COMM;
-          };
+        fields = with fields;
+          [
+            PID
+            USER
+            PRIORITY
+            NICE
+            M_SIZE
+            M_RESIDENT
+            M_SHARE
+            STATE
+            PERCENT_CPU
+            PERCENT_MEM
+            TIME
+            COMM
+          ];
         hide_kernel_threads = 1;
         hide_userland_threads = 0;
         shadow_other_users = 0;
