@@ -170,6 +170,21 @@
     };
   };
 
+  nixpkgs.config = {
+    # allow some unfree packages to be installed
+    allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+      "slack"
+      "spotify"
+      "spotify-unwrapped"
+      "steam"
+      "steam-original"
+      "steam-runtime"
+
+      "linuxsampler"
+      "mpv-youtube-quality"
+    ];
+  };
+
   programs = {
     adb.enable = true;
     git.enable = true;

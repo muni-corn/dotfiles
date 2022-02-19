@@ -17,13 +17,6 @@
     hostName = "littlepony";
   };
 
-  # allow steam to be installed (it's unfree)
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "steam"
-    "steam-original"
-    "steam-runtime"
-  ];
-
   programs.steam.enable = true;
 
   systemd = {
