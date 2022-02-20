@@ -205,8 +205,13 @@
     };
   };
 
-  # for pipewire. optional, but recommended
-  security.rtkit.enable = true;
+  security = {
+    # for pipewire. optional, but recommended
+    rtkit.enable = true;
+
+    # for secure boot (i hope)
+    tpm2.enable = true;
+  };
 
   services = {
     atd.enable = true;
