@@ -26,13 +26,15 @@
       };
     in
     {
-      nixosConfigurations.littlepony = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./laptop-configuration.nix overlaysModule ];
-      };
-      nixosConfigurations.ponytower = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-        modules = [ ./desktop-configuration.nix overlaysModule ];
+      nixosConfigurations = {
+        littlepony = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ overlaysModule ./laptop-configuration.nix ];
+        };
+        ponytower = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [ overlaysModule ./desktop-configuration.nix ];
+        };
       };
     };
 }
