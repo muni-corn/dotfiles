@@ -19,16 +19,22 @@
     };
 
     # iosevka muse
-    iosevka-muse.url =
-      "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
+    iosevka-muse = {
+      url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # muse-status
-    muse-status.url =
-      "git+https://codeberg.org/municorn/muse-status";
+    muse-status = {
+      url = "git+https://codeberg.org/municorn/muse-status";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # muse-sounds
-    muse-sounds.url =
-      "git+https://codeberg.org/municorn/muse-sounds";
+    muse-sounds = {
+      url = "git+https://codeberg.org/municorn/muse-sounds";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay, hotpot-nvim, iosevka-muse, muse-status, muse-sounds }: {
