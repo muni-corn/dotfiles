@@ -178,14 +178,13 @@ in
           typescript
           typescript-language-server;
 
-      } ++ [
-      # other + xorg
-      pkgs.xorg.xcursorgen
+        # xorg
+        inherit (pkgs.xorg) xcursorgen;
 
-      # games
-      pkgs.vitetris
-      pkgs.gnome.aisleriot
-    ];
+        # games
+        inherit (pkgs) vitetris;
+        inherit (pkgs.gnome) aisleriot;
+      };
 
     extraOutputsToInstall = [ "doc" "info" "devdoc" ];
 
