@@ -164,7 +164,8 @@ in
           qrencode
           rsync
           tldr
-          yt-dlp;
+          yt-dlp
+          zbar;
 
         # fish plugins
         inherit (pkgs.fishPlugins)
