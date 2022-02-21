@@ -9,8 +9,10 @@
     enable = true;
     onBoot = "ignore";
     onShutdown = "shutdown";
-    qemuOvmf = true;
-    qemuRunAsRoot = true;
+    qemu = {
+      ovmf.enable = true;
+      runAsRoot = true;
+    };
   };
 
   # Add binaries to path so that hooks can use it
@@ -41,7 +43,7 @@
   # VFIO Packages installed
   environment.systemPackages = with pkgs; [
     virt-manager
-    gnome3.dconf # needed for saving settings in virt-manager
+    dconf # needed for saving settings in virt-manager
     libguestfs # needed to virt-sparsify qcow2 files
   ];
 
