@@ -150,8 +150,11 @@ in
           torbrowser
           xournalpp
 
-          # wine
+          # emulators and "emulators"
           wine
+          desmume
+          dolphin-emu
+          yuzu-mainline
 
           # other things
           ffmpeg
