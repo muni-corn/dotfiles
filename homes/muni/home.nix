@@ -115,7 +115,9 @@ in
           helm
           linuxsampler
           musescore
-          pamixer# for muse-status, at least
+          pamixer # for muse-status, at least
+          pavucontrol
+          spotify
           qsampler
           x42-gmsynth
           x42-plugins
@@ -123,6 +125,9 @@ in
 
           # photo and video
           blender
+          gimp
+          inkscape
+          krita
           rawtherapee
 
           # writing
@@ -131,22 +136,19 @@ in
           # email
           hydroxide
 
+          # messaging
+          element-desktop
+          signal-desktop
+          slack
+
           # apps
           android-file-transfer
           awf
-          element-desktop
-          gimp
-          inkscape
           imv
           keepassxc
           kodi
           ledger-live-desktop
           libreoffice-fresh
-          lutris
-          pavucontrol
-          signal-desktop
-          slack
-          spotify
           torbrowser
           xournalpp
 
@@ -185,7 +187,7 @@ in
         inherit (pkgs.xorg) xcursorgen;
 
         # games
-        inherit (pkgs) vitetris;
+        inherit (pkgs) lutris vitetris;
         inherit (pkgs.gnome) aisleriot;
       };
 
