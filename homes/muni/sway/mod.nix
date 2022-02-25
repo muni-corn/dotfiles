@@ -143,16 +143,17 @@ in
     # startup apps
     startup =
       [
-        # startup other things
+        # load last screen brightness
         { command = ''brillo -I''; }
-        { command = ''xhost si:localuser:root''; }
-        { command = ''xrdb -load ~/.Xresources''; }
 
         # wob
         { command = "$HOME/.config/sway/scripts/start_wob.sh"; }
 
         # play startup sound
         { command = ''canberra-gtk-play --id=desktop-login''; }
+
+        # polkit
+        { command = ''${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1''; }
       ];
 
     terminal = "kitty";
