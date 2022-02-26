@@ -12,6 +12,10 @@
 
   boot = {
     kernel.sysctl = { "fs.inotify.max_user_watches" = 524288; };
+    extraModulePackages = builtins.attrValues {
+      inherit (config.boot.kernelPackages) v4l2loopback;
+    };
+    kernelModules = [ "v4l2loopback" ];
     kernelParams = [ "quiet" "fbcon=nodefer" ];
     loader = {
       efi = {
@@ -52,6 +56,7 @@
       openrgb
       pinentry
       pinentry-curses
+      v4l-utils
 
       # needed for xdg-open and such
       xdg-utils
