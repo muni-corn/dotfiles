@@ -194,6 +194,7 @@
 
   programs = {
     adb.enable = true;
+    fish.enable = true;
     git.enable = true;
     sway = {
       enable = true;
