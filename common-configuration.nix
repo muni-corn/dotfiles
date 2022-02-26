@@ -52,7 +52,6 @@
       libcanberra
       libcanberra-gtk3
       muse-sounds
-      openrazer-daemon
       openrgb
       pinentry
       pinentry-curses
