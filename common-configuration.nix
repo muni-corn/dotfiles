@@ -66,10 +66,13 @@
 
     systemPackages = with pkgs; [
       neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-      psmisc
 
       # for creating bootable usbs
       ntfs3g
+
+      # misc
+      psmisc
+      polkit_gnome
     ];
   };
 
@@ -210,6 +213,8 @@
   };
 
   security = {
+    polkit.enable = true;
+
     # for pipewire. optional, but recommended
     rtkit.enable = true;
 
