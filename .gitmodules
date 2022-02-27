@@ -1,3 +1,0 @@
-[submodule "homes/municorn"]
-	path = homes/municorn
-	url = git@codeberg.org:municorn/dotfiles
