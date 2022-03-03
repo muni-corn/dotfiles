@@ -59,137 +59,134 @@ in
       };
     };
 
-    packages = builtins.attrValues
-      {
-        inherit (pkgs)
+    packages = with pkgs;
+      [
+        # desktop environment
+        bemenu
+        eww-wayland
+        glib # for gtk theming
+        ksshaskpass
+        polkit_gnome
 
-          # desktop environment
-          bemenu
-          eww-wayland
-          glib# for gtk theming
-          ksshaskpass
-          polkit_gnome
+        # terminal/cli stuff
+        bpytop
+        cava
+        chafa
+        fd
+        fish
+        glances
+        gnupg
+        jdupes
+        jq
+        libqalculate
+        neovim-remote
+        notify-desktop
+        pinentry
+        pinentry-curses
+        playerctl
+        pv
+        ranger
+        ripgrep
+        sd
+        spotify-tui
+        unar
+        ytfzf
+        zip
 
-          # terminal/cli stuff
-          bpytop
-          cava
-          chafa
-          fd
-          fish
-          glances
-          gnupg
-          jdupes
-          jq
-          libqalculate
-          neovim-remote
-          notify-desktop
-          pinentry
-          pinentry-curses
-          playerctl
-          pv
-          ranger
-          ripgrep
-          sd
-          spotify-tui
-          unar
-          ytfzf
-          zip
+        # development/programming
+        docker-compose
+        gcc
+        git-crypt
+        lld
+        meld
+        nodejs
+        python3
+        rustup
+        rust-analyzer
+        tree-sitter
+        zls
 
-          # development/programming
-          docker-compose
-          gcc
-          git-crypt
-          lld
-          meld
-          nodejs
-          python3
-          rustup
-          rust-analyzer
-          tree-sitter
-          zls
+        # audio, sound, and music
+        ardour
+        audacity
+        calf
+        helm
+        linuxsampler
+        musescore
+        pamixer # for muse-status, at least
+        pavucontrol
+        spotify
+        qsampler
+        x42-gmsynth
+        x42-plugins
+        zyn-fusion
 
-          # audio, sound, and music
-          ardour
-          audacity
-          calf
-          helm
-          linuxsampler
-          musescore
-          pamixer # for muse-status, at least
-          pavucontrol
-          spotify
-          qsampler
-          x42-gmsynth
-          x42-plugins
-          zyn-fusion
+        # photo and video
+        blender
+        gimp
+        inkscape
+        krita
+        rawtherapee
 
-          # photo and video
-          blender
-          gimp
-          inkscape
-          krita
-          rawtherapee
+        # writing
+        pandoc
 
-          # writing
-          pandoc
+        # email
+        hydroxide
 
-          # email
-          hydroxide
+        # messaging
+        element-desktop
+        signal-desktop
+        slack
 
-          # messaging
-          element-desktop
-          signal-desktop
-          slack
+        # apps
+        android-file-transfer
+        awf
+        imv
+        keepassxc
+        kodi
+        ledger-live-desktop
+        libreoffice-fresh
+        torbrowser
+        xournalpp
 
-          # apps
-          android-file-transfer
-          awf
-          imv
-          keepassxc
-          kodi
-          ledger-live-desktop
-          libreoffice-fresh
-          torbrowser
-          xournalpp
+        # emulators and "emulators"
+        wine
+        desmume
+        dolphin-emu
+        yuzu-mainline
 
-          # emulators and "emulators"
-          wine
-          desmume
-          dolphin-emu
-          yuzu-mainline
-
-          # other things
-          ffmpeg
-          fnlfmt
-          imagemagick
-          libnotify
-          nerdfonts
-          nixpkgs-fmt
-          openvpn
-          qrencode
-          rsync
-          tldr
-          yt-dlp
-          zbar;
+        # other things
+        ffmpeg
+        fnlfmt
+        imagemagick
+        libnotify
+        nerdfonts
+        nixpkgs-fmt
+        openvpn
+        qrencode
+        rsync
+        tldr
+        yt-dlp
+        zbar
 
         # fish plugins
-        inherit (pkgs.fishPlugins)
-          done
-          foreign-env;
+        fishPlugins.done
+        fishPlugins.foreign-env
 
         # (global) npm packages
-        inherit (pkgs.nodePackages)
-          npm
-          typescript
-          typescript-language-server;
+        nodePackages.npm
+        nodePackages.typescript
+        nodePackages.typescript-language-server
 
         # xorg
-        inherit (pkgs.xorg) xcursorgen;
+        xorg.xcursorgen
 
         # games
-        inherit (pkgs) lutris vitetris;
-        inherit (pkgs.gnome) aisleriot;
-      };
+        lutris
+        vitetris
+        gnome.aisleriot
+      ];
 
     extraOutputsToInstall = [ "doc" "info" "devdoc" ];
 
