@@ -135,9 +135,11 @@ in
         hydroxide
 
         # messaging
+        discord
         element-desktop
         signal-desktop
         slack
+        teams # gross
 
         # apps
         android-file-transfer
