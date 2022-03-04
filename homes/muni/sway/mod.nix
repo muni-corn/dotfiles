@@ -106,6 +106,14 @@ in
         map_to_output = "eDP-1";
       };
 
+      "1386:855:Wacom_Intuos_Pro_M_Pen" = {
+        map_to_output = "DP-2";
+      };
+
+      "1386:855:Wacom_Intuos_Pro_M_Finger" = {
+        natural_scroll = "enabled";
+      };
+
       "*" = {
         xkb_layout = "us";
       };
