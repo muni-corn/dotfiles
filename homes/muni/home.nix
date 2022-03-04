@@ -185,9 +185,14 @@ in
         xorg.xcursorgen
 
         # games
-        lutris
-        vitetris
         gnome.aisleriot
+        libretro.desmume
+        libretro.dolphin
+        libretro.thepowdertoy
+        lutris
+        retroarchFull
+        the-powder-toy
+        vitetris
       ];
 
     extraOutputsToInstall = [ "doc" "info" "devdoc" ];
