@@ -6,4 +6,5 @@
                        :core.norg.completion {:config {:engine :nvim-cmp}}
                        :core.norg.dirman {:config {:workspaces {:notebook "~/notebook"
                                                                 :work "~/notebook/work"}}}
+                       :core.norg.esupports.metagen {:config {:type :auto}}
                        :core.keybinds {}}}))
