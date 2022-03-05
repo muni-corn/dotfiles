@@ -127,6 +127,8 @@
 
   location.provider = "geoclue2";
 
+  musnix.enable = true;
+
   networking = {
     wireless = {
       iwd.enable = true; # Enables wireless support via iwd.

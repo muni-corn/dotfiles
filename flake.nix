@@ -1,6 +1,14 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+
+    # realtime audio
+    musnix = {
+      url = "github:musnix/musnix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # my stuff
     plymouth-theme-musicaloft-rainbow = {
       url = "git+https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -15,7 +23,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, plymouth-theme-musicaloft-rainbow, iosevka-muse, muse-sounds }:
+  outputs = { self, musnix, nixpkgs, plymouth-theme-musicaloft-rainbow, iosevka-muse, muse-sounds }:
     let
       overlaysModule = { config, pkgs, ... }: {
         nixpkgs.overlays = [
@@ -24,16 +32,18 @@
           muse-sounds.overlay
         ];
       };
+
+      extraModules = [ musnix.nixosModules.musnix overlaysModule ];
     in
     {
       nixosConfigurations = {
         littlepony = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ overlaysModule ./laptop-configuration.nix ];
+          modules = extraModules ++ [ ./laptop-configuration.nix ];
         };
         ponytower = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = [ overlaysModule ./desktop-configuration.nix ];
+          modules = extraModules ++ [ ./desktop-configuration.nix ];
         };
       };
     };
