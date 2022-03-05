@@ -17,8 +17,6 @@
     hostName = "littlepony";
   };
 
-  programs.steam.enable = true;
-
   systemd = {
     services."systemd-backlight@backlight:acpi_video0".enable = false;
     targets = {

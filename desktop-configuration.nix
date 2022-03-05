@@ -18,8 +18,6 @@
     hostName = "ponytower";
   };
 
-  programs.steam.enable = true;
-
   services.fstrim.enable = true;
 
   systemd.services.openrgb = {

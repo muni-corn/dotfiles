@@ -199,6 +199,7 @@
     fish.enable = true;
     git.enable = true;
     gphoto2.enable = true;
+    steam.enable = true;
     sway = {
       enable = true;
       extraPackages = builtins.attrValues {
