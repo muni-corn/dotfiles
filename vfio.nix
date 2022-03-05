@@ -47,9 +47,9 @@
     libguestfs # needed to virt-sparsify qcow2 files
   ];
 
-   # Link hooks to the correct directory
-   system.activationScripts.libvirt-hooks.text =
-     "ln -Tfs /etc/libvirt/hooks /var/lib/libvirt/hooks";
+  # Link hooks to the correct directory
+  system.activationScripts.libvirt-hooks.text =
+    "ln -Tfs /etc/libvirt/hooks /var/lib/libvirt/hooks";
 
   environment.etc = {
     "libvirt/hooks/qemu" = {
