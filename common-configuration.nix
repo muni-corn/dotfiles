@@ -29,7 +29,6 @@
         devices = [ "nodev" ];
         efiSupport = true;
         splashMode = "normal";
-        useOSProber = true;
         version = 2;
       };
     };
