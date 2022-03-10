@@ -8,6 +8,7 @@
 {
   imports = [
     ./cachix.nix
+    ./zfs.nix
   ];
 
   boot = {
@@ -16,7 +17,7 @@
       inherit (config.boot.kernelPackages) v4l2loopback;
     };
     kernelModules = [ "v4l2loopback" ];
-    kernelParams = [ "quiet" "fbcon=nodefer" ];
+    kernelParams = [ "quiet" "fbcon=nodefer" "nohibernate" ];
     loader = {
       efi = {
         canTouchEfiVariables = true;
