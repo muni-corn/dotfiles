@@ -16,9 +16,18 @@
 
   networking = {
     hostName = "ponytower";
+    hostId = "edafa5da";
   };
 
-  services.fstrim.enable = true;
+  services = {
+    zfs = {
+      trim.enable = true;
+      autoScrub = {
+        enable = true;
+        pools = [ "rpool" ];
+      };
+    };
+  };
 
   systemd.services.openrgb = {
     enable = true;
