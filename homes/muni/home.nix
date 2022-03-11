@@ -97,6 +97,7 @@ in
         docker-compose
         gcc
         git-crypt
+        insomnia
         lld
         meld
         nodejs
