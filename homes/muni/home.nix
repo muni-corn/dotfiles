@@ -150,6 +150,7 @@ in
         kodi
         ledger-live-desktop
         libreoffice-fresh
+        obs-studio
         torbrowser
         xournalpp
 
@@ -160,7 +161,7 @@ in
         yuzu-mainline
 
         # other things
-        ffmpeg
+        ffmpeg-full
         fnlfmt
         imagemagick
         libnotify
