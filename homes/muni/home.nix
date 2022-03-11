@@ -147,6 +147,7 @@ in
         awf
         imv
         keepassxc
+        keybase-gui
         kodi
         ledger-live-desktop
         libreoffice-fresh
