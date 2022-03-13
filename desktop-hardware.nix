@@ -16,23 +16,86 @@
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/a860f02f-9688-4a20-90b5-54108d414495";
-      fsType = "btrfs";
+      device = "rpool/root";
+      fsType = "zfs";
+    };
+
+  fileSystems."/etc" =
+    {
+      device = "rpool/nixos/etc";
+      fsType = "zfs";
+    };
+
+  fileSystems."/nix" =
+    {
+      device = "rpool/nixos/nix";
+      fsType = "zfs";
+    };
+
+  fileSystems."/var" =
+    {
+      device = "rpool/nixos/var";
+      fsType = "zfs";
+    };
+
+  fileSystems."/root" =
+    {
+      device = "rpool/userdata/home/root";
+      fsType = "zfs";
+    };
+
+  fileSystems."/var/lib" =
+    {
+      device = "rpool/nixos/var/lib";
+      fsType = "zfs";
+    };
+
+  fileSystems."/var/log" =
+    {
+      device = "rpool/nixos/var/log";
+      fsType = "zfs";
+    };
+
+  fileSystems."/var/spool" =
+    {
+      device = "rpool/nixos/var/spool";
+      fsType = "zfs";
     };
 
   fileSystems."/home" =
     {
-      device = "/dev/sda3";
-      fsType = "btrfs";
+      device = "rpool/userdata/home";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home/municorn" =
+    {
+      device = "rpool/userdata/home/municorn";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home/beans" =
+    {
+      device = "rpool/userdata/home/beans";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home/docker" =
+    {
+      device = "rpool/userdata/home/docker";
+      fsType = "zfs";
     };
 
   fileSystems."/boot" =
     {
       device = "/dev/disk/by-uuid/4D8E-D4A8";
       fsType = "vfat";
+      options = [ "X-mount.mkdir" ];
     };
 
   swapDevices =
-    [{ device = "/dev/disk/by-uuid/b1a732c8-44ba-4674-b962-178ecacfe425"; }];
-
+    [{
+      device = "/dev/disk/by-partuuid/46913f12-32c6-418f-bde6-a36c488f6c89";
+      randomEncryption = true;
+    }];
 }
