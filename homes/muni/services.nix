@@ -20,7 +20,7 @@
 
   muse-status.enable = true;
 
-  spotifyd = import ./spotifyd/mod.nix { inherit pkgs; };
+  # spotifyd = import ./spotifyd/mod.nix { inherit pkgs; };
 
   swayidle = {
     enable = true;
