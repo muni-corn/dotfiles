@@ -14,6 +14,8 @@
       ./vfio.nix
     ];
 
+  boot.loader.grub.gfxmodeEfi = "1920x1080";
+
   networking = {
     hostName = "ponytower";
     hostId = "edafa5da";
