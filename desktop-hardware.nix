@@ -98,4 +98,15 @@
       device = "/dev/disk/by-partuuid/46913f12-32c6-418f-bde6-a36c488f6c89";
       randomEncryption = true;
     }];
+
+  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
+  # Per-interface useDHCP will be mandatory in the future, so this generated config
+  # replicates the default behaviour.
+  networking.useDHCP = lib.mkDefault false;
+  networking.interfaces.docker0.useDHCP = lib.mkDefault true;
+  networking.interfaces.enp34s0.useDHCP = lib.mkDefault true;
+  networking.interfaces.virbr0.useDHCP = lib.mkDefault true;
+  networking.interfaces.wlan0.useDHCP = lib.mkDefault true;
+
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
