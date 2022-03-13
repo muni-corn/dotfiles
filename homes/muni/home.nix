@@ -151,7 +151,7 @@ in
         ledger-live-desktop
         libreoffice-fresh
         obs-studio
-        torbrowser
+        tor-browser-bundle-bin
         xournalpp
 
         # emulators and "emulators"
