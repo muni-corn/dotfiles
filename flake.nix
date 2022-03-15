@@ -8,6 +8,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # extra hardware configuration
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     # my stuff
     plymouth-theme-musicaloft-rainbow = {
       url = "git+https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow?ref=main";
@@ -23,7 +26,7 @@
     };
   };
 
-  outputs = { self, musnix, nixpkgs, plymouth-theme-musicaloft-rainbow, iosevka-muse, muse-sounds }:
+  outputs = { self, nixpkgs, musnix, nixos-hardware, plymouth-theme-musicaloft-rainbow, iosevka-muse, muse-sounds }:
     let
       overlaysModule = { config, pkgs, ... }: {
         nixpkgs.overlays = [
@@ -34,16 +37,33 @@
       };
 
       extraCommonModules = [ musnix.nixosModules.musnix overlaysModule ];
+
+      littleponyHardwareModules = with nixos-hardware.nixosModules; [
+        common-cpu-amd
+        common-gpu-amd
+        common-laptop
+        common-laptop-hdd
+      ];
+
+      # note: we would include common-pc-hdd, but it only sets vm.swappiness to
+      # 10, which is overriden by common-pc-ssd, which sets vm.swappiness to 1.
+      # swap on ponytower is currently restricted to the ssd.
+      ponytowerHardwareModules = with nixos-hardware.nixosModules; [
+        common-cpu-amd
+        common-gpu-amd
+        common-pc
+        common-pc-ssd
+      ];
     in
     {
       nixosConfigurations = {
         littlepony = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = extraCommonModules ++ [ ./laptop-configuration.nix ];
+          modules = extraCommonModules ++ littleponyHardwareModules ++ [ ./laptop-configuration.nix ];
         };
         ponytower = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = extraCommonModules ++ [ ./desktop-configuration.nix ];
+          modules = extraCommonModules ++ ponytowerHardwareModules ++ [ ./desktop-configuration.nix ];
         };
       };
     };

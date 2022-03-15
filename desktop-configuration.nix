@@ -22,6 +22,9 @@
   };
 
   services = {
+    # disable fstrim (enabled by nixos-hardware/common-pc-ssd); zfs does it for us
+    fstrim.enable = false;
+
     zfs = {
       trim.enable = true;
       autoScrub = {
