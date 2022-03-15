@@ -315,7 +315,6 @@
 
   virtualisation.docker = {
     enable = true;
-    extraOptions = "--data-root /home/docker/";
     autoPrune.enable = true;
   };
 
