@@ -33,17 +33,17 @@
         ];
       };
 
-      extraModules = [ musnix.nixosModules.musnix overlaysModule ];
+      extraCommonModules = [ musnix.nixosModules.musnix overlaysModule ];
     in
     {
       nixosConfigurations = {
         littlepony = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = extraModules ++ [ ./laptop-configuration.nix ];
+          modules = extraCommonModules ++ [ ./laptop-configuration.nix ];
         };
         ponytower = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = extraModules ++ [ ./desktop-configuration.nix ];
+          modules = extraCommonModules ++ [ ./desktop-configuration.nix ];
         };
       };
     };
