@@ -41,8 +41,8 @@
       littleponyHardwareModules = with nixos-hardware.nixosModules; [
         common-cpu-amd
         common-gpu-amd
-        common-laptop
-        common-laptop-hdd
+        common-pc-laptop
+        common-pc-laptop-hdd
       ];
 
       # note: we would include common-pc-hdd, but it only sets vm.swappiness to
