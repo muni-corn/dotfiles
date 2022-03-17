@@ -8,7 +8,6 @@
 {
   imports = [
     ./cachix.nix
-    ./zfs.nix
   ];
 
   boot = {

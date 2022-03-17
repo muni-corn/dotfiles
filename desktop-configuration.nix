@@ -12,6 +12,7 @@
       ./common-configuration.nix
       ./desktop-hardware.nix
       ./vfio.nix
+      ./zfs.nix
     ];
 
   boot.loader.grub.gfxmodeEfi = "1920x1080";
