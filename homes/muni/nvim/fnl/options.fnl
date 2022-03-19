@@ -32,7 +32,7 @@
   (o :expandtab true)
   (o :fillchars "vert:│,fold:~,stl: ,stlnc: ")
   (o :foldexpr "nvim_treesitter#foldexpr()")
-  (o :foldlevelstart 3)
+  (o :foldlevelstart 5)
   (o :foldmethod :expr)
   (o :formatoptions :lt) ; ensures word-wrap does not split words
   (o :hidden true)
