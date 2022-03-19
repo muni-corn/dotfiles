@@ -195,6 +195,7 @@ in
         libretro.dolphin
         libretro.thepowdertoy
         lutris
+        polymc
         retroarchFull
         the-powder-toy
         vitetris
