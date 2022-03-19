@@ -121,6 +121,8 @@ in
         x42-gmsynth
         x42-plugins
         zyn-fusion
+        helvum
+        qpwgraph
 
         # photo and video
         blender
