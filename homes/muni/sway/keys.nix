@@ -14,16 +14,60 @@ let
   email = "evolution";
   media = "kodi --windowing=x11";
 
-  # scripts
-  screenshot = "${scriptsDir}/screenshot.fish";
-
   # sounds
-  volumeDown = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/VolumeDown.oga";
-  volumeUp = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/Volume.oga";
+  volumeDownSound = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/VolumeDown.oga";
+  volumeUpSound = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/Volume.oga";
 
   # package path convenience variables
   ms = "${pkgs.muse-status}/bin/muse-status";
   pamixer = "${pkgs.pamixer}/bin/pamixer";
+
+  # scripts
+  screenshot = "${scriptsDir}/screenshot.fish";
+
+  # volume scripts
+  volumeScript = pamixerFlag: soundPath: pkgs.writeScript "volume${pamixerFlag}" ''
+    #!${pkgs.fish}/bin/fish
+    if set -q VOLUME_CTL_DEFAULT_SINK
+      ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" ${pamixerFlag} 5
+      ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" --get-volume > $SWAYSOCK.wob &
+    else
+      ${pamixer} ${pamixerFlag} 5
+      ${pamixer} --get-volume > $SWAYSOCK.wob &
+    end
+
+     ${ms} notify volume &
+     pw-play ${soundPath} &
+
+     wait
+  '';
+  volumeUp = volumeScript "-i" volumeUpSound;
+  volumeDown = volumeScript "-d" volumeDownSound;
+  toggleMute = pkgs.writeScript "volume-down" ''
+    #!${pkgs.fish}/bin/fish
+
+    if set -q VOLUME_CTL_DEFAULT_SINK
+      ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" --toggle-mute
+      ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" --get-volume > $SWAYSOCK.wob &
+    else
+      ${pamixer} --toggle-mute
+      ${pamixer} --get-volume > $SWAYSOCK.wob &
+    end
+
+     ${ms} notify volume &
+     pw-play ${volumeUpSound} &
+
+     wait
+  '';
+
+  # brightness scripts
+  brightnessScript = brilloFlag: pkgs.writeShellScript "brightness${brilloFlag}" ''
+    brillo -q ${brilloFlag} 2
+    ${ms} notify brightness &
+    brillo -G | cut -d'.' -f1 > $SWAYSOCK.wob &
+  '';
+  brightnessUp = brightnessScript "-A";
+  brightnessDown = brightnessScript "-U";
 in
 {
   # power controls
@@ -185,11 +229,11 @@ in
   "${sup}+Shift+e" = ''exec "pw-play ${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/Goodbye.oga; swaymsg exit"'';
 
   # volume and brightness controls
-  "--locked XF86AudioLowerVolume" = ''exec "${pamixer} -d 5; ${ms} notify volume; pw-play ${volumeDown}; ${pamixer} --get-volume > $SWAYSOCK.wob"'';
-  "--locked --no-repeat XF86AudioRaiseVolume" = ''exec "${pamixer} -ui 5; ${ms} notify volume; pw-play ${volumeUp}; ${pamixer} --get-volume > $SWAYSOCK.wob"'';
-  "--locked --no-repeat XF86AudioMute" = ''exec "${pamixer} --toggle-mute; ${ms} notify volume; pw-play ${volumeUp}; ${pamixer} --get-volume > $SWAYSOCK.wob"'';
-  "XF86MonBrightnessUp" = ''exec "brillo -q -A 2; ${ms} notify brightness; brillo -G | cut -d'.' -f1 > $SWAYSOCK.wob"'';
-  "XF86MonBrightnessDown" = ''exec "brillo -q -U 2; ${ms} notify brightness; brillo -G | cut -d'.' -f1 > $SWAYSOCK.wob"'';
+  "--locked XF86AudioLowerVolume" = "exec ${volumeDown}";
+  "--locked --no-repeat XF86AudioRaiseVolume" = "exec ${volumeUp}";
+  "--locked --no-repeat XF86AudioMute" = "exec ${toggleMute}";
+  "XF86MonBrightnessUp" = "exec ${brightnessUp}";
+  "XF86MonBrightnessDown" = "exec ${brightnessDown}";
 
   # player controls
   "--locked --no-repeat XF86AudioPlay" = "exec mpc toggle || playerctl play-pause";
