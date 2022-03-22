@@ -63,15 +63,21 @@
           muse-status.overlay
           vimPluginOverlay
         ];
+
+        username = "municorn";
+        homePath = "/home/${username}";
+        homeConfiguration = deviceName: home-manager.lib.homeManagerConfiguration {
+          system = "x86_64-linux";
+          homeDirectory = homePath;
+          username = username;
+          stateVersion = "21.11";
+          extraSpecialArgs = { inherit overlays deviceName; };
+          configuration = import ./home.nix;
+        };
       in
       {
-        municorn = home-manager.lib.homeManagerConfiguration {
-          system = "x86_64-linux";
-          homeDirectory = "/home/municorn";
-          username = "municorn";
-          stateVersion = "21.11";
-          configuration = import ./home.nix { inherit overlays; };
-        };
+        ponytower = homeConfiguration "ponytower";
+        littlepony = homeConfiguration "littlepony";
       };
   };
 }

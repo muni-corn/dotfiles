@@ -1,5 +1,4 @@
-{ overlays ? [ ] }:
-{ config, lib, pkgs, ... }:
+{ config, deviceName ? null, lib, overlays ? [ ], pkgs, ... }:
 
 let
   colors = (import ./colors.nix).solarizedDark;
