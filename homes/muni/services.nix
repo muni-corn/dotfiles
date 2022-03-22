@@ -15,6 +15,13 @@
     };
   };
 
+  gpg-agent = {
+    enable = true;
+    maxCacheTtl = 86400;
+    defaultCacheTtl = 86400;
+    extraConfig = "no-allow-external-cache";
+  };
+
   kbfs.enable = true;
   keybase.enable = true;
 

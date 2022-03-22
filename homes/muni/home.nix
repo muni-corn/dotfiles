@@ -49,14 +49,6 @@ in
       ".npmrc" = {
         source = ./npmrc;
       };
-      ".gnupg/gpg-agent.conf" = {
-        text = ''
-          max-cache-ttl 86400
-          default-cache-ttl 86400
-          pinentry-program ${pkgs.pinentry}/bin/pinentry
-          no-allow-external-cache
-        '';
-      };
     };
 
     packages = with pkgs;
