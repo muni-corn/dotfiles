@@ -103,9 +103,7 @@
   # Per-interface useDHCP will be mandatory in the future, so this generated config
   # replicates the default behaviour.
   networking.useDHCP = lib.mkDefault false;
-  networking.interfaces.docker0.useDHCP = lib.mkDefault true;
   networking.interfaces.enp34s0.useDHCP = lib.mkDefault true;
-  networking.interfaces.virbr0.useDHCP = lib.mkDefault true;
   networking.interfaces.wlan0.useDHCP = lib.mkDefault true;
 
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
