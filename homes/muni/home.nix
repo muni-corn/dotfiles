@@ -277,7 +277,7 @@ in
 
   manual.html.enable = true;
 
-  programs = import ./programs.nix { inherit config lib pkgs colors bemenuArgs; };
+  programs = import ./programs.nix { inherit config deviceName lib pkgs colors bemenuArgs; };
 
   qt = {
     enable = true;
