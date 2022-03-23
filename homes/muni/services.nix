@@ -1,4 +1,4 @@
-{ lib, pkgs, bemenuArgs, colors, lockCmd }:
+{ bemenuArgs, colors, deviceName, lib, lockCmd, pkgs }:
 
 {
   dunst = import ./dunst.nix { inherit lib pkgs bemenuArgs colors; };
@@ -27,7 +27,7 @@
 
   muse-status.enable = true;
 
-  # spotifyd = import ./spotifyd/mod.nix { inherit pkgs; };
+  spotifyd = import ./spotifyd/mod.nix { inherit deviceName pkgs; };
 
   swayidle = {
     enable = true;

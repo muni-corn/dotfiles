@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ deviceName, pkgs, ... }:
 
 let
-  inherit (import ../secret/spotify-info.nix) username deviceName;
+  inherit (import ../secret/spotify-info.nix) username;
 in
 {
   enable = true;

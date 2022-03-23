@@ -288,7 +288,7 @@ in
     };
   };
 
-  services = import ./services.nix { inherit lib pkgs bemenuArgs colors lockCmd; };
+  services = import ./services.nix { inherit bemenuArgs colors deviceName lib lockCmd pkgs; };
 
   systemd = import ./systemd.nix { inherit config pkgs; };
 
