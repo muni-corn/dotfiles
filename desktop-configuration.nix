@@ -26,6 +26,25 @@
     # disable fstrim (enabled by nixos-hardware/common-pc-ssd); zfs does it for us
     fstrim.enable = false;
 
+    pipewire.config.pipewire =
+      let
+        defaults = lib.importJSON "${flake-inputs.nixpkgs}/nixos/modules/services/desktops/pipewire/daemon/pipewire.conf.json";
+      in
+      {
+        "context.objects" = defaults."context.objects" ++ [
+          {
+            factory = "adapter";
+            args = {
+              "factory.name" = "support.null-audio-sink";
+              "node.name" = "desktop-audio-proxy";
+              "node.description" = "Desktop audio proxy";
+              "media.class" = "Audio/Sink";
+              "audio.position" = "FL,FR";
+            };
+          }
+        ];
+      };
+
     zfs = {
       trim.enable = true;
       autoScrub = {
