@@ -26,7 +26,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, musnix, nixos-hardware, plymouth-theme-musicaloft-rainbow, iosevka-muse, muse-sounds }:
+  outputs = { self, nixpkgs, musnix, nixos-hardware, plymouth-theme-musicaloft-rainbow, iosevka-muse, muse-sounds }@inputs:
     let
       overlaysModule = { config, pkgs, ... }: {
         nixpkgs.overlays = [
@@ -63,6 +63,7 @@
         };
         ponytower = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          specialArgs = { flake-inputs = inputs; };
           modules = extraCommonModules ++ ponytowerHardwareModules ++ [ ./desktop-configuration.nix ];
         };
       };
