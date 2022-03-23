@@ -107,6 +107,7 @@ in
         musescore
         pamixer # for muse-status, at least
         pavucontrol
+        sonic-visualiser
         spotify
         qsampler
         x42-gmsynth
