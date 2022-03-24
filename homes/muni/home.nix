@@ -116,12 +116,16 @@ in
         helvum
         qpwgraph
 
-        # photo and video
-        blender
+        # photo
         gimp
         inkscape
         krita
         rawtherapee
+
+        # video
+        blender
+        kdenlive
+        olive-editor
 
         # writing
         pandoc
