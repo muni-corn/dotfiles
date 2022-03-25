@@ -56,7 +56,7 @@
                                                              :updates {:channel :stable}
                                                              :notifications {:cargoTomlNotFound false}
                                                              :checkOnSave {:command :clippy
-                                                                           :extraArgs :--tests}
+                                                                           :extraArgs [:--tests]}
                                                              :callInfo {:full true}
                                                              :inlayHints {:chainingHints true}
                                                              :procMacro {:enable true}
