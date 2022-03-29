@@ -185,7 +185,7 @@ in
         xorg.xcursorgen
 
         # games
-        gnome.aisleriot
+        # gnome.aisleriot
         libretro.desmume
         libretro.dolphin
         libretro.thepowdertoy

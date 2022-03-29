@@ -24,7 +24,7 @@ in
       cmp-path
       cmp-vsnip
       friendly-snippets
-      hop-nvim
+      # hop-nvim
       lsp-status-nvim
       nvim-cmp
       nvim-lspconfig
