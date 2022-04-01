@@ -138,11 +138,11 @@ in
   "--no-repeat ${sup}+Control+n" = ''exec ${terminalInDir notebookDir} ${withShell "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).norg"}'';
   "--no-repeat ${sup}+Control+p" = "exec pavucontrol";
   "--no-repeat ${sup}+Control+r" = "exec ${scriptsDir}/toggle_gammastep.fish";
+  "--no-repeat ${sup}+Control+t" = ''exec ${terminalInDir notebookDir} ${withShell "nvim ${notebookDir}/todo.norg"}'';
   "--no-repeat ${sup}+Return" = "exec ${terminal}";
   "--no-repeat ${sup}+Shift+b" = ''exec ${terminalInDir notebookDir} ${withShell "nvim ${notebookDir}/bored.norg"}'';
   "--no-repeat ${sup}+Shift+m" = "exec ${media}";
   "--no-repeat ${sup}+Shift+n" = ''exec ${terminalInDir notebookDir} ${withShell "ranger ${notebookDir}"}'';
-  "--no-repeat ${sup}+Shift+t" = ''exec ${terminalInDir notebookDir} ${withShell "nvim ${notebookDir}/todo.norg"}'';
   "--no-repeat ${sup}+a" = "exec ${config.wayland.windowManager.sway.config.menu}";
   "--no-repeat ${sup}+c" = ''exec ${terminal} ${withShell "qalc"}'';
   "--no-repeat ${sup}+b" = "exec ${music}";
