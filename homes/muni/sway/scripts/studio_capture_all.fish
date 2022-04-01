@@ -64,7 +64,7 @@ dunstctl set-paused true &
 
 # start recording screen, webcam, mic
 kitty -T "Webcam recording" ffmpeg -i /dev/video0 -vcodec libx264 $folder/webcam.mp4 &
-kitty -T "Mic recording" pw-record --target $mic_target --rate 44100 --channels 1 --format f32 $folder/mic.wav &
+kitty -T "Mic recording" arecord -D pipewire:NODE=$mic_target -f S32_LE -r 48000 -c 1 -V mono $folder/mic.wav &
 kitty -T "Screen recording" wf-recorder -adesktop-audio-proxy -g"$output_geometry" -f"$folder/desktop.mp4" &
 
 # finish countdown
