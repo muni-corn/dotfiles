@@ -10,6 +10,14 @@ function cleanup
     # reset dslr, just in case
     gphoto2 --reset
 
+    # start services TODO: make this a script
+    systemctl --user start syncthing.service
+    systemctl --user start hydroxide.service
+    systemctl --user start spotifyd.service
+    systemctl --user start swayidle.service
+    systemctl --user start kbfs.service
+    systemctl --user start keybase.service
+
     dunstctl set-paused false
     dunstify "Capture-all stopped" "Welcome back! Notifications are on again."
 end
@@ -50,6 +58,14 @@ if test $ready_response != "Yes"
     dunstify -r $notification_id "Capture-all cancelled" "No problem!"
     exit
 end
+
+# stop services TODO: make this a script
+systemctl --user stop syncthing.service
+systemctl --user stop hydroxide.service
+systemctl --user stop spotifyd.service
+systemctl --user stop swayidle.service
+systemctl --user stop kbfs.service
+systemctl --user stop keybase.service
 
 # countdown
 for i in (seq 5 -1 3)
