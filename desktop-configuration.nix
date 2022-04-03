@@ -17,6 +17,13 @@
 
   boot.loader.grub.gfxmodeEfi = "1920x1080";
 
+  musnix = {
+    enable = true;
+    kernel = {
+      optimize = true;
+    };
+  };
+
   networking = {
     hostName = "ponytower";
     hostId = "edafa5da";
