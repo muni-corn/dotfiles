@@ -99,22 +99,26 @@ in
         zls
 
         # audio, sound, and music
+        ChowKick
         ardour
         audacity
         calf
+        drumkv1
+        geonkick
         helm
+        helvum
+        hydrogen
         linuxsampler
         musescore
         pamixer # for muse-status, at least
         pavucontrol
+        qpwgraph
+        qsampler
         sonic-visualiser
         spotify
-        qsampler
         x42-gmsynth
         x42-plugins
         zyn-fusion
-        helvum
-        qpwgraph
 
         # photo
         gimp
