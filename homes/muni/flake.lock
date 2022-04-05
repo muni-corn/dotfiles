@@ -146,11 +146,11 @@
     "hotpot-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1647994464,
-        "narHash": "sha256-tzZy2FxIvuD3tMrUgHA/Uk9kczMkQ5tjYB1mrJWIBrY=",
+        "lastModified": 1641136767,
+        "narHash": "sha256-C4DhpEglK/dPBq0pR2qPXWkJ/Su1w1hAhb/lAGo6yqk=",
         "owner": "rktjmp",
         "repo": "hotpot.nvim",
-        "rev": "72704e1914648774a4fb42f57ca411d689e08ae6",
+        "rev": "0e0e8dff92f47c85bf4893f50bec4e36d6c7d0b9",
         "type": "github"
       },
       "original": {
