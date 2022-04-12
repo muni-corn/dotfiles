@@ -11,10 +11,6 @@ let
   accent = "#${colors.swatch.accent}e5";
   bemenuArgs = [ "-H" "32" "--fn" fontText "--tb" "'${black}'" "--tf" "'${accent}'" "--fb" "'${black}'" "--ff" "'${white}'" "--nb" "'${black}'" "--nf" "'${accent}'" "--hb" "'${accent}'" "--hf" "'${black}'" "--sb" "'${accent}'" "--sf" "'${white}'" "--scrollbar" "autohide" "-f" "-m" "all" ];
   lockCmd = "$HOME/.config/sway/scripts/lock.fish --bg-color ${colors.swatch.background} --fg-color ${colors.swatch.foreground} --primary-color ${colors.swatch.accent} --warning-color ${colors.swatch.warning} --error-color ${colors.swatch.alert}";
-
-  gtkThemeName = "Orchis-dark";
-  gtkIconThemeName = "Papirus-Dark";
-  cursorThemeName = "Bibata-Original-Classic";
 in
 {
   imports = [
@@ -218,7 +214,7 @@ in
       BROWSER = "firefox";
       EDITOR = "nvim";
       GPG_TTY = "$(tty)";
-      GTK_THEME = gtkThemeName;
+      GTK_THEME = config.gtk.theme.name;
       LEDGER_FILE = "$HOME/notebook/ledger/main.sfox";
       MOZ_ENABLE_WAYLAND = 1;
       MOZ_DBUS_REMOTE = 1;
@@ -252,9 +248,9 @@ in
 
   dconf.settings = {
     "org/gnome/desktop/interface" = {
-      gtk-theme = gtkThemeName;
-      icon-theme = gtkIconThemeName;
-      cursor-theme = cursorThemeName;
+      gtk-theme = config.gtk.theme.name;
+      icon-theme = config.gtk.iconTheme.name;
+      cursor-theme = config.xsession.pointerCursor.name;
       font-name = "Inter 12";
     };
     "org/gnome/desktop/sound" = {
@@ -268,6 +264,10 @@ in
 
   gtk = {
     enable = true;
+    cursorTheme = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Original-Classic";
+    };
     font = {
       package = pkgs.inter-ui;
       name = "Inter";
@@ -275,11 +275,11 @@ in
     };
     iconTheme = {
       package = pkgs.papirus-icon-theme;
-      name = gtkIconThemeName;
+      name = "Papirus-Dark";
     };
     theme = {
-      package = pkgs.orchis-theme;
-      name = gtkThemeName;
+      package = pkgs.gnome-themes-extra;
+      name = "Adwaita-dark";
     };
   };
 
@@ -289,10 +289,10 @@ in
 
   qt = {
     enable = true;
-    platformTheme = "gtk";
+    platformTheme = "gnome";
     style = {
-      name = "gtk2";
-      package = pkgs.libsForQt5.qtstyleplugins;
+      name = "adwaita-dark";
+      package = pkgs.adwaita-qt;
     };
   };
 
@@ -399,7 +399,7 @@ in
   xsession = {
     pointerCursor = {
       package = pkgs.bibata-cursors;
-      name = cursorThemeName;
+      name = "Bibata-Original-Classic";
       size = 24;
     };
   };
