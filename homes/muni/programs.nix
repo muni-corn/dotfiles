@@ -185,8 +185,6 @@
 
   neomutt = { enable = true; };
 
-  neovim = import ./nvim/mod.nix { inherit pkgs; };
-
   # fish integration enabled by default
   nix-index.enable = true;
 

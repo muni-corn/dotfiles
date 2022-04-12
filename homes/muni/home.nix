@@ -19,6 +19,7 @@ in
 {
   imports = [
     ./muse-status.nix
+    ./nvim
   ];
 
   nixpkgs = {
