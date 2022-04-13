@@ -351,18 +351,6 @@ in
               ${optionalString (deviceName == "ponytower") "volume_sink: alsa_output.usb-Generic_Razer_Base_Station_V2_Chroma-00.analog-stereo"}
           '';
         };
-      "nvim/lua" = {
-        recursive = true;
-        source = ./nvim/lua;
-      };
-      "nvim/fnl" = {
-        recursive = true;
-        source = ./nvim/fnl;
-      };
-      "nvim/pandoc-preview.sh" = {
-        executable = true;
-        source = ./nvim/pandoc-preview.sh;
-      };
       "ranger" = {
         recursive = true;
         executable = true;

@@ -105,4 +105,11 @@
       withPython3 = true;
       withRuby = true;
     };
+
+  xdg.configFile = {
+    "nvim/pandoc-preview.sh" = {
+      executable = true;
+      source = ./pandoc-preview.sh;
+    };
+  };
 }
