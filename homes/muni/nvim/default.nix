@@ -1,85 +1,101 @@
 { pkgs, ... }:
 
-let
-  fnl = moduleName: ''lua require('${moduleName}')'';
-  inherit (pkgs) vimPlugins;
-in
 {
+  imports = [
+    ./fnl.nix
+  ];
+
   programs.neovim =
     {
       enable = true;
       package = pkgs.neovim-nightly;
 
       extraConfig = builtins.readFile ./init.vim;
-      plugins = builtins.attrValues {
-        inherit (pkgs.vimPlugins)
-          FixCursorHold-nvim
-          cmp-buffer
-          cmp-calc
-          cmp-nvim-lsp
-          cmp-nvim-lua
-          cmp-path
-          cmp-vsnip
-          friendly-snippets
-          # hop-nvim
-          lsp-status-nvim
-          nvim-cmp
-          nvim-lspconfig
-          nvim-ts-rainbow
-          plenary-nvim
-          popup-nvim
-          vim-commentary
-          vim-fugitive
-          vim-pandoc
-          vim-pandoc-syntax
-          vim-smoothie
-          vim-table-mode
-          vim-vsnip
-          vim-vsnip-integ;
-      } ++ [
+      extraFnlConfigFiles = [
+        ./fnl/lsp.fnl
+        ./fnl/keys.fnl
+        ./fnl/options.fnl
+        ./fnl/highlights.fnl
+        ./fnl/statusline.fnl
+      ];
+      plugins = with pkgs.vimPlugins; [
+        FixCursorHold-nvim
+        cmp-buffer
+        cmp-calc
+        cmp-nvim-lsp
+        cmp-nvim-lua
+        cmp-path
+        cmp-vsnip
+        friendly-snippets
+        hop-nvim
+        lsp-status-nvim
+        nvim-cmp
+        nvim-lspconfig
+        nvim-ts-rainbow
+        plenary-nvim
+        popup-nvim
+        vim-commentary
+        vim-fugitive
+        vim-pandoc
+        vim-pandoc-syntax
+        vim-smoothie
+        vim-table-mode
+        vim-vsnip
+        vim-vsnip-integ
         {
-          plugin = vimPlugins.emmet-vim;
-          config = fnl "config.emmet";
+          plugin = emmet-vim;
+          config = builtins.readFile ./fnl/config/emmet.fnl;
+          type = "fennel";
         }
         {
-          plugin = vimPlugins.gitsigns-nvim;
-          config = fnl "config.gitsigns";
+          plugin = gitsigns-nvim;
+          config = builtins.readFile ./fnl/config/gitsigns.fnl;
+          type = "fennel";
         }
         {
-          plugin = vimPlugins.indent-blankline-nvim;
-          config = fnl "config.indent-blankline";
+          plugin = indent-blankline-nvim;
+          config = builtins.readFile ./fnl/config/indent-blankline.fnl;
+          type = "fennel";
         }
         {
-          plugin = vimPlugins.neorg;
-          config = fnl "config.neorg";
+          plugin = neorg;
+          config = builtins.readFile ./fnl/config/neorg.fnl;
+          type = "fennel";
         }
         {
-          plugin = vimPlugins.nvim-tree-lua;
-          config = fnl "config.nvim-tree";
+          plugin = nvim-tree-lua;
+          config = builtins.readFile ./fnl/config/nvim-tree.fnl;
+          type = "fennel";
         }
         {
-          plugin = vimPlugins.nvim-web-devicons;
-          config = fnl "config.devicons";
+          plugin = nvim-web-devicons;
+          config = builtins.readFile ./fnl/config/devicons.fnl;
+          type = "fennel";
         }
         {
-          plugin = vimPlugins.telescope-nvim;
-          config = fnl "config.telescope";
+          plugin = telescope-nvim;
+          config = builtins.readFile ./fnl/config/telescope.fnl;
+          type = "fennel";
         }
         {
-          plugin = (vimPlugins.nvim-treesitter.withPlugins (p: pkgs.tree-sitter.allGrammars));
-          config = fnl "config.treesitter";
+          plugin = (nvim-treesitter.withPlugins (p: pkgs.tree-sitter.allGrammars));
+          config = builtins.readFile ./fnl/config/treesitter.fnl;
+          type = "fennel";
         }
         {
-          plugin = vimPlugins.vim-startify;
-          config = fnl "config.startify";
+          plugin = vim-startify;
+          config = builtins.readFile ./fnl/config/startify.fnl;
+          type = "fennel";
         }
         {
-          plugin = vimPlugins.vim-table-mode;
-          config = fnl "config.table-mode";
+          plugin = vim-table-mode;
+          config = builtins.readFile ./fnl/config/table-mode.fnl;
+          type = "fennel";
         }
         {
-          plugin = vimPlugins.which-key-nvim;
-          config = fnl "config.which-key";
+          plugin = which-key-nvim;
+          config = builtins.readFile ./fnl/config/which-key.fnl;
+          type = "fennel";
         }
       ];
       viAlias = true;
