@@ -12,12 +12,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # hotpot.nvim plugin
-    hotpot-nvim = {
-      url = "github:rktjmp/hotpot.nvim";
-      flake = false;
-    };
-
     # iosevka muse
     iosevka-muse = {
       url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
@@ -37,31 +31,14 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay, hotpot-nvim, iosevka-muse, muse-status, muse-sounds }: {
+  outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay, iosevka-muse, muse-status, muse-sounds }: {
     homeConfigurations =
       let
-        vimPluginOverlay = final: prev:
-          let
-            lock = builtins.fromJSON (builtins.readFile ./flake.lock);
-            hotpotLock = lock.nodes.hotpot-nvim.locked;
-          in
-          {
-            vimPlugins = prev.vimPlugins // {
-              hotpot-nvim = prev.vimUtils.buildVimPlugin {
-                name = "hotpot.nvim";
-                src = prev.fetchFromGitHub {
-                  inherit (hotpotLock) owner repo rev;
-                  sha256 = hotpotLock.narHash;
-                };
-              };
-            };
-          };
         overlays = [
           neovim-nightly-overlay.overlay
           iosevka-muse.overlay
           muse-sounds.overlay
           muse-status.overlay
-          vimPluginOverlay
         ];
 
         username = "municorn";

@@ -11,12 +11,7 @@ in
       package = pkgs.neovim-nightly;
 
       extraConfig = builtins.readFile ./init.vim;
-      plugins = [
-        {
-          plugin = vimPlugins.hotpot-nvim;
-          config = "lua require('hotpot')";
-        }
-      ] ++ builtins.attrValues {
+      plugins = builtins.attrValues {
         inherit (pkgs.vimPlugins)
           FixCursorHold-nvim
           cmp-buffer
