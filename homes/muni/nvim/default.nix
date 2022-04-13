@@ -12,11 +12,11 @@
 
       extraConfig = builtins.readFile ./init.vim;
       extraFnlConfigFiles = [
-        ./fnl/lsp.fnl
-        ./fnl/keys.fnl
         ./fnl/options.fnl
         ./fnl/highlights.fnl
+        ./fnl/lsp.fnl
         ./fnl/statusline.fnl
+        ./fnl/keys.fnl
       ];
       plugins = with pkgs.vimPlugins; [
         FixCursorHold-nvim
