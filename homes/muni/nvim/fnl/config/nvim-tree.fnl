@@ -1,6 +1,4 @@
 (set vim.g.nvim_tree_git_hl 1)
-(set vim.g.nvim_tree_indent_markers 1)
-(set vim.g.nvim_tree_quit_on_open 1)
 (set vim.g.nvim_tree_respect_buf_cwd 1)
 (set vim.g.nvim_tree_show_icons {:git 0 :folders 1 :files 1 :folder_arrows 1})
 (set vim.g.nvim_tree_icons
@@ -16,4 +14,5 @@
                :arrow_closed ""}})
 
 (let [nvim-tree (require :nvim-tree)]
-  (nvim-tree.setup {}))
+  (nvim-tree.setup {:actions {:open_file {:quit_on_open true}}
+                    :renderer {:indent_markers {:enable true}}}))
