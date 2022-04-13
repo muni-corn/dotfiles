@@ -181,6 +181,8 @@
 
   kitty = import ./kitty.nix { inherit colors pkgs; };
 
+  lazygit.enable = true;
+
   mbsync.enable = true;
 
   neomutt = { enable = true; };
