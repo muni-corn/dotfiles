@@ -192,8 +192,6 @@ in
     extraOutputsToInstall = [ "doc" "info" "devdoc" ];
 
     sessionPath = [
-      "$HOME/.npm-global/bin"
-      "$HOME/.npm-packages/bin"
       "$HOME/.cargo/bin"
       "$HOME/.local/bin"
       "$HOME/go/bin"
