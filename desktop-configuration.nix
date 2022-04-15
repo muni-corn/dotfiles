@@ -17,6 +17,13 @@
 
   boot.loader.grub.gfxmodeEfi = "1920x1080";
 
+  hardware = {
+    openrazer = {
+      enable = true;
+      users = [ "municorn" ];
+    };
+  };
+
   musnix = {
     enable = true;
     kernel = {
