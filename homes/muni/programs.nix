@@ -104,6 +104,8 @@
     enable = true;
   };
 
+  helix.enable = true;
+
   himalaya = {
     enable = true;
   };
