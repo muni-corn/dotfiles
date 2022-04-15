@@ -349,6 +349,7 @@ in
             units: imperial
             ${optionalString (deviceName == "ponytower") "volume_sink: alsa_output.usb-Generic_Razer_Base_Station_V2_Chroma-00.analog-stereo"}
         '';
+      "peaclock.conf".source = ./peaclock.conf;
       "ranger" = {
         recursive = true;
         executable = true;
