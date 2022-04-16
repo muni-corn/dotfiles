@@ -65,6 +65,7 @@
                                                                                       :macro-error]}}}
                                   : capabilities})
   (lspconfig.vuels.setup {})
+  (lspconfig.rnix.setup {})
   (lspconfig.tsserver.setup {})
   (lspconfig.intelephense.setup {})
   (lspconfig.zls.setup {})
