@@ -64,9 +64,9 @@
                                                                                       :unresolved-macro-call
                                                                                       :macro-error]}}}
                                   : capabilities})
-  (lspconfig.vuels.setup {})
+  (lspconfig.html.setup {: capabilities})
+  (lspconfig.intelephense.setup {})
   (lspconfig.rnix.setup {})
   (lspconfig.tsserver.setup {})
-  (lspconfig.intelephense.setup {})
-  (lspconfig.zls.setup {})
-  (lspconfig.html.setup {: capabilities}))
+  (lspconfig.vuels.setup {})
+  (lspconfig.zls.setup {}))
