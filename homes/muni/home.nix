@@ -152,20 +152,6 @@ in
         dolphin-emu
         yuzu-mainline
 
-        # other things
-        ffmpeg-full
-        fnlfmt
-        imagemagick
-        libnotify
-        nerdfonts
-        nixpkgs-fmt
-        openvpn
-        qrencode
-        rsync
-        tldr
-        yt-dlp
-        zbar
-
         # fish plugins
         fishPlugins.done
         fishPlugins.foreign-env
@@ -189,6 +175,21 @@ in
         retroarchFull
         the-powder-toy
         vitetris
+
+        # other things
+        ffmpeg-full
+        fnlfmt
+        fortune
+        imagemagick
+        libnotify
+        nerdfonts
+        nixpkgs-fmt
+        openvpn
+        qrencode
+        rsync
+        tldr
+        yt-dlp
+        zbar
       ];
 
     extraOutputsToInstall = [ "doc" "info" "devdoc" ];
