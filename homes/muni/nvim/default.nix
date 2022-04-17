@@ -43,6 +43,11 @@
         vim-vsnip
         vim-vsnip-integ
         {
+          plugin = alpha-nvim;
+          config = builtins.readFile ./fnl/config/alpha.fnl;
+          type = "fennel";
+        }
+        {
           plugin = emmet-vim;
           config = builtins.readFile ./fnl/config/emmet.fnl;
           type = "fennel";
@@ -80,11 +85,6 @@
         {
           plugin = (nvim-treesitter.withPlugins (p: pkgs.tree-sitter.allGrammars));
           config = builtins.readFile ./fnl/config/treesitter.fnl;
-          type = "fennel";
-        }
-        {
-          plugin = vim-startify;
-          config = builtins.readFile ./fnl/config/startify.fnl;
           type = "fennel";
         }
         {

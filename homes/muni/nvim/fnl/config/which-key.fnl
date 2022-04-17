@@ -16,6 +16,7 @@
       telescope-lsp-definition "<cmd>lua require'telescope.builtin'.lsp_definitions()<cr>"
       telescope-lsp-references "<cmd>lua require'telescope.builtin'.lsp_references()<cr>"
       telescope-lsp-implementations "<cmd>lua require'telescope.builtin'.lsp_implementations()<cr>"
+      telescope-oldfiles "<cmd>Telescope oldfiles<cr>"
       telescope-ripgrep "<cmd>lua require'telescope.builtin'.live_grep()<cr>"]
   (which-key.setup {:triggers_blacklist {:i [:f :j :<c-j> :<c-h> "{" "[" "("]}})
   (which-key.register {:<c-p> [telescope-fd "find file"]
@@ -46,6 +47,7 @@
                                           :diagnostics]
                                       :E [telescope-lsp-workspace-diagnostics
                                           "all diagnostics"]
+                                      :o [telescope-oldfiles "old files"]
                                       :y [telescope-lsp-document-symbols
                                           :symbols]
                                       :Y [telescope-lsp-workspace-symbols

@@ -12,6 +12,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # alpha.nvim
+    alpha-nvim = {
+      url = "github:goolord/alpha-nvim";
+      flake = false;
+    };
+
     # iosevka muse
     iosevka-muse = {
       url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
@@ -31,14 +37,33 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, neovim-nightly-overlay, iosevka-muse, muse-status, muse-sounds }: {
+  outputs = { self, nixpkgs, alpha-nvim, home-manager, neovim-nightly-overlay, iosevka-muse, muse-status, muse-sounds }: {
     homeConfigurations =
       let
+        lockFile = nixpkgs.lib.importJSON ./flake.lock;
+        alphaNvimOverlay = final: prev:
+          let
+            alphaNvimInfo = lockFile.nodes.alpha-nvim.locked;
+          in
+          {
+            vimPlugins = prev.vimPlugins // {
+              alpha-nvim =
+                prev.vimUtils.buildVimPlugin {
+                  name = alphaNvimInfo.repo;
+                  src = prev.fetchFromGitHub {
+                    inherit (alphaNvimInfo) owner repo rev;
+                    sha256 = alphaNvimInfo.narHash;
+                  };
+                };
+            };
+          };
+
         overlays = [
           neovim-nightly-overlay.overlay
           iosevka-muse.overlay
           muse-sounds.overlay
           muse-status.overlay
+          alphaNvimOverlay
         ];
 
         username = "municorn";
