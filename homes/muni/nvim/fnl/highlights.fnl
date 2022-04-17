@@ -197,6 +197,10 @@
                      :CustomLimePillInside
                      :CustomRedPillInside
                      :CustomYellowPillInside
+                     :DiffAdd
+                     :DiffChange
+                     :DiffDelete
+                     :DiffText
                      :Error
                      :Info
                      :MatchParen
