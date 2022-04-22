@@ -116,6 +116,7 @@ in
 
       "*" = {
         xkb_layout = "us";
+        xkb_options = "compose:menu";
       };
     };
 
