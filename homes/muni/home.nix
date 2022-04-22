@@ -119,7 +119,8 @@ in
         # video
         blender
         kdenlive
-        olive-editor
+        mediainfo
+        movit
 
         # writing
         pandoc
