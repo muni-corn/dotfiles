@@ -70,8 +70,10 @@
       ntfs3g
 
       # misc
+      clinfo
       psmisc
       polkit_gnome
+      vulkan-tools
     ];
   };
 
