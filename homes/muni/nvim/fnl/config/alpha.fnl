@@ -11,5 +11,4 @@
         (dashboard.button ", g g" "龎 Find words" ":Telescope live_grep<cr>")
         (dashboard.button ", f g" "  Git status" ":Telescope git_status<cr>")
         (dashboard.button :q "  Quit" ":qa<cr>")])
-  (set dashboard.section.footer.val (.. (table.concat kitty "\n") "\n\n\n" fortune))
   (alpha-nvim.setup dashboard.config))
