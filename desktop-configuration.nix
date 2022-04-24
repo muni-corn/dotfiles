@@ -18,6 +18,10 @@
   boot.loader.grub.gfxmodeEfi = "1920x1080";
 
   hardware = {
+    opengl.extraPackages = with pkgs; [
+      rocm-opencl-icd
+      rocm-opencl-runtime
+    ];
     openrazer = {
       enable = true;
       users = [ "municorn" ];
