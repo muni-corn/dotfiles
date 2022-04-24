@@ -40,6 +40,11 @@
     # disable fstrim (enabled by nixos-hardware/common-pc-ssd); zfs does it for us
     fstrim.enable = false;
 
+    openssh = {
+      enable = true;
+      forwardX11 = true;
+    };
+
     pipewire.config.pipewire =
       let
         defaults = lib.importJSON "${flake-inputs.nixpkgs}/nixos/modules/services/desktops/pipewire/daemon/pipewire.conf.json";

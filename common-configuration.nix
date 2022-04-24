@@ -198,6 +198,11 @@
     fish.enable = true;
     git.enable = true;
     gphoto2.enable = true;
+
+    ssh = {
+      setXAuthLocation = true;
+    };
+
     steam.enable = true;
     sway = {
       enable = true;
@@ -250,10 +255,6 @@
     logind.extraConfig = ''
       RuntimeDirectorySize=2G
     '';
-
-    openssh = {
-      enable = true;
-    };
 
     pipewire = {
       enable = true;
