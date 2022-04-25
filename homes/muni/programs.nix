@@ -69,10 +69,10 @@
       color = {
         ui = "auto";
         diff = {
-          old = 1;
-          new = 2;
-          oldMoved = 5;
-          newMoved = 6;
+          old = "1 bold";
+          new = "2 bold";
+          oldMoved = "5 bold";
+          newMoved = "6 bold";
         };
       };
       core.autocrlf = "input";
