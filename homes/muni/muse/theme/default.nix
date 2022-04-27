@@ -20,7 +20,7 @@ let
           description = "The font family name.";
         };
         size = mkOption {
-          type = types.float;
+          type = types.ints.positive;
           description = "The point size of the font.";
         };
       };
