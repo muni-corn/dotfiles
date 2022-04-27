@@ -19,6 +19,22 @@ in
     ./nvim
   ];
 
+  muse.theme = {
+    inherit colors;
+
+    enable = true;
+    sansFont = {
+      package = pkgs.inter;
+      name = "Inter";
+      size = 12;
+    };
+
+    wallpapers = {
+      dir = ./wallpapers;
+      useMatchpal = true;
+    };
+  };
+
   nixpkgs = {
     inherit overlays;
     config.allowUnfree = true;
@@ -263,11 +279,7 @@ in
       package = pkgs.bibata-cursors;
       name = "Bibata-Original-Classic";
     };
-    font = {
-      package = pkgs.inter-ui;
-      name = "Inter";
-      size = 12;
-    };
+    font = config.muse.theme.sansFont;
     iconTheme = {
       package = pkgs.papirus-icon-theme;
       name = "Papirus-Dark";
