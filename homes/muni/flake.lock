@@ -191,11 +191,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1651019629,
-        "narHash": "sha256-xmy9FH/h+JmQhi6fIV2PMdaDVBLBnTz/GXZ5zFcYQvE=",
+        "lastModified": 1651072574,
+        "narHash": "sha256-NR3AvpU0L2yEKoh32P5YBNlk1qPGpHY1ymB/6YCf/cs=",
         "ref": "main",
-        "rev": "c3c9aefa4c89dca86532497cc40608b97861949f",
-        "revCount": 16,
+        "rev": "63a025d890b1c5f2de7f410337c729c261dbd9e9",
+        "revCount": 19,
         "type": "git",
         "url": "https://codeberg.org/municorn/matchpal"
       },
