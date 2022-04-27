@@ -31,6 +31,18 @@ let
   # on. we use variables to avoid repeating the names in multiple places.
   workspaceNames = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" "X" ];
   workspace = builtins.elemAt workspaceNames;
+
+  # wallpaper switch script
+  wallpaperSwitchScript = pkgs.writeScript "sway-switch-wallpaper" ''
+    #!${pkgs.fish}/bin/fish
+
+    set existing_swaybgs (string split ' ' (pidof swaybg))
+    ${pkgs.swaybg}/bin/swaybg -o "*" -m fill -i (${pkgs.fd}/bin/fd --type f . ${config.muse.theme.wallpapers.finalWallpapers} | shuf -n 1) & disown
+    sleep 1
+    for pid in $existing_swaybgs
+        kill $pid
+    end
+  '';
 in
 {
   enable = true;
@@ -120,7 +132,7 @@ in
       };
     };
 
-    keybindings = import ./keys.nix { inherit config lib pkgs sup alt bemenuArgsJoined lockCmd workspace scriptsDir; };
+    keybindings = import ./keys.nix { inherit config lib pkgs sup alt bemenuArgsJoined lockCmd workspace scriptsDir wallpaperSwitchScript; };
 
     menu = "bemenu-run -p 'Run what?' ${bemenuArgsJoined}";
 
@@ -142,11 +154,6 @@ in
       "Acer Technologies SB220Q 0x000035FB" = {
         pos = "1920 0";
       };
-
-      # for all
-      "*" = {
-        background = ''"$HOME/Pictures/Wallpapers/Photos/solarized/Corn.jpg" fill'';
-      };
     };
 
     # startup apps
@@ -163,6 +170,9 @@ in
 
         # polkit
         { command = ''${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1''; }
+
+        # init wallpaper
+        { command = ''${wallpaperSwitchScript}''; }
       ];
 
     terminal = "kitty";

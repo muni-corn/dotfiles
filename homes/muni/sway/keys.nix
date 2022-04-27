@@ -1,4 +1,4 @@
-{ config, lib, pkgs, sup, alt, bemenuArgsJoined, lockCmd, workspace, scriptsDir, ... }:
+{ config, lib, pkgs, sup, alt, bemenuArgsJoined, lockCmd, workspace, scriptsDir, wallpaperSwitchScript, ... }:
 
 let
   notebookDir = "${config.home.homeDirectory}/notebook/";
@@ -214,7 +214,7 @@ in
   "--no-repeat ${sup}+Shift+r" = "reload";
 
   # change wallpaper
-  "--no-repeat ${sup}+Control+w" = "exec ${scriptsDir}/random_wallpaper.fish";
+  "--no-repeat ${sup}+Control+w" = "exec ${wallpaperSwitchScript}";
 
   # record clock times (easy clock-in or clock-out :))
   "--no-repeat ${sup}+Delete" = "exec ${notebookDir}/record_time.fish";
