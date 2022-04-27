@@ -24,6 +24,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # matchpal
+    matchpal = {
+      url = "git+https://codeberg.org/municorn/matchpal?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # muse-status
     muse-status = {
       url = "git+https://codeberg.org/municorn/muse-status";
@@ -37,7 +43,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, alpha-nvim, home-manager, neovim-nightly-overlay, iosevka-muse, muse-status, muse-sounds }: {
+  outputs = { self, nixpkgs, alpha-nvim, home-manager, neovim-nightly-overlay, iosevka-muse, matchpal, muse-status, muse-sounds }: {
     homeConfigurations =
       let
         lockFile = nixpkgs.lib.importJSON ./flake.lock;
@@ -61,6 +67,7 @@
         overlays = [
           neovim-nightly-overlay.overlay
           iosevka-muse.overlay
+          matchpal.overlay
           muse-sounds.overlay
           muse-status.overlay
           alphaNvimOverlay
