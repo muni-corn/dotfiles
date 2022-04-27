@@ -77,7 +77,7 @@ in
 
       wallpapersPath = builtins.path {
         name = "wallpapers";
-        src = cfg.wallpapers.dir;
+        path = cfg.wallpapers.dir;
       };
 
       paletteFile = pkgs.writeTextFile {
@@ -107,15 +107,20 @@ in
         (if cfg.wallpapers.useMatchpal then
           pkgs.stdenv.mkDerivation
             {
-              name = "matchpal-wallpapers";
+              name = "muse-matchpal-wallpapers";
               src = wallpapersPath;
+              dontConfigure = true;
               buildPhase = ''
-                for wallpaper in ${wallpapersPath}
+                mkdir -p $out
+
+                for wallpaper in ${wallpapersPath}/*
                 do
                   name=$(basename $wallpaper)
-                  ${pkgs.matchpal}/bin/matchpal --palette ${paletteFile} --input $wallpaper --output $out/$name.jpg
+                  echo "changing palette for $name"
+                  ${pkgs.matchpal}/bin/matchpal --palette ${paletteFile} --input $wallpaper --output $out/$name
                 done
               '';
+              dontInstall = true;
             } else wallpapersPath);
     };
 }
