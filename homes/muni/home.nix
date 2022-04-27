@@ -78,12 +78,12 @@ in
         jq
         libqalculate
         neovim-remote
+        nnn
         notify-desktop
         pinentry
         pinentry-curses
         playerctl
         pv
-        ranger
         ripgrep
         sd
         spotify-tui

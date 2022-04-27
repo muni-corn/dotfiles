@@ -46,7 +46,8 @@
       h = "himalaya";
       n = "nvim";
       q = "exit";
-      r = "ranger";
+      r = "nnn"; # muscle memory probably uses 'r' for ranger
+      f = "nnn"; # for 'files'
       s = "sway";
       nb = "notebook";
       hm = "home-manager";

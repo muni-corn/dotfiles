@@ -142,11 +142,11 @@ in
   "--no-repeat ${sup}+Return" = "exec ${terminal}";
   "--no-repeat ${sup}+Shift+b" = ''exec ${terminalInDir notebookDir} ${withShell "nvim ${notebookDir}/bored.norg"}'';
   "--no-repeat ${sup}+Shift+m" = "exec ${media}";
-  "--no-repeat ${sup}+Shift+n" = ''exec ${terminalInDir notebookDir} ${withShell "ranger ${notebookDir}"}'';
+  "--no-repeat ${sup}+Shift+n" = ''exec ${terminalInDir notebookDir} ${withShell "nnn ${notebookDir}"}'';
   "--no-repeat ${sup}+a" = "exec ${config.wayland.windowManager.sway.config.menu}";
   "--no-repeat ${sup}+c" = ''exec ${terminal} ${withShell "qalc"}'';
   "--no-repeat ${sup}+b" = "exec ${music}";
-  "--no-repeat ${sup}+e" = ''exec ${terminal} ${withShell "ranger"}'';
+  "--no-repeat ${sup}+e" = ''exec ${terminal} ${withShell "nnn"}'';
   "--no-repeat ${sup}+n" = ''exec ${terminal} ${withShell "nvim"}'';
   "--no-repeat ${sup}+p" = ''exec ${terminal} ${withShell "htop"}'';
   "--no-repeat ${sup}+w" = "exec ${browser}";
