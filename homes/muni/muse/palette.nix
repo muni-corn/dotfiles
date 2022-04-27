@@ -53,12 +53,20 @@ let
     # if entries for the swatch don't exist, fallback to defaults
     swatch = lib.attrsets.recursiveUpdate (defaultSwatch bases) bases.swatch;
   };
+
+  swatchType = lib.mkOptionType  {
+    name = "swatch";
+    description = "A set of named colors for convenience when working with a base16 palette.";
+  };
 in
 {
-  inherit mkSwatch;
+  inherit mkSwatch swatchType;
 
-  paletteType = mkOptionType {
-    name = "base16 palette";
-    apply = mkSwatch;
+  paletteType = lib.mkOptionType {
+    name = "base16Palette";
+    description = "A palette of 16 colors: 8 monochrome shades and 8 colors.";
+    nestedTypes = {
+      inherit swatchType;
+    };
   };
 }

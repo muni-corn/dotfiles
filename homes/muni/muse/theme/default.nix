@@ -6,7 +6,7 @@ let
   paletteLib = import ../palette.nix { inherit lib; };
   inherit (lib) mkEnableOption mkIf mkOption types;
   inherit (types) mkOptionType;
-  inherit (paletteLib) paletteType;
+  inherit (paletteLib) paletteType mkSwatch;
 
   fontType = types.submodule
     {
@@ -32,6 +32,7 @@ in
     colors = mkOption {
       type = paletteType;
       description = "The color theme to use for theming.";
+      apply = mkSwatch;
     };
     sansFont = mkOption {
       type = fontType;
