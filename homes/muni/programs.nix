@@ -80,7 +80,7 @@
       diff = {
         colorMoved = "zebra";
         guitool = "meld";
-        tool = "vimdiff";
+        tool = "nvimdiff3";
       };
       fetch.prune = true;
       init.defaultBranch = "main";
@@ -89,7 +89,7 @@
         conflictStyle = "diff3";
         guitool = "meld";
         renamelimit = 2016;
-        tool = "vimdiff";
+        tool = "nvimdiff3";
       };
       pull.rebase = true;
       tag.gpgSign = true;
