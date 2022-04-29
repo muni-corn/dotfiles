@@ -58,17 +58,17 @@ in
         height 32
         modifier "${sup}"
       '';
-      statusCommand = "${pkgs.muse-status}/bin/muse-status sub a -m i3 -p ${colors.swatch.white} -s ${colors.base03}";
+      statusCommand = "${pkgs.muse-status}/bin/muse-status sub a -m i3 -p ${colors.swatch.white} -s ${colors.swatch.silver}";
       trayOutput = "none";
       workspaceButtons = true;
       colors = {
-        activeWorkspace = { background = black; border = black; text = silver; };
         background = black;
-        bindingMode = { background = black; border = black; text = warning; };
-        focusedWorkspace = { background = black; border = black; text = white; };
-        statusline = white;
-        inactiveWorkspace = { background = black; border = black; text = accent; };
         separator = accent;
+        statusline = white;
+        bindingMode = { background = black; border = black; text = warning; };
+        activeWorkspace = { background = black; border = black; text = accent; };
+        focusedWorkspace = { background = black; border = black; text = white; };
+        inactiveWorkspace = { background = black; border = black; text = silver; };
         urgentWorkspace = { background = warning; border = warning; text = black; };
       };
     }];
@@ -76,8 +76,8 @@ in
     colors = {
       background = black;
       focused = { border = gray; background = gray; text = white; indicator = accent; childBorder = gray; };
-      focusedInactive = { border = black; background = black; text = silver; indicator = black; childBorder = black; };
-      unfocused = { border = black; background = black; text = accent; indicator = black; childBorder = black; };
+      focusedInactive = { border = black; background = black; text = accent; indicator = black; childBorder = black; };
+      unfocused = { border = black; background = black; text = silver; indicator = black; childBorder = black; };
       urgent = { border = warning; background = warning; text = black; indicator = accent; childBorder = warning; };
     };
 
