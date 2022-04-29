@@ -205,4 +205,42 @@
     base0E = "DDB6F2";
     base0F = "E8A2AF";
   };
+
+  nightfox = rec {
+    base00 = "192330";
+    base01 = "212e3f";
+    base02 = "29394e";
+    base03 = "415166";
+    base04 = "71839b";
+    base05 = "aeafb0";
+    base06 = "cdcecf";
+    base07 = "d6d6d7";
+    base08 = "c94f6d";
+    base09 = "f4a261";
+    base0A = "dbc074";
+    base0B = "81b29a";
+    base0C = "63cdcf";
+    base0D = "719cd6";
+    base0E = "9d79d6";
+    base0F = "d67ad2";
+  };
+
+  duskfox = rec {
+    base00 = "232136";
+    base01 = "2d2a45";
+    base02 = "373354";
+    base03 = "4b4673";
+    base04 = "6e6a86";
+    base05 = "cdcbe0";
+    base06 = "e0def4";
+    base07 = "eae8ff";
+    base08 = "eb6f92";
+    base09 = "ea9a97";
+    base0A = "f6c177";
+    base0B = "a3be8c";
+    base0C = "9ccfd8";
+    base0D = "569fba";
+    base0E = "c4a7e7";
+    base0F = "eb98c3";
+  };
 }
