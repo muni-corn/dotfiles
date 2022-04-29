@@ -68,13 +68,15 @@
                :IndentBlanklineSpaceChar
                :IndentBlanklineSpaceCharBlankline
                :IndentBlanklineSpaceCharBlankline]
-           :2 [:Search :StatusLine :StatusLineNC :VertSplit :Whitespace]
+           :2 [:Search :VertSplit :Whitespace]
            :3 [:Comment
                :Conceal
                :Folded
                :LineNr
                :NonText
                :SpecialKey
+               :StatusLine
+               :StatusLineNC
                :TabLine
                :TabLineFill
                :VirtualText]
