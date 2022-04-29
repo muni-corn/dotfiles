@@ -58,7 +58,7 @@ in
         height 32
         modifier "${sup}"
       '';
-      statusCommand = "${pkgs.muse-status}/bin/muse-status sub a -m i3 -p ${colors.swatch.white} -s ${colors.swatch.accent}";
+      statusCommand = "${pkgs.muse-status}/bin/muse-status sub a -m i3 -p ${colors.swatch.white} -s ${colors.base03}";
       trayOutput = "none";
       workspaceButtons = true;
       colors = {
