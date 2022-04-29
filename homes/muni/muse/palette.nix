@@ -2,16 +2,7 @@
 
 let
   defaultSwatch = bases:
-    let
-      inherit (bases)
-        base00
-        base02
-        base03
-        base04
-        base05
-        base08
-        base09;
-    in
+    with bases;
     {
       # background bases
       background = base00;
@@ -19,12 +10,12 @@ let
       gray = base02;
 
       # foreground bases
-      foreground = base05;
-      white = base05;
+      foreground = base06;
+      white = base06;
       silver = base04;
 
       # other bases
-      accent = base03;
+      accent = base0D;
       warning = base09;
       alert = base08;
     };
@@ -51,10 +42,11 @@ let
       base0F;
 
     # if entries for the swatch don't exist, fallback to defaults
-    swatch = lib.attrsets.recursiveUpdate (defaultSwatch bases) bases.swatch;
+    swatch = let default = defaultSwatch bases; in
+      if (bases ? swatch) then (lib.attrsets.recursiveUpdate default bases.swatch) else default;
   };
 
-  swatchType = lib.mkOptionType  {
+  swatchType = lib.mkOptionType {
     name = "swatch";
     description = "A set of named colors for convenience when working with a base16 palette.";
   };

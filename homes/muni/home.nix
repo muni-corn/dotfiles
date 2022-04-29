@@ -1,16 +1,14 @@
 { config, deviceName ? null, lib, overlays ? [ ], pkgs, ... }:
 
 let
-  colors = (import ./colors.nix).solarizedDark;
-
   fontText = "Inter 12";
 
   # bemenu
-  black = "#${colors.swatch.background}e5";
-  white = "#${colors.swatch.foreground}";
-  accent = "#${colors.swatch.accent}e5";
+  black = "#${config.muse.theme.colors.swatch.background}e5";
+  white = "#${config.muse.theme.colors.swatch.foreground}";
+  accent = "#${config.muse.theme.colors.swatch.accent}e5";
   bemenuArgs = [ "-H" "32" "--fn" fontText "--tb" "'${black}'" "--tf" "'${accent}'" "--fb" "'${black}'" "--ff" "'${white}'" "--nb" "'${black}'" "--nf" "'${accent}'" "--hb" "'${accent}'" "--hf" "'${black}'" "--sb" "'${accent}'" "--sf" "'${white}'" "--scrollbar" "autohide" "-f" "-m" "all" ];
-  lockCmd = "$HOME/.config/sway/scripts/lock.fish --bg-color ${colors.swatch.background} --fg-color ${colors.swatch.foreground} --primary-color ${colors.swatch.accent} --warning-color ${colors.swatch.warning} --error-color ${colors.swatch.alert}";
+  lockCmd = "$HOME/.config/sway/scripts/lock.fish --bg-color ${config.muse.theme.colors.swatch.background} --fg-color ${config.muse.theme.colors.swatch.foreground} --primary-color ${config.muse.theme.colors.swatch.accent} --warning-color ${config.muse.theme.colors.swatch.warning} --error-color ${config.muse.theme.colors.swatch.alert}";
 in
 {
   imports = [
@@ -292,7 +290,10 @@ in
 
   manual.html.enable = true;
 
-  programs = import ./programs.nix { inherit config deviceName lib pkgs colors bemenuArgs; };
+  programs = import ./programs.nix {
+    inherit config deviceName lib pkgs bemenuArgs;
+    colors = config.muse.theme.colors;
+  };
 
   qt = {
     enable = true;
@@ -303,11 +304,17 @@ in
     };
   };
 
-  services = import ./services.nix { inherit bemenuArgs colors deviceName lib lockCmd pkgs; };
+  services = import ./services.nix {
+    inherit bemenuArgs deviceName lib lockCmd pkgs;
+    colors = config.muse.theme.colors;
+  };
 
   systemd = import ./systemd.nix { inherit config pkgs; };
 
-  wayland.windowManager.sway = import ./sway/mod.nix { inherit config lib pkgs colors bemenuArgs lockCmd; };
+  wayland.windowManager.sway = import ./sway/mod.nix {
+    inherit config lib pkgs bemenuArgs lockCmd;
+    colors = config.muse.theme.colors;
+  };
 
   xdg = {
     enable = true;
@@ -377,9 +384,9 @@ in
       "sway/scripts/start_wob.sh" = {
         executable = true;
         text = import ./sway/wob_script.nix {
-          backgroundColor = colors.swatch.black;
-          borderColor = colors.swatch.gray;
-          barColor = colors.swatch.accent;
+          backgroundColor = config.muse.theme.colors.swatch.black;
+          borderColor = config.muse.theme.colors.swatch.gray;
+          barColor = config.muse.theme.colors.swatch.accent;
         };
       };
       "waybar" = {
