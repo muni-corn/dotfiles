@@ -26,11 +26,6 @@
   (vim.diagnostic.config {:virtual_text {:prefix "●"} :update_in_insert true})
   ;; set up completion
   (cmp.setup {:completion {:completeopt "menu,menuone,noinsert"}
-              :documentation {:border ["" "" "" " " "" "" "" " "]
-                              :maxwidth 120
-                              :minwidth 60
-                              :maxheight (math.floor (* vim.o.lines 0.3))
-                              :minheight 1}
               :mapping {:<c-u> (cmp.mapping.scroll_docs -3)
                         :<c-d> (cmp.mapping.scroll_docs 3)
                         :<c-n> (cmp.mapping.select_next_item {:behavior cmp.SelectBehavior.Insert})
@@ -47,7 +42,10 @@
                         {:name :nvim_lsp}
                         {:name :buffer}
                         {:name :calc}
-                        {:name :nvim_lua}]})
+                        {:name :nvim_lua}]
+              :window {:documentation {:border ["" "" "" " " "" "" "" " "]
+                                       :max_width 120
+                                       :max_height (math.floor (* vim.o.lines 0.3))}}})
   (vim.api.nvim_set_option :omnifunc "v:lua.vim.lsp.omnifunc")
   ;; set up language servers
   (lspconfig.rust_analyzer.setup {:on_attach on-lsp-attach
