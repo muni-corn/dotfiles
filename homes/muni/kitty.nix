@@ -49,14 +49,14 @@ in
     color12 = "#${colors.base0D}";
     color13 = "#${colors.base0E}";
     color14 = "#${colors.base0C}";
-    color15 = "#${colors.base05}";
+    color15 = "#${colors.base06}";
 
     # extra base16 colors
     color16 = "#${colors.base09}";
     color17 = "#${colors.base0F}";
     color18 = "#${colors.base02}";
     color19 = "#${colors.base03}";
-    color20 = "#${colors.base06}";
+    color20 = "#${colors.base05}";
     color21 = "#${colors.base07}";
   };
 }
