@@ -18,7 +18,7 @@ in
   ];
 
   muse.theme = {
-    inherit colors;
+    colors = (import ./colors.nix).catppuccin;
 
     enable = true;
     sansFont = {
