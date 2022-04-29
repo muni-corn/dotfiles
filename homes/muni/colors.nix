@@ -1,83 +1,5 @@
 # colors based on the base16 spec
 {
-  # monochrome colors
-
-  monochrome = rec {
-    base00 = "000000";
-    base08 = "111111";
-
-    base01 = "222222";
-    base02 = "333333";
-    base03 = "444444";
-    base04 = "555555";
-    base05 = "666666";
-    base06 = "777777";
-    base09 = "888888";
-    base0A = "999999";
-    base0B = "aaaaaa";
-    base0C = "bbbbbb";
-    base0D = "cccccc";
-    base0E = "dddddd";
-
-    base07 = "eeeeee";
-    base0F = "ffffff";
-
-    swatch = {
-      # background bases
-      background = base00;
-      black = base00;
-      gray = base02;
-
-      # foreground bases
-      foreground = base05;
-      white = base05;
-      silver = base04;
-
-      # other bases
-      accent = base0D;
-      warning = "ffaa00";
-      alert = "ff0000";
-    };
-  };
-
-  # nord
-  nord = rec {
-    base00 = "2e3440";
-    base01 = "3b4252";
-    base02 = "434c5e";
-    base03 = "4c566a";
-    base04 = "8fbcbb";
-    base05 = "d8dee9";
-    base06 = "e5e9f0";
-    base07 = "eceff4";
-    base08 = "bf616a";
-    base09 = "d08770";
-    base0A = "ebcb8b";
-    base0B = "a3be8c";
-    base0C = "88c0d0";
-    base0D = "81a1c1";
-    base0E = "5e81ac";
-    base0F = "b48ead";
-
-    swatch = {
-      # background bases
-      background = base00;
-      black = base00;
-      gray = base01;
-
-      # foreground bases
-      foreground = base06;
-      white = base06;
-      silver = base05;
-
-      # other bases
-      accent = base04;
-      warning = "ffaa00";
-      alert = "ff0000";
-    };
-  };
-
-  # solarized dark
   solarizedDark = rec {
     base00 = "002b36";
     base01 = "073642";
@@ -95,26 +17,8 @@
     base0D = "268bd2";
     base0E = "6c71c4";
     base0F = "d33682";
-
-    swatch = {
-      # background bases
-      background = base00;
-      black = base00;
-      gray = base01;
-
-      # foreground bases
-      foreground = base05;
-      white = base05;
-      silver = base04;
-
-      # other bases
-      accent = base0C;
-      warning = "ffaa00";
-      alert = "ff0000";
-    };
   };
 
-  # solarized light
   solarizedLight = rec {
     base00 = "fdf6e3";
     base01 = "eee8d5";
@@ -132,23 +36,25 @@
     base0D = "268bd2";
     base0E = "6c71c4";
     base0F = "d33682";
+  };
 
-    swatch = {
-      # background bases
-      background = base00;
-      black = base00;
-      gray = base01;
-
-      # foreground bases
-      foreground = base06;
-      white = base06;
-      silver = base05;
-
-      # other bases
-      accent = base0C;
-      warning = "ffaa00";
-      alert = "ff0000";
-    };
+  nord = rec {
+    base00 = "2e3440";
+    base01 = "3b4252";
+    base02 = "434c5e";
+    base03 = "4c566a";
+    base04 = "8fbcbb";
+    base05 = "d8dee9";
+    base06 = "e5e9f0";
+    base07 = "eceff4";
+    base08 = "bf616a";
+    base09 = "d08770";
+    base0A = "ebcb8b";
+    base0B = "a3be8c";
+    base0C = "88c0d0";
+    base0D = "81a1c1";
+    base0E = "5e81ac";
+    base0F = "b48ead";
   };
 
   eevee = rec {
@@ -168,23 +74,6 @@
     base0D = "c8ceff";
     base0E = "724f9a";
     base0F = "b87e4c";
-
-    swatch = {
-      # background bases
-      background = base00;
-      black = base00;
-      gray = base01;
-
-      # foreground bases
-      foreground = base06;
-      white = base06;
-      silver = base05;
-
-      # other bases
-      accent = base0F;
-      warning = "ffaa00";
-      alert = "ff0000";
-    };
   };
 
   catppuccin = rec {
