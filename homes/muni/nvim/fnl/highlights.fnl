@@ -54,7 +54,7 @@
                      (each [i hlgroup (ipairs hlgroups)]
                        (hl-style hlgroup style)))
       link (fn [src dest]
-             (vim.cmd (string.format "hi link %s %s" dest src)))
+             (vim.cmd (string.format "hi! link %s %s" dest src)))
       link-all (fn [src dests]
                  (each [_ dest (ipairs dests)]
                    (link src dest))) ;; foregrounds {{{
