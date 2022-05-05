@@ -3,5 +3,6 @@
 {
   imports = [
     ./theme/default.nix
+    ./menu.nix
   ];
 }
