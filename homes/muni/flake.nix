@@ -12,31 +12,26 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # alpha.nvim
     alpha-nvim = {
       url = "github:goolord/alpha-nvim";
       flake = false;
     };
 
-    # iosevka muse
     iosevka-muse = {
       url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # matchpal
     matchpal = {
       url = "git+https://codeberg.org/municorn/matchpal?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # muse-status
     muse-status = {
       url = "git+https://codeberg.org/municorn/muse-status";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # muse-sounds
     muse-sounds = {
       url = "git+https://codeberg.org/municorn/muse-sounds";
       inputs.nixpkgs.follows = "nixpkgs";
