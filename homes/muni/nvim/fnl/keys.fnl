@@ -8,10 +8,10 @@
   ;; easily edit config
   (map :n :<leader>rc ":tabe ~/.config/nixpkgs/nvim<cr>" {})
   ;; easy window resizing in normal mode
-  (map :n "+" ":5wincmd ><cr>" {:noremap true :silent true})
-  (map :n "-" ":5wincmd <<cr>" {:noremap true :silent true})
-  (map :n "^" ":3wincmd +<cr>" {:noremap true :silent true})
-  (map :n "_" ":3wincmd -<cr>" {:noremap true :silent true})
+  (map :n "+" "<cmd>5wincmd ><cr>" {:noremap true :silent true})
+  (map :n "-" "<cmd>5wincmd <<cr>" {:noremap true :silent true})
+  (map :n "^" "<cmd>3wincmd +<cr>" {:noremap true :silent true})
+  (map :n "_" "<cmd>3wincmd -<cr>" {:noremap true :silent true})
   ;; easy window moving and switching
   (map :n :<leader>= :<c-w>= {:noremap true :silent true})
   (map :n :<leader>W ":windo set nowinfixwidth nowinfixheight<cr>"
