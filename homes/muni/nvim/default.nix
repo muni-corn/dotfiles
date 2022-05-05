@@ -20,6 +20,7 @@
       ];
       plugins = with pkgs.vimPlugins; [
         FixCursorHold-nvim
+        auto-session
         cmp-buffer
         cmp-calc
         cmp-nvim-lsp
