@@ -11,7 +11,6 @@
 
   boot = {
     initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" ];
-    kernelModules = [ "i2c-dev" "i2c-piix4" "kvm-amd" ];
   };
 
   fileSystems."/" =

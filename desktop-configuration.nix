@@ -15,7 +15,10 @@
       ./zfs.nix
     ];
 
-  boot.loader.grub.gfxmodeEfi = "1920x1080";
+  boot = {
+    loader.grub.gfxmodeEfi = "1920x1080";
+    kernelModules = [ "i2c-dev" "i2c-piix4" "kvm-amd" ];
+  };
 
   hardware = {
     opengl.extraPackages = with pkgs; [
