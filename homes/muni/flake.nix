@@ -23,6 +23,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    muse-flatcolor = {
+      url = "github:municorn/muse-flatcolor";
+      flake = false;
+    };
+
     muse-status = {
       url = "git+https://codeberg.org/municorn/muse-status";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -39,7 +44,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, alpha-nvim, home-manager, neovim-nightly-overlay, iosevka-muse, matchpal, muse-status, muse-sounds }: {
+  outputs = { self, nixpkgs, alpha-nvim, home-manager, neovim-nightly-overlay, iosevka-muse, matchpal, muse-flatcolor, muse-status, muse-sounds }: {
     homeConfigurations =
       let
         lockFile = nixpkgs.lib.importJSON ./flake.lock;
