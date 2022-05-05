@@ -182,7 +182,7 @@ in
         xorg.xcursorgen
 
         # games
-        # gnome.aisleriot
+        gnome.aisleriot
         itch
         libretro.desmume
         libretro.dolphin
@@ -190,6 +190,7 @@ in
         lutris
         polymc
         retroarchFull
+        space-cadet-pinball
         the-powder-toy
         vitetris
 
