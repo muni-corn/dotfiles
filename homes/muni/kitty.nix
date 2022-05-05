@@ -12,6 +12,11 @@ in
     size = 12;
   };
   settings = {
+    # for nnn previews
+    listen_on = "unix:/tmp/kitty";
+    allow_remote_control = "socket-only";
+
+    # theme and font
     background_opacity = "0.90";
     bold_font = "${fontName} Bold";
     italic_font = "${fontName} Italic";
@@ -20,7 +25,6 @@ in
     # colors (using base16)
     foreground = "#${colors.swatch.foreground}";
     background = "#${colors.swatch.background}";
-
     selection_background = "#${colors.base05}";
     selection_foreground = "#${colors.base00}";
     url_color = "#${colors.base04}";

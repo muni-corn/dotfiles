@@ -78,7 +78,6 @@ in
         jq
         libqalculate
         neovim-remote
-        nnn
         notify-desktop
         pinentry
         pinentry-curses
@@ -230,6 +229,7 @@ in
       EDITOR = "nvim";
       GPG_TTY = "$(tty)";
       GTK_THEME = config.gtk.theme.name;
+      LC_COLLATE = "C";
       LEDGER_FILE = "$HOME/notebook/ledger/main.sfox";
       MOZ_ENABLE_WAYLAND = 1;
       MOZ_DBUS_REMOTE = 1;

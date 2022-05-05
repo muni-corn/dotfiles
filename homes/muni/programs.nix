@@ -193,6 +193,36 @@
   # fish integration enabled by default
   nix-index.enable = true;
 
+  nnn = {
+    enable = true;
+    package = pkgs.nnn.override ({ withNerdIcons = true; });
+
+    bookmarks = {
+      c = "~/Pictures/dslr";
+      d = "~/Documents";
+      e = "~/code";
+      g = "~/.config/nixpkgs";
+      m = "~/Music";
+      n = "~/notebook";
+      o = "~/Downloads";
+      p = "~/Pictures";
+      v = "~/Videos";
+    };
+    plugins = {
+      src = (pkgs.fetchFromGitHub {
+        owner = "jarun";
+        repo = "nnn";
+        rev = "v4.5";
+        sha256 = "sha256-uToAgWpGaTPTMYJh1D0xgvE23GSIshv1OBlWxXI07Mk="; }) + "/plugins";
+      mappings = {
+        c = "fzcd";
+        f = "finder";
+        p = "preview-tui";
+        v = "imgview";
+      };
+    };
+  };
+
   password-store = {
     enable = true;
     package = pkgs.pass.withExtensions
