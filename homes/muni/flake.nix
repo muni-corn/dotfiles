@@ -43,7 +43,7 @@
     homeConfigurations =
       let
         lockFile = nixpkgs.lib.importJSON ./flake.lock;
-        alphaNvimOverlay = final: prev:
+        vimPluginOverlay = final: prev:
           let
             alphaNvimInfo = lockFile.nodes.alpha-nvim.locked;
           in
@@ -66,7 +66,7 @@
           matchpal.overlay
           muse-sounds.overlay
           muse-status.overlay
-          alphaNvimOverlay
+          vimPluginOverlay
         ];
 
         username = "municorn";
