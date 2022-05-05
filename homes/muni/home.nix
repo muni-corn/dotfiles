@@ -54,6 +54,8 @@ in
       };
     };
 
+    extraOutputsToInstall = [ "doc" "info" "devdoc" ];
+
     packages = with pkgs;
       [
         # desktop environment
@@ -208,7 +210,11 @@ in
         zbar
       ];
 
-    extraOutputsToInstall = [ "doc" "info" "devdoc" ];
+    pointerCursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Original-Classic";
+      size = 24;
+    };
 
     sessionPath = [
       "$HOME/.cargo/bin"
@@ -393,15 +399,6 @@ in
         recursive = true;
         source = ./waybar;
       };
-    };
-  };
-
-  # this takes care of gtk config files
-  xsession = {
-    pointerCursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Original-Classic";
-      size = 24;
     };
   };
 }
