@@ -266,8 +266,6 @@
       wireplumber.enable = true;
     };
 
-    psd.enable = true;
-
     sshguard = {
       enable = true;
     };

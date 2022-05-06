@@ -71,6 +71,8 @@
         ];
       };
 
+    psd.enable = true;
+
     zfs = {
       trim.enable = true;
       autoScrub = {
