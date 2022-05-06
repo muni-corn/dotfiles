@@ -67,7 +67,6 @@ in
         polkit_gnome
 
         # terminal/cli stuff
-        bpytop
         cava
         chafa
         fd
@@ -79,8 +78,6 @@ in
         libqalculate
         neovim-remote
         notify-desktop
-        pinentry
-        pinentry-curses
         playerctl
         pv
         ripgrep
@@ -104,39 +101,14 @@ in
         tree-sitter
         zls
 
-        # audio, sound, and music
-        ChowKick
-        ardour
-        audacity
-        calf
-        drumkv1
-        geonkick
-        helm
-        helvum
-        hydrogen
-        linuxsampler
-        musescore
-        pamixer # for muse-status, at least
-        pavucontrol
-        qpwgraph
-        qsampler
-        sonic-visualiser
-        spotify
-        x42-gmsynth
-        x42-plugins
-        zyn-fusion
-
         # photo
         gimp
         inkscape
         krita
         rawtherapee
 
-        # video
-        blender
-        kdenlive
-        mediainfo
-        movit
+        # music
+        musescore
 
         # writing
         pandoc
@@ -159,7 +131,6 @@ in
         kodi
         ledger-live-desktop
         libreoffice-fresh
-        obs-studio
         tor-browser-bundle-bin
         xournalpp
 
@@ -167,7 +138,6 @@ in
         wine
         desmume
         dolphin-emu
-        yuzu-mainline
 
         # fish plugins
         fishPlugins.done
@@ -209,6 +179,39 @@ in
         xdragon
         yt-dlp
         zbar
+      ] ++ lib.optionals (deviceName == "ponytower") [
+        # ponytower-specific packages
+
+        # apps
+        obs-studio
+
+        # video
+        blender
+        kdenlive
+        mediainfo
+        movit
+
+        # audio, sound, and music
+        ChowKick
+        ardour
+        audacity
+        calf
+        drumkv1
+        geonkick
+        helm
+        helvum
+        hydrogen
+        linuxsampler
+        pamixer # for muse-status, at least
+        pavucontrol
+        qpwgraph
+        qsampler
+        sonic-visualiser
+        spotify
+        x42-gmsynth
+        x42-plugins
+        zyn-fusion
+
       ];
 
     pointerCursor = {
