@@ -206,6 +206,7 @@ in
         qrencode
         rsync
         tldr
+        xdragon
         yt-dlp
         zbar
       ];
