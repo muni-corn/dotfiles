@@ -1,11 +1,21 @@
-{ ... }:
 {
   enable = true;
   settings = {
     format = ''$all$shell$jobs$status$character'';
-    battery = {
-      display.threshold = 30;
-    };
+    battery.display = [
+      {
+        threshold = 15;
+        style = "bold red";
+      }
+      {
+        threshold = 30;
+        style = "bold yellow";
+      }
+    ];
+
+    # don't you dare enable cmd_duration notifications
+    # you'll regret it
+
     memory_usage = {
       disabled = false;
     };
@@ -14,7 +24,7 @@
     };
     status = {
       disabled = false;
-      symbol = "•";
+      symbol = "• ";
     };
   };
 }

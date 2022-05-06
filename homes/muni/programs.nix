@@ -260,7 +260,7 @@
     defaultCommand = ''fd --type f'';
   };
 
-  starship = import ./starship.nix { };
+  starship = import ./starship.nix;
 
   texlive = {
     enable = true;
