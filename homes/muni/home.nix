@@ -41,6 +41,10 @@ in
   accounts.email = import ./email/mod.nix { inherit config; };
 
   home = {
+    enableNixpkgsReleaseCheck = true;
+
+    extraOutputsToInstall = [ "doc" "info" "devdoc" ];
+
     file = {
       ".vsnip" = {
         recursive = true;
@@ -53,8 +57,6 @@ in
         source = ./npmrc;
       };
     };
-
-    extraOutputsToInstall = [ "doc" "info" "devdoc" ];
 
     packages = with pkgs;
       [
