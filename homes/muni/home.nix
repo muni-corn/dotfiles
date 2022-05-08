@@ -73,6 +73,7 @@ in
         chafa
         fd
         fish
+        git-annex
         glances
         gnupg
         jdupes
