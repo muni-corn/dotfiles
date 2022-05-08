@@ -35,7 +35,7 @@ in
 
   nixpkgs = {
     inherit overlays;
-    config.allowUnfree = true;
+    config = import ./config.nix { inherit lib; };
   };
 
   accounts.email = import ./email/mod.nix { inherit config; };
