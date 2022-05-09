@@ -179,6 +179,7 @@ in
         qrencode
         rsync
         tldr
+        wirelesstools
         xdragon
         yt-dlp
         zbar
