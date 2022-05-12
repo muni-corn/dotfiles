@@ -72,14 +72,6 @@
       };
 
     psd.enable = true;
-
-    zfs = {
-      trim.enable = true;
-      autoScrub = {
-        enable = true;
-        pools = [ "rpool" ];
-      };
-    };
   };
 
   systemd.services.openrgb = {

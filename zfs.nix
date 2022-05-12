@@ -19,6 +19,10 @@
         enable = true;
         pools = [ "rpool" ];
       };
+      autoSnapshot = {
+        enable = true;
+        flags = "-kpu";
+      };
     };
   };
 }
