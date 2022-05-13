@@ -67,6 +67,8 @@
     userEmail = "municorn@musicaloft.com";
     userName = "municorn";
     extraConfig = {
+      annex.autocommit = false;
+
       color = {
         ui = "auto";
         diff = {
