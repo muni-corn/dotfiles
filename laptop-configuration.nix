@@ -17,6 +17,13 @@
     hostName = "littlepony";
   };
 
+  services = {
+    openssh = {
+      enable = true;
+      forwardX11 = true;
+    };
+  };
+
   systemd = {
     services."systemd-backlight@backlight:acpi_video0".enable = false;
     targets = {
