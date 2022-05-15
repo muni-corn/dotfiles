@@ -244,6 +244,8 @@
   services = {
     atd.enable = true;
 
+    auto-cpufreq.enable = true;
+
     fwupd.enable = true;
 
     geoclue2 = {
@@ -278,8 +280,6 @@
     sshguard = {
       enable = true;
     };
-
-    tlp.enable = true;
 
     xserver = {
       # Enable the Plasma 5 Desktop Environment.
