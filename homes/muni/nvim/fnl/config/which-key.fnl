@@ -1,4 +1,3 @@
-; TODO clean this crap up
 (let [which-key (require :which-key)
       telescope-fd "<cmd>lua require'telescope.builtin'.fd()<cr>"
       telescope-builtin "<cmd>lua require'telescope.builtin'.builtin()<cr>"
@@ -8,7 +7,7 @@
       telescope-git-commits "<cmd>lua require'telescope.builtin'.git_commits()<cr>"
       telescope-git-stash "<cmd>lua require'telescope.builtin'.git_stash()<cr>"
       telescope-git-status "<cmd>lua require'telescope.builtin'.git_status()<cr>"
-      telescope-lsp-actions "<cmd>lua require'telescope.builtin'.lsp_code_actions()<cr>"
+      telescope-lsp-actions "<cmd>lua vim.lsp.buf.code_action()<cr>"
       telescope-lsp-document-diagnostics "<cmd>lua require'telescope.builtin'.lsp_document_diagnostics()<cr>"
       telescope-lsp-workspace-diagnostics "<cmd>lua require'telescope.builtin'.lsp_workspace_diagnostics()<cr>"
       telescope-lsp-document-symbols "<cmd>lua require'telescope.builtin'.lsp_document_symbols()<cr>"
