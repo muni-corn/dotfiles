@@ -35,6 +35,8 @@
         nvim-ts-rainbow
         plenary-nvim
         popup-nvim
+        telescope-ui-select-nvim
+        telescope-zoxide
         vim-commentary
         vim-fugitive
         vim-pandoc
