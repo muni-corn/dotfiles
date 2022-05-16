@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib ? null, ... }:
 
 {
   allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
