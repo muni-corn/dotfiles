@@ -146,11 +146,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1652452043,
-        "narHash": "sha256-nh3mdVB/Kk5ag1uRMAlKo8r+ssN3HNxwbLsqRG4xZkw=",
+        "lastModified": 1652996682,
+        "narHash": "sha256-7ZWyd5W2tM/uxXGn16AJUXenlGPUt/r6zitEcorz5j0=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "273598f53e04f0111dca5724b37640e3907edaaf",
+        "rev": "02b15de8ad714409358cffdc6ed518ade03402c4",
         "type": "github"
       },
       "original": {
@@ -232,7 +232,7 @@
       "locked": {
         "lastModified": 1640082991,
         "narHash": "sha256-7/c8hLrxJVJO/oKufVIu/bTxYCSWuIHptlIxzjbjh7w=",
-        "ref": "refs/heads/master",
+        "ref": "master",
         "rev": "59570b7a00e3d68c6b4ac07ef8fba79ac59d725a",
         "revCount": 7,
         "type": "git",
@@ -255,7 +255,7 @@
       "locked": {
         "lastModified": 1649462859,
         "narHash": "sha256-x8bfVKacbaFLxxQ0ey5ieOn7gWHJSY+hFnImdWmFDqU=",
-        "ref": "refs/heads/master",
+        "ref": "master",
         "rev": "4d5337b24a70e765e7b4ba33d4b9920443c6b218",
         "revCount": 158,
         "type": "git",
@@ -313,11 +313,11 @@
       },
       "locked": {
         "dir": "contrib",
-        "lastModified": 1652553339,
-        "narHash": "sha256-NEDgBYdc2LRWIwOGG0TPtUsjw+4eDxQWUdoIfKW33gA=",
+        "lastModified": 1653002438,
+        "narHash": "sha256-6V8vvZwRH7U/3NcfJQGTzy9KJKsfl/+1xVtbS+84M8M=",
         "owner": "neovim",
         "repo": "neovim",
-        "rev": "0adc66171a355a12494d87ebb767d509540c7ef9",
+        "rev": "eb0aa8bb0ebc3cc233af6a5281c553d14ee57183",
         "type": "github"
       },
       "original": {
@@ -336,11 +336,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1652602566,
-        "narHash": "sha256-5AumyqBPxu1Nx+bxjuLHwVVQz04kA+GaZDwWijcQzsU=",
+        "lastModified": 1653034615,
+        "narHash": "sha256-WbofGOnVjhFTKfC7WWwiWdrD5w/eRkm0o1A44vnfWbE=",
         "owner": "nix-community",
         "repo": "neovim-nightly-overlay",
-        "rev": "207519e8de79239cd823d35b89636322fb6f529a",
+        "rev": "1ff270f63d9179b83ed2aadbdba3d0880a091305",
         "type": "github"
       },
       "original": {
@@ -395,11 +395,11 @@
     },
     "nixpkgs_4": {
       "locked": {
-        "lastModified": 1652467128,
-        "narHash": "sha256-1wuQ7QgPQ3tugYcoVMJ3pUzl4wVdBzKZr9qtJAgA4VI=",
+        "lastModified": 1652885393,
+        "narHash": "sha256-YIgvvlk4iQ1Hi7KD9o5gsojc+ApB+jiH1d5stK8uXiw=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "fb222e008681fce4608e94f2d1dfdf3d03a364c4",
+        "rev": "48037fd90426e44e4bf03e6479e88a11453b9b66",
         "type": "github"
       },
       "original": {
