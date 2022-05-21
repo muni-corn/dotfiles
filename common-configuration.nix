@@ -54,6 +54,7 @@
       openrgb
       pinentry
       pinentry-curses
+      pinentry-gtk2
       v4l-utils
       wayfire
 
@@ -208,6 +209,12 @@
     adb.enable = true;
     fish.enable = true;
     git.enable = true;
+
+    gnupg.agent = {
+      enable = true;
+      pinentryFlavor = "gtk2";
+    };
+
     gphoto2.enable = true;
 
     ssh = {
