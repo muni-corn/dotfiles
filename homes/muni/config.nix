@@ -1,4 +1,4 @@
-{ lib ? null, ... }:
+{ lib ? import <nixpkgs/lib>, ... }:
 
 {
   allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
