@@ -16,15 +16,11 @@
 
   fileSystems."/" =
     {
-      device = "/dev/disk/by-uuid/b129723b-4861-4ace-b97d-93272c9cfcbc";
-      fsType = "btrfs";
+      device = "/dev/mapper/crypted";
+      fsType = "ext4";
     };
 
-  fileSystems."/home" =
-    {
-      device = "/dev/sda3";
-      fsType = "btrfs";
-    };
+  boot.initrd.luks.devices."crypted".device = "/dev/disk/by-uuid/2374039d-26e4-4755-b0a4-942a2f2a956c";
 
   fileSystems."/boot" =
     {
@@ -35,4 +31,5 @@
   swapDevices =
     [{ device = "/dev/disk/by-uuid/8a419000-8610-4b68-a22c-dd92a0c0b5d7"; }];
 
+  hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
