@@ -21,32 +21,29 @@
                 :r? "!"
                 :! "..."
                 :t :t}
-      pill (fn [content hl-color]
-             ;; if no content, no pill
-             (if (= (length content) 0) ""
-                 (let [outside-hl (string.format "%%#CustomPillOutside#"
-                                                 hl-color)
-                       inside-hl (string.format "%%#Custom%sPillInside#"
-                                                hl-color)]
-                   (.. outside-hl "" inside-hl content outside-hl ""))))
-      pill-separator "%#StatusLine#  "
+      block (fn [content hl-color]
+              ;; if no content, no block
+              (if (= (length content) 0) ""
+                  (let [inside-hl (string.format "%%#Custom%sStatus#" hl-color)]
+                    (.. inside-hl content))))
+      block-separator "%#StatusLine#  "
       lsp-status (fn []
                    (let [num-clients (length (vim.lsp.buf_get_clients))
                          lsp-status (require :lsp-status)]
                      (if (> num-clients 0)
                          (trim (lsp-status.status))
                          "")))
-      modification-pill (fn []
-                          (let [modified? vim.bo.modified
+      modification-block (fn []
+                           (let [modified? vim.bo.modified
                                 readonly? vim.bo.readonly]
-                            (if modified?
-                                (pill "+" :GrayGreenFg)
-                                readonly?
-                                (pill "" :GrayRedFg)
-                                (and modified? readonly?)
-                                (pill " +" :GrayRedFg)
-                                "")))
-      percent-scroll "%p%%"
+                             (if (and modified? readonly?)
+                                 (block " +" :Red)
+                                 modified?
+                                 (block "+" :Lime)
+                                 readonly?
+                                 (block "" :Red)
+                                 "")))
+      percent-scroll "%P"
       line-column "%l:%2c"
       file-type (fn []
                   (string.lower vim.bo.filetype))
@@ -62,23 +59,32 @@
                            mode (or (. mode-map (. api-mode :mode)) "?")
                            paste-str (if paste-mode-enabled? " " "")]
                        (.. paste-str mode)))
-      right-pills (fn []
-                    (let [pills [(modification-pill)
-                                 (pill percent-scroll :Fuchsia)
-                                 (pill line-column :Blue)
-                                 (pill (file-type) :Aqua)
-                                 (pill (git-branch) :Lime)
-                                 (pill file-path :Yellow)
-                                 (pill (current-mode) :Red)]]
-                      (icollect [_ p (ipairs pills)]
+      left-blocks (fn []
+                    (let [blocks [(block (current-mode) :Red)
+                                  (block file-path :Yellow)
+                                  (modification-block)]]
+                      (icollect [_ p (ipairs blocks)]
                         (when (> (length p) 0)
                           p))))
+      right-blocks (fn []
+                     (let [blocks [(block (git-branch) :Lime)
+                                   (block (file-type) :Aqua)
+                                   (block line-column :Blue)
+                                   (block percent-scroll :Fuchsia)]]
+                       (icollect [_ p (ipairs blocks)]
+                         (when (> (length p) 0)
+                           p))))
       active-status (fn []
-                      (.. "  %<" (lsp-status) "%="
-                          (table.concat (right-pills) pill-separator)))
+                      (.. "  " (table.concat (left-blocks) block-separator)
+                          block-separator
+                          "%<%="
+                          (lsp-status)
+                          block-separator
+                          "%="
+                          (table.concat (right-blocks) block-separator)
+                          "  "))
       inactive-status (fn []
-                        (.. "%=" (table.concat [file-path percent-scroll] "  ")
-                            " "))]
+                        (.. "     " file-path "%<%=" percent-scroll "  "))]
   (global active_statusline active-status)
   (global inactive_statusline inactive-status)
   (vim.api.nvim_exec "

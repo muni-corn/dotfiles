@@ -58,8 +58,7 @@
       link-all (fn [src dests]
                  (each [_ dest (ipairs dests)]
                    (link src dest))) ;; foregrounds {{{
-      fgs {:0 [:Cursor
-               :PmenuSbar]
+      fgs {:0 [:Cursor :PmenuSbar]
            :1 [:IncSearch
                :PMenuSel
                :Substitute
@@ -99,9 +98,11 @@
                :WildMenu
                :CustomClosePillInside
                :CustomGrayRedFgPillInside
-               :CustomRedPillInside]
+               :CustomRedPillInside
+               :CustomRedStatus]
            :9 [:Boolean :Constant :DiffChange :Float :Number]
            :A [:CustomYellowPillInside
+               :CustomYellowStatus
                :DiffText
                :Label
                :PreProc
@@ -119,15 +120,26 @@
                :String
                :TabLineSel
                :CustomLimePillInside
+               :CustomLimeStatus
                :CustomGrayGreenFgPillInside]
-           :C [:FoldColumn :Info :Special :CustomAquaPillInside]
+           :C [:FoldColumn
+               :Info
+               :Special
+               :CustomAquaPillInside
+               :CustomAquaStatus]
            :D [:Directory
                :Function
                :Include
                :Question
                :Title
-               :CustomBluePillInside]
-           :E [:Define :Keyword :Structure :CustomFuchsiaPillInside :SpellCap]
+               :CustomBluePillInside
+               :CustomBlueStatus]
+           :E [:Define
+               :Keyword
+               :Structure
+               :CustomFuchsiaPillInside
+               :CustomFuchsiaStatus
+               :SpellCap]
            :F [:Conditional :Delimiter :SpecialChar]} ;; }}}
       ;; backgrounds {{{
       bgs {:NONE [:DiffAdd
@@ -191,14 +203,21 @@
               :bold [:Bold
                      :CursorLineNr
                      :CustomAquaPillInside
+                     :CustomAquaStatus
                      :CustomBluePillInside
+                     :CustomBlueStatus
                      :CustomClosePillInside
+                     :CustomCloseStatus
                      :CustomFuchsiaPillInside
+                     :CustomFuchsiaStatus
                      :CustomGrayGreenFgPillInside
                      :CustomGrayRedFgPillInside
                      :CustomLimePillInside
+                     :CustomLimeStatus
                      :CustomRedPillInside
+                     :CustomRedStatus
                      :CustomYellowPillInside
+                     :CustomYellowStatus
                      :DiffAdd
                      :DiffChange
                      :DiffDelete
