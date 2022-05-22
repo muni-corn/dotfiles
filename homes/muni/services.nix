@@ -22,8 +22,6 @@
     extraConfig = "no-allow-external-cache";
   };
 
-  kbfs.enable = true;
-  keybase.enable = true;
 
   muse-status.enable = true;
 
