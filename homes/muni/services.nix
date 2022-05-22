@@ -22,6 +22,7 @@
     extraConfig = "no-allow-external-cache";
   };
 
+  kdeconnect.enable = true;
 
   muse-status.enable = true;
 
