@@ -66,6 +66,7 @@
     };
     userEmail = "municorn@musicaloft.com";
     userName = "municorn";
+
     extraConfig = {
       annex.autocommit = false;
 
@@ -94,6 +95,9 @@
         tool = "nvimdiff3";
       };
       pull.rebase = true;
+      receive = {
+        denyCurrentBranch = "refuse";
+      };
       tag.gpgSign = true;
       url = {
         "git@github.com:".insteadOf = "https://github.com/";
