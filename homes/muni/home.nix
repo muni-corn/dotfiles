@@ -99,6 +99,7 @@ in
         meld
         nodejs
         python3
+        rnix-lsp
         rustup
         rust-analyzer
         tree-sitter
