@@ -87,7 +87,7 @@
       init.defaultBranch = "main";
       lfs.enable = true;
       merge = {
-        conflictStyle = "diff3";
+        conflictStyle = "zdiff3";
         guitool = "meld";
         renamelimit = 2016;
         tool = "nvimdiff3";
