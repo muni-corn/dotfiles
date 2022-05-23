@@ -47,8 +47,8 @@
 
       # note: we would include common-pc-hdd, but it only sets vm.swappiness to
       # 10, which is overriden by common-pc-ssd, which sets vm.swappiness to 1.
-      # swap on ponytower is currently restricted to the ssd.
-      ponytowerHardwareModules = with nixos-hardware.nixosModules; [
+      # swap on ponycastle is currently restricted to the ssd.
+      ponycastleHardwareModules = with nixos-hardware.nixosModules; [
         common-cpu-amd
         common-gpu-amd
         common-pc
@@ -61,10 +61,10 @@
           system = "x86_64-linux";
           modules = extraCommonModules ++ littleponyHardwareModules ++ [ ./laptop-configuration.nix ];
         };
-        ponytower = nixpkgs.lib.nixosSystem {
+        ponycastle = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { flake-inputs = inputs; };
-          modules = extraCommonModules ++ ponytowerHardwareModules ++ [ ./desktop-configuration.nix ];
+          modules = extraCommonModules ++ ponycastleHardwareModules ++ [ ./desktop-configuration.nix ];
         };
       };
     };

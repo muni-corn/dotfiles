@@ -39,7 +39,7 @@
   };
 
   networking = {
-    hostName = "ponytower";
+    hostName = "ponycastle";
     hostId = "edafa5da";
   };
 
