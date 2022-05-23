@@ -86,7 +86,7 @@
         };
       in
       {
-        ponytower = homeConfiguration "ponytower";
+        ponycastle = homeConfiguration "ponycastle";
         littlepony = homeConfiguration "littlepony";
       };
   };

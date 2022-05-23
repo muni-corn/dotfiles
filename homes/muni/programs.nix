@@ -183,7 +183,7 @@
     enableFishIntegration = true;
     agents = [ "gpg" "ssh" ];
     extraFlags = [ "-q" "--gpg2" ];
-    keys = [ "id_rsa_github" "id_rsa_bitbucket" "id_ed25519" "4B21310A52B15162" ] ++ lib.optional (deviceName != "ponytower") "id_rsa_ponytower";
+    keys = [ "id_rsa_github" "id_rsa_bitbucket" "id_ed25519" "4B21310A52B15162" ] ++ lib.optional (deviceName != "ponycastle") "id_rsa_ponycastle";
   };
 
   kitty = import ./kitty.nix { inherit colors pkgs; };

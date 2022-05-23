@@ -147,7 +147,7 @@ in
         pos = "0 0";
       };
 
-      # for ponytower
+      # for ponycastle
       "Acer Technologies SB220Q 0x00007C0D" = {
         pos = "0 0";
       };

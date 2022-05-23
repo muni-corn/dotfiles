@@ -184,8 +184,8 @@ in
         xdragon
         yt-dlp
         zbar
-      ] ++ lib.optionals (deviceName == "ponytower") [
-        # ponytower-specific packages
+      ] ++ lib.optionals (deviceName == "ponycastle") [
+        # ponycastle-specific packages
 
         # apps
         obs-studio
@@ -388,7 +388,7 @@ in
             default_icon: 󰖐
             update_interval_minutes: 20
             units: imperial
-            ${optionalString (deviceName == "ponytower") "volume_sink: alsa_output.usb-Generic_Razer_Base_Station_V2_Chroma-00.analog-stereo"}
+            ${optionalString (deviceName == "ponycastle") "volume_sink: alsa_output.usb-Generic_Razer_Base_Station_V2_Chroma-00.analog-stereo"}
         '';
       "peaclock.conf".source = ./peaclock.conf;
       "ranger" = {
