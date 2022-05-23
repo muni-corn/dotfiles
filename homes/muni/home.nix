@@ -1,4 +1,4 @@
-{ config, deviceName ? null, lib, overlays ? [ ], pkgs, ... }:
+{ config, deviceInfo ? null, lib, overlays ? [ ], pkgs, ... }:
 
 let
   fontText = "Inter 12";
@@ -184,7 +184,7 @@ in
         xdragon
         yt-dlp
         zbar
-      ] ++ lib.optionals (deviceName == "ponycastle") [
+      ] ++ lib.optionals (deviceInfo.name == "ponycastle") [
         # ponycastle-specific packages
 
         # apps
@@ -310,7 +310,7 @@ in
   manual.html.enable = true;
 
   programs = import ./programs.nix {
-    inherit config deviceName lib pkgs bemenuArgs;
+    inherit config deviceInfo lib pkgs bemenuArgs;
     colors = config.muse.theme.colors;
   };
 
@@ -324,7 +324,7 @@ in
   };
 
   services = import ./services.nix {
-    inherit bemenuArgs deviceName lib lockCmd pkgs;
+    inherit bemenuArgs deviceInfo lib lockCmd pkgs;
     colors = config.muse.theme.colors;
   };
 
@@ -388,7 +388,7 @@ in
             default_icon: 󰖐
             update_interval_minutes: 20
             units: imperial
-            ${optionalString (deviceName == "ponycastle") "volume_sink: alsa_output.usb-Generic_Razer_Base_Station_V2_Chroma-00.analog-stereo"}
+            ${optionalString (deviceInfo.name == "ponycastle") "volume_sink: alsa_output.usb-Generic_Razer_Base_Station_V2_Chroma-00.analog-stereo"}
         '';
       "peaclock.conf".source = ./peaclock.conf;
       "ranger" = {

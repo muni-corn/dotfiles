@@ -76,18 +76,28 @@
 
         username = "municorn";
         homePath = "/home/${username}";
-        homeConfiguration = deviceName: home-manager.lib.homeManagerConfiguration {
+
+        # `deviceInfo` should be { name: string; graphical: bool; work: bool; }
+        homeConfiguration = deviceInfo: home-manager.lib.homeManagerConfiguration {
           system = "x86_64-linux";
           homeDirectory = homePath;
           username = username;
           stateVersion = "21.11";
-          extraSpecialArgs = { inherit overlays deviceName; };
+          extraSpecialArgs = { inherit overlays deviceInfo; };
           configuration = import ./home.nix;
         };
       in
       {
-        ponycastle = homeConfiguration "ponycastle";
-        littlepony = homeConfiguration "littlepony";
+        ponycastle = homeConfiguration {
+          name = "ponycastle";
+          graphical = true;
+          work = false;
+        };
+        littlepony = homeConfiguration {
+          name = "littlepony";
+          graphical = true;
+          work = false;
+        };
       };
   };
 }
