@@ -91,22 +91,22 @@
         ponycastle = homeConfiguration {
           name = "ponycastle";
           graphical = true;
-          work = false;
+          personal = true;
         };
         littlepony = homeConfiguration {
           name = "littlepony";
           graphical = true;
-          work = false;
+          personal = true;
         };
         breezie = homeConfiguration {
           name = "breezie";
           graphical = false;
-          work = false;
+          personal = true;
         };
         polly = homeConfiguration {
           name = "polly";
           graphical = true;
-          work = true;
+          personal = false;
         };
       };
   };
