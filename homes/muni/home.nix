@@ -59,6 +59,7 @@ in
     };
 
     packages = with pkgs;
+      # packages for all devices
       [
         # desktop environment
         bemenu
@@ -184,9 +185,10 @@ in
         xdragon
         yt-dlp
         zbar
-      ] ++ lib.optionals (deviceInfo.name == "ponycastle") [
-        # ponycastle-specific packages
+      ] ++
 
+      # ponycastle-specific packages
+      lib.optionals (deviceInfo.name == "ponycastle") [
         # apps
         obs-studio
 
@@ -216,7 +218,6 @@ in
         x42-gmsynth
         x42-plugins
         zyn-fusion
-
       ];
 
     pointerCursor = {
