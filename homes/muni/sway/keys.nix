@@ -26,13 +26,13 @@ let
   screenshot = "${scriptsDir}/screenshot.fish";
 
   # volume scripts
-  volumeScript = pamixerFlag: soundPath: pkgs.writeScript "volume${pamixerFlag}" ''
+  volumeScript = name: pamixerFlags: soundPath: pkgs.writeScript "volume-${name}" ''
     #!${pkgs.fish}/bin/fish
     if set -q VOLUME_CTL_DEFAULT_SINK
-      ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" ${pamixerFlag} 5
+      ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" ${pamixerFlags}
       ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" --get-volume > $SWAYSOCK.wob &
     else
-      ${pamixer} ${pamixerFlag} 5
+      ${pamixer} ${pamixerFlags}
       ${pamixer} --get-volume > $SWAYSOCK.wob &
     end
 
@@ -41,33 +41,18 @@ let
 
      wait
   '';
-  volumeUp = volumeScript "-i" volumeUpSound;
-  volumeDown = volumeScript "-d" volumeDownSound;
-  toggleMute = pkgs.writeScript "volume-down" ''
-    #!${pkgs.fish}/bin/fish
-
-    if set -q VOLUME_CTL_DEFAULT_SINK
-      ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" --toggle-mute
-      ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" --get-volume > $SWAYSOCK.wob &
-    else
-      ${pamixer} --toggle-mute
-      ${pamixer} --get-volume > $SWAYSOCK.wob &
-    end
-
-     ${ms} notify volume &
-     pw-play ${volumeUpSound} &
-
-     wait
-  '';
+  volumeUp = volumeScript "up" "-i 5" volumeUpSound;
+  volumeDown = volumeScript "down" "-d 5" volumeDownSound;
+  toggleMute = volumeScript "toggle-mute" "--toggle-mute" volumeUpSound;
 
   # brightness scripts
-  brightnessScript = brilloFlag: pkgs.writeShellScript "brightness${brilloFlag}" ''
-    brillo -q ${brilloFlag} 2
+  brightnessScript = name: brilloFlags: pkgs.writeShellScript "brightness-${name}" ''
+    brillo -q ${brilloFlags}
     ${ms} notify brightness &
     brillo -G | cut -d'.' -f1 > $SWAYSOCK.wob &
   '';
-  brightnessUp = brightnessScript "-A";
-  brightnessDown = brightnessScript "-U";
+  brightnessUp = brightnessScript "up" "-A 2";
+  brightnessDown = brightnessScript "down" "-U 2";
 in
 {
   # power controls
