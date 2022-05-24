@@ -98,6 +98,16 @@
           graphical = true;
           work = false;
         };
+        breezie = homeConfiguration {
+          name = "breezie";
+          graphical = false;
+          work = false;
+        };
+        polly = homeConfiguration {
+          name = "polly";
+          graphical = true;
+          work = true;
+        };
       };
   };
 }
