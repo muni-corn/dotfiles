@@ -6,15 +6,6 @@
 { config, flake-inputs, lib, pkgs, ... }:
 
 {
-  imports =
-    [
-      # Include shared configuration between systems and hardware configuration
-      ./common-configuration.nix
-      ./desktop-hardware.nix
-      ./vfio.nix
-      ./zfs.nix
-    ];
-
   boot = {
     loader.grub.gfxmodeEfi = "1920x1080";
     kernelModules = [ "i2c-dev" "i2c-piix4" "kvm-amd" ];

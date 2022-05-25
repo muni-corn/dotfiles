@@ -6,13 +6,6 @@
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [
-      # Include shared configuration between systems and hardware configuration
-      ./common-configuration.nix
-      ./laptop-hardware.nix
-    ];
-
   networking = {
     hostName = "littlepony";
   };

@@ -59,12 +59,12 @@
       nixosConfigurations = {
         littlepony = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          modules = extraCommonModules ++ littleponyHardwareModules ++ [ ./laptop-configuration.nix ];
+          modules = extraCommonModules ++ littleponyHardwareModules ++ [ ./laptop ];
         };
         ponycastle = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { flake-inputs = inputs; };
-          modules = extraCommonModules ++ ponycastleHardwareModules ++ [ ./desktop-configuration.nix ];
+          modules = extraCommonModules ++ ponycastleHardwareModules ++ [ ./desktop ];
         };
       };
     };
