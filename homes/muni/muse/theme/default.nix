@@ -40,7 +40,7 @@ in
       default = {
         package = pkgs.inter;
         name = "Inter";
-        size = 12.0;
+        size = 12;
       };
     };
     codeFont = mkOption {
