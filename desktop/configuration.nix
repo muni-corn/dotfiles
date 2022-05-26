@@ -85,6 +85,7 @@
   system.stateVersion = "21.05"; # Did you read the comment?
 
   users.users.municorn.openssh.authorizedKeys.keys = [
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEh29o9VSBHYfXJQFUAXSBmmQsvHc6oDI/ey2VuwdTcN h@munis-MacBook-Pro-13"
     "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDiQnKK6t4m3nb1tHi95gGbLENMS60qLC9KIjVtfwDNzC05BKPRL6Ulg8gqBjyMupZz8e+urs8SGqMpfo303eCXJozyOU4DdsqW7mPOMX+hzWhAlNxLaAq9zTpVN9CISGz0UrgisTX38m25ubHnaTILulXkyIedLvwv4ODhKSaS00G9Mm1DXiTLCwDq/EY/E9pDo3SEYOskDlc0WyyHqxLBrr1yWohPgU7TJtx8cy8muXBcCBsJuyPMsPc+AnxGfwQA9KaJiFTknk2lm3mz+RDoY2d+Mt+y90KZjlq/uXfPiUVgB2dY+3cZcb4J9OzcDGGepKBq3MnqwpkVXs8v3shFb0SSVkUxCfHHqK0KiCsBHhEB5UKVWr64NcD2uQgBHa6EmeLuFIsggYGwEe2CRFvKGAgjMMws5rFAvbe5uzMpcEIOXGLv4qOPOmTZe0xua6eW/DhY8VCjzbbu/Tm2D/8qITmQmY8351UBqnAHGdRUhASDpD0J4wHKKd/+hMm3vFs= municorn@littlepony"
   ];
 }
