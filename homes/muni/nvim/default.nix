@@ -37,6 +37,7 @@
         popup-nvim
         telescope-ui-select-nvim
         telescope-zoxide
+        trouble-nvim
         vim-commentary
         vim-fugitive
         vim-pandoc

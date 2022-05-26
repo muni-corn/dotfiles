@@ -121,7 +121,8 @@
                                           "next diagnostic"]
                                       :p ["<cmd>lua vim.diagnostic.goto_prev({ enable_popup = false })<cr>"
                                           "last diagnostic"]
-                                      :x [:<cmd>terminal<cr>i "open terminal"]}
+                                      :t ["<cmd>TroubleToggle<cr>" "show workspace diagnostics"]
+                                      :x [:<cmd>terminal<cr>i "open terminal here"]}
                                   :/ [telescope-lsp-definition "lsp defintion"]
                                   :? ["<cmd>lua vim.lsp.buf.hover()<cr>"
                                       "lsp hover"]}
