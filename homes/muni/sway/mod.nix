@@ -14,16 +14,16 @@ let
   bemenuArgsJoined = lib.strings.concatStringsSep " " bemenuArgs;
 
   # background colors
-  black = "#${colors.swatch.background}e5";
-  gray = "#${colors.swatch.gray}e5";
+  black = "#${colors.swatch.background}f2";
+  gray = "#${colors.swatch.gray}f2";
 
   # foreground colors
   white = "#${colors.swatch.foreground}";
   silver = "#${colors.swatch.silver}";
 
   # other colors
-  accent = "#${colors.swatch.accent}e5";
-  warning = "#${colors.swatch.warning}e5";
+  accent = "#${colors.swatch.accent}f2";
+  warning = "#${colors.swatch.warning}f2";
 
   scriptsDir = builtins.path { name = "sway-scripts"; path = ./scripts; };
 

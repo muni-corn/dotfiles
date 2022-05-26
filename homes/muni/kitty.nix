@@ -17,7 +17,7 @@ in
     allow_remote_control = "socket-only";
 
     # theme and font
-    background_opacity = "0.90";
+    background_opacity = "0.95";
     bold_font = "${fontName} Bold";
     italic_font = "${fontName} Italic";
     bold_italic_font = "${fontName} Bold Italic";
