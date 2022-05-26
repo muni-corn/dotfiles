@@ -279,7 +279,7 @@ in
     "org/gnome/desktop/interface" = {
       gtk-theme = config.gtk.theme.name;
       icon-theme = config.gtk.iconTheme.name;
-      cursor-theme = config.xsession.pointerCursor.name;
+      cursor-theme = config.home.pointerCursor.name;
       font-name = "Inter 12";
     };
     "org/gnome/desktop/sound" = {
