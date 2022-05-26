@@ -177,9 +177,10 @@
                :TabLine
                :TabLineSel
                :Todo]
-           :2 [:IncSearch :Visual]
+           :2 [:Visual]
            :5 [:Cursor :PMenuThumb :PMenuSel]
-           :A [:Substitute :Search]} ;; }}}
+           :A [:Substitute :Search] ;; }}}
+           :B [:IncSearch]} ;; }}}
       ;; styles {{{
       styles {:NONE [:ColorColumn
                      :CursorColumn
