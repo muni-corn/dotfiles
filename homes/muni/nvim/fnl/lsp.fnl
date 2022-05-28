@@ -6,7 +6,7 @@
       lsp-status (require :lsp-status)
       cmp-nvim-lsp (require :cmp_nvim_lsp)
       cmp (require :cmp)
-      signs {:Error " " :Warn " " :Hint " " :Info " "}
+      signs {:Error " " :Warn " " :Hint " " :Info " "} ;; compare signs in ./config/trouble.fnl
       capabilities (cmp-nvim-lsp.update_capabilities lsp-status.capabilities)]
   ;; set up signs
   (each [ty icon (pairs signs)]

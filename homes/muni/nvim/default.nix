@@ -37,7 +37,6 @@
         popup-nvim
         telescope-ui-select-nvim
         telescope-zoxide
-        trouble-nvim
         vim-commentary
         vim-fugitive
         vim-pandoc
@@ -84,6 +83,11 @@
         {
           plugin = telescope-nvim;
           config = builtins.readFile ./fnl/config/telescope.fnl;
+          type = "fennel";
+        }
+        {
+          plugin = trouble-nvim;
+          config = builtins.readFile ./fnl/config/trouble.fnl;
           type = "fennel";
         }
         {
