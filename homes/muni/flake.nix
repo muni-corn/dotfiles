@@ -29,7 +29,7 @@
     };
 
     muse-status = {
-      url = "git+https://codeberg.org/municorn/muse-status";
+      url = "git+https://codeberg.org/municorn/muse-status?ref=unstable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
