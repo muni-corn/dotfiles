@@ -220,18 +220,17 @@
     steam.enable = true;
     sway = {
       enable = true;
-      extraPackages = builtins.attrValues {
-        inherit (pkgs)
-          grim
-          kitty
-          slurp
-          swaybg
-          swayidle
-          swaylock
-          wf-recorder
-          wl-clipboard
-          wob;
-      };
+      extraPackages = with pkgs; [
+        grim
+        kitty
+        slurp
+        swaybg
+        swayidle
+        swaylock
+        wf-recorder
+        wl-clipboard
+        wob
+      ];
     };
   };
 
