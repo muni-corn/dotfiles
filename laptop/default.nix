@@ -37,7 +37,7 @@
   system.stateVersion = "21.05"; # Did you read the comment?
 
   users.users.municorn.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIKecJ3pKjKhMvGWKA2pFYc1++yOKXgIkUN8E/F7gseFH municorn@ponycastle"
+    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpFoYAj02WzgnBokgr2ZzFKOaffOVRK5Ru7Ngh53sjr (none)"
   ];
 }
 
