@@ -151,19 +151,6 @@ in
         # xorg
         xorg.xcursorgen
 
-        # games
-        gnome.aisleriot
-        itch
-        libretro.desmume
-        libretro.dolphin
-        libretro.thepowdertoy
-        lutris
-        polymc
-        retroarchFull
-        space-cadet-pinball
-        the-powder-toy
-        vitetris
-
         # other things
         ffmpeg-full
         fnlfmt
@@ -213,6 +200,19 @@ in
         x42-gmsynth
         x42-plugins
         zyn-fusion
+
+        # games
+        gnome.aisleriot
+        itch
+        libretro.desmume
+        libretro.dolphin
+        libretro.thepowdertoy
+        lutris
+        polymc
+        retroarchFull
+        space-cadet-pinball
+        the-powder-toy
+        vitetris
       ];
 
     pointerCursor = {
