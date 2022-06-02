@@ -206,6 +206,8 @@
 
     gnupg.agent = {
       enable = true;
+      enableBrowserSocket = true;
+      enableSSHSupport = true;
       pinentryFlavor = "gtk2";
     };
 
