@@ -139,11 +139,6 @@ in
         tor-browser-bundle-bin
         xournalpp
 
-        # emulators and "emulators"
-        wine
-        desmume
-        dolphin-emu
-
         # fish plugins
         fishPlugins.done
         fishPlugins.foreign-env
@@ -200,6 +195,11 @@ in
         x42-gmsynth
         x42-plugins
         zyn-fusion
+
+        # emulators and "emulators"
+        wine
+        desmume
+        dolphin-emu
 
         # games
         gnome.aisleriot
