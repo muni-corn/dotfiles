@@ -6,7 +6,7 @@
     startWhenNeeded = true;
     extraConfig = ''
       ClientAliveInterval 30
-      ClientAliveCountMax 5
+      ClientAliveCountMax 20
     '';
   };
 }

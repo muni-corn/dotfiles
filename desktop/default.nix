@@ -9,6 +9,7 @@
   imports = [
     ../common-configuration.nix
 
+    ../openssh.nix
     ./vfio.nix
     ./zfs.nix
     ./hardware.nix
@@ -45,16 +46,6 @@
   services = {
     # disable fstrim (enabled by nixos-hardware/common-pc-ssd); zfs does it for us
     fstrim.enable = false;
-
-    openssh = {
-      enable = true;
-      forwardX11 = true;
-      startWhenNeeded = true;
-      extraConfig = ''
-        ClientAliveInterval 30
-        ClientAliveCountMax 5
-      '';
-    };
 
     pipewire.config.pipewire =
       let

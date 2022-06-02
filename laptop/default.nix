@@ -9,17 +9,11 @@
   imports = [
     ../common-configuration.nix
     ./hardware.nix
+    ../openssh.nix
   ];
 
   networking = {
     hostName = "littlepony";
-  };
-
-  services = {
-    openssh = {
-      enable = true;
-      forwardX11 = true;
-    };
   };
 
   systemd = {
