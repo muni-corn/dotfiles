@@ -49,6 +49,11 @@
     openssh = {
       enable = true;
       forwardX11 = true;
+      startWhenNeeded = true;
+      extraConfig = ''
+        ClientAliveInterval 30
+        ClientAliveCountMax 5
+      '';
     };
 
     pipewire.config.pipewire =
