@@ -148,11 +148,6 @@ in
         fishPlugins.done
         fishPlugins.foreign-env
 
-        # (global) npm packages
-        nodePackages.npm
-        nodePackages.typescript
-        nodePackages.typescript-language-server
-
         # xorg
         xorg.xcursorgen
 
