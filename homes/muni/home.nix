@@ -236,7 +236,6 @@ in
       BEMENU_BACKEND = "wayland";
       BROWSER = "firefox";
       EDITOR = "nvim";
-      GPG_TTY = "$(tty)";
       GTK_THEME = config.gtk.theme.name;
       LC_COLLATE = "C";
       LEDGER_FILE = "$HOME/notebook/ledger/main.sfox";
