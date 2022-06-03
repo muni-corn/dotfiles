@@ -52,9 +52,6 @@
       libcanberra-gtk3
       muse-sounds
       openrgb
-      pinentry
-      pinentry-curses
-      pinentry-gtk2
       v4l-utils
       wayfire
 
