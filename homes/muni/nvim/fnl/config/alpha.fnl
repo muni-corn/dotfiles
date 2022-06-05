@@ -1,6 +1,5 @@
 (let [alpha-nvim (require :alpha)
-      dashboard (require :alpha.themes.dashboard)
-      startify (require :alpha.themes.startify)]
+      dashboard (require :alpha.themes.dashboard)]
   (set dashboard.section.buttons.val
        [(dashboard.button :e "  New file" ":ene <bar> startinsert<cr>")
         (dashboard.button ", f d" "  Find file" ":Telescope find_files<cr>")
@@ -8,4 +7,4 @@
         (dashboard.button ", g g" "龎 Find words" ":Telescope live_grep<cr>")
         (dashboard.button ", f g" "  Git status" ":Telescope git_status<cr>")
         (dashboard.button :q "  Quit" ":qa<cr>")])
-  (alpha-nvim.setup startify.config))
+  (alpha-nvim.setup dashboard.config))
