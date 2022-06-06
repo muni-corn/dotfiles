@@ -34,8 +34,6 @@
   fish = {
     enable = true;
     shellAliases = {
-      btrfs-csum-errors = "sudo dmesg | grep 'checksum error at' | cut -d\  -f27- | sed 's/.\$//' | sort | uniq";
-      btrfs-du = "sudo btrfs fi du --si $argv | tee du_full.txt | cut -b 11- | sort -h | tee du_sorted.txt | tail -n3000 | tee du.txt";
       scanqr = ''geo=(slurp) grim -g "$geo" - | zbarimg --quiet --raw PNG:- 2> /dev/null | tr -d "\n"'';
       todo = "nvim $HOME/notebook/todo.norg";
       yt = "ytfzf --thumb-viewer=imv -t";
