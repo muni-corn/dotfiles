@@ -79,12 +79,6 @@
       fsType = "zfs";
     };
 
-  fileSystems."/home/docker" =
-    {
-      device = "rpool/userdata/home/docker";
-      fsType = "zfs";
-    };
-
   fileSystems."/boot" =
     {
       device = "/dev/disk/by-uuid/4D8E-D4A8";

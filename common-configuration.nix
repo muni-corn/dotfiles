@@ -304,7 +304,7 @@
     users = {
       municorn = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "audio" "video" "camera" "docker" "kvm" "plugdev" "libvirtd" "nixos-config" "adbusers" ];
+        extraGroups = [ "wheel" "audio" "video" "camera" "kvm" "plugdev" "libvirtd" "nixos-config" "adbusers" ];
         home = "/home/municorn";
       };
       beans = {
@@ -319,11 +319,6 @@
       tcpcryptd = { };
     };
     defaultUserShell = pkgs.fish;
-  };
-
-  virtualisation.docker = {
-    enable = true;
-    autoPrune.enable = true;
   };
 
   xdg = {
