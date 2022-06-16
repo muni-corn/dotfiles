@@ -241,7 +241,7 @@
       };
     };
 
-    localtime.enable = true;
+    localtimed.enable = true;
 
     logind.extraConfig = ''
       RuntimeDirectorySize=2G
