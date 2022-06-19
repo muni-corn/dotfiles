@@ -69,4 +69,8 @@
   (lspconfig.rnix.setup {})
   (lspconfig.tsserver.setup {})
   (lspconfig.vuels.setup {})
-  (lspconfig.zls.setup {}))
+  (lspconfig.zls.setup {})
+  ;; reverse signs sort (so most severe are shown in virtual text)
+  (tset vim.lsp.handlers :textDocument/publishDiagnostics
+        (vim.lsp.with vim.lsp.diagnostic.on_publish_diagnostics
+                      {:severity_sort true})))
