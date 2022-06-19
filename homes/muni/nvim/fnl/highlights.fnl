@@ -238,7 +238,7 @@
               :undercurl [:DiagnosticUnderlineError
                           :DiagnosticUnderlineHint
                           :DiagnosticUnderlineInfo
-                          :DiagnosticUnderlineWarning
+                          :DiagnosticUnderlineWarn
                           :DiffText
                           :SpellBad
                           :SpellRare]
@@ -262,9 +262,9 @@
                     :InfoMsg]
              :SpellRare [:SpellLocal]
              :String [:pandocBlockQuote]
-             :Warning [:DiagnosticSignWarning
-                       :DiagnosticVirtualTextWarning
-                       :DiagnosticWarning
+             :Warning [:DiagnosticSignWarn
+                       :DiagnosticVirtualTextWarn
+                       :DiagnosticWarn
                        :WarningMsg]}]
   ;; }}}
   ;; base16-based colors
@@ -280,4 +280,4 @@
   (guisp :DiagnosticUnderlineError :Red)
   (guisp :DiagnosticUnderlineHint :Cyan)
   (guisp :DiagnosticUnderlineInfo :Cyan)
-  (guisp :DiagnosticUnderlineWarning :Yellow))
+  (guisp :DiagnosticUnderlineWarn :Orange))
