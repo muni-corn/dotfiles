@@ -124,8 +124,8 @@
                                       :t ["<cmd>TroubleToggle<cr>" "show workspace diagnostics"]
                                       :x [:<cmd>terminal<cr>i "open terminal here"]}
                                   :/ [telescope-lsp-definition "lsp defintion"]
-                                  :? ["<cmd>lua vim.lsp.buf.hover()<cr>"
-                                      "lsp hover"]}
+                                  :? ["<cmd>lua vim.lsp.buf.type_definition()<cr>"
+                                      "type definition"]}
                        :<bslash> {:name "hop ..."
                                   :F [:<cmd>HopChar1<cr> :char]
                                   :f [:<cmd>HopChar1<cr> :char]
