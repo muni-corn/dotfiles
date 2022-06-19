@@ -235,12 +235,12 @@
                        :VirtualText]
               "bold,italic" [:Todo]
               "underline,italic" [:StatusLine :StatusLineNC]
-              :undercurl [:DiagnosticUnderlineError
+              :underline [:DiagnosticUnderlineError
                           :DiagnosticUnderlineHint
                           :DiagnosticUnderlineInfo
                           :DiagnosticUnderlineWarn
-                          :DiffText
-                          :SpellBad
+                          :DiffText]
+              :undercurl [:SpellBad
                           :SpellRare]
               :strikethrough [:mkdStrike :pandocStrikeout]} ;; }}}
       ;; links {{{
@@ -275,9 +275,4 @@
   (each [style groups (pairs styles)]
     (hl-style-all style groups))
   (each [src dests (pairs links)]
-    (link-all src dests))
-  ;; undercurl colors
-  (guisp :DiagnosticUnderlineError :Red)
-  (guisp :DiagnosticUnderlineHint :Cyan)
-  (guisp :DiagnosticUnderlineInfo :Cyan)
-  (guisp :DiagnosticUnderlineWarn :Orange))
+    (link-all src dests)))
