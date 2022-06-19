@@ -90,7 +90,7 @@ in
 
       criteria = [
         { title = "Lutris"; }
-        { title = "OpenRGB"; }
+        { title = "^OpenRGB$"; }
         { title = "Extension:.*Firefox"; }
       ];
     };
