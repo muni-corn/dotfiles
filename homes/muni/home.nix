@@ -84,6 +84,7 @@ in
         notify-desktop
         playerctl
         pv
+        qpdf
         ripgrep
         sd
         spotify-tui
