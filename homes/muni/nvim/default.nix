@@ -39,6 +39,7 @@
         telescope-zoxide
         vim-commentary
         vim-fugitive
+        vim-hexokinase
         vim-pandoc
         vim-pandoc-syntax
         vim-smoothie
