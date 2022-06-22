@@ -38,8 +38,6 @@ in
     config = import ./config.nix { inherit lib; };
   };
 
-  accounts.email = import ./email/mod.nix { inherit config; };
-
   home = {
     enableNixpkgsReleaseCheck = true;
 
