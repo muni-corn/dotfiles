@@ -1,6 +1,16 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # alpha.nvim (because it's not yet included in nixpkgs)
+    alpha-nvim = {
+      url = "github:goolord/alpha-nvim";
+      flake = false;
+    };
 
     # realtime audio
     musnix = {
@@ -8,35 +18,97 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # all that nightly bleeding-edge goodness
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # extra hardware configuration
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # my stuff
-    plymouth-theme-musicaloft-rainbow = {
-      url = "git+https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow?ref=main";
+    iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
+
+    matchpal = {
+      url = "git+https://codeberg.org/municorn/matchpal?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    iosevka-muse = {
-      url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
+
+    muse-flatcolor = {
+      url = "github:municorn/muse-flatcolor";
+      flake = false;
+    };
+
+    muse-status = {
+      url = "git+https://codeberg.org/municorn/muse-status?ref=unstable";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     muse-sounds = {
       url = "git+https://codeberg.org/municorn/muse-sounds";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    plymouth-theme-musicaloft-rainbow = {
+      url = "git+https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, musnix, nixos-hardware, plymouth-theme-musicaloft-rainbow, iosevka-muse, muse-sounds }@inputs:
+  outputs =
+    { self
+    , nixpkgs
+    , home-manager
+    , alpha-nvim
+    , iosevka-muse
+    , matchpal
+    , muse-flatcolor
+    , muse-sounds
+    , muse-status
+    , musnix
+    , nixos-hardware
+    , neovim-nightly-overlay
+    , plymouth-theme-musicaloft-rainbow
+    }@inputs:
+
     let
+      lockFile = nixpkgs.lib.importJSON ./flake.lock;
+      vimPluginOverlay = final: prev:
+        let
+          alphaNvimInfo = lockFile.nodes.alpha-nvim.locked;
+        in
+        {
+          vimPlugins = prev.vimPlugins // {
+            alpha-nvim =
+              prev.vimUtils.buildVimPlugin {
+                name = alphaNvimInfo.repo;
+                src = prev.fetchFromGitHub {
+                  inherit (alphaNvimInfo) owner repo rev;
+                  sha256 = alphaNvimInfo.narHash;
+                };
+              };
+          };
+        };
+
+      overlays = [
+        iosevka-muse.overlay
+        matchpal.overlay
+        muse-sounds.overlay
+        muse-status.overlay
+        neovim-nightly-overlay.overlay
+        plymouth-theme-musicaloft-rainbow.overlay
+        vimPluginOverlay
+      ];
+
       overlaysModule = { config, pkgs, ... }: {
-        nixpkgs.overlays = [
-          plymouth-theme-musicaloft-rainbow.overlay
-          iosevka-muse.overlay
-          muse-sounds.overlay
-        ];
+        nixpkgs.overlays = overlays;
       };
 
-      extraCommonModules = [ musnix.nixosModules.musnix overlaysModule ];
+      extraCommonModules = [
+        musnix.nixosModules.musnix
+        overlaysModule
+      ];
 
       littleponyHardwareModules = with nixos-hardware.nixosModules; [
         common-cpu-amd
@@ -67,5 +139,38 @@
           modules = extraCommonModules ++ ponycastleHardwareModules ++ [ ./desktop ];
         };
       };
+
+      homeConfigurations =
+        let
+          pkgs = import nixpkgs {
+            system = "x86_64-linux";
+            inherit overlays;
+          };
+          username = "municorn";
+          homePath = "/home/${username}";
+
+          # `deviceInfo` should be { name: string; graphical: bool; work: bool; }
+          homeConfiguration = deviceInfo: home-manager.lib.homeManagerConfiguration {
+            inherit pkgs;
+            system = "x86_64-linux";
+            homeDirectory = homePath;
+            username = username;
+            stateVersion = "21.11";
+            extraSpecialArgs = { inherit overlays deviceInfo; };
+            configuration = import ./homes/muni/home.nix;
+          };
+        in
+        {
+          ponycastle = homeConfiguration {
+            name = "ponycastle";
+            graphical = true;
+            personal = true;
+          };
+          littlepony = homeConfiguration {
+            name = "littlepony";
+            graphical = true;
+            personal = true;
+          };
+        };
     };
 }
