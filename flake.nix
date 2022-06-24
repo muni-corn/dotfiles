@@ -28,6 +28,11 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # my stuff
+    arpeggio = {
+      url = "git+https://github.com/muni-corn/arpeggio?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
 
     matchpal = {
@@ -61,6 +66,7 @@
     , nixpkgs
     , home-manager
     , alpha-nvim
+    , arpeggio
     , iosevka-muse
     , matchpal
     , muse-flatcolor
@@ -92,6 +98,7 @@
         };
 
       overlays = [
+        arpeggio.overlay
         iosevka-muse.overlay
         matchpal.overlay
         muse-sounds.overlay
