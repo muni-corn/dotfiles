@@ -27,9 +27,11 @@ in
       size = 12;
     };
 
-    wallpapers = {
-      dir = ./wallpapers;
-      useMatchpal = true;
+    matchpal = {
+      enable = true;
+      wallpapers = {
+        dir = ./wallpapers;
+      };
     };
   };
 

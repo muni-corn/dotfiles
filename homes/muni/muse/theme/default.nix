@@ -68,23 +68,30 @@ in
       };
     };
 
-    wallpapers = mkOption {
+    matchpal = mkOption {
+      description = "Settings for matchpal, the palette-matching wallpaper processor.";
       type = types.submodule {
         options = {
-          dir = mkOption {
-            type = types.nullOr types.path;
-            description = "A path containing wallpapers.";
-            default = null;
-          };
-          useMatchpal = mkEnableOption "matchpal theming for wallpapers. Will use <option>muse.theme.colors</option> for colors";
-          finalWallpapers = mkOption {
-            type = types.path;
-            description = "The final directory containing potentially processed wallpapers.";
-            readOnly = true;
+          enable = mkEnableOption "matchpal theming for wallpapers. Will use <option>muse.theme.colors</option> for colors";
+          wallpapers = mkOption {
+            description = "Settings for wallpapers.";
+            type = types.submodule {
+              options = {
+                dir = mkOption {
+                  type = types.path;
+                  description = "A path containing wallpapers.";
+                  default = null;
+                };
+                final = mkOption {
+                  type = types.path;
+                  description = "The final directory containing processed wallpapers.";
+                  readOnly = true;
+                };
+              };
+            };
           };
         };
       };
-      description = "Settings for wallpapers.";
     };
   };
   config =
@@ -93,7 +100,7 @@ in
 
       wallpapersPath = builtins.path {
         name = "wallpapers";
-        path = cfg.wallpapers.dir;
+        path = cfg.matchpal.wallpapers.dir;
       };
 
       paletteFile = pkgs.writeTextFile {
@@ -119,9 +126,9 @@ in
       };
     in
     mkIf cfg.enable {
-      muse.theme.wallpapers.finalWallpapers = mkIf (cfg.wallpapers.dir != null)
-        (if cfg.wallpapers.useMatchpal then
-          pkgs.stdenv.mkDerivation
+      muse = {
+        theme.matchpal.wallpapers.final = mkIf cfg.matchpal.enable
+          (pkgs.stdenv.mkDerivation
             {
               name = "muse-matchpal-wallpapers";
               src = wallpapersPath;
@@ -137,6 +144,7 @@ in
                 done
               '';
               dontInstall = true;
-            } else wallpapersPath);
+            });
+      };
     };
 }
