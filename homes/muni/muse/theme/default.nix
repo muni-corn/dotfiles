@@ -30,7 +30,7 @@ in
   options.muse.theme = {
     enable = mkEnableOption "Muse theming for a variety of apps";
     colors = mkOption {
-      type = paletteType;
+      type = types.nullOr paletteType;
       description = "The color theme to use for theming.";
       apply = mkSwatch;
     };
