@@ -100,54 +100,70 @@ in
     in
     mkIf cfg.enable {
       muse = {
+        theme = {
+          arpeggio =
+            let
+              inherit (lib) mkIf;
 
-        theme.matchpal.wallpapers.final =
-          let
-            wallpapersPath = builtins.path {
-              name = "wallpapers";
-              path = cfg.matchpal.wallpapers.dir;
-            };
-
-            paletteFile = pkgs.writeTextFile {
-              name = "matchpal-palette";
-              text = ''
-                ${cfg.colors.base00}
-                ${cfg.colors.base01}
-                ${cfg.colors.base02}
-                ${cfg.colors.base03}
-                ${cfg.colors.base04}
-                ${cfg.colors.base05}
-                ${cfg.colors.base06}
-                ${cfg.colors.base07}
-                ${cfg.colors.base08}
-                ${cfg.colors.base09}
-                ${cfg.colors.base0A}
-                ${cfg.colors.base0B}
-                ${cfg.colors.base0C}
-                ${cfg.colors.base0D}
-                ${cfg.colors.base0E}
-                ${cfg.colors.base0F}
+              wallpaperPath = cfg.arpeggio.wallpaper;
+              arpeggioResult = pkgs.runCommand "arpeggio-result" { } ''
+                ${pkgs.arpeggio}/bin/arpeggio ${wallpaperPath} -o $out
               '';
-            };
-          in
-          mkIf cfg.matchpal.enable
-            (pkgs.stdenv.mkDerivation
-              {
-                name = "muse-matchpal-wallpapers";
-                src = wallpapersPath;
-                dontConfigure = true;
-                buildPhase = ''
-                  mkdir -p $out
 
-                  for wallpaper in ${wallpapersPath}/*
-                  do
-                    name=$(basename $wallpaper)
-                    echo "changing palette for $name"
-                    ${pkgs.matchpal}/bin/matchpal --palette ${paletteFile} --input $wallpaper --output $out/$name
-                  done
+              palette = lib.trivial.importTOML arpeggioResult;
+            in
+            {
+              generatedPalette = palette;
+            };
+
+          matchpal.wallpapers.final =
+            let
+              wallpapersPath = builtins.path {
+                name = "wallpapers";
+                path = cfg.matchpal.wallpapers.dir;
+              };
+
+              paletteFile = pkgs.writeTextFile {
+                name = "matchpal-palette";
+                text = ''
+                  ${cfg.colors.base00}
+                  ${cfg.colors.base01}
+                  ${cfg.colors.base02}
+                  ${cfg.colors.base03}
+                  ${cfg.colors.base04}
+                  ${cfg.colors.base05}
+                  ${cfg.colors.base06}
+                  ${cfg.colors.base07}
+                  ${cfg.colors.base08}
+                  ${cfg.colors.base09}
+                  ${cfg.colors.base0A}
+                  ${cfg.colors.base0B}
+                  ${cfg.colors.base0C}
+                  ${cfg.colors.base0D}
+                  ${cfg.colors.base0E}
+                  ${cfg.colors.base0F}
                 '';
-                dontInstall = true;
-              });
+              };
+            in
+            mkIf cfg.matchpal.enable
+              (pkgs.stdenv.mkDerivation
+                {
+                  name = "muse-matchpal-wallpapers";
+                  src = wallpapersPath;
+                  dontConfigure = true;
+                  buildPhase = ''
+                    mkdir -p $out
+
+                    for wallpaper in ${wallpapersPath}/*
+                    do
+                      name=$(basename $wallpaper)
+                      echo "changing palette for $name"
+                      ${pkgs.matchpal}/bin/matchpal --palette ${paletteFile} --input $wallpaper --output $out/$name
+                    done
+                  '';
+                  dontInstall = true;
+                });
+        };
       };
     };
 }
