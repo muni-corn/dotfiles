@@ -27,6 +27,11 @@ in
       size = 12;
     };
 
+    arpeggio = {
+      enable = true;
+      wallpaper = ./wallpapers/Bells.jpg;
+    };
+
     matchpal = {
       enable = true;
       wallpapers = {
