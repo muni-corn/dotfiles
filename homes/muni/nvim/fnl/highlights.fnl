@@ -8,21 +8,21 @@
                       ; dark 1
                       :1 :8
                       ; dark 2
-                      :2 :18
+                      :2 :16
                       ; dark 3
-                      :3 :19
+                      :3 :17
                       ; light 0
-                      :4 :7
+                      :4 :18
                       ; light 1
-                      :5 :15
+                      :5 :7
                       ; light 2
-                      :6 :20
+                      :6 :15
                       ; light 3
-                      :7 :21
+                      :7 :19
                       ; red
                       :8 :9
                       ; orange
-                      :9 :16
+                      :9 :20
                       ; yellow
                       :A :11
                       ; green
@@ -33,8 +33,8 @@
                       :D :12
                       ; purple
                       :E :13
-                      ; brown
-                      :F :17}
+                      ; brown/pink
+                      :F :21}
       base-to-cterm (fn [base]
                       (. base-cterm-map base))
       base-fg (fn [hlgroup base]
