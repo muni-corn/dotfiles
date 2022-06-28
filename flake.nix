@@ -153,18 +153,12 @@
             system = "x86_64-linux";
             inherit overlays;
           };
-          username = "municorn";
-          homePath = "/home/${username}";
 
           # `deviceInfo` should be { name: string; graphical: bool; work: bool; }
           homeConfiguration = deviceInfo: home-manager.lib.homeManagerConfiguration {
             inherit pkgs;
-            system = "x86_64-linux";
-            homeDirectory = homePath;
-            username = username;
-            stateVersion = "21.11";
-            extraSpecialArgs = { inherit overlays deviceInfo; };
-            configuration = import ./homes/muni/home.nix;
+            extraSpecialArgs = { inherit deviceInfo; };
+            modules = [ overlaysModule ./homes/muni/home.nix ];
           };
         in
         {

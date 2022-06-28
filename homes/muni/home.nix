@@ -1,4 +1,4 @@
-{ config, deviceInfo ? null, lib, overlays ? [ ], pkgs, ... }:
+{ config, deviceInfo ? null, lib, pkgs, ... }:
 
 let
   fontText = "Inter 12";
@@ -42,10 +42,7 @@ in
     };
   };
 
-  nixpkgs = {
-    inherit overlays;
-    config = import ./config.nix { inherit lib; };
-  };
+  nixpkgs.config = import ./config.nix { inherit lib; };
 
   home = {
     enableNixpkgsReleaseCheck = true;
