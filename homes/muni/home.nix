@@ -20,8 +20,6 @@ in
   ];
 
   muse.theme = {
-    colors = (import ./colors.nix).duskfox;
-
     enable = true;
     sansFont = {
       package = pkgs.inter;
@@ -36,9 +34,8 @@ in
 
     matchpal = {
       enable = true;
-      wallpapers = {
-        dir = ./wallpapers;
-      };
+      colors = (import ./colors.nix).duskfox;
+      wallpapers.dir = ./wallpapers;
     };
   };
 
