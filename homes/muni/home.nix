@@ -32,7 +32,7 @@ in
 
     matchpal = {
       enable = true;
-      colors = (import ./colors.nix).duskfox;
+      colors = (import ./colors.nix).gruvbox-dark-hard;
       wallpapers.dir = ./wallpapers;
     };
   };
