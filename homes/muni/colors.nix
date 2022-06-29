@@ -1,6 +1,6 @@
 # colors based on the base16 spec
 {
-  solarizedDark = rec {
+  solarizedDark = {
     base00 = "002b36";
     base01 = "073642";
     base02 = "586e75";
@@ -19,7 +19,7 @@
     base0F = "d33682";
   };
 
-  solarizedLight = rec {
+  solarizedLight = {
     base00 = "fdf6e3";
     base01 = "eee8d5";
     base02 = "93a1a1";
@@ -38,7 +38,7 @@
     base0F = "d33682";
   };
 
-  nord = rec {
+  nord = {
     base00 = "2e3440";
     base01 = "3b4252";
     base02 = "434c5e";
@@ -57,7 +57,7 @@
     base0F = "b48ead";
   };
 
-  eevee = rec {
+  eevee = {
     base00 = "2a1e12";
     base01 = "5b4128";
     base02 = "90643c";
@@ -76,7 +76,7 @@
     base0F = "b87e4c";
   };
 
-  catppuccin = rec {
+  catppuccin = {
     base00 = "161320";
     base01 = "1E1E2E";
     base02 = "302D41";
@@ -95,7 +95,7 @@
     base0F = "E8A2AF";
   };
 
-  nightfox = rec {
+  nightfox = {
     base00 = "192330";
     base01 = "212e3f";
     base02 = "29394e";
@@ -114,7 +114,7 @@
     base0F = "d67ad2";
   };
 
-  duskfox = rec {
+  duskfox = {
     base00 = "232136";
     base01 = "2d2a45";
     base02 = "373354";
