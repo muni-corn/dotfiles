@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./theme/default.nix
+    ./theme
     ./menu.nix
   ];
 }
