@@ -26,7 +26,7 @@ in
     };
 
     arpeggio = {
-      enable = true;
+      enable = false;
       wallpaper = ./wallpapers/Bells.jpg;
     };
 
