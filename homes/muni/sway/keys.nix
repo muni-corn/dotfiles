@@ -199,7 +199,7 @@ in
   "--no-repeat ${sup}+Shift+r" = "reload";
 
   # change wallpaper
-  "--no-repeat ${sup}+Control+w" = "exec ${wallpaperSwitchScript}";
+  "--no-repeat ${sup}+Control+w" = lib.mkIf config.muse.theme.matchpal.enable "exec ${wallpaperSwitchScript}";
 
   # record clock times (easy clock-in or clock-out :))
   "--no-repeat ${sup}+Delete" = "exec ${notebookDir}/record_time.fish";

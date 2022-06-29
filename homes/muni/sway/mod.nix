@@ -170,10 +170,8 @@ in
 
         # polkit
         { command = ''${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1''; }
-
-        # init wallpaper
-        { command = ''${wallpaperSwitchScript}''; }
-      ];
+      ] ++ lib.optional config.muse.theme.matchpal.enable # init wallpaper
+        { command = ''${wallpaperSwitchScript}''; };
 
     terminal = "kitty";
 
