@@ -4,11 +4,11 @@ let
   fontText = "Inter 12";
 
   # bemenu
-  black = "#${config.muse.theme.colors.swatch.background}e5";
-  white = "#${config.muse.theme.colors.swatch.foreground}";
-  accent = "#${config.muse.theme.colors.swatch.accent}e5";
+  black = "#${config.muse.theme.finalPalette.swatch.background}e5";
+  white = "#${config.muse.theme.finalPalette.swatch.foreground}";
+  accent = "#${config.muse.theme.finalPalette.swatch.accent}e5";
   bemenuArgs = [ "-H" "32" "--fn" fontText "--tb" "'${black}'" "--tf" "'${accent}'" "--fb" "'${black}'" "--ff" "'${white}'" "--nb" "'${black}'" "--nf" "'${accent}'" "--hb" "'${accent}'" "--hf" "'${black}'" "--sb" "'${accent}'" "--sf" "'${white}'" "--scrollbar" "autohide" "-f" "-m" "all" ];
-  lockCmd = "$HOME/.config/sway/scripts/lock.fish --bg-color ${config.muse.theme.colors.swatch.background} --fg-color ${config.muse.theme.colors.swatch.foreground} --primary-color ${config.muse.theme.colors.swatch.accent} --warning-color ${config.muse.theme.colors.swatch.warning} --error-color ${config.muse.theme.colors.swatch.alert}";
+  lockCmd = "$HOME/.config/sway/scripts/lock.fish --bg-color ${config.muse.theme.finalPalette.swatch.background} --fg-color ${config.muse.theme.finalPalette.swatch.foreground} --primary-color ${config.muse.theme.finalPalette.swatch.accent} --warning-color ${config.muse.theme.finalPalette.swatch.warning} --error-color ${config.muse.theme.finalPalette.swatch.alert}";
 in
 {
   imports = [
@@ -320,14 +320,14 @@ in
 
   services = import ./services.nix {
     inherit bemenuArgs deviceInfo lib lockCmd pkgs;
-    colors = config.muse.theme.colors;
+    colors = config.muse.theme.finalPalette;
   };
 
   systemd = import ./systemd.nix { inherit config pkgs; };
 
   wayland.windowManager.sway = import ./sway/mod.nix {
     inherit config lib pkgs bemenuArgs lockCmd;
-    colors = config.muse.theme.colors;
+    colors = config.muse.theme.finalPalette;
   };
 
   xdg = {
@@ -397,9 +397,9 @@ in
       "sway/scripts/start_wob.sh" = {
         executable = true;
         text = import ./sway/wob_script.nix {
-          backgroundColor = config.muse.theme.colors.swatch.black;
-          borderColor = config.muse.theme.colors.swatch.gray;
-          barColor = config.muse.theme.colors.swatch.accent;
+          backgroundColor = config.muse.theme.finalPalette.swatch.black;
+          borderColor = config.muse.theme.finalPalette.swatch.gray;
+          barColor = config.muse.theme.finalPalette.swatch.accent;
         };
       };
       "waybar" = {

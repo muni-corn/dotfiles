@@ -1,6 +1,8 @@
-{ colors, pkgs, ... }:
+{ config, pkgs, ... }:
 
 let
+  colors = config.muse.theme.finalPalette;
+
   fontName = "Iosevka Muse";
 in
 {

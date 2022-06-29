@@ -155,22 +155,22 @@ in
               paletteFile = pkgs.writeTextFile {
                 name = "matchpal-palette";
                 text = ''
-                  ${cfg.colors.base00}
-                  ${cfg.colors.base01}
-                  ${cfg.colors.base02}
-                  ${cfg.colors.base03}
-                  ${cfg.colors.base04}
-                  ${cfg.colors.base05}
-                  ${cfg.colors.base06}
-                  ${cfg.colors.base07}
-                  ${cfg.colors.base08}
-                  ${cfg.colors.base09}
-                  ${cfg.colors.base0A}
-                  ${cfg.colors.base0B}
-                  ${cfg.colors.base0C}
-                  ${cfg.colors.base0D}
-                  ${cfg.colors.base0E}
-                  ${cfg.colors.base0F}
+                  ${cfg.finalPalette.base00}
+                  ${cfg.finalPalette.base01}
+                  ${cfg.finalPalette.base02}
+                  ${cfg.finalPalette.base03}
+                  ${cfg.finalPalette.base04}
+                  ${cfg.finalPalette.base05}
+                  ${cfg.finalPalette.base06}
+                  ${cfg.finalPalette.base07}
+                  ${cfg.finalPalette.base08}
+                  ${cfg.finalPalette.base09}
+                  ${cfg.finalPalette.base0A}
+                  ${cfg.finalPalette.base0B}
+                  ${cfg.finalPalette.base0C}
+                  ${cfg.finalPalette.base0D}
+                  ${cfg.finalPalette.base0E}
+                  ${cfg.finalPalette.base0F}
                 '';
               };
             in
