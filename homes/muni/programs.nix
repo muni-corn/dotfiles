@@ -177,7 +177,7 @@
 
   jq.enable = true;
 
-  kitty = import ./kitty.nix { inherit config colors pkgs; };
+  kitty = import ./kitty.nix { inherit colors pkgs; };
 
   lazygit.enable = true;
 

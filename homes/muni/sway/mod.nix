@@ -14,16 +14,16 @@ let
   bemenuArgsJoined = lib.strings.concatStringsSep " " bemenuArgs;
 
   # background colors
-  black = "${colors.black_0}f2";
-  gray = "${colors.black_1}f2";
+  black = "#${colors.swatch.background}f2";
+  gray = "#${colors.swatch.gray}f2";
 
   # foreground colors
-  white = "${colors.white_2}";
-  silver = "${colors.white_0}";
+  white = "#${colors.swatch.foreground}";
+  silver = "#${colors.swatch.silver}";
 
   # other colors
-  accent = "${colors.purple}f2";
-  warning = "#ffaa00f2";
+  accent = "#${colors.swatch.accent}f2";
+  warning = "#${colors.swatch.warning}f2";
 
   scriptsDir = builtins.path { name = "sway-scripts"; path = ./scripts; };
 
@@ -58,7 +58,7 @@ in
         height 32
         modifier "${sup}"
       '';
-      statusCommand = "${pkgs.muse-status}/bin/muse-status sub a -m i3 -p ${builtins.substring 1 6 white} -s ${builtins.substring 1 6 silver}";
+      statusCommand = "${pkgs.muse-status}/bin/muse-status sub a -m i3 -p ${colors.swatch.white} -s ${colors.swatch.silver}";
       trayOutput = "none";
       workspaceButtons = true;
       colors = {

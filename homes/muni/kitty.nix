@@ -1,8 +1,7 @@
-{ config, colors, pkgs, ... }:
+{ colors, pkgs, ... }:
 
 let
   fontName = "Iosevka Muse";
-  palette = config.muse.theme.arpeggio.generatedPalette;
 in
 {
   enable = true;
@@ -23,44 +22,45 @@ in
     italic_font = "${fontName} Italic";
     bold_italic_font = "${fontName} Bold Italic";
 
-    foreground = palette.white_2;
-    background = palette.black_0;
-    selection_background = palette.white_0;
-    selection_foreground = palette.black_0;
-    url_color = palette.white_1;
-    cursor = palette.white_0;
-    active_border_color = palette.dark_pink;
-    inactive_border_color = palette.black_1;
-    active_tab_background = palette.black_0;
-    active_tab_foreground = palette.white_0;
-    inactive_tab_background = palette.black_1;
-    inactive_tab_foreground = palette.white_1;
-    tab_bar_background = palette.black_1;
+    # colors (using base16)
+    foreground = "#${colors.swatch.foreground}";
+    background = "#${colors.swatch.background}";
+    selection_background = "#${colors.base05}";
+    selection_foreground = "#${colors.base00}";
+    url_color = "#${colors.base04}";
+    cursor = "#${colors.base05}";
+    active_border_color = "#${colors.base03}";
+    inactive_border_color = "#${colors.base01}";
+    active_tab_background = "#${colors.base00}";
+    active_tab_foreground = "#${colors.base05}";
+    inactive_tab_background = "#${colors.base01}";
+    inactive_tab_foreground = "#${colors.base04}";
+    tab_bar_background = "#${colors.base01}";
 
-    color0 = palette.black_0;
-    color1 = palette.dark_red;
-    color2 = palette.dark_green;
-    color3 = palette.dark_yellow;
-    color4 = palette.dark_blue;
-    color5 = palette.dark_purple;
-    color6 = palette.dark_cyan;
-    color7 = palette.white_1;
-    color8 = palette.black_1;
-    color9 = palette.red;
-    color10 = palette.green;
-    color11 = palette.yellow;
-    color12 = palette.blue;
-    color13 = palette.purple;
-    color14 = palette.cyan;
-    color15 = palette.white_2;
+    # match 0-15 colors to their names
+    color0 = "#${colors.base00}";
+    color1 = "#${colors.base08}";
+    color2 = "#${colors.base0B}";
+    color3 = "#${colors.base0A}";
+    color4 = "#${colors.base0D}";
+    color5 = "#${colors.base0E}";
+    color6 = "#${colors.base0C}";
+    color7 = "#${colors.base04}";
+    color8 = "#${colors.base01}";
+    color9 = "#${colors.base08}";
+    color10 = "#${colors.base0B}";
+    color11 = "#${colors.base0A}";
+    color12 = "#${colors.base0D}";
+    color13 = "#${colors.base0E}";
+    color14 = "#${colors.base0C}";
+    color15 = "#${colors.base06}";
 
-    color16 = palette.black_2;
-    color17 = palette.black_3;
-    color18 = palette.white_0;
-    color19 = palette.white_3;
-    color20 = palette.orange;
-    color21 = palette.pink;
-    color22 = palette.dark_orange;
-    color23 = palette.dark_pink;
+    # extra base16 colors
+    color16 = "#${colors.base09}";
+    color17 = "#${colors.base0F}";
+    color18 = "#${colors.base02}";
+    color19 = "#${colors.base03}";
+    color20 = "#${colors.base05}";
+    color21 = "#${colors.base07}";
   };
 }
