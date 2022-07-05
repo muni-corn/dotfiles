@@ -2,6 +2,7 @@
 {
   services.openssh = {
     enable = true;
+    allowSFTP = true;
     forwardX11 = true;
     startWhenNeeded = true;
     extraConfig = ''
