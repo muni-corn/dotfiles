@@ -14,6 +14,8 @@ in
     size = 12;
   };
   settings = {
+    shell_integration = "enabled";
+
     # for nnn previews
     listen_on = "unix:/tmp/kitty";
     allow_remote_control = "socket-only";
