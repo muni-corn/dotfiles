@@ -8,7 +8,7 @@
   programs.neovim =
     {
       enable = true;
-      package = pkgs.neovim-nightly;
+      package = pkgs.neovim-unwrapped;
 
       extraConfig = builtins.readFile ./init.vim;
       extraFnlConfigFiles = [
