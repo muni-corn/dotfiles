@@ -30,7 +30,7 @@ pkgs.writeScript "lock-script"
     end
 
     if ! set -q _flag_startup
-        pw-play "/usr/share/sounds/musicaflight/stereo/Lock.oga" &
+        pw-play ${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/Lock.oga &
     else
         echo "running in startup mode"
     end
