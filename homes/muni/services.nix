@@ -41,7 +41,7 @@
     ];
     timeouts =
       let
-        lockWarningCmd = "notify-send -u low -t 29500 -- 'Are you still there?' 'Your system will lock itself soon.'";
+        lockWarningCmd = "notify-send -u low -t 29500 'Are you still there?' 'Your system will lock itself soon.'";
         dpmsOff = "swaymsg 'output * dpms off'";
         dpmsOn = "swaymsg 'output * dpms on'";
       in
