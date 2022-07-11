@@ -37,7 +37,7 @@
     enable = true;
 
     events = [
-      { event = "before-sleep"; command = lockCmd; }
+      { event = "before-sleep"; command = "${lockCmd}"; }
     ];
     timeouts =
       let
@@ -47,7 +47,7 @@
       in
       [
         { timeout = 570; command = lockWarningCmd; }
-        { timeout = 600; command = lockCmd; }
+        { timeout = 600; command = "${lockCmd}"; }
         { timeout = 630; command = dpmsOff; resumeCommand = dpmsOn; }
       ];
   };
