@@ -87,6 +87,7 @@ in
         ripgrep
         sd
         spotify-tui
+        sshfs
         unar
         ytfzf
         zip
