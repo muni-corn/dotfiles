@@ -59,7 +59,7 @@
   (o :termguicolors false)
   (o :textwidth 80)
   (o :timeoutlen 2000)
-  (o :title true)
+  (o :title false)
   (o :updatetime 300)
   (o :visualbell false)
   (o :writebackup false)
