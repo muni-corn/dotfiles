@@ -36,7 +36,7 @@
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
 
     matchpal = {
-      url = "git+https://codeberg.org/municorn/matchpal?ref=main";
+      url = "git+https://codeberg.org/municorn/matchpal?ref=oklab";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
