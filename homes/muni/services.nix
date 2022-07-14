@@ -41,14 +41,14 @@
     ];
     timeouts =
       let
-        lockWarningCmd = "notify-send -u low -t 29500 'Are you still there?' 'Your system will lock itself soon.'";
-        dpmsOff = "swaymsg 'output * dpms off'";
-        dpmsOn = "swaymsg 'output * dpms on'";
+        lockWarningCmd = "${pkgs.libnotify}/bin/notify-send -u low -t 29500 'Are you still there?' 'Your system will lock itself soon.'";
+        dpmsOff = "${pkgs.sway}/bin/swaymsg 'output * dpms off'";
+        dpmsOn = "${pkgs.sway}/bin/swaymsg 'output * dpms on'";
       in
       [
         { timeout = 570; command = lockWarningCmd; }
         { timeout = 600; command = "${lockCmd}"; }
-        { timeout = 630; command = dpmsOff; resumeCommand = dpmsOn; }
+        { timeout = 610; command = dpmsOff; resumeCommand = dpmsOn; }
       ];
   };
 

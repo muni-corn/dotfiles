@@ -12,7 +12,7 @@ let
 in
 pkgs.writeScript "lock-script"
   ''
-    #! /usr/bin/env fish
+    #!${pkgs.fish}/bin/fish
 
     if pgrep -x swaylock > /dev/null
         echo "swaylock is already running"
@@ -20,36 +20,32 @@ pkgs.writeScript "lock-script"
     end
 
     # parse args
-    argparse "n/no-fork" "s/startup" -- $argv
+    argparse "n/no-fork" -- $argv
 
     set fork_arg ""
-    if ! set -q $_flag_no_fork
+    if set -q $_flag_no_fork
         echo "swaylock won't fork"
     else
         set fork_arg '-f'
     end
 
-    if ! set -q _flag_startup
-        pw-play ${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/Lock.oga &
-    else
-        echo "running in startup mode"
-    end
+    ${pkgs.pipewire}/bin/pw-play "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/Lock.oga" &
 
     set --local transparent "00000000"
     set --local image_args ""
     set --local images
 
     # take screenshot of each output and blur it
-    for output in (swaymsg -t get_outputs | jq -r '.[] | select(.active == true) | .name')
+    for output in (${pkgs.sway}/bin/swaymsg -t get_outputs | ${pkgs.jq}/bin/jq -r '.[] | select(.active == true) | .name')
         set --local image_file "$HOME/.lock-$output.jpg"
-        grim -o $output $image_file
-        convert "$image_file" -resize 5% -fill "#${bg}" -colorize 25% -blur 15x1 -resize 2000% "$image_file"
+        ${pkgs.grim}/bin/grim -o $output $image_file
+        ${pkgs.imagemagick}/bin/convert "$image_file" -resize 5% -fill "#${bg}" -colorize 25% -blur 15x1 -resize 2000% "$image_file"
         # TODO: use `composite` to overlay a lock icon
         set image_args $image_args "--image" "$output:$image_file"
         set images $images $image_file
     end
 
-    swaylock $fork_arg \
+    ${pkgs.swaylock}/bin/swaylock $fork_arg \
         $image_args \
     \
         --ignore-empty-password \
@@ -90,8 +86,4 @@ pkgs.writeScript "lock-script"
         --font-size 12 \
 
     rm $images
-
-    if ! set -q _flag_startup
-        pw-play "$HOME/Music/MuseSounds/stereo/Hello.oga"
-    end
   ''
