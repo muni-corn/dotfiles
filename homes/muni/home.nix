@@ -337,7 +337,9 @@ in
       "inkscape/palettes/solarized_dark.gpl" = {
         source = ./inkscape/solarized_dark.gpl;
       };
-      "muse-status/daemon.yaml".text = let inherit (lib) optionalString; in
+      "muse-status/daemon.yaml".text = let
+        network_iface = if deviceInfo.name == "ponycastle" then "enp34s0" else "wlan0";
+      in
         ''
           ---
           daemon_addr: "localhost:2899"
@@ -352,7 +354,7 @@ in
             - battery
           tertiary_order: []
           brightness_id: amdgpu_bl0
-          network_interface_name: wlan0
+          network_interface_name: ${network_iface}
           battery_config:
             battery_id: BAT0
             warning_level:
