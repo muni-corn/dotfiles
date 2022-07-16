@@ -105,7 +105,6 @@
       };
 
       extraCommonModules = [
-        musnix.nixosModules.musnix
         overlaysModule
       ];
 
@@ -135,7 +134,7 @@
         ponycastle = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { flake-inputs = inputs; };
-          modules = extraCommonModules ++ ponycastleHardwareModules ++ [ ./desktop ];
+          modules = extraCommonModules ++ ponycastleHardwareModules ++ [ musnix.nixosModules.musnix ./desktop ];
         };
       };
 

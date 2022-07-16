@@ -127,8 +127,6 @@
 
   location.provider = "geoclue2";
 
-  musnix.enable = true;
-
   networking = {
     # Encrypts network traffic where possible (i think)
     tcpcrypt.enable = true;

@@ -33,14 +33,14 @@
 
   musnix = {
     enable = true;
-    kernel = {
-      optimize = true;
-    };
+    kernel.optimize = true;
   };
 
   networking = {
     hostName = "ponycastle";
     hostId = "edafa5da";
+
+    interfaces.enp34s0.wakeOnLan.enable = true;
   };
 
   services = {
