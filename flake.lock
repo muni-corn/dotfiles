@@ -213,16 +213,16 @@
         "utils": "utils_3"
       },
       "locked": {
-        "lastModified": 1656513748,
-        "narHash": "sha256-EZli4KxNNrE3zQ6W//zvr96thFIVEbxzP1KxsEFdp7w=",
-        "ref": "oklab",
-        "rev": "f9aee521057302780042355e8ac08c4917c543a5",
-        "revCount": 22,
+        "lastModified": 1658291455,
+        "narHash": "sha256-kusp7AXq/u/SfJAcT9iN61/TAlnjNiiTCddOwediFUI=",
+        "ref": "dithering",
+        "rev": "dcbcab6ba61ab74685a914799bf76a53b4609073",
+        "revCount": 39,
         "type": "git",
         "url": "https://codeberg.org/municorn/matchpal"
       },
       "original": {
-        "ref": "oklab",
+        "ref": "dithering",
         "type": "git",
         "url": "https://codeberg.org/municorn/matchpal"
       }
