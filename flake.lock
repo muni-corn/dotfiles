@@ -3,11 +3,11 @@
     "alpha-nvim": {
       "flake": false,
       "locked": {
-        "lastModified": 1656999969,
-        "narHash": "sha256-ekdVrRTyQ+XVgtmdpU4u752ldAMuOpQ1rz3tfWGc710=",
+        "lastModified": 1658003337,
+        "narHash": "sha256-6PHw11RXdLG+84CxRTrvCOOMrtItwpaaPNbeOctNUVA=",
         "owner": "goolord",
         "repo": "alpha-nvim",
-        "rev": "411ce27d871f963256c0787bc4133cf945dd89d3",
+        "rev": "79187fdf8f2a08a7174f237423198f6e75ae213a",
         "type": "github"
       },
       "original": {
@@ -25,11 +25,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1656290609,
-        "narHash": "sha256-DjGtmy67w/+ngT5yM0q8idQ4AnST1XDXZ3yBsu86cXo=",
+        "lastModified": 1658293659,
+        "narHash": "sha256-Z8GeCoY93mOiU5ubFrrWBsmnEf3iuLZWrYYWuHUyLZA=",
         "ref": "main",
-        "rev": "3a72e1dead4f4f976ec36585afbef88b3121f475",
-        "revCount": 55,
+        "rev": "05dd75bb8a1fe2d334b276f03479617a45bdabd9",
+        "revCount": 62,
         "type": "git",
         "url": "https://github.com/muni-corn/arpeggio"
       },
@@ -170,11 +170,11 @@
         "utils": "utils_2"
       },
       "locked": {
-        "lastModified": 1657396086,
-        "narHash": "sha256-4cQ6hEuewWoFkTBlu211JGxPQQ1Zyli8oEq1cu7cVeA=",
+        "lastModified": 1658238241,
+        "narHash": "sha256-naoSta79MYYRtVnIZhzq+YWgTOBhWE1Sr1AIhG7ZA9g=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "c645cc9f82c7753450d1fa4d1bc73b64960a9d7a",
+        "rev": "70d5929885ccec8dde8585894dd3ebe606e75f41",
         "type": "github"
       },
       "original": {
@@ -254,7 +254,7 @@
       "locked": {
         "lastModified": 1640082991,
         "narHash": "sha256-7/c8hLrxJVJO/oKufVIu/bTxYCSWuIHptlIxzjbjh7w=",
-        "ref": "master",
+        "ref": "refs/heads/master",
         "rev": "59570b7a00e3d68c6b4ac07ef8fba79ac59d725a",
         "revCount": 7,
         "type": "git",
@@ -367,11 +367,11 @@
     },
     "nixos-hardware": {
       "locked": {
-        "lastModified": 1656933710,
-        "narHash": "sha256-SVG8EqY1OTJWBRY4hpct2ZR2Rk0L8hCFkug3m0ABoZE=",
+        "lastModified": 1658227863,
+        "narHash": "sha256-QoRmU18dCYnZy8ks9cz2ZhsGW+AVo1pioLrs+s/8Tkg=",
         "owner": "NixOS",
         "repo": "nixos-hardware",
-        "rev": "3bf48d3587d3f34f745a19ebc968b002ef5b5c5a",
+        "rev": "0015f5cc098fae520aae458b8547e44a38aacf92",
         "type": "github"
       },
       "original": {
@@ -457,11 +457,11 @@
     },
     "nixpkgs_6": {
       "locked": {
-        "lastModified": 1657356697,
-        "narHash": "sha256-sT38tcx7m0Quz+Uj6jzx+yRa2+EVW2C3cE0FkROXUzQ=",
+        "lastModified": 1658290795,
+        "narHash": "sha256-t9hCidaSxPmzUimcSn51bjqcjjGsoQi6JLrAzJq0dz4=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "87e7965bbcdbac3d103e3ed14ff04f719a4f7a58",
+        "rev": "614a842b74b7a1497e8cfca7c61bec38f51911b3",
         "type": "github"
       },
       "original": {
