@@ -228,10 +228,6 @@
     geoclue2 = {
       enable = true;
       appConfig = {
-        localtimed = {
-          isSystem = true;
-          isAllowed = true;
-        };
         gammastep = {
           isSystem = false;
           isAllowed = true;
