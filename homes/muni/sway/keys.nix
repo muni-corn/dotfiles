@@ -24,6 +24,7 @@ let
 
   # scripts
   screenshot = "${scriptsDir}/screenshot.fish";
+  quickCodeScript = import ../quick-code-script.nix { inherit bemenuArgsJoined config pkgs; };
 
   # volume scripts
   volumeScript = name: pamixerFlags: soundPath: pkgs.writeScript "volume-${name}" ''
@@ -132,7 +133,7 @@ in
   "--no-repeat ${sup}+c" = ''exec ${terminal} ${withShell "qalc"}'';
   "--no-repeat ${sup}+b" = "exec ${music}";
   "--no-repeat ${sup}+e" = ''exec ${terminal} ${withShell "nnn"}'';
-  "--no-repeat ${sup}+n" = ''exec ${terminal} ${withShell "nvim"}'';
+  "--no-repeat ${sup}+n" = ''exec ${quickCodeScript}'';
   "--no-repeat ${sup}+p" = ''exec ${terminal} ${withShell "htop"}'';
   "--no-repeat ${sup}+w" = "exec ${browser}";
 
