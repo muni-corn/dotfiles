@@ -2,17 +2,17 @@
 
 let
   notebookDir = "${config.home.homeDirectory}/notebook/";
-  shell = "fish";
+  shell = "${config.programs.fish.package}/bin/fish";
   terminal = config.wayland.windowManager.sway.config.terminal;
   terminalInDir = dir: "${terminal} -d ${dir}";
 
   withShell = cmd: ''${shell} -i -c "${cmd}"'';
 
   # apps
-  browser = "firefox";
+  browser = "${config.programs.firefox.package}/bin/firefox";
   music = ''${terminal} ${withShell "spt"}'';
-  email = "evolution";
-  media = "kodi --windowing=x11";
+  email = "${pkgs.evolution}/bin/evolution";
+  media = "${config.programs.kodi.package}/bin/kodi --windowing=x11";
 
   # sounds
   volumeDownSound = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/VolumeDown.oga";
@@ -28,7 +28,7 @@ let
 
   # volume scripts
   volumeScript = name: pamixerFlags: soundPath: pkgs.writeScript "volume-${name}" ''
-    #!${pkgs.fish}/bin/fish
+    #!${shell}
     if set -q VOLUME_CTL_DEFAULT_SINK
       ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" ${pamixerFlags}
       ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" --get-volume > $SWAYSOCK.wob &
@@ -122,7 +122,7 @@ in
   # shortcuts for apps
   "--no-repeat ${sup}+Control+e" = "exec ${scriptsDir}/emoji_menu.fish ${bemenuArgsJoined}";
   "--no-repeat ${sup}+Control+n" = ''exec ${terminalInDir notebookDir} ${withShell "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).norg"}'';
-  "--no-repeat ${sup}+Control+p" = "exec pavucontrol";
+  "--no-repeat ${sup}+Control+p" = "exec ${pkgs.pavucontrol}/bin/pavucontrol";
   "--no-repeat ${sup}+Control+r" = "exec ${scriptsDir}/toggle_gammastep.fish";
   "--no-repeat ${sup}+Control+t" = ''exec ${terminalInDir notebookDir} ${withShell "nvim ${notebookDir}/todo.norg"}'';
   "--no-repeat ${sup}+Return" = "exec ${terminal}";
