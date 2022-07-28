@@ -38,7 +38,7 @@ let
     end
 
      ${ms} notify volume &
-     pw-play ${soundPath} &
+     ${pkgs.pipewire}/bin/pw-play ${soundPath} &
 
      wait
   '';
@@ -48,9 +48,9 @@ let
 
   # brightness scripts
   brightnessScript = name: brilloFlags: pkgs.writeShellScript "brightness-${name}" ''
-    brillo -q ${brilloFlags}
+    ${pkgs.brillo}/bin/brillo -q ${brilloFlags}
     ${ms} notify brightness &
-    brillo -G | cut -d'.' -f1 > $SWAYSOCK.wob &
+    ${pkgs.brillo}/bin/brillo -G | cut -d'.' -f1 > $SWAYSOCK.wob &
   '';
   brightnessUp = brightnessScript "up" "-A 2";
   brightnessDown = brightnessScript "down" "-U 2";
@@ -211,7 +211,7 @@ in
   "--no-repeat ${sup}+Shift+End" = "exec ${scriptsDir}/prompt_clock_out.fish ${bemenuArgsJoined}";
 
   # exit sway
-  "${sup}+Shift+e" = ''exec "pw-play ${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/Goodbye.oga; swaymsg exit"'';
+  "${sup}+Shift+e" = ''exec "${pkgs.pipewire}/bin/pw-play ${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/Goodbye.oga; swaymsg exit"'';
 
   # volume and brightness controls
   "--locked XF86AudioLowerVolume" = "exec ${volumeDown}";
