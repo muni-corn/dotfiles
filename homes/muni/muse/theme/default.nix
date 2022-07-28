@@ -156,12 +156,6 @@ in
                 name = "matchpal-palette";
                 text = ''
                   ${cfg.finalPalette.base00}
-                  ${cfg.finalPalette.base01}
-                  ${cfg.finalPalette.base02}
-                  ${cfg.finalPalette.base03}
-                  ${cfg.finalPalette.base04}
-                  ${cfg.finalPalette.base05}
-                  ${cfg.finalPalette.base06}
                   ${cfg.finalPalette.base07}
                   ${cfg.finalPalette.base08}
                   ${cfg.finalPalette.base09}
