@@ -217,8 +217,8 @@ in
   "--locked XF86AudioLowerVolume" = "exec ${volumeDown}";
   "--locked --no-repeat XF86AudioRaiseVolume" = "exec ${volumeUp}";
   "--locked --no-repeat XF86AudioMute" = "exec ${toggleMute}";
-  "XF86MonBrightnessUp" = "exec ${brightnessUp}";
-  "XF86MonBrightnessDown" = "exec ${brightnessDown}";
+  "--locked XF86MonBrightnessUp" = "exec ${brightnessUp}";
+  "--locked XF86MonBrightnessDown" = "exec ${brightnessDown}";
 
   # player controls
   "--locked --no-repeat XF86AudioPlay" = "exec mpc toggle || playerctl play-pause";
