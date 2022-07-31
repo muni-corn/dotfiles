@@ -203,7 +203,6 @@ in
 
         # games
         gnome.aisleriot
-        itch
         libretro.desmume
         libretro.dolphin
         libretro.thepowdertoy
