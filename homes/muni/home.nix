@@ -102,7 +102,6 @@ in
         nodejs
         python3
         rnix-lsp
-        rustup
         rust-analyzer
         tree-sitter
         zls
