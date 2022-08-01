@@ -12,6 +12,7 @@ let
 
   q = s: "'${s}'";
   bemenuArgs = [
+    "-i"
     "-m"
     "all"
     "-B"
