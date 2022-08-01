@@ -386,9 +386,10 @@ in
       "inkscape/palettes/solarized_dark.gpl" = {
         source = ./inkscape/solarized_dark.gpl;
       };
-      "muse-status/daemon.yaml".text = let
-        network_iface = if deviceInfo.name == "ponycastle" then "enp34s0" else "wlan0";
-      in
+      "muse-status/daemon.yaml".text =
+        let
+          network_iface = if deviceInfo.name == "ponycastle" then "enp34s0" else "wlan0";
+        in
         ''
           ---
           daemon_addr: "localhost:2899"
