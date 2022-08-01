@@ -5,9 +5,60 @@ let
 
   # bemenu
   black = "#${config.muse.theme.finalPalette.swatch.background}e5";
+  black1 = "#${config.muse.theme.finalPalette.base01}e5";
+  gray = "#${config.muse.theme.finalPalette.swatch.gray}e5";
   white = "#${config.muse.theme.finalPalette.swatch.foreground}";
   accent = "#${config.muse.theme.finalPalette.swatch.accent}e5";
-  bemenuArgs = [ "-H" "48" "--fn" fontText "--tb" "'${black}'" "--tf" "'${accent}'" "--fb" "'${black}'" "--ff" "'${white}'" "--nb" "'${black}'" "--nf" "'${accent}'" "--hb" "'${accent}'" "--hf" "'${black}'" "--sb" "'${accent}'" "--sf" "'${white}'" "--scrollbar" "autohide" "-f" "-m" "all" ];
+
+  q = s: "'${s}'";
+  bemenuArgs = [
+    "-m"
+    "all"
+    "-B"
+    "6"
+    "-l"
+    "20"
+    "-H"
+    "32"
+    "-W"
+    "0.5"
+    "--ch"
+    "16"
+    "--cw"
+    "2"
+    "--fn"
+    fontText
+    "--bdr"
+    (q gray)
+    "--tb"
+    (q black)
+    "--tf"
+    (q accent)
+    "--fb"
+    (q black)
+    "--ff"
+    (q white)
+    "--nb"
+    (q black)
+    "--nf"
+    (q accent)
+    "--ab"
+    (q black1)
+    "--af"
+    (q accent)
+    "--hb"
+    (q accent)
+    "--hf"
+    (q black)
+    "--sb"
+    (q accent)
+    "--sf"
+    (q white)
+    "--scb"
+    (q black1)
+    "--scf"
+    (q accent)
+  ];
   lockCmd = import ./lock_script.nix { inherit config pkgs; };
 in
 {
