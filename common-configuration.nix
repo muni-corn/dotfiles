@@ -32,7 +32,8 @@
       };
     };
     plymouth = {
-      # enable = true;
+      enable = true;
+      font = "${pkgs.inter}/share/fonts/opentype/Inter-Regular.otf";
       theme = "musicaloft-rainbow";
       themePackages = [
         pkgs.plymouth-theme-musicaloft-rainbow
