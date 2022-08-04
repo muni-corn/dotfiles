@@ -1,4 +1,4 @@
-{ bemenuArgs, colors, deviceInfo, lib, lockCmd, pkgs }:
+{ bemenuArgs, colors, config, deviceInfo, lib, lockCmd, pkgs }:
 
 {
   dunst = import ./dunst.nix { inherit lib pkgs bemenuArgs colors; };
@@ -32,6 +32,8 @@
   kdeconnect.enable = true;
 
   muse-status.enable = true;
+
+  spotifyd = import ./spotifyd.nix { inherit config deviceInfo pkgs; };
 
   swayidle = {
     enable = true;

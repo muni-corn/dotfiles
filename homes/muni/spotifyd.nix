@@ -1,8 +1,5 @@
-{ deviceInfo, pkgs, ... }:
+{ config, deviceInfo, pkgs, ... }:
 
-let
-  inherit (import ../secret/spotify-info.nix) username;
-in
 {
   enable = true;
   package = pkgs.spotifyd.override {
@@ -11,8 +8,8 @@ in
   };
   settings = {
     global = {
-      inherit username;
-      password_cmd = "${pkgs.pass}/bin/pass spotify";
+      username = "municorn.-us";
+      password_cmd = "${config.programs.password-store.package}/bin/pass spotify.com/municorn.-us";
       device_name = deviceInfo.name;
       device_type = "computer";
       use_keyring = false;

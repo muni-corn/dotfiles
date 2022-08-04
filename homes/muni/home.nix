@@ -370,7 +370,7 @@ in
   };
 
   services = import ./services.nix {
-    inherit bemenuArgs deviceInfo lib lockCmd pkgs;
+    inherit bemenuArgs config deviceInfo lib lockCmd pkgs;
     colors = config.muse.theme.finalPalette;
   };
 
