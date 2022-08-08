@@ -11,7 +11,6 @@
 
     ../openssh.nix
     ./vfio.nix
-    ./zfs.nix
     ./hardware.nix
   ];
 
