@@ -1,6 +1,8 @@
-{ colors, pkgs, ... }:
-
 {
+  colors,
+  pkgs,
+  ...
+}: {
   enable = true;
   settings = {
     main = {

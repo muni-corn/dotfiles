@@ -1,6 +1,11 @@
-{ config, deviceInfo, lib, pkgs, colors, bemenuArgs }:
-
 {
+  config,
+  deviceInfo,
+  lib,
+  pkgs,
+  colors,
+  bemenuArgs,
+}: {
   # let home-manager install and manage itself
   home-manager.enable = true;
 
@@ -8,7 +13,7 @@
 
   browserpass = {
     enable = true;
-    browsers = [ "firefox" ];
+    browsers = ["firefox"];
   };
 
   chromium = {
@@ -116,26 +121,24 @@
 
   htop = {
     enable = true;
-    settings =
-      let
-        inherit (config.lib.htop) fields text bar leftMeters rightMeters;
-      in
+    settings = let
+      inherit (config.lib.htop) fields text bar leftMeters rightMeters;
+    in
       {
-        fields = with fields;
-          [
-            PID
-            USER
-            PRIORITY
-            NICE
-            M_SIZE
-            M_RESIDENT
-            M_SHARE
-            STATE
-            PERCENT_CPU
-            PERCENT_MEM
-            TIME
-            COMM
-          ];
+        fields = with fields; [
+          PID
+          USER
+          PRIORITY
+          NICE
+          M_SIZE
+          M_RESIDENT
+          M_SHARE
+          STATE
+          PERCENT_CPU
+          PERCENT_MEM
+          TIME
+          COMM
+        ];
         hide_kernel_threads = 1;
         hide_userland_threads = 0;
         shadow_other_users = 0;
@@ -164,11 +167,13 @@
         enable_mouse = 1;
         delay = 50;
         hide_function_bar = 0;
-      } // (leftMeters [
+      }
+      // (leftMeters [
         (bar "AllCPUs")
         (bar "Memory")
         (bar "Swap")
-      ]) // (rightMeters [
+      ])
+      // (rightMeters [
         (text "Tasks")
         (text "LoadAverage")
         (text "Uptime")
@@ -177,20 +182,20 @@
 
   jq.enable = true;
 
-  kitty = import ./kitty.nix { inherit config pkgs; };
+  kitty = import ./kitty.nix {inherit config pkgs;};
 
   lazygit.enable = true;
 
   mbsync.enable = true;
 
-  neomutt = { enable = true; };
+  neomutt = {enable = true;};
 
   # fish integration enabled by default
   nix-index.enable = true;
 
   nnn = {
     enable = true;
-    package = pkgs.nnn.override ({ withNerdIcons = true; });
+    package = pkgs.nnn.override {withNerdIcons = true;};
 
     bookmarks = {
       c = "~/Pictures/dslr";
@@ -204,11 +209,14 @@
       v = "~/Videos";
     };
     plugins = {
-      src = (pkgs.fetchFromGitHub {
-        owner = "jarun";
-        repo = "nnn";
-        rev = "v4.5";
-        sha256 = "sha256-uToAgWpGaTPTMYJh1D0xgvE23GSIshv1OBlWxXI07Mk="; }) + "/plugins";
+      src =
+        (pkgs.fetchFromGitHub {
+          owner = "jarun";
+          repo = "nnn";
+          rev = "v4.5";
+          sha256 = "sha256-uToAgWpGaTPTMYJh1D0xgvE23GSIshv1OBlWxXI07Mk=";
+        })
+        + "/plugins";
       mappings = {
         c = "fzcd";
         f = "finder";
@@ -220,18 +228,18 @@
 
   password-store = {
     enable = true;
-    package = pkgs.pass.withExtensions
+    package =
+      pkgs.pass.withExtensions
       (exts: [
         exts.pass-audit
         exts.pass-import
         exts.pass-otp
         exts.pass-update
       ]);
-    settings =
-      {
-        PASSWORD_STORE_DIR = "$HOME/.password-store";
-        PASSWORD_STORE_KEY = "4B21310A52B15162";
-      };
+    settings = {
+      PASSWORD_STORE_DIR = "$HOME/.password-store";
+      PASSWORD_STORE_KEY = "4B21310A52B15162";
+    };
   };
 
   mpv = {
@@ -242,10 +250,12 @@
       force-window = "yes";
     };
     scripts = builtins.attrValues {
-      inherit (pkgs.mpvScripts)
+      inherit
+        (pkgs.mpvScripts)
         mpris
         thumbnail
-        youtube-quality;
+        youtube-quality
+        ;
     };
   };
 
@@ -259,7 +269,7 @@
 
   texlive = {
     enable = true;
-    extraPackages = tpkgs: { inherit (tpkgs) scheme-medium; };
+    extraPackages = tpkgs: {inherit (tpkgs) scheme-medium;};
   };
 
   tmux = {

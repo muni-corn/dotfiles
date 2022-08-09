@@ -1,6 +1,9 @@
-{ config, deviceInfo, pkgs, ... }:
-
 {
+  config,
+  deviceInfo,
+  pkgs,
+  ...
+}: {
   enable = true;
   package = pkgs.spotifyd.override {
     withPulseAudio = true;

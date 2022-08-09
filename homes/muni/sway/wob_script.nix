@@ -1,6 +1,8 @@
-{ backgroundColor, borderColor, barColor }:
-
-''
+{
+  backgroundColor,
+  borderColor,
+  barColor,
+}: ''
   #! /usr/bin/env fish
 
   mkfifo $SWAYSOCK.wob

@@ -2,10 +2,13 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, flake-inputs, lib, pkgs, ... }:
-
 {
+  config,
+  flake-inputs,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ../common-configuration.nix
 
@@ -16,7 +19,7 @@
 
   boot = {
     loader.grub.gfxmodeEfi = "1920x1080";
-    kernelModules = [ "i2c-dev" "i2c-piix4" "kvm-amd" ];
+    kernelModules = ["i2c-dev" "i2c-piix4" "kvm-amd"];
   };
 
   hardware = {
@@ -26,7 +29,7 @@
     ];
     openrazer = {
       enable = true;
-      users = [ "municorn" ];
+      users = ["municorn"];
     };
   };
 
@@ -46,12 +49,12 @@
     # disable fstrim (enabled by nixos-hardware/common-pc-ssd); zfs does it for us
     fstrim.enable = false;
 
-    pipewire.config.pipewire =
-      let
-        defaults = lib.importJSON "${flake-inputs.nixpkgs}/nixos/modules/services/desktops/pipewire/daemon/pipewire.conf.json";
-      in
-      {
-        "context.objects" = defaults."context.objects" ++ [
+    pipewire.config.pipewire = let
+      defaults = lib.importJSON "${flake-inputs.nixpkgs}/nixos/modules/services/desktops/pipewire/daemon/pipewire.conf.json";
+    in {
+      "context.objects" =
+        defaults."context.objects"
+        ++ [
           {
             factory = "adapter";
             args = {
@@ -63,7 +66,7 @@
             };
           }
         ];
-      };
+    };
 
     psd.enable = true;
   };
@@ -76,7 +79,7 @@
       Type = "simple";
       ExecStart = "${pkgs.openrgb}/bin/openrgb --server";
     };
-    wantedBy = [ "multi-user.target" ];
+    wantedBy = ["multi-user.target"];
   };
 
   # This value determines the NixOS release from which the default
@@ -93,5 +96,3 @@
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGQjQ/WU6XjYnInZuHElJEcPWpZRVSgK3zvi0u7pxenp"
   ];
 }
-
-

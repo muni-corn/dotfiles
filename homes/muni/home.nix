@@ -1,6 +1,10 @@
-{ config, deviceInfo ? null, lib, pkgs, ... }:
-
-let
+{
+  config,
+  deviceInfo ? null,
+  lib,
+  pkgs,
+  ...
+}: let
   fontText = "Inter 12";
 
   # bemenu
@@ -60,9 +64,8 @@ let
     "--scf"
     (q accent)
   ];
-  lockCmd = import ./lock_script.nix { inherit config pkgs; };
-in
-{
+  lockCmd = import ./lock_script.nix {inherit config pkgs;};
+in {
   imports = [
     ./muse
     ./muse-status.nix
@@ -89,12 +92,12 @@ in
     };
   };
 
-  nixpkgs.config = import ./config.nix { inherit lib; };
+  nixpkgs.config = import ./config.nix {inherit lib;};
 
   home = {
     enableNixpkgsReleaseCheck = true;
 
-    extraOutputsToInstall = [ "doc" "info" "devdoc" ];
+    extraOutputsToInstall = ["doc" "info" "devdoc"];
 
     file = {
       ".vsnip" = {
@@ -110,7 +113,7 @@ in
     };
 
     packages = with pkgs;
-      # packages for all devices
+    # packages for all devices
       [
         # desktop environment
         bemenu
@@ -214,8 +217,8 @@ in
         xdragon
         yt-dlp
         zbar
-      ] ++
-
+      ]
+      ++
       # ponycastle-specific packages
       lib.optionals (deviceInfo.name == "ponycastle") [
         # apps
@@ -374,7 +377,7 @@ in
     colors = config.muse.theme.finalPalette;
   };
 
-  systemd = import ./systemd.nix { inherit config pkgs; };
+  systemd = import ./systemd.nix {inherit config pkgs;};
 
   wayland.windowManager.sway = import ./sway/mod.nix {
     inherit config lib pkgs bemenuArgs lockCmd;
@@ -387,57 +390,58 @@ in
       "inkscape/palettes/solarized_dark.gpl" = {
         source = ./inkscape/solarized_dark.gpl;
       };
-      "muse-status/daemon.yaml".text =
-        let
-          network_iface = if deviceInfo.name == "ponycastle" then "enp34s0" else "wlan0";
-        in
-        ''
-          ---
-          daemon_addr: "localhost:2899"
-          primary_order:
-            - date
-            - weather
-            - mpris
-          secondary_order:
-            - brightness
-            - volume
-            - network
-            - battery
-          tertiary_order: []
-          brightness_id: amdgpu_bl0
-          network_interface_name: ${network_iface}
-          battery_config:
-            battery_id: BAT0
-            warning_level:
-              minutes_left: 60
-            alarm_level:
-              minutes_left: 30
-          weather_config:
-            openweathermap_key: d179cc80ed41e8080f9e86356b604ee3
-            ipstack_key: 9c237911bdacce2e8c9a021d9b4c1317
-            weather_icons:
-              04d: 󰖐
-              09d: 󰖗
-              01n: 󰖔
-              10n: 󰖖
-              02n: 󰼱
-              03d: 󰖐
-              11n: 󰖓
-              13n: 󰖘
-              50n: 󰖑
-              03n: 󰖐
-              01d: 󰖙
-              04n: 󰖐
-              02d: 󰖕
-              09n: 󰖗
-              50d: 󰖑
-              10d: 󰖖
-              11d: 󰖓
-              13d: 󰖘
-            default_icon: 󰖐
-            update_interval_minutes: 20
-            units: imperial
-        '';
+      "muse-status/daemon.yaml".text = let
+        network_iface =
+          if deviceInfo.name == "ponycastle"
+          then "enp34s0"
+          else "wlan0";
+      in ''
+        ---
+        daemon_addr: "localhost:2899"
+        primary_order:
+          - date
+          - weather
+          - mpris
+        secondary_order:
+          - brightness
+          - volume
+          - network
+          - battery
+        tertiary_order: []
+        brightness_id: amdgpu_bl0
+        network_interface_name: ${network_iface}
+        battery_config:
+          battery_id: BAT0
+          warning_level:
+            minutes_left: 60
+          alarm_level:
+            minutes_left: 30
+        weather_config:
+          openweathermap_key: d179cc80ed41e8080f9e86356b604ee3
+          ipstack_key: 9c237911bdacce2e8c9a021d9b4c1317
+          weather_icons:
+            04d: 󰖐
+            09d: 󰖗
+            01n: 󰖔
+            10n: 󰖖
+            02n: 󰼱
+            03d: 󰖐
+            11n: 󰖓
+            13n: 󰖘
+            50n: 󰖑
+            03n: 󰖐
+            01d: 󰖙
+            04n: 󰖐
+            02d: 󰖕
+            09n: 󰖗
+            50d: 󰖑
+            10d: 󰖖
+            11d: 󰖓
+            13d: 󰖘
+          default_icon: 󰖐
+          update_interval_minutes: 20
+          units: imperial
+      '';
       "peaclock.conf".source = ./peaclock.conf;
       "ranger" = {
         recursive = true;
@@ -463,5 +467,5 @@ in
     };
   };
 }
-
 # vim: ts=2 sw=2 expandtab
+

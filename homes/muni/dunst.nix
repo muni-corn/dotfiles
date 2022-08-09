@@ -1,9 +1,11 @@
-{ lib, pkgs, bemenuArgs, colors }:
-
-let
-  bemenuArgsJoined = lib.strings.concatStringsSep " " bemenuArgs;
-in
 {
+  lib,
+  pkgs,
+  bemenuArgs,
+  colors,
+}: let
+  bemenuArgsJoined = lib.strings.concatStringsSep " " bemenuArgs;
+in {
   enable = true;
   iconTheme = {
     package = pkgs.arc-icon-theme;

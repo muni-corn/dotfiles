@@ -1,6 +1,16 @@
-{ config, lib, pkgs, sup, alt, bemenuArgsJoined, lockCmd, workspace, scriptsDir, wallpaperSwitchScript, ... }:
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  sup,
+  alt,
+  bemenuArgsJoined,
+  lockCmd,
+  workspace,
+  scriptsDir,
+  wallpaperSwitchScript,
+  ...
+}: let
   notebookDir = "${config.home.homeDirectory}/notebook/";
   shell = "${config.programs.fish.package}/bin/fish";
   terminal = config.wayland.windowManager.sway.config.terminal;
@@ -24,38 +34,39 @@ let
 
   # scripts
   screenshot = "${scriptsDir}/screenshot.fish";
-  quickCodeScript = import ../quick-code-script.nix { inherit bemenuArgsJoined config pkgs; };
+  quickCodeScript = import ../quick-code-script.nix {inherit bemenuArgsJoined config pkgs;};
 
   # volume scripts
-  volumeScript = name: pamixerFlags: soundPath: pkgs.writeScript "volume-${name}" ''
-    #!${shell}
-    if set -q VOLUME_CTL_DEFAULT_SINK
-      ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" ${pamixerFlags}
-      ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" --get-volume > $SWAYSOCK.wob &
-    else
-      ${pamixer} ${pamixerFlags}
-      ${pamixer} --get-volume > $SWAYSOCK.wob &
-    end
+  volumeScript = name: pamixerFlags: soundPath:
+    pkgs.writeScript "volume-${name}" ''
+      #!${shell}
+      if set -q VOLUME_CTL_DEFAULT_SINK
+        ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" ${pamixerFlags}
+        ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" --get-volume > $SWAYSOCK.wob &
+      else
+        ${pamixer} ${pamixerFlags}
+        ${pamixer} --get-volume > $SWAYSOCK.wob &
+      end
 
-     ${ms} notify volume &
-     ${pkgs.pipewire}/bin/pw-play ${soundPath} &
+       ${ms} notify volume &
+       ${pkgs.pipewire}/bin/pw-play ${soundPath} &
 
-     wait
-  '';
+       wait
+    '';
   volumeUp = volumeScript "up" "-i 5" volumeUpSound;
   volumeDown = volumeScript "down" "-d 5" volumeDownSound;
   toggleMute = volumeScript "toggle-mute" "--toggle-mute" volumeUpSound;
 
   # brightness scripts
-  brightnessScript = name: brilloFlags: pkgs.writeShellScript "brightness-${name}" ''
-    ${pkgs.brillo}/bin/brillo -q ${brilloFlags}
-    ${ms} notify brightness &
-    ${pkgs.brillo}/bin/brillo -G | cut -d'.' -f1 > $SWAYSOCK.wob &
-  '';
+  brightnessScript = name: brilloFlags:
+    pkgs.writeShellScript "brightness-${name}" ''
+      ${pkgs.brillo}/bin/brillo -q ${brilloFlags}
+      ${ms} notify brightness &
+      ${pkgs.brillo}/bin/brillo -G | cut -d'.' -f1 > $SWAYSOCK.wob &
+    '';
   brightnessUp = brightnessScript "up" "-A 2";
   brightnessDown = brightnessScript "down" "-U 2";
-in
-{
+in {
   # power controls
   "${sup}+Control+${alt}+o" = "exec systemctl poweroff";
   "${sup}+Control+${alt}+b" = "exec systemctl reboot";

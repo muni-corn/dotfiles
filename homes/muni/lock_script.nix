@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
-let
+{
+  config,
+  pkgs,
+  ...
+}: let
   colors = config.muse.theme.finalPalette;
 
   bg = colors.swatch.background;
@@ -10,7 +12,7 @@ let
   warning = colors.swatch.warning;
   error = colors.swatch.alert;
 in
-pkgs.writeScript "lock-script"
+  pkgs.writeScript "lock-script"
   ''
     #!${pkgs.fish}/bin/fish
 

@@ -2,21 +2,23 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ config, lib, pkgs, ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
   imports = [
     ./cachix.nix
   ];
 
   boot = {
-    kernel.sysctl = { "fs.inotify.max_user_watches" = 524288; };
+    kernel.sysctl = {"fs.inotify.max_user_watches" = 524288;};
     extraModulePackages = builtins.attrValues {
       inherit (config.boot.kernelPackages) v4l2loopback;
     };
-    kernelModules = [ "v4l2loopback" ];
-    kernelParams = [ "quiet" "fbcon=nodefer" "nohibernate" ];
+    kernelModules = ["v4l2loopback"];
+    kernelParams = ["quiet" "fbcon=nodefer" "nohibernate"];
     loader = {
       efi = {
         canTouchEfiVariables = true;
@@ -26,7 +28,7 @@
         enable = true;
 
         enableCryptodisk = true;
-        devices = [ "nodev" ];
+        devices = ["nodev"];
         efiSupport = true;
         splashMode = "normal";
         version = 2;
@@ -95,10 +97,10 @@
 
     fontconfig = {
       defaultFonts = {
-        emoji = [ "Noto Color Emoji" ];
-        monospace = [ "Iosevka Muse" "Iosevka Nerd Font" ];
-        sansSerif = [ "Inter" ];
-        serif = [ "Noto Serif" ];
+        emoji = ["Noto Color Emoji"];
+        monospace = ["Iosevka Muse" "Iosevka Nerd Font"];
+        sansSerif = ["Inter"];
+        serif = ["Noto Serif"];
       };
     };
   };
@@ -139,8 +141,8 @@
 
     # Open ports in the firewall.
     firewall = {
-      allowedTCPPorts = [ 22 ];
-      allowedUDPPorts = [ ];
+      allowedTCPPorts = [22];
+      allowedUDPPorts = [];
     };
   };
 
@@ -152,27 +154,28 @@
     '';
     optimise = {
       automatic = true;
-      dates = [ "weekly" ];
+      dates = ["weekly"];
     };
     settings = {
       auto-optimise-store = true;
-      allowed-users = [ "municorn" ];
+      allowed-users = ["municorn"];
     };
   };
 
   nixpkgs.config = {
     # allow some unfree packages to be installed
-    allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-      "slack"
-      "spotify"
-      "spotify-unwrapped"
-      "steam"
-      "steam-original"
-      "steam-runtime"
+    allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) [
+        "slack"
+        "spotify"
+        "spotify-unwrapped"
+        "steam"
+        "steam-original"
+        "steam-runtime"
 
-      "linuxsampler"
-      "mpv-youtube-quality"
-    ];
+        "linuxsampler"
+        "mpv-youtube-quality"
+      ];
   };
 
   programs = {
@@ -279,19 +282,19 @@
     users = {
       municorn = {
         isNormalUser = true;
-        extraGroups = [ "wheel" "audio" "video" "camera" "kvm" "plugdev" "libvirtd" "nixos-config" "adbusers" ];
+        extraGroups = ["wheel" "audio" "video" "camera" "kvm" "plugdev" "libvirtd" "nixos-config" "adbusers"];
         home = "/home/municorn";
       };
       beans = {
         isNormalUser = true;
-        extraGroups = [ "audio" "video" ];
+        extraGroups = ["audio" "video"];
         home = "/home/beans";
       };
       tcpcryptd.group = "tcpcryptd";
     };
     groups = {
-      nixos-config = { };
-      tcpcryptd = { };
+      nixos-config = {};
+      tcpcryptd = {};
     };
     defaultUserShell = pkgs.fish;
   };
@@ -309,4 +312,3 @@
     sounds.enable = true;
   };
 }
-

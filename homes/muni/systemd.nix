@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   user = {
     services = {
       hydroxide = {
@@ -15,7 +17,7 @@
         };
 
         Install = {
-          WantedBy = [ "default.target" ];
+          WantedBy = ["default.target"];
         };
       };
     };

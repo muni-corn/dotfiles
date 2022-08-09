@@ -1,11 +1,17 @@
-{ config, lib, pkgs, bemenuArgs, colors, lockCmd, ... }:
-
-let
+{
+  config,
+  lib,
+  pkgs,
+  bemenuArgs,
+  colors,
+  lockCmd,
+  ...
+}: let
   sup = "Mod4";
   alt = "Mod1";
 
   font = {
-    names = [ "Inter" ];
+    names = ["Inter"];
     style = "Regular";
     size = 12.0;
   };
@@ -25,11 +31,14 @@ let
   accent = "#${colors.swatch.accent}f2";
   warning = "#${colors.swatch.warning}f2";
 
-  scriptsDir = builtins.path { name = "sway-scripts"; path = ./scripts; };
+  scriptsDir = builtins.path {
+    name = "sway-scripts";
+    path = ./scripts;
+  };
 
   # define names for default workspaces for which we configure key bindings later
   # on. we use variables to avoid repeating the names in multiple places.
-  workspaceNames = [ "1" "2" "3" "4" "5" "6" "7" "8" "9" "X" ];
+  workspaceNames = ["1" "2" "3" "4" "5" "6" "7" "8" "9" "X"];
   workspace = builtins.elemAt workspaceNames;
 
   # wallpaper switch script
@@ -43,42 +52,87 @@ let
         kill $pid
     end
   '';
-in
-{
+in {
   enable = true;
   package = null;
 
   config = {
-    bars = [{
-      fonts = font;
-      position = "top";
-      extraConfig = ''
-        separator_symbol "    "
-        status_edge_padding 16
-        height 32
-        modifier "${sup}"
-      '';
-      statusCommand = "${pkgs.muse-status}/bin/muse-status sub a -m i3 -p ${colors.swatch.white} -s ${colors.swatch.silver}";
-      trayOutput = "none";
-      workspaceButtons = true;
-      colors = {
-        background = black;
-        separator = accent;
-        statusline = white;
-        bindingMode = { background = black; border = black; text = warning; };
-        activeWorkspace = { background = black; border = black; text = accent; };
-        focusedWorkspace = { background = black; border = black; text = white; };
-        inactiveWorkspace = { background = black; border = black; text = silver; };
-        urgentWorkspace = { background = warning; border = warning; text = black; };
-      };
-    }];
+    bars = [
+      {
+        fonts = font;
+        position = "top";
+        extraConfig = ''
+          separator_symbol "    "
+          status_edge_padding 16
+          height 32
+          modifier "${sup}"
+        '';
+        statusCommand = "${pkgs.muse-status}/bin/muse-status sub a -m i3 -p ${colors.swatch.white} -s ${colors.swatch.silver}";
+        trayOutput = "none";
+        workspaceButtons = true;
+        colors = {
+          background = black;
+          separator = accent;
+          statusline = white;
+          bindingMode = {
+            background = black;
+            border = black;
+            text = warning;
+          };
+          activeWorkspace = {
+            background = black;
+            border = black;
+            text = accent;
+          };
+          focusedWorkspace = {
+            background = black;
+            border = black;
+            text = white;
+          };
+          inactiveWorkspace = {
+            background = black;
+            border = black;
+            text = silver;
+          };
+          urgentWorkspace = {
+            background = warning;
+            border = warning;
+            text = black;
+          };
+        };
+      }
+    ];
 
     colors = {
       background = black;
-      focused = { border = gray; background = gray; text = white; indicator = accent; childBorder = gray; };
-      focusedInactive = { border = black; background = black; text = accent; indicator = black; childBorder = black; };
-      unfocused = { border = black; background = black; text = silver; indicator = black; childBorder = black; };
-      urgent = { border = warning; background = warning; text = black; indicator = accent; childBorder = warning; };
+      focused = {
+        border = gray;
+        background = gray;
+        text = white;
+        indicator = accent;
+        childBorder = gray;
+      };
+      focusedInactive = {
+        border = black;
+        background = black;
+        text = accent;
+        indicator = black;
+        childBorder = black;
+      };
+      unfocused = {
+        border = black;
+        background = black;
+        text = silver;
+        indicator = black;
+        childBorder = black;
+      };
+      urgent = {
+        border = warning;
+        background = warning;
+        text = black;
+        indicator = accent;
+        childBorder = warning;
+      };
     };
 
     defaultWorkspace = "workspace ${workspace 0}";
@@ -89,9 +143,9 @@ in
       titlebar = true;
 
       criteria = [
-        { title = "Lutris"; }
-        { title = "^OpenRGB$"; }
-        { title = "Extension:.*Firefox"; }
+        {title = "Lutris";}
+        {title = "^OpenRGB$";}
+        {title = "Extension:.*Firefox";}
       ];
     };
 
@@ -132,12 +186,12 @@ in
       };
     };
 
-    keybindings = import ./keys.nix { inherit config lib pkgs sup alt bemenuArgsJoined lockCmd workspace scriptsDir wallpaperSwitchScript; };
+    keybindings = import ./keys.nix {inherit config lib pkgs sup alt bemenuArgsJoined lockCmd workspace scriptsDir wallpaperSwitchScript;};
 
     menu = "bemenu-run -p 'Run what?' ${bemenuArgsJoined}";
 
     # no modes
-    modes = { };
+    modes = {};
 
     modifier = "${sup}";
 
@@ -160,18 +214,20 @@ in
     startup =
       [
         # load last screen brightness
-        { command = ''brillo -I''; }
+        {command = ''brillo -I'';}
 
         # wob
-        { command = "$HOME/.config/sway/scripts/start_wob.sh"; }
+        {command = "$HOME/.config/sway/scripts/start_wob.sh";}
 
         # play startup sound
-        { command = ''canberra-gtk-play --id=desktop-login''; }
+        {command = ''canberra-gtk-play --id=desktop-login'';}
 
         # polkit
-        { command = ''${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1''; }
-      ] ++ lib.optional config.muse.theme.matchpal.enable # init wallpaper
-        { command = ''${wallpaperSwitchScript}''; };
+        {command = ''${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1'';}
+      ]
+      ++ lib.optional config.muse.theme.matchpal.enable # init wallpaper
+      
+      {command = ''${wallpaperSwitchScript}'';};
 
     terminal = "kitty";
 
@@ -181,10 +237,22 @@ in
       titlebar = true;
 
       commands = [
-        { command = "floating enable, resize set 600 px 400 px"; criteria = { title = "Page Unresponsive"; }; }
-        { command = "floating enable, resize set 64 px 32 px, move position 256 px -70 px, border csd"; criteria = { title = "Firefox — Sharing Indicator"; }; }
-        { command = "floating enable, sticky enable, resize set 30 ppt 60 ppt"; criteria = { app_id = "^launcher$"; }; }
-        { command = "inhibit_idle fullscreen"; criteria = { class = ".*"; }; }
+        {
+          command = "floating enable, resize set 600 px 400 px";
+          criteria = {title = "Page Unresponsive";};
+        }
+        {
+          command = "floating enable, resize set 64 px 32 px, move position 256 px -70 px, border csd";
+          criteria = {title = "Firefox — Sharing Indicator";};
+        }
+        {
+          command = "floating enable, sticky enable, resize set 30 ppt 60 ppt";
+          criteria = {app_id = "^launcher$";};
+        }
+        {
+          command = "inhibit_idle fullscreen";
+          criteria = {class = ".*";};
+        }
       ];
     };
 

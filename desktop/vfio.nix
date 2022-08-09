@@ -1,8 +1,11 @@
-{ config, pkgs, ... }:
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Boot configuration
-  boot.kernelParams = [ "amd_iommu=on" "iommu=pt" ];
-  boot.kernelModules = [ "kvm-amd" "vfio-pci" ];
+  boot.kernelParams = ["amd_iommu=on" "iommu=pt"];
+  boot.kernelModules = ["kvm-amd" "vfio-pci"];
 
   # Enable libvirtd
   virtualisation.libvirtd = {
@@ -17,21 +20,19 @@
 
   # Add binaries to path so that hooks can use it
   systemd.services.libvirtd = {
-    path =
-      let
-        env = pkgs.buildEnv {
-          name = "qemu-hook-env";
-          paths = with pkgs; [
-            bash
-            libvirt
-            kmod
-            systemd
-            ripgrep
-            sd
-          ];
-        };
-      in
-      [ env ];
+    path = let
+      env = pkgs.buildEnv {
+        name = "qemu-hook-env";
+        paths = with pkgs; [
+          bash
+          libvirt
+          kmod
+          systemd
+          ripgrep
+          sd
+        ];
+      };
+    in [env];
   };
 
   # Enable xrdp
@@ -48,8 +49,7 @@
   ];
 
   # Link hooks to the correct directory
-  system.activationScripts.libvirt-hooks.text =
-    "ln -Tfs /etc/libvirt/hooks /var/lib/libvirt/hooks";
+  system.activationScripts.libvirt-hooks.text = "ln -Tfs /etc/libvirt/hooks /var/lib/libvirt/hooks";
 
   environment.etc = {
     "libvirt/hooks/qemu" = {
