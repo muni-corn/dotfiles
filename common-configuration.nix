@@ -20,11 +20,12 @@
     loader = {
       efi = {
         canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot";
+        efiSysMountPoint = "/boot/efi";
       };
       grub = {
         enable = true;
 
+        enableCryptodisk = true;
         devices = [ "nodev" ];
         efiSupport = true;
         splashMode = "normal";
