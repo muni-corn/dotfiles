@@ -12,6 +12,7 @@
   imports = [
     ../common-configuration.nix
 
+    ./btrbk.nix
     ../openssh.nix
     ./vfio.nix
     ./hardware.nix
