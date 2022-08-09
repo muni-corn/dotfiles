@@ -47,8 +47,11 @@
   };
 
   services = {
-    # disable fstrim (enabled by nixos-hardware/common-pc-ssd); zfs does it for us
-    fstrim.enable = false;
+    # btrfs auto scrubbing (defaults to monthly scrubs)
+    btrfs.autoScrub.enable = true;
+
+    # enable fstrim for btrfs
+    fstrim.enable = true;
 
     pipewire.config.pipewire = let
       defaults = lib.importJSON "${flake-inputs.nixpkgs}/nixos/modules/services/desktops/pipewire/daemon/pipewire.conf.json";
