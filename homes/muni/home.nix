@@ -145,6 +145,7 @@ in
         zip
 
         # development/programming
+        alejandra
         docker-compose
         gcc
         git-crypt
@@ -205,7 +206,6 @@ in
         imagemagick
         libnotify
         nerdfonts
-        nixpkgs-fmt
         openvpn
         qrencode
         rsync
