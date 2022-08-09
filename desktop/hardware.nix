@@ -15,6 +15,7 @@
       luks.devices = {
         "cryptroot1".device = "/dev/disk/by-uuid/d07ab63c-1ac5-4e18-9c13-ecafa8397edb";
         "cryptroot2".device = "/dev/disk/by-uuid/d718061f-9973-4d6d-a816-5d2a57bda1ba";
+        "cryptbackup".device = "/dev/disk/by-uuid/1ebf17c7-3097-40d9-89d2-6079b197664a";
       };
     };
     kernelModules = ["kvm-amd"];
@@ -47,6 +48,12 @@
     "/boot/efi" = {
       device = "/dev/disk/by-uuid/720C-2E2F";
       fsType = "vfat";
+    };
+
+    "/backup" = {
+      device = "/dev/disk/by-uuid/90921c83-b2f4-419d-8649-f669bd66185c";
+      fsType = "btrfs";
+      options = ["compress=zstd" "noatime"];
     };
   };
 
