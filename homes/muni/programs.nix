@@ -16,10 +16,7 @@
     browsers = ["firefox"];
   };
 
-  chromium = {
-    enable = true;
-    package = pkgs.ungoogled-chromium;
-  };
+  chromium.enable = true;
 
   direnv = {
     enable = true;
