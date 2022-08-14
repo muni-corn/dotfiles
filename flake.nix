@@ -59,7 +59,6 @@
     self,
     nixpkgs,
     home-manager,
-    alpha-nvim,
     arpeggio,
     iosevka-muse,
     matchpal,
@@ -69,6 +68,7 @@
     musnix,
     nixos-hardware,
     plymouth-theme-musicaloft-rainbow,
+    ...
   } @ inputs: let
     lockFile = nixpkgs.lib.importJSON ./flake.lock;
     vimPluginOverlay = final: prev: let
