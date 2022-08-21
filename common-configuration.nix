@@ -47,7 +47,7 @@
   environment = {
     defaultPackages = with pkgs; [
       cachix
-      ungoogled-chromium
+      chromium
       firefox
       kodi
       konsole
