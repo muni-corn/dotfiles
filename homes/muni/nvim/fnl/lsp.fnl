@@ -52,7 +52,8 @@
   ;; set up language servers
   (lspconfig.rust_analyzer.setup {:on_attach on-lsp-attach
                                   :settings {:rust-analyzer {:cargo {:allFeatures true
-                                                                     :loadOutDirsFromCheck true}
+                                                                     :buildScripts {:enable true}
+                                                                     :autoreload true}
                                                              :updates {:channel :stable}
                                                              :notifications {:cargoTomlNotFound false}
                                                              :checkOnSave {:command :clippy
