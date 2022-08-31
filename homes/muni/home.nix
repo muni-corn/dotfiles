@@ -169,6 +169,7 @@ in {
         rawtherapee
 
         # music
+        autotalent
         musescore
 
         # writing
