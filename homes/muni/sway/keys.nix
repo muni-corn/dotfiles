@@ -71,6 +71,7 @@ in {
   "${sup}+Control+${alt}+o" = "exec systemctl poweroff";
   "${sup}+Control+${alt}+b" = "exec systemctl reboot";
   "${sup}+Control+${alt}+s" = "exec systemctl suspend";
+  "--locked ${sup}+Control+${alt}+s" = "exec systemctl suspend";
 
   # change focus
   "${sup}+h" = "focus left";
