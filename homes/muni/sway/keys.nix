@@ -132,6 +132,7 @@ in {
   "--no-repeat ${sup}+f" = "fullscreen toggle";
 
   # shortcuts for apps
+  "--no-repeat ${sup}+Control+b" = ''exec ${terminal} ${withShell "bluetoothctl"}'';
   "--no-repeat ${sup}+Control+e" = "exec ${scriptsDir}/emoji_menu.fish ${bemenuArgsJoined}";
   "--no-repeat ${sup}+Control+n" = ''exec ${terminalInDir notebookDir} ${withShell "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).norg"}'';
   "--no-repeat ${sup}+Control+p" = "exec ${pkgs.pavucontrol}/bin/pavucontrol";
