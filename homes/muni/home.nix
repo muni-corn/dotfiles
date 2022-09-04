@@ -164,6 +164,7 @@ in {
 
         # photo
         gimp
+        hugin
         inkscape
         krita
         rawtherapee
