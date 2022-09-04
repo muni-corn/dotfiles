@@ -94,9 +94,7 @@
         tool = "nvimdiff";
       };
       pull.rebase = true;
-      receive = {
-        denyCurrentBranch = "refuse";
-      };
+      receive.denyCurrentBranch = "refuse";
       tag.gpgSign = true;
       url = {
         "git@github.com:".insteadOf = "https://github.com/";
@@ -106,15 +104,11 @@
     };
   };
 
-  gpg = {
-    enable = true;
-  };
+  gpg.enable = true;
 
   helix.enable = true;
 
-  himalaya = {
-    enable = true;
-  };
+  himalaya.enable = true;
 
   htop = {
     enable = true;
@@ -185,7 +179,7 @@
 
   mbsync.enable = true;
 
-  neomutt = {enable = true;};
+  neomutt.enable = true;
 
   # fish integration enabled by default
   nix-index.enable = true;
