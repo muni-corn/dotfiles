@@ -24,10 +24,13 @@
   };
 
   hardware = {
-    opengl.extraPackages = with pkgs; [
-      rocm-opencl-icd
-      rocm-opencl-runtime
-    ];
+    opengl = {
+      enable = true;
+      extraPackages = with pkgs; [
+        rocm-opencl-icd
+        rocm-opencl-runtime
+      ];
+    };
     openrazer = {
       enable = true;
       users = ["municorn"];
@@ -44,6 +47,11 @@
     hostId = "edafa5da";
 
     interfaces.enp34s0.wakeOnLan.enable = true;
+  };
+
+  nixpkgs.config = {
+    allowUnfree = true;
+    rocmTargets = ["gfx1010"];
   };
 
   services = {

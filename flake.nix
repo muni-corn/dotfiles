@@ -6,6 +6,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # HIP for amdgpu
+    nixos-rocm.url = "github:nixos-rocm/nixos-rocm";
+
     # alpha.nvim (because it's not yet included in nixpkgs)
     alpha-nvim = {
       url = "github:goolord/alpha-nvim";
@@ -67,6 +70,7 @@
     muse-status,
     musnix,
     nixos-hardware,
+    nixos-rocm,
     plymouth-theme-musicaloft-rainbow,
     ...
   } @ inputs: let
@@ -93,6 +97,7 @@
       matchpal.overlay
       muse-sounds.overlay
       muse-status.overlay
+      nixos-rocm.overlay
       plymouth-theme-musicaloft-rainbow.overlay
       vimPluginOverlay
     ];
