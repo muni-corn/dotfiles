@@ -204,13 +204,16 @@
         (pkgs.fetchFromGitHub {
           owner = "jarun";
           repo = "nnn";
-          rev = "v4.5";
-          sha256 = "sha256-uToAgWpGaTPTMYJh1D0xgvE23GSIshv1OBlWxXI07Mk=";
+          rev = "v4.6";
+          sha256 = "sha256-+EAKOXZp1kxA2X3e16ItjPT7Sa3WZuP2oxOdXkceTIY=";
         })
         + "/plugins";
       mappings = {
         c = "fzcd";
+        d = "dragdrop";
         f = "finder";
+        n = "nuke";
+        o = "launch";
         p = "preview-tui";
         v = "imgview";
       };
