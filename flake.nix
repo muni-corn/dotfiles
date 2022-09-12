@@ -21,6 +21,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # all that nightly bleeding-edge goodness
+    neovim-nightly-overlay = {
+      url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # extra hardware configuration
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -69,6 +75,7 @@
     muse-sounds,
     muse-status,
     musnix,
+    neovim-nightly-overlay,
     nixos-hardware,
     nixos-rocm,
     plymouth-theme-musicaloft-rainbow,
@@ -97,6 +104,7 @@
       matchpal.overlay
       muse-sounds.overlay
       muse-status.overlay
+      neovim-nightly-overlay.overlay
       nixos-rocm.overlay
       plymouth-theme-musicaloft-rainbow.overlay
       vimPluginOverlay
