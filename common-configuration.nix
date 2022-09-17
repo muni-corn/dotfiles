@@ -240,6 +240,8 @@
       };
     };
 
+    input-remapper.enable = true;
+
     localtimed.enable = true;
 
     logind.extraConfig = ''
