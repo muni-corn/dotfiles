@@ -37,8 +37,6 @@
       vim-commentary
       vim-fugitive
       vim-hexokinase
-      vim-pandoc
-      vim-pandoc-syntax
       vim-smoothie
       vim-table-mode
       vim-vsnip
