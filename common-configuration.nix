@@ -84,7 +84,7 @@
     fonts = with pkgs; [
       google-fonts
       libertine
-      inter-ui
+      inter
       material-design-icons
       nerdfonts
       noto-fonts
@@ -148,7 +148,7 @@
 
   nix = {
     # enables flakes
-    package = pkgs.nixFlakes;
+    package = pkgs.nixVersions.stable;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
@@ -308,7 +308,6 @@
         xdg-desktop-portal-wlr
         xdg-desktop-portal-gtk
       ];
-      gtkUsePortal = true;
       wlr.enable = true;
     };
     sounds.enable = true;
