@@ -28,6 +28,7 @@
         enable = true;
 
         enableCryptodisk = true;
+        configurationLimit = 5;
         devices = ["nodev"];
         efiSupport = true;
         splashMode = "normal";
