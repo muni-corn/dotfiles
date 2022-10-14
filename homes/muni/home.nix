@@ -165,7 +165,6 @@ in {
         docker-compose
         gcc
         git-crypt
-        insomnia
         lld
         meld
         nodejs
@@ -182,10 +181,6 @@ in {
         krita
         rawtherapee
 
-        # music
-        autotalent
-        musescore
-
         # writing
         pandoc
 
@@ -196,14 +191,12 @@ in {
         discord
         element-desktop
         signal-desktop
-        slack
 
         # apps
         android-file-transfer
         awf
         imv
         keepassxc
-        keybase-gui
         kodi
         ledger-live-desktop
         libreoffice-fresh
@@ -249,6 +242,7 @@ in {
         ChowKick
         ardour
         audacity
+        autotalent
         calf
         drumkv1
         geonkick
@@ -256,10 +250,12 @@ in {
         helvum
         hydrogen
         linuxsampler
+        musescore
         pamixer # for muse-status, at least
         pavucontrol
         qpwgraph
         qsampler
+        sfizz
         sonic-visualiser
         spotify
         x42-gmsynth
