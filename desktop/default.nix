@@ -54,6 +54,10 @@
     rocmTargets = ["gfx1010"];
   };
 
+  security.pam.loginLimits = [
+    { domain = "municorn"; type = "hard"; item = "nofile"; value = "524288"; }
+  ];
+
   services = {
     # btrfs auto scrubbing (defaults to monthly scrubs)
     btrfs.autoScrub.enable = true;
@@ -83,15 +87,19 @@
     psd.enable = true;
   };
 
-  systemd.services.openrgb = {
-    enable = true;
+  systemd = {
+    extraConfig = "DefaultLimitNOFILE=524288";
+    services.openrgb = {
+      enable = true;
 
-    description = "OpenRGB server";
-    serviceConfig = {
-      Type = "simple";
-      ExecStart = "${pkgs.openrgb}/bin/openrgb --server";
+      description = "OpenRGB server";
+      serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.openrgb}/bin/openrgb --server";
+      };
+      wantedBy = ["multi-user.target"];
     };
-    wantedBy = ["multi-user.target"];
+    user.extraConfig = "DefaultLimitNOFILE=524288";
   };
 
   # This value determines the NixOS release from which the default
