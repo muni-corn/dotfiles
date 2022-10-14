@@ -186,7 +186,7 @@ in {
                     resized_file="''${name}_resized.jpg"
 
                     echo "resizing $name"
-                    ${pkgs.imagemagick}/bin/convert $wallpaper -resize 1920x1080^ $resized_file
+                    ${pkgs.imagemagick}/bin/convert $wallpaper -resize 0x1920^ $resized_file
                     echo "changing palette for $name"
                     ${pkgs.matchpal}/bin/matchpal --palette ${paletteFile} --dither --input $resized_file --output $out/$name
                   done
