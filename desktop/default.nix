@@ -12,10 +12,11 @@
   imports = [
     ../common-configuration.nix
 
-    ./btrbk.nix
+    ../nvidia.nix
     ../openssh.nix
-    ./vfio.nix
+    ./btrbk.nix
     ./hardware.nix
+    ./vfio.nix
   ];
 
   boot = {
