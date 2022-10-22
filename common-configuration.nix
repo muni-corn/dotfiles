@@ -167,11 +167,13 @@
     # allow some unfree packages to be installed
     allowUnfreePredicate = pkg:
       builtins.elem (lib.getName pkg) [
-        "slack"
+        "nvidia-x11"
+        "nvidia-settings"
         "spotify"
         "spotify-unwrapped"
         "steam"
         "steam-original"
+        "steam-run"
         "steam-runtime"
 
         "linuxsampler"
