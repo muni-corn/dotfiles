@@ -199,7 +199,10 @@
       setXAuthLocation = true;
     };
 
-    steam.enable = true;
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+    };
     sway = {
       enable = true;
       extraPackages = with pkgs; [
