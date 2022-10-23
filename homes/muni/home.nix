@@ -274,7 +274,7 @@ in {
         libretro.dolphin
         libretro.thepowdertoy
         lutris
-        polymc
+        prismlauncher
         retroarchFull
         space-cadet-pinball
         the-powder-toy
