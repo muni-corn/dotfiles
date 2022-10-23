@@ -231,6 +231,7 @@ in {
       lib.optionals (deviceInfo.name == "ponycastle") [
         # apps
         obs-studio
+        freecad
 
         # video
         blender
