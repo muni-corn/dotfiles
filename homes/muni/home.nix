@@ -229,7 +229,6 @@ in {
       # ponycastle-specific packages
       lib.optionals (deviceInfo.name == "ponycastle") [
         # apps
-        obs-studio
         freecad
 
         # video

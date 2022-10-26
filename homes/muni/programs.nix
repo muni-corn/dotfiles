@@ -220,6 +220,16 @@
     };
   };
 
+  obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      obs-move-transition
+      obs-pipewire-audio-capture
+      obs-multi-rtmp
+      obs-vkcapture
+    ];
+  };
+
   password-store = {
     enable = true;
     package =
