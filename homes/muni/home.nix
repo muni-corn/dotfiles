@@ -118,7 +118,6 @@ in {
         # desktop environment
         bemenu
         eww-wayland
-        flashfocus
         glib # for gtk theming
         ksshaskpass
         polkit_gnome
