@@ -203,7 +203,7 @@ in {
 
       # for ponycastle
       "Acer Technologies SB220Q 0x00007C0D" = {
-        pos = "0 0";
+        pos = "0 540";
       };
       "Acer Technologies SB220Q 0x000035FB" = {
         pos = "1920 0";
