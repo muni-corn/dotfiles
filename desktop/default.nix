@@ -12,7 +12,6 @@
   imports = [
     ../common-configuration.nix
 
-    ../nvidia.nix
     ../openssh.nix
     ./btrbk.nix
     ./hardware.nix
