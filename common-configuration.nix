@@ -160,6 +160,7 @@
     settings = {
       auto-optimise-store = true;
       allowed-users = ["municorn"];
+      sandbox = true;
     };
   };
 
