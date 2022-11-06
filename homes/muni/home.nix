@@ -244,6 +244,7 @@ in {
         autotalent
         calf
         drumkv1
+        easyeffects
         geonkick
         helm
         helvum
