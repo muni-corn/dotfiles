@@ -33,10 +33,7 @@
     };
   };
 
-  musnix = {
-    enable = true;
-    kernel.optimize = true;
-  };
+  musnix.enable = true;
 
   networking = {
     hostName = "ponycastle";
