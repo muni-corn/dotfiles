@@ -128,6 +128,7 @@ in {
         fd
         fish
         git-annex
+        git-filter-repo
         glances
         gnupg
         jdupes
