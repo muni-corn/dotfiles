@@ -159,7 +159,7 @@
     };
     settings = {
       auto-optimise-store = true;
-      allowed-users = ["municorn"];
+      allowed-users = ["muni"];
       sandbox = true;
     };
   };
@@ -289,15 +289,17 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
     users = {
-      municorn = {
+      muni = {
         isNormalUser = true;
+        description = "municorn";
         extraGroups = ["wheel" "audio" "video" "camera" "kvm" "plugdev" "libvirtd" "nixos-config" "adbusers"];
-        home = "/home/municorn";
+        uid = 1001;
       };
       beans = {
         isNormalUser = true;
+        description = "1800xxbakedbeans";
         extraGroups = ["audio" "video"];
-        home = "/home/beans";
+        uid = 1002;
       };
       tcpcryptd.group = "tcpcryptd";
     };

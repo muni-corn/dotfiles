@@ -29,7 +29,7 @@
     };
     openrazer = {
       enable = true;
-      users = ["municorn"];
+      users = ["muni"];
     };
   };
 
@@ -46,7 +46,12 @@
   };
 
   security.pam.loginLimits = [
-    { domain = "municorn"; type = "hard"; item = "nofile"; value = "524288"; }
+    {
+      domain = "muni";
+      type = "hard";
+      item = "nofile";
+      value = "524288";
+    }
   ];
 
   services = {
@@ -101,7 +106,7 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.05"; # Did you read the comment?
 
-  users.users.municorn.openssh.authorizedKeys.keys = [
+  users.users.muni.openssh.authorizedKeys.keys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEh29o9VSBHYfXJQFUAXSBmmQsvHc6oDI/ey2VuwdTcN h@munis-MacBook-Pro-13"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpFoYAj02WzgnBokgr2ZzFKOaffOVRK5Ru7Ngh53sjr (none)"
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGQjQ/WU6XjYnInZuHElJEcPWpZRVSgK3zvi0u7pxenp"
