@@ -31,11 +31,6 @@
   accent = "#${colors.swatch.accent}f2";
   warning = "#${colors.swatch.warning}f2";
 
-  scriptsDir = builtins.path {
-    name = "sway-scripts";
-    path = ./scripts;
-  };
-
   # define names for default workspaces for which we configure key bindings later
   # on. we use variables to avoid repeating the names in multiple places.
   workspaceNames = ["1" "2" "3" "4" "5" "6" "7" "8" "9" "X"];

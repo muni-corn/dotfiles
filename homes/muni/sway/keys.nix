@@ -7,10 +7,14 @@
   bemenuArgsJoined,
   lockCmd,
   workspace,
-  scriptsDir,
   wallpaperSwitchScript,
   ...
 }: let
+  scriptsDir = builtins.path {
+    name = "sway-scripts";
+    path = ./scripts;
+  };
+
   notebookDir = "${config.home.homeDirectory}/notebook/";
   shell = "${config.programs.fish.package}/bin/fish";
   terminal = config.wayland.windowManager.sway.config.terminal;
