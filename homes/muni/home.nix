@@ -70,6 +70,7 @@ in {
     ./muse
     ./muse-status.nix
     ./nvim
+    ./systemd.nix
   ];
 
   muse.theme = {
@@ -389,8 +390,6 @@ in {
     inherit bemenuArgs config deviceInfo lib lockCmd pkgs;
     colors = config.muse.theme.finalPalette;
   };
-
-  systemd = import ./systemd.nix {inherit config pkgs;};
 
   wayland.windowManager.sway = import ./sway/mod.nix {
     inherit config lib pkgs bemenuArgs lockCmd;
