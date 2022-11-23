@@ -87,7 +87,7 @@
         type = "fennel";
       }
       {
-        plugin = nvim-treesitter.withPlugins (p: pkgs.tree-sitter.allGrammars);
+        plugin = nvim-treesitter.withAllGrammars;
         config = builtins.readFile ./fnl/config/treesitter.fnl;
         type = "fennel";
       }
