@@ -4,6 +4,8 @@
   ...
 }: {
   user = {
+    startServices = "sd-switch";
+
     services = {
       hydroxide = {
         Unit = {
