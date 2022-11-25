@@ -48,11 +48,11 @@
         "utils": "utils_2"
       },
       "locked": {
-        "lastModified": 1669353510,
-        "narHash": "sha256-6ofvIkgOZkhs1usYXxzODLw9aQYuvD1NYdCoJWC6ADo=",
+        "lastModified": 1669354060,
+        "narHash": "sha256-WxL5HlrdD+JByCobtPvJqBVsg6JFf45TmmHNQkFsfmc=",
         "ref": "main",
-        "rev": "3b6e76c8927ecd686a61bebe2868a2359f34c55a",
-        "revCount": 11,
+        "rev": "12b38abd9e92684e465ac34850bc0e7c04f410d5",
+        "revCount": 12,
         "type": "git",
         "url": "https://codeberg.org/municorn/emoji-listgen"
       },
