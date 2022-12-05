@@ -87,7 +87,7 @@ in {
           inactiveWorkspace = {
             background = black;
             border = black;
-            text = silver;
+            text = gray;
           };
           urgentWorkspace = {
             background = warning;
@@ -117,7 +117,7 @@ in {
       unfocused = {
         border = black;
         background = black;
-        text = silver;
+        text = gray;
         indicator = black;
         childBorder = black;
       };
