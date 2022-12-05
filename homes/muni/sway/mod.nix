@@ -181,7 +181,7 @@ in {
       };
     };
 
-    keybindings = import ./keys.nix {inherit config lib pkgs sup alt bemenuArgsJoined lockCmd workspace scriptsDir wallpaperSwitchScript;};
+    keybindings = import ./keys.nix {inherit config lib pkgs sup alt bemenuArgsJoined lockCmd workspace wallpaperSwitchScript;};
 
     menu = "bemenu-run -p 'Run what?' ${bemenuArgsJoined}";
 
