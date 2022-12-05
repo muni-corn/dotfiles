@@ -40,11 +40,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    muse-flatcolor = {
-      url = "github:municorn/muse-flatcolor";
-      flake = false;
-    };
-
     muse-status = {
       url = "git+https://codeberg.org/municorn/muse-status?ref=unstable";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -68,7 +63,6 @@
     arpeggio,
     iosevka-muse,
     matchpal,
-    muse-flatcolor,
     muse-sounds,
     muse-status,
     musnix,
