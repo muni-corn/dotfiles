@@ -29,7 +29,7 @@
 
     # my stuff
     arpeggio = {
-      url = "git+https://github.com/muni-corn/arpeggio?ref=main";
+      url = "git+https://codeberg.org/municorn/arpeggio?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
