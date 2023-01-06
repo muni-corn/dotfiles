@@ -14,6 +14,8 @@
     ../openssh.nix
   ];
 
+  musnix.enable = true;
+
   networking = {
     hostName = "littlepony";
 

@@ -131,7 +131,7 @@
     nixosConfigurations = {
       littlepony = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = extraCommonModules ++ littleponyHardwareModules ++ [./laptop];
+        modules = extraCommonModules ++ littleponyHardwareModules ++ [musnix.nixosModules.musnix ./laptop];
       };
       ponycastle = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";

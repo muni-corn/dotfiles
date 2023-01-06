@@ -123,6 +123,31 @@ in {
         ksshaskpass
         polkit_gnome
 
+        # audio, sound, and music
+        ChowKick
+        ardour
+        audacity
+        autotalent
+        calf
+        drumkv1
+        easyeffects
+        geonkick
+        helm
+        helvum
+        hydrogen
+        linuxsampler
+        musescore
+        pamixer # for muse-status, at least
+        pavucontrol
+        qpwgraph
+        qsampler
+        sfizz
+        sonic-visualiser
+        spotify
+        x42-gmsynth
+        x42-plugins
+        zyn-fusion
+
         # terminal/cli stuff
         cava
         chafa
@@ -238,31 +263,6 @@ in {
         kdenlive
         mediainfo
         movit
-
-        # audio, sound, and music
-        ChowKick
-        ardour
-        audacity
-        autotalent
-        calf
-        drumkv1
-        easyeffects
-        geonkick
-        helm
-        helvum
-        hydrogen
-        linuxsampler
-        musescore
-        pamixer # for muse-status, at least
-        pavucontrol
-        qpwgraph
-        qsampler
-        sfizz
-        sonic-visualiser
-        spotify
-        x42-gmsynth
-        x42-plugins
-        zyn-fusion
 
         # emulators and "emulators"
         wine
