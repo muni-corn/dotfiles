@@ -87,7 +87,7 @@
       libertine
       inter
       material-design-icons
-      nerdfonts
+      (nerdfonts.override {fonts = ["Iosevka"];})
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
