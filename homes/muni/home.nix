@@ -467,17 +467,26 @@ in {
         recursive = true;
         source = ./sway/scripts;
       };
-      "sway/scripts/start_wob.sh" = {
-        executable = true;
-        text = import ./sway/wob_script.nix {
-          backgroundColor = config.muse.theme.finalPalette.swatch.black;
-          borderColor = config.muse.theme.finalPalette.swatch.gray;
-          barColor = config.muse.theme.finalPalette.swatch.accent;
-        };
-      };
       "waybar" = {
         recursive = true;
         source = ./waybar;
+      };
+      "wob/wob.ini" = {
+        text = ''
+          width = 512
+          height = 24
+          anchor = bottom
+          bar_padding = 4
+          border_size = 6
+          margin = 256
+          border_offset = 0
+
+          background_color = ${config.muse.theme.finalPalette.swatch.black}
+          border_color = ${config.muse.theme.finalPalette.swatch.gray}
+          bar_color = ${config.muse.theme.finalPalette.swatch.accent}
+
+          output_mode = focused
+        '';
       };
     };
   };

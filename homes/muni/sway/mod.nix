@@ -47,6 +47,11 @@
         kill $pid
     end
   '';
+  wobStartScript = pkgs.writeScript "wob-start" ''
+    #!${pkgs.fish}/bin/fish
+    mkfifo $SWAYSOCK.wob
+    tail -f $SWAYSOCK.wob | ${pkgs.wob}/bin/wob
+  '';
 in {
   enable = true;
   package = null;
@@ -212,7 +217,7 @@ in {
         {command = ''brillo -I'';}
 
         # wob
-        {command = "$HOME/.config/sway/scripts/start_wob.sh";}
+        {command = "${wobStartScript}";}
 
         # play startup sound
         {command = ''canberra-gtk-play --id=desktop-login'';}
