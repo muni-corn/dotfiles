@@ -207,6 +207,9 @@ in {
         krita
         rawtherapee
 
+        # video
+        synfigstudio
+
         # writing
         pandoc
 
