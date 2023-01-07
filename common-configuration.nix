@@ -56,7 +56,6 @@
       libcanberra
       libcanberra-gtk3
       muse-sounds
-      openrgb
       v4l-utils
       wayfire
 

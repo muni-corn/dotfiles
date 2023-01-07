@@ -20,7 +20,7 @@
 
   boot = {
     loader.grub.gfxmodeEfi = "1920x1080";
-    kernelModules = ["i2c-dev" "i2c-piix4" "kvm-amd"];
+    kernelModules = ["kvm-amd"];
   };
 
   hardware = {
@@ -58,6 +58,12 @@
     # enable fstrim for btrfs
     fstrim.enable = true;
 
+    # openrgb
+    hardware.openrgb = {
+      enable = true;
+      motherboard = "amd";
+    };
+
     pipewire.config.pipewire = let
       defaults = lib.importJSON "${flake-inputs.nixpkgs}/nixos/modules/services/desktops/pipewire/daemon/pipewire.conf.json";
     in {
@@ -82,16 +88,6 @@
 
   systemd = {
     extraConfig = "DefaultLimitNOFILE=524288";
-    services.openrgb = {
-      enable = true;
-
-      description = "OpenRGB server";
-      serviceConfig = {
-        Type = "simple";
-        ExecStart = "${pkgs.openrgb}/bin/openrgb --server";
-      };
-      wantedBy = ["multi-user.target"];
-    };
     user.extraConfig = "DefaultLimitNOFILE=524288";
   };
 
