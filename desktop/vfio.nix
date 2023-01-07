@@ -17,6 +17,7 @@
       runAsRoot = true;
     };
   };
+  virtualisation.spiceUSBRedirection.enable = true;
 
   # Add binaries to path so that hooks can use it
   systemd.services.libvirtd = {
