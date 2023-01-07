@@ -74,7 +74,7 @@
   networking = {
     useDHCP = lib.mkDefault false;
     interfaces = {
-      enp34s0.useDHCP = lib.mkDefault true;
+      enp5s0.useDHCP = lib.mkDefault true;
       wlan0.useDHCP = lib.mkDefault true;
     };
   };

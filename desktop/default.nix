@@ -39,7 +39,7 @@
     hostName = "ponycastle";
     hostId = "edafa5da";
 
-    interfaces.enp34s0.wakeOnLan.enable = true;
+    interfaces.enp5s0.wakeOnLan.enable = true;
   };
 
   security.pam.loginLimits = [

@@ -408,7 +408,7 @@ in {
       "muse-status/daemon.yaml".text = let
         network_iface =
           if deviceInfo.name == "ponycastle"
-          then "enp34s0"
+          then "enp5s0"
           else "wlan0";
       in ''
         ---
