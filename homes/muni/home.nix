@@ -228,6 +228,7 @@ in {
         kodi
         ledger-live-desktop
         libreoffice-fresh
+        synfigstudio
         tor-browser-bundle-bin
         xournalpp
 
