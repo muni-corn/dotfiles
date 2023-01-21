@@ -194,6 +194,11 @@
 
     gphoto2.enable = true;
 
+    java = {
+      enable = true;
+      package = pkgs.jdk;
+    };
+
     ssh = {
       setXAuthLocation = true;
     };
