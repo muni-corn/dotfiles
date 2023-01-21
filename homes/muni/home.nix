@@ -133,7 +133,6 @@ in {
         easyeffects
         geonkick
         helm
-        helvum
         hydrogen
         linuxsampler
         musescore
