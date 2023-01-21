@@ -102,6 +102,41 @@
         ];
     };
 
+    postgresql = {
+      enable = true;
+      ensureDatabases = [
+        "muni_bot"
+        "muni_bot_test"
+      ];
+      ensureUsers = [
+        {
+          name = "munibot";
+          ensureClauses = {
+            createdb = true;
+          };
+          ensurePermissions = {
+            "DATABASE \"muni_bot\"" = "ALL PRIVILEGES";
+          };
+        }
+        {
+          name = "muni";
+          ensureClauses = {
+            superuser = true;
+          };
+          ensurePermissions = {
+            "DATABASE \"muni_bot\"" = "ALL PRIVILEGES";
+          };
+        }
+      ];
+    };
+
+    postgresqlBackup = {
+      enable = true;
+      backupAll = true;
+      compression = "zstd";
+      startAt = "weekly";
+    };
+
     psd.enable = true;
   };
 
