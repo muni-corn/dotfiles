@@ -167,8 +167,7 @@
     # allow some unfree packages to be installed
     allowUnfreePredicate = pkg:
       builtins.elem (lib.getName pkg) [
-        "nvidia-x11"
-        "nvidia-settings"
+        "minecraft-server"
         "spotify"
         "spotify-unwrapped"
         "steam"
