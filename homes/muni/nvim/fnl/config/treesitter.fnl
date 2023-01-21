@@ -2,6 +2,7 @@
       parsers (require :nvim-treesitter.parsers)
       parser-configs (parsers.get_parser_configs)]
   (treesitter-configs.setup {:highlight {:enable true}
+                             :ensure_installed {}
                              :rainbow {:enable true
                                        :extended_mode true
                                        :max_file_lines nil
