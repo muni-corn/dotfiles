@@ -340,17 +340,20 @@ in {
     stateVersion = "21.11";
   };
 
-  dconf.settings = {
-    "org/gnome/desktop/interface" = {
-      gtk-theme = config.gtk.theme.name;
-      icon-theme = config.gtk.iconTheme.name;
-      cursor-theme = config.home.pointerCursor.name;
-      font-name = "Inter 12";
-    };
-    "org/gnome/desktop/sound" = {
-      theme-name = "musicaflight";
-      event-sounds = true;
-      input-feedback-sounds = true;
+  dconf = {
+    enable = false;
+    settings = {
+      "org/gnome/desktop/interface" = {
+        gtk-theme = config.gtk.theme.name;
+        icon-theme = config.gtk.iconTheme.name;
+        cursor-theme = config.home.pointerCursor.name;
+        font-name = "Inter 12";
+      };
+      "org/gnome/desktop/sound" = {
+        theme-name = "musicaflight";
+        event-sounds = true;
+        input-feedback-sounds = true;
+      };
     };
   };
 
