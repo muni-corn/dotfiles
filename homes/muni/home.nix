@@ -193,6 +193,7 @@ in {
         lld
         meld
         nodejs
+        nodePackages.typescript-language-server
         python3
         rnix-lsp
         rust-analyzer
