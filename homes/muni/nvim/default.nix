@@ -27,6 +27,7 @@
       friendly-snippets
       hop-nvim
       lsp-status-nvim
+      neorg-telescope
       nvim-cmp
       nvim-lspconfig
       nvim-ts-rainbow
