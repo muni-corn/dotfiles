@@ -82,17 +82,15 @@
     vimPluginOverlay = final: prev: let
       alphaNvimInfo = lockFile.nodes.alpha-nvim.locked;
     in {
-      vimPlugins =
-        prev.vimPlugins
-        // {
-          alpha-nvim = prev.vimUtils.buildVimPlugin {
-            name = alphaNvimInfo.repo;
-            src = prev.fetchFromGitHub {
-              inherit (alphaNvimInfo) owner repo rev;
-              sha256 = alphaNvimInfo.narHash;
-            };
+      vimPlugins = prev.vimPlugins.extend (f: p: {
+        alpha-nvim = prev.vimUtils.buildVimPlugin {
+          name = alphaNvimInfo.repo;
+          src = prev.fetchFromGitHub {
+            inherit (alphaNvimInfo) owner repo rev;
+            sha256 = alphaNvimInfo.narHash;
           };
         };
+      });
     };
 
     overlays = [
