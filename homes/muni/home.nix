@@ -471,10 +471,6 @@ in {
         recursive = true;
         source = ./sway/scripts;
       };
-      "waybar" = {
-        recursive = true;
-        source = ./waybar;
-      };
       "wob/wob.ini" = {
         text = ''
           width = 512
