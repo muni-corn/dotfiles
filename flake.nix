@@ -18,6 +18,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # neorg overlay for up-to-date neorg stuff
+    neorg = {
+      url = "github:nvim-neorg/nixpkgs-neorg-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # all that nightly bleeding-edge goodness
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
@@ -66,6 +72,7 @@
     muse-sounds,
     muse-status,
     musnix,
+    neorg,
     neovim-nightly-overlay,
     nixos-hardware,
     plymouth-theme-musicaloft-rainbow,
@@ -94,6 +101,7 @@
       matchpal.overlay
       muse-sounds.overlay
       muse-status.overlay
+      neorg.overlays.default
       neovim-nightly-overlay.overlay
       plymouth-theme-musicaloft-rainbow.overlay
       vimPluginOverlay
