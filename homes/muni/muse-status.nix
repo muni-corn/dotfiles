@@ -21,10 +21,13 @@ in {
     };
   };
   config = {
-    home.packages = [pkgs.muse-status pkgs.pamixer];
+    home.packages = [pkgs.muse-status];
     systemd.user.services.muse-status-daemon = {
       Unit.Description = "muse-status daemon";
-      Service.ExecStart = "${pkgs.muse-status}/bin/muse-status-daemon";
+      Service = {
+        Environment = "PATH=$PATH:${pkgs.pamixer}/bin";
+        ExecStart = "${pkgs.muse-status}/bin/muse-status-daemon";
+      };
       Install.WantedBy = ["graphical-session.target"];
     };
     xdg.configFile."muse-status/daemon.yaml" = mkIf (cfg.settings != null) {
