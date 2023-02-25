@@ -367,11 +367,11 @@
         "rust-overlay": "rust-overlay"
       },
       "locked": {
-        "lastModified": 1675455322,
-        "narHash": "sha256-hIta9zh/IGM1k/RmMzrd4jqJT7CVDai3Jz4Wn6+Urww=",
+        "lastModified": 1675558367,
+        "narHash": "sha256-YZ/PqjIO/rYCIZb7RIFFAJO2m9n5tls/TrhOjK2rXk4=",
         "ref": "unstable",
-        "rev": "db75476428fb32235d3204ffe380c78718c27816",
-        "revCount": 231,
+        "rev": "fc18a78e6452f1053ed137df57231799e933c6a9",
+        "revCount": 230,
         "type": "git",
         "url": "https://codeberg.org/municorn/muse-status"
       },
