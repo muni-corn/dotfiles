@@ -1,10 +1,6 @@
 {
   config,
-  deviceInfo,
-  lib,
   pkgs,
-  colors,
-  bemenuArgs,
 }: {
   # let home-manager install and manage itself
   home-manager.enable = true;
