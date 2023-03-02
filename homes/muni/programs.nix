@@ -267,6 +267,48 @@
 
   starship = import ./starship.nix;
 
+  swaylock.settings = let
+    colors = config.muse.theme.finalPalette;
+    bg = colors.swatch.background;
+    fg = colors.swatch.foreground + "c0";
+    fg_faded = colors.swatch.foreground + "80";
+    primary = colors.swatch.accent + "80";
+    warning = colors.swatch.warning;
+    error = colors.swatch.alert;
+    transparent = "00000000";
+  in {
+    bs-hl-color = primary;
+    caps-lock-bs-hl-color = primary;
+    caps-lock-key-hl-color = warning;
+    color = "667788";
+    disable-caps-lock-text = true;
+    font = "sans Thin";
+    font-size = 12;
+    ignore-empty-password = true;
+    indicator-caps-lock = true;
+    indicator-radius = 128;
+    indicator-thickness = 8;
+    inside-caps-lock-color = transparent;
+    inside-clear-color = transparent;
+    inside-color = transparent;
+    inside-ver-color = transparent;
+    inside-wrong-color = transparent;
+    key-hl-color = fg_faded;
+    line-uses-inside = true;
+    ring-caps-lock-color = transparent;
+    ring-clear-color = warning;
+    ring-color = transparent;
+    ring-ver-color = transparent;
+    ring-wrong-color = error;
+    scaling = "fill";
+    separator-color = transparent;
+    text-caps-lock-color = warning;
+    text-clear-color = transparent;
+    text-color = fg;
+    text-ver-color = transparent;
+    text-wrong-color = transparent;
+  };
+
   texlive = {
     enable = true;
     extraPackages = tpkgs: {inherit (tpkgs) scheme-medium;};
