@@ -222,6 +222,7 @@ in {
         discord
         element-desktop
         signal-desktop
+        slack
 
         # apps
         android-file-transfer
