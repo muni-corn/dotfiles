@@ -126,6 +126,7 @@ in {
 
         # audio, sound, and music
         ChowKick
+        LibreArp-lv2
         ardour
         audacity
         autotalent
