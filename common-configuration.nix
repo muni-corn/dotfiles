@@ -324,7 +324,7 @@
       muni = {
         isNormalUser = true;
         description = "municorn";
-        extraGroups = ["wheel" "audio" "video" "camera" "kvm" "plugdev" "libvirtd" "nixos-config" "adbusers"];
+        extraGroups = ["wheel" "audio" "video" "camera" "kvm" "plugdev" "libvirtd" "nixos-config" "adbusers" "docker"];
         uid = 1001;
       };
       beans = {

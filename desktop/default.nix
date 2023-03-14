@@ -12,6 +12,7 @@
   imports = [
     ../common-configuration.nix
 
+    ../docker.nix
     ../openssh.nix
     ./btrbk.nix
     ./hardware.nix
