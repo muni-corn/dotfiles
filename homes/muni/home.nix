@@ -262,9 +262,6 @@ in {
       ++
       # ponycastle-specific packages
       lib.optionals (deviceInfo.name == "ponycastle") [
-        # apps
-        freecad
-
         # video
         blender
         kdenlive
