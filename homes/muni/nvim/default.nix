@@ -24,6 +24,7 @@
       cmp-nvim-lua
       cmp-path
       cmp-vsnip
+      copilot-vim
       friendly-snippets
       hop-nvim
       lsp-status-nvim
