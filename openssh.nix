@@ -3,7 +3,9 @@
   services.openssh = {
     enable = true;
     allowSFTP = true;
-    forwardX11 = true;
+    settings = {
+      X11Forwarding = true;
+    };
     startWhenNeeded = true;
     extraConfig = ''
       ClientAliveInterval 30
