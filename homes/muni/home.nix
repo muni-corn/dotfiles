@@ -69,6 +69,7 @@ in {
   imports = [
     ./muse
     ./muse-status.nix
+    ./programs.nix
     ./nvim
     ./systemd.nix
   ];
@@ -378,11 +379,6 @@ in {
   };
 
   manual.html.enable = true;
-
-  programs = import ./programs.nix {
-    inherit config deviceInfo lib pkgs bemenuArgs;
-    colors = config.muse.theme.colors;
-  };
 
   qt = {
     enable = true;
