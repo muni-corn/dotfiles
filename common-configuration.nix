@@ -134,16 +134,6 @@
   networking = {
     # Encrypts network traffic where possible (i think)
     tcpcrypt.enable = true;
-
-    # Configure network proxy if necessary
-    # proxy.default = "http://user:password@proxy:port/";
-    # proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
-    # Open ports in the firewall.
-    firewall = {
-      allowedTCPPorts = [22];
-      allowedUDPPorts = [];
-    };
   };
 
   nix = {

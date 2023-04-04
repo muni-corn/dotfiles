@@ -14,6 +14,7 @@
 
     ../docker.nix
     ../openssh.nix
+    ../firewall.nix
     ./btrbk.nix
     ./hardware.nix
     ./vfio.nix

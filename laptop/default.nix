@@ -12,6 +12,7 @@
     ../common-configuration.nix
     ./hardware.nix
     ../openssh.nix
+    ../firewall.nix
   ];
 
   musnix.enable = true;
