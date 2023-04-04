@@ -5,6 +5,8 @@
     allowSFTP = true;
     settings = {
       X11Forwarding = true;
+      PasswordAuthentication = false;
+      PermitRootLogin = "no";
     };
     startWhenNeeded = true;
     extraConfig = ''
