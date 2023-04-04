@@ -69,6 +69,7 @@
                                                                                       :unresolved-macro-call
                                                                                       :macro-error]}}}
                                   : capabilities})
+  (lspconfig.eslint.setup {})
   (lspconfig.html.setup {: capabilities})
   (lspconfig.intelephense.setup {})
   (lspconfig.rnix.setup {})
