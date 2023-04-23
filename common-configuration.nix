@@ -82,7 +82,7 @@
 
   fonts = {
     fonts = with pkgs; [
-      google-fonts
+      # google-fonts
       libertine
       inter
       material-design-icons
