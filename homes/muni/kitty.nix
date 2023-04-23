@@ -67,5 +67,9 @@ in {
     color19 = "#${colors.base03}";
     color20 = "#${colors.base05}";
     color21 = "#${colors.base07}";
+
+    # other styling
+    tab_bar_style = "powerline";
+    tab_powerline_style = "round";
   };
 }
