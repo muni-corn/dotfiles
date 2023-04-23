@@ -22,7 +22,7 @@ mkdir -p $folder || exit
 
 # start dslr webcam
 dunstify -t 0 -r $notification_id "Setting up DSLR capture" "Starting DSLR webcam stream..."
-kitty -T "Gphoto stream" ./dslr_stream.fish &
+kitty -1 -T "Gphoto stream" ./dslr_stream.fish &
 
 dunstify -t 0 -r $notification_id "Ready to record" "DSLR capture setup is complete!"
 set ready_response (echo -e "Yes\nCancel" | bemenu -p 'Ready to record?')
@@ -34,7 +34,7 @@ end
 
 # start recording webcam
 dunstify -C $notification_id
-kitty -T "Webcam recording" ffmpeg -i /dev/video0 -vcodec libx264 -preset veryfast -tune film $folder/webcam.mp4 &
+kitty -1 -T "Webcam recording" ffmpeg -i /dev/video0 -vcodec libx264 -preset veryfast -tune film $folder/webcam.mp4 &
 
 # start video monitor
 ffplay /dev/video0 > /dev/null &

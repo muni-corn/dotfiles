@@ -40,7 +40,7 @@ set output_geometry (slurp -o)
 
 # start dslr webcam
 dunstify -t 0 -r $notification_id "Setting up capture-all" "Starting DSLR webcam stream..."
-kitty -T "Gphoto stream" ./dslr_stream.fish &
+kitty -1 -T "Gphoto stream" ./dslr_stream.fish &
 
 # open pipewire graph, just in case
 dunstify -t 0 -r $notification_id "Setting up capture-all" "Opening PipeWire graph..."
@@ -69,9 +69,9 @@ dunstify -C $notification_id &
 dunstctl set-paused true &
 
 # start recording screen, webcam, mic
-kitty -T "Webcam recording" ffmpeg -i /dev/video0 -vcodec libx264 $folder/webcam.mp4 &
-kitty -T "Mic recording" arecord -D pipewire:NODE=$mic_target -f S32_LE -r 48000 -c 1 -V mono $folder/mic.wav &
-kitty -T "Screen recording" wf-recorder -adesktop-audio-proxy -g"$output_geometry" -f"$folder/desktop.mp4" &
+kitty -1 -T "Webcam recording" ffmpeg -i /dev/video0 -vcodec libx264 $folder/webcam.mp4 &
+kitty -1 -T "Mic recording" arecord -D pipewire:NODE=$mic_target -f S32_LE -r 48000 -c 1 -V mono $folder/mic.wav &
+kitty -1 -T "Screen recording" wf-recorder -adesktop-audio-proxy -g"$output_geometry" -f"$folder/desktop.mp4" &
 
 # finish countdown
 pw-play ./recording_countdown.ogg &
