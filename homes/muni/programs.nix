@@ -204,15 +204,14 @@
           (pkgs.fetchFromGitHub {
             owner = "jarun";
             repo = "nnn";
-            rev = "v4.6";
-            sha256 = "sha256-+EAKOXZp1kxA2X3e16ItjPT7Sa3WZuP2oxOdXkceTIY=";
+            rev = "v4.8";
+            sha256 = "sha256-QbKW2wjhUNej3zoX18LdeUHqjNLYhEKyvPH2MXzp/iQ=";
           })
           + "/plugins";
         mappings = {
           c = "fzcd";
           d = "dragdrop";
-          f = "finder";
-          n = "nuke";
+          f = "fzopen";
           o = "launch";
           p = "preview-tui";
           v = "imgview";
@@ -330,5 +329,18 @@
       enable = true;
       enableFishIntegration = true;
     };
+  };
+
+  home.sessionVariables = {
+    NNN_OPENER = pkgs.writeTextFile {
+      name = "nuke";
+      text = ''
+        #!${config.programs.fish.package}/bin/fish
+
+        ${builtins.readFile ./nuke.fish}
+      '';
+      executable = true;
+    };
+    NNN_OPTS = "acEHU";
   };
 }
