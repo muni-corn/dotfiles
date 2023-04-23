@@ -85,25 +85,6 @@
       };
     };
 
-    pipewire.config.pipewire = let
-      defaults = lib.importJSON "${flake-inputs.nixpkgs}/nixos/modules/services/desktops/pipewire/daemon/pipewire.conf.json";
-    in {
-      "context.objects" =
-        defaults."context.objects"
-        ++ [
-          {
-            factory = "adapter";
-            args = {
-              "factory.name" = "support.null-audio-sink";
-              "node.name" = "desktop-audio-proxy";
-              "node.description" = "Desktop audio proxy";
-              "media.class" = "Audio/Sink";
-              "audio.position" = "FL,FR";
-            };
-          }
-        ];
-    };
-
     postgresqlBackup = {
       enable = true;
       backupAll = true;
