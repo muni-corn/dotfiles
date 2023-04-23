@@ -240,7 +240,10 @@
       };
     };
 
-    input-remapper.enable = true;
+    input-remapper = {
+      enable = true;
+      serviceWantedBy = [ "multi-user.target" ];
+    };
 
     localtimed.enable = true;
 
