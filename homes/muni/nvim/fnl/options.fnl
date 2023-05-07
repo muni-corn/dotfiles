@@ -8,6 +8,7 @@
            (tset vim.wo key value))]
   (g :mapleader ",")
   ;; plugin config
+  (g :copilot_filetypes {:norg false})
   (g :diagnostic_auto_popup_while_jump 1)
   (g :diagnostic_enable_virtual_text 1)
   (g :diagnostic_insert_delay 1)
