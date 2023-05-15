@@ -32,7 +32,6 @@
         devices = ["nodev"];
         efiSupport = true;
         splashMode = "normal";
-        version = 2;
       };
     };
     plymouth = {
