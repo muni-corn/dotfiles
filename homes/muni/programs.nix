@@ -38,6 +38,7 @@
         todo = "nvim $HOME/notebook/todo.norg";
         yt = "ytfzf --thumb-viewer=imv -t";
         cheer-me-up = ''${pkgs.cbonsai}/bin/cbonsai -li -w 10 -t 0.1 -L 50 -m "keep going, you're doing great"'';
+        roll = "random 1";
       };
       shellAbbrs = {
         g = "git";
