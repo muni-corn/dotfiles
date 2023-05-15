@@ -19,14 +19,14 @@ in {
       ellipsize = "end";
       follow = "mouse";
       font = "Inter 12";
-      foreground = "#${colors.swatch.white}";
+      foreground = "#${colors.white}";
       format = "<b>%s</b>\\n%b";
-      frame_color = "#${colors.swatch.gray}e5";
+      frame_color = "#${colors.gray}e5";
       frame_width = 4;
       width = 384;
       height = 384;
       offset = "0x0";
-      highlight = "#${colors.swatch.alert}";
+      highlight = "#${colors.alert}";
       history_length = -1;
       horizontal_padding = 32;
       icon_position = "left";
@@ -47,17 +47,17 @@ in {
       word_wrap = true;
     };
     "urgency_low" = {
-      background = "#${colors.swatch.black}e5";
-      foreground = "#${colors.swatch.accent}";
+      background = "#${colors.black}e5";
+      foreground = "#${colors.accent}";
     };
     "urgency_normal" = {
-      background = "#${colors.swatch.black}e5";
-      foreground = "#${colors.swatch.white}";
+      background = "#${colors.black}e5";
+      foreground = "#${colors.white}";
     };
     "urgency_critical" = {
-      background = "#${colors.swatch.black}e5";
-      foreground = "#${colors.swatch.white}";
-      frame_color = "#${colors.swatch.warning}e5";
+      background = "#${colors.black}e5";
+      foreground = "#${colors.white}";
+      frame_color = "#${colors.warning}e5";
       timeout = "10s";
     };
   };

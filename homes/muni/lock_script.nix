@@ -3,7 +3,7 @@
   pkgs,
   ...
 }: let
-  bg = config.muse.theme.finalPalette.swatch.background;
+  bg = config.muse.theme.finalPalette.background;
 in
   pkgs.writeScript "lock-script"
   ''

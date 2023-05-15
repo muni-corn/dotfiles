@@ -273,12 +273,12 @@
 
     swaylock.settings = let
       colors = config.muse.theme.finalPalette;
-      bg = colors.swatch.background;
-      fg = colors.swatch.foreground + "c0";
-      fg_faded = colors.swatch.foreground + "80";
-      primary = colors.swatch.accent + "80";
-      warning = colors.swatch.warning;
-      error = colors.swatch.alert;
+      bg = colors.background;
+      fg = colors.foreground + "c0";
+      fg_faded = colors.foreground + "80";
+      primary = colors.accent + "80";
+      warning = colors.warning;
+      error = colors.alert;
       transparent = "00000000";
     in {
       bs-hl-color = primary;

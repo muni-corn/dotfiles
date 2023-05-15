@@ -20,16 +20,16 @@
   bemenuArgsJoined = lib.strings.concatStringsSep " " bemenuArgs;
 
   # background colors
-  black = "#${colors.swatch.background}f2";
-  gray = "#${colors.swatch.gray}f2";
+  black = "#${colors.background}f2";
+  gray = "#${colors.gray}f2";
 
   # foreground colors
-  white = "#${colors.swatch.foreground}";
-  silver = "#${colors.swatch.silver}";
+  white = "#${colors.foreground}";
+  silver = "#${colors.silver}";
 
   # other colors
-  accent = "#${colors.swatch.accent}f2";
-  warning = "#${colors.swatch.warning}f2";
+  accent = "#${colors.accent}f2";
+  warning = "#${colors.warning}f2";
 
   # define names for default workspaces for which we configure key bindings later
   # on. we use variables to avoid repeating the names in multiple places.
@@ -67,7 +67,7 @@ in {
           height 32
           modifier "${sup}"
         '';
-        statusCommand = "${pkgs.muse-status}/bin/muse-status sub a -m i3 -p ${colors.swatch.white} -s ${colors.swatch.silver}";
+        statusCommand = "${pkgs.muse-status}/bin/muse-status sub a -m i3 -p ${colors.white} -s ${colors.silver}";
         trayOutput = "none";
         workspaceButtons = true;
         colors = {

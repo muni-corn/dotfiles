@@ -8,11 +8,10 @@
   fontText = "Inter 12";
 
   # bemenu
-  black = "#${config.muse.theme.finalPalette.swatch.background}e5";
-  black1 = "#${config.muse.theme.finalPalette.base01}e5";
-  gray = "#${config.muse.theme.finalPalette.swatch.gray}e5";
-  white = "#${config.muse.theme.finalPalette.swatch.foreground}";
-  accent = "#${config.muse.theme.finalPalette.swatch.accent}e5";
+  black = "#${config.muse.theme.finalPalette.background}e5";
+  gray = "#${config.muse.theme.finalPalette.gray}e5";
+  white = "#${config.muse.theme.finalPalette.foreground}";
+  accent = "#${config.muse.theme.finalPalette.accent}e5";
 
   q = s: "'${s}'";
   bemenuArgs = [
@@ -48,7 +47,7 @@
     "--nf"
     (q accent)
     "--ab"
-    (q black1)
+    (q black)
     "--af"
     (q accent)
     "--hb"
@@ -60,7 +59,7 @@
     "--sf"
     (q white)
     "--scb"
-    (q black1)
+    (q gray)
     "--scf"
     (q accent)
   ];
@@ -477,9 +476,9 @@ in {
           margin = 256
           border_offset = 0
 
-          background_color = ${config.muse.theme.finalPalette.swatch.black}
-          border_color = ${config.muse.theme.finalPalette.swatch.gray}
-          bar_color = ${config.muse.theme.finalPalette.swatch.accent}
+          background_color = ${config.muse.theme.finalPalette.black}
+          border_color = ${config.muse.theme.finalPalette.gray}
+          bar_color = ${config.muse.theme.finalPalette.accent}
 
           output_mode = focused
         '';

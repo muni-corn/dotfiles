@@ -1,118 +1,72 @@
-{lib}: let
-  inherit (lib) types;
+{
+  config,
+  pkgs,
+}: let
+  mixScript = pkgs.writeScript "mix" ''
+    #!${config.programs.fish.package}/bin/fish
+    function mix_hex_channel -a first second
+        set hex_result (math --base hex "(0x$first + 0x$second) / 2")
+        string sub -s 3 -l 2 $hex_result
+    end
 
-  defaultSwatch = bases:
+    set first_r (string sub -s 1 -l 2 $argv[1])
+    set first_g (string sub -s 3 -l 2 $argv[1])
+    set first_b (string sub -s 5 -l 2 $argv[1])
+
+    set second_r (string sub -s 1 -l 2 $argv[2])
+    set second_g (string sub -s 3 -l 2 $argv[2])
+    set second_b (string sub -s 5 -l 2 $argv[2])
+
+    set final_r (mix_hex_channel $first_r $second_r)
+    set final_g (mix_hex_channel $first_g $second_g)
+    set final_b (mix_hex_channel $first_b $second_b)
+
+    echo -n "$final_r$final_g$final_b" > $out
+  '';
+
+  mix = first: second:
+    builtins.readFile (pkgs.runCommandLocal
+      "color-mix-${first}-${second}"
+      {inherit first second;}
+      "${mixScript} ${first} ${second}");
+in {
+  paletteFromBase16 = bases:
     with bases; {
-      # background bases
-      background = base00;
+      # shades
       black = base00;
+      dark-gray = base01;
       gray = base02;
-
-      # foreground bases
-      foreground = base06;
-      white = base06;
+      light-gray = base03;
       silver = base04;
+      light-silver = base05;
+      white = base06;
+      bright-white = base07;
 
-      # other bases
+      # dark colors
+      dark-red = mix base00 base08;
+      dark-orange = mix base00 base09;
+      dark-yellow = mix base00 base0A;
+      dark-green = mix base00 base0B;
+      dark-aqua = mix base00 base0C;
+      dark-blue = mix base00 base0D;
+      dark-purple = mix base00 base0E;
+      dark-brown = mix base00 base0F;
+
+      # light colors
+      red = base08;
+      orange = base09;
+      yellow = base0A;
+      green = base0B;
+      aqua = base0C;
+      blue = base0D;
+      purple = base0E;
+      brown = base0F;
+
+      # other named colors
+      background = base00;
+      foreground = base06;
       accent = base0D;
       warning = base09;
       alert = base08;
-    };
-
-  /*
-  Returns the provided palette with a generated swatch if one isn't
-  provided
-  */
-  mkSwatch = bases: {
-    inherit
-      (bases)
-      base00
-      base01
-      base02
-      base03
-      base04
-      base05
-      base06
-      base07
-      base08
-      base09
-      base0A
-      base0B
-      base0C
-      base0D
-      base0E
-      base0F
-      ;
-
-    # if entries for the swatch don't exist, fallback to defaults
-    swatch = let
-      default = defaultSwatch bases;
-    in
-      if (bases ? swatch)
-      then (lib.attrsets.recursiveUpdate default bases.swatch)
-      else default;
-  };
-
-  mkColorBaseOption = name:
-    lib.mkOption {
-      type = types.strMatching "^[A-Fa-f0-9]{6}$";
-      description = "The ${name} color.";
-      visible = false;
-    };
-
-  optionsFromNames = names:
-    builtins.listToAttrs (map (name: {
-        inherit name;
-        value = mkColorBaseOption name;
-      })
-      names);
-
-  swatchType = types.submodule {
-    options = optionsFromNames [
-      "background"
-      "black"
-      "gray"
-
-      "foreground"
-      "white"
-      "silver"
-
-      "accent"
-      "warning"
-      "alert"
-    ];
-  };
-in {
-  inherit mkSwatch swatchType;
-
-  paletteType = let
-    baseNames = [
-      "base00"
-      "base01"
-      "base02"
-      "base03"
-      "base04"
-      "base05"
-      "base06"
-      "base07"
-      "base08"
-      "base09"
-      "base0A"
-      "base0B"
-      "base0C"
-      "base0D"
-      "base0E"
-      "base0F"
-    ];
-  in
-    types.submodule {
-      options =
-        (optionsFromNames baseNames)
-        // {
-          swatch = lib.mkOption {
-            type = swatchType;
-            description = "A swatch with named colors for convenience.";
-          };
-        };
     };
 }
