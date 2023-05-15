@@ -175,27 +175,25 @@ in {
             };
           in
             mkIf cfg.matchpal.enable
-            (pkgs.stdenv.mkDerivation
-              {
-                name = "muse-matchpal-wallpapers";
-                src = wallpapersPath;
-                dontConfigure = true;
-                buildPhase = ''
-                  mkdir -p $out
+            (
+              pkgs.runCommand
+              "muse-matchpal-wallpapers"
+              {inherit wallpapersPath;}
+              ''
+                mkdir -p $out
 
-                  for wallpaper in ${wallpapersPath}/*
-                  do
-                    name=$(basename $wallpaper)
-                    resized_file="''${name}_resized.jpg"
+                for wallpaper in $wallpapersPath/*
+                do
+                  name=$(basename $wallpaper)
+                  resized_file="''${name}_resized.jpg"
 
-                    echo "resizing $name"
-                    ${pkgs.imagemagick}/bin/convert $wallpaper -resize 0x1920^ $resized_file
-                    echo "changing palette for $name"
-                    ${pkgs.matchpal}/bin/matchpal --palette ${paletteFile} --dither --input $resized_file --output $out/$name
-                  done
-                '';
-                dontInstall = true;
-              });
+                  echo "resizing $name"
+                  ${pkgs.imagemagick}/bin/convert $wallpaper -resize 0x1920^ $resized_file
+                  echo "changing palette for $name"
+                  ${pkgs.matchpal}/bin/matchpal --palette ${paletteFile} --dither --input $resized_file --output $out/$name
+                done
+              ''
+            );
         };
       };
     };
