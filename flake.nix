@@ -1,10 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    home-manager.url = "github:nix-community/home-manager";
 
     # alpha.nvim (because it's not yet included in nixpkgs)
     alpha-nvim = {
@@ -19,14 +16,10 @@
     };
 
     # neorg overlay for up-to-date neorg stuff
-    neorg = {
-      url = "github:nvim-neorg/nixpkgs-neorg-overlay";
-    };
+    neorg.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
 
     # all that nightly bleeding-edge goodness
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-    };
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 
     # extra hardware configuration
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
