@@ -30,6 +30,7 @@ Applies opinionated theming based on a base16 color scheme
       };
     };
 in {
+  # option definitions
   options.muse.theme = {
     enable = mkEnableOption "Muse theming for a variety of apps";
     sansFont = mkOption {
@@ -97,6 +98,8 @@ in {
       };
     };
   };
+
+  # generated configuration
   config = let
     cfg = config.muse.theme;
   in
@@ -111,8 +114,10 @@ in {
       muse = {
         theme = {
           finalPalette =
+            # if matchpal is enabled, then just use matchpal's colors
             if cfg.matchpal.enable
             then cfg.matchpal.colors
+            # otherwise, get the palette from arpeggio if it's enabled
             else if cfg.arpeggio.enable
             then
               (
