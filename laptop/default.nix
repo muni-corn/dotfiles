@@ -9,7 +9,7 @@
   ...
 }: {
   imports = [
-    ../common-configuration.nix
+    ../common.nix
     ./hardware.nix
     ../openssh.nix
     ../firewall.nix

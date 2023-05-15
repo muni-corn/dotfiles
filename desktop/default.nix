@@ -10,7 +10,7 @@
   ...
 }: {
   imports = [
-    ../common-configuration.nix
+    ../common.nix
 
     ../docker.nix
     ../openssh.nix
