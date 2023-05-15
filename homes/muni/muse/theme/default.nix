@@ -7,10 +7,9 @@ Applies opinionated theming based on a base16 color scheme
   pkgs,
   ...
 }: let
-  paletteLib = import ../palette.nix {inherit lib;};
+  inherit (import ../palette.nix {inherit config pkgs;}) paletteFromBase16;
   inherit (lib) mkEnableOption mkIf mkOption types;
   inherit (types) mkOptionType;
-  inherit (paletteLib) paletteType mkSwatch;
 
   fontType =
     types.submodule
@@ -53,9 +52,8 @@ in {
     };
 
     finalPalette = mkOption {
-      type = paletteType;
+      type = types.attrsOf types.str;
       description = "The color theme (maybe generated) that other configurations can use for theming.";
-      apply = mkSwatch;
       readOnly = true;
     };
 
@@ -74,9 +72,9 @@ in {
         options = {
           enable = mkEnableOption "matchpal theming for wallpapers";
           colors = mkOption {
-            type = types.attrsOf types.anything;
-            description = "The color theme to use for theming.";
-            apply = mkSwatch;
+            type = types.attrsOf types.str;
+            description = "A base16 color theme to use for theming.";
+            apply = paletteFromBase16;
           };
           wallpapers = mkOption {
             description = "Settings for wallpapers.";
@@ -158,16 +156,16 @@ in {
             paletteFile = pkgs.writeTextFile {
               name = "matchpal-palette";
               text = ''
-                ${cfg.finalPalette.base00}
-                ${cfg.finalPalette.base07}
-                ${cfg.finalPalette.base08}
-                ${cfg.finalPalette.base09}
-                ${cfg.finalPalette.base0A}
-                ${cfg.finalPalette.base0B}
-                ${cfg.finalPalette.base0C}
-                ${cfg.finalPalette.base0D}
-                ${cfg.finalPalette.base0E}
-                ${cfg.finalPalette.base0F}
+                ${cfg.finalPalette.black}
+                ${cfg.finalPalette.white}
+                ${cfg.finalPalette.red}
+                ${cfg.finalPalette.orange}
+                ${cfg.finalPalette.yellow}
+                ${cfg.finalPalette.green}
+                ${cfg.finalPalette.aqua}
+                ${cfg.finalPalette.blue}
+                ${cfg.finalPalette.purple}
+                ${cfg.finalPalette.brown}
               '';
             };
           in
