@@ -137,6 +137,7 @@ in {
         helm
         hydrogen
         linuxsampler
+        lsp-plugins
         musescore
         pamixer # for muse-status, at least
         pavucontrol
@@ -145,6 +146,7 @@ in {
         sfizz
         sonic-visualiser
         spotify
+        swh_lv2
         x42-gmsynth
         x42-plugins
         zyn-fusion
