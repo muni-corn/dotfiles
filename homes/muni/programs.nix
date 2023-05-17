@@ -73,9 +73,9 @@
           ui = "auto";
           diff = {
             old = "1 bold";
-            new = "2 bold";
+            new = "10 bold";
             oldMoved = "5 bold";
-            newMoved = "6 bold";
+            newMoved = "14 bold";
           };
         };
         core.autocrlf = "input";
