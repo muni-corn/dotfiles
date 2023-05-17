@@ -88,7 +88,7 @@ in {
 
     matchpal = {
       enable = true;
-      colors = (import ./colors.nix).gruvbox-dark-hard;
+      colors = (import ./colors.nix).solarizedDark;
       wallpapers.dir = ./wallpapers;
     };
   };
