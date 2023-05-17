@@ -2,6 +2,16 @@
   enable = true;
   settings = {
     format = ''$all$shell$jobs$status$character'';
+    palette = "bright-colors";
+    palettes.bright-colors = {
+      red = "9";
+      green = "10";
+      yellow = "11";
+      blue = "12";
+      purple = "13";
+      cyan = "14";
+    };
+
     battery.display = [
       {
         threshold = 15;
