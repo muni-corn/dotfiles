@@ -88,7 +88,7 @@ in {
 
     matchpal = {
       enable = true;
-      colors = (import ./colors.nix).solarizedDark;
+      colors = (import ./colors.nix).nightfox;
       wallpapers.dir = ./wallpapers;
     };
   };
