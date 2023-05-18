@@ -10,6 +10,4 @@
                        :core.export.markdown {}
                        :core.esupports.metagen {:config {:type :auto
                                                          :tab "  "}}
-                       :core.highlights {:config {:highlights {:markup {:bold [:+Bold]
-                                                                        :italic [:+Italic]}}}}
                        :core.keybinds {}}}))
