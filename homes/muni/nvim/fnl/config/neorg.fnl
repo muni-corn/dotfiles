@@ -9,4 +9,6 @@
                        :core.dirman {:config {:workspaces {:notebook "~/notebook"
                                                            :work "~/notebook/work"}}}
                        :core.esupports.metagen {:config {:type :auto}}
+                       :core.highlights {:config {:highlights {:markup {:bold [:+Bold]
+                                                                        :italic [:+Italic]}}}}
                        :core.keybinds {}}}))
