@@ -36,6 +36,7 @@
       popup-nvim
       telescope-ui-select-nvim
       telescope-zoxide
+      twilight-nvim
       vim-commentary
       vim-fugitive
       vim-hexokinase
@@ -43,6 +44,7 @@
       vim-table-mode
       vim-vsnip
       vim-vsnip-integ
+      zen-mode-nvim
       {
         plugin = alpha-nvim;
         config = builtins.readFile ./fnl/config/alpha.fnl;
