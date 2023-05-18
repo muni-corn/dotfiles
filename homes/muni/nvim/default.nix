@@ -7,6 +7,8 @@
     enable = true;
     package = pkgs.neovim-nightly;
 
+    defaultEditor = true;
+
     extraConfig = builtins.readFile ./init.vim;
     extraFnlConfigFiles = [
       ./fnl/options.fnl

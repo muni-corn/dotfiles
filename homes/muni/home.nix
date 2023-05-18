@@ -307,7 +307,6 @@ in {
       BAT_THEME = "base16";
       BEMENU_BACKEND = "wayland";
       BROWSER = "firefox";
-      EDITOR = "nvim";
       GTK_THEME = config.gtk.theme.name;
       LC_COLLATE = "C";
       LEDGER_FILE = "$HOME/notebook/ledger/main.sfox";
