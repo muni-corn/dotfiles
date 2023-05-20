@@ -234,10 +234,11 @@
               :undercurl [:SpellBad :SpellRare]
               :strikethrough [:mkdStrike :pandocStrikeout]} ;; }}}
       ;; links {{{
-      links {:Comment [:javaScriptLineComment]
-             :DiffAdd [:GitGutterAdd :diffAdded]
+      links {:Bold ["@text.strong"]
+             :Comment [:javaScriptLineComment]
+             :DiffAdd [:GitGutterAdd :diffAdded "@text.diff.add"]
              :DiffChange [:GitGutterChange]
-             :DiffDelete [:GitGutterDelete :diffRemoved]
+             :DiffDelete [:GitGutterDelete :diffRemoved "@text.diff.delete"]
              :Error [:DiagnosticError
                      :DiagnosticSignError
                      :DiagnosticVirtualTextError
@@ -250,6 +251,7 @@
                     :DiagnosticVirtualTextHint
                     :DiagnosticVirtualTextInfo
                     :InfoMsg]
+             :Italic ["@text.emphasis"]
              :SpellRare [:SpellLocal]
              :String [:pandocBlockQuote]
              :Warning [:DiagnosticSignWarn
