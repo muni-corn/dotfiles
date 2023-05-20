@@ -2,52 +2,42 @@
                  (vim.cmd (string.format "hi %s ctermfg=%s" hlgroup color)))
       guisp (fn [hlgroup color]
               (vim.cmd (string.format "hi %s guisp=%s" hlgroup color)))
-      base-cterm-map {:NONE :NONE
-                      ; dark 0
-                      :0 :0
-                      ; dark 1
-                      :1 :18
-                      ; dark 2
-                      :2 :8
-                      ; dark 3
-                      :3 :19
-                      ; light 0
-                      :4 :7
-                      ; light 1
-                      :5 :15
-                      ; light 2
-                      :6 :20
-                      ; light 3
-                      :7 :21
-                      ; red
-                      :8 :9
-                      ; orange
-                      :9 :16
-                      ; yellow
-                      :A :11
-                      ; green
-                      :B :10
-                      ; cyan
-                      :C :14
-                      ; blue
-                      :D :12
-                      ; purple
-                      :E :13
-                      ; brown
-                      :F :17}
-      base-to-cterm (fn [base]
-                      (. base-cterm-map base))
-      base-fg (fn [hlgroup base]
-                (cterm-fg hlgroup (base-to-cterm base)))
-      base-fg-all (fn [base hlgroups]
+      name-cterm-map {:NONE :NONE
+                      :black :0
+                      :dark-gray :18
+                      :gray :8
+                      :light-gray :19
+                      :silver :7
+                      :light-silver :20
+                      :white :15
+                      :bright-white :21
+                      :dark-red :1
+                      :dark-green :2
+                      :dark-yellow :3
+                      :dark-cyan :6
+                      :dark-blue :4
+                      :dark-purple :5
+                      :red :9
+                      :orange :16
+                      :yellow :11
+                      :green :10
+                      :cyan :14
+                      :blue :12
+                      :purple :13
+                      :brown :17}
+      name-to-cterm (fn [name]
+                      (. name-cterm-map name))
+      name-fg (fn [hlgroup name]
+                (cterm-fg hlgroup (name-to-cterm name)))
+      name-fg-all (fn [name hlgroups]
                     (each [i hlgroup (ipairs hlgroups)]
-                      (base-fg hlgroup base)))
-      base-bg (fn [hlgroup base]
+                      (name-fg hlgroup name)))
+      name-bg (fn [hlgroup name]
                 (vim.cmd (string.format "hi %s ctermbg=%s" hlgroup
-                                        (base-to-cterm base))))
-      base-bg-all (fn [base hlgroups]
+                                        (name-to-cterm name))))
+      name-bg-all (fn [name hlgroups]
                     (each [i hlgroup (ipairs hlgroups)]
-                      (base-bg hlgroup base)))
+                      (name-bg hlgroup name)))
       hl-style (fn [hlgroup style]
                  (vim.cmd (string.format "hi %s cterm=%s" hlgroup style)))
       hl-style-all (fn [style hlgroups]
@@ -57,90 +47,91 @@
              (vim.cmd (string.format "hi! link %s %s" dest src)))
       link-all (fn [src dests]
                  (each [_ dest (ipairs dests)]
-                   (link src dest))) ;; foregrounds {{{
-      fgs {:0 [:Cursor :PmenuSbar]
-           :1 [:IncSearch
-               :PMenuSel
-               :Substitute
-               :CustomPillOutside
-               :IndentBlanklineChar
-               :IndentBlanklineSpaceChar
-               :IndentBlanklineSpaceCharBlankline
-               :IndentBlanklineSpaceCharBlankline]
-           :2 [:Search :VertSplit :Whitespace]
-           :3 [:Comment
-               :Conceal
-               :Folded
-               :LineNr
-               :NonText
-               :SpecialKey
-               :StatusLine
-               :StatusLineNC
-               :TabLine
-               :TabLineFill
-               :VirtualText]
-           :4 [:CursorLineNr :CustomGrayPillInside]
-           :5 [:Normal :Operator :PMenu :PMenuThumb]
-           :7 [:MatchParen]
-           :8 [:Character
-               :Debug
-               :DiffDelete
-               :Error
-               :Exception
-               :Identifier
-               :Macro
-               :SpellBad
-               :Statement
-               :TooLong
-               :Underlined
-               :VisualNOS
-               :WarningMsg
-               :WildMenu
-               :CustomClosePillInside
-               :CustomGrayRedFgPillInside
-               :CustomRedPillInside
-               :CustomRedStatus]
-           :9 [:Boolean :Constant :DiffChange :Float :Number]
-           :A [:CustomYellowPillInside
-               :CustomYellowStatus
-               :DiffText
-               :Label
-               :PreProc
-               :Repeat
-               :SpellRare
-               :StorageClass
-               :Tag
-               :Todo
-               :Type
-               :Typedef
-               :Warning]
-           :B [:ModeMsg
-               :DiffAdd
-               :MoreMsg
-               :String
-               :TabLineSel
-               :CustomLimePillInside
-               :CustomLimeStatus
-               :CustomGrayGreenFgPillInside]
-           :C [:FoldColumn
-               :Info
-               :Special
-               :CustomCyanPillInside
-               :CustomCyanStatus]
-           :D [:Directory
-               :Function
-               :Include
-               :Question
-               :Title
-               :CustomBluePillInside
-               :CustomBlueStatus]
-           :E [:Define
-               :Keyword
-               :Structure
-               :CustomFuchsiaPillInside
-               :CustomFuchsiaStatus
-               :SpellCap]
-           :F [:Conditional :Delimiter :SpecialChar]} ;; }}}
+                   (link src dest))) ;;
+      ;; foregrounds {{{
+      fgs {:black [:Cursor :PmenuSbar]
+           :dark-gray [:IncSearch
+                       :PMenuSel
+                       :Substitute
+                       :CustomPillOutside
+                       :IndentBlanklineChar
+                       :IndentBlanklineSpaceChar
+                       :IndentBlanklineSpaceCharBlankline
+                       :IndentBlanklineSpaceCharBlankline]
+           :gray [:Search :VertSplit :Whitespace]
+           :light-gray [:Comment
+                        :Conceal
+                        :Folded
+                        :LineNr
+                        :NonText
+                        :SpecialKey
+                        :StatusLine
+                        :StatusLineNC
+                        :TabLine
+                        :TabLineFill
+                        :VirtualText]
+           :silver [:CursorLineNr :CustomGrayPillInside]
+           :light-silver [:Normal :Operator :PMenu :PMenuThumb]
+           :bright-white [:MatchParen]
+           :red [:Character
+                 :Debug
+                 :DiffDelete
+                 :Error
+                 :Exception
+                 :Identifier
+                 :Macro
+                 :SpellBad
+                 :Statement
+                 :TooLong
+                 :Underlined
+                 :VisualNOS
+                 :WarningMsg
+                 :WildMenu
+                 :CustomClosePillInside
+                 :CustomGrayRedFgPillInside
+                 :CustomRedPillInside
+                 :CustomRedStatus]
+           :orange [:Boolean :Constant :DiffChange :Float :Number]
+           :yellow [:CustomYellowPillInside
+                    :CustomYellowStatus
+                    :DiffText
+                    :Label
+                    :PreProc
+                    :Repeat
+                    :SpellRare
+                    :StorageClass
+                    :Tag
+                    :Todo
+                    :Type
+                    :Typedef
+                    :Warning]
+           :green [:ModeMsg
+                   :DiffAdd
+                   :MoreMsg
+                   :String
+                   :TabLineSel
+                   :CustomLimePillInside
+                   :CustomLimeStatus
+                   :CustomGrayGreenFgPillInside]
+           :cyan [:FoldColumn
+                  :Info
+                  :Special
+                  :CustomCyanPillInside
+                  :CustomCyanStatus]
+           :blue [:Directory
+                  :Function
+                  :Include
+                  :Question
+                  :Title
+                  :CustomBluePillInside
+                  :CustomBlueStatus]
+           :purple [:Define
+                    :Keyword
+                    :Structure
+                    :CustomFuchsiaPillInside
+                    :CustomFuchsiaStatus
+                    :SpellCap]
+           :brown [:Conditional :Delimiter :SpecialChar]} ;; }}}
       ;; backgrounds {{{
       bgs {:NONE [:DiffAdd
                   :DiffChange
@@ -155,32 +146,32 @@
                   :StatusLine
                   :StatusLineNC
                   :TabLineFill]
-           :0 [:Conceal :PmenuSbar]
-           :1 [:ColorColumn
-               :CursorColumn
-               :CursorLine
-               :CursorLineNr
-               :CustomClosePillInside
-               :CustomGrayGreenFgPillInside
-               :CustomGrayPillInside
-               :CustomGrayRedFgPillInside
-               :CustomCyanPillInside
-               :CustomBluePillInside
-               :CustomFuchsiaPillInside
-               :CustomLimePillInside
-               :CustomRedPillInside
-               :CustomYellowPillInside
-               :Folded
-               :MatchParen
-               :PMenu
-               :QuickFixLine
-               :TabLine
-               :TabLineSel
-               :Todo]
-           :2 [:Visual]
-           :5 [:Cursor :PMenuThumb :PMenuSel]
-           :A [:Substitute :Search] ;; }}}
-           :B [:IncSearch]} ;; }}}
+           :black [:Conceal :PmenuSbar]
+           :dark-gray [:ColorColumn
+                       :CursorColumn
+                       :CursorLine
+                       :CursorLineNr
+                       :CustomClosePillInside
+                       :CustomGrayGreenFgPillInside
+                       :CustomGrayPillInside
+                       :CustomGrayRedFgPillInside
+                       :CustomCyanPillInside
+                       :CustomBluePillInside
+                       :CustomFuchsiaPillInside
+                       :CustomLimePillInside
+                       :CustomRedPillInside
+                       :CustomYellowPillInside
+                       :Folded
+                       :MatchParen
+                       :PMenu
+                       :QuickFixLine
+                       :TabLine
+                       :TabLineSel
+                       :Todo]
+           :gray [:Visual]
+           :light-silver [:Cursor :PMenuThumb :PMenuSel]
+           :orange [:Substitute :Search]
+           :yellow [:IncSearch]} ;; }}}
       ;; styles {{{
       styles {:NONE [:ColorColumn
                      :CursorColumn
@@ -240,8 +231,7 @@
                           :DiagnosticUnderlineInfo
                           :DiagnosticUnderlineWarn
                           :DiffText]
-              :undercurl [:SpellBad
-                          :SpellRare]
+              :undercurl [:SpellBad :SpellRare]
               :strikethrough [:mkdStrike :pandocStrikeout]} ;; }}}
       ;; links {{{
       links {:Comment [:javaScriptLineComment]
@@ -267,11 +257,10 @@
                        :DiagnosticWarn
                        :WarningMsg]}]
   ;; }}}
-  ;; base16-based colors
-  (each [base groups (pairs fgs)]
-    (base-fg-all base groups))
-  (each [base groups (pairs bgs)]
-    (base-bg-all base groups))
+  (each [name groups (pairs fgs)]
+    (name-fg-all name groups))
+  (each [name groups (pairs bgs)]
+    (name-bg-all name groups))
   (each [style groups (pairs styles)]
     (hl-style-all style groups))
   (each [src dests (pairs links)]
