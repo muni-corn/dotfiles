@@ -47,7 +47,7 @@ in {
       dark-orange = mix base00 base09;
       dark-yellow = mix base00 base0A;
       dark-green = mix base00 base0B;
-      dark-aqua = mix base00 base0C;
+      dark-cyan = mix base00 base0C;
       dark-blue = mix base00 base0D;
       dark-purple = mix base00 base0E;
       dark-brown = mix base00 base0F;
@@ -57,7 +57,7 @@ in {
       orange = base09;
       yellow = base0A;
       green = base0B;
-      aqua = base0C;
+      cyan = base0C;
       blue = base0D;
       purple = base0E;
       brown = base0F;

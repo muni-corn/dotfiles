@@ -125,8 +125,8 @@
            :C [:FoldColumn
                :Info
                :Special
-               :CustomAquaPillInside
-               :CustomAquaStatus]
+               :CustomCyanPillInside
+               :CustomCyanStatus]
            :D [:Directory
                :Function
                :Include
@@ -164,7 +164,7 @@
                :CustomGrayGreenFgPillInside
                :CustomGrayPillInside
                :CustomGrayRedFgPillInside
-               :CustomAquaPillInside
+               :CustomCyanPillInside
                :CustomBluePillInside
                :CustomFuchsiaPillInside
                :CustomLimePillInside
@@ -203,8 +203,8 @@
                      :VertSplit]
               :bold [:Bold
                      :CursorLineNr
-                     :CustomAquaPillInside
-                     :CustomAquaStatus
+                     :CustomCyanPillInside
+                     :CustomCyanStatus
                      :CustomBluePillInside
                      :CustomBlueStatus
                      :CustomClosePillInside

@@ -49,7 +49,7 @@ in {
     color3 = "#${colors.dark-yellow}";
     color4 = "#${colors.dark-blue}";
     color5 = "#${colors.dark-purple}";
-    color6 = "#${colors.dark-aqua}";
+    color6 = "#${colors.dark-cyan}";
     color7 = "#${colors.silver}";
     color8 = "#${colors.gray}";
     color9 = "#${colors.red}";
@@ -57,7 +57,7 @@ in {
     color11 = "#${colors.yellow}";
     color12 = "#${colors.blue}";
     color13 = "#${colors.purple}";
-    color14 = "#${colors.aqua}";
+    color14 = "#${colors.cyan}";
     color15 = "#${colors.white}";
 
     # extra base16 colors

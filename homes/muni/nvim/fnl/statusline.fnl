@@ -68,7 +68,7 @@
                           p))))
       right-blocks (fn []
                      (let [blocks [(block (git-branch) :Lime)
-                                   (block (file-type) :Aqua)
+                                   (block (file-type) :Cyan)
                                    (block line-column :Blue)
                                    (block percent-scroll :Fuchsia)]]
                        (icollect [_ p (ipairs blocks)]

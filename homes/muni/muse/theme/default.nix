@@ -167,7 +167,7 @@ in {
                 ${cfg.finalPalette.orange}
                 ${cfg.finalPalette.yellow}
                 ${cfg.finalPalette.green}
-                ${cfg.finalPalette.aqua}
+                ${cfg.finalPalette.cyan}
                 ${cfg.finalPalette.blue}
                 ${cfg.finalPalette.purple}
                 ${cfg.finalPalette.brown}

@@ -54,7 +54,7 @@ fu! TabLine()
         " opening pill end
         if tabnr == tabpagenr()
             let l:s .= "%#CustomPillOutside#"
-            let l:s .= "%#CustomAquaPillInside#"
+            let l:s .= "%#CustomCyanPillInside#"
         else
             let l:s .= "%#CustomPillOutside#"
             let l:s .= "%#CustomGrayPillInside#"
