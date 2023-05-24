@@ -3,7 +3,7 @@
 -- syntax on
 
 require("options")
-require("highlights")
 require("lsp")
 require("statusline")
 require("keys")
+require("highlights")

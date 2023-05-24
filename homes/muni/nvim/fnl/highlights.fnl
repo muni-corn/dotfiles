@@ -1,244 +1,42 @@
-(let [cterm-fg (fn [hlgroup color]
-                 (vim.cmd (string.format "hi %s ctermfg=%s" hlgroup color)))
-      guisp (fn [hlgroup color]
-              (vim.cmd (string.format "hi %s guisp=%s" hlgroup color)))
-      name-cterm-map {:NONE :NONE
-                      :black :0
-                      :dark-gray :18
-                      :gray :8
-                      :light-gray :19
-                      :silver :7
-                      :light-silver :20
-                      :white :15
-                      :bright-white :21
-                      :dark-red :1
-                      :dark-green :2
-                      :dark-yellow :3
-                      :dark-cyan :6
-                      :dark-blue :4
-                      :dark-purple :5
-                      :red :9
-                      :orange :16
-                      :yellow :11
-                      :green :10
-                      :cyan :14
-                      :blue :12
-                      :purple :13
-                      :brown :17}
+(let [name-cterm-map {:black 0
+                      :dark-gray 18
+                      :gray 8
+                      :light-gray 19
+                      :silver 7
+                      :light-silver 20
+                      :white 15
+                      :bright-white 21
+                      :dark-red 1
+                      :dark-green 2
+                      :dark-yellow 3
+                      :dark-cyan 6
+                      :dark-blue 4
+                      :dark-purple 5
+                      :red 9
+                      :orange 16
+                      :yellow 11
+                      :green 10
+                      :cyan 14
+                      :blue 12
+                      :purple 13
+                      :brown 17}
       name-to-cterm (fn [name]
                       (. name-cterm-map name))
-      name-fg (fn [hlgroup name]
-                (cterm-fg hlgroup (name-to-cterm name)))
-      name-fg-all (fn [name hlgroups]
-                    (each [i hlgroup (ipairs hlgroups)]
-                      (name-fg hlgroup name)))
-      name-bg (fn [hlgroup name]
-                (vim.cmd (string.format "hi %s ctermbg=%s" hlgroup
-                                        (name-to-cterm name))))
-      name-bg-all (fn [name hlgroups]
-                    (each [i hlgroup (ipairs hlgroups)]
-                      (name-bg hlgroup name)))
-      hl-style (fn [hlgroup style]
-                 (vim.cmd (string.format "hi %s cterm=%s" hlgroup style)))
-      hl-style-all (fn [style hlgroups]
-                     (each [i hlgroup (ipairs hlgroups)]
-                       (hl-style hlgroup style)))
+      ;; main highlight function
+      hi (fn [name fg-name bg-name vals]
+           (when fg-name (tset vals :ctermfg (name-to-cterm fg-name)))
+           (when bg-name (tset vals :ctermbg (name-to-cterm bg-name)))
+           (vim.api.nvim_set_hl 0 name vals))
       link (fn [src dest]
-             (vim.cmd (string.format "hi! link %s %s" dest src)))
+             (vim.api.nvim_set_hl 0 dest {:link src}))
       link-all (fn [src dests]
                  (each [_ dest (ipairs dests)]
                    (link src dest))) ;;
-      ;; foregrounds {{{
-      fgs {:black [:Cursor :PmenuSbar]
-           :dark-gray [:IncSearch
-                       :PMenuSel
-                       :Substitute
-                       :CustomPillOutside
-                       :IndentBlanklineChar
-                       :IndentBlanklineSpaceChar
-                       :IndentBlanklineSpaceCharBlankline
-                       :IndentBlanklineSpaceCharBlankline]
-           :gray [:Search :VertSplit :Whitespace]
-           :light-gray [:Comment
-                        :Conceal
-                        :Folded
-                        :LineNr
-                        :NonText
-                        :SpecialKey
-                        :StatusLine
-                        :StatusLineNC
-                        :TabLine
-                        :TabLineFill
-                        :VirtualText]
-           :silver [:CursorLineNr :CustomGrayPillInside]
-           :light-silver [:Normal :Operator :PMenu :PMenuThumb]
-           :bright-white [:MatchParen]
-           :red [:Character
-                 :Debug
-                 :DiffDelete
-                 :Error
-                 :Exception
-                 :Identifier
-                 :Macro
-                 :SpellBad
-                 :Statement
-                 :TooLong
-                 :Underlined
-                 :VisualNOS
-                 :WarningMsg
-                 :WildMenu
-                 :CustomClosePillInside
-                 :CustomGrayRedFgPillInside
-                 :CustomRedPillInside
-                 :CustomRedStatus]
-           :orange [:Boolean :Constant :DiffChange :Float :Number]
-           :yellow [:CustomYellowPillInside
-                    :CustomYellowStatus
-                    :DiffText
-                    :Label
-                    :PreProc
-                    :Repeat
-                    :SpellRare
-                    :StorageClass
-                    :Tag
-                    :Todo
-                    :Type
-                    :Typedef
-                    :Warning]
-           :green [:ModeMsg
-                   :DiffAdd
-                   :MoreMsg
-                   :String
-                   :TabLineSel
-                   :CustomLimePillInside
-                   :CustomLimeStatus
-                   :CustomGrayGreenFgPillInside]
-           :cyan [:FoldColumn
-                  :Info
-                  :Special
-                  :CustomCyanPillInside
-                  :CustomCyanStatus]
-           :blue [:Directory
-                  :Function
-                  :Include
-                  :Question
-                  :Title
-                  :CustomBluePillInside
-                  :CustomBlueStatus]
-           :purple [:Define
-                    :Keyword
-                    :Structure
-                    :CustomFuchsiaPillInside
-                    :CustomFuchsiaStatus
-                    :SpellCap]
-           :brown [:Conditional :Delimiter :SpecialChar]} ;; }}}
-      ;; backgrounds {{{
-      bgs {:NONE [:DiffAdd
-                  :DiffChange
-                  :DiffDelete
-                  :DiffText
-                  :Error
-                  :FoldColumn
-                  :SignColumn
-                  :SpellBad
-                  :SpellCap
-                  :SpellRare
-                  :StatusLine
-                  :StatusLineNC
-                  :TabLineFill]
-           :black [:Conceal :PmenuSbar]
-           :dark-gray [:ColorColumn
-                       :CursorColumn
-                       :CursorLine
-                       :CursorLineNr
-                       :CustomClosePillInside
-                       :CustomGrayGreenFgPillInside
-                       :CustomGrayPillInside
-                       :CustomGrayRedFgPillInside
-                       :CustomCyanPillInside
-                       :CustomBluePillInside
-                       :CustomFuchsiaPillInside
-                       :CustomLimePillInside
-                       :CustomRedPillInside
-                       :CustomYellowPillInside
-                       :Folded
-                       :MatchParen
-                       :PMenu
-                       :QuickFixLine
-                       :TabLine
-                       :TabLineSel
-                       :Todo]
-           :gray [:Visual]
-           :light-silver [:Cursor :PMenuThumb :PMenuSel]
-           :orange [:Substitute :Search]
-           :yellow [:IncSearch]} ;; }}}
-      ;; styles {{{
-      styles {:NONE [:ColorColumn
-                     :CursorColumn
-                     :CursorLine
-                     :Define
-                     :Identifier
-                     :IncSearch
-                     :LineNr
-                     :Operator
-                     :PMenu
-                     :PMenuThumb
-                     :PmenuSbar
-                     :QuickFixLine
-                     :Substitute
-                     :TabLine
-                     :TabLineFill
-                     :TabLineSel
-                     :Title
-                     :Type
-                     :VertSplit]
-              :bold [:Bold
-                     :CursorLineNr
-                     :CustomCyanPillInside
-                     :CustomCyanStatus
-                     :CustomBluePillInside
-                     :CustomBlueStatus
-                     :CustomClosePillInside
-                     :CustomCloseStatus
-                     :CustomFuchsiaPillInside
-                     :CustomFuchsiaStatus
-                     :CustomGrayGreenFgPillInside
-                     :CustomGrayRedFgPillInside
-                     :CustomLimePillInside
-                     :CustomLimeStatus
-                     :CustomRedPillInside
-                     :CustomRedStatus
-                     :CustomYellowPillInside
-                     :CustomYellowStatus
-                     :DiffAdd
-                     :DiffChange
-                     :DiffDelete
-                     :DiffText
-                     :Error
-                     :Info
-                     :MatchParen
-                     :PMenuSel
-                     :Warning]
-              :italic [:CustomGrayPillInside
-                       :Italic
-                       :SpellBad
-                       :SpellRare
-                       :VirtualText]
-              "bold,italic" [:Todo]
-              "underline,italic" [:StatusLine :StatusLineNC]
-              :underline [:DiagnosticUnderlineError
-                          :DiagnosticUnderlineHint
-                          :DiagnosticUnderlineInfo
-                          :DiagnosticUnderlineWarn
-                          :DiffText]
-              :undercurl [:SpellBad :SpellRare]
-              :strikethrough [:mkdStrike :pandocStrikeout]} ;; }}}
       ;; links {{{
       links {:Bold ["@text.strong"]
-             :Comment [:javaScriptLineComment]
-             :DiffAdd [:GitGutterAdd :diffAdded "@text.diff.add"]
+             :DiffAdd [:GitGutterAdd "@text.diff.add"]
              :DiffChange [:GitGutterChange]
-             :DiffDelete [:GitGutterDelete :diffRemoved "@text.diff.delete"]
+             :DiffDelete [:GitGutterDelete "@text.diff.delete"]
              :Error [:DiagnosticError
                      :DiagnosticSignError
                      :DiagnosticVirtualTextError
@@ -253,17 +51,117 @@
                     :InfoMsg]
              :Italic ["@text.emphasis"]
              :SpellRare [:SpellLocal]
-             :String [:pandocBlockQuote]
              :Warning [:DiagnosticSignWarn
                        :DiagnosticVirtualTextWarn
                        :DiagnosticWarn
                        :WarningMsg]}]
   ;; }}}
-  (each [name groups (pairs fgs)]
-    (name-fg-all name groups))
-  (each [name groups (pairs bgs)]
-    (name-bg-all name groups))
-  (each [style groups (pairs styles)]
-    (hl-style-all style groups))
-  (each [src dests (pairs links)]
+  (hi :Bold nil nil {:bold true})
+  (hi :Boolean :orange nil {})
+  (hi :Character :red nil {})
+  (hi :ColorColumn nil :dark-gray {})
+  (hi :Comment :light-gray nil {})
+  (hi :Conceal :light-gray :black {})
+  (hi :Conditional :brown nil {})
+  (hi :Constant :orange nil {})
+  (hi :Cursor :black :light-silver {})
+  (hi :CursorColumn nil :dark-gray {})
+  (hi :CursorLine nil :dark-gray {})
+  (hi :CursorLineNr :silver :dark-gray {:bold true})
+  (hi :CustomBluePillInside :blue :dark-gray {:bold true})
+  (hi :CustomBlueStatus :blue nil {:bold true})
+  (hi :CustomClosePillInside :red :dark-gray {:bold true})
+  (hi :CustomCloseStatus nil nil {:bold true})
+  (hi :CustomCyanPillInside :cyan :dark-gray {:bold true})
+  (hi :CustomCyanStatus :cyan nil {:bold true})
+  (hi :CustomFuchsiaPillInside :purple :dark-gray {:bold true})
+  (hi :CustomFuchsiaStatus :purple nil {:bold true})
+  (hi :CustomGrayGreenFgPillInside :green :dark-gray {:bold true})
+  (hi :CustomGrayPillInside :silver :dark-gray {:italic true})
+  (hi :CustomGrayRedFgPillInside :red :dark-gray {:bold true})
+  (hi :CustomLimePillInside :green :dark-gray {:bold true})
+  (hi :CustomLimeStatus :green nil {:bold true})
+  (hi :CustomPillOutside :dark-gray nil {})
+  (hi :CustomRedPillInside :red :dark-gray {:bold true})
+  (hi :CustomRedStatus :red nil {:bold true})
+  (hi :CustomYellowPillInside :yellow :dark-gray {:bold true})
+  (hi :CustomYellowStatus :yellow nil {:bold true})
+  (hi :Debug :red nil {})
+  (hi :Define :purple nil {})
+  (hi :Delimiter :brown nil {})
+  (hi :DiagnosticUnderlineError nil nil {:underline true})
+  (hi :DiagnosticUnderlineHint nil nil {:underline true})
+  (hi :DiagnosticUnderlineInfo nil nil {:underline true})
+  (hi :DiagnosticUnderlineWarn nil nil {:underline true})
+  (hi :DiffAdd :green nil {:bold true})
+  (hi :DiffChange nil nil {})
+  (hi :DiffDelete :dark-red nil {:bold true})
+  (hi :DiffText :yellow :dark-yellow {:bold true})
+  (hi :Directory :blue nil {})
+  (hi :Error :red nil {:bold true})
+  (hi :Exception :red nil {})
+  (hi :Float :orange nil {})
+  (hi :FoldColumn :cyan nil {})
+  (hi :Folded :light-gray :dark-gray {})
+  (hi :Function :blue nil {})
+  (hi :Identifier :red nil {})
+  (hi :IncSearch :dark-gray :yellow {})
+  (hi :Include :blue nil {})
+  (hi :IndentBlanklineChar :dark-gray nil {})
+  (hi :IndentBlanklineSpaceChar :dark-gray nil {})
+  (hi :IndentBlanklineSpaceCharBlankline :dark-gray nil {})
+  (hi :Info :cyan nil {:bold true})
+  (hi :Italic nil nil {:italic true})
+  (hi :Keyword :orange nil {})
+  (hi :Label :yellow nil {})
+  (hi :LineNr :light-gray nil {})
+  (hi :Macro :red nil {})
+  (hi :MatchParen :bright-white :dark-gray {:bold true})
+  (hi :ModeMsg :green nil {})
+  (hi :MoreMsg :green nil {})
+  (hi :NonText :light-gray nil {})
+  (hi :Normal :light-silver nil {})
+  (hi :Number :orange nil {})
+  (hi :Operator :light-silver nil {})
+  (hi :Pmenu :light-silver :dark-gray {})
+  (hi :PmenuSbar :black :black {})
+  (hi :PmenuSel :dark-gray :light-silver {:bold true})
+  (hi :PmenuThumb :light-silver :light-silver {})
+  (hi :PreProc :yellow nil {})
+  (hi :Question :blue nil {})
+  (hi :QuickFixLine nil :dark-gray {})
+  (hi :Repeat :yellow nil {})
+  (hi :Search :gray :orange {})
+  (hi :SignColumn nil nil {})
+  (hi :Special :cyan nil {})
+  (hi :SpecialChar :brown nil {})
+  (hi :SpecialKey :light-gray nil {})
+  (hi :SpellBad :red nil {:undercurl true})
+  (hi :SpellCap :purple nil {})
+  (hi :SpellRare :yellow nil {:undercurl true})
+  (hi :Statement :red nil {})
+  (hi :StatusLine :light-gray nil {:italic true :underline true})
+  (hi :StatusLineNC :light-gray nil {:italic true :underline true})
+  (hi :StorageClass :yellow nil {})
+  (hi :String :green nil {})
+  (hi :Structure :purple nil {})
+  (hi :Substitute :dark-gray :orange {})
+  (hi :TabLine :light-gray :dark-gray {})
+  (hi :TabLineFill :light-gray nil {})
+  (hi :TabLineSel :green :dark-gray {})
+  (hi :Tag :yellow nil {})
+  (hi :Title :blue nil {})
+  (hi :Todo :yellow :dark-gray {:bold true :italic true})
+  (hi :TooLong :red nil {})
+  (hi :Type :yellow nil {})
+  (hi :Typedef :yellow nil {})
+  (hi :Underlined :red nil {})
+  (hi :VertSplit :gray nil {})
+  (hi :VirtualText :light-gray nil {:italic true})
+  (hi :Visual nil :gray {})
+  (hi :VisualNOS :red nil {})
+  (hi :Warning :yellow nil {:bold true})
+  (hi :Whitespace :gray nil {})
+  (hi :WildMenu :red nil {})
+  (each [src dests (pairs links)] ; link all the links
     (link-all src dests)))
