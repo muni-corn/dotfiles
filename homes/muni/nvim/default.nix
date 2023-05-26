@@ -34,6 +34,7 @@
       nvim-cmp
       nvim-lspconfig
       nvim-ts-rainbow
+      playground
       plenary-nvim
       popup-nvim
       telescope-ui-select-nvim
