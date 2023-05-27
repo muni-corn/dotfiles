@@ -21,26 +21,26 @@ in {
     listen_on = "unix:/tmp/kitty";
     allow_remote_control = "socket-only";
 
-    # theme and font
-    background_opacity = "0.95";
+    # theme font
     bold_font = "${fontName} Bold";
     italic_font = "${fontName} Italic";
     bold_italic_font = "${fontName} Bold Italic";
 
-    # colors (using base16)
-    foreground = "#${colors.foreground}";
-    background = "#${colors.background}";
-    selection_background = "#${colors.light-gray}";
-    selection_foreground = "#${colors.bright-white}";
-    url_color = "#${colors.blue}";
-    cursor = "#${colors.foreground}";
+    # theme colors
+    background_opacity = "0.95";
     active_border_color = "#${colors.silver}";
-    inactive_border_color = "#${colors.dark-gray}";
     active_tab_background = "#${colors.dark-gray}";
     active_tab_foreground = "#${colors.white}";
+    background = "#${colors.background}";
+    cursor = "#${colors.foreground}";
+    foreground = "#${colors.foreground}";
+    inactive_border_color = "#${colors.dark-gray}";
     inactive_tab_background = "#${colors.black}";
     inactive_tab_foreground = "#${colors.silver}";
+    selection_background = "#${colors.light-gray}";
+    selection_foreground = "#${colors.bright-white}";
     tab_bar_background = "#${colors.dark-gray}";
+    url_color = "#${colors.blue}";
 
     # match 0-15 colors to their names
     color0 = "#${colors.black}";
