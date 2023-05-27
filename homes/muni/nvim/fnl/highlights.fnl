@@ -142,7 +142,7 @@
   (hi :SpellRare :yellow nil {:undercurl true})
   (hi :Statement :red nil {})
   (hi :StatusLine :light-gray nil {:italic true :underline true})
-  (hi :StatusLineNC :light-gray nil {:italic true :underline true})
+  (hi :StatusLineNC :gray nil {:italic true :underline true})
   (hi :StorageClass :yellow nil {})
   (hi :String :green nil {})
   (hi :Structure :purple nil {})
