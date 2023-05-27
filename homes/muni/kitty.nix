@@ -60,14 +60,6 @@ in {
     color14 = "#${colors.cyan}";
     color15 = "#${colors.white}";
 
-    # extra base16 colors
-    color16 = "#${colors.orange}";
-    color17 = "#${colors.brown}";
-    color18 = "#${colors.dark-gray}";
-    color19 = "#${colors.light-gray}";
-    color20 = "#${colors.light-silver}";
-    color21 = "#${colors.bright-white}";
-
     # other styling
     tab_bar_style = "powerline";
     tab_powerline_style = "round";
