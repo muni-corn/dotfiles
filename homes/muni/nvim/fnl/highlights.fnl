@@ -56,6 +56,7 @@
                        :DiagnosticWarn
                        :WarningMsg]}]
   ;; }}}
+  (hi "@text.literal" :green nil {})
   (hi :Bold nil nil {:bold true})
   (hi :Boolean :orange nil {})
   (hi :Character :red nil {})
