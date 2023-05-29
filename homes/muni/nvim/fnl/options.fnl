@@ -57,7 +57,7 @@
   (o :splitright true)
   (o :tabstop 4)
   (o :tags "./tags;")
-  (o :termguicolors false)
+  (o :termguicolors true)
   (o :textwidth 80)
   (o :timeoutlen 2000)
   (o :title false)

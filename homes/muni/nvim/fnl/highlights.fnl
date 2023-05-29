@@ -1,31 +1,35 @@
-(let [name-cterm-map {:black 0
-                      :dark-gray 18
-                      :gray 8
-                      :light-gray 19
-                      :silver 7
-                      :light-silver 20
-                      :white 15
-                      :bright-white 21
+(let [name-gui-map (require :name-gui-map)
+      name-cterm-map {:black 0
                       :dark-red 1
                       :dark-green 2
                       :dark-yellow 3
-                      :dark-cyan 6
                       :dark-blue 4
                       :dark-purple 5
+                      :dark-cyan 6
+                      :silver 7
+                      :gray 8
                       :red 9
-                      :orange 16
-                      :yellow 11
                       :green 10
-                      :cyan 14
+                      :yellow 11
                       :blue 12
                       :purple 13
-                      :brown 17}
-      name-to-cterm (fn [name]
-                      (. name-cterm-map name))
+                      :cyan 14
+                      :white 15
+
+                      :orange 9
+                      :brown 11
+                      :dark-orange 1
+                      :dark-brown 3
+                      :dark-gray 8
+                      :light-gray 8
+                      :light-silver 7
+                      :bright-white 15}
       ;; main highlight function
       hi (fn [name fg-name bg-name vals]
-           (when fg-name (tset vals :ctermfg (name-to-cterm fg-name)))
-           (when bg-name (tset vals :ctermbg (name-to-cterm bg-name)))
+           (when fg-name (tset vals :ctermfg (. name-cterm-map fg-name))
+                         (tset vals :fg (. name-gui-map fg-name)))
+           (when bg-name (tset vals :ctermbg (. name-cterm-map bg-name))
+                         (tset vals :bg (. name-gui-map bg-name)))
            (vim.api.nvim_set_hl 0 name vals))
       link (fn [src dest]
              (vim.api.nvim_set_hl 0 dest {:link src}))
