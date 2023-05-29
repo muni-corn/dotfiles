@@ -38,6 +38,8 @@
                    (link src dest))) ;;
       ;; links {{{
       links {:Bold ["@text.strong"]
+             :DiagnosticHint [:DiagnosticSignHint
+                              :DiagnosticVirtualTextHint]
              :DiffAdd [:GitGutterAdd "@text.diff.add"]
              :DiffChange [:GitGutterChange]
              :DiffDelete [:GitGutterDelete "@text.diff.delete"]
@@ -46,11 +48,8 @@
                      :DiagnosticVirtualTextError
                      :ErrorMsg
                      :NvimInternalError]
-             :Info [:DiagnosticHint
-                    :DiagnosticInfo
-                    :DiagnosticSignHint
+             :Info [:DiagnosticInfo
                     :DiagnosticSignInfo
-                    :DiagnosticVirtualTextHint
                     :DiagnosticVirtualTextInfo
                     :InfoMsg]
              :Italic ["@text.emphasis"]
@@ -94,10 +93,11 @@
   (hi :Debug :red nil {})
   (hi :Define :purple nil {})
   (hi :Delimiter :brown nil {})
-  (hi :DiagnosticUnderlineError nil nil {:underline true})
-  (hi :DiagnosticUnderlineHint nil nil {:underline true})
-  (hi :DiagnosticUnderlineInfo nil nil {:underline true})
-  (hi :DiagnosticUnderlineWarn nil nil {:underline true})
+  (hi :DiagnosticHint :green nil {})
+  (hi :DiagnosticUnderlineError nil nil {:undercurl true :sp (. name-gui-map :red)})
+  (hi :DiagnosticUnderlineHint nil nil {:undercurl true :sp (. name-gui-map :green)})
+  (hi :DiagnosticUnderlineInfo nil nil {:undercurl true :sp (. name-gui-map :cyan)})
+  (hi :DiagnosticUnderlineWarn nil nil {:undercurl true :sp (. name-gui-map :yellow)})
   (hi :DiffAdd :green nil {:bold true})
   (hi :DiffChange nil nil {})
   (hi :DiffDelete :dark-red nil {:bold true})
