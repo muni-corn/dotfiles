@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{config, pkgs, ...}: {
   imports = [
     ./fnl.nix
   ];
@@ -121,6 +121,16 @@
     "nvim/pandoc-preview.sh" = {
       executable = true;
       source = ./pandoc-preview.sh;
+    };
+    "nvim/lua/name-gui-map.lua" = let
+      inherit (builtins) attrNames concatStringsSep getAttr map;
+      palette = config.muse.theme.finalPalette;
+      colorNames = (attrNames palette);
+      luaTableEntries = map (colorName: ''["${colorName}"] = "#${getAttr colorName palette}"'') colorNames;
+    in {
+      text = ''
+        return { ${concatStringsSep ", " luaTableEntries} }
+      '';
     };
   };
 }
