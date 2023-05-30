@@ -58,6 +58,9 @@
                        :DiagnosticWarn
                        :WarningMsg]}]
   ;; }}}
+  (hi "@neorg.markup.verbatim" :orange nil {})
+  (hi "@neorg.headings.1.prefix" :brown nil {})
+  (hi "@neorg.headings.1.title" :brown nil {})
   (hi "@text.literal" :green nil {})
   (hi :Bold nil nil {:bold true})
   (hi :Boolean :orange nil {})
@@ -91,7 +94,7 @@
   (hi :CustomYellowStatus :yellow nil {:bold true})
   (hi :Debug :red nil {})
   (hi :Define :purple nil {})
-  (hi :Delimiter :brown nil {})
+  (hi :Delimiter :purple nil {})
   (hi :DiagnosticHint :green nil {})
   (hi :DiagnosticUnderlineError nil nil {:undercurl true :sp (. name-gui-map :red)})
   (hi :DiagnosticUnderlineHint nil nil {:undercurl true :sp (. name-gui-map :green)})
