@@ -40,9 +40,8 @@
       links {:Bold ["@text.strong"]
              :DiagnosticHint [:DiagnosticSignHint
                               :DiagnosticVirtualTextHint]
-             :DiffAdd [:GitGutterAdd "@text.diff.add"]
-             :DiffChange [:GitGutterChange]
-             :DiffDelete [:GitGutterDelete "@text.diff.delete"]
+             :DiffAdd ["@text.diff.add"]
+             :DiffDelete ["@text.diff.delete"]
              :Error [:DiagnosticError
                      :DiagnosticSignError
                      :DiagnosticVirtualTextError
@@ -109,6 +108,9 @@
   (hi :FoldColumn :cyan nil {})
   (hi :Folded :light-gray :dark-gray {})
   (hi :Function :blue nil {})
+  (hi :GitGutterAdd :green nil {:bold true})
+  (hi :GitGutterChange :orange nil {:bold true})
+  (hi :GitGutterDelete :red nil {:bold true})
   (hi :Identifier :red nil {})
   (hi :IncSearch :dark-gray :yellow {})
   (hi :Include :blue nil {})
