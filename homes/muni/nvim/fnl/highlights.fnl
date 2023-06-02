@@ -38,25 +38,14 @@
                    (link src dest))) ;;
       ;; links {{{
       links {:Bold ["@text.strong"]
-             :DiagnosticHint [:DiagnosticSignHint
-                              :DiagnosticVirtualTextHint]
-             :DiffAdd ["@text.diff.add"]
-             :DiffDelete ["@text.diff.delete"]
-             :Error [:DiagnosticError
-                     :DiagnosticSignError
-                     :DiagnosticVirtualTextError
-                     :ErrorMsg
+             :DiffAdd ["@text.diff.add" :diffAdded]
+             :DiffDelete ["@text.diff.delete" :diffRemoved]
+             :Error [:ErrorMsg
                      :NvimInternalError]
-             :Info [:DiagnosticInfo
-                    :DiagnosticSignInfo
-                    :DiagnosticVirtualTextInfo
-                    :InfoMsg]
+             :Info [:InfoMsg]
              :Italic ["@text.emphasis"]
              :SpellRare [:SpellLocal]
-             :Warning [:DiagnosticSignWarn
-                       :DiagnosticVirtualTextWarn
-                       :DiagnosticWarn
-                       :WarningMsg]}]
+             :Warning [:WarningMsg]}]
   ;; }}}
   (hi "@neorg.markup.verbatim" :orange nil {})
   (hi "@neorg.headings.1.prefix" :brown nil {})
@@ -94,11 +83,16 @@
   (hi :CustomYellowStatus :yellow nil {:bold true})
   (hi :Debug :red nil {})
   (hi :Define :purple nil {})
-  (hi :Delimiter :purple nil {})
-  (hi :DiagnosticHint :green nil {})
+  (hi :Delimiter :light-silver nil {})
+  (hi :DiagnosticError :red nil {})
+  (hi :DiagnosticHint :blue nil {})
+  (hi :DiagnosticInfo :cyan nil {})
+  (hi :DiagnosticOk :green nil {})
+  (hi :DiagnosticWarn :yellow nil {})
   (hi :DiagnosticUnderlineError nil nil {:undercurl true :sp (. name-gui-map :red)})
-  (hi :DiagnosticUnderlineHint nil nil {:undercurl true :sp (. name-gui-map :green)})
+  (hi :DiagnosticUnderlineHint nil nil {:undercurl true :sp (. name-gui-map :blue)})
   (hi :DiagnosticUnderlineInfo nil nil {:undercurl true :sp (. name-gui-map :cyan)})
+  (hi :DiagnosticUnderlineOk nil nil {:underline true :sp (. name-gui-map :green)})
   (hi :DiagnosticUnderlineWarn nil nil {:undercurl true :sp (. name-gui-map :yellow)})
   (hi :DiffAdd :green :dark-green {:bold true})
   (hi :DiffChange nil nil {})
@@ -122,7 +116,7 @@
   (hi :IndentBlanklineSpaceCharBlankline :dark-gray nil {})
   (hi :Info :cyan nil {:bold true})
   (hi :Italic nil nil {:italic true})
-  (hi :Keyword :orange nil {})
+  (hi :Keyword :purple nil {})
   (hi :Label :yellow nil {})
   (hi :LineNr :light-gray nil {})
   (hi :Macro :red nil {})
@@ -152,9 +146,9 @@
   (hi :Statement :red nil {})
   (hi :StatusLine :light-gray nil {:italic true :underline true})
   (hi :StatusLineNC :gray nil {:italic true :underline true})
-  (hi :StorageClass :yellow nil {})
+  (hi :StorageClass :purple nil {})
   (hi :String :green nil {})
-  (hi :Structure :purple nil {})
+  (hi :Structure :yellow nil {})
   (hi :Substitute :dark-gray :orange {})
   (hi :TabLine :light-gray :dark-gray {})
   (hi :TabLineFill :light-gray nil {})
