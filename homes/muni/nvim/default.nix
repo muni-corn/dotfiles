@@ -23,6 +23,7 @@
     ];
     plugins = with pkgs.vimPlugins; [
       auto-session
+      coq-artifacts
       copilot-vim
       coq-artifacts
       coq_nvim
@@ -47,6 +48,11 @@
       {
         plugin = dashboard-nvim;
         config = builtins.readFile ./fnl/config/dashboard.fnl;
+        type = "fennel";
+      }
+      {
+        plugin = coq_nvim;
+        config = builtins.readFile ./fnl/config/coq.fnl;
         type = "fennel";
       }
       {
