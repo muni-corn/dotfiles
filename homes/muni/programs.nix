@@ -31,31 +31,6 @@
       package = pkgs.firefox-wayland;
     };
 
-    fish = {
-      enable = true;
-      shellAliases = {
-        scanqr = ''geo=(slurp) grim -g "$geo" - | zbarimg --quiet --raw PNG:- 2> /dev/null | tr -d "\n"'';
-        todo = "nvim $HOME/notebook/todo.norg";
-        yt = "ytfzf --thumb-viewer=imv -t";
-        cheer-me-up = ''${pkgs.cbonsai}/bin/cbonsai -li -w 10 -t 0.1 -L 50 -m "keep going, you're doing great"'';
-        roll = "random 1";
-      };
-      shellAbbrs = {
-        g = "git";
-        h = "himalaya";
-        n = "nvim";
-        q = "exit";
-        r = "nnn"; # muscle memory probably uses 'r' for ranger
-        f = "nnn"; # for 'files'
-        s = "sway";
-        hm = "home-manager";
-      };
-      shellInit = ''
-        ${builtins.readFile ./fish/colors.fish}
-        ${builtins.readFile ./fish/init.fish}
-      '';
-    };
-
     git = {
       enable = true;
       package = pkgs.gitAndTools.gitFull;

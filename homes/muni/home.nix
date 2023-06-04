@@ -66,6 +66,7 @@
   lockCmd = import ./lock_script.nix {inherit config pkgs;};
 in {
   imports = [
+    ./fish.nix
     ./muse
     ./muse-status.nix
     ./programs.nix
