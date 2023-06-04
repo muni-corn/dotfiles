@@ -79,6 +79,7 @@
         imv $file
       '';
     };
+
     shellAliases = {
       scanqr = ''geo=(slurp) grim -g "$geo" - | zbarimg --quiet --raw PNG:- 2> /dev/null | tr -d "\n"'';
       todo = "nvim $HOME/notebook/todo.norg";
@@ -87,6 +88,7 @@
       cheer-me-up = ''bonsai "keep going, you're doing great"'';
       roll = "random 1";
     };
+
     shellAbbrs = {
       g = "git";
       h = "himalaya";
@@ -97,5 +99,7 @@
       s = "sway";
       hm = "home-manager";
     };
+
+    shellInit = ''set fish_greeting ""'';
   };
 }
