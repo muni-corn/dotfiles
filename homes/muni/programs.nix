@@ -31,7 +31,15 @@
       package = pkgs.firefox-wayland;
     };
 
-    git = {
+    git = let
+      diffrColorsList = [
+        "added:foreground:green"
+        "removed:foreground:red"
+        "refine-added:foreground:10:background:green:bold"
+        "refine-removed:foreground:9:background:red:bold"
+      ];
+      diffrColors = builtins.concatStringsSep " --colors " diffrColorsList;
+    in {
       enable = true;
       package = pkgs.gitAndTools.gitFull;
       signing = {
@@ -53,7 +61,10 @@
             newMoved = "14 bold";
           };
         };
-        core.autocrlf = "input";
+        core = {
+          autocrlf = "input";
+          pager = "${pkgs.diffr}/bin/diffr --colors ${diffrColors} --line-numbers | less -R";
+        };
         diff = {
           colorMoved = "zebra";
           guitool = "meld";
@@ -61,6 +72,7 @@
         };
         fetch.prune = true;
         init.defaultBranch = "main";
+        interactive.diffFilter = "${pkgs.diffr}/bin/diffr --colors ${diffrColors} --line-numbers";
         lfs.enable = true;
         merge = {
           conflictStyle = "zdiff3";
