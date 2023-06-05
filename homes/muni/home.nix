@@ -271,7 +271,7 @@ in {
         movit
 
         # emulators and "emulators"
-        wine
+        wine64
         desmume
         dolphin-emu
 
