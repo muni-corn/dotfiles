@@ -327,7 +327,7 @@ in {
 
     # Home Manager needs a bit of information about you and the
     # paths it should manage.
-    username = "municorn";
+    username = "muni";
     homeDirectory = "/home/muni";
 
     # This value determines the Home Manager release that your
