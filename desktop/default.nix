@@ -93,6 +93,8 @@
     };
 
     psd.enable = true;
+
+    smartd.enable = true;
   };
 
   systemd = {
