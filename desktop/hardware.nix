@@ -11,10 +11,10 @@
 
   boot = {
     initrd = {
-      availableKernelModules = ["xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
+      availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
       luks.devices = {
-        "cryptroot1".device = "/dev/disk/by-uuid/d07ab63c-1ac5-4e18-9c13-ecafa8397edb";
-        "cryptroot2".device = "/dev/disk/by-uuid/d718061f-9973-4d6d-a816-5d2a57bda1ba";
+        "cryptroot1".device = "/dev/disk/by-uuid/d718061f-9973-4d6d-a816-5d2a57bda1ba";
+        "cryptroot2".device = "/dev/disk/by-uuid/f02bb0a3-b5cf-478e-9cf8-e426e8865174";
         "cryptbackup".device = "/dev/disk/by-uuid/1ebf17c7-3097-40d9-89d2-6079b197664a";
       };
     };
@@ -41,12 +41,12 @@
     };
 
     "/boot" = {
-      device = "/dev/disk/by-uuid/c44a1aec-3d4c-4001-b4d8-1821bfb9b423";
+      device = "/dev/disk/by-uuid/0e042f1f-c4ac-475d-95a4-39b45225bd4a";
       fsType = "ext4";
     };
 
     "/boot/efi" = {
-      device = "/dev/disk/by-uuid/720C-2E2F";
+      device = "/dev/disk/by-uuid/3487-9A60";
       fsType = "vfat";
     };
 
