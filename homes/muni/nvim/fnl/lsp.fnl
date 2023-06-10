@@ -6,8 +6,7 @@
       lsp-status (require :lsp-status)
       cmp-nvim-lsp (require :cmp_nvim_lsp)
       cmp (require :cmp)
-      ; compare signs in ./config/trouble.fnl
-      signs {:Error "󰅝 " :Warn "󰀪 " :Hint "󰌶 " :Info "󰋽 "}
+      signs {:Error "󰅝 " :Warn "󰀪 " :Hint "󰌶 " :Info "󰋽 "} ; compare signs in ./config/trouble.fnl
       capabilities (cmp-nvim-lsp.default_capabilities lsp-status.capabilities)]
   ;; set up signs
   (each [ty icon (pairs signs)]
@@ -76,4 +75,4 @@
   ;; reverse signs sort (so most severe are shown in virtual text)
   (tset vim.lsp.handlers :textDocument/publishDiagnostics
         (vim.lsp.with vim.lsp.diagnostic.on_publish_diagnostics
-                      {:severity_sort true})))
+          {:severity_sort true})))
