@@ -25,7 +25,6 @@
       cmp-nvim-lsp
       cmp-nvim-lua
       cmp-path
-      cmp-vsnip
       copilot-vim
       friendly-snippets
       hop-nvim
@@ -45,8 +44,6 @@
       vim-hexokinase
       vim-smoothie
       vim-table-mode
-      vim-vsnip
-      vim-vsnip-integ
       zen-mode-nvim
       {
         plugin = alpha-nvim;

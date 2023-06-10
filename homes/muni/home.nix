@@ -102,10 +102,6 @@ in {
     extraOutputsToInstall = ["doc" "info" "devdoc"];
 
     file = {
-      ".vsnip" = {
-        recursive = true;
-        source = ./vsnip;
-      };
       ".rustfmt.toml" = {
         source = ./rustfmt.toml;
       };

@@ -25,11 +25,6 @@
   (map :n :<leader>gs ":Git<cr>" {:noremap true})
   ;; lsp shortcuts
   (map :n :K "<cmd>lua vim.lsp.buf.hover()<cr>" {:noremap true :silent true})
-  ;; Completion/snippets
-  (map :i :<c-j> "vsnip#jumpable(1) ? '<plug>(vsnip-jump-next)' : '<c-j>'"
-       {:expr true})
-  (map :i :<c-h> "vsnip#jumpable(-1) ? '<plug>(vsnip-jump-prev)' : '<c-h>'"
-       {:expr true :noremap true})
   ;; esc
   (map :i :jj :<esc> {:noremap true})
   (map :i :fj :<esc> {:noremap true})

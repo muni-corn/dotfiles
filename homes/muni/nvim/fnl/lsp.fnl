@@ -36,11 +36,8 @@
                                                      :behavior cmp.SelectBehavior.Replace})
                         :<c-q> (cmp.mapping.close)
                         :<c-y> cmp.config.disable}
-              :snippet {:expand (fn [args]
-                                  ((. vim.fn "vsnip#anonymous") args.body))}
               :sources [{:name :neorg}
                         {:name :path}
-                        {:name :vsnip}
                         {:name :nvim_lsp}
                         {:name :buffer}
                         {:name :calc}
