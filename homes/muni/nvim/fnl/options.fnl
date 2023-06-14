@@ -20,7 +20,7 @@
                     :display {:ghost_text {:context [" 〉" ""]}
                               :pum {:fast_close false
                                     :y_ratio 0.3
-                                    :x_max_len 120
+                                    :x_max_len 60
                                     :kind_context ["  " ""]
                                     :source_context [" " ""]}
                               :icons {:mappings {:Boolean " "
