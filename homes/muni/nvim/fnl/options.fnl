@@ -8,6 +8,56 @@
            (tset vim.wo key value))]
   (g :mapleader ",")
   ;; plugin config
+  (g :coq_settings {:auto_start :shut-up
+                    :clients {:paths {:resolution [:file]
+                                      :short_name :path}
+                              :buffers {:short_name :buf}
+                              :lsp {:short_name :lsp}
+                              :snippets {:short_name :snip}
+                              :tree_sitter {:short_name :ts}
+                              :tmux {:short_name :tmux}
+                              :third_party {:short_name :3rd}}
+                    :display {:ghost_text {:context [" 〉" ""]}
+                              :pum {:fast_close false
+                                    :y_ratio 0.3
+                                    :x_max_len 120
+                                    :kind_context ["  " ""]
+                                    :source_context [" " ""]}
+                              :icons {:mappings {:Boolean " "
+                                                 :Character "󰾹 "
+                                                 :Class " "
+                                                 :Color " "
+                                                 :Constant " "
+                                                 :Constructor "󰫣 "
+                                                 :Enum " "
+                                                 :EnumMember " "
+                                                 :Event ""
+                                                 :Field " "
+                                                 :File " "
+                                                 :Folder " "
+                                                 :Function "󰊕"
+                                                 :Interface " "
+                                                 :Keyword " "
+                                                 :Method " "
+                                                 :Module "󱒌 "
+                                                 :Number " "
+                                                 :Operator " "
+                                                 :Parameter " "
+                                                 :Property " "
+                                                 :Reference " "
+                                                 :Snippet " "
+                                                 :String " "
+                                                 :Struct " "
+                                                 :Text "󰬴 "
+                                                 :TypeParameter " "
+                                                 :Unit " "
+                                                 :Value "󰞾 "
+                                                 :Variable " "}
+                                      :mode :short}}
+                    :keymap {:recommended false
+                             :manual_complete :<c-space>
+                             :jump_to_mark :<c-j>}
+                    :xdg true})
   (g :copilot_filetypes {:norg false})
   (g :diagnostic_auto_popup_while_jump 1)
   (g :diagnostic_enable_virtual_text 1)

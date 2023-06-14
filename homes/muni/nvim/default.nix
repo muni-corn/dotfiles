@@ -20,8 +20,9 @@
     plugins = with pkgs.vimPlugins; [
       FixCursorHold-nvim
       auto-session
-      coq-artifacts
       copilot-vim
+      coq-artifacts
+      coq_nvim
       friendly-snippets
       hop-nvim
       lsp-status-nvim
@@ -43,11 +44,6 @@
       {
         plugin = alpha-nvim;
         config = builtins.readFile ./fnl/config/alpha.fnl;
-        type = "fennel";
-      }
-      {
-        plugin = coq_nvim;
-        config = builtins.readFile ./fnl/config/coq.fnl;
         type = "fennel";
       }
       {
