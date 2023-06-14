@@ -6,7 +6,7 @@
   (map :n :j "v:count ? 'j' : 'gj'" {:noremap true :expr true})
   (map :n :k "v:count ? 'k' : 'gk'" {:noremap true :expr true})
   ;; easily edit config
-  (map :n :<leader>rc ":tabe ~/.config/nixpkgs/homes/muni/nvim<cr>" {})
+  (map :n :<leader>rc ":tabe ~/.config/home-manager/homes/muni/nvim<cr>" {})
   ;; easy window resizing in normal mode
   (map :n "+" "<cmd>5wincmd ><cr>" {:noremap true :silent true})
   (map :n "-" "<cmd>5wincmd <<cr>" {:noremap true :silent true})
