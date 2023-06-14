@@ -16,7 +16,7 @@
                       :indicator_warnings (. signs :Warn)
                       :indicator_info (. signs :Info)
                       :indicator_hint (. signs :Hint)
-                      :indicator_ok "All good!"
+                      :indicator_ok "all good! ^c^"
                       :indicator_separator " "
                       :component_separator "  "
                       :status_symbol ""})
