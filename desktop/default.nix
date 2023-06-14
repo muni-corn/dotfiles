@@ -35,7 +35,10 @@
     };
   };
 
-  musnix.enable = true;
+  musnix = {
+    enable = true;
+    soundcardPciId = "0e:00.4";
+  };
 
   networking = {
     hostName = "ponycastle";
