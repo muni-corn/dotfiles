@@ -275,7 +275,7 @@ in {
     export XDG_SESSION_TYPE=wayland
   '';
 
-  systemdIntegration = true;
+  systemd.enable = true;
 
   wrapperFeatures = {
     base = true;
