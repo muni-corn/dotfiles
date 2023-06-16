@@ -137,6 +137,7 @@ in {
         musescore
         pamixer # for muse-status, at least
         pavucontrol
+        peaclock
         qpwgraph
         qsampler
         sfizz
