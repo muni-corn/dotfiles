@@ -226,7 +226,7 @@ in {
         {command = ''${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1'';}
       ]
       ++ lib.optional config.muse.theme.matchpal.enable # init wallpaper
-
+      
       {command = ''${wallpaperSwitchScript}'';};
 
     terminal = "kitty -1";

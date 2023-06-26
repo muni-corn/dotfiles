@@ -246,7 +246,7 @@
 
     input-remapper = {
       enable = true;
-      serviceWantedBy = [ "multi-user.target" ];
+      serviceWantedBy = ["multi-user.target"];
     };
 
     localtimed.enable = true;
@@ -291,7 +291,6 @@
         }
       ];
     };
-
 
     sshguard = {
       enable = true;

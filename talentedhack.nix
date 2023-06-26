@@ -1,5 +1,11 @@
-{ lib, stdenv, fetchurl, lv2, fftwFloat, pkg-config }:
-
+{
+  lib,
+  stdenv,
+  fetchurl,
+  lv2,
+  fftwFloat,
+  pkg-config,
+}:
 stdenv.mkDerivation rec {
   pname = "talentedhack";
   version = "master";
@@ -9,9 +15,9 @@ stdenv.mkDerivation rec {
     sha256 = "1bkfi2wkrnsimc2nrqm3h3s7l9jzsn5r3lr17hskf8hk74bgn4yz";
   };
 
-  nativeBuildInputs = [ pkg-config ];
+  nativeBuildInputs = [pkg-config];
 
-  buildInputs = [ lv2 fftwFloat ];
+  buildInputs = [lv2 fftwFloat];
 
   # To avoid name clashes, plugins should be compiled with symbols hidden, except for `lv2_descriptor`:
   preConfigure = ''
@@ -28,7 +34,7 @@ stdenv.mkDerivation rec {
     homepage = "https://github.com/jeremysalwen/TalentedHack";
     description = "LV2 port of Autotalent pitch correction plugin";
     license = licenses.gpl3;
-    maintainers = [ maintainers.michalrus ];
+    maintainers = [maintainers.michalrus];
     platforms = platforms.linux;
   };
 }

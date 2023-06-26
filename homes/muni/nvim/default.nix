@@ -1,4 +1,8 @@
-{config, pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./fnl.nix
   ];
@@ -118,7 +122,7 @@
     "nvim/lua/name-gui-map.lua" = let
       inherit (builtins) attrNames concatStringsSep getAttr map;
       palette = config.muse.theme.finalPalette;
-      colorNames = (attrNames palette);
+      colorNames = attrNames palette;
       luaTableEntries = map (colorName: ''["${colorName}"] = "#${getAttr colorName palette}"'') colorNames;
     in {
       text = ''
