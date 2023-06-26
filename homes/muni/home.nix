@@ -339,7 +339,7 @@ in {
   };
 
   dconf = {
-    enable = false;
+    enable = true;
     settings = {
       "org/gnome/desktop/interface" = {
         gtk-theme = config.gtk.theme.name;
