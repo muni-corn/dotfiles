@@ -77,7 +77,7 @@
   (o :completeopt "menuone,noselect")
   (o :conceallevel 1)
   (o :cursorline true)
-  (o :diffopt "hiddenoff,closeoff,internal,filler,indent-heuristic")
+  (o :diffopt "hiddenoff,iwhiteall,closeoff,internal,filler,indent-heuristic,linematch:60")
   (o :errorbells false)
   (o :equalalways true)
   (o :expandtab true)
