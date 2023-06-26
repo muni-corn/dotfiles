@@ -169,6 +169,8 @@
 
         "linuxsampler"
         "mpv-youtube-quality"
+
+        "memtest86-efi"
       ];
   };
 
