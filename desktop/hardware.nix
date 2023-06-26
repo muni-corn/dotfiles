@@ -13,8 +13,9 @@
     initrd = {
       availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
       luks.devices = {
-        "cryptroot1".device = "/dev/disk/by-uuid/f02bb0a3-b5cf-478e-9cf8-e426e8865174";
-        "cryptroot2".device = "/dev/disk/by-uuid/d718061f-9973-4d6d-a816-5d2a57bda1ba";
+        "cryptroot1" = { device = "/dev/disk/by-uuid/f02bb0a3-b5cf-478e-9cf8-e426e8865174"; allowDiscards = true; };
+        "cryptroot2" = { device = "/dev/disk/by-uuid/d718061f-9973-4d6d-a816-5d2a57bda1ba"; allowDiscards = true; };
+        "cryptroot3".device = "/dev/disk/by-uuid/63c9847a-fecd-453d-a8d5-228df343ef36";
         "cryptbackup".device = "/dev/disk/by-uuid/1ebf17c7-3097-40d9-89d2-6079b197664a";
       };
     };
