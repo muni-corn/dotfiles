@@ -3,5 +3,4 @@
                            :change {:text "~"}
                            :delete {:text "_"}
                            :topdelete {:text "‾"}
-                           :changedelete {:text "~"}}
-                   :keymaps {}}))
+                           :changedelete {:text "~"}}}))
