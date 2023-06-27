@@ -214,9 +214,6 @@ in {
         # writing
         pandoc
 
-        # email
-        hydroxide
-
         # messaging
         discord
         element-desktop

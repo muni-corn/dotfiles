@@ -13,7 +13,7 @@
         };
 
         Service = {
-          ExecStart = "${pkgs.hydroxide}/bin/hydroxide serve";
+          ExecStart = "${pkgs.hydroxide}/bin/hydroxide -carddav-port 8079 serve";
           Restart = "always";
           RestartSec = 10;
         };
