@@ -68,7 +68,8 @@ in {
           modifier "${sup}"
         '';
         statusCommand = "${pkgs.muse-status}/bin/muse-status sub a -m i3 -p ${colors.white} -s ${colors.silver}";
-        trayOutput = "none";
+        trayOutput = "*";
+        trayPadding = 8;
         workspaceButtons = true;
         colors = {
           background = black;
