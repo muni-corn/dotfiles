@@ -281,10 +281,7 @@ in {
     xdgAutostart = true;
   };
 
-  wrapperFeatures = {
-    base = true;
-    gtk = true;
-  };
+  wrapperFeatures.gtk = true;
 
   xwayland = true;
 }
