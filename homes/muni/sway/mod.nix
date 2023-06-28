@@ -276,7 +276,10 @@ in {
     export XDG_SESSION_TYPE=wayland
   '';
 
-  systemd.enable = true;
+  systemd = {
+    enable = true;
+    xdgAutostart = true;
+  };
 
   wrapperFeatures = {
     base = true;
