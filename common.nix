@@ -21,7 +21,12 @@
       inherit (config.boot.kernelPackages) v4l2loopback;
     };
     kernelModules = ["v4l2loopback"];
+
+    # use latest linux kernel
+    kernelPackages = pkgs.linuxPackages_latest;
+
     kernelParams = ["quiet" "fbcon=nodefer" "nohibernate"];
+
     loader = {
       efi = {
         canTouchEfiVariables = true;
