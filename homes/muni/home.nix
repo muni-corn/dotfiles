@@ -240,7 +240,7 @@ in {
         xorg.xcursorgen
 
         # other things
-        ffmpeg-full
+        ffmpeg_6-full
         fnlfmt
         fortune
         imagemagick
