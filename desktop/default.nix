@@ -26,6 +26,7 @@
       memtest86.enable = true;
     };
     kernelModules = ["kvm-amd"];
+    kernelParams = ["acpi_enforce_resources=lax"];
   };
 
   hardware = {
