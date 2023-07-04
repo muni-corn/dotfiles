@@ -12,7 +12,10 @@
   gammastep = {
     enable = true;
     provider = "geoclue2";
-    temperature.night = 1500;
+    temperature = {
+      day = 7500;
+      night = 1500;
+    };
 
     settings = {
       general = {
