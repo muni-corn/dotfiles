@@ -157,6 +157,7 @@
   (hi :Title :blue nil {})
   (hi :Todo :yellow :dark-gray {:bold true :italic true})
   (hi :TooLong :red nil {})
+  (hi :Twilight :gray nil {})
   (hi :Type :yellow nil {})
   (hi :Typedef :yellow nil {})
   (hi :Underlined :red nil {})
