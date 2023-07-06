@@ -112,6 +112,7 @@
   (hi :IncSearch :dark-gray :yellow {})
   (hi :Include :blue nil {})
   (hi :IndentBlanklineChar :dark-gray nil {})
+  (hi :IndentBlanklineContextChar :gray nil {})
   (hi :IndentBlanklineSpaceChar :dark-gray nil {})
   (hi :IndentBlanklineSpaceCharBlankline :dark-gray nil {})
   (hi :Info :cyan nil {:bold true})

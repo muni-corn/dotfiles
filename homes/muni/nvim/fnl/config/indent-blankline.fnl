@@ -1,2 +1,2 @@
 (let [indent-blankline (require :indent_blankline)]
-  (indent_blankline.setup {}))
+  (indent_blankline.setup {:show_current_context true}))
