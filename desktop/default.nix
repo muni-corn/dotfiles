@@ -32,6 +32,12 @@
   hardware = {
     opengl = {
       enable = true;
+      extraPackages = with pkgs; [
+        rocm-opencl-icd
+        rocm-opencl-runtime
+        amdvlk
+      ];
+      driSupport = true;
     };
     openrazer = {
       enable = true;
@@ -89,6 +95,11 @@
   systemd = {
     extraConfig = "DefaultLimitNOFILE=524288";
     user.extraConfig = "DefaultLimitNOFILE=524288";
+
+    # for Blender
+    tmpfiles.rules = [
+      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.hip}"
+    ];
   };
 
   # This value determines the NixOS release from which the default
