@@ -1,21 +1,5 @@
 {
   "nodes": {
-    "alpha-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1686353426,
-        "narHash": "sha256-DgKL4BgEVGSESxdBf8CbWMeAkcN/7vi1DuqIZVvmtlA=",
-        "owner": "goolord",
-        "repo": "alpha-nvim",
-        "rev": "9e33db324b8bb7a147bce9ea5496686ee859461d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "goolord",
-        "repo": "alpha-nvim",
-        "type": "github"
-      }
-    },
     "arpeggio": {
       "inputs": {
         "naersk": "naersk",
@@ -980,7 +964,6 @@
     },
     "root": {
       "inputs": {
-        "alpha-nvim": "alpha-nvim",
         "arpeggio": "arpeggio",
         "home-manager": "home-manager",
         "iosevka-muse": "iosevka-muse",

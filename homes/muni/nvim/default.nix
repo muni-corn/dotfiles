@@ -46,8 +46,8 @@
       vim-table-mode
       zen-mode-nvim
       {
-        plugin = alpha-nvim;
-        config = builtins.readFile ./fnl/config/alpha.fnl;
+        plugin = dashboard-nvim;
+        config = builtins.readFile ./fnl/config/dashboard.fnl;
         type = "fennel";
       }
       {

@@ -3,12 +3,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
 
-    # alpha.nvim (because it's not yet included in nixpkgs)
-    alpha-nvim = {
-      url = "github:goolord/alpha-nvim";
-      flake = false;
-    };
-
     # realtime audio
     musnix = {
       url = "github:musnix/musnix";
@@ -69,19 +63,6 @@
     ...
   } @ inputs: let
     lockFile = nixpkgs.lib.importJSON ./flake.lock;
-    vimPluginOverlay = final: prev: let
-      alphaNvimInfo = lockFile.nodes.alpha-nvim.locked;
-    in {
-      vimPlugins = prev.vimPlugins.extend (f: p: {
-        alpha-nvim = prev.vimUtils.buildVimPlugin {
-          name = alphaNvimInfo.repo;
-          src = prev.fetchFromGitHub {
-            inherit (alphaNvimInfo) owner repo rev;
-            sha256 = alphaNvimInfo.narHash;
-          };
-        };
-      });
-    };
 
     overlays = [
       arpeggio.overlay
@@ -92,7 +73,6 @@
       neorg.overlays.default
       neovim-nightly-overlay.overlay
       plymouth-theme-musicaloft-rainbow.overlay
-      vimPluginOverlay
     ];
 
     overlaysModule = {
