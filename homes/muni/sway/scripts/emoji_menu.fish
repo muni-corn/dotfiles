@@ -1,3 +1,3 @@
 #! /usr/bin/env fish
 
-cat $HOME/.emoji_list.txt | bemenu -p Emoji $argv | string split -m1 -f1 ' ' | wl-copy --trim-newline
+cat $HOME/.emoji_list.txt | bemenu -p Emoji $argv | string split -m1 -f1 -r ' (' | wl-copy --trim-newline
