@@ -57,8 +57,8 @@
     ];
     timeouts = let
       lockWarningCmd = "${pkgs.libnotify}/bin/notify-send -u low -t 29500 'Are you still there?' 'Your system will lock itself soon.'";
-      dpmsOff = "${pkgs.sway}/bin/swaymsg 'output * dpms off'";
-      dpmsOn = "${pkgs.sway}/bin/swaymsg 'output * dpms on'";
+      powerOff = "${pkgs.sway}/bin/swaymsg 'output * power off'";
+      powerOn = "${pkgs.sway}/bin/swaymsg 'output * power on'";
     in [
       {
         timeout = 570;
@@ -70,8 +70,8 @@
       }
       {
         timeout = 610;
-        command = dpmsOff;
-        resumeCommand = dpmsOn;
+        command = powerOff;
+        resumeCommand = powerOn;
       }
     ];
   };
