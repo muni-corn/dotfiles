@@ -22,7 +22,6 @@
       ./fnl/keys.fnl
     ];
     plugins = with pkgs.vimPlugins; [
-      FixCursorHold-nvim
       auto-session
       copilot-vim
       coq-artifacts
