@@ -8,7 +8,7 @@ titlebar_border_thickness 4
 
 # swayfx options
 blur enable
-blur_radius 8
+blur_radius 10
 shadows enable
 shadow_blur_radius 32
 shadow_color #000000c0
