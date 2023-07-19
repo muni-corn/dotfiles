@@ -6,4 +6,11 @@ title_align center
 titlebar_padding 4
 titlebar_border_thickness 4
 
+# swayfx options
+blur enable
+blur_radius 8
+shadows enable
+shadow_blur_radius 32
+shadow_color #000000c0
+
 # vim: ft=conf
