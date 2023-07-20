@@ -18,6 +18,12 @@
     # extra hardware configuration
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    # node.js debugging
+    nvim-dap-vscode-js = {
+      url = "github:mxsdev/nvim-dap-vscode-js";
+      flake = false;
+    };
+
     # my stuff
     arpeggio = {
       url = "git+https://codeberg.org/municorn/arpeggio?ref=main";
@@ -60,6 +66,7 @@
     neovim-nightly-overlay,
     nixos-hardware,
     plymouth-theme-musicaloft-rainbow,
+    nvim-dap-vscode-js,
     ...
   } @ inputs: let
     lockFile = nixpkgs.lib.importJSON ./flake.lock;
@@ -126,7 +133,10 @@
       homeConfiguration = deviceInfo:
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
-          extraSpecialArgs = {inherit deviceInfo;};
+          extraSpecialArgs = {
+            inherit deviceInfo;
+            nvim-dap-vscode-js-src = nvim-dap-vscode-js;
+          };
           modules = [overlaysModule ./homes/muni/home.nix];
         };
     in {

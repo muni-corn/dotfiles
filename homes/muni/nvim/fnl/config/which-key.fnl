@@ -32,6 +32,18 @@
                                       :o ["<cmd>diffoff<cr>:set noscrollbind<cr>:set nocursorbind<cr>"
                                           :off]
                                       :t [:<cmd>diffthis<cr> :on]}
+                                  :D {:name "debug ..."
+                                      :B ["<cmd>lua require'telescope'.extensions.dap.list_breakpoints{}<cr>" "list breakpoints"]
+                                      :C ["<cmd>lua require'telescope'.extensions.dap.commands{}<cr>" "run last"]
+                                      :O ["<cmd>lua require'dap'.step_over()<cr>" "step over"]
+                                      :V ["<cmd>lua require'telescope'.extensions.dap.variables{}<cr>" "list variables"]
+                                      :b ["<cmd>lua require'dap'.toggle_breakpoint()<cr>" "toggle breakpoint"]
+                                      :c ["<cmd>lua require'dap'.continue()<cr>" :continue]
+                                      :i ["<cmd>lua require'dap'.step_into()<cr>" "step into"]
+                                      :o ["<cmd>lua require'dap'.step_out()<cr>" "step out"]
+                                      :r ["<cmd>lua require'dap'.repl.toggle()<cr>" "toggle repl"]
+                                      }
+
                                   :e [:<cmd>NvimTreeFocus<cr> "explore files"]
                                   :f {:name "find ..."
                                       :d [telescope-fd :files]
