@@ -15,6 +15,7 @@ augroup auto_commands
     autocmd CursorHold,InsertLeave * nested call AutoSave()
     autocmd FileType markdown,pandoc call SetupMarkdown()
     autocmd FileType nix setlocal shiftwidth=2 tabstop=2
+    autocmd FileType dashboard IndentBlanklineDisable
 augroup END
 
 fu! MarkdownFoldText()
