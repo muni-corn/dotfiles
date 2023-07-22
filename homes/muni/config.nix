@@ -4,7 +4,6 @@
       "SpaceCadetPinball"
       "discord"
       "linuxsampler"
-      "mpv-youtube-quality"
       "slack"
       "spotify"
       "spotify-unwrapped"
