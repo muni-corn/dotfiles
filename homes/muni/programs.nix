@@ -42,6 +42,7 @@
     in {
       enable = true;
       package = pkgs.gitAndTools.gitFull;
+
       signing = {
         key = "4B21310A52B15162";
         signByDefault = true;
@@ -61,6 +62,7 @@
             newMoved = "14 bold";
           };
         };
+        commit.verbose = true;
         core = {
           autocrlf = "input";
           pager = "${pkgs.diffr}/bin/diffr --colors ${diffrColors} --line-numbers | less -R";
@@ -81,8 +83,11 @@
           tool = "nvimdiff";
         };
         pull.rebase = true;
+        rebase = {
+          autoSquash = true;
+          autoStash = true;
+        };
         receive.denyCurrentBranch = "refuse";
-        tag.gpgSign = true;
         url = {
           "git@bitbucket.org:".insteadOf = "https://bitbucket.org/";
           "git@codeberg.org:".insteadOf = "https://codeberg.org/";
