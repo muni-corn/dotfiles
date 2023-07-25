@@ -30,15 +30,18 @@ in
     ];
     plugins = with pkgs.vimPlugins; [
       auto-session
-      coq-artifacts
+      cmp-buffer
+      cmp-calc
+      cmp-nvim-lsp
+      cmp-nvim-lua
+      cmp-path
       copilot-vim
-      coq-artifacts
-      coq_nvim
       friendly-snippets
       hop-nvim
       lsp-status-nvim
       neorg-telescope
       nvim-dap-virtual-text
+      nvim-cmp
       nvim-lspconfig
       nvim-ts-rainbow
       playground

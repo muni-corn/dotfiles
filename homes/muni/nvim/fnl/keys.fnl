@@ -25,10 +25,6 @@
   (map :n :<leader>gs ":Git<cr>" {:noremap true})
   ;; lsp shortcuts
   (map :n :K "<cmd>lua vim.lsp.buf.hover()<cr>" {:noremap true :silent true})
-  ;; completion
-  (map :i :<c-l>
-       "pumvisible() ? (complete_info().selected == -1 ? \"<c-e><c-l>\" : \"<c-y>\") : \"<c-l>\""
-       {:noremap true :expr true :silent true})
   ;; esc
   (map :i :jj :<esc> {:noremap true})
   (map :i :fj :<esc> {:noremap true})

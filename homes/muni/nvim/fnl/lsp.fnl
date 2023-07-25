@@ -4,9 +4,10 @@
 
 (let [lspconfig (require :lspconfig)
       lsp-status (require :lsp-status)
-      coq (require :coq)
+      cmp-nvim-lsp (require :cmp_nvim_lsp)
+      cmp (require :cmp)
       signs {:Error "󰅝 " :Warn "󰀪 " :Hint "󰌶 " :Info "󰋽 "} ; compare signs in ./config/trouble.fnl
-      capabilities (coq.lsp_ensure_capabilities lsp-status.capabilities)]
+      capabilities (cmp-nvim-lsp.default_capabilities lsp-status.capabilities)]
   ;; set up signs
   (each [ty icon (pairs signs)]
     (let [hl (.. :DiagnosticSign ty)]
@@ -24,10 +25,29 @@
   ;; set virtual text line prefix
   (vim.diagnostic.config {:virtual_text {:prefix "●"} :update_in_insert true})
   ;; set up completion
+  (cmp.setup {:completion {:completeopt "menu,menuone,noinsert"}
+              :mapping {:<c-u> (cmp.mapping.scroll_docs -3)
+                        :<c-d> (cmp.mapping.scroll_docs 3)
+                        :<c-n> (cmp.mapping.select_next_item {:behavior cmp.SelectBehavior.Insert})
+                        :<c-f> (cmp.mapping.complete)
+                        :<c-p> (cmp.mapping.select_prev_item {:behavior cmp.SelectBehavior.Insert})
+                        :<c-l> (cmp.mapping.confirm {:select true
+                                                     :behavior cmp.SelectBehavior.Replace})
+                        :<c-q> (cmp.mapping.close)
+                        :<c-y> cmp.config.disable}
+              :sources [{:name :neorg}
+                        {:name :path}
+                        {:name :nvim_lsp}
+                        {:name :buffer}
+                        {:name :calc}
+                        {:name :nvim_lua}]
+              :window {:documentation {:border ["" "" "" " " "" "" "" " "]
+                                       :max_width 120
+                                       :max_height (math.floor (* vim.o.lines
+                                                                  0.3))}}})
   (vim.api.nvim_set_option :omnifunc "v:lua.vim.lsp.omnifunc")
   ;; set up language servers
-  (lspconfig.rust_analyzer.setup (coq.lsp_ensure_capabilities
-                                 {:on_attach on-lsp-attach
+  (lspconfig.rust_analyzer.setup {:on_attach on-lsp-attach
                                   :settings {:rust-analyzer {:cargo {:allFeatures true
                                                                      :buildScripts {:enable true}
                                                                      :autoreload true}
@@ -44,14 +64,14 @@
                                                              :diagnostics {:disabled [:unresolved-proc-macro
                                                                                       :unresolved-macro-call
                                                                                       :macro-error]}}}
-                                  : capabilities}))
-  (lspconfig.eslint.setup (coq.lsp_ensure_capabilities))
-  (lspconfig.html.setup (coq.lsp_ensure_capabilities {: capabilities}))
-  (lspconfig.intelephense.setup (coq.lsp_ensure_capabilities))
-  (lspconfig.rnix.setup (coq.lsp_ensure_capabilities))
-  (lspconfig.tsserver.setup (coq.lsp_ensure_capabilities))
-  (lspconfig.vuels.setup (coq.lsp_ensure_capabilities))
-  (lspconfig.zls.setup (coq.lsp_ensure_capabilities))
+                                  : capabilities})
+  (lspconfig.eslint.setup {})
+  (lspconfig.html.setup {: capabilities})
+  (lspconfig.intelephense.setup {})
+  (lspconfig.rnix.setup {})
+  (lspconfig.tsserver.setup {})
+  (lspconfig.vuels.setup {})
+  (lspconfig.zls.setup {})
   ;; reverse signs sort (so most severe are shown in virtual text)
   (tset vim.lsp.handlers :textDocument/publishDiagnostics
         (vim.lsp.with vim.lsp.diagnostic.on_publish_diagnostics

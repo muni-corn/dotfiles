@@ -1,5 +1,6 @@
 (let [neorg (require :neorg)]
   (neorg.setup {:load {:core.defaults {}
+                       :core.completion {:config {:engine :nvim-cmp}}
                        :core.concealer {:config {:icons {:todo {:done {:icon "󰄬"}
                                                                 :pending {:icon "󰅐"}
                                                                 :undone {:icon " "}}}}}
