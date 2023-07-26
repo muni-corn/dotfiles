@@ -66,11 +66,6 @@ in
         type = "fennel";
       }
       {
-        plugin = coq_nvim;
-        config = builtins.readFile ./fnl/config/coq.fnl;
-        type = "fennel";
-      }
-      {
         plugin = emmet-vim;
         config = builtins.readFile ./fnl/config/emmet.fnl;
         type = "fennel";
