@@ -1,5 +1,6 @@
 (let [cmp (require :cmp)
-      lspkind (require :lspkind)]
+      lspkind (require :lspkind)
+      snippy (require :snippy)]
   (cmp.setup {:completion {:completeopt "menu,menuone,noinsert"}
               :formatting {:format (lspkind.cmp_format {:symbol_map {:Boolean " "
                                                                      :Character "󰾹 "
@@ -43,9 +44,12 @@
                                                      :behavior cmp.SelectBehavior.Replace})
                         :<c-q> (cmp.mapping.close)
                         :<c-y> cmp.config.disable}
+              :snippet {:expand (fn [args]
+                                  (snippy.expand_snippet args.body))}
               :sources [{:name :neorg}
                         {:name :path}
                         {:name :nvim_lsp}
+                        {:name :snippy}
                         {:name :buffer}
                         {:name :calc}
                         {:name :nvim_lua}]

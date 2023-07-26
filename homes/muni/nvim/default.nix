@@ -35,6 +35,7 @@ in
       cmp-nvim-lsp
       cmp-nvim-lua
       cmp-path
+      cmp-snippy
       copilot-vim
       friendly-snippets
       hop-nvim
@@ -44,6 +45,7 @@ in
       nvim-dap-virtual-text
       nvim-cmp
       nvim-lspconfig
+      nvim-snippy
       nvim-ts-rainbow
       playground
       plenary-nvim
