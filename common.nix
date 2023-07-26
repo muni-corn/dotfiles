@@ -171,7 +171,10 @@
         "steam-original"
         "steam-run"
         "steam-runtime"
+
         "linuxsampler"
+        "mpv-youtube-quality"
+
         "memtest86-efi"
       ];
   };

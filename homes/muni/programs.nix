@@ -250,7 +250,7 @@
           (pkgs.mpvScripts)
           mpris
           thumbnail
-          quality-menu
+          youtube-quality
           ;
       };
     };
