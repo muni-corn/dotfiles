@@ -49,6 +49,5 @@
                         {:name :buffer}
                         {:name :calc}
                         {:name :nvim_lua}]
-              :window {:documentation {:max_width 60
-                                       :max_height (math.floor (* vim.o.lines
-                                                                  0.3))}}}))
+              :window {:completion (cmp.config.window.bordered)
+                       :documentation (cmp.config.window.bordered)}}))
