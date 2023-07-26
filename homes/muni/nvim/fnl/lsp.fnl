@@ -65,13 +65,13 @@
                                                                                       :unresolved-macro-call
                                                                                       :macro-error]}}}
                                   : capabilities})
-  (lspconfig.eslint.setup {})
+  (lspconfig.eslint.setup {: capabilities})
   (lspconfig.html.setup {: capabilities})
-  (lspconfig.intelephense.setup {})
-  (lspconfig.rnix.setup {})
-  (lspconfig.tsserver.setup {})
-  (lspconfig.vuels.setup {})
-  (lspconfig.zls.setup {})
+  (lspconfig.intelephense.setup {: capabilities})
+  (lspconfig.rnix.setup {: capabilities})
+  (lspconfig.tsserver.setup {: capabilities})
+  (lspconfig.vuels.setup {: capabilities})
+  (lspconfig.zls.setup {: capabilities})
   ;; reverse signs sort (so most severe are shown in virtual text)
   (tset vim.lsp.handlers :textDocument/publishDiagnostics
         (vim.lsp.with vim.lsp.diagnostic.on_publish_diagnostics
