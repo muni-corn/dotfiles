@@ -424,29 +424,7 @@ in {
           alarm_level:
             minutes_left: 30
         weather_config:
-          openweathermap_key: d179cc80ed41e8080f9e86356b604ee3
-          ipstack_key: 9c237911bdacce2e8c9a021d9b4c1317
-          weather_icons:
-            04d: 󰖐
-            09d: 󰖗
-            01n: 󰖔
-            10n: 󰖖
-            02n: 󰼱
-            03d: 󰖐
-            11n: 󰖓
-            13n: 󰖘
-            50n: 󰖑
-            03n: 󰖐
-            01d: 󰖙
-            04n: 󰖐
-            02d: 󰖕
-            09n: 󰖗
-            50d: 󰖑
-            10d: 󰖖
-            11d: 󰖓
-            13d: 󰖘
-          default_icon: 󰖐
-          update_interval_minutes: 20
+          update_interval_minutes: 10
           units: imperial
       '';
       "peaclock.conf".source = ./peaclock.conf;
