@@ -8,6 +8,5 @@
                                                            :work "~/notebook/work"}}}
                        :core.export {}
                        :core.export.markdown {}
-                       :core.esupports.metagen {:config {:type :auto
-                                                         :tab "  "}}
+                       :core.esupports.metagen {:config {:type :auto :tab "  "}}
                        :core.keybinds {}}}))
