@@ -89,6 +89,11 @@ in
         type = "fennel";
       }
       {
+        plugin = nvim-cmp;
+        config = builtins.readFile ./fnl/config/cmp.fnl;
+        type = "fennel";
+      }
+      {
         plugin = nvim-dap;
         config = builtins.readFile ./fnl/config/dap.fnl;
         type = "fennel";
