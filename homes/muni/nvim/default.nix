@@ -39,6 +39,7 @@ in
       friendly-snippets
       hop-nvim
       lsp-status-nvim
+      lspkind-nvim
       neorg-telescope
       nvim-dap-virtual-text
       nvim-cmp
