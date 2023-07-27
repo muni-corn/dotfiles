@@ -29,7 +29,6 @@ in
       ./fnl/keys.fnl
     ];
     plugins = with pkgs.vimPlugins; [
-      auto-session
       cmp-buffer
       cmp-calc
       cmp-nvim-lsp
@@ -60,6 +59,11 @@ in
       vim-smoothie
       vim-table-mode
       zen-mode-nvim
+      {
+        plugin = auto-session;
+        config = builtins.readFile ./fnl/config/auto-session.fnl;
+        type = "fennel";
+      }
       {
         plugin = dashboard-nvim;
         config = builtins.readFile ./fnl/config/dashboard.fnl;

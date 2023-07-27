@@ -47,6 +47,7 @@
   (o :pumheight 20)
   (o :pumwidth 80)
   (o :scrolloff 5)
+  (o :sessionoptions "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions")
   (o :shiftwidth 4)
   (o :shortmess :caFTW)
   (o :showmode false)
