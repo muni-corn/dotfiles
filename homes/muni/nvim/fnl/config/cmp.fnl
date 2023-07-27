@@ -1,6 +1,7 @@
 (let [cmp (require :cmp)
       lspkind (require :lspkind)
-      snippy (require :snippy)]
+      snippy (require :snippy)
+      border_style (cmp.config.window.bordered {:winhighlight "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CursorLine,Search:None"})]
   (cmp.setup {:completion {:completeopt "menu,menuone,noinsert"}
               :formatting {:format (lspkind.cmp_format {:symbol_map {:Boolean " "
                                                                      :Character "󰾹 "
@@ -53,5 +54,4 @@
                         {:name :buffer}
                         {:name :calc}
                         {:name :nvim_lua}]
-              :window {:completion (cmp.config.window.bordered)
-                       :documentation (cmp.config.window.bordered)}}))
+              :window {:completion border_style :documentation border_style}}))

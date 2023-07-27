@@ -40,10 +40,11 @@
       links {:Bold ["@text.strong"]
              :DiffAdd ["@text.diff.add" :diffAdded]
              :DiffDelete ["@text.diff.delete" :diffRemoved]
-             :Error [:ErrorMsg
-                     :NvimInternalError]
+             :Error [:ErrorMsg :NvimInternalError]
+             :FloatBorder [:TelescopeBorder :LspInfoBorder]
              :Info [:InfoMsg]
              :Italic ["@text.emphasis"]
+             :Normal [:NormalFloat]
              :SpellRare [:SpellLocal]
              :Warning [:WarningMsg]}]
   ;; }}}
@@ -102,6 +103,7 @@
   (hi :Error :red nil {:bold true})
   (hi :Exception :red nil {})
   (hi :Float :orange nil {})
+  (hi :FloatBorder :light-gray nil {})
   (hi :FoldColumn :cyan nil {})
   (hi :Folded :light-gray :dark-gray {})
   (hi :Function :blue nil {})

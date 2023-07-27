@@ -7,7 +7,11 @@
       cmp-nvim-lsp (require :cmp_nvim_lsp)
       ; compare signs in ./config/trouble.fnl
       signs {:Error "󰅝 " :Warn "󰀪 " :Hint "󰌶 " :Info "󰋽 "}
-      capabilities (cmp-nvim-lsp.default_capabilities lsp-status.capabilities)]
+      capabilities (cmp-nvim-lsp.default_capabilities lsp-status.capabilities)
+      handlers {:textDocument/hover (vim.lsp.with vim.lsp.handlers.hover
+                                      {:border :rounded})
+                :textDocument/signatureHelp (vim.lsp.with vim.lsp.handlers.signature_help
+                                              {:border :rounded})}]
   ;; set up signs
   (each [ty icon (pairs signs)]
     (let [hl (.. :DiagnosticSign ty)]
@@ -23,7 +27,10 @@
                       :status_symbol ""})
   (lsp-status.register_progress)
   ;; set virtual text line prefix
-  (vim.diagnostic.config {:virtual_text {:prefix "●"} :update_in_insert true})
+  (vim.diagnostic.config {:virtual_text {:prefix "●"}
+                          :update_in_insert false
+                          :severity_sort true
+                          :float {:border :rounded}})
   (vim.api.nvim_set_option :omnifunc "v:lua.vim.lsp.omnifunc")
   ;; set up language servers
   (lspconfig.rust_analyzer.setup {:on_attach on-lsp-attach
@@ -43,15 +50,12 @@
                                                              :diagnostics {:disabled [:unresolved-proc-macro
                                                                                       :unresolved-macro-call
                                                                                       :macro-error]}}}
-                                  : capabilities})
-  (lspconfig.eslint.setup {: capabilities})
-  (lspconfig.html.setup {: capabilities})
-  (lspconfig.intelephense.setup {: capabilities})
-  (lspconfig.rnix.setup {: capabilities})
-  (lspconfig.tsserver.setup {: capabilities})
-  (lspconfig.vuels.setup {: capabilities})
-  (lspconfig.zls.setup {: capabilities})
-  ;; reverse signs sort (so most severe are shown in virtual text)
-  (tset vim.lsp.handlers :textDocument/publishDiagnostics
-        (vim.lsp.with vim.lsp.diagnostic.on_publish_diagnostics
-          {:severity_sort true})))
+                                  : capabilities
+                                  : handlers})
+  (lspconfig.eslint.setup {: capabilities : handlers})
+  (lspconfig.html.setup {: capabilities : handlers})
+  (lspconfig.intelephense.setup {: capabilities : handlers})
+  (lspconfig.rnix.setup {: capabilities : handlers})
+  (lspconfig.tsserver.setup {: capabilities : handlers})
+  (lspconfig.vuels.setup {: capabilities : handlers})
+  (lspconfig.zls.setup {: capabilities : handlers}))
