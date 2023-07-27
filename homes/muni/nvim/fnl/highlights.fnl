@@ -15,7 +15,6 @@
                       :purple 13
                       :cyan 14
                       :white 15
-
                       :orange 9
                       :brown 11
                       :dark-orange 1
@@ -27,9 +26,9 @@
       ;; main highlight function
       hi (fn [name fg-name bg-name vals]
            (when fg-name (tset vals :ctermfg (. name-cterm-map fg-name))
-                         (tset vals :fg (. name-gui-map fg-name)))
+             (tset vals :fg (. name-gui-map fg-name)))
            (when bg-name (tset vals :ctermbg (. name-cterm-map bg-name))
-                         (tset vals :bg (. name-gui-map bg-name)))
+             (tset vals :bg (. name-gui-map bg-name)))
            (vim.api.nvim_set_hl 0 name vals))
       link (fn [src dest]
              (vim.api.nvim_set_hl 0 dest {:link src}))
@@ -90,11 +89,16 @@
   (hi :DiagnosticInfo :cyan nil {})
   (hi :DiagnosticOk :green nil {})
   (hi :DiagnosticWarn :yellow nil {})
-  (hi :DiagnosticUnderlineError nil nil {:undercurl true :sp (. name-gui-map :red)})
-  (hi :DiagnosticUnderlineHint nil nil {:undercurl true :sp (. name-gui-map :blue)})
-  (hi :DiagnosticUnderlineInfo nil nil {:undercurl true :sp (. name-gui-map :cyan)})
-  (hi :DiagnosticUnderlineOk nil nil {:underline true :sp (. name-gui-map :green)})
-  (hi :DiagnosticUnderlineWarn nil nil {:undercurl true :sp (. name-gui-map :yellow)})
+  (hi :DiagnosticUnderlineError nil nil
+      {:undercurl true :sp (. name-gui-map :red)})
+  (hi :DiagnosticUnderlineHint nil nil
+      {:undercurl true :sp (. name-gui-map :blue)})
+  (hi :DiagnosticUnderlineInfo nil nil
+      {:undercurl true :sp (. name-gui-map :cyan)})
+  (hi :DiagnosticUnderlineOk nil nil
+      {:underline true :sp (. name-gui-map :green)})
+  (hi :DiagnosticUnderlineWarn nil nil
+      {:undercurl true :sp (. name-gui-map :yellow)})
   (hi :DiffAdd :green :dark-green {:bold true})
   (hi :DiffChange nil nil {})
   (hi :DiffDelete :red :dark-red {:bold true})
