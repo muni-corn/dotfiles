@@ -107,7 +107,7 @@
   (hi :Error :red nil {:bold true})
   (hi :Exception :red nil {})
   (hi :Float :orange nil {})
-  (hi :FloatBorder :light-gray nil {})
+  (hi :FloatBorder :silver nil {})
   (hi :FoldColumn :cyan nil {})
   (hi :Folded :light-gray :dark-gray {})
   (hi :Function :blue nil {})
