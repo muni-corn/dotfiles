@@ -88,7 +88,7 @@
   };
 
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       # google-fonts
       libertine
       inter
