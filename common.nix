@@ -250,6 +250,15 @@
       };
     };
 
+    greetd = {
+      enable = true;
+      settings = {
+        default_session = {
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet -r -t --time-format '%-I:%M %P  %a, %b %-d' --asterisks --power-shutdown 'systemctl poweroff' --power-reboot 'systemctl reboot' --cmd sway";
+        };
+      };
+    };
+
     input-remapper = {
       enable = true;
       serviceWantedBy = ["multi-user.target"];
