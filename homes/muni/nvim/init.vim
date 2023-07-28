@@ -36,7 +36,9 @@ fu! SetupMarkdown()
 endfunction
 
 fu! AutoSave()
-    silent! wa
+    if &modified
+        silent! write
+    endif
 endfunction
 
 " Tab line {{{
