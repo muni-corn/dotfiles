@@ -13,7 +13,7 @@ augroup auto_commands
     autocmd BufEnter * checktime
     autocmd BufWritePre * lua vim.lsp.buf.format()
     autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false})
-    autocmd CursorHold,InsertLeave * nested call AutoSave()
+    autocmd CursorHold,InsertLeave * ++nested call AutoSave()
     autocmd FileType markdown,pandoc call SetupMarkdown()
     autocmd FileType nix setlocal shiftwidth=2 tabstop=2
     autocmd FileType dashboard IndentBlanklineDisable
