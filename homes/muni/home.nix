@@ -353,8 +353,8 @@ in {
       name = "Papirus-Dark";
     };
     theme = {
-      package = pkgs.gnome-themes-extra;
-      name = "Adwaita-dark";
+      package = pkgs.materia-theme;
+      name = "Materia-dark";
     };
   };
 
@@ -362,10 +362,7 @@ in {
 
   qt = {
     enable = true;
-    style = {
-      name = "adwaita-dark";
-      package = pkgs.adwaita-qt;
-    };
+    platformTheme = "qtct";
   };
 
   services = import ./services.nix {
