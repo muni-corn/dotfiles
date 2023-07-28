@@ -193,10 +193,10 @@ in {
         git-crypt
         lld
         meld
+        nixd
         nodejs
         nodePackages.typescript-language-server
         python3
-        rnix-lsp
         rust-analyzer
         tree-sitter
         zls

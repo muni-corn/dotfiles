@@ -55,7 +55,9 @@
   (lspconfig.eslint.setup {: capabilities : handlers})
   (lspconfig.html.setup {: capabilities : handlers})
   (lspconfig.intelephense.setup {: capabilities : handlers})
-  (lspconfig.rnix.setup {: capabilities : handlers})
+  (lspconfig.nixd.setup {:settings {:nixd {:formatting {:command :alejandra}}}
+                         : capabilities
+                         : handlers})
   (lspconfig.tsserver.setup {: capabilities : handlers})
   (lspconfig.vuels.setup {: capabilities : handlers})
   (lspconfig.zls.setup {: capabilities : handlers}))
