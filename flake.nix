@@ -42,7 +42,7 @@
     };
 
     muse-sounds = {
-      url = "git+https://codeberg.org/municorn/muse-sounds";
+      url = "git+https://codeberg.org/municorn/muse-sounds?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
