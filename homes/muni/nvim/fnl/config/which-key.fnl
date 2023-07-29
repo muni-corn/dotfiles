@@ -17,7 +17,10 @@
       telescope-lsp-implementations "<cmd>lua require'telescope.builtin'.lsp_implementations()<cr>"
       telescope-oldfiles "<cmd>Telescope oldfiles<cr>"
       telescope-ripgrep "<cmd>lua require'telescope.builtin'.live_grep()<cr>"]
-  (which-key.setup {:triggers_blacklist {:i [:f :j :<c-j> :<c-h> "{" "[" "("]}})
+  (which-key.setup {:triggers_blacklist {:i [:f :j :<c-j> :<c-h> "{" "[" "("]}
+                    :icons {:separator "󰅂"}
+                    :window {:border :single}
+                    :layout {:align :center}})
   (which-key.register {:<c-p> [telescope-fd "find file"]
                        :<leader> {:a :emmet
                                   :b [telescope-buffers :buffers]
