@@ -33,13 +33,17 @@
         efiSysMountPoint = "/boot/efi";
       };
       grub = {
-        enable = true;
+        enable = false;
 
         enableCryptodisk = true;
         configurationLimit = 5;
         devices = ["nodev"];
         efiSupport = true;
         splashMode = "normal";
+      };
+      systemd-boot = {
+        enable = true;
+        editor = false;
       };
     };
     plymouth = {
