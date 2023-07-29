@@ -11,7 +11,6 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 augroup auto_commands
     autocmd!
     autocmd BufEnter * checktime
-    autocmd BufWritePre * lua vim.lsp.buf.format()
     autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false})
     autocmd CursorHold,InsertLeave * ++nested call AutoSave()
     autocmd FileType markdown,pandoc call SetupMarkdown()
