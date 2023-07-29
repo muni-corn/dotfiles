@@ -457,11 +457,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1690649449,
-        "narHash": "sha256-bqiyGdrwDGLVXgjBEbqmsGM+OoTaeGV0jC0xnPnhtEI=",
+        "lastModified": 1690658008,
+        "narHash": "sha256-jw5o5Smhg4ZEo/tTbCjnl2KWW1zwoydwbqx8WGgDqh0=",
         "ref": "main",
-        "rev": "7825e82d7f173a8113e30600c66a5f4f1241b46d",
-        "revCount": 14,
+        "rev": "c8be349acfe8c880ca31987110ff8fa7ad90b836",
+        "revCount": 15,
         "type": "git",
         "url": "https://codeberg.org/municorn/muse-sounds"
       },
