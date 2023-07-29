@@ -330,6 +330,7 @@ in {
         icon-theme = config.gtk.iconTheme.name;
         cursor-theme = config.home.pointerCursor.name;
         font-name = "Inter 12";
+        color-scheme = "prefer-dark";
       };
       "org/gnome/desktop/sound" = {
         theme-name = "musicaflight";
