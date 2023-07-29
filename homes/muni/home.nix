@@ -333,7 +333,7 @@ in {
         color-scheme = "prefer-dark";
       };
       "org/gnome/desktop/sound" = {
-        theme-name = "musicaflight";
+        theme-name = "musicaloft";
         event-sounds = true;
         input-feedback-sounds = true;
       };
