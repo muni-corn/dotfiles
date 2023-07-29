@@ -457,15 +457,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1661922510,
-        "narHash": "sha256-m71LyJOJIpzOyPh6fvbdHnZeocN5+/cR5i/XZ9R72Oc=",
-        "ref": "refs/heads/master",
-        "rev": "9199780c34dcc685b2ee96e29a6092928d37ded5",
-        "revCount": 9,
+        "lastModified": 1690649449,
+        "narHash": "sha256-bqiyGdrwDGLVXgjBEbqmsGM+OoTaeGV0jC0xnPnhtEI=",
+        "ref": "main",
+        "rev": "7825e82d7f173a8113e30600c66a5f4f1241b46d",
+        "revCount": 14,
         "type": "git",
         "url": "https://codeberg.org/municorn/muse-sounds"
       },
       "original": {
+        "ref": "main",
         "type": "git",
         "url": "https://codeberg.org/municorn/muse-sounds"
       }
