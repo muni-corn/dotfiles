@@ -54,7 +54,7 @@
   '';
 in {
   enable = true;
-  package = pkgs.swayfx;
+  package = null;
 
   config = {
     bars = [
