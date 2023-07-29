@@ -132,17 +132,19 @@
                                   :w ["<cmd>set wrap!<cr>" "toggle wrap"]
                                   :x {:name "lsp ..."
                                       :a [telescope-lsp-actions :actions]
+                                      :f ["<cmd>lua vim.lsp.buf.format()<cr>"
+                                          :format]
+                                      :R [telescope-lsp-references :references]
                                       :r ["<cmd>lua vim.lsp.buf.rename()<cr>"
                                           :rename]
                                       :d ["<cmd>lua vim.lsp.buf.declaration()<cr>"
                                           :declarations]
-                                      :f [telescope-lsp-references :references]
                                       :i [telescope-lsp-implementations
                                           :implementations]
                                       :n ["<cmd>lua vim.diagnostic.goto_next({ enable_popup = false })<cr>"
                                           "next diagnostic"]
                                       :p ["<cmd>lua vim.diagnostic.goto_prev({ enable_popup = false })<cr>"
-                                          "last diagnostic"]
+                                          "previous diagnostic"]
                                       :t [:<cmd>TroubleToggle<cr>
                                           "show workspace diagnostics"]
                                       :x [:<cmd>terminal<cr>i
