@@ -29,8 +29,8 @@
   media = "${config.programs.kodi.package}/bin/kodi --windowing=x11";
 
   # sounds
-  volumeDownSound = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/VolumeDown.oga";
-  volumeUpSound = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/Volume.oga";
+  volumeDownSound = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/volume-down.oga";
+  volumeUpSound = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/volume-up.oga";
 
   # package path convenience variables
   ms = "${pkgs.muse-status}/bin/muse-status";
@@ -228,7 +228,7 @@ in {
   "--no-repeat ${sup}+Shift+End" = "exec ${scriptsDir}/prompt_clock_out.fish ${bemenuArgsJoined}";
 
   # exit sway
-  "${sup}+Shift+e" = ''exec "${pkgs.pipewire}/bin/pw-play ${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/Goodbye.oga; swaymsg exit"'';
+  "${sup}+Shift+e" = ''exec "${pkgs.pipewire}/bin/pw-play ${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/desktop-logout.oga; swaymsg exit"'';
 
   # volume and brightness controls
   "--locked XF86AudioLowerVolume" = "exec ${volumeDown}";
