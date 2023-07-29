@@ -221,7 +221,7 @@ in {
         {command = "${wobStartScript}";}
 
         # play startup sound
-        {command = ''canberra-gtk-play --id=desktop-login'';}
+        {command = ''${pkgs.libcanberra}/bin/canberra-gtk-play --id=desktop-login'';}
 
         # polkit
         {command = ''${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1'';}
