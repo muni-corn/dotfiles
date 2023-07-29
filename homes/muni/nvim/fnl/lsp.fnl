@@ -46,7 +46,6 @@
                                                                           :closureReturnTypeHints {:enable :with_block}
                                                                           :lifetimeElisionHints {:enable :skip_trivial}
                                                                           :reborrowHints {:enable :always}}
-                                                             :procMacro {:enable true}
                                                              :diagnostics {:disabled [:unresolved-proc-macro
                                                                                       :unresolved-macro-call
                                                                                       :macro-error]}}}
