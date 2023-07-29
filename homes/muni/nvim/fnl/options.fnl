@@ -60,7 +60,7 @@
   (o :tags "./tags;")
   (o :termguicolors true)
   (o :textwidth 80)
-  (o :timeoutlen 2000)
+  (o :timeoutlen 500)
   (o :title false)
   (o :updatetime 300)
   (o :visualbell false)
