@@ -290,6 +290,7 @@ in {
       BEMENU_BACKEND = "wayland";
       BROWSER = "firefox";
       GTK_THEME = config.gtk.theme.name;
+      GTK_USE_PORTAL = 1;
       LC_COLLATE = "C";
       LEDGER_FILE = "$HOME/notebook/ledger/main.sfox";
       MOZ_ENABLE_WAYLAND = 1;
