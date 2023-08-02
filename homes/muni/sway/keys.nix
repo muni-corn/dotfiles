@@ -31,6 +31,7 @@
   # sounds
   volumeDownSound = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/volume-down.oga";
   volumeUpSound = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/volume-up.oga";
+  volumeUnmuteSound = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/volume-unmute.oga";
 
   # package path convenience variables
   ms = "${pkgs.muse-status}/bin/muse-status";
@@ -59,7 +60,7 @@
     '';
   volumeUp = volumeScript "up" "-i 5" volumeUpSound;
   volumeDown = volumeScript "down" "-d 5" volumeDownSound;
-  toggleMute = volumeScript "toggle-mute" "--toggle-mute" volumeUpSound;
+  toggleMute = volumeScript "toggle-mute" "--toggle-mute" volumeUnmuteSound;
 
   # brightness scripts
   brightnessScript = name: brilloFlags:
