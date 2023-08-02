@@ -263,17 +263,20 @@ in {
   extraConfig = builtins.readFile ./config;
 
   extraSessionCommands = ''
+    export BEMENU_BACKEND=wayland
     export CLUTTER_BACKEND=wayland
     export ECORE_EVAS_ENGINE=wayland-egl
     export ELM_ENGINE=wayland_egl
+    export GTK_THEME=${config.gtk.theme.name}
+    export GTK_USE_PORTAL=1
     export MOZ_ENABLE_WAYLAND=1
     export NO_AT_BRIDGE=1
     export QT_QPA_PLATFORM=wayland-egl
     export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
     export SDL_VIDEODRIVER=wayland
-    export _JAVA_AWT_WM_NONREPARENTING=1
     export XDG_CURRENT_DESKTOP=sway
     export XDG_SESSION_TYPE=wayland
+    export _JAVA_AWT_WM_NONREPARENTING=1
   '';
 
   systemd = {

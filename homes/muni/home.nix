@@ -287,13 +287,9 @@ in {
       # from fish
       ANDROID_EMULATOR_USE_SYSTEM_LIBS = 1;
       BAT_THEME = "base16";
-      BEMENU_BACKEND = "wayland";
       BROWSER = "firefox";
-      GTK_THEME = config.gtk.theme.name;
-      GTK_USE_PORTAL = 1;
       LC_COLLATE = "C";
       LEDGER_FILE = "$HOME/notebook/ledger/main.sfox";
-      MOZ_ENABLE_WAYLAND = 1;
       MOZ_DBUS_REMOTE = 1;
       SUDO_ASKPASS = "ksshaskpass";
       WINEPREFIX = "$HOME/.wine/";
