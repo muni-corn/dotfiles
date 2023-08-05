@@ -67,6 +67,7 @@
 in {
   imports = [
     ./fish.nix
+    ./hyprland
     ./muse
     ./muse-status.nix
     ./programs.nix
