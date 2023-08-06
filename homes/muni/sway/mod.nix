@@ -16,9 +16,6 @@
     size = 12.0;
   };
 
-  # bemenuArgs as a string
-  bemenuArgsJoined = lib.strings.concatStringsSep " " bemenuArgs;
-
   # background colors
   black = "#${colors.background}f2";
   gray = "#${colors.gray}f2";
@@ -187,9 +184,9 @@ in {
       };
     };
 
-    keybindings = import ./keys.nix {inherit config lib pkgs sup alt bemenuArgsJoined lockCmd workspace wallpaperSwitchScript;};
+    keybindings = import ./keys.nix {inherit config lib pkgs sup alt lockCmd workspace wallpaperSwitchScript;};
 
-    menu = "bemenu-run -p 'Run what?' ${bemenuArgsJoined}";
+    menu = "bemenu-run -p 'Run what?'";
 
     # no modes
     modes = {};

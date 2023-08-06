@@ -4,7 +4,6 @@
   pkgs,
   sup,
   alt,
-  bemenuArgsJoined,
   lockCmd,
   workspace,
   wallpaperSwitchScript,
@@ -39,7 +38,7 @@
 
   # scripts
   screenshot = "${scriptsDir}/screenshot.fish";
-  quickCodeScript = import ../quick-code-script.nix {inherit bemenuArgsJoined config pkgs;};
+  quickCodeScript = import ../quick-code-script.nix {inherit config pkgs;};
 
   # volume scripts
   volumeScript = name: pamixerFlags: soundPath:
@@ -138,7 +137,7 @@ in {
 
   # shortcuts for apps
   "--no-repeat ${sup}+Control+b" = ''exec ${terminal} ${withShell "bluetoothctl"}'';
-  "--no-repeat ${sup}+Control+e" = "exec ${scriptsDir}/emoji_menu.fish ${bemenuArgsJoined}";
+  "--no-repeat ${sup}+Control+e" = "exec ${scriptsDir}/emoji_menu.fish";
   "--no-repeat ${sup}+Control+n" = ''exec ${terminalInDir notebookDir} ${withShell "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).norg"}'';
   "--no-repeat ${sup}+Control+p" = "exec ${pkgs.pavucontrol}/bin/pavucontrol";
   "--no-repeat ${sup}+Control+r" = "exec ${scriptsDir}/toggle_gammastep.fish";
@@ -224,9 +223,9 @@ in {
   "--no-repeat ${sup}+Delete" = "exec ${notebookDir}/record_time.fish";
   "--no-repeat ${sup}+Home" = "exec ${notebookDir}/record_time.fish '(clock-in)'";
   "--no-repeat ${sup}+End" = "exec ${notebookDir}/record_time.fish '(clock-out)'";
-  "--no-repeat ${sup}+Shift+Delete" = "exec ${scriptsDir}/prompt_timestamp.fish ${bemenuArgsJoined}";
-  "--no-repeat ${sup}+Shift+Home" = "exec ${scriptsDir}/prompt_clock_in.fish ${bemenuArgsJoined}";
-  "--no-repeat ${sup}+Shift+End" = "exec ${scriptsDir}/prompt_clock_out.fish ${bemenuArgsJoined}";
+  "--no-repeat ${sup}+Shift+Delete" = "exec ${scriptsDir}/prompt_timestamp.fish";
+  "--no-repeat ${sup}+Shift+Home" = "exec ${scriptsDir}/prompt_clock_in.fish";
+  "--no-repeat ${sup}+Shift+End" = "exec ${scriptsDir}/prompt_clock_out.fish";
 
   # exit sway
   "${sup}+Shift+e" = ''exec "${pkgs.pipewire}/bin/pw-play ${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/desktop-logout.oga; swaymsg exit"'';

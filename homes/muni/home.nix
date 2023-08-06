@@ -288,6 +288,7 @@ in {
       # from fish
       ANDROID_EMULATOR_USE_SYSTEM_LIBS = 1;
       BAT_THEME = "base16";
+      BEMENU_OPTS = lib.concatStringsSep " " bemenuArgs;
       BROWSER = "firefox";
       LC_COLLATE = "C";
       LEDGER_FILE = "$HOME/notebook/ledger/main.sfox";
