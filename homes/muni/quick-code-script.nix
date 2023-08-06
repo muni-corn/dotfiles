@@ -17,5 +17,5 @@ pkgs.writeScript "quick-code-script"
 
   ${config.programs.zoxide.package}/bin/zoxide add $dir
 
-  ${pkgs.kitty}/bin/kitty -d $dir -e ${pkgs.fish}/bin/fish -i
+  ${pkgs.kitty}/bin/kitty -1 -d $dir -e ${pkgs.fish}/bin/fish -i
 ''
