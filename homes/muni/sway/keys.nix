@@ -11,7 +11,7 @@
 }: let
   scriptsDir = builtins.path {
     name = "sway-scripts";
-    path = ./scripts;
+    path = ../wm-scripts;
   };
 
   notebookDir = "${config.home.homeDirectory}/notebook/";

@@ -419,7 +419,7 @@ in {
       };
       "sway/scripts" = {
         recursive = true;
-        source = ./sway/scripts;
+        source = ./wm-scripts;
       };
       "wob/wob.ini" = {
         text = ''
