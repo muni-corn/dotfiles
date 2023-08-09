@@ -1,6 +1,6 @@
 #! /usr/bin/env fish
 
-## screenshot.fish ##
+## sway-screenshot.fish ##
 ## takes screenshots for sway. requires dunstify for nice notifications
 
 # format the current time for the screenshot file
