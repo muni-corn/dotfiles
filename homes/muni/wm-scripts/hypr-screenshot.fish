@@ -28,15 +28,9 @@ if test "$argv[1]" = "-s"
     # get status to see if selection was cancelled
     set slurp_status $status
     if test $slurp_status -ne 0
-        dunstify -r $nid "$type cancelled" "No problem!"
+        dunstify "$type cancelled" "No problem!"
         exit $slurp_status
     end
-
-    # close notification before capturing
-    dunstify -C $nid
-
-    # sleep for half a second for notification to close
-    sleep 0.5
 
     # snap! and get status
     grim -g $region $name
@@ -54,12 +48,9 @@ else if test "$argv[1]" = "-o"
     # get status to see if selection was cancelled
     set slurp_status $status
     if test $slurp_status -ne 0
-        dunstify -r $nid "$type cancelled" "No problem!"
+        dunstify "$type cancelled" "No problem!"
         exit $slurp_status
     end
-
-    # sleep for half a second for notification to close
-    sleep 0.5
 
     # snap! and get status
     grim -g $region $name
