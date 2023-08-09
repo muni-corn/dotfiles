@@ -45,7 +45,7 @@
 in {
   dir = scriptsDir;
 
-  screenshot = "${scriptsDir}/screenshot.fish";
+  screenshot = "${scriptsDir}/hypr-screenshot.fish";
   quickCode = import ../quick-code-script.nix {inherit config pkgs;};
 
   volume = {
@@ -67,4 +67,6 @@ in {
     hyprctl hyprpaper wallpaper "HDMI-A-1,$new_wall"
     hyprctl hyprpaper wallpaper "DP-2,$new_wall"
   '';
+  
+  lock = import ./lock_script.nix {inherit config pkgs;};
 }
