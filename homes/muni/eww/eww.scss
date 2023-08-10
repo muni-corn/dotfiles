@@ -1,0 +1,16 @@
+.status-bar {
+    border-radius: 0 0 16px 16px;
+    background: transparent;
+    text-shadow: 0 2px 4px black;
+}
+
+.workspace-entry {
+    color: gray;
+    .current {
+        color: white;
+    }
+}
+.workspaces {
+    padding-left: 32px;
+    padding-right: 16px;
+}

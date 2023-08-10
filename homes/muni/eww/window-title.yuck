@@ -1,0 +1,4 @@
+(deflisten window-title-text :initial "" "fish ~/.config/eww/scripts/get-window-title.fish")
+(defwidget window-title []
+ (label :halign "start"
+        :text "${window-title-text}"))

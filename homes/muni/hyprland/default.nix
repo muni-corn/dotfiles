@@ -107,6 +107,9 @@
         # load last screen brightness
         "brillo -I &"
 
+        # widgets
+        "${config.programs.eww.package}/bin/eww daemon &"
+
         # wob
         "${wobStartScript} &"
 

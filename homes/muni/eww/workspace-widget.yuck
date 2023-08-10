@@ -1,0 +1,16 @@
+(deflisten workspaces_data :initial "[]" "fish ~/.config/eww/scripts/get-workspaces.fish")
+(deflisten current_workspace :initial "" "fish ~/.config/eww/scripts/listen-active-workspace.fish")
+(defwidget workspaces []
+ (box :class "workspaces"
+      :orientation "h"
+      :spacing 16
+  ; idk why this has to be here, but the active workspace doesn't work
+  ; without it
+  (label :text current_workspace :visible false)
+
+  (for workspace in workspaces_data
+   (eventbox :class "workspace-entry"
+             :visible {workspace.windows > 0 || workspace.id == current_workspace}
+             :onclick "hyprctl dispatch workspace ${workspace.id}"
+     (label :class {workspace.id == current_workspace ? "current" : ""}
+            :text "${workspace.id}")))))

@@ -116,7 +116,6 @@ in {
       [
         # desktop environment
         bemenu
-        eww-wayland
         glib # for gtk theming
         ksshaskpass
         polkit_gnome
