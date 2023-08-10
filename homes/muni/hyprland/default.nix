@@ -122,19 +122,19 @@
       ];
 
       bezier = [
-        "museOut,0.3,0,0.15,1"
-        "museIn,0.15,0,0.3,1"
+        "museOut,0,0,0.15,1"
+        "museIn,0,0,1,0.15"
         "museInOut,0.5,0,0,1"
       ];
 
       # animation
       animation = [
-        "windowsIn,1,2.5,museOut,popin 90%"
-        "windowsOut,1,2.5,museIn,popin 90%"
-        "windowsMove,1,2.5,museInOut"
-        "fadeIn,1,2.5,museOut"
-        "fadeOut,1,2.5,museIn"
-        "workspaces,1,2.5,museInOut"
+        "windowsIn,1,2,museOut,popin 75%"
+        "windowsOut,1,2,museIn,popin 75%"
+        "windowsMove,1,3,museInOut"
+        "fadeIn,1,2,museOut"
+        "fadeOut,1,2,museIn"
+        "workspaces,1,4,museInOut"
       ];
 
       monitor = [
