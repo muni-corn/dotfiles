@@ -118,7 +118,6 @@ in {
         bemenu
         glib # for gtk theming
         ksshaskpass
-        polkit_gnome
 
         # audio, sound, and music
         ChowKick
