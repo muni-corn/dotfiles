@@ -326,9 +326,6 @@
     };
 
     xserver = {
-      # Enable the Plasma 5 Desktop Environment.
-      desktopManager.plasma5.enable = true;
-
       # Configure keymap in X11
       layout = "us";
 
