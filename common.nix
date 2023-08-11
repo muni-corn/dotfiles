@@ -73,8 +73,9 @@
       # needed for xdg-open and such
       xdg-utils
 
-      # needed for sway
+      # needed for sway/hyprland
       qt5.qtwayland
+      qt6.qtwayland
     ];
 
     systemPackages = with pkgs; [
@@ -130,7 +131,7 @@
     # Ledger
     ledger.enable = true;
 
-    # enable driSupport for sway
+    # enable driSupport for sway/hyprland
     opengl = {
       enable = true;
       driSupport = true;
