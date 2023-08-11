@@ -17,5 +17,6 @@ pkgs.writeScript "quick-code-script"
 
   ${config.programs.zoxide.package}/bin/zoxide add $dir
 
-  ${pkgs.kitty}/bin/kitty -1 -d $dir -e ${pkgs.fish}/bin/fish -i
+  # can't use -1 flag here; kitty cannot open in the specified directory if used
+  ${pkgs.kitty}/bin/kitty -d $dir -e ${pkgs.fish}/bin/fish -i
 ''
