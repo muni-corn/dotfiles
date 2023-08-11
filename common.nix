@@ -204,6 +204,8 @@
 
     gphoto2.enable = true;
 
+    hyprland.enable = true;
+
     java = {
       enable = true;
       package = pkgs.jdk;
@@ -217,8 +219,9 @@
       enable = true;
       remotePlay.openFirewall = true;
     };
+
     sway = {
-      enable = true;
+      enable = false;
       extraPackages = with pkgs; [
         grim
         kitty
@@ -264,7 +267,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet -r -t --time-format '%-I:%M %P  %a, %b %-d' --asterisks --power-shutdown 'systemctl poweroff' --power-reboot 'systemctl reboot' --cmd sway";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet -r -t --time-format '%-I:%M %P  %a, %b %-d' --asterisks --power-shutdown 'systemctl poweroff' --power-reboot 'systemctl reboot' --cmd Hyprland";
         };
       };
     };
