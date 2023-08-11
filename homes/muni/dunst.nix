@@ -1,4 +1,5 @@
 {
+  config,
   lib,
   pkgs,
   bemenuArgs,
@@ -6,13 +7,13 @@
 }: {
   enable = true;
   iconTheme = {
-    package = pkgs.arc-icon-theme;
-    name = "Arc";
+    inherit (config.gtk.iconTheme) package name;
     size = "48x48";
   };
   settings = {
     global = {
       browser = "firefox";
+      corner_radius = 8;
       dmenu = "bemenu -p 'Do what?'";
       ellipsize = "end";
       follow = "mouse";
@@ -20,10 +21,10 @@
       foreground = "#${colors.white}";
       format = "<b>%s</b>\\n%b";
       frame_color = "#${colors.gray}e5";
-      frame_width = 4;
+      frame_width = 2;
       width = 384;
       height = 384;
-      offset = "0x0";
+      offset = "4x4";
       highlight = "#${colors.alert}";
       history_length = -1;
       horizontal_padding = 32;

@@ -7,7 +7,7 @@
   lockCmd,
   pkgs,
 }: {
-  dunst = import ./dunst.nix {inherit lib pkgs bemenuArgs colors;};
+  dunst = import ./dunst.nix {inherit config lib pkgs bemenuArgs colors;};
 
   gammastep = {
     enable = true;
