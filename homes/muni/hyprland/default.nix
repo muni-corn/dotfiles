@@ -20,6 +20,38 @@
     wob
   ];
 
+  services.swayidle = let
+    lockCmd = import ./lock_script.nix {inherit config pkgs;};
+  in {
+    enable = true;
+
+    events = [
+      {
+        event = "before-sleep";
+        command = "${lockCmd}";
+      }
+    ];
+    timeouts = let
+      lockWarningCmd = "${pkgs.libnotify}/bin/notify-send -u low -t 29500 'Are you still there?' 'Your system will lock itself soon.'";
+      powerOff = "${pkgs.sway}/bin/swaymsg 'output * power off'";
+      powerOn = "${pkgs.sway}/bin/swaymsg 'output * power on'";
+    in [
+      {
+        timeout = 570;
+        command = lockWarningCmd;
+      }
+      {
+        timeout = 600;
+        command = "${lockCmd}";
+      }
+      {
+        timeout = 610;
+        command = powerOff;
+        resumeCommand = powerOn;
+      }
+    ];
+  };
+
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
