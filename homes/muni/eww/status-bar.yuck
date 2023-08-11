@@ -1,12 +1,12 @@
 (include "./window-title.yuck")
 (include "./workspace-widget.yuck")
 
-(defwidget status-bar-left []
+(defwidget status-bar-left [monitor]
  (box :orientation "horizontal"
       :halign "start"
       :spacing 16
       :space-evenly false
-      (workspaces) (window-title)))
+      (workspaces :monitor monitor) (window-title :monitor monitor)))
 
 (deflisten muse-status-primary :initial ""
  `muse-status -m markup sub primary`)
@@ -14,20 +14,28 @@
 (deflisten muse-status-secondary :initial ""
  `muse-status -m markup sub secondary`)
 
-(defwidget status []
- (centerbox :orientation "horizontal"
-  (status-bar-left :width 0 :halign "start")
+(defwidget status [monitor]
+ (centerbox :orientation "horizontal" :class "status-bar"
+  (status-bar-left :monitor monitor :width 0 :halign "start")
   (label :markup muse-status-primary)
   (label :markup muse-status-secondary
          :halign "end"
          :style "padding-right: 32px;")))
 
-(defwindow status-bar
- :monitor 0
- :geometry (geometry :width "100%"
-                     :height "32px"
-                     :anchor "top center")
- :exclusive true
- :stacking "fg"
- :windowtype "dock"
- (status))
+(defwindow status-bar-0 :monitor 0
+                        :geometry (geometry :width "100%"
+                                            :height "32px"
+                                            :anchor "top center")
+                        :exclusive true
+                        :stacking "fg"
+                        :windowtype "dock"
+                        (status :monitor "DP-2"))
+
+(defwindow status-bar-1 :monitor 1
+                        :geometry (geometry :width "100%"
+                                            :height "32px"
+                                            :anchor "top center")
+                        :exclusive true
+                        :stacking "fg"
+                        :windowtype "dock"
+                        (status :monitor "HDMI-A-1"))
