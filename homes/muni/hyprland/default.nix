@@ -10,11 +10,14 @@
 
   home.packages = with pkgs; [
     grim
-    slurp
     hyprpaper
-    wob
+    hyprpicker
+    hyprland-share-picker
+    slurp
     swayidle
     swaylock
+    wl-clipboard
+    wob
   ];
 
   wayland.windowManager.hyprland = {
