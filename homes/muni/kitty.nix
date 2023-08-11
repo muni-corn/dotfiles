@@ -27,7 +27,7 @@ in {
     bold_italic_font = "${fontName} Bold Italic";
 
     # theme colors
-    background_opacity = "0.95";
+    background_opacity = "0.90";
     active_border_color = "#${colors.silver}";
     active_tab_background = "#${colors.dark-gray}";
     active_tab_foreground = "#${colors.white}";
