@@ -343,6 +343,7 @@ in {
     cursorTheme = {
       package = pkgs.bibata-cursors;
       name = "Bibata-Original-Classic";
+      size = 24;
     };
     font = config.muse.theme.sansFont;
     iconTheme = {
