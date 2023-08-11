@@ -13,7 +13,7 @@
   settings = {
     global = {
       browser = "firefox";
-      corner_radius = 8;
+      corner_radius = 16;
       dmenu = "bemenu -p 'Do what?'";
       ellipsize = "end";
       follow = "mouse";
