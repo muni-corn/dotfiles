@@ -4,7 +4,6 @@
   config,
   deviceInfo,
   lib,
-  lockCmd,
   pkgs,
 }: {
   dunst = import ./dunst.nix {inherit config lib pkgs bemenuArgs colors;};

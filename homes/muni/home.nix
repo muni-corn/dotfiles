@@ -63,7 +63,6 @@
     "--scf"
     (q accent)
   ];
-  lockCmd = import ./lock_script.nix {inherit config pkgs;};
 in {
   imports = [
     ./fish.nix
@@ -364,12 +363,12 @@ in {
   };
 
   services = import ./services.nix {
-    inherit bemenuArgs config deviceInfo lib lockCmd pkgs;
+    inherit bemenuArgs config deviceInfo lib pkgs;
     colors = config.muse.theme.finalPalette;
   };
 
   wayland.windowManager.sway = import ./sway/mod.nix {
-    inherit config lib pkgs bemenuArgs lockCmd;
+    inherit config lib pkgs bemenuArgs;
     colors = config.muse.theme.finalPalette;
   };
 

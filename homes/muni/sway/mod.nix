@@ -4,7 +4,6 @@
   pkgs,
   bemenuArgs,
   colors,
-  lockCmd,
   ...
 }: let
   sup = "Mod4";
@@ -49,6 +48,7 @@
     mkfifo $SWAYSOCK.wob
     tail -f $SWAYSOCK.wob | ${pkgs.wob}/bin/wob
   '';
+  lockCmd = import ./lock_script.nix {inherit config pkgs;};
 in {
   enable = true;
   package = null;

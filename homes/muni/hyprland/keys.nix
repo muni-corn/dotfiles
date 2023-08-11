@@ -22,8 +22,6 @@
   };
 
   scripts = import ./scripts.nix {inherit config pkgs shell;};
-
-  lockCmd = import ../lock_script.nix {inherit config pkgs;};
 in {
   wayland.windowManager.hyprland.settings = {
     bind = [
@@ -106,7 +104,7 @@ in {
       (b "SUPER" "w" "exec" apps.browser)
 
       # lock
-      (b "SUPER" "Escape" "exec" lockCmd)
+      (b "SUPER" "Escape" "exec" scripts.lock)
 
       # notifications
       (b "CTRL" "Escape" "exec" "dunstctl close")
