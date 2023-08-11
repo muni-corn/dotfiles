@@ -82,7 +82,7 @@
         "col.group_border_locked_active" = rgba colors.light-gray defaultAlpha;
         "col.inactive_border" = rgba colors.black defaultAlpha;
         border_size = 2;
-        gaps_in = 16;
+        gaps_in = 8;
         gaps_out = 16;
         resize_on_border = true;
       };
