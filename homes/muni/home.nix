@@ -376,6 +376,11 @@ in {
   xdg = {
     enable = true;
     configFile = {
+      "eww-colors.scss".text = ''
+        $bg: #${config.muse.theme.finalPalette.background};
+        $fg: #${config.muse.theme.finalPalette.foreground};
+        $dim: #${config.muse.theme.finalPalette.accent};
+      '';
       "inkscape/palettes/solarized_dark.gpl" = {
         source = ./inkscape/solarized_dark.gpl;
       };
