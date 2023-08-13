@@ -75,6 +75,10 @@ in {
       (b "SUPER_ALT" "Up" "resizeactive" "0 -20")
       (b "SUPER_ALT" "Right" "resizeactive" "20 0")
 
+      # special workspaces (minimize)
+      (b "SUPER" "v" "movetoworkspace" "special")
+      (b "SUPER_SHIFT" "v" "togglespecialworkspace" "")
+
       # other window controls
       (b "SUPER" "q" "killactive" "")
       (b "SUPER" "x" "pin" "")
@@ -201,9 +205,6 @@ in {
 #   # mobile (as in cell phone) width
 #   (b "SUPER" "m" "resizeactive" "set width 512 px")
 #
-#   # scratchpad (minimize)
-#   (b "SUPER" "v" "movewindow" "scratchpad")
-#   (b "SUPER_SHIFT" "v" "scratchpad show")
 #
 #   # record clock times (easy clock-in or clock-out :))
 #   (b "SUPER" "Delete" "exec" "${notebookDir}/record_time.fish")
