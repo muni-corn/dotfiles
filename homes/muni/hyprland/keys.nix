@@ -170,6 +170,12 @@ in {
       (b "" "XF86AudioPrev" "exec" "playerctl previous")
     ];
 
+    # mouse binds
+    bindm = [
+      (b "SUPER" "mouse:272" "movewindow" null)
+      (b "SUPER" "mouse:273" "resizewindow" null)
+    ];
+
     # triggered on release
     bindr = [
       # screen capture
