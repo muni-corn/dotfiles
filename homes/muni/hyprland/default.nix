@@ -172,7 +172,7 @@
         "windowsMove,1,3,museInOut"
         "fadeIn,1,2,museOut"
         "fadeOut,1,2,museIn"
-        "workspaces,1,4,museInOut"
+        "workspaces,1,4,museInOut,slidevert"
       ];
 
       layerrule = [
