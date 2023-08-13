@@ -13,7 +13,7 @@
   white = "#${config.muse.theme.finalPalette.foreground}";
   accent = "#${config.muse.theme.finalPalette.accent}e5";
 
-  q = s: "'${s}'";
+  q = s: ''"${s}"'';
   bemenuArgs = [
     "-i"
     "-m"
