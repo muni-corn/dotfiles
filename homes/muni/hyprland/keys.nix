@@ -84,6 +84,7 @@ in {
       (b "SUPER" "x" "pin" "")
       (b "SUPER" "f" "fullscreen" "0")
       (b "SUPER" "s" "togglefloating" "") # TODO: reset border from floating video?
+      (b "SUPER" "u" "focusurgentorlast" "")
 
       # toggle groups
       (b "SUPER" "g" "togglegroup" "")
