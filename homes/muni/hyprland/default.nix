@@ -123,6 +123,7 @@
       # envs
       env = [
         "BEMENU_BACKEND,wayland"
+        "BEMENU_OPTS,${config.home.sessionVariables.BEMENU_OPTS}"
         "CLUTTER_BACKEND,wayland"
         "ECORE_EVAS_ENGINE,wayland-egl"
         "ELM_ENGINE,wayland_egl"
