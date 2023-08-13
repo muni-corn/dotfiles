@@ -28,7 +28,7 @@ in {
       # open terminal
       (b "SUPER" "Enter" "exec" terminal)
 
-      #   # power controls
+      # power controls
       (b "SUPER_CTRL_ALT" "o" "exec" "systemctl poweroff")
       (b "SUPER_CTRL_ALT" "b" "exec" "systemctl reboot")
       (b "SUPER_CTRL_ALT" "s" "exec" "systemctl suspend")

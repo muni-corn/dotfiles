@@ -160,13 +160,12 @@
         "${scripts.switchWallpaper}"
       ];
 
+      # animation
       bezier = [
         "museOut,0,0,0.15,1"
         "museIn,0,0,1,0.15"
         "museInOut,0.5,0,0,1"
       ];
-
-      # animation
       animation = [
         "windowsIn,1,2,museOut,popin 75%"
         "windowsOut,1,2,museIn,popin 75%"
