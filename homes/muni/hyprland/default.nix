@@ -176,6 +176,13 @@
         "workspaces,1,4,museInOut"
       ];
 
+      layerrule = [
+        "blur,gtk-layer-shell"
+        "blur,notifications"
+        "ignorezero,gtk-layer-shell"
+        "ignorealpha 0.4,notifications"
+      ];
+
       monitor = [
         "HDMI-A-1,1920x1080,0x0,1"
         "DP-2,1920x1080,1920x0,1"
