@@ -1,8 +1,8 @@
 @use "../eww-colors.scss";
 
 .status-bar-0, .status-bar-1 {
-    border-radius: 0 0 16px 16px;
-    background: rgba(#192330, 0.9);
+    background: rgba($bg, 0.5);
+    text-shadow: 0 2px 4px black;
 }
 
 .workspace-entry {
