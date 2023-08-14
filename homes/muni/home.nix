@@ -376,7 +376,8 @@ in {
   xdg = {
     enable = true;
     configFile = {
-      "eww-colors.scss".text = ''
+      eww.recursive = true;
+      "eww/colors.scss".text = ''
         $bg: #${config.muse.theme.finalPalette.background};
         $fg: #${config.muse.theme.finalPalette.foreground};
         $dim: #${config.muse.theme.finalPalette.accent};
