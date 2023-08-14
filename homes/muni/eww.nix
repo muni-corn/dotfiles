@@ -6,19 +6,23 @@ in {
     package = pkgs.eww-wayland;
     configDir = ./eww;
   };
-  xdg.configFile = {
+  xdg.configFile = let
+    bg = colors.background;
+    fg = colors.foreground;
+    dim = colors.dark-green;
+  in {
     eww.recursive = true;
     "eww/colors.scss".text = ''
-      $bg: #${colors.background};
-      $fg: #${colors.foreground};
-      $dim: #${colors.accent};
+      $bg: #${bg};
+      $fg: #${fg};
+      $dim: #${dim};
     '';
     "eww/muse-status.yuck".text = ''
       (deflisten muse-status-primary :initial ""
-       `muse-status -m markup sub primary -p ${colors.foreground} -s ${colors.accent}`)
+       `muse-status -m markup sub primary -p ${fg} -s ${dim}`)
 
       (deflisten muse-status-secondary :initial ""
-       `muse-status -m markup sub secondary -p ${colors.foreground} -s ${colors.accent}`)
+       `muse-status -m markup sub secondary -p ${fg} -s ${dim}`)
     '';
   };
 }
