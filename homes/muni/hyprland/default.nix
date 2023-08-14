@@ -204,6 +204,7 @@
         "nofocus,title:^(Firefox — Sharing Indicator)$"
         "move 50% 100%,title:^(Firefox — Sharing Indicator)$"
         "noblur,title:^(Firefox — Sharing Indicator)$"
+        "float,class:^(xdg-desktop-portal-gtk)$"
       ];
     };
   };
