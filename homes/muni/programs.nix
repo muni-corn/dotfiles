@@ -168,12 +168,6 @@
 
     kitty = import ./kitty.nix {inherit config pkgs;};
 
-    lazygit.enable = true;
-
-    mbsync.enable = true;
-
-    neomutt.enable = true;
-
     # fish integration enabled by default
     nix-index.enable = true;
 
