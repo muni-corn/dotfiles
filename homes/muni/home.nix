@@ -70,6 +70,7 @@ in {
     ./hyprland
     ./muse
     ./muse-status.nix
+    ./nnn.nix
     ./programs.nix
     ./nvim
     ./systemd.nix
