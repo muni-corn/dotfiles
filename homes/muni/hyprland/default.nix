@@ -96,6 +96,7 @@
         rounding = 8;
         shadow_offset = "0 8";
         shadow_range = 32;
+        shadow_render_power = 2;
       };
 
       input = {
