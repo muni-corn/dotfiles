@@ -21,12 +21,6 @@
       nix-direnv.enable = true;
     };
 
-    eww = {
-      enable = true;
-      package = pkgs.eww-wayland;
-      configDir = ./eww;
-    };
-
     exa = {
       enable = true;
       enableAliases = true;

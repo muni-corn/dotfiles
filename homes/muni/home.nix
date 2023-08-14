@@ -65,6 +65,7 @@
   ];
 in {
   imports = [
+    ./eww.nix
     ./fish.nix
     ./hyprland
     ./muse
@@ -376,12 +377,6 @@ in {
   xdg = {
     enable = true;
     configFile = {
-      eww.recursive = true;
-      "eww/colors.scss".text = ''
-        $bg: #${config.muse.theme.finalPalette.background};
-        $fg: #${config.muse.theme.finalPalette.foreground};
-        $dim: #${config.muse.theme.finalPalette.accent};
-      '';
       "inkscape/palettes/solarized_dark.gpl" = {
         source = ./inkscape/solarized_dark.gpl;
       };
