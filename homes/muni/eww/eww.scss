@@ -5,9 +5,9 @@
 }
 
 .workspace-entry {
-    color: gray;
+    color: $dim;
     .current {
-        color: white;
+        color: $fg;
     }
 }
 
