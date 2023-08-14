@@ -114,6 +114,7 @@
         vrr = 0;
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
+        disable_splash_rendering = true;
       };
 
       # binds
