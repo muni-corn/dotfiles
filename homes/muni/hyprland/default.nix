@@ -115,6 +115,8 @@
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
         disable_splash_rendering = true;
+        groupbar_titles_font_size = 12;
+        groupbar_gradients = false;
       };
 
       # binds
