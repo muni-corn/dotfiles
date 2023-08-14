@@ -1,5 +1,6 @@
 (include "./window-title.yuck")
 (include "./workspace-widget.yuck")
+(include "./muse-status.yuck")
 
 (defwidget status-bar-left [monitor]
  (box :orientation "horizontal"
@@ -7,12 +8,6 @@
       :spacing 16
       :space-evenly false
       (workspaces :monitor monitor) (window-title :monitor monitor)))
-
-(deflisten muse-status-primary :initial ""
- `muse-status -m markup sub primary`)
-
-(deflisten muse-status-secondary :initial ""
- `muse-status -m markup sub secondary`)
 
 (defwidget status [monitor]
  (centerbox :orientation "horizontal" :class "status-bar"

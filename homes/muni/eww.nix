@@ -13,5 +13,12 @@ in {
       $fg: #${colors.foreground};
       $dim: #${colors.accent};
     '';
+    "eww/muse-status.yuck".text = ''
+      (deflisten muse-status-primary :initial ""
+       `muse-status -m markup sub primary -p ${colors.foreground} -s ${colors.accent}`)
+
+      (deflisten muse-status-secondary :initial ""
+       `muse-status -m markup sub secondary -p ${colors.foreground} -s ${colors.accent}`)
+    '';
   };
 }
