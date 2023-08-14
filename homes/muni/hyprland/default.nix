@@ -89,12 +89,13 @@
 
       decoration = {
         "col.shadow" = rgba "000000" "80";
+        blur_passes = 1;
+        blur_size = 16;
+        dim_around = 0.5;
+        dim_special = 0.5;
         rounding = 8;
         shadow_offset = "0 8";
         shadow_range = 32;
-
-        blur_size = 16;
-        blur_passes = 3;
       };
 
       input = {
