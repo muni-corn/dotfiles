@@ -89,7 +89,7 @@
 
       decoration = {
         "col.shadow" = rgba "000000" "80";
-        blur_passes = 1;
+        blur_passes = 2;
         blur_size = 16;
         dim_around = 0.5;
         dim_special = 0.5;
