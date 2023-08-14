@@ -191,6 +191,13 @@
         "HDMI-A-1,1920x1080,0x0,1"
         "DP-2,1920x1080,1920x0,1"
       ];
+
+      windowrulev2 = [
+        "float,title:^(Firefox — Sharing Indicator)$"
+        "nofocus,title:^(Firefox — Sharing Indicator)$"
+        "move 50% 100%,title:^(Firefox — Sharing Indicator)$"
+        "noblur,title:^(Firefox — Sharing Indicator)$"
+      ];
     };
   };
 }
@@ -311,10 +318,6 @@
 #         {
 #           command = "floating enable, resize set 600 px 400 px";
 #           criteria = {title = "Page Unresponsive";};
-#         }
-#         {
-#           command = "floating enable, resize set 64 px 32 px, move position 256 px -70 px, border csd";
-#           criteria = {title = "Firefox — Sharing Indicator";};
 #         }
 #         {
 #           command = "floating enable, sticky enable, resize set 30 ppt 60 ppt";
