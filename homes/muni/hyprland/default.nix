@@ -339,11 +339,3 @@
 #   wrapperFeatures.gtk = true;
 # }
 #
-# misc options
-# default_orientation auto
-# floating_maximum_size 1856 x 1016
-# floating_minimum_size -1 x -1
-# title_align center
-# titlebar_padding 4
-# titlebar_border_thickness 4
-
