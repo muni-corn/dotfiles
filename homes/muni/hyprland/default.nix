@@ -121,6 +121,10 @@
         workspace_back_and_forth = true;
       };
 
+      dwindle = {
+        no_gaps_when_only = true;
+      };
+
       # envs
       env = [
         "BEMENU_BACKEND,wayland"
