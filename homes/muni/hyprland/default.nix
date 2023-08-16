@@ -208,51 +208,12 @@ in {
 }
 # TODO migrate from sway:
 #
-#   font = {
-#     names = ["Inter"];
-#     style = "Regular";
-#     size = 12.0;
-#   };
-#
 #   config = {
 #     bars = [
 #       {
-#         fonts = font;
-#         position = "top";
-#         extraConfig = ''
-#           separator_symbol "    "
-#           status_edge_padding 16
-#           height 32
-#           modifier "${sup}"
-#         '';
-#         statusCommand = "${pkgs.muse-status}/bin/muse-status sub a -m i3 -p ${colors.white} -s ${colors.silver}";
 #         trayOutput = "*";
 #         trayPadding = 8;
-#         workspaceButtons = true;
 #         colors = {
-#           background = black;
-#           separator = accent;
-#           statusline = white;
-#           bindingMode = {
-#             background = black;
-#             border = black;
-#             text = warning;
-#           };
-#           activeWorkspace = {
-#             background = black;
-#             border = black;
-#             text = accent;
-#           };
-#           focusedWorkspace = {
-#             background = black;
-#             border = black;
-#             text = white;
-#           };
-#           inactiveWorkspace = {
-#             background = black;
-#             border = black;
-#             text = gray;
-#           };
 #           urgentWorkspace = {
 #             background = warning;
 #             border = warning;
@@ -263,9 +224,6 @@ in {
 #     ];
 #
 #     floating = {
-#       modifier = sup;
-#       titlebar = true;
-#
 #       criteria = [
 #         {title = "Lutris";}
 #         {title = "^OpenRGB$";}
@@ -289,28 +247,6 @@ in {
 #
 #       "1386:855:Wacom_Intuos_Pro_M_Finger" = {
 #         natural_scroll = "enabled";
-#       };
-#
-#       "*" = {
-#         xkb_layout = "us";
-#         xkb_options = "compose:menu";
-#       };
-#     };
-#
-#     menu = "bemenu-run -p 'Run what?'";
-#
-#     output = {
-#       # for laptop
-#       "eDP-1" = {
-#         pos = "0 0";
-#       };
-#
-#       # for ponycastle
-#       "Acer Technologies SB220Q 0x00007C0D" = {
-#         pos = "0 540";
-#       };
-#       "Acer Technologies SB220Q 0x000035FB" = {
-#         pos = "1920 0";
 #       };
 #     };
 #
