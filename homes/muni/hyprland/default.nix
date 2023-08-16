@@ -184,7 +184,7 @@ in {
         "blur,gtk-layer-shell"
         "blur,notifications"
         "ignorezero,gtk-layer-shell"
-        "ignorealpha 0.4,notifications"
+        "ignorealpha 0.5,notifications"
       ];
 
       monitor = [
