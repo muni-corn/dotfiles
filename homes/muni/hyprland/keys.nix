@@ -100,7 +100,7 @@ in {
       (b "SUPER_SHIFT" "b" "exec" ''${terminalInDir notebookDir} ${withShell "nvim ${notebookDir}/bored.norg"}'')
       (b "SUPER_SHIFT" "m" "exec" apps.media)
       (b "SUPER_SHIFT" "n" "exec" ''${terminalInDir notebookDir} ${withShell "nnn ${notebookDir}"}'')
-      (b "SUPER" "a" "exec" config.wayland.windowManager.sway.config.menu)
+      (b "SUPER" "a" "exec" "bemenu-run -p 'Run what?'")
       (b "SUPER" "c" "exec" ''${terminal} ${withShell "qalc"}'')
       (b "SUPER" "b" "exec" apps.music)
       (b "SUPER" "e" "exec" ''${terminal} ${withShell "nnn"}'')
