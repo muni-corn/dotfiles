@@ -1,6 +1,10 @@
 {config, pkgs, ...}: let
   colors = config.muse.theme.finalPalette;
 in {
+  home.packages = with pkgs; [
+    socat
+  ];
+
   programs.eww = {
     enable = true;
     package = pkgs.eww-wayland;
