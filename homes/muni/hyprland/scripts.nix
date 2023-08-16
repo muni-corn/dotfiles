@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  shell,
   ...
 }: let
   scriptsDir = builtins.path {
@@ -22,7 +21,7 @@
 
   mkVolumeScript = name: pamixerFlags: soundPath:
     pkgs.writeScript "volume-${name}" ''
-      #!${shell}
+      #!${config.programs.fish.package}/bin/fish
       if set -q VOLUME_CTL_DEFAULT_SINK
         ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" ${pamixerFlags}
         ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" --get-volume > $SWAYSOCK.wob &

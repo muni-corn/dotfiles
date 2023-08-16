@@ -3,7 +3,9 @@
   lib,
   pkgs,
   ...
-}: {
+}: let
+  scripts = import ./scripts.nix {inherit config pkgs;};
+in {
   imports = [
     ./keys.nix
   ];
@@ -20,15 +22,13 @@
     wob
   ];
 
-  services.swayidle = let
-    lockCmd = import ./lock_script.nix {inherit config pkgs;};
-  in {
+  services.swayidle = {
     enable = true;
 
     events = [
       {
         event = "before-sleep";
-        command = "${lockCmd}";
+        command = "${scripts.lock}";
       }
     ];
     timeouts = let
@@ -42,7 +42,7 @@
       }
       {
         timeout = 600;
-        command = "${lockCmd}";
+        command = "${scripts.lock}";
       }
       {
         timeout = 610;
@@ -69,10 +69,6 @@
         mkfifo $XDG_RUNTIME_DIR/hypr.wob
         tail -f $XDG_RUNTIME_DIR/hypr.wob | ${pkgs.wob}/bin/wob
       '';
-      scripts = import ./scripts.nix {
-        inherit config pkgs;
-        shell = "${config.programs.fish.package}/bin/fish";
-      };
     in {
       general = {
         "col.active_border" = rgba colors.accent defaultAlpha;
