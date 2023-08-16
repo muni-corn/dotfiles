@@ -244,6 +244,13 @@
 
     # for secure boot (i hope)
     tpm2.enable = true;
+
+    # for swaylock to use password
+    pam.services.swaylock = {
+      text = ''
+        auth include login
+      '';
+    };
   };
 
   services = {
