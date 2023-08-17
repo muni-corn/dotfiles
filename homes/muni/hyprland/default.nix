@@ -85,14 +85,20 @@ in {
 
       decoration = {
         "col.shadow" = rgba "000000" "80";
-        blur_passes = 2;
-        blur_size = 16;
         dim_around = 0.5;
         dim_special = 0.5;
         rounding = 8;
         shadow_offset = "0 8";
         shadow_range = 32;
         shadow_render_power = 2;
+
+        blur = {
+          passes = 2;
+          size = 16;
+          noise = 0.25;
+          contrast = 1.0;
+          brightness = 1.0;
+        };
       };
 
       input = {
