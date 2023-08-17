@@ -3,6 +3,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
 
+    # hyprland from git
+    hyprland.url = "github:hyprwm/Hyprland?ref=main";
+
     # realtime audio
     musnix = {
       url = "github:musnix/musnix";
@@ -56,6 +59,7 @@
     self,
     nixpkgs,
     home-manager,
+    hyprland,
     arpeggio,
     iosevka-muse,
     matchpal,
@@ -67,7 +71,6 @@
     nixos-hardware,
     plymouth-theme-musicaloft-rainbow,
     nvim-dap-vscode-js,
-    ...
   } @ inputs: let
     lockFile = nixpkgs.lib.importJSON ./flake.lock;
 
@@ -80,6 +83,7 @@
       neorg.overlays.default
       neovim-nightly-overlay.overlay
       plymouth-theme-musicaloft-rainbow.overlay
+      hyprland.overlays.default
     ];
 
     overlaysModule = {
