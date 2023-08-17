@@ -166,7 +166,6 @@
     settings = {
       auto-optimise-store = true;
       allowed-users = ["muni"];
-      sandbox = true;
     };
   };
 
