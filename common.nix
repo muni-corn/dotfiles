@@ -166,6 +166,8 @@
     settings = {
       auto-optimise-store = true;
       allowed-users = ["muni"];
+      substituters = ["https://cache.nixos.org"];
+      trusted-users = ["root" "muni"];
     };
   };
 
