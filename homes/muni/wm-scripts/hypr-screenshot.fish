@@ -33,6 +33,7 @@ if test "$argv[1]" = "-s"
     end
 
     # snap! and get status
+    sleep 0.3s
     grim -g $region $name
     set grim_status $status
     kill $picker_pid
@@ -53,6 +54,7 @@ else if test "$argv[1]" = "-o"
     end
 
     # snap! and get status
+    sleep 0.3s
     grim -g $region $name
     set grim_status $status
     kill $picker_pid
