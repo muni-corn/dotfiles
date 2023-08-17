@@ -107,7 +107,6 @@
       };
       ponycastle = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = {flake-inputs = inputs;};
         modules = [overlaysModule] ++ ponycastleHardwareModules ++ [musnix.nixosModules.musnix ./desktop];
       };
     };
