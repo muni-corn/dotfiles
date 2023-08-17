@@ -83,10 +83,6 @@
       nixpkgs.overlays = overlays;
     };
 
-    extraCommonModules = [
-      overlaysModule
-    ];
-
     littleponyHardwareModules = with nixos-hardware.nixosModules; [
       common-cpu-amd
       common-gpu-amd
@@ -107,12 +103,12 @@
     nixosConfigurations = {
       littlepony = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = extraCommonModules ++ littleponyHardwareModules ++ [musnix.nixosModules.musnix ./laptop];
+        modules = [overlaysModule] ++ littleponyHardwareModules ++ [musnix.nixosModules.musnix ./laptop];
       };
       ponycastle = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = {flake-inputs = inputs;};
-        modules = extraCommonModules ++ ponycastleHardwareModules ++ [musnix.nixosModules.musnix ./desktop];
+        modules = [overlaysModule] ++ ponycastleHardwareModules ++ [musnix.nixosModules.musnix ./desktop];
       };
     };
 
