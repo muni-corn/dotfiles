@@ -7,10 +7,7 @@
     hyprland.url = "github:hyprwm/Hyprland?ref=main";
 
     # realtime audio
-    musnix = {
-      url = "github:musnix/musnix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    musnix.url = "github:musnix/musnix";
 
     # neorg overlay for up-to-date neorg stuff
     neorg.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
@@ -35,19 +32,11 @@
 
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
 
-    matchpal = {
-      url = "git+https://codeberg.org/municorn/matchpal?ref=dithering";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    matchpal.url = "git+https://codeberg.org/municorn/matchpal?ref=dithering";
 
-    muse-status = {
-      url = "git+https://codeberg.org/municorn/muse-status?ref=unstable";
-    };
+    muse-status.url = "git+https://codeberg.org/municorn/muse-status?ref=unstable";
 
-    muse-sounds = {
-      url = "git+https://codeberg.org/municorn/muse-sounds?ref=main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    muse-sounds.url = "git+https://codeberg.org/municorn/muse-sounds?ref=main";
 
     plymouth-theme-musicaloft-rainbow = {
       url = "git+https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow?ref=main";
