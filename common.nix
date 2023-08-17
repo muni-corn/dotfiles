@@ -9,7 +9,7 @@
   ...
 }: {
   imports = [
-    ./cachix.nix
+    ./cachix
   ];
 
   boot = {
