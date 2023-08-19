@@ -206,14 +206,14 @@ in {
         "float,title:^(Firefox — Sharing Indicator)$"
         "nofocus,title:^(Firefox — Sharing Indicator)$"
         "move 50% 100%,title:^(Firefox — Sharing Indicator)$"
-        # "nomaximizerequest,title:^(Firefox — Sharing Indicator)$" # hyprland 0.28.0 only
+        "nomaximizerequest,title:^(Firefox — Sharing Indicator)$" # hyprland 0.28.0 only
         "noblur,title:^(Firefox — Sharing Indicator)$"
         "float,class:^(xdg-desktop-portal-gtk)$"
         "float,title:^(Close Firefox)$"
         "opacity 1.0 0.75,title:^(Picture-in-Picture)$"
         "float,title:^(Picture-in-Picture)$"
         "maxsize 480 270,title:^(Picture-in-Picture)$"
-        # "nomaximizerequest,title:^(Picture-in-Picture)$" # hyprland 0.28.0 only
+        "nomaximizerequest,title:^(Picture-in-Picture)$" # hyprland 0.28.0 only
         "nofullscreenrequest,title:^(Picture-in-Picture)$"
         "move 100% 0%,title:^(Picture-in-Picture)$"
         "idleinhibit always,title:^(Picture-in-Picture)$"
