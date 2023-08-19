@@ -114,6 +114,7 @@
   (hi :GitGutterAdd :green nil {:bold true})
   (hi :GitGutterChange :orange nil {:bold true})
   (hi :GitGutterDelete :red nil {:bold true})
+  (hi :GitSignsCurrentLineBlame :light-gray nil {:italic true})
   (hi :Identifier :red nil {})
   (hi :IncSearch :dark-gray :yellow {})
   (hi :Include :blue nil {})
