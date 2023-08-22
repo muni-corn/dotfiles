@@ -156,6 +156,7 @@ in {
 
         # widgets
         "${config.programs.eww.package}/bin/eww daemon &"
+        "${config.programs.eww.package}/bin/eww open-many status-bar-1 status-bar-0"
 
         # wob
         "${wobStartScript} &"
