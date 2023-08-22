@@ -191,11 +191,6 @@ in {
 }
 # TODO: migrate from sway
 #
-#   # switch between floating/tiled layers
-#   (b "SUPER" "z" "movefocus" "mode_toggle")
-#   (b "SUPER_SHIFT" "z" "movefocus" "parent")
-#   (b "SUPER_CTRL" "z" "movefocus" "child")
-#
 #   # floating video mode
 #   (b "SUPER" "i" "fullscreen disable,\\
 #   floating enable,\\
@@ -214,7 +209,6 @@ in {
 #
 #   # mobile (as in cell phone) width
 #   (b "SUPER" "m" "resizeactive" "set width 512 px")
-#
 #
 #   # record clock times (easy clock-in or clock-out :))
 #   (b "SUPER" "Delete" "exec" "${notebookDir}/record_time.fish")
