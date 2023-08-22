@@ -221,6 +221,21 @@ in {
       ];
     };
   };
+
+  xdg.configFile = {
+    "hypr/hyprpaper.conf".text = let
+      wallpaperDir = config.muse.theme.matchpal.wallpapers.final;
+      initialWallpaper =
+        builtins.head
+        (builtins.attrNames
+          (lib.attrsets.filterAttrs
+            (path: type: type == "regular")
+            (builtins.readDir wallpaperDir)));
+    in ''
+      preload = ${wallpaperDir}/${initialWallpaper}
+      wallpaper = ,${wallpaperDir}/${initialWallpaper}
+    '';
+  };
 }
 # TODO migrate from sway:
 #
