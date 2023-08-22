@@ -133,16 +133,16 @@ in {
       (b "SUPER" "0" "workspace" "10")
 
       # move focused container to workspace
-      (b "SUPER_SHIFT" "1" "movetoworkspace" "1")
-      (b "SUPER_SHIFT" "2" "movetoworkspace" "2")
-      (b "SUPER_SHIFT" "3" "movetoworkspace" "3")
-      (b "SUPER_SHIFT" "4" "movetoworkspace" "4")
-      (b "SUPER_SHIFT" "5" "movetoworkspace" "5")
-      (b "SUPER_SHIFT" "6" "movetoworkspace" "6")
-      (b "SUPER_SHIFT" "7" "movetoworkspace" "7")
-      (b "SUPER_SHIFT" "8" "movetoworkspace" "8")
-      (b "SUPER_SHIFT" "9" "movetoworkspace" "9")
-      (b "SUPER_SHIFT" "0" "movetoworkspace" "10")
+      (b "SUPER_SHIFT" "1" "movetoworkspacesilent" "1")
+      (b "SUPER_SHIFT" "2" "movetoworkspacesilent" "2")
+      (b "SUPER_SHIFT" "3" "movetoworkspacesilent" "3")
+      (b "SUPER_SHIFT" "4" "movetoworkspacesilent" "4")
+      (b "SUPER_SHIFT" "5" "movetoworkspacesilent" "5")
+      (b "SUPER_SHIFT" "6" "movetoworkspacesilent" "6")
+      (b "SUPER_SHIFT" "7" "movetoworkspacesilent" "7")
+      (b "SUPER_SHIFT" "8" "movetoworkspacesilent" "8")
+      (b "SUPER_SHIFT" "9" "movetoworkspacesilent" "9")
+      (b "SUPER_SHIFT" "0" "movetoworkspacesilent" "10")
 
       # change wallpaper
       (b "SUPER_CTRL" "w" "exec" "${scripts.switchWallpaper}")
