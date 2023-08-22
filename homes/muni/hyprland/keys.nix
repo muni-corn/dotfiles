@@ -11,6 +11,9 @@
   terminalInDir = dir: "${terminal} -d ${dir}";
   withShell = cmd: ''${shell} -i -c "${cmd}"'';
 
+  notebookTerminal = ''${terminal} -d ${notebookDir}'';
+  notebookTerminalWithShell = cmd: ''${notebookTerminal} ${withShell cmd}'';
+
   b = mods: key: dispatcher: args:
     lib.concatStringsSep "," (if !isNull args then ([mods key dispatcher] ++ (lib.toList args)) else [mods key dispatcher]);
 
@@ -90,23 +93,23 @@ in {
       (b "SUPER" "g" "togglegroup" "")
 
       # shortcuts for apps
-      (b "SUPER_CTRL" "b" "exec" ''${terminal} ${withShell "bluetoothctl"}'')
-      (b "SUPER_CTRL" "e" "exec" "${scripts.dir}/emoji_menu.fish")
-      (b "SUPER_CTRL" "n" "exec" ''${terminalInDir notebookDir} ${withShell "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).norg"}'')
-      (b "SUPER_CTRL" "p" "exec" "${pkgs.pavucontrol}/bin/pavucontrol")
-      (b "SUPER_CTRL" "r" "exec" "${scripts.dir}/toggle_gammastep.fish")
-      (b "SUPER_CTRL" "t" "exec" ''${terminalInDir notebookDir} ${withShell "nvim ${notebookDir}/todo.norg"}'')
       (b "SUPER" "Return" "exec" terminal)
-      (b "SUPER_SHIFT" "b" "exec" ''${terminalInDir notebookDir} ${withShell "nvim ${notebookDir}/bored.norg"}'')
-      (b "SUPER_SHIFT" "m" "exec" apps.media)
-      (b "SUPER_SHIFT" "n" "exec" ''${terminalInDir notebookDir} ${withShell "nnn ${notebookDir}"}'')
       (b "SUPER" "a" "exec" "bemenu-run -p 'Run what?'")
-      (b "SUPER" "c" "exec" ''${terminal} ${withShell "qalc"}'')
       (b "SUPER" "b" "exec" apps.music)
+      (b "SUPER" "c" "exec" ''${terminal} ${withShell "qalc"}'')
       (b "SUPER" "e" "exec" ''${terminal} ${withShell "nnn"}'')
       (b "SUPER" "n" "exec" scripts.quickCode)
       (b "SUPER" "p" "exec" ''${terminal} ${withShell "htop"}'')
       (b "SUPER" "w" "exec" apps.browser)
+      (b "SUPER_CTRL" "b" "exec" ''${terminal} ${withShell "bluetoothctl"}'')
+      (b "SUPER_CTRL" "e" "exec" "${scripts.dir}/emoji_menu.fish")
+      (b "SUPER_CTRL" "n" "exec" (notebookTerminalWithShell "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).norg"))
+      (b "SUPER_CTRL" "p" "exec" "${pkgs.pavucontrol}/bin/pavucontrol")
+      (b "SUPER_CTRL" "r" "exec" "${scripts.dir}/toggle_gammastep.fish")
+      (b "SUPER_CTRL" "t" "exec" (notebookTerminalWithShell "nvim ${notebookDir}/todo.norg"))
+      (b "SUPER_SHIFT" "b" "exec" (notebookTerminalWithShell "nvim ${notebookDir}/bored.norg"))
+      (b "SUPER_SHIFT" "m" "exec" apps.media)
+      (b "SUPER_SHIFT" "n" "exec" (notebookTerminalWithShell "nnn ${notebookDir}"))
 
       # lock
       (b "SUPER" "Escape" "exec" scripts.lock)
