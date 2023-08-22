@@ -128,6 +128,8 @@
     # CPU microcode
     cpu.amd.updateMicrocode = true;
 
+    keyboard.qmk.enable = true;
+
     # Ledger
     ledger.enable = true;
 

@@ -226,6 +226,11 @@ in {
         # xorg
         xorg.xcursorgen
 
+        # keyboard config
+        via
+        vial
+        qmk
+
         # other things
         ffmpeg_6-full
         fnlfmt
