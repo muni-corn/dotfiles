@@ -69,7 +69,7 @@ in {
       (b "SUPER_CTRL" "Right" "movecurrentworkspacetomonitor" "r")
 
       # special workspaces (minimize)
-      (b "SUPER" "v" "movetoworkspace" "special")
+      (b "SUPER" "v" "movetoworkspacesilent" "special")
       (b "SUPER_SHIFT" "v" "togglespecialworkspace" "")
 
       # other window controls
