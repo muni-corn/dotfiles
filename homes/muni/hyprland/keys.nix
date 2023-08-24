@@ -68,16 +68,6 @@ in {
       (b "SUPER_CTRL" "Up" "movecurrentworkspacetomonitor" "u")
       (b "SUPER_CTRL" "Right" "movecurrentworkspacetomonitor" "r")
 
-      # quick resize
-      (b "SUPER_ALT" "h" "resizeactive" "-20 0")
-      (b "SUPER_ALT" "j" "resizeactive" "0 20")
-      (b "SUPER_ALT" "k" "resizeactive" "0 -20")
-      (b "SUPER_ALT" "l" "resizeactive" "20 0")
-      (b "SUPER_ALT" "Left" "resizeactive" "-20 0")
-      (b "SUPER_ALT" "Down" "resizeactive" "0 20")
-      (b "SUPER_ALT" "Up" "resizeactive" "0 -20")
-      (b "SUPER_ALT" "Right" "resizeactive" "20 0")
-
       # special workspaces (minimize)
       (b "SUPER" "v" "movetoworkspace" "special")
       (b "SUPER_SHIFT" "v" "togglespecialworkspace" "")
@@ -156,6 +146,16 @@ in {
       # brightness controls
       (b "" "XF86MonBrightnessDown" "exec" scripts.brightness.down)
       (b "" "XF86MonBrightnessUp" "exec" scripts.brightness.up)
+
+      # quick resize
+      (b "SUPER_ALT" "h" "resizeactive" "-20 0")
+      (b "SUPER_ALT" "j" "resizeactive" "0 20")
+      (b "SUPER_ALT" "k" "resizeactive" "0 -20")
+      (b "SUPER_ALT" "l" "resizeactive" "20 0")
+      (b "SUPER_ALT" "Left" "resizeactive" "-20 0")
+      (b "SUPER_ALT" "Down" "resizeactive" "0 20")
+      (b "SUPER_ALT" "Up" "resizeactive" "0 -20")
+      (b "SUPER_ALT" "Right" "resizeactive" "20 0")
     ];
 
     # bindings that are allowed even with input inhibitors (e.g. lock screens)
