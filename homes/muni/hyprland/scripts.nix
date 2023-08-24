@@ -62,8 +62,7 @@ in {
     #!${pkgs.fish}/bin/fish
 
     set new_wall (${pkgs.fd}/bin/fd --type f . ${config.muse.theme.matchpal.wallpapers.final} | shuf -n 1)
-    hyprctl hyprpaper preload $new_wall
-    hyprctl hyprpaper wallpaper ",$new_wall"
+    hyprctl hyprpaper preload $new_wall && hyprctl hyprpaper wallpaper ,$new_wall
   '';
   
   lock = import ./lock_script.nix {inherit config pkgs;};
