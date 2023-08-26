@@ -76,10 +76,6 @@
     ];
 
     overlaysModule = {
-      config,
-      pkgs,
-      ...
-    }: {
       nixpkgs.overlays = overlays;
     };
 
