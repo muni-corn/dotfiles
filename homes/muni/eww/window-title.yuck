@@ -3,4 +3,4 @@
 
 (defwidget window-title [monitor]
   (box :class "window-title" :visible {focused-monitor == monitor}
-   (label :text window-title-text)))
+   (label :limit-width 60 :show-truncated true :text window-title-text)))
