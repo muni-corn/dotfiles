@@ -35,13 +35,11 @@ in {
       cmp-path
       cmp-snippy
       copilot-vim
-      friendly-snippets
-      hop-nvim
       lsp-status-nvim
       lspkind-nvim
       neorg-telescope
-      nvim-dap-virtual-text
       nvim-cmp
+      nvim-dap-virtual-text
       nvim-lspconfig
       nvim-snippy
       nvim-ts-rainbow
@@ -56,7 +54,6 @@ in {
       vim-fugitive
       vim-hexokinase
       vim-smoothie
-      vim-table-mode
       zen-mode-nvim
       {
         plugin = auto-session;
@@ -121,11 +118,6 @@ in {
       {
         plugin = nvim-treesitter.withAllGrammars;
         config = builtins.readFile ./fnl/config/treesitter.fnl;
-        type = "fennel";
-      }
-      {
-        plugin = vim-table-mode;
-        config = builtins.readFile ./fnl/config/table-mode.fnl;
         type = "fennel";
       }
       {
