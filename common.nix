@@ -224,7 +224,7 @@
     };
 
     sway = {
-      enable = false;
+      enable = true;
       extraPackages = with pkgs; [
         grim
         kitty
