@@ -16,6 +16,7 @@
     kernel.sysctl = {
       "fs.inotify.max_user_watches" = 524288;
       "kernel.sysrq" = "0xf0";
+      "kernel.task_delayacct" = 1;
     };
     extraModulePackages = builtins.attrValues {
       inherit (config.boot.kernelPackages) v4l2loopback;
