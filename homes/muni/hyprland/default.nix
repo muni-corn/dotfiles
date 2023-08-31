@@ -123,13 +123,9 @@ in {
       };
 
       # binds
-      binds = {
-        workspace_back_and_forth = true;
-      };
+      binds.workspace_back_and_forth = true;
 
-      dwindle = {
-        no_gaps_when_only = true;
-      };
+      dwindle.no_gaps_when_only = true;
 
       # envs
       env = [
