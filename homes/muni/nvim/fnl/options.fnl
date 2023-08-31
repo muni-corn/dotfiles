@@ -25,7 +25,7 @@
   (o :cmdheight 2)
   (o :complete ".,w,b,u,t,kspell") ; spell check
   (o :completeopt "menuone,noselect")
-  (o :conceallevel 1)
+  (o :conceallevel 2)
   (o :cursorline true)
   (o :diffopt "hiddenoff,iwhiteall,closeoff,internal,filler,indent-heuristic,linematch:60")
   (o :errorbells false)
