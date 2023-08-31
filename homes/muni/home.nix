@@ -121,41 +121,29 @@ in {
         ksshaskpass
 
         # audio, sound, and music
-        ChowKick
-        LibreArp-lv2
         ardour
         audacity
         autotalent
         calf
-        drumkv1
-        easyeffects
         geonkick
-        helm
-        hydrogen
-        linuxsampler
         lsp-plugins
         musescore
         pamixer # for muse-status, at least
         pavucontrol
         peaclock
         qpwgraph
-        qsampler
         sfizz
-        sonic-visualiser
         spotify
-        swh_lv2
         x42-gmsynth
         x42-plugins
         zyn-fusion
 
         # terminal/cli stuff
         cava
-        chafa
         fd
         fish
         git-annex
         git-filter-repo
-        glances
         gnupg
         jdupes
         jq
@@ -170,7 +158,6 @@ in {
         spotify-tui
         sshfs
         unar
-        ytfzf
         zip
 
         # development/programming
@@ -184,12 +171,10 @@ in {
         nodejs
         nodePackages.typescript-language-server
         python3
-        rust-analyzer
         tree-sitter
         zls
 
         # photo
-        gimp
         hugin
         inkscape
         krita
@@ -204,31 +189,21 @@ in {
         # messaging
         discord
         element-desktop
-        signal-desktop
-        slack
 
         # apps
         android-file-transfer
         awf
         imv
-        keepassxc
         kodi
         ledger-live-desktop
         libreoffice-fresh
-        synfigstudio
-        tor-browser-bundle-bin
-        xournalpp
 
         # fish plugins
         fishPlugins.done
         fishPlugins.foreign-env
 
-        # xorg
-        xorg.xcursorgen
-
         # keyboard config
         via
-        vial
         qmk
 
         # other things
@@ -237,15 +212,11 @@ in {
         fortune
         imagemagick
         libnotify
-        nerdfonts
-        openvpn
         qrencode
         rsync
-        tldr
         wirelesstools
         xdragon
         yt-dlp
-        zbar
       ]
       ++
       # ponycastle-specific packages
@@ -258,20 +229,9 @@ in {
 
         # emulators and "emulators"
         wine
-        desmume
-        dolphin-emu
 
         # games
-        gnome.aisleriot
-        libretro.desmume
-        libretro.dolphin
-        libretro.thepowdertoy
-        lutris
         prismlauncher
-        retroarchFull
-        space-cadet-pinball
-        the-powder-toy
-        vitetris
       ];
 
     pointerCursor = {
