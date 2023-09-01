@@ -21,7 +21,7 @@
           device = "/dev/disk/by-uuid/d718061f-9973-4d6d-a816-5d2a57bda1ba";
           allowDiscards = true;
         };
-        "cryptroot3".device = "/dev/disk/by-uuid/63c9847a-fecd-453d-a8d5-228df343ef36";
+        "cryptarchive".device = "/dev/disk/by-uuid/63c9847a-fecd-453d-a8d5-228df343ef36";
         "cryptbackup".device = "/dev/disk/by-uuid/1ebf17c7-3097-40d9-89d2-6079b197664a";
       };
     };
@@ -45,6 +45,11 @@
       device = "/dev/disk/by-uuid/cef72996-6b5b-4b13-bc59-4dfbc77a8307";
       fsType = "btrfs";
       options = ["compress=zstd" "noatime" "subvol=nix"];
+    };
+
+    "/archive" = {
+      device = "/dev/disk/by-uuid/d3a3b6bd-3137-4b2b-8669-ecfe87e1722f";
+      fsType = "btrfs";
     };
 
     "/boot" = {
