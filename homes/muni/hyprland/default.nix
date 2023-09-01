@@ -93,9 +93,9 @@ in {
         shadow_render_power = 2;
 
         blur = {
-          passes = 2;
+          passes = 3;
           size = 16;
-          noise = 0.1;
+          noise = 0.05;
           contrast = 1.0;
           brightness = 1.0;
         };
