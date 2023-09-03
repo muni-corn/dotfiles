@@ -19,7 +19,10 @@
           snapshot_dir = "/snaps";
           target = "/backup/ponycastle";
         };
-        "/archive".target = "/backup/archive";
+        "/archive" = {
+          target = "/backup/archive";
+          subvolume = "muni";
+        };
       };
     };
   };
