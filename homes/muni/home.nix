@@ -67,7 +67,7 @@ in {
   imports = [
     ./eww.nix
     ./fish.nix
-    ./hyprland
+    # ./hyprland
     ./muse
     ./muse-status.nix
     ./nnn.nix

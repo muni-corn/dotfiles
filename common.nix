@@ -208,7 +208,7 @@
 
     gphoto2.enable = true;
 
-    hyprland.enable = true;
+    # hyprland.enable = true;
 
     java = {
       enable = true;
@@ -278,7 +278,7 @@
       enable = true;
       settings = {
         default_session = {
-          command = "${pkgs.greetd.tuigreet}/bin/tuigreet -r -t --time-format '%-I:%M %P  %a, %b %-d' --asterisks --power-shutdown 'systemctl poweroff' --power-reboot 'systemctl reboot' --cmd Hyprland";
+          command = "${pkgs.greetd.tuigreet}/bin/tuigreet -r -t --time-format '%-I:%M %P  %a, %b %-d' --asterisks --power-shutdown 'systemctl poweroff' --power-reboot 'systemctl reboot' --cmd sway";
         };
       };
     };
@@ -393,6 +393,7 @@
   xdg = {
     portal = {
       enable = true;
+      wlr.enable = true;
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
       ];
