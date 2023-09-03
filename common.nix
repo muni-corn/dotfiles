@@ -181,10 +181,6 @@
         "minecraft-server"
         "spotify"
         "spotify-unwrapped"
-        "steam"
-        "steam-original"
-        "steam-run"
-        "steam-runtime"
         "linuxsampler"
         "memtest86-efi"
       ];
@@ -217,11 +213,6 @@
 
     ssh = {
       setXAuthLocation = true;
-    };
-
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
     };
 
     sway = {
