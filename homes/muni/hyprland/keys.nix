@@ -136,6 +136,12 @@ in {
 
       # change wallpaper
       (b "SUPER_CTRL" "w" "exec" "${scripts.switchWallpaper}")
+
+      # screen capture
+      (b "SUPER" "Print" "exec" scripts.screenshot)
+      (b "SUPER_CTRL" "Print" "exec" "${scripts.screenshot} -s")
+      (b "SUPER_CTRL_ALT" "Print" "exec" "${scripts.screenshot} -o")
+      (b "SUPER_SHIFT" "Print" "exec" "${scripts.dir}/video_capture.fish")
     ];
 
     # repeatable bindings allowed when locked
@@ -177,15 +183,6 @@ in {
     bindm = [
       (b "SUPER" "mouse:272" "movewindow" null)
       (b "SUPER" "mouse:273" "resizewindow" null)
-    ];
-
-    # triggered on release
-    bindr = [
-      # screen capture
-      (b "SUPER" "Print" "exec" scripts.screenshot)
-      (b "SUPER_CTRL" "Print" "exec" "${scripts.screenshot} -s")
-      (b "SUPER_CTRL_ALT" "Print" "exec" "${scripts.screenshot} -o")
-      (b "SUPER_SHIFT" "Print" "exec" "${scripts.dir}/video_capture.fish")
     ];
   };
 }
