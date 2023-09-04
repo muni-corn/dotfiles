@@ -37,7 +37,6 @@
   pamixer = "${pkgs.pamixer}/bin/pamixer";
 
   # scripts
-  screenshot = "${scriptsDir}/screenshot.fish";
   quickCodeScript = import ../quick-code-script.nix {inherit config pkgs;};
 
   # volume scripts
@@ -243,8 +242,8 @@ in {
   "--locked --no-repeat XF86AudioPrev" = "exec mpc cdprev || playerctl previous";
 
   # screen capture
-  "--release ${sup}+Print" = "exec ${screenshot}";
-  "--release ${sup}+Control+Print" = "exec ${screenshot} -s";
-  "--release ${sup}+Control+${alt}+Print" = "exec ${screenshot} -o";
+  "--release ${sup}+Print" = "exec ${../wm-scripts/sway-screenshot.fish}";
+  "--release ${sup}+Control+Print" = "exec ${../wm-scripts/sway-screenshot.fish} -s";
+  "--release ${sup}+Control+${alt}+Print" = "exec ${../wm-scripts/sway-screenshot.fish} -o";
   "--release ${sup}+Shift+Print" = "exec ${scriptsDir}/video_capture.fish";
 }
