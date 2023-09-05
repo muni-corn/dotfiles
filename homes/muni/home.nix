@@ -100,8 +100,6 @@ in {
   nixpkgs.config = import ./config.nix {inherit lib;};
 
   home = {
-    enableNixpkgsReleaseCheck = true;
-
     extraOutputsToInstall = ["doc" "info" "devdoc"];
 
     file = {
