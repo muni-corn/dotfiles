@@ -183,6 +183,12 @@
         "spotify-unwrapped"
         "linuxsampler"
         "memtest86-efi"
+
+        # if steam happens to be enabled
+        "steam"
+        "steam-original"
+        "steam-run"
+        "steam-runtime"
       ];
   };
 
