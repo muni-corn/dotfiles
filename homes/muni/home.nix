@@ -65,6 +65,7 @@
   ];
 in {
   imports = [
+    ./chromium.nix
     ./eww.nix
     ./fish.nix
     # ./hyprland
