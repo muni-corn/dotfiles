@@ -73,11 +73,12 @@ in {
       (b "SUPER_SHIFT" "v" "togglespecialworkspace" "")
 
       # other window controls
-      (b "SUPER" "q" "killactive" "")
-      (b "SUPER" "x" "pin" "")
       (b "SUPER" "f" "fullscreen" "0")
+      (b "SUPER" "q" "killactive" "")
       (b "SUPER" "s" "togglefloating" "") # TODO: reset border from floating video?
       (b "SUPER" "u" "focusurgentorlast" "")
+      (b "SUPER" "x" "pin" "")
+      (b "SUPER_SHIFT" "f" "fullscreen" "1")
 
       # toggle groups
       (b "SUPER" "g" "togglegroup" "")
