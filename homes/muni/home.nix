@@ -221,7 +221,7 @@ in {
       # ponycastle-specific packages
       lib.optionals (deviceInfo.name == "ponycastle") [
         # video
-        blender
+        blender-hip
         kdenlive
         mediainfo
         movit
