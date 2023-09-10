@@ -11,7 +11,7 @@
 
     browserpass = {
       enable = true;
-      browsers = ["firefox"];
+      browsers = ["firefox" "chromium"];
     };
 
     direnv = {
