@@ -22,6 +22,7 @@
     exa = {
       enable = true;
       enableAliases = true;
+      package = pkgs.eza;
     };
 
     firefox = {
