@@ -19,10 +19,11 @@
       nix-direnv.enable = true;
     };
 
-    exa = {
+    eza = {
       enable = true;
       enableAliases = true;
-      package = pkgs.eza;
+      git = true;
+      icons = true;
     };
 
     firefox = {
