@@ -112,6 +112,10 @@ in {
         };
       };
 
+      "device:wacom-intuos-pro-m-pen" = {
+        output = "DP-2";
+      };
+
       # misc
       misc = {
         vrr = 0;
