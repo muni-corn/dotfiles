@@ -1,6 +1,6 @@
 # colors based on the base16 spec
 {
-  solarizedDark = {
+  solarized-dark = {
     base00 = "002b36";
     base01 = "073642";
     base02 = "586e75";
@@ -19,7 +19,7 @@
     base0F = "d33682";
   };
 
-  solarizedLight = {
+  solarized-light = {
     base00 = "fdf6e3";
     base01 = "eee8d5";
     base02 = "93a1a1";
