@@ -25,6 +25,7 @@ in {
     bold_font = "${fontName} Bold";
     italic_font = "${fontName} Italic";
     bold_italic_font = "${fontName} Bold Italic";
+    modify_font = "cell_height 115%";
 
     # theme colors
     background_opacity = "0.90";
