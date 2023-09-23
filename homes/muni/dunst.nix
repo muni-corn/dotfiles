@@ -20,7 +20,7 @@
       font = "Inter 12";
       foreground = "#${colors.white}";
       format = "<b>%s</b>\\n%b";
-      frame_color = "#${colors.gray}e5";
+      frame_color = "#${colors.dark-gray}e5";
       frame_width = 2;
       width = 384;
       height = 384;
