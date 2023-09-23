@@ -14,7 +14,6 @@ in {
     grim
     hyprpaper
     hyprpicker
-    hyprland-share-picker
     slurp
     swayidle
     swaylock
