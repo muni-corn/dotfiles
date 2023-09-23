@@ -220,6 +220,10 @@ in {
       ++
       # ponycastle-specific packages
       lib.optionals (deviceInfo.name == "ponycastle") [
+        # photo
+        gmic
+        gmic-qt
+
         # video
         blender-hip
         kdenlive
