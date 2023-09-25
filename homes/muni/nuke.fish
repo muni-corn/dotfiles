@@ -270,10 +270,7 @@ function handle_multimedia -a mimetype
         # Image
         case 'image/*'
             if test "$GUI" -ne 0
-                if is_mac
-                    nohup open $file_path & disown
-                    exit 0
-                else if type imv
+                if type imv
                     load_img_dir imv $file_path & disown
                     exit 0
                 else if type imvr
