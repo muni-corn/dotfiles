@@ -189,6 +189,12 @@ in {
       (b "SUPER" "mouse:272" "movewindow" null)
       (b "SUPER" "mouse:273" "resizewindow" null)
     ];
+
+    # bindings triggered on release
+    bindr = [
+      # exit hyprland
+      (b "SUPER_SHIFT" "e" "exit" "")
+    ];
   };
 }
 # TODO: migrate from sway
@@ -220,7 +226,5 @@ in {
 #   (b "SUPER_SHIFT" "Home" "exec" "${scriptsDir}/prompt_clock_in.fish")
 #   (b "SUPER_SHIFT" "End" "exec" "${scriptsDir}/prompt_clock_out.fish")
 #
-#   # exit sway
-#   (b "SUPER_SHIFT" "e" "exec" ''"${pkgs.pipewire}/bin/pw-play ${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/desktop-logout.oga; swaymsg exit"'')
 # }
 
