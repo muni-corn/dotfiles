@@ -45,7 +45,8 @@
              :Italic ["@text.emphasis"]
              :Normal [:NormalFloat]
              :SpellRare [:SpellLocal]
-             :Warning [:WarningMsg]}]
+             :Warning [:WarningMsg]
+             :VirtualText [:GitSignsCurrentLineBlame]}]
   ;; }}}
   (hi "@neorg.markup.verbatim" :orange nil {})
   (hi "@neorg.headings.1.prefix" :brown nil {})
@@ -55,8 +56,8 @@
   (hi :Boolean :orange nil {})
   (hi :Character :red nil {})
   (hi :ColorColumn nil :dark-gray {})
-  (hi :Comment :light-gray nil {})
-  (hi :Conceal :light-gray :black {})
+  (hi :Comment :gray nil {})
+  (hi :Conceal :gray :black {})
   (hi :Conditional :brown nil {})
   (hi :Constant :orange nil {})
   (hi :Cursor :black :light-silver {})
@@ -114,7 +115,6 @@
   (hi :GitGutterAdd :green nil {:bold true})
   (hi :GitGutterChange :orange nil {:bold true})
   (hi :GitGutterDelete :red nil {:bold true})
-  (hi :GitSignsCurrentLineBlame :light-gray nil {:italic true})
   (hi :Identifier :red nil {})
   (hi :IncSearch :dark-gray :yellow {})
   (hi :Include :blue nil {})
@@ -170,7 +170,7 @@
   (hi :Typedef :yellow nil {})
   (hi :Underlined :red nil {})
   (hi :VertSplit :gray nil {})
-  (hi :VirtualText :light-gray nil {:italic true})
+  (hi :VirtualText :gray nil {:italic true})
   (hi :Visual nil :dark-gray {})
   (hi :VisualNOS :red nil {})
   (hi :Warning :yellow nil {:bold true})
