@@ -15,7 +15,11 @@
   notebookTerminalWithShell = cmd: ''${notebookTerminal} ${withShell cmd}'';
 
   b = mods: key: dispatcher: args:
-    lib.concatStringsSep "," (if !isNull args then ([mods key dispatcher] ++ (lib.toList args)) else [mods key dispatcher]);
+    lib.concatStringsSep "," (
+      if !isNull args
+      then ([mods key dispatcher] ++ (lib.toList args))
+      else [mods key dispatcher]
+    );
 
   apps = {
     browser = "${config.programs.firefox.package}/bin/firefox";
