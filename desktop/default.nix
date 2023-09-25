@@ -58,6 +58,22 @@
     interfaces.enp6s0.wakeOnLan.enable = true;
   };
 
+  programs.gamescope = {
+    enable = true;
+    capSysNice = true;
+    args = [
+      "-f"
+      "-r 75"
+      "-o 75"
+      "-H 1080"
+      "-h 1080"
+      "-w 1920"
+      "-W 1920"
+      "-g"
+      "--expose-wayland"
+    ];
+  };
+
   security.pam.loginLimits = [
     {
       domain = "muni";
