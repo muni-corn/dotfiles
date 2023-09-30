@@ -114,28 +114,14 @@ in {
     packages = with pkgs;
     # packages for all devices
       [
+        # audio and music
+        pavucontrol
+        spotify
+
         # desktop environment
         bemenu
         glib # for gtk theming
         ksshaskpass
-
-        # audio, sound, and music
-        ardour
-        audacity
-        autotalent
-        calf
-        geonkick
-        lsp-plugins
-        musescore
-        pamixer # for muse-status, at least
-        pavucontrol
-        peaclock
-        qpwgraph
-        sfizz
-        spotify
-        x42-gmsynth
-        x42-plugins
-        zyn-fusion
 
         # terminal/cli stuff
         cava
@@ -148,7 +134,6 @@ in {
         jq
         libqalculate
         neovim-remote
-        notify-desktop
         playerctl
         pv
         qpdf
@@ -179,9 +164,6 @@ in {
         krita
         rawtherapee
 
-        # video
-        synfigstudio
-
         # writing
         pandoc
 
@@ -191,9 +173,7 @@ in {
 
         # apps
         android-file-transfer
-        awf
         imv
-        kodi
         ledger-live-desktop
         libreoffice-fresh
 
@@ -211,6 +191,7 @@ in {
         fortune
         imagemagick
         libnotify
+        peaclock
         qrencode
         rsync
         wirelesstools
@@ -224,11 +205,27 @@ in {
         gmic
         gmic-qt
 
+        # audio, sound, and music
+        ardour
+        audacity
+        autotalent
+        calf
+        geonkick
+        lsp-plugins
+        musescore
+        pamixer # for muse-status, at least
+        qpwgraph
+        sfizz
+        x42-gmsynth
+        x42-plugins
+        zyn-fusion
+
         # video
         blender-hip
         kdenlive
         mediainfo
         movit
+        synfigstudio
 
         # emulators and "emulators"
         wine
