@@ -147,6 +147,9 @@ in {
       (b "SUPER_CTRL" "Print" "exec" "${scripts.screenshot} -s")
       (b "SUPER_CTRL_ALT" "Print" "exec" "${scripts.screenshot} -o")
       (b "SUPER_SHIFT" "Print" "exec" "${scripts.dir}/video_capture.fish")
+
+      # discord push-to-talk
+      (b "" "Print" "pass" "^(discord)$")
     ];
 
     # repeatable bindings allowed when locked
