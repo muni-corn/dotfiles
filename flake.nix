@@ -18,6 +18,9 @@
     # extra hardware configuration
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    # neovim config in nix
+    nixvim.url = "github:nix-community/nixvim";
+
     # node.js debugging
     nvim-dap-vscode-js = {
       url = "github:mxsdev/nvim-dap-vscode-js";
@@ -58,6 +61,7 @@
     neorg,
     neovim-nightly-overlay,
     nixos-hardware,
+    nixvim,
     plymouth-theme-musicaloft-rainbow,
     nvim-dap-vscode-js,
   } @ inputs: let
@@ -121,7 +125,7 @@
             inherit deviceInfo;
             nvim-dap-vscode-js-src = nvim-dap-vscode-js;
           };
-          modules = [overlaysModule ./homes/muni/home.nix];
+          modules = [overlaysModule nixvim.homeManagerModules.nixvim ./homes/muni/home.nix];
         };
     in {
       ponycastle = homeConfiguration {
