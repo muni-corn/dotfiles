@@ -21,7 +21,6 @@ in {
 
     extraConfig = builtins.readFile ./init.vim;
     extraFnlConfigFiles = [
-      ./fnl/options.fnl
       ./fnl/highlights.fnl
       ./fnl/lsp.fnl
       ./fnl/statusline.fnl

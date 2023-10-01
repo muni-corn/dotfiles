@@ -53,13 +53,16 @@
       list = true;
       listchars = "tab:> ,trail:·";
       mouse = "a";
+      number = true;
       pumheight = 20;
       pumwidth = 80;
+      relativenumber = true;
       scrolloff = 5;
       sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions";
       shiftwidth = 4;
       shortmess = "caFTW";
       showmode = false;
+      signcolumn = "yes:1";
       smartcase = true;
       smartindent = true;
       softtabstop = 4;
