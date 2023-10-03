@@ -56,7 +56,7 @@
   (hi :Boolean :orange nil {})
   (hi :Character :red nil {})
   (hi :ColorColumn nil :dark-gray {})
-  (hi :Comment :gray nil {})
+  (hi :Comment :light-gray nil {})
   (hi :Conceal :gray :black {})
   (hi :Conditional :brown nil {})
   (hi :Constant :orange nil {})
