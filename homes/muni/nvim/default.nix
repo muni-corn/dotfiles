@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./highlight.nix
     ./plugins.nix
   ];
 
