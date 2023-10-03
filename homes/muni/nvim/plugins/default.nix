@@ -3,6 +3,10 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./lspkind.nix
+  ];
+
   programs.nixvim = {
     plugins = {
     };
@@ -16,7 +20,6 @@
       cmp-snippy
       copilot-vim
       lsp-status-nvim
-      lspkind-nvim
       neorg-telescope
       nvim-cmp
       nvim-dap-virtual-text
