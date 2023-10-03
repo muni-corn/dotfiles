@@ -28,7 +28,7 @@ in {
     modify_font = "cell_height 115%";
 
     # theme colors
-    background_opacity = "0.90";
+    background_opacity = "0.95";
     active_border_color = "#${colors.silver}";
     active_tab_background = "#${colors.dark-gray}";
     active_tab_foreground = "#${colors.white}";
