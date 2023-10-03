@@ -52,11 +52,6 @@ in {
         type = "fennel";
       }
       {
-        plugin = neorg;
-        config = builtins.readFile ./fnl/config/neorg.fnl;
-        type = "fennel";
-      }
-      {
         plugin = nvim-cmp;
         config = builtins.readFile ./fnl/config/cmp.fnl;
         type = "fennel";

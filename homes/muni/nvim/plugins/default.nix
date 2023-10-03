@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./lspkind.nix
+    ./neorg.nix
   ];
 
   programs.nixvim = {
