@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./autocmd.nix
     ./highlight.nix
     ./plugins.nix
   ];

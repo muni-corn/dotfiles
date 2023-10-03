@@ -7,17 +7,6 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-" autocommands
-augroup auto_commands
-    autocmd!
-    autocmd BufEnter * checktime
-    autocmd CursorHold * lua vim.diagnostic.open_float(nil, {focus=false})
-    autocmd CursorHold,InsertLeave * ++nested call AutoSave()
-    autocmd FileType markdown,pandoc call SetupMarkdown()
-    autocmd FileType nix,javascript,typescript setlocal shiftwidth=2 tabstop=2
-    autocmd FileType dashboard IndentBlanklineDisable
-augroup END
-
 fu! MarkdownFoldText()
     let linetext = getline(v:foldstart)
     let txt = linetext . ' [...] '
