@@ -12,6 +12,9 @@
 
   programs.nixvim = {
     enable = true;
+
+    clipboard.providers.wl-copy.enable = true;
+
     globals = {
       mapleader = ",";
       # plugin configs
