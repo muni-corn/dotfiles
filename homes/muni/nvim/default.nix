@@ -4,7 +4,7 @@
     ./globals.nix
     ./highlight.nix
     ./options.nix
-    ./plugins.nix
+    ./plugins
   ];
 
   programs.nixvim = {
