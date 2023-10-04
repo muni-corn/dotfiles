@@ -5,6 +5,7 @@
 }: {
   imports = [
     ./cmp.nix
+    ./copilot.nix
     ./lspkind.nix
     ./neorg.nix
   ];
@@ -16,7 +17,6 @@
 
     extraPlugins = with pkgs.vimPlugins; [
       cmp-nvim-lua
-      copilot-vim
       lsp-status-nvim
       neorg-telescope
       nvim-cmp

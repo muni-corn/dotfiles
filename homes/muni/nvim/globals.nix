@@ -2,10 +2,6 @@
   programs.nixvim.globals = {
     mapleader = ",";
     # plugin configs
-    copilot_filetypes = {
-      norg = false;
-      markdown = false;
-    };
     diagnostic_auto_popup_while_jump = 1;
     diagnostic_enable_virtual_text = 1;
     diagnostic_insert_delay = 1;
