@@ -1,11 +1,13 @@
 {
   config,
   pkgs,
+  nvim-dap-vscode-js-src,
   ...
 }: {
   imports = [
     ./cmp.nix
     ./copilot.nix
+    ./dap.nix
     ./dashboard.nix
     ./emmet.nix
     ./gitsigns.nix
@@ -28,11 +30,17 @@
       };
     };
 
-    extraPlugins = with pkgs.vimPlugins; [
+    extraPlugins = with pkgs.vimPlugins; let
+      nvim-dap-vscode-js = pkgs.vimUtils.buildVimPlugin {
+        name = "nvim-dap-vscode-js";
+        src = nvim-dap-vscode-js-src;
+      };
+    in [
       cmp-nvim-lua
       lsp-status-nvim
       nvim-cmp
       nvim-dap-virtual-text
+      nvim-dap-vscode-js
       nvim-lspconfig
       nvim-snippy
       nvim-ts-rainbow
