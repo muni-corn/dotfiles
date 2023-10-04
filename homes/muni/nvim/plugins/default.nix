@@ -15,6 +15,7 @@
     ./neorg.nix
     ./nvim-tree.nix
     ./telescope.nix
+    ./trouble.nix
   ];
 
   programs.nixvim = {
