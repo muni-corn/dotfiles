@@ -45,7 +45,6 @@
       nvim-dap-vscode-js
       nvim-lspconfig
       nvim-snippy
-      nvim-ts-rainbow
       playground
       plenary-nvim
       popup-nvim
