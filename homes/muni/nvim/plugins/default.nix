@@ -12,6 +12,7 @@
 
   programs.nixvim = {
     plugins = {
+      commentary.enable = true;
       fugitive.enable = true;
     };
 
@@ -31,7 +32,6 @@
       telescope-ui-select-nvim
       telescope-zoxide
       twilight-nvim
-      vim-commentary
       vim-hexokinase
       vim-smoothie
       zen-mode-nvim
