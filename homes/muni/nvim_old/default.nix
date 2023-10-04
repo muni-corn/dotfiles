@@ -27,11 +27,6 @@ in {
     ];
     plugins = with pkgs.vimPlugins; [
       {
-        plugin = gitsigns-nvim;
-        config = builtins.readFile ./fnl/config/gitsigns.fnl;
-        type = "fennel";
-      }
-      {
         plugin = indent-blankline-nvim;
         config = builtins.readFile ./fnl/config/indent-blankline.fnl;
         type = "fennel";

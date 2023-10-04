@@ -8,6 +8,7 @@
     ./copilot.nix
     ./dashboard.nix
     ./emmet.nix
+    ./gitsigns.nix
     ./lspkind.nix
     ./neorg.nix
     ./telescope.nix
