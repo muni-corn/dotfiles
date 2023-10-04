@@ -13,6 +13,7 @@
     ./gitsigns.nix
     ./lspkind.nix
     ./neorg.nix
+    ./nvim-tree.nix
     ./telescope.nix
   ];
 

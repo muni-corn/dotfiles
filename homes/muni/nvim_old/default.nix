@@ -27,11 +27,6 @@ in {
         type = "fennel";
       }
       {
-        plugin = nvim-tree-lua;
-        config = builtins.readFile ./fnl/config/nvim-tree.fnl;
-        type = "fennel";
-      }
-      {
         plugin = nvim-web-devicons;
         config = builtins.readFile ./fnl/config/devicons.fnl;
         type = "fennel";
