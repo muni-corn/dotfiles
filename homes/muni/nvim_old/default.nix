@@ -32,11 +32,6 @@ in {
         type = "fennel";
       }
       {
-        plugin = nvim-treesitter.withAllGrammars;
-        config = builtins.readFile ./fnl/config/treesitter.fnl;
-        type = "fennel";
-      }
-      {
         plugin = which-key-nvim;
         config = builtins.readFile ./fnl/config/which-key.fnl;
         type = "fennel";
