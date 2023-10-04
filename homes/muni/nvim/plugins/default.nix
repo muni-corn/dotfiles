@@ -8,6 +8,7 @@
     ./copilot.nix
     ./lspkind.nix
     ./neorg.nix
+    ./telescope.nix
   ];
 
   programs.nixvim = {
@@ -19,7 +20,6 @@
     extraPlugins = with pkgs.vimPlugins; [
       cmp-nvim-lua
       lsp-status-nvim
-      neorg-telescope
       nvim-cmp
       nvim-dap-virtual-text
       nvim-lspconfig
@@ -28,9 +28,6 @@
       playground
       plenary-nvim
       popup-nvim
-      telescope-dap-nvim
-      telescope-ui-select-nvim
-      telescope-zoxide
       twilight-nvim
       vim-hexokinase
       vim-smoothie

@@ -72,16 +72,6 @@ in {
         type = "fennel";
       }
       {
-        plugin = telescope-nvim;
-        config = builtins.readFile ./fnl/config/telescope.fnl;
-        type = "fennel";
-      }
-      {
-        plugin = trouble-nvim;
-        config = builtins.readFile ./fnl/config/trouble.fnl;
-        type = "fennel";
-      }
-      {
         plugin = nvim-treesitter.withAllGrammars;
         config = builtins.readFile ./fnl/config/treesitter.fnl;
         type = "fennel";
