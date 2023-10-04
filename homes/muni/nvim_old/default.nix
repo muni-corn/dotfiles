@@ -27,11 +27,6 @@ in {
     ];
     plugins = with pkgs.vimPlugins; [
       {
-        plugin = emmet-vim;
-        config = builtins.readFile ./fnl/config/emmet.fnl;
-        type = "fennel";
-      }
-      {
         plugin = gitsigns-nvim;
         config = builtins.readFile ./fnl/config/gitsigns.fnl;
         type = "fennel";

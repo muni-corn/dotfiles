@@ -7,6 +7,7 @@
     ./cmp.nix
     ./copilot.nix
     ./dashboard.nix
+    ./emmet.nix
     ./lspkind.nix
     ./neorg.nix
     ./telescope.nix
