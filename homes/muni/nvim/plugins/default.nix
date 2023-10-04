@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./cmp.nix
     ./lspkind.nix
     ./neorg.nix
   ];
@@ -13,12 +14,7 @@
     };
 
     extraPlugins = with pkgs.vimPlugins; [
-      cmp-buffer
-      cmp-calc
-      cmp-nvim-lsp
       cmp-nvim-lua
-      cmp-path
-      cmp-snippy
       copilot-vim
       lsp-status-nvim
       neorg-telescope
