@@ -11,6 +11,7 @@
 
   programs.nixvim = {
     plugins = {
+      fugitive.enable = true;
     };
 
     extraPlugins = with pkgs.vimPlugins; [
@@ -31,7 +32,6 @@
       telescope-zoxide
       twilight-nvim
       vim-commentary
-      vim-fugitive
       vim-hexokinase
       vim-smoothie
       zen-mode-nvim
