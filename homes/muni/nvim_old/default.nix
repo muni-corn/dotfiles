@@ -27,11 +27,6 @@ in {
     ];
     plugins = with pkgs.vimPlugins; [
       {
-        plugin = auto-session;
-        config = builtins.readFile ./fnl/config/auto-session.fnl;
-        type = "fennel";
-      }
-      {
         plugin = dashboard-nvim;
         config = builtins.readFile ./fnl/config/dashboard.fnl;
         type = "fennel";
