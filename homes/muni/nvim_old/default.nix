@@ -27,11 +27,6 @@ in {
     ];
     plugins = with pkgs.vimPlugins; [
       {
-        plugin = indent-blankline-nvim;
-        config = builtins.readFile ./fnl/config/indent-blankline.fnl;
-        type = "fennel";
-      }
-      {
         plugin = nvim-cmp;
         config = builtins.readFile ./fnl/config/cmp.fnl;
         type = "fennel";

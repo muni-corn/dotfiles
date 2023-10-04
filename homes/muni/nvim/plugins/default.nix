@@ -22,6 +22,10 @@
       };
       commentary.enable = true;
       fugitive.enable = true;
+      indent-blankline = {
+        enable = true;
+        showCurrentContext = true;
+      };
     };
 
     extraPlugins = with pkgs.vimPlugins; [
