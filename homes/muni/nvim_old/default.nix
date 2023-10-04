@@ -37,9 +37,6 @@ in {
         type = "fennel";
       }
       {
-        plugin = nvim-treesitter-context;
-        config = builtins.readFile ./fnl/config/context.fnl;
-        type = "fennel";
       }
     ];
     viAlias = true;

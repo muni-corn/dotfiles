@@ -1,5 +1,11 @@
 {
-  programs.nixvim.plugins.treesitter = {
-    enable = true;
+  programs.nixvim.plugins = {
+    treesitter = {
+      enable = true;
+    };
+    treesitter-context = {
+      enable = true;
+      separator = "~";
+    };
   };
 }
