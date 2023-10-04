@@ -6,6 +6,7 @@
   imports = [
     ./cmp.nix
     ./copilot.nix
+    ./dashboard.nix
     ./lspkind.nix
     ./neorg.nix
     ./telescope.nix

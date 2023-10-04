@@ -27,11 +27,6 @@ in {
     ];
     plugins = with pkgs.vimPlugins; [
       {
-        plugin = dashboard-nvim;
-        config = builtins.readFile ./fnl/config/dashboard.fnl;
-        type = "fennel";
-      }
-      {
         plugin = emmet-vim;
         config = builtins.readFile ./fnl/config/emmet.fnl;
         type = "fennel";
