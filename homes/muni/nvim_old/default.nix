@@ -18,7 +18,6 @@ in {
     extraFnlConfigFiles = [
       ./fnl/lsp.fnl
       ./fnl/statusline.fnl
-      ./fnl/keys.fnl
     ];
     plugins = with pkgs.vimPlugins; [
       {
@@ -30,13 +29,6 @@ in {
         plugin = nvim-web-devicons;
         config = builtins.readFile ./fnl/config/devicons.fnl;
         type = "fennel";
-      }
-      {
-        plugin = which-key-nvim;
-        config = builtins.readFile ./fnl/config/which-key.fnl;
-        type = "fennel";
-      }
-      {
       }
     ];
     viAlias = true;

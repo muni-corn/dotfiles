@@ -3,6 +3,7 @@
     ./autocmd.nix
     ./globals.nix
     ./highlight.nix
+    ./keys.nix
     ./options.nix
     ./plugins
   ];
