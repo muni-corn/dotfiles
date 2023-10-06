@@ -13,6 +13,7 @@
     package = pkgs.neovim-nightly;
     clipboard.providers.wl-copy.enable = true;
     defaultEditor = true;
+    extraConfigVim = builtins.readFile ./init.vim;
     viAlias = true;
     vimAlias = true;
   };

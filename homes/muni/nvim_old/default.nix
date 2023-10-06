@@ -11,7 +11,6 @@ in {
   programs.neovim = {
     enable = true;
 
-    extraConfig = builtins.readFile ./init.vim;
     extraFnlConfigFiles = [
       ./fnl/statusline.fnl
     ];
