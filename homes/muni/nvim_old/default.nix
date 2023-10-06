@@ -25,11 +25,6 @@ in {
         config = builtins.readFile ./fnl/config/cmp.fnl;
         type = "fennel";
       }
-      {
-        plugin = nvim-web-devicons;
-        config = builtins.readFile ./fnl/config/devicons.fnl;
-        type = "fennel";
-      }
     ];
     viAlias = true;
     vimAlias = true;
