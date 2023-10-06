@@ -13,7 +13,6 @@ in {
 
     extraConfig = builtins.readFile ./init.vim;
     extraFnlConfigFiles = [
-      ./fnl/lsp.fnl
       ./fnl/statusline.fnl
     ];
     plugins = with pkgs.vimPlugins; [

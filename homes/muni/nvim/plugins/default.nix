@@ -11,6 +11,7 @@
     ./dashboard.nix
     ./emmet.nix
     ./gitsigns.nix
+    ./lsp.nix
     ./lspkind.nix
     ./neorg.nix
     ./nvim-tree.nix
