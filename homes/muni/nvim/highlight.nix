@@ -127,7 +127,7 @@ in {
     Error = hl "red" null {bold = true;};
     Exception = hl "red" null {};
     Float = hl "orange" null {};
-    FloatBorder = hl "silver" null {};
+    FloatBorder = hl "light-gray" null {};
     FoldColumn = hl "cyan" null {};
     Folded = hl "light-gray" "dark-gray" {};
     Function = hl "blue" null {};
