@@ -10,9 +10,6 @@ in {
 
   programs.neovim = {
     enable = true;
-    package = pkgs.neovim-nightly;
-
-    defaultEditor = true;
 
     extraConfig = builtins.readFile ./init.vim;
     extraFnlConfigFiles = [
@@ -26,11 +23,5 @@ in {
         type = "fennel";
       }
     ];
-    viAlias = true;
-    vimAlias = true;
-    vimdiffAlias = true;
-    withNodeJs = true;
-    withPython3 = true;
-    withRuby = true;
   };
 }

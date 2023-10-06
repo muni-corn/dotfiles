@@ -1,4 +1,4 @@
-{config, ...}: {
+{config, pkgs, ...}: {
   imports = [
     ./autocmd.nix
     ./globals.nix
@@ -10,7 +10,11 @@
 
   programs.nixvim = {
     enable = true;
+    package = pkgs.neovim-nightly;
     clipboard.providers.wl-copy.enable = true;
+    defaultEditor = true;
+    viAlias = true;
+    vimAlias = true;
   };
 
   xdg.configFile = {
