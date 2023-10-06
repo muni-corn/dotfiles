@@ -14,12 +14,5 @@ in {
     extraFnlConfigFiles = [
       ./fnl/statusline.fnl
     ];
-    plugins = with pkgs.vimPlugins; [
-      {
-        plugin = nvim-cmp;
-        config = builtins.readFile ./fnl/config/cmp.fnl;
-        type = "fennel";
-      }
-    ];
   };
 }

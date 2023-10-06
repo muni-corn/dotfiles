@@ -40,9 +40,7 @@
         src = nvim-dap-vscode-js-src;
       };
     in [
-      cmp-nvim-lua
       lsp-status-nvim
-      nvim-cmp
       nvim-dap-virtual-text
       nvim-dap-vscode-js
       nvim-lspconfig
