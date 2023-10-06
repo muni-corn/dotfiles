@@ -12,4 +12,11 @@
     enable = true;
     clipboard.providers.wl-copy.enable = true;
   };
+
+  xdg.configFile = {
+    "nvim/pandoc-preview.sh" = {
+      executable = true;
+      source = ./pandoc-preview.sh;
+    };
+  };
 }
