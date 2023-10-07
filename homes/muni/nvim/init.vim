@@ -81,5 +81,4 @@ fu! TabLine()
 
     return s
 endfunction
-set tabline=%!TabLine()
 " }}}

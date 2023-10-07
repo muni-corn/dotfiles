@@ -43,6 +43,7 @@
     splitbelow = true;
     splitright = true;
     swapfile = false;
+    tabline = "%!TabLine()";
     tabstop = 4;
     tags = "./tags;";
     termguicolors = true;
