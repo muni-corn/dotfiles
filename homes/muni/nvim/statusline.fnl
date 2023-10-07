@@ -86,11 +86,4 @@
       inactive-status (fn []
                         (.. "     " file-path "%<%=" percent-scroll "  "))]
   (global active_statusline active-status)
-  (global inactive_statusline inactive-status)
-  (vim.api.nvim_exec "
-                     augroup statusline
-                     autocmd!
-                     autocmd BufEnter,WinEnter,BufRead,BufWinEnter * setlocal statusline=%!v:lua.active_statusline()
-                     autocmd BufLeave,WinLeave * setlocal statusline=%!v:lua.inactive_statusline()
-                     augroup END
-                     " false))
+  (global inactive_statusline inactive-status))

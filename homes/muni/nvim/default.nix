@@ -6,6 +6,7 @@
     ./keys.nix
     ./options.nix
     ./plugins
+    ./statusline.nix
   ];
 
   programs.nixvim = {
