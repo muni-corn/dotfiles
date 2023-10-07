@@ -30,7 +30,6 @@ fu! AutoSave()
 endfunction
 
 " Tab line {{{
-
 fu! TabLine()
     let l:s = ''
     let l:space = '  '
@@ -84,6 +83,3 @@ fu! TabLine()
 endfunction
 set tabline=%!TabLine()
 " }}}
-
-" sudo write
-com! -bar W exe 'w !sudo tee >/dev/null %:p:S' | setl nomod

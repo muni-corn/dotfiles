@@ -17,6 +17,13 @@
     extraConfigVim = builtins.readFile ./init.vim;
     viAlias = true;
     vimAlias = true;
+
+    userCommands = {
+      W = {
+        command = "w !sudo tee >/dev/null %:p:S | setl nomod";
+        desc = "sudo write";
+      };
+    };
   };
 
   xdg.configFile = {
