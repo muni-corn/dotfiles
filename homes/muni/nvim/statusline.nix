@@ -8,13 +8,13 @@ in {
     extraConfigLua = builtins.readFile (compileFnl "statusline" ./statusline.fnl);
     autoCmd = [
       {
-        event = [ "BufEnter" "WinEnter" "BufRead" "BufWinEnter" ];
+        event = ["BufEnter" "WinEnter" "BufRead" "BufWinEnter"];
         pattern = "*";
         command = "setlocal statusline=%!v:lua.active_statusline()";
         group = "statusline";
       }
       {
-        event = [ "BufLeave" "WinLeave" ];
+        event = ["BufLeave" "WinLeave"];
         pattern = "*";
         command = "setlocal statusline=%!v:lua.inactive_statusline()";
         group = "statusline";

@@ -7,7 +7,6 @@
     window.border = "single";
 
     registrations = {
-
     };
   };
 }

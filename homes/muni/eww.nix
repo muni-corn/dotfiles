@@ -1,4 +1,8 @@
-{config, pkgs, ...}: let
+{
+  config,
+  pkgs,
+  ...
+}: let
   colors = config.muse.theme.finalPalette;
 in {
   home.packages = with pkgs; [

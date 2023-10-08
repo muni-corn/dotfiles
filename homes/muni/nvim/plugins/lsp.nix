@@ -72,7 +72,11 @@ in {
           enable = true;
           installLanguageServer = false;
           settings = {
-            cargo = { autoreload = true; buildScripts.enable = true; features = "all"; };
+            cargo = {
+              autoreload = true;
+              buildScripts.enable = true;
+              features = "all";
+            };
             notifications.cargoTomlNotFound = false;
             check.command = "clippy";
             inlayHints = {
