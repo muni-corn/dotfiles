@@ -19,7 +19,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # neovim config in nix
-    nixvim.url = "github:nix-community/nixvim";
+    nixvim.url = "github:muni-corn/nixvim/unkeyed-fix";
 
     # node.js debugging
     nvim-dap-vscode-js = {
