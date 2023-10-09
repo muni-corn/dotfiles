@@ -25,10 +25,10 @@ in {
         lsp_status.register_progress()
 
         -- builtin lsp config
-        vim.fn.sign_define("DiagnosticSignError", { text = "${signs.error}", hl = "DiagnosticSignError", numhl = "DiagnosticSignError" })
-        vim.fn.sign_define("DiagnosticSignWarn", { text = "${signs.warning}", hl = "DiagnosticSignWarn", numhl = "DiagnosticSignWarn" })
-        vim.fn.sign_define("DiagnosticSignInfo", { text = "${signs.information}", hl = "DiagnosticSignInfo", numhl = "DiagnosticSignInfo" })
-        vim.fn.sign_define("DiagnosticSignHint", { text = "${signs.hint}", hl = "DiagnosticSignHint", numhl = "DiagnosticSignHint" })
+        vim.fn.sign_define("DiagnosticSignError", { text = "${signs.error}", texthl = "DiagnosticSignError", numhl = "DiagnosticSignError" })
+        vim.fn.sign_define("DiagnosticSignWarn", { text = "${signs.warning}", texthl = "DiagnosticSignWarn", numhl = "DiagnosticSignWarn" })
+        vim.fn.sign_define("DiagnosticSignInfo", { text = "${signs.information}", texthl = "DiagnosticSignInfo", numhl = "DiagnosticSignInfo" })
+        vim.fn.sign_define("DiagnosticSignHint", { text = "${signs.hint}", texthl = "DiagnosticSignHint", numhl = "DiagnosticSignHint" })
         vim.diagnostic.config {
           virtual_text = {
             prefix = "·",
