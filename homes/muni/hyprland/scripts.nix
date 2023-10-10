@@ -24,10 +24,10 @@
       #!${config.programs.fish.package}/bin/fish
       if set -q VOLUME_CTL_DEFAULT_SINK
         ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" ${pamixerFlags}
-        ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" --get-volume > $SWAYSOCK.wob &
+        ${pamixer} --sink "$VOLUME_CTL_DEFAULT_SINK" --get-volume > $XDG_RUNTIME_DIR/hypr.wob &
       else
         ${pamixer} ${pamixerFlags}
-        ${pamixer} --get-volume > $SWAYSOCK.wob &
+        ${pamixer} --get-volume > $XDG_RUNTIME_DIR/hypr.wob &
       end
 
        ${ms} notify volume &
