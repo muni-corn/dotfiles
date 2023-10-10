@@ -93,7 +93,7 @@ in {
     matchpal = {
       enable = true;
       colors = (import ./colors.nix).nord;
-      wallpapers.dir = ./wallpapers/photos;
+      wallpapers.dir = ./wallpapers/generated;
     };
   };
 
