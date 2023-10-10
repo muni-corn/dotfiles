@@ -80,7 +80,6 @@ in {
   muse.theme = {
     enable = true;
 
-    matchpal.enable = true;
     palette = (import ./colors.nix).nord;
     sansFont = {
       package = pkgs.inter;

@@ -209,23 +209,22 @@ in {
     };
 
     # startup apps
-    startup =
-      [
-        # load last screen brightness
-        {command = ''brillo -I'';}
+    startup = [
+      # load last screen brightness
+      {command = ''brillo -I'';}
 
-        # wob
-        {command = "${wobStartScript}";}
+      # wob
+      {command = "${wobStartScript}";}
 
-        # play startup sound
-        {command = ''${pkgs.libcanberra}/bin/canberra-gtk-play --id=desktop-login'';}
+      # play startup sound
+      {command = ''${pkgs.libcanberra}/bin/canberra-gtk-play --id=desktop-login'';}
 
-        # polkit
-        {command = ''${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1'';}
-      ]
+      # polkit
+      {command = ''${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1'';}
+
       # init wallpaper
-      ++ lib.optional config.muse.theme.matchpal.enable
-      {command = ''${wallpaperSwitchScript}'';};
+      {command = ''${wallpaperSwitchScript}'';}
+    ];
 
     terminal = "kitty -1";
 
