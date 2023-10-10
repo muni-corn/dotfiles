@@ -502,12 +502,12 @@
     }
     {
       key = "<leader>xn";
-      action = "<cmd>lua vim.diagnostic.goto_next( enable_popup = false )<cr>";
+      action = "<cmd>lua vim.diagnostic.goto_next({enable_popup = false})<cr>";
       options.desc = "next diagnostic";
     }
     {
       key = "<leader>xp";
-      action = "<cmd>lua vim.diagnostic.goto_prev( enable_popup = false )<cr>";
+      action = "<cmd>lua vim.diagnostic.goto_prev({enable_popup = false})<cr>";
       options.desc = "previous diagnostic";
     }
     {
