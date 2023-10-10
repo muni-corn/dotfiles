@@ -16,7 +16,7 @@
       corner_radius = 16;
       dmenu = "bemenu -p 'Do what?'";
       ellipsize = "end";
-      follow = "mouse";
+      follow = "none";
       font = "Inter 12";
       foreground = "#${colors.white}";
       format = "<b>%s</b>\\n%b";
@@ -32,6 +32,7 @@
       layer = "overlay";
       markup = "full";
       max_icon_size = 48;
+      monitor = 0;
       mouse_left = "do_action";
       mouse_middle = "close_current";
       mouse_right = "do_action";
