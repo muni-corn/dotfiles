@@ -79,22 +79,15 @@ in {
 
   muse.theme = {
     enable = true;
+
+    matchpal.enable = true;
+    palette = (import ./colors.nix).nord;
     sansFont = {
       package = pkgs.inter;
       name = "Inter";
       size = 12;
     };
-
-    arpeggio = {
-      enable = false;
-      wallpaper = ./wallpapers/Bells.jpg;
-    };
-
-    matchpal = {
-      enable = true;
-      colors = (import ./colors.nix).nord;
-      wallpapers.dir = ./wallpapers/generated;
-    };
+    wallpapersDir = ./wallpapers/generated;
   };
 
   nixpkgs.config = import ./config.nix {inherit lib;};

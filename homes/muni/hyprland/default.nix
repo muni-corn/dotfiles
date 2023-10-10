@@ -223,7 +223,7 @@ in {
 
   xdg.configFile = {
     "hypr/hyprpaper.conf".text = let
-      wallpaperDir = config.muse.theme.matchpal.wallpapers.final;
+      wallpaperDir = config.muse.theme.finalWallpapersDir;
       initialWallpaper =
         builtins.head
         (builtins.attrNames

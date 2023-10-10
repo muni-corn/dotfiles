@@ -30,7 +30,7 @@
     bright-white = "White";
   };
 
-  nameToHex = name: "#" + config.muse.theme.matchpal.colors.${name};
+  nameToHex = name: "#" + config.muse.theme.finalPalette.${name};
 
   # TODO: instead of passing in strings, pass in attrsets
   # of { cterm, hex } assigned to variables

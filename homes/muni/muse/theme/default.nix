@@ -52,15 +52,32 @@ in {
       };
     };
 
+    palette = mkOption {
+      type = types.attrsOf types.str;
+      description = "A base16 color theme to use for theming.";
+      apply = paletteFromBase16;
+    };
+
+    wallpapersDir = mkOption {
+      description = "A path to a directory containing wallpapers.";
+      type = types.path;
+      default = null;
+    };
+
     finalPalette = mkOption {
       type = types.attrsOf types.str;
       description = "The color theme (maybe generated) that other configurations can use for theming.";
       readOnly = true;
     };
 
-    arpeggio = {
-      enable = mkEnableOption "arpeggio to generate themes from a wallpaper";
+    finalWallpapersDir = mkOption {
+      type = types.path;
+      description = "The final directory containing processed wallpapers.";
+      readOnly = true;
+    };
 
+    arpeggio = {
+      enable = mkEnableOption "arpeggio to generate a theme from a wallpaper";
       wallpaper = mkOption {
         type = types.path;
         description = "The wallpaper to use for palette generation.";
@@ -72,29 +89,10 @@ in {
       type = types.submodule {
         options = {
           enable = mkEnableOption "matchpal theming for wallpapers";
-          colors = mkOption {
-            type = types.attrsOf types.str;
-            description = "A base16 color theme to use for theming.";
-            apply = paletteFromBase16;
-          };
-          wallpapers = mkOption {
-            description = "Settings for wallpapers.";
-            type = types.submodule {
-              options = {
-                dir = mkOption {
-                  type = types.path;
-                  description = "A path containing wallpapers.";
-                  default = null;
-                };
-                final = mkOption {
-                  type = types.path;
-                  description = "The final directory containing processed wallpapers.";
-                  readOnly = true;
-                };
-              };
-            };
-          };
         };
+      };
+      default = {
+        enable = false;
       };
     };
   };
@@ -114,11 +112,8 @@ in {
       muse = {
         theme = {
           finalPalette =
-            # if matchpal is enabled, then just use matchpal's colors
-            if cfg.matchpal.enable
-            then cfg.matchpal.colors
-            # otherwise, get the palette from arpeggio if it's enabled
-            else if cfg.arpeggio.enable
+            # get the palette from arpeggio if it's enabled
+            if cfg.arpeggio.enable
             then
               (
                 let
@@ -150,32 +145,35 @@ in {
                   base0F = palette.pink;
                 }
               )
-            else null;
+            # otherwise, use the palette provided by the user
+            else cfg.palette;
 
-          matchpal.wallpapers.final = let
+          finalWallpapersDir = let
+            # wallpapers to store in the nix store
             wallpapersPath = builtins.path {
               name = "wallpapers";
-              path = cfg.matchpal.wallpapers.dir;
-            };
-
-            paletteFile = pkgs.writeTextFile {
-              name = "matchpal-palette";
-              text = ''
-                ${cfg.finalPalette.black}
-                ${cfg.finalPalette.white}
-                ${cfg.finalPalette.red}
-                ${cfg.finalPalette.orange}
-                ${cfg.finalPalette.yellow}
-                ${cfg.finalPalette.green}
-                ${cfg.finalPalette.cyan}
-                ${cfg.finalPalette.blue}
-                ${cfg.finalPalette.purple}
-                ${cfg.finalPalette.brown}
-              '';
+              path = cfg.wallpapersDir;
             };
           in
-            mkIf cfg.matchpal.enable
-            (
+            if cfg.matchpal.enable
+            then let
+              # write out a palette file for matchpal
+              paletteFile = pkgs.writeTextFile {
+                name = "matchpal-palette";
+                text = ''
+                  ${cfg.finalPalette.black}
+                  ${cfg.finalPalette.white}
+                  ${cfg.finalPalette.red}
+                  ${cfg.finalPalette.orange}
+                  ${cfg.finalPalette.yellow}
+                  ${cfg.finalPalette.green}
+                  ${cfg.finalPalette.cyan}
+                  ${cfg.finalPalette.blue}
+                  ${cfg.finalPalette.purple}
+                  ${cfg.finalPalette.brown}
+                '';
+              };
+            in (
               pkgs.runCommand
               "muse-matchpal-wallpapers"
               {inherit wallpapersPath;}
@@ -193,7 +191,8 @@ in {
                   ${pkgs.matchpal}/bin/matchpal --palette ${paletteFile} --dither --input $resized_file --output $out/$name
                 done
               ''
-            );
+            )
+            else wallpapersPath;
         };
       };
     };
