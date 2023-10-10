@@ -8,10 +8,10 @@
   fontText = "Inter 12";
 
   # bemenu
-  black = "#${config.muse.theme.finalPalette.background}e5";
-  gray = "#${config.muse.theme.finalPalette.gray}e5";
+  black = "#${config.muse.theme.finalPalette.background}d8";
+  gray = "#${config.muse.theme.finalPalette.gray}d8";
   white = "#${config.muse.theme.finalPalette.foreground}";
-  accent = "#${config.muse.theme.finalPalette.accent}e5";
+  accent = "#${config.muse.theme.finalPalette.accent}d8";
 
   q = s: ''"${s}"'';
   bemenuArgs = [

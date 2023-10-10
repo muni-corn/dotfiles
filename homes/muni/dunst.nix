@@ -20,7 +20,7 @@
       font = "Inter 12";
       foreground = "#${colors.white}";
       format = "<b>%s</b>\\n%b";
-      frame_color = "#${colors.dark-gray}e5";
+      frame_color = "#${colors.dark-gray}d8";
       frame_width = 2;
       width = 384;
       height = 384;
@@ -46,17 +46,17 @@
       word_wrap = true;
     };
     "urgency_low" = {
-      background = "#${colors.black}e5";
+      background = "#${colors.black}d8";
       foreground = "#${colors.accent}";
     };
     "urgency_normal" = {
-      background = "#${colors.black}e5";
+      background = "#${colors.black}d8";
       foreground = "#${colors.white}";
     };
     "urgency_critical" = {
-      background = "#${colors.black}e5";
+      background = "#${colors.black}d8";
       foreground = "#${colors.white}";
-      frame_color = "#${colors.warning}e5";
+      frame_color = "#${colors.warning}d8";
       timeout = "10s";
     };
   };
