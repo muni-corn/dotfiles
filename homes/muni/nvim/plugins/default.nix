@@ -13,6 +13,7 @@
     ./gitsigns.nix
     ./lsp.nix
     ./lspkind.nix
+    ./mini.nix
     ./neorg.nix
     ./nvim-tree.nix
     ./telescope.nix
@@ -51,7 +52,6 @@
       popup-nvim
       twilight-nvim
       vim-hexokinase
-      vim-smoothie
       zen-mode-nvim
     ];
   };
