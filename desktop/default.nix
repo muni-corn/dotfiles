@@ -58,6 +58,10 @@
     interfaces.enp6s0.wakeOnLan.enable = true;
   };
 
+  nixpkgs.config = {
+    rocmTargets = [ "gfx1102" ];
+  };
+
   programs.gamescope = {
     enable = true;
     capSysNice = true;
