@@ -11,6 +11,14 @@
     enable = true;
     package = pkgs.gitAndTools.gitFull;
 
+    difftastic.enable = true;
+
+    aliases = {
+      dt = "difftool";
+      dlog = "log -p --ext-diff";
+      dshow = "show -p --ext-diff";
+    };
+
     signing = {
       key = "4B21310A52B15162";
       signByDefault = true;
@@ -24,9 +32,9 @@
       color = {
         ui = "auto";
         diff = {
-          old = "1 bold";
+          old = "9 bold";
           new = "10 bold";
-          oldMoved = "5 bold";
+          oldMoved = "13 bold";
           newMoved = "14 bold";
         };
       };
@@ -38,7 +46,11 @@
       diff = {
         colorMoved = "zebra";
         guitool = "meld";
-        tool = "nvimdiff";
+        tool = "difftastic";
+      };
+      difftool = {
+        prompt = false;
+        difftastic.cmd = ''${pkgs.difftastic}/bin/difft "$LOCAL" "$REMOTE"'';
       };
       fetch.prune = true;
       init.defaultBranch = "main";
@@ -50,6 +62,7 @@
         renamelimit = 2016;
         tool = "nvimdiff";
       };
+      pager.difftool = true;
       pull.rebase = true;
       rebase = {
         autoSquash = true;
