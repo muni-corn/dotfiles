@@ -72,15 +72,22 @@ in {
     in {
       general = {
         "col.active_border" = rgba colors.accent defaultAlpha;
-        "col.group_border" = rgba colors.black defaultAlpha;
-        "col.group_border_active" = rgba colors.accent defaultAlpha;
-        "col.group_border_locked" = rgba colors.dark-gray defaultAlpha;
-        "col.group_border_locked_active" = rgba colors.light-gray defaultAlpha;
         "col.inactive_border" = rgba colors.black defaultAlpha;
         border_size = 2;
         gaps_in = 8;
         gaps_out = 16;
         resize_on_border = true;
+      };
+
+      group = {
+        "col.border_active" = rgba colors.accent defaultAlpha;
+        "col.border_inactive" = rgba colors.black defaultAlpha;
+        "col.border_locked_active" = rgba colors.light-gray defaultAlpha;
+        "col.border_locked_inactive" = rgba colors.dark-gray defaultAlpha;
+        groupbar = {
+          font_size = 12;
+          gradients = false;
+        };
       };
 
       decoration = {
@@ -122,8 +129,6 @@ in {
         mouse_move_enables_dpms = true;
         key_press_enables_dpms = true;
         disable_splash_rendering = true;
-        groupbar_titles_font_size = 12;
-        groupbar_gradients = false;
       };
 
       # binds
