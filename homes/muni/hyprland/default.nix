@@ -8,6 +8,7 @@
 in {
   imports = [
     ./keys.nix
+    ./systemd.nix
   ];
 
   home.packages = with pkgs; [
