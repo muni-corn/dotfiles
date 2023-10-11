@@ -3,6 +3,10 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./git.nix
+  ];
+
   programs = {
     # let home-manager install and manage itself
     home-manager.enable = true;
@@ -29,72 +33,6 @@
     firefox = {
       enable = true;
       package = pkgs.firefox-wayland;
-    };
-
-    git = let
-      diffrColorsList = [
-        "added:foreground:green"
-        "removed:foreground:red"
-        "refine-added:foreground:10:background:green:bold"
-        "refine-removed:foreground:9:background:red:bold"
-      ];
-      diffrColors = builtins.concatStringsSep " --colors " diffrColorsList;
-    in {
-      enable = true;
-      package = pkgs.gitAndTools.gitFull;
-
-      signing = {
-        key = "4B21310A52B15162";
-        signByDefault = true;
-      };
-      userEmail = "municorn@musicaloft.com";
-      userName = "municorn";
-
-      extraConfig = {
-        advice.skippedCherryPicks = false;
-        annex.autocommit = false;
-        color = {
-          ui = "auto";
-          diff = {
-            old = "1 bold";
-            new = "10 bold";
-            oldMoved = "5 bold";
-            newMoved = "14 bold";
-          };
-        };
-        commit.verbose = true;
-        core = {
-          autocrlf = "input";
-          pager = "${pkgs.diffr}/bin/diffr --colors ${diffrColors} --line-numbers | less -R";
-        };
-        diff = {
-          colorMoved = "zebra";
-          guitool = "meld";
-          tool = "nvimdiff";
-        };
-        fetch.prune = true;
-        init.defaultBranch = "main";
-        interactive.diffFilter = "${pkgs.diffr}/bin/diffr --colors ${diffrColors} --line-numbers";
-        lfs.enable = true;
-        merge = {
-          conflictStyle = "zdiff3";
-          guitool = "meld";
-          renamelimit = 2016;
-          tool = "nvimdiff";
-        };
-        pull.rebase = true;
-        rebase = {
-          autoSquash = true;
-          autoStash = true;
-        };
-        receive.denyCurrentBranch = "refuse";
-        url = {
-          "git@bitbucket.org:".insteadOf = "https://bitbucket.org/";
-          "git@codeberg.org:".insteadOf = "https://codeberg.org/";
-          "git@github.com:".insteadOf = "https://github.com/";
-          "git@gitlab.com:".insteadOf = "https://gitlab.com/";
-        };
-      };
     };
 
     gpg.enable = true;
