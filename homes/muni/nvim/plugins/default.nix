@@ -8,7 +8,6 @@
     ./cmp.nix
     ./copilot.nix
     ./dap.nix
-    ./dashboard.nix
     ./emmet.nix
     ./gitsigns.nix
     ./lsp.nix

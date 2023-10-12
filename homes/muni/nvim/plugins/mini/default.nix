@@ -1,6 +1,7 @@
 {
   imports = [
     ./clue.nix
+    ./starter.nix
   ];
 
   programs.nixvim.plugins.mini = {
