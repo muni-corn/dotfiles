@@ -235,7 +235,8 @@
     }
     {
       key = "<leader>e";
-      action = "<cmd>NvimTreeFocus<cr>";
+      action = "require'mini.files'.open";
+      lua = true;
       options.desc = "explore files";
     }
     {

@@ -14,7 +14,6 @@
     ./lspkind.nix
     ./mini
     ./neorg.nix
-    ./nvim-tree.nix
     ./telescope.nix
     ./treesitter.nix
     ./trouble.nix
