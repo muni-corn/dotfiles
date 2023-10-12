@@ -13,7 +13,7 @@
     ./gitsigns.nix
     ./lsp.nix
     ./lspkind.nix
-    ./mini.nix
+    ./mini
     ./neorg.nix
     ./nvim-tree.nix
     ./telescope.nix
