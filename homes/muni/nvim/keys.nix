@@ -3,7 +3,6 @@
     telescope-buffers = "require'telescope.builtin'.buffers";
     telescope-builtin = "require'telescope.builtin'.builtin";
     telescope-fd = "require'telescope.builtin'.fd";
-    telescope-lsp-document-diagnostics = "require'telescope.builtin'.lsp_document_diagnostics";
     telescope-git-commits = "require'telescope.builtin'.git_commits";
     telescope-git-stash = "require'telescope.builtin'.git_stash";
     telescope-git-status = "require'telescope.builtin'.git_status";
@@ -17,7 +16,6 @@
     telescope-oldfiles = "<cmd>Telescope oldfiles<cr>";
     telescope-ripgrep = "require'telescope.builtin'.live_grep";
     telescope-spell-suggest = "require'telescope.builtin'.spell_suggest";
-    telescope-lsp-workspace-diagnostics = "require'telescope.builtin'.lsp_workspace_diagnostics";
 
     wrapLua = lua: "<cmd>lua ${lua}()<cr>";
   in [
@@ -241,12 +239,6 @@
       options.desc = "explore files";
     }
     {
-      key = "<leader>fE";
-      action = telescope-lsp-workspace-diagnostics;
-      lua = true;
-      options.desc = "all diagnostics";
-    }
-    {
       key = "<leader>fY";
       action = telescope-lsp-workspace-symbols;
       lua = true;
@@ -275,12 +267,6 @@
       action = telescope-fd;
       lua = true;
       options.desc = "find files";
-    }
-    {
-      key = "<leader>fe";
-      action = telescope-lsp-document-diagnostics;
-      lua = true;
-      options.desc = "diagnostics";
     }
     {
       key = "<leader>ff";
