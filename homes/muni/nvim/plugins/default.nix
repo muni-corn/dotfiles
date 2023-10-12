@@ -28,10 +28,6 @@
         extraOptions.auto_session_use_git_branch = true;
       };
       fugitive.enable = true;
-      indent-blankline = {
-        enable = true;
-        showCurrentContext = true;
-      };
     };
 
     extraPlugins = with pkgs.vimPlugins; let

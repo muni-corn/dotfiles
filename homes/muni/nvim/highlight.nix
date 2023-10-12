@@ -137,10 +137,6 @@ in {
     Identifier = hl "red" null {};
     IncSearch = hl "dark-gray" "yellow" {};
     Include = hl "blue" null {};
-    IndentBlanklineChar = hl "dark-gray" null {};
-    IndentBlanklineContextChar = hl "gray" null {};
-    IndentBlanklineSpaceChar = hl "dark-gray" null {};
-    IndentBlanklineSpaceCharBlankline = hl "dark-gray" null {};
     Info = hl "cyan" null {bold = true;};
     Italic = hl null null {italic = true;};
     Keyword = hl "purple" null {};

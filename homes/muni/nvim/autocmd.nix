@@ -26,10 +26,5 @@
       pattern = ["nix" "javascript" "typescript"];
       command = "setlocal shiftwidth=2 tabstop=2";
     }
-    {
-      event = "FileType";
-      pattern = "dashboard";
-      command = "IndentBlanklineDisable";
-    }
   ];
 }

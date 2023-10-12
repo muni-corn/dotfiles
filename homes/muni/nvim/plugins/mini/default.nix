@@ -8,6 +8,7 @@
     modules = {
       animate = {__empty = null;};
       comment = {__empty = null;};
+      indentscope = {__empty = null;};
       trailspace = {__empty = null;};
     };
   };
