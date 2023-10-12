@@ -22,13 +22,7 @@
   ];
 
   programs.nixvim = {
-    plugins = {
-      auto-session = {
-        enable = true;
-        extraOptions.auto_session_use_git_branch = true;
-      };
-      fugitive.enable = true;
-    };
+    plugins.fugitive.enable = true;
 
     extraPlugins = with pkgs.vimPlugins; let
       nvim-dap-vscode-js = pkgs.vimUtils.buildVimPlugin {
