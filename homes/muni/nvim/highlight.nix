@@ -210,6 +210,7 @@ in {
     GitSignsCurrentLineBlame = link "VirtualText";
     InfoMsg = link "Info";
     LspInfoBorder = link "FloatBorder";
+    MiniIndentscopeSymbol = link "Comment";
     NormalFloat = link "Normal";
     NvimInternalError = link "Error";
     SpellLocal = link "SpellRare";
