@@ -37,46 +37,6 @@
       options.desc = "narrower window";
     }
     {
-      key = "<bslash>1";
-      action = "<cmd>HopChar1<cr>";
-      options.desc = "hop char";
-    }
-    {
-      key = "<bslash>2";
-      action = "<cmd>HopChar2<cr>";
-      options.desc = "hop 2-char";
-    }
-    {
-      key = "<bslash>F";
-      action = "<cmd>HopChar1<cr>";
-      options.desc = "hop char";
-    }
-    {
-      key = "<bslash>f";
-      action = "<cmd>HopChar1<cr>";
-      options.desc = "hop char";
-    }
-    {
-      key = "<bslash>j";
-      action = "<cmd>HopLine<cr>";
-      options.desc = "hop line";
-    }
-    {
-      key = "<bslash>k";
-      action = "<cmd>HopLine<cr>";
-      options.desc = "hop line";
-    }
-    {
-      key = "<bslash>n";
-      action = "<cmd>HopPattern<cr>";
-      options.desc = "hop pattern";
-    }
-    {
-      key = "<bslash>w";
-      action = "<cmd>HopWord<cr>";
-      options.desc = "hop word";
-    }
-    {
       key = "<c-p>";
       action = telescope-fd;
       lua = true;
