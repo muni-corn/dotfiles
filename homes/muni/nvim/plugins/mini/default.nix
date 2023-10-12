@@ -7,6 +7,7 @@
   programs.nixvim.plugins.mini = {
     enable = true;
     modules = {
+      ai = {__empty = null;};
       animate = {__empty = null;};
       basics = {
         options = {
