@@ -14,6 +14,7 @@
           win_borders = "rounded";
         };
       };
+      bracketed = {__empty = null;};
       comment = {__empty = null;};
       files = {__empty = null;};
       indentscope = {__empty = null;};
