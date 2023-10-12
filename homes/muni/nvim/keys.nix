@@ -159,29 +159,9 @@
       options.desc = "buffers";
     }
     {
-      key = "<leader>cN";
-      action = "<cmd>cnfile<cr>";
-      options.desc = "next quickfix file";
-    }
-    {
-      key = "<leader>cP";
-      action = "<cmd>cpfile<cr>";
-      options.desc = "previous quickfix file";
-    }
-    {
       key = "<leader>cd";
       action = "<cmd>cd %:p:h<cr>:pwd<cr>";
       options.desc = "change directory to file";
-    }
-    {
-      key = "<leader>cn";
-      action = "<cmd>cnext<cr>";
-      options.desc = "next quickfix";
-    }
-    {
-      key = "<leader>cp";
-      action = "<cmd>cprev<cr>";
-      options.desc = "previous quickfix";
     }
     {
       key = "<leader>do";
@@ -306,26 +286,6 @@
       key = "<leader>l";
       action = "<c-w>l";
       options.desc = "focus window right";
-    }
-    {
-      key = "<leader>mN";
-      action = "<cmd>lnfile<cr>";
-      options.desc = "next location file";
-    }
-    {
-      key = "<leader>mP";
-      action = "<cmd>lpfile<cr>";
-      options.desc = "previous location file";
-    }
-    {
-      key = "<leader>mn";
-      action = "<cmd>lnext<cr>";
-      options.desc = "next location";
-    }
-    {
-      key = "<leader>mp";
-      action = "<cmd>lprev<cr>";
-      options.desc = "previous location";
     }
     {
       key = "<leader>pd";
@@ -495,18 +455,6 @@
       action = telescope-lsp-implementations;
       lua = true;
       options.desc = "lsp implementations";
-    }
-    {
-      key = "<leader>xn";
-      action = "function() vim.diagnostic.goto_next({enable_popup = false}) end";
-      lua = true;
-      options.desc = "next diagnostic";
-    }
-    {
-      key = "<leader>xp";
-      action = "function() vim.diagnostic.goto_prev({enable_popup = false}) end";
-      lua = true;
-      options.desc = "previous diagnostic";
     }
     {
       key = "<leader>xr";
