@@ -95,6 +95,8 @@
           {__raw = "require('mini.clue').gen_clues.z()";}
         ];
       };
+
+      comment = {__empty = null;};
     };
   };
 }

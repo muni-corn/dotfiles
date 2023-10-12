@@ -27,7 +27,6 @@
         enable = true;
         extraOptions.auto_session_use_git_branch = true;
       };
-      commentary.enable = true;
       fugitive.enable = true;
       indent-blankline = {
         enable = true;
