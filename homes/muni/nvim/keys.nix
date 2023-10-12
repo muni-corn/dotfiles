@@ -437,8 +437,21 @@
     }
     {
       key = "<leader>tw";
-      action = ":%s/\\s\\+$//e<cr>:noh<cr>";
-      options.silent = true;
+      action = "require('mini.trailspace').trim()";
+      options = {
+        silent = true;
+        desc = "remove trailing whitespace";
+        lua = true;
+      };
+    }
+    {
+      key = "<leader>tW";
+      action = "require('mini.trailspace').trim_last_lines()";
+      options = {
+        silent = true;
+        desc = "remove trailing newlines";
+        lua = true;
+      };
     }
     {
       key = "<leader>tx";
