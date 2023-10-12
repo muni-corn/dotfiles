@@ -603,21 +603,6 @@
 
     {
       mode = "i";
-      key = "{<cr>";
-      action = "{<cr>}<esc>ko";
-    }
-    {
-      mode = "i";
-      key = "[<cr>";
-      action = "[<cr>]<esc>ko";
-    }
-    {
-      mode = "i";
-      key = "(<cr>";
-      action = "(<cr>)<esc>ko";
-    }
-    {
-      mode = "i";
       key = "jj";
       action = "<esc>";
     }

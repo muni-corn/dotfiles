@@ -18,6 +18,7 @@
       comment = {__empty = null;};
       files = {__empty = null;};
       indentscope = {__empty = null;};
+      pairs = {__empty = null;};
       sessions = {__empty = null;};
       trailspace = {__empty = null;};
     };
