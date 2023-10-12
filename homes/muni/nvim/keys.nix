@@ -1,23 +1,25 @@
 {
   programs.nixvim.keymaps = let
-    telescope-fd = "<cmd>lua require'telescope.builtin'.fd()<cr>";
-    telescope-builtin = "<cmd>lua require'telescope.builtin'.builtin()<cr>";
-    telescope-buffers = "<cmd>lua require'telescope.builtin'.buffers()<cr>";
-    telescope-spell-suggest = "<cmd>lua require'telescope.builtin'.spell_suggest()<cr>";
-    telescope-git-switch-branch = "<cmd>lua require'telescope.builtin'.git_branches()<cr>";
-    telescope-git-commits = "<cmd>lua require'telescope.builtin'.git_commits()<cr>";
-    telescope-git-stash = "<cmd>lua require'telescope.builtin'.git_stash()<cr>";
-    telescope-git-status = "<cmd>lua require'telescope.builtin'.git_status()<cr>";
-    telescope-lsp-actions = "<cmd>lua vim.lsp.buf.code_action()<cr>";
-    telescope-lsp-document-diagnostics = "<cmd>lua require'telescope.builtin'.lsp_document_diagnostics()<cr>";
-    telescope-lsp-workspace-diagnostics = "<cmd>lua require'telescope.builtin'.lsp_workspace_diagnostics()<cr>";
-    telescope-lsp-document-symbols = "<cmd>lua require'telescope.builtin'.lsp_document_symbols()<cr>";
-    telescope-lsp-workspace-symbols = "<cmd>lua require'telescope.builtin'.lsp_workspace_symbols()<cr>";
-    telescope-lsp-definition = "<cmd>lua require'telescope.builtin'.lsp_definitions()<cr>";
-    telescope-lsp-references = "<cmd>lua require'telescope.builtin'.lsp_references()<cr>";
-    telescope-lsp-implementations = "<cmd>lua require'telescope.builtin'.lsp_implementations()<cr>";
+    telescope-buffers = "require'telescope.builtin'.buffers";
+    telescope-builtin = "require'telescope.builtin'.builtin";
+    telescope-fd = "require'telescope.builtin'.fd";
+    telescope-lsp-document-diagnostics = "require'telescope.builtin'.lsp_document_diagnostics";
+    telescope-git-commits = "require'telescope.builtin'.git_commits";
+    telescope-git-stash = "require'telescope.builtin'.git_stash";
+    telescope-git-status = "require'telescope.builtin'.git_status";
+    telescope-git-switch-branch = "require'telescope.builtin'.git_branches";
+    telescope-lsp-actions = "vim.lsp.buf.code_action";
+    telescope-lsp-definition = "require'telescope.builtin'.lsp_definitions";
+    telescope-lsp-document-symbols = "require'telescope.builtin'.lsp_document_symbols";
+    telescope-lsp-implementations = "require'telescope.builtin'.lsp_implementations";
+    telescope-lsp-references = "require'telescope.builtin'.lsp_references";
+    telescope-lsp-workspace-symbols = "require'telescope.builtin'.lsp_workspace_symbols";
     telescope-oldfiles = "<cmd>Telescope oldfiles<cr>";
-    telescope-ripgrep = "<cmd>lua require'telescope.builtin'.live_grep()<cr>";
+    telescope-ripgrep = "require'telescope.builtin'.live_grep";
+    telescope-spell-suggest = "require'telescope.builtin'.spell_suggest";
+    telescope-lsp-workspace-diagnostics = "require'telescope.builtin'.lsp_workspace_diagnostics";
+
+    wrapLua = lua: "<cmd>lua ${lua}()<cr>";
   in [
     {
       key = "!";
@@ -79,11 +81,13 @@
     {
       key = "<c-p>";
       action = telescope-fd;
+      lua = true;
       options.desc = "find file";
     }
     {
       key = "<leader>/";
       action = telescope-lsp-definition;
+      lua = true;
       options.desc = "lsp defintion";
     }
     {
@@ -106,52 +110,62 @@
     }
     {
       key = "<leader>?";
-      action = "<cmd>lua vim.lsp.buf.type_definition()<cr>";
+      action = "vim.lsp.buf.type_definition";
+      lua = true;
       options.desc = "lsp type definition";
     }
     {
       key = "<leader>DB";
-      action = "<cmd>lua require'telescope'.extensions.dap.list_breakpoints<cr>";
+      action = "require'telescope'.extensions.dap.list_breakpoints";
+      lua = true;
       options.desc = "debug list breakpoints";
     }
     {
       key = "<leader>DC";
-      action = "<cmd>lua require'telescope'.extensions.dap.commands<cr>";
+      action = "require'telescope'.extensions.dap.commands";
+      lua = true;
       options.desc = "run last";
     }
     {
       key = "<leader>DO";
-      action = "<cmd>lua require'dap'.step_over()<cr>";
+      action = "require'dap'.step_over";
+      lua = true;
       options.desc = "step over";
     }
     {
       key = "<leader>DV";
-      action = "<cmd>lua require'telescope'.extensions.dap.variables<cr>";
+      action = "require'telescope'.extensions.dap.variables";
+      lua = true;
       options.desc = "list debug variables";
     }
     {
       key = "<leader>Db";
-      action = "<cmd>lua require'dap'.toggle_breakpoint()<cr>";
+      action = "require'dap'.toggle_breakpoint";
+      lua = true;
       options.desc = "toggle breakpoint";
     }
     {
       key = "<leader>Dc";
-      action = "<cmd>lua require'dap'.continue()<cr>";
+      action = "require'dap'.continue";
+      lua = true;
       options.desc = "continue";
     }
     {
       key = "<leader>Di";
-      action = "<cmd>lua require'dap'.step_into()<cr>";
+      action = "require'dap'.step_into";
+      lua = true;
       options.desc = "step into";
     }
     {
       key = "<leader>Do";
-      action = "<cmd>lua require'dap'.step_out()<cr>";
+      action = "require'dap'.step_out";
+      lua = true;
       options.desc = "step out";
     }
     {
       key = "<leader>Dr";
-      action = "<cmd>lua require'dap'.repl.toggle()<cr>";
+      action = "require'dap'.repl.toggle";
+      lua = true;
       options.desc = "toggle repl";
     }
     {
@@ -183,6 +197,7 @@
     {
       key = "<leader>b";
       action = telescope-buffers;
+      lua = true;
       options.desc = "buffers";
     }
     {
@@ -228,51 +243,61 @@
     {
       key = "<leader>fE";
       action = telescope-lsp-workspace-diagnostics;
+      lua = true;
       options.desc = "all diagnostics";
     }
     {
       key = "<leader>fY";
       action = telescope-lsp-workspace-symbols;
+      lua = true;
       options.desc = "all symbols";
     }
     {
       key = "<leader>fa";
       action = telescope-lsp-actions;
+      lua = true;
       options.desc = "lsp actions";
     }
     {
       key = "<leader>fb";
       action = telescope-git-switch-branch;
+      lua = true;
       options.desc = "switch git branch";
     }
     {
       key = "<leader>fc";
       action = telescope-git-commits;
+      lua = true;
       options.desc = "git commits";
     }
     {
       key = "<leader>fd";
       action = telescope-fd;
+      lua = true;
       options.desc = "find files";
     }
     {
       key = "<leader>fe";
       action = telescope-lsp-document-diagnostics;
+      lua = true;
       options.desc = "diagnostics";
     }
     {
       key = "<leader>ff";
       action = telescope-builtin;
+      lua = true;
       options.desc = "all telescopes";
     }
     {
       key = "<leader>fg";
       action = telescope-git-status;
+      lua = true;
       options.desc = "git status";
     }
     {
       key = "<leader>fi";
       action = telescope-lsp-implementations;
+      lua = true;
       options.desc = "lsp implementations";
     }
     {
@@ -283,26 +308,31 @@
     {
       key = "<leader>fr";
       action = telescope-ripgrep;
+      lua = true;
       options.desc = "ripgrep";
     }
     {
       key = "<leader>fs";
       action = telescope-git-stash;
+      lua = true;
       options.desc = "git stash";
     }
     {
       key = "<leader>fy";
       action = telescope-lsp-document-symbols;
+      lua = true;
       options.desc = "symbols";
     }
     {
       key = "<leader>fz";
       action = telescope-spell-suggest;
+      lua = true;
       options.desc = "spellings";
     }
     {
       key = "<leader>gg";
       action = telescope-ripgrep;
+      lua = true;
       options.desc = "ripgrep";
     }
     {
@@ -388,6 +418,7 @@
     {
       key = "<leader>rg";
       action = telescope-ripgrep;
+      lua = true;
       options.desc = "ripgrep";
     }
     {
@@ -397,7 +428,7 @@
     }
     {
       key = "<leader>sg";
-      action = "<cmd>new<cr>${telescope-ripgrep}";
+      action = "<cmd>new<cr>${wrapLua telescope-ripgrep}";
       options.desc = "split ripgrep";
     }
     {
@@ -407,7 +438,7 @@
     }
     {
       key = "<leader>ss";
-      action = "<cmd>new<cr>${telescope-fd}";
+      action = "<cmd>new<cr>${wrapLua telescope-fd}";
       options.desc = "split find file";
     }
     {
@@ -417,7 +448,7 @@
     }
     {
       key = "<leader>tg";
-      action = "<cmd>tabnew<cr>${telescope-ripgrep}";
+      action = "<cmd>tabnew<cr>${wrapLua telescope-ripgrep}";
       options.desc = "tab ripgrep";
     }
     {
@@ -432,25 +463,25 @@
     }
     {
       key = "<leader>tt";
-      action = "<cmd>tabnew<cr>${telescope-fd}";
+      action = "<cmd>tabnew<cr>${wrapLua telescope-fd}";
       options.desc = "find file in new tab";
     }
     {
       key = "<leader>tw";
-      action = "require('mini.trailspace').trim()";
+      action = "require('mini.trailspace').trim";
+      lua = true;
       options = {
         silent = true;
         desc = "remove trailing whitespace";
-        lua = true;
       };
     }
     {
       key = "<leader>tW";
-      action = "require('mini.trailspace').trim_last_lines()";
+      action = "require('mini.trailspace').trim_last_lines";
+      lua = true;
       options = {
         silent = true;
         desc = "remove trailing newlines";
-        lua = true;
       };
     }
     {
@@ -465,7 +496,7 @@
     }
     {
       key = "<leader>vg";
-      action = "<cmd>vnew<cr>${telescope-ripgrep}";
+      action = "<cmd>vnew<cr>${wrapLua telescope-ripgrep}";
       options.desc = "vertical ripgrep";
     }
     {
@@ -475,7 +506,7 @@
     }
     {
       key = "<leader>vv";
-      action = "<cmd>vnew<cr>${telescope-fd}";
+      action = "<cmd>vnew<cr>${wrapLua telescope-fd}";
       options.desc = "vertical find file";
     }
     {
@@ -491,41 +522,49 @@
     {
       key = "<leader>xR";
       action = telescope-lsp-references;
+      lua = true;
       options.desc = "lsp references";
     }
     {
       key = "<leader>xa";
       action = telescope-lsp-actions;
+      lua = true;
       options.desc = "lsp actions";
     }
     {
       key = "<leader>xd";
-      action = "<cmd>lua vim.lsp.buf.declaration()<cr>";
+      action = "vim.lsp.buf.declaration";
+      lua = true;
       options.desc = "lsp declarations";
     }
     {
       key = "<leader>xf";
-      action = "<cmd>lua vim.lsp.buf.format()<cr>";
+      action = "vim.lsp.buf.format";
+      lua = true;
       options.desc = "lsp format";
     }
     {
       key = "<leader>xi";
       action = telescope-lsp-implementations;
+      lua = true;
       options.desc = "lsp implementations";
     }
     {
       key = "<leader>xn";
-      action = "<cmd>lua vim.diagnostic.goto_next({enable_popup = false})<cr>";
+      action = "function() vim.diagnostic.goto_next({enable_popup = false}) end";
+      lua = true;
       options.desc = "next diagnostic";
     }
     {
       key = "<leader>xp";
-      action = "<cmd>lua vim.diagnostic.goto_prev({enable_popup = false})<cr>";
+      action = "function() vim.diagnostic.goto_prev({enable_popup = false}) end";
+      lua = true;
       options.desc = "previous diagnostic";
     }
     {
       key = "<leader>xr";
-      action = "<cmd>lua vim.lsp.buf.rename()<cr>";
+      action = "vim.lsp.buf.rename";
+      lua = true;
       options.desc = "lsp rename";
     }
     {
@@ -540,7 +579,8 @@
     }
     {
       key = "K";
-      action = "<cmd>lua vim.lsp.buf.hover()<cr>";
+      action = "vim.lsp.buf.hover";
+      lua = true;
       options.silent = true;
       options.desc = "lsp hover";
     }
