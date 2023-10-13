@@ -21,6 +21,7 @@
       indentscope = {__empty = null;};
       pairs = {__empty = null;};
       sessions = {__empty = null;};
+      surround = {__empty = null;};
       trailspace = {__empty = null;};
     };
   };
