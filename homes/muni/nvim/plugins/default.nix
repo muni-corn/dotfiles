@@ -31,7 +31,6 @@
       lsp-status-nvim
       nvim-dap-virtual-text
       nvim-dap-vscode-js
-      nvim-lspconfig
       nvim-snippy
       nvim-web-devicons
       playground
