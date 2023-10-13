@@ -57,6 +57,7 @@
     visualbell = false;
     whichwrap = "<,>,h,l";
     wildignore = "*/node_modules,*/node_modules/*,.git,.git/*,tags,*/dist,*/dist/*";
+    winblend = 0;
     wrap = true;
     writebackup = false;
   };
