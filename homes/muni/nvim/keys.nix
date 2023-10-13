@@ -496,18 +496,6 @@
       options.silent = true;
       options.desc = "shorter window";
     }
-    {
-      key = "j";
-      action = "v:count ? 'j' : 'gj'";
-      options.expr = true;
-      options.desc = "down";
-    }
-    {
-      key = "k";
-      action = "v:count ? 'k' : 'gk'";
-      options.expr = true;
-      options.desc = "up";
-    }
 
     {
       mode = "i";
