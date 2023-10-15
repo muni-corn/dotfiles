@@ -1,6 +1,6 @@
 {
   config,
-  deviceInfo ? null,
+  deviceName ? null,
   lib,
   pkgs,
   ...
@@ -192,7 +192,7 @@ in {
       ]
       ++
       # ponycastle-specific packages
-      lib.optionals (deviceInfo.name == "ponycastle") [
+      lib.optionals (deviceName == "ponycastle") [
         # photo
         gmic
         gmic-qt
@@ -323,7 +323,7 @@ in {
   };
 
   services = import ./services.nix {
-    inherit bemenuArgs config deviceInfo lib pkgs;
+    inherit bemenuArgs config deviceName lib pkgs;
     colors = config.muse.theme.finalPalette;
   };
 
@@ -340,7 +340,7 @@ in {
       };
       "muse-status/daemon.yaml".text = let
         network_iface =
-          if deviceInfo.name == "ponycastle"
+          if deviceName == "ponycastle"
           then "enp6s0"
           else "wlan0";
       in ''

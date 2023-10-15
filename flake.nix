@@ -117,27 +117,18 @@
         inherit overlays;
       };
 
-      # `deviceInfo` should be { name: string; graphical: bool; work: bool; }
-      homeConfiguration = deviceInfo:
+      homeConfiguration = deviceName:
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = {
-            inherit deviceInfo;
+            inherit deviceName;
             nvim-dap-vscode-js-src = nvim-dap-vscode-js;
           };
           modules = [overlaysModule nixvim.homeManagerModules.nixvim ./muni/home.nix];
         };
     in {
-      ponycastle = homeConfiguration {
-        name = "ponycastle";
-        graphical = true;
-        personal = true;
-      };
-      littlepony = homeConfiguration {
-        name = "littlepony";
-        graphical = true;
-        personal = true;
-      };
+      ponycastle = homeConfiguration "ponycastle";
+      littlepony = homeConfiguration "littlepony";
     };
   };
 }

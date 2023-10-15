@@ -2,7 +2,7 @@
   bemenuArgs,
   colors,
   config,
-  deviceInfo,
+  deviceName,
   lib,
   pkgs,
 }: {
@@ -43,7 +43,7 @@
 
   muse-status.enable = true;
 
-  spotifyd = import ./spotifyd.nix {inherit config deviceInfo pkgs;};
+  spotifyd = import ./spotifyd.nix {inherit config deviceName pkgs;};
 
   syncthing.enable = true;
 }
