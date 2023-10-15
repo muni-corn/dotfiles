@@ -17,7 +17,7 @@ in {
   xdg.configFile = let
     bg = colors.background;
     fg = colors.foreground;
-    dim = colors.dark-blue;
+    dim = colors.blue;
   in {
     eww.recursive = true;
     "eww/colors.scss".text = ''

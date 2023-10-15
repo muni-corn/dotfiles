@@ -5,29 +5,31 @@
 }: let
   nameToCterm = {
     black = "Black";
-    dark-red = "DarkRed";
-    dark-green = "DarkGreen";
-    dark-yellow = "DarkYellow";
-    dark-blue = "DarkBlue";
-    dark-purple = "DarkMagenta";
-    dark-cyan = "DarkCyan";
-    silver = "LightGray";
-    gray = "Gray";
-    red = "Red";
-    green = "Green";
-    yellow = "Yellow";
-    blue = "Blue";
-    purple = "Magenta";
-    cyan = "Cyan";
-    white = "White";
-    orange = "Red";
-    brown = "Brown";
-    dark-orange = "DarkRed";
-    dark-brown = "Brown";
     dark-gray = "DarkGray";
+    gray = "Gray";
     light-gray = "LightGray";
+    silver = "LightGray";
     light-silver = "White";
+    white = "White";
     bright-white = "White";
+
+    red = "DarkRed";
+    orange = "DarkRed";
+    green = "DarkGreen";
+    yellow = "DarkYellow";
+    blue = "DarkBlue";
+    purple = "DarkMagenta";
+    cyan = "DarkCyan";
+    brown = "Brown";
+
+    bright-red = "Red";
+    bright-orange = "Red";
+    bright-yellow = "Yellow";
+    bright-green = "Green";
+    bright-cyan = "Cyan";
+    bright-blue = "Blue";
+    bright-purple = "Magenta";
+    bright-brown = "Brown";
   };
 
   nameToHex = name: "#" + config.muse.theme.finalPalette.${name};
@@ -119,10 +121,10 @@ in {
       undercurl = true;
       sp = nameToHex "yellow";
     };
-    DiffAdd = hl "green" "dark-green" {bold = true;};
+    DiffAdd = hl "bright-green" "green" {bold = true;};
     DiffChange = hl null null {};
-    DiffDelete = hl "red" "dark-red" {bold = true;};
-    DiffText = hl "yellow" "dark-yellow" {bold = true;};
+    DiffDelete = hl "bright-red" "red" {bold = true;};
+    DiffText = hl "bright-yellow" "yellow" {bold = true;};
     Directory = hl "blue" null {};
     Error = hl "red" null {bold = true;};
     Exception = hl "red" null {};

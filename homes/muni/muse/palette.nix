@@ -42,17 +42,7 @@ in {
       white = base06;
       bright-white = base07;
 
-      # dark colors
-      dark-red = mix base00 base08;
-      dark-orange = mix base00 base09;
-      dark-yellow = mix base00 base0A;
-      dark-green = mix base00 base0B;
-      dark-cyan = mix base00 base0C;
-      dark-blue = mix base00 base0D;
-      dark-purple = mix base00 base0E;
-      dark-brown = mix base00 base0F;
-
-      # light colors
+      # normal colors
       red = base08;
       orange = base09;
       yellow = base0A;
@@ -61,6 +51,16 @@ in {
       blue = base0D;
       purple = base0E;
       brown = base0F;
+
+      # bright colors
+      bright-red = mix base06 base08;
+      bright-orange = mix base06 base09;
+      bright-yellow = mix base06 base0A;
+      bright-green = mix base06 base0B;
+      bright-cyan = mix base06 base0C;
+      bright-blue = mix base06 base0D;
+      bright-purple = mix base06 base0E;
+      bright-brown = mix base06 base0F;
 
       # other named colors
       background = base00;

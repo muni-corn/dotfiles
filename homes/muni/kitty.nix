@@ -45,20 +45,20 @@ in {
 
     # match 0-15 colors to their names
     color0 = "#${colors.black}";
-    color1 = "#${colors.dark-red}";
-    color2 = "#${colors.dark-green}";
-    color3 = "#${colors.dark-yellow}";
-    color4 = "#${colors.dark-blue}";
-    color5 = "#${colors.dark-purple}";
-    color6 = "#${colors.dark-cyan}";
+    color1 = "#${colors.red}";
+    color2 = "#${colors.green}";
+    color3 = "#${colors.yellow}";
+    color4 = "#${colors.blue}";
+    color5 = "#${colors.purple}";
+    color6 = "#${colors.cyan}";
     color7 = "#${colors.silver}";
     color8 = "#${colors.gray}";
-    color9 = "#${colors.red}";
-    color10 = "#${colors.green}";
-    color11 = "#${colors.yellow}";
-    color12 = "#${colors.blue}";
-    color13 = "#${colors.purple}";
-    color14 = "#${colors.cyan}";
+    color9 = "#${colors.bright-red}";
+    color10 = "#${colors.bright-green}";
+    color11 = "#${colors.bright-yellow}";
+    color12 = "#${colors.bright-blue}";
+    color13 = "#${colors.bright-purple}";
+    color14 = "#${colors.bright-cyan}";
     color15 = "#${colors.white}";
 
     # other styling
