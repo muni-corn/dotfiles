@@ -125,7 +125,7 @@
             inherit deviceInfo;
             nvim-dap-vscode-js-src = nvim-dap-vscode-js;
           };
-          modules = [overlaysModule nixvim.homeManagerModules.nixvim ./homes/muni/home.nix];
+          modules = [overlaysModule nixvim.homeManagerModules.nixvim ./muni/home.nix];
         };
     in {
       ponycastle = homeConfiguration {
