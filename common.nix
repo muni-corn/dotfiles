@@ -189,6 +189,12 @@
         "steam-original"
         "steam-run"
         "steam-runtime"
+
+        # moved from home-manager
+        "SpaceCadetPinball"
+        "discord"
+        "linuxsampler"
+        "slack"
       ];
   };
 

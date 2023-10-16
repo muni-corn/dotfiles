@@ -1,11 +1,13 @@
 {
   config,
-  deviceName ? null,
   lib,
   pkgs,
+  osConfig,
   ...
 }: let
   fontText = "Inter 12";
+
+  deviceName = osConfig.networking.hostName;
 
   # bemenu
   black = "#${config.muse.theme.finalPalette.background}d8";
@@ -88,8 +90,6 @@ in {
     };
     wallpapersDir = ./wallpapers/generated;
   };
-
-  nixpkgs.config = import ./config.nix {inherit lib;};
 
   home = {
     extraOutputsToInstall = ["doc" "info" "devdoc"];

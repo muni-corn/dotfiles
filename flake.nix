@@ -83,6 +83,21 @@
       nixpkgs.overlays = overlays;
     };
 
+    commonModules = [
+      home-manager.nixosModules.home-manager
+      musnix.nixosModules.musnix
+      overlaysModule
+      {
+        home-manager = {
+          extraSpecialArgs.nvim-dap-vscode-js-src = nvim-dap-vscode-js;
+          sharedModules = [nixvim.homeManagerModules.nixvim];
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          users.muni = ./muni/home.nix;
+        };
+      }
+    ];
+
     littleponyHardwareModules = with nixos-hardware.nixosModules; [
       common-cpu-amd
       common-gpu-amd
@@ -103,32 +118,12 @@
     nixosConfigurations = {
       littlepony = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [overlaysModule] ++ littleponyHardwareModules ++ [musnix.nixosModules.musnix ./laptop];
+        modules = commonModules ++ littleponyHardwareModules ++ [./laptop];
       };
       ponycastle = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        modules = [overlaysModule] ++ ponycastleHardwareModules ++ [musnix.nixosModules.musnix ./desktop];
+        modules = commonModules ++ ponycastleHardwareModules ++ [./desktop];
       };
-    };
-
-    homeConfigurations = let
-      pkgs = import nixpkgs {
-        system = "x86_64-linux";
-        inherit overlays;
-      };
-
-      homeConfiguration = deviceName:
-        home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = {
-            inherit deviceName;
-            nvim-dap-vscode-js-src = nvim-dap-vscode-js;
-          };
-          modules = [overlaysModule nixvim.homeManagerModules.nixvim ./muni/home.nix];
-        };
-    in {
-      ponycastle = homeConfiguration "ponycastle";
-      littlepony = homeConfiguration "littlepony";
     };
   };
 }
