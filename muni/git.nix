@@ -3,8 +3,8 @@
     diffrColorsList = [
       "added:foreground:green"
       "removed:foreground:red"
-      "refine-added:foreground:10:background:green:bold"
-      "refine-removed:foreground:9:background:red:bold"
+      "refine-added:foreground:green:background:8:bold"
+      "refine-removed:foreground:red:background:8:bold"
     ];
     diffrColors = builtins.concatStringsSep " --colors " diffrColorsList;
   in {

@@ -11,10 +11,10 @@
   deviceName = osConfig.networking.hostName;
 
   # bemenu
-  black = "#${colors.background}d8";
-  gray = "#${colors.gray}d8";
+  black = "#000000b8";
+  gray = "#${colors.dark-gray}b8";
   white = "#${colors.foreground}";
-  accent = "#${colors.accent}d8";
+  accent = "#${colors.accent}b8";
 
   q = s: ''"${s}"'';
   bemenuArgs = [

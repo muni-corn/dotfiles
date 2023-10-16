@@ -21,7 +21,7 @@ in {
   in {
     eww.recursive = true;
     "eww/colors.scss".text = ''
-      $bg: #${bg};
+      $bg: #000000;
       $fg: #${fg};
       $dim: #${dim};
     '';

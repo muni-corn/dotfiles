@@ -60,7 +60,7 @@ in {
       rgba = c: a: "rgba(${c}${a})";
       rgb = c: "rgb(${c})";
 
-      defaultAlpha = "c0";
+      defaultAlpha = "b8";
 
       colors = config.muse.theme.finalPalette;
 

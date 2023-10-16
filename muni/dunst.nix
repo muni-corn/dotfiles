@@ -12,19 +12,18 @@
   };
   settings = {
     global = {
-      browser = "firefox";
+      background = "#000000b8";
+      browser = "xdg-open";
       corner_radius = 16;
-      dmenu = "bemenu -p 'Do what?'";
+      dmenu = "${pkgs.bemenu}/bin/bemenu -p 'Do what?'";
       ellipsize = "end";
       follow = "none";
       font = "Inter 12";
       foreground = "#${colors.white}";
       format = "<b>%s</b>\\n%b";
-      frame_color = "#${colors.dark-gray}d8";
+      frame_color = "#${colors.dark-gray}b8";
       frame_width = 2;
-      width = 384;
-      height = 384;
-      offset = "4x4";
+      gap_size = 4;
       highlight = "#${colors.alert}";
       history_length = -1;
       horizontal_padding = 32;
@@ -33,9 +32,9 @@
       markup = "full";
       max_icon_size = 48;
       monitor = 0;
-      mouse_left = "do_action";
-      mouse_middle = "close_current";
-      mouse_right = "do_action";
+      mouse_left_click = "do_action";
+      mouse_middle_click = "close_current";
+      mouse_right_click = "context";
       padding = 16;
       progress_bar_height = 4;
       separator_height = 4;
@@ -43,21 +42,17 @@
       show_indicators = false;
       sort = true;
       stack_duplicates = true;
-      transparency = 10;
       word_wrap = true;
+
+      width = 384;
+      height = 384;
+      offset = "4x4";
     };
-    "urgency_low" = {
-      background = "#${colors.black}d8";
-      foreground = "#${colors.accent}";
-    };
-    "urgency_normal" = {
-      background = "#${colors.black}d8";
+    urgency_low.foreground = "#${colors.accent}";
+    urgency_normal.foreground = "#${colors.white}";
+    urgency_critical = {
       foreground = "#${colors.white}";
-    };
-    "urgency_critical" = {
-      background = "#${colors.black}d8";
-      foreground = "#${colors.white}";
-      frame_color = "#${colors.warning}d8";
+      frame_color = "#${colors.warning}b8";
       timeout = "10s";
     };
   };
