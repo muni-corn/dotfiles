@@ -67,20 +67,18 @@
   } @ inputs: let
     lockFile = nixpkgs.lib.importJSON ./flake.lock;
 
-    overlays = [
-      arpeggio.overlay
-      iosevka-muse.overlay
-      matchpal.overlay
-      muse-sounds.overlay
-      muse-status.overlay
-      neorg.overlays.default
-      neovim-nightly-overlay.overlay
-      plymouth-theme-musicaloft-rainbow.overlay
-      hyprland.overlays.default
-    ];
-
     overlaysModule = {
-      nixpkgs.overlays = overlays;
+      nixpkgs.overlays = [
+        arpeggio.overlay
+        iosevka-muse.overlay
+        matchpal.overlay
+        muse-sounds.overlay
+        muse-status.overlay
+        neorg.overlays.default
+        neovim-nightly-overlay.overlay
+        plymouth-theme-musicaloft-rainbow.overlay
+        hyprland.overlays.default
+      ];
     };
 
     commonModules = [
