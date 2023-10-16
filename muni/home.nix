@@ -7,13 +7,14 @@
 }: let
   fontText = "Inter 12";
 
+  colors = config.muse.theme.finalPalette;
   deviceName = osConfig.networking.hostName;
 
   # bemenu
-  black = "#${config.muse.theme.finalPalette.background}d8";
-  gray = "#${config.muse.theme.finalPalette.gray}d8";
-  white = "#${config.muse.theme.finalPalette.foreground}";
-  accent = "#${config.muse.theme.finalPalette.accent}d8";
+  black = "#${colors.background}d8";
+  gray = "#${colors.gray}d8";
+  white = "#${colors.foreground}";
+  accent = "#${colors.accent}d8";
 
   q = s: ''"${s}"'';
   bemenuArgs = [
@@ -323,13 +324,11 @@ in {
   };
 
   services = import ./services.nix {
-    inherit bemenuArgs config deviceName lib pkgs;
-    colors = config.muse.theme.finalPalette;
+    inherit bemenuArgs colors config deviceName lib pkgs;
   };
 
   wayland.windowManager.sway = import ./sway/mod.nix {
-    inherit config lib pkgs bemenuArgs;
-    colors = config.muse.theme.finalPalette;
+    inherit bemenuArgs colors config lib pkgs;
   };
 
   xdg = {
@@ -388,9 +387,9 @@ in {
           margin = 256
           border_offset = 0
 
-          background_color = ${config.muse.theme.finalPalette.black}
-          border_color = ${config.muse.theme.finalPalette.gray}
-          bar_color = ${config.muse.theme.finalPalette.accent}
+          background_color = ${colors.black}
+          border_color = ${colors.gray}
+          bar_color = ${colors.accent}
 
           output_mode = focused
         '';
