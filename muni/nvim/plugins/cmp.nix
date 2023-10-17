@@ -13,6 +13,7 @@
         "<c-y>" = "cmp.config.disable";
       };
       sources = [
+        {name = "conventionalcommits";}
         {name = "neorg";}
         {name = "path";}
         {name = "nvim_lsp";}
@@ -38,6 +39,7 @@
 
     cmp-buffer.enable = true;
     cmp-calc.enable = true;
+    cmp-conventionalcommits.enable = true;
     cmp-nvim-lsp.enable = true;
     cmp-nvim-lua.enable = true;
     cmp-path.enable = true;
