@@ -78,6 +78,7 @@ in {
     ./programs.nix
     ./nvim
     ./services.nix
+    ./sway
     ./systemd.nix
   ];
 
@@ -322,10 +323,6 @@ in {
   qt = {
     enable = true;
     platformTheme = "qtct";
-  };
-
-  wayland.windowManager.sway = import ./sway/mod.nix {
-    inherit bemenuArgs colors config lib pkgs;
   };
 
   xdg = {
