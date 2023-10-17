@@ -34,9 +34,9 @@
     opengl = {
       enable = true;
       extraPackages = with pkgs; [
-        rocm-opencl-icd
-        rocm-opencl-runtime
         amdvlk
+        rocmPackages.clr
+        rocmPackages.clr.icd
       ];
       driSupport = true;
     };
@@ -125,7 +125,7 @@
 
     # for Blender
     tmpfiles.rules = [
-      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.hip}"
+      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
     ];
   };
 
