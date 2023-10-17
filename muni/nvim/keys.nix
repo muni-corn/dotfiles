@@ -387,6 +387,11 @@
       };
     }
     {
+      key = "<leader>u";
+      action = "<cmd>UndotreeToggle<cr>";
+      options.desc = "undo tree";
+    }
+    {
       key = "<leader>vc";
       action = "<cmd>vs<cr>";
       options.desc = "vertical copy";

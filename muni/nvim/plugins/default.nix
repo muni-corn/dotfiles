@@ -21,7 +21,10 @@
   ];
 
   programs.nixvim = {
-    plugins.fugitive.enable = true;
+    plugins = {
+      fugitive.enable = true;
+      undotree.enable = true;
+    };
 
     extraPlugins = with pkgs.vimPlugins; let
       nvim-dap-vscode-js = pkgs.vimUtils.buildVimPlugin {
