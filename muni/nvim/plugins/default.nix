@@ -9,6 +9,7 @@
     ./copilot.nix
     ./dap.nix
     ./emmet.nix
+    ./floaterm.nix
     ./gitsigns.nix
     ./lsp.nix
     ./lspkind.nix

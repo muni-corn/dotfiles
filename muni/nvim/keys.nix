@@ -349,11 +349,6 @@
       options.desc = "split find file";
     }
     {
-      key = "<leader>sx";
-      action = ":sp<cr>:terminal<cr>i";
-      options.desc = "split terminal";
-    }
-    {
       key = "<leader>tg";
       action = "<cmd>tabnew<cr>${wrapLua telescope-ripgrep}";
       options.desc = "tab ripgrep";
@@ -392,11 +387,6 @@
       };
     }
     {
-      key = "<leader>tx";
-      action = ":tabnew<cr>:terminal<cr>i";
-      options.desc = "tab terminal";
-    }
-    {
       key = "<leader>vc";
       action = "<cmd>vs<cr>";
       options.desc = "vertical copy";
@@ -415,11 +405,6 @@
       key = "<leader>vv";
       action = "<cmd>vnew<cr>${wrapLua telescope-fd}";
       options.desc = "vertical find file";
-    }
-    {
-      key = "<leader>vx";
-      action = "<cmd>vs<cr><cmd>terminal<cr>i";
-      options.desc = "vertical terminal";
     }
     {
       key = "<leader>w";
@@ -466,11 +451,6 @@
       key = "<leader>xt";
       action = "<cmd>TroubleToggle<cr>";
       options.desc = "show workspace diagnostics";
-    }
-    {
-      key = "<leader>xx";
-      action = "<cmd>terminal<cr>i";
-      options.desc = "open terminal here";
     }
     {
       key = "K";

@@ -209,6 +209,7 @@ in {
     "@text.emphasis" = link "Italic";
     "@text.strong" = link "Bold";
     ErrorMsg = link "Error";
+    FloatermBorder = link "FloatBorder";
     GitSignsCurrentLineBlame = link "VirtualText";
     InfoMsg = link "Info";
     LspInfoBorder = link "FloatBorder";
