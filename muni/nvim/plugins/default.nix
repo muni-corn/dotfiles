@@ -22,6 +22,7 @@
 
   programs.nixvim = {
     plugins = {
+      auto-save.enable = true;
       fugitive.enable = true;
       undotree.enable = true;
     };
