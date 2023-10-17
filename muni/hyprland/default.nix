@@ -167,7 +167,7 @@ in {
         "${wobStartScript} &"
 
         # play startup sound
-        "${pkgs.libcanberra}/bin/canberra-gtk-play --id=desktop-login &"
+        "canberra-gtk-play --id=desktop-login &"
 
         # polkit
         "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1 &"

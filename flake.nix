@@ -41,6 +41,8 @@
 
     muse-sounds.url = "git+https://codeberg.org/municorn/muse-sounds?ref=main";
 
+    muse-wallpapers.url = "github:muni-corn/muse-wallpapers";
+
     plymouth-theme-musicaloft-rainbow = {
       url = "git+https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -57,6 +59,7 @@
     matchpal,
     muse-sounds,
     muse-status,
+    muse-wallpapers,
     musnix,
     neorg,
     neovim-nightly-overlay,
@@ -87,7 +90,10 @@
       overlaysModule
       {
         home-manager = {
-          extraSpecialArgs.nvim-dap-vscode-js-src = nvim-dap-vscode-js;
+          extraSpecialArgs = {
+            inherit muse-wallpapers;
+            nvim-dap-vscode-js-src = nvim-dap-vscode-js;
+          };
           sharedModules = [nixvim.homeManagerModules.nixvim];
           useGlobalPkgs = true;
           useUserPackages = true;

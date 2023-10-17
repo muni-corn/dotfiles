@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  muse-wallpapers,
   osConfig,
   ...
 }: let
@@ -91,7 +92,7 @@ in {
       name = "Inter";
       size = 12;
     };
-    wallpapersDir = ./wallpapers/generated;
+    wallpapersDir = muse-wallpapers.generated;
   };
 
   home = {
