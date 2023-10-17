@@ -18,9 +18,9 @@
         {name = "path";}
         {name = "nvim_lsp";}
         {name = "snippy";}
-        {name = "buffer";}
         {name = "calc";}
         {name = "nvim_lua";}
+        {name = "buffer";}
       ];
 
       completion.completeopt = "menu,menuone,noinsert";
