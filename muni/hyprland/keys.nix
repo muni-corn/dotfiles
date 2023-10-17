@@ -28,6 +28,11 @@
     media = "${config.programs.kodi.package}/bin/kodi --windowing=x11";
   };
 
+  # have to wrap this because it doesn't work inline for some reason :>
+  appMenu = pkgs.writeShellScript "menu" ''
+    bemenu-run -p "Run what?" ${config.home.sessionVariables.BEMENU_OPTS}
+  '';
+
   scripts = import ./scripts.nix {inherit config pkgs shell;};
 in {
   wayland.windowManager.hyprland.settings = {
@@ -89,7 +94,7 @@ in {
 
       # shortcuts for apps
       (b "SUPER" "Return" "exec" terminal)
-      (b "SUPER" "a" "exec" "bemenu-run -p 'Run what?'")
+      (b "SUPER" "a" "exec" appMenu)
       (b "SUPER" "b" "exec" apps.music)
       (b "SUPER" "c" "exec" ''${terminal} ${withShell "qalc"}'')
       (b "SUPER" "e" "exec" ''${terminal} ${withShell "nnn"}'')
