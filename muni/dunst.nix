@@ -13,7 +13,7 @@ in {
     };
     settings = {
       global = {
-        background = "#000000b8";
+        background = "#0000009a";
         browser = "xdg-open";
         corner_radius = 16;
         dmenu = "${pkgs.bemenu}/bin/bemenu -p 'Do what?'";
@@ -22,7 +22,7 @@ in {
         font = "Inter 12";
         foreground = "#${colors.white}";
         format = "<b>%s</b>\\n%b";
-        frame_color = "#${colors.dark-gray}b8";
+        frame_color = "#${colors.dark-gray}9a";
         frame_width = 2;
         gap_size = 4;
         highlight = "#${colors.alert}";
@@ -53,7 +53,7 @@ in {
       urgency_normal.foreground = "#${colors.white}";
       urgency_critical = {
         foreground = "#${colors.white}";
-        frame_color = "#${colors.warning}b8";
+        frame_color = "#${colors.warning}9a";
         timeout = "10s";
       };
     };
