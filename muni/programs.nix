@@ -102,6 +102,8 @@
         ]);
     };
 
+    imv.enable = true;
+
     jq.enable = true;
 
     kitty = import ./kitty.nix {inherit config pkgs;};
@@ -151,6 +153,8 @@
           ;
       };
     };
+
+    pandoc.enable = true;
 
     ripgrep.enable = true;
 
@@ -214,6 +218,8 @@
       keyMode = "vi";
       shortcut = "a";
     };
+
+    yt-dlp.enable = true;
 
     zathura.enable = true;
 

@@ -40,6 +40,8 @@
 
     muse-status.enable = true;
 
+    playerctld.enable = true;
+
     syncthing.enable = true;
   };
 }

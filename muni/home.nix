@@ -66,15 +66,11 @@ in {
         # terminal/cli stuff
         cava
         fd
-        fish
         git-annex
         git-filter-repo
-        gnupg
         jdupes
-        jq
         libqalculate
         neovim-remote
-        playerctl
         pv
         qpdf
         sd
@@ -94,7 +90,6 @@ in {
         nodejs
         nodePackages.typescript-language-server
         python3
-        tree-sitter
         zls
 
         # photo
@@ -103,16 +98,12 @@ in {
         krita
         rawtherapee
 
-        # writing
-        pandoc
-
         # messaging
         discord
         element-desktop
 
         # apps
         android-file-transfer
-        imv
         ledger-live-desktop
         libreoffice-fresh
 
@@ -135,7 +126,6 @@ in {
         rsync
         wirelesstools
         xdragon
-        yt-dlp
       ]
       ++
       # ponycastle-specific packages
