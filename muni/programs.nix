@@ -152,6 +152,8 @@
       };
     };
 
+    ripgrep.enable = true;
+
     skim = {
       enable = true;
       enableFishIntegration = true;

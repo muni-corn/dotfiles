@@ -77,7 +77,6 @@ in {
         playerctl
         pv
         qpdf
-        ripgrep
         sd
         spotify-tui
         sshfs
