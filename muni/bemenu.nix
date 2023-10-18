@@ -22,11 +22,14 @@
     # center
     "-c"
 
-    # don't change height
+    # keep height
     "--fixed-height"
 
+    # margin
+    ["-M" "48"]
+
     # border
-    ["-B" "2" "--bdr" black "-R" "16"]
+    ["-B" "2" "--bdr" accent "-R" "16"]
 
     # lines
     ["-l" "24"]

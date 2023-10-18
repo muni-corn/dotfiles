@@ -197,6 +197,7 @@ in {
         "blur,menu"
         "blur,notifications"
         "ignorezero,gtk-layer-shell"
+        "ignorealpha 0.5,menu"
         "ignorealpha 0.5,notifications"
       ];
 
