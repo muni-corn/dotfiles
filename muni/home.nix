@@ -10,65 +10,9 @@
 
   colors = config.muse.theme.finalPalette;
   deviceName = osConfig.networking.hostName;
-
-  # bemenu
-  black = "#000000b8";
-  gray = "#${colors.dark-gray}b8";
-  white = "#${colors.foreground}";
-  accent = "#${colors.accent}b8";
-
-  q = s: ''"${s}"'';
-  bemenuArgs = [
-    "-i"
-    "-m"
-    "all"
-    "-B"
-    "6"
-    "-l"
-    "20"
-    "-H"
-    "32"
-    "-W"
-    "0.5"
-    "--ch"
-    "16"
-    "--cw"
-    "2"
-    "--fn"
-    fontText
-    "--bdr"
-    (q gray)
-    "--tb"
-    (q black)
-    "--tf"
-    (q accent)
-    "--fb"
-    (q black)
-    "--ff"
-    (q white)
-    "--nb"
-    (q black)
-    "--nf"
-    (q accent)
-    "--ab"
-    (q black)
-    "--af"
-    (q accent)
-    "--hb"
-    (q accent)
-    "--hf"
-    (q black)
-    "--sb"
-    (q accent)
-    "--sf"
-    (q white)
-    "--scb"
-    (q gray)
-    "--scf"
-    (q accent)
-  ];
 in {
   imports = [
+    ./bemenu.nix
     ./chromium.nix
     ./eww.nix
     ./fish.nix
@@ -248,7 +192,6 @@ in {
       # from fish
       ANDROID_EMULATOR_USE_SYSTEM_LIBS = 1;
       BAT_THEME = "base16";
-      BEMENU_OPTS = lib.concatStringsSep " " bemenuArgs;
       BROWSER = "firefox";
       LC_COLLATE = "C";
       LEDGER_FILE = "$HOME/notebook/ledger/main.sfox";
