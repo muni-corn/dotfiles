@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{pkgs, ...}: {
   programs.git = let
     diffrColorsList = [
       "added:foreground:green"

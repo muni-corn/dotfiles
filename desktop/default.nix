@@ -59,7 +59,7 @@
   };
 
   nixpkgs.config = {
-    rocmTargets = [ "gfx1102" ];
+    rocmTargets = ["gfx1102"];
   };
 
   programs.gamescope = {
