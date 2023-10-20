@@ -101,6 +101,7 @@ in {
         # messaging
         discord
         element-desktop
+        slack
 
         # apps
         android-file-transfer
