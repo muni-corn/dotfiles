@@ -8,11 +8,11 @@
 
   q = s: ''"${s}"'';
 
-  bg = q "#0000009a";
+  bg = q "#000000c0";
   fg = q "#${colors.foreground}";
-  accent = q "#${colors.accent}9a";
-  black = q "#${colors.black}9a";
-  darkGray = q "#${colors.dark-gray}9a";
+  accent = q "#${colors.accent}c0";
+  black = q "#${colors.black}c0";
+  darkGray = q "#${colors.dark-gray}c0";
   transparent = q "#00000000";
 
   bemenuArgs = lib.lists.flatten [
