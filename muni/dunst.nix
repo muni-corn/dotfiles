@@ -28,6 +28,7 @@ in {
         highlight = "#${colors.alert}";
         history_length = -1;
         horizontal_padding = 32;
+        icon_corner_radius = 24;
         icon_position = "left";
         layer = "overlay";
         markup = "full";
