@@ -66,8 +66,6 @@ in {
         # terminal/cli stuff
         cava
         fd
-        git-annex
-        git-filter-repo
         jdupes
         libqalculate
         neovim-remote
@@ -83,7 +81,6 @@ in {
         alejandra
         docker-compose
         gcc
-        git-crypt
         lld
         meld
         nixd

@@ -90,7 +90,6 @@
     };
 
     shellAbbrs = {
-      g = "git";
       h = "himalaya";
       n = "nvim";
       q = "exit";
