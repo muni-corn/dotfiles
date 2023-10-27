@@ -95,7 +95,6 @@
       q = "exit";
       f = "nnn"; # for 'files'
       s = "sway";
-      hm = "home-manager";
     };
 
     shellInit = ''set fish_greeting ""'';
