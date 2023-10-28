@@ -293,11 +293,6 @@ in {
           units: imperial
       '';
       "peaclock.conf".source = ./peaclock.conf;
-      "ranger" = {
-        recursive = true;
-        executable = true;
-        source = ./ranger;
-      };
       "sway/scripts" = {
         recursive = true;
         source = ./wm-scripts;
