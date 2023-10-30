@@ -269,30 +269,7 @@ in {
 #       ];
 #     };
 #
-#     input = {
-#       "2:7:SynPS/2_Synaptics_TouchPad" = {
-#         tap = "enabled";
-#         natural_scroll = "enabled";
-#       };
-#
-#       "1267:9527:ELAN0732:00_04F3:2537" = {
-#         map_to_output = "eDP-1";
-#       };
-#
-#       "1386:855:Wacom_Intuos_Pro_M_Pen" = {
-#         map_to_output = "DP-2";
-#       };
-#
-#       "1386:855:Wacom_Intuos_Pro_M_Finger" = {
-#         natural_scroll = "enabled";
-#       };
-#     };
-#
 #     window = {
-#       border = 6;
-#       hideEdgeBorders = "smart";
-#       titlebar = true;
-#
 #       commands = [
 #         {
 #           command = "floating enable, resize set 600 px 400 px";
@@ -309,13 +286,6 @@ in {
 #       ];
 #     };
 #   };
-#
-#   systemd = {
-#     enable = true;
-#     xdgAutostart = true;
-#   };
-#
-#   wrapperFeatures.gtk = true;
 # }
 #
 
