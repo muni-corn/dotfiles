@@ -12,9 +12,6 @@
     # neorg overlay for up-to-date neorg stuff
     neorg.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
 
-    # all that nightly bleeding-edge goodness
-    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
-
     # extra hardware configuration
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -62,7 +59,6 @@
     muse-wallpapers,
     musnix,
     neorg,
-    neovim-nightly-overlay,
     nixos-hardware,
     nixvim,
     plymouth-theme-musicaloft-rainbow,
@@ -78,7 +74,6 @@
         muse-sounds.overlay
         muse-status.overlay
         neorg.overlays.default
-        neovim-nightly-overlay.overlay
         plymouth-theme-musicaloft-rainbow.overlay
         hyprland.overlays.default
       ];
