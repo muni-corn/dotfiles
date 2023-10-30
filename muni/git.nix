@@ -23,7 +23,9 @@
         gm = "git mergetool";
         gp = "git pull";
         gr = "git restore";
+        grp = "git restore --patch";
         grs = "git restore --staged";
+        grsp = "git restore --staged --patch";
         gs = "git status";
         gw = "git switch";
       };
