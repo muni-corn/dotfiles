@@ -483,11 +483,11 @@
     },
     "muse-wallpapers": {
       "locked": {
-        "lastModified": 1697825076,
-        "narHash": "sha256-2wCzIXb241SJ8ydHPGIhDxh7gvjPbhdCeTbjE7a9wns=",
+        "lastModified": 1697913264,
+        "narHash": "sha256-GLXsG2Hfct9rrNq1rxp8FCfkIYdrY3frKBTn8LUceGw=",
         "owner": "muni-corn",
         "repo": "muse-wallpapers",
-        "rev": "46f7fdef0baec223d3613e3597bfcc5d55262e5c",
+        "rev": "9355308ad447e66b0e47e431817a429aa8b3b14e",
         "type": "github"
       },
       "original": {
