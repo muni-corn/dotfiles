@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pipewire-screenaudio,
   ...
 }: {
   imports = [
@@ -32,7 +33,9 @@
 
     firefox = {
       enable = true;
-      package = pkgs.firefox-wayland;
+      package = pkgs.firefox-wayland.override {
+        extraNativeMessagingHosts = [pipewire-screenaudio.packages.${pkgs.system}.default];
+      };
     };
 
     gpg.enable = true;

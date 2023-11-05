@@ -6,6 +6,7 @@
   config,
   lib,
   pkgs,
+  pipewire-screenaudio,
   ...
 }: {
   imports = [
@@ -61,7 +62,6 @@
     defaultPackages = with pkgs; [
       cachix
       chromium
-      firefox
       kodi
       konsole
       ksshaskpass

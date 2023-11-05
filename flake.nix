@@ -24,6 +24,8 @@
       flake = false;
     };
 
+    pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
+
     # my stuff
     arpeggio = {
       url = "git+https://codeberg.org/municorn/arpeggio?ref=main";
@@ -62,6 +64,7 @@
     nixos-hardware,
     nixvim,
     plymouth-theme-musicaloft-rainbow,
+    pipewire-screenaudio,
     nvim-dap-vscode-js,
   } @ inputs: let
     lockFile = nixpkgs.lib.importJSON ./flake.lock;
@@ -86,7 +89,7 @@
       {
         home-manager = {
           extraSpecialArgs = {
-            inherit muse-wallpapers;
+            inherit muse-wallpapers pipewire-screenaudio;
             nvim-dap-vscode-js-src = nvim-dap-vscode-js;
           };
           sharedModules = [nixvim.homeManagerModules.nixvim];
@@ -116,10 +119,12 @@
   in {
     nixosConfigurations = {
       littlepony = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit pipewire-screenaudio; };
         system = "x86_64-linux";
         modules = commonModules ++ littleponyHardwareModules ++ [./laptop];
       };
       ponycastle = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit pipewire-screenaudio; };
         system = "x86_64-linux";
         modules = commonModules ++ ponycastleHardwareModules ++ [./desktop];
       };
