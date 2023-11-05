@@ -311,6 +311,7 @@
 
     postgresql = {
       enable = true;
+      package = pkgs.postgresql_15;
       ensureDatabases = [
         "muni_bot"
         "muni_bot_test"
