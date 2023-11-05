@@ -117,10 +117,9 @@
     obs-studio = {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [
-        obs-move-transition
         obs-pipewire-audio-capture
-        obs-multi-rtmp
-        obs-vkcapture
+        obs-source-record
+        wlrobs
       ];
     };
 
