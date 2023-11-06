@@ -315,9 +315,7 @@
       port = 7654;
     };
 
-    sshguard = {
-      enable = true;
-    };
+    sshguard.enable = true;
 
     xserver = {
       # Configure keymap in X11
