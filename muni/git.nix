@@ -19,7 +19,11 @@
         gap = "git add -p";
         gb = "git branch";
         gc = "git commit";
+        gca = "git commit --amend";
+        gcf = "git commit --fixup";
         gd = "git diff";
+        gds = "git diff --staged";
+        gl = "git log";
         gm = "git mergetool";
         gp = "git pull";
         gr = "git restore";
