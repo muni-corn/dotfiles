@@ -185,6 +185,7 @@
         "spotify-unwrapped"
         "linuxsampler"
         "memtest86-efi"
+        "surrealdb"
 
         # if steam happens to be enabled
         "steam"
@@ -309,33 +310,9 @@
       jack.enable = true;
     };
 
-    postgresql = {
+    surrealdb = {
       enable = true;
-      package = pkgs.postgresql_15;
-      ensureDatabases = [
-        "muni_bot"
-        "muni_bot_test"
-      ];
-      ensureUsers = [
-        {
-          name = "munibot";
-          ensureClauses = {
-            createdb = true;
-          };
-          ensurePermissions = {
-            "DATABASE \"muni_bot\"" = "ALL PRIVILEGES";
-          };
-        }
-        {
-          name = "muni";
-          ensureClauses = {
-            superuser = true;
-          };
-          ensurePermissions = {
-            "DATABASE \"muni_bot\"" = "ALL PRIVILEGES";
-          };
-        }
-      ];
+      port = 7654;
     };
 
     sshguard = {

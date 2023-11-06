@@ -107,13 +107,6 @@
       motherboard = "amd";
     };
 
-    postgresqlBackup = {
-      enable = true;
-      backupAll = true;
-      compression = "zstd";
-      startAt = "weekly";
-    };
-
     psd.enable = true;
 
     smartd.enable = true;
