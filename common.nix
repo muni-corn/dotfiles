@@ -310,11 +310,6 @@
       jack.enable = true;
     };
 
-    surrealdb = {
-      enable = true;
-      port = 7654;
-    };
-
     sshguard.enable = true;
 
     xserver = {

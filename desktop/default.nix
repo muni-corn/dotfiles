@@ -109,6 +109,11 @@
 
     psd.enable = true;
 
+    surrealdb = {
+      enable = true;
+      port = 7654;
+    };
+
     smartd.enable = true;
   };
 
