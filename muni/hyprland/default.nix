@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  osConfig,
   pkgs,
   ...
 }: let
@@ -159,13 +160,18 @@ in {
       ];
 
       # startup apps
-      exec-once = [
+      exec-once = let
+        statusBars =
+          if osConfig.networking.hostName == "ponycastle"
+          then "status-bar-1 status-bar-0"
+          else "status-bar-laptop";
+      in [
         # load last screen brightness
         "brillo -I &"
 
         # widgets
         "${config.programs.eww.package}/bin/eww daemon &"
-        "${config.programs.eww.package}/bin/eww open-many status-bar-1 status-bar-0"
+        "${config.programs.eww.package}/bin/eww open-many ${statusBars}"
 
         # wob
         "${wobStartScript} &"

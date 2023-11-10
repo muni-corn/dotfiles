@@ -17,6 +17,15 @@
          :halign "end"
          :style "padding-right: 32px;")))
 
+(defwindow status-bar-laptop :monitor 0
+                        :geometry (geometry :width "100%"
+                                            :height "32px"
+                                            :anchor "top center")
+                        :exclusive true
+                        :stacking "fg"
+                        :windowtype "dock"
+                        (status :monitor "eDP-1"))
+
 (defwindow status-bar-0 :monitor 0
                         :geometry (geometry :width "100%"
                                             :height "32px"
