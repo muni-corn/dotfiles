@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  osConfig,
   pkgs,
   ...
 }: let
@@ -33,7 +34,7 @@
     bemenu-run -p "Run what?" ${config.home.sessionVariables.BEMENU_OPTS}
   '';
 
-  scripts = import ./scripts.nix {inherit config pkgs shell;};
+  scripts = import ./scripts.nix {inherit config osConfig pkgs shell;};
 in {
   wayland.windowManager.hyprland.settings = {
     bind = [

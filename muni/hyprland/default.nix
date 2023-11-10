@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  scripts = import ./scripts.nix {inherit config pkgs;};
+  scripts = import ./scripts.nix {inherit config osConfig pkgs;};
 in {
   imports = [
     ./keys.nix
