@@ -1,5 +1,6 @@
 {
   config,
+  osConfig,
   pkgs,
   ...
 }: let
@@ -18,6 +19,14 @@
     volumeUp = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/volume-up.oga";
     volumeUnmute = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/volume-unmute.oga";
   };
+
+  hyprpaperCommands =
+    if osConfig.networking.hostName == "ponycastle"
+    then ''
+      hyprctl hyprpaper wallpaper HDMI-A-1,$new_wall
+      hyprctl hyprpaper wallpaper DP-2,$new_wall
+    ''
+    else "hyprctl hyprpaper wallpaper eDP-1,$new_wall";
 
   mkVolumeScript = name: pamixerFlags: soundPath:
     pkgs.writeScript "volume-${name}" ''
@@ -63,8 +72,8 @@ in {
 
     set new_wall (${pkgs.fd}/bin/fd --type f . ${config.muse.theme.finalWallpapersDir} | shuf -n 1)
     hyprctl hyprpaper preload $new_wall
-    hyprctl hyprpaper wallpaper HDMI-A-1,$new_wall
-    hyprctl hyprpaper wallpaper DP-2,$new_wall
+
+    ${hyprpaperCommands}
   '';
 
   lock = import ./lock_script.nix {inherit config pkgs;};
