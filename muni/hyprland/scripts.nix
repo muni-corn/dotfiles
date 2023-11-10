@@ -39,10 +39,10 @@
         ${pamixer} --get-volume > $XDG_RUNTIME_DIR/hypr.wob &
       end
 
-       ${ms} notify volume &
-       ${pkgs.pipewire}/bin/pw-play ${soundPath} &
+      ${ms} notify volume &
+      ${pkgs.pipewire}/bin/pw-play ${soundPath} &
 
-       wait
+      wait
     '';
   mkBrightnessScript = name: brilloFlags:
     pkgs.writeShellScript "brightness-${name}" ''
