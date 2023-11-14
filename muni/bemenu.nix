@@ -6,7 +6,7 @@
   fontText = "Inter 12";
   colors = config.muse.theme.finalPalette;
 
-  q = s: ''"${s}"'';
+  q = s: "'${s}'";
 
   bg = q "#000000c0";
   fg = q "#${colors.foreground}";
