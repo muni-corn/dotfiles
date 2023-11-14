@@ -19,23 +19,14 @@
     # ignore case
     "-i"
 
-    # center
-    "-c"
-
-    # keep height
-    "--fixed-height"
-
-    # margin
-    ["-M" "48"]
-
     # border
-    ["-B" "2" "--bdr" accent "-R" "16"]
+    ["-B" "2" "--bdr" accent]
 
     # lines
-    ["-l" "24"]
+    ["-l" "20"]
 
     # dimensions
-    ["-W" "0.3" "-H" "32"]
+    ["-W" "0.5" "-H" "32"]
 
     # normal
     ["--nb" bg "--nf" accent]
