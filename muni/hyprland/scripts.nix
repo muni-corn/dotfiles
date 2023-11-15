@@ -40,7 +40,7 @@
       end
 
       ${ms} notify volume &
-      ${pkgs.pipewire}/bin/pw-play ${soundPath} &
+      ${pkgs.pipewire}/bin/pw-play --volume 1.0 ${soundPath} &
 
       wait
     '';
