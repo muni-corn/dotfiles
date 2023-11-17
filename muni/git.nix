@@ -23,6 +23,7 @@
         gcf = "git commit --fixup";
         gd = "git diff";
         gds = "git diff --staged";
+        gf = "git fetch";
         gl = "git log";
         gm = "git mergetool";
         gp = "git pull";
