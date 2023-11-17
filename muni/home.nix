@@ -120,6 +120,7 @@ in {
         imagemagick
         libnotify
         peaclock
+        protontricks
         qrencode
         rsync
         wirelesstools
