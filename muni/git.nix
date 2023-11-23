@@ -14,6 +14,10 @@
         g = "git";
         gP = "git push";
         gPF = "git push --force-with-lease";
+        gR = "git restore";
+        gRp = "git restore --patch";
+        gRs = "git restore --staged";
+        gRsp = "git restore --staged --patch";
         gS = "git stash";
         ga = "git add";
         gap = "git add -p";
@@ -27,10 +31,9 @@
         gl = "git log";
         gm = "git mergetool";
         gp = "git pull";
-        gr = "git restore";
-        grp = "git restore --patch";
-        grs = "git restore --staged";
-        grsp = "git restore --staged --patch";
+        gr = "git rebase";
+        gra = "git rebase --abort";
+        grc = "git rebase --continue";
         gs = "git status";
         gw = "git switch";
       };
