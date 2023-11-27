@@ -5,7 +5,9 @@
     eula = true;
     openFirewall = true;
     serverProperties = {
+      "rcon.password" = "hunter2";
       difficulty = "easy";
+      enable-rcon = true;
       enforce-secure-profile = true;
       enforce-whitelist = true;
       level-name = "herd_world";
