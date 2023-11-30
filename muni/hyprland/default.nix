@@ -131,7 +131,7 @@ in {
         force_default_wallpaper = 0;
         key_press_enables_dpms = true;
         mouse_move_enables_dpms = true;
-        new_window_takes_over_fullscreen = 2;
+        new_window_takes_over_fullscreen = 0;
         swallow_regex = "^kitty$";
         vrr = 0;
       };
