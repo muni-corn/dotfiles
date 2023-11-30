@@ -19,6 +19,7 @@
     whitelist = {
       "1800XXBakedBeans" = "3d63926e-db31-4839-b0bb-ddcbc811237c";
       Alilunaa = "a78bff88-4df0-4768-b2b7-0bbbc2cd2c69";
+      BlazeSolaris = "6c68ccc9-48b6-4051-ab87-8cd94183a79a";
       EnbyElfAlora01 = "7ad012e7-ead4-4efa-bc05-5946019fc525";
       Fairy_Gator = "3a1c390c-8389-42ff-96f5-6695f6466068";
       Flusanix = "92019296-321e-4788-a5e2-897865b2893d";
