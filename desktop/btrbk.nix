@@ -15,7 +15,10 @@
       preserve_hour_of_day = "5";
       volume = {
         "/" = {
-          subvolume = "home";
+          subvolume = {
+            home = {};
+            var = {};
+          };
           snapshot_dir = "/snaps";
           target = "/backup/ponycastle";
         };
