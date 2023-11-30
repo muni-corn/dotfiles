@@ -13,6 +13,7 @@
       level-name = "herd_world";
       motd = "muni's nixos minecraft server :3";
       snooper-enabled = false;
+      spawn-protection = 2;
       white-list = true;
     };
     whitelist = {
