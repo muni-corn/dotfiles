@@ -632,19 +632,19 @@
         "type": "indirect"
       }
     },
-    "nixpkgs-ff0a5a7": {
+    "nixpkgs-obs": {
       "locked": {
-        "lastModified": 1697730408,
-        "narHash": "sha256-Ww//zzukdTrwTrCUkaJA/NsaLEfUfQpWZXBdXBYfhak=",
-        "owner": "nixos",
+        "lastModified": 1702075382,
+        "narHash": "sha256-y1jxUNg0wpLDxnrsnxii+7BinGVk0QEvx8paxha7jTo=",
+        "owner": "muni-corn",
         "repo": "nixpkgs",
-        "rev": "ff0a5a776b56e0ca32d47a4a47695452ec7f7d80",
+        "rev": "98b66f52954dbd0845c702e8aef1d1999467ca24",
         "type": "github"
       },
       "original": {
-        "owner": "nixos",
+        "owner": "muni-corn",
+        "ref": "obs-30",
         "repo": "nixpkgs",
-        "rev": "ff0a5a776b56e0ca32d47a4a47695452ec7f7d80",
         "type": "github"
       }
     },
@@ -1071,7 +1071,7 @@
         "neorg": "neorg",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_15",
-        "nixpkgs-ff0a5a7": "nixpkgs-ff0a5a7",
+        "nixpkgs-obs": "nixpkgs-obs",
         "nixvim": "nixvim",
         "nvim-dap-vscode-js": "nvim-dap-vscode-js",
         "pipewire-screenaudio": "pipewire-screenaudio",

@@ -3,8 +3,8 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
 
-    # version of nixpkgs where obs was working (here until obs 30.0 is packaged)
-    nixpkgs-ff0a5a7.url = "github:nixos/nixpkgs/ff0a5a776b56e0ca32d47a4a47695452ec7f7d80";
+    # custom version of nixpkgs with obs 30.0
+    nixpkgs-obs.url = "github:muni-corn/nixpkgs/obs-30";
 
     # hyprland from git
     hyprland.url = "github:hyprwm/Hyprland?ref=main";
@@ -54,7 +54,7 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-ff0a5a7,
+    nixpkgs-obs,
     home-manager,
     hyprland,
     arpeggio,
@@ -95,7 +95,7 @@
           extraSpecialArgs = {
             inherit muse-wallpapers pipewire-screenaudio;
             nvim-dap-vscode-js-src = nvim-dap-vscode-js;
-            pkgs-ff0a5a7 = import nixpkgs-ff0a5a7 {
+            pkgs-obs = import nixpkgs-obs {
               system = "x86_64-linux";
             };
           };
