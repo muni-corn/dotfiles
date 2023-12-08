@@ -70,7 +70,9 @@ in {
         };
         rust-analyzer = {
           enable = true;
-          installLanguageServer = false;
+          installCargo = true;
+          installLanguageServer = true;
+          installRustc = true;
           settings = {
             cargo = {
               autoreload = true;
