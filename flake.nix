@@ -3,6 +3,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
 
+    # version of nixpkgs where obs was working (here until obs 30.0 is packaged)
+    nixpkgs-ff0a5a7.url = "github:nixos/nixpkgs/ff0a5a776b56e0ca32d47a4a47695452ec7f7d80";
+
     # hyprland from git
     hyprland.url = "github:hyprwm/Hyprland?ref=main";
 
@@ -51,6 +54,7 @@
   outputs = {
     self,
     nixpkgs,
+    nixpkgs-ff0a5a7,
     home-manager,
     hyprland,
     arpeggio,
@@ -91,6 +95,9 @@
           extraSpecialArgs = {
             inherit muse-wallpapers pipewire-screenaudio;
             nvim-dap-vscode-js-src = nvim-dap-vscode-js;
+            pkgs-ff0a5a7 = import nixpkgs-ff0a5a7 {
+              system = "x86_64-linux";
+            };
           };
           sharedModules = [nixvim.homeManagerModules.nixvim];
           useGlobalPkgs = true;
@@ -119,12 +126,12 @@
   in {
     nixosConfigurations = {
       littlepony = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit pipewire-screenaudio; };
+        specialArgs = {inherit pipewire-screenaudio;};
         system = "x86_64-linux";
         modules = commonModules ++ littleponyHardwareModules ++ [./laptop];
       };
       ponycastle = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit pipewire-screenaudio; };
+        specialArgs = {inherit pipewire-screenaudio;};
         system = "x86_64-linux";
         modules = commonModules ++ ponycastleHardwareModules ++ [./desktop];
       };

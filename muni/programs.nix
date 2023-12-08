@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-ff0a5a7,
   pipewire-screenaudio,
   ...
 }: {
@@ -112,7 +113,8 @@
 
     obs-studio = {
       enable = true;
-      plugins = with pkgs.obs-studio-plugins; [
+      package = pkgs-ff0a5a7.obs-studio;
+      plugins = with pkgs-ff0a5a7.obs-studio-plugins; [
         obs-pipewire-audio-capture
         obs-source-record
         wlrobs
