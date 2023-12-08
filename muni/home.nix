@@ -138,6 +138,7 @@ in {
         audacity
         autotalent
         calf
+        easyeffects
         geonkick
         lsp-plugins
         musescore
