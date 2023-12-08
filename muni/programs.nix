@@ -35,7 +35,7 @@
     firefox = {
       enable = true;
       package = pkgs.firefox-wayland.override {
-        extraNativeMessagingHosts = [pipewire-screenaudio.packages.${pkgs.system}.default];
+        nativeMessagingHosts = [pipewire-screenaudio.packages.${pkgs.system}.default];
       };
     };
 
