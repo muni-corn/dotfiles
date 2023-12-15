@@ -27,11 +27,14 @@
       Flusanix = "92019296-321e-4788-a5e2-897865b2893d";
       HeartwarmingFox = "11c0bc33-5e55-4f0a-9418-178921e70104";
       ItsMsanii = "5d23c137-e0c9-4384-b08f-e8b3d6a6a4ec";
+      Pankilik = "c3eb6377-b226-4c1e-b40d-111079911a75";
       Panko_Pai = "c1272cd8-6067-44a6-ac14-d07b673f0dea";
+      SaxPon3 = "02df61e9-26fc-4519-8c36-b0c063531d05";
       TDownit_Strider = "6de8f0f9-575a-4b66-adb0-2476d3af18ee";
       TranzCenDentz = "4e326eb9-b3a3-492a-999a-67d5abd95f6d";
       Wolfsonic = "e9eb2839-2f97-41f6-8fb2-2ba5f30c406e";
       badmovieknight = "5ec42a67-69b4-4e5f-b63c-612499202e56";
+      choaticfoxvt = "4b055f2b-c68d-4c41-8390-997058c690b0";
       iceswimmer08 = "dcbeca4d-d8be-4277-b310-96a412b23040";
       muni_corn = "30bb1692-6f6a-4103-9634-455e65d0269d";
     };
