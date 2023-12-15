@@ -17,7 +17,6 @@ in {
     hyprpaper
     hyprpicker
     slurp
-    swayidle
     swaylock
     wl-clipboard
     wob
@@ -34,8 +33,8 @@ in {
     ];
     timeouts = let
       lockWarningCmd = "${pkgs.libnotify}/bin/notify-send -u low -t 29500 'Are you still there?' 'Your system will lock itself soon.'";
-      powerOff = "${pkgs.sway}/bin/swaymsg 'output * power off'";
-      powerOn = "${pkgs.sway}/bin/swaymsg 'output * power on'";
+      powerOff = "hyprctl dispatch dpms off";
+      powerOn = "hyprctl dispatch dpms on";
     in [
       {
         timeout = 570;
