@@ -36,188 +36,196 @@
 
   scripts = import ./scripts.nix {inherit config osConfig pkgs shell;};
 in {
-  wayland.windowManager.hyprland.settings = {
-    bind = [
-      # open terminal
-      (b "SUPER" "Enter" "exec" terminal)
+  wayland.windowManager.hyprland = {
+    settings = {
+      bind = [
+        # open terminal
+        (b "SUPER" "Enter" "exec" terminal)
 
-      # power controls
-      (b "SUPER_CTRL_ALT" "o" "exec" "systemctl poweroff")
-      (b "SUPER_CTRL_ALT" "b" "exec" "systemctl reboot")
-      (b "SUPER_CTRL_ALT" "s" "exec" "systemctl suspend")
+        # power controls
+        (b "SUPER_CTRL_ALT" "o" "exec" "systemctl poweroff")
+        (b "SUPER_CTRL_ALT" "b" "exec" "systemctl reboot")
+        (b "SUPER_CTRL_ALT" "s" "exec" "systemctl suspend")
 
-      # change focus
-      (b "SUPER" "h" "movefocus" "l")
-      (b "SUPER" "j" "movefocus" "d")
-      (b "SUPER" "k" "movefocus" "u")
-      (b "SUPER" "l" "movefocus" "r")
-      (b "SUPER" "Left" "movefocus" "l")
-      (b "SUPER" "Down" "movefocus" "d")
-      (b "SUPER" "Up" "movefocus" "u")
-      (b "SUPER" "Right" "movefocus" "r")
-      (b "SUPER" "Tab" "movefocus" "next")
-      (b "SUPER_SHIFT" "Tab" "movefocus" "prev")
+        # change focus
+        (b "SUPER" "h" "movefocus" "l")
+        (b "SUPER" "j" "movefocus" "d")
+        (b "SUPER" "k" "movefocus" "u")
+        (b "SUPER" "l" "movefocus" "r")
+        (b "SUPER" "Left" "movefocus" "l")
+        (b "SUPER" "Down" "movefocus" "d")
+        (b "SUPER" "Up" "movefocus" "u")
+        (b "SUPER" "Right" "movefocus" "r")
+        (b "SUPER" "Tab" "movefocus" "next")
+        (b "SUPER_SHIFT" "Tab" "movefocus" "prev")
 
-      # move focused window
-      (b "SUPER_SHIFT" "h" "movewindow" "l")
-      (b "SUPER_SHIFT" "j" "movewindow" "d")
-      (b "SUPER_SHIFT" "k" "movewindow" "u")
-      (b "SUPER_SHIFT" "l" "movewindow" "r")
-      (b "SUPER_SHIFT" "Left" "movewindow" "l")
-      (b "SUPER_SHIFT" "Down" "movewindow" "d")
-      (b "SUPER_SHIFT" "Up" "movewindow" "u")
-      (b "SUPER_SHIFT" "Right" "movewindow" "r")
+        # move focused window
+        (b "SUPER_SHIFT" "h" "movewindoworgroup" "l")
+        (b "SUPER_SHIFT" "j" "movewindoworgroup" "d")
+        (b "SUPER_SHIFT" "k" "movewindoworgroup" "u")
+        (b "SUPER_SHIFT" "l" "movewindoworgroup" "r")
+        (b "SUPER_SHIFT" "Left" "movewindoworgroup" "l")
+        (b "SUPER_SHIFT" "Down" "movewindoworgroup" "d")
+        (b "SUPER_SHIFT" "Up" "movewindoworgroup" "u")
+        (b "SUPER_SHIFT" "Right" "movewindoworgroup" "r")
 
-      # move focused workspace to outputs
-      (b "SUPER_CTRL" "h" "movecurrentworkspacetomonitor" "l")
-      (b "SUPER_CTRL" "j" "movecurrentworkspacetomonitor" "d")
-      (b "SUPER_CTRL" "k" "movecurrentworkspacetomonitor" "u")
-      (b "SUPER_CTRL" "l" "movecurrentworkspacetomonitor" "r")
-      (b "SUPER_CTRL" "Left" "movecurrentworkspacetomonitor" "l")
-      (b "SUPER_CTRL" "Down" "movecurrentworkspacetomonitor" "d")
-      (b "SUPER_CTRL" "Up" "movecurrentworkspacetomonitor" "u")
-      (b "SUPER_CTRL" "Right" "movecurrentworkspacetomonitor" "r")
+        # move focused workspace to outputs
+        (b "SUPER_CTRL" "h" "movecurrentworkspacetomonitor" "l")
+        (b "SUPER_CTRL" "j" "movecurrentworkspacetomonitor" "d")
+        (b "SUPER_CTRL" "k" "movecurrentworkspacetomonitor" "u")
+        (b "SUPER_CTRL" "l" "movecurrentworkspacetomonitor" "r")
+        (b "SUPER_CTRL" "Left" "movecurrentworkspacetomonitor" "l")
+        (b "SUPER_CTRL" "Down" "movecurrentworkspacetomonitor" "d")
+        (b "SUPER_CTRL" "Up" "movecurrentworkspacetomonitor" "u")
+        (b "SUPER_CTRL" "Right" "movecurrentworkspacetomonitor" "r")
 
-      # special workspaces (minimize)
-      (b "SUPER" "v" "movetoworkspacesilent" "special")
-      (b "SUPER_SHIFT" "v" "togglespecialworkspace" "")
+        # special workspaces (minimize)
+        (b "SUPER" "v" "movetoworkspacesilent" "special")
+        (b "SUPER_SHIFT" "v" "togglespecialworkspace" "")
 
-      # other window controls
-      (b "SUPER" "f" "fullscreen" "0")
-      (b "SUPER" "q" "killactive" "")
-      (b "SUPER" "s" "togglefloating" "") # TODO: reset border from floating video?
-      (b "SUPER" "u" "focusurgentorlast" "")
-      (b "SUPER" "x" "pin" "")
-      (b "SUPER_SHIFT" "f" "fullscreen" "1")
+        # other window controls
+        (b "SUPER" "f" "fullscreen" "0")
+        (b "SUPER" "q" "killactive" "")
+        (b "SUPER" "s" "togglefloating" "") # TODO: reset border from floating video?
+        (b "SUPER" "u" "focusurgentorlast" "")
+        (b "SUPER" "x" "pin" "")
+        (b "SUPER_SHIFT" "f" "fullscreen" "1")
 
-      # toggle groups
-      (b "SUPER" "g" "togglegroup" "")
+        # toggle groups
+        (b "SUPER" "g" "togglegroup" "")
 
-      # shortcuts for apps
-      (b "SUPER" "Return" "exec" terminal)
-      (b "SUPER" "a" "exec" appMenu)
-      (b "SUPER" "b" "exec" apps.music)
-      (b "SUPER" "c" "exec" ''${terminal} ${withShell "qalc"}'')
-      (b "SUPER" "e" "exec" ''${terminal} ${withShell "nnn"}'')
-      (b "SUPER" "n" "exec" scripts.quickCode)
-      (b "SUPER" "p" "exec" ''${terminal} ${withShell "htop"}'')
-      (b "SUPER" "w" "exec" apps.browser)
-      (b "SUPER_CTRL" "b" "exec" ''${terminal} ${withShell "bluetoothctl"}'')
-      (b "SUPER_CTRL" "e" "exec" "${scripts.dir}/emoji_menu.fish")
-      (b "SUPER_CTRL" "n" "exec" (notebookTerminalWithShell "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).norg"))
-      (b "SUPER_CTRL" "p" "exec" "${pkgs.pavucontrol}/bin/pavucontrol")
-      (b "SUPER_CTRL" "r" "exec" "${scripts.dir}/toggle_gammastep.fish")
-      (b "SUPER_CTRL" "t" "exec" (notebookTerminalWithShell "nvim ${notebookDir}/todo.norg"))
-      (b "SUPER_SHIFT" "b" "exec" (notebookTerminalWithShell "nvim ${notebookDir}/bored.norg"))
-      (b "SUPER_SHIFT" "m" "exec" apps.media)
-      (b "SUPER_SHIFT" "n" "exec" (notebookTerminalWithShell "nnn ${notebookDir}"))
+        # shortcuts for apps
+        (b "SUPER" "Return" "exec" terminal)
+        (b "SUPER" "a" "exec" appMenu)
+        (b "SUPER" "b" "exec" apps.music)
+        (b "SUPER" "c" "exec" ''${terminal} ${withShell "qalc"}'')
+        (b "SUPER" "e" "exec" ''${terminal} ${withShell "nnn"}'')
+        (b "SUPER" "n" "exec" scripts.quickCode)
+        (b "SUPER" "p" "exec" ''${terminal} ${withShell "htop"}'')
+        (b "SUPER" "w" "exec" apps.browser)
+        (b "SUPER_CTRL" "b" "exec" ''${terminal} ${withShell "bluetoothctl"}'')
+        (b "SUPER_CTRL" "e" "exec" "${scripts.dir}/emoji_menu.fish")
+        (b "SUPER_CTRL" "n" "exec" (notebookTerminalWithShell "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).norg"))
+        (b "SUPER_CTRL" "p" "exec" "${pkgs.pavucontrol}/bin/pavucontrol")
+        (b "SUPER_CTRL" "r" "exec" "${scripts.dir}/toggle_gammastep.fish")
+        (b "SUPER_CTRL" "t" "exec" (notebookTerminalWithShell "nvim ${notebookDir}/todo.norg"))
+        (b "SUPER_SHIFT" "b" "exec" (notebookTerminalWithShell "nvim ${notebookDir}/bored.norg"))
+        (b "SUPER_SHIFT" "m" "exec" apps.media)
+        (b "SUPER_SHIFT" "n" "exec" (notebookTerminalWithShell "nnn ${notebookDir}"))
 
-      # lock
-      (b "SUPER" "Escape" "exec" scripts.lock)
+        # lock
+        (b "SUPER" "Escape" "exec" scripts.lock)
 
-      # notifications
-      (b "CTRL" "Escape" "exec" "dunstctl close")
-      (b "SUPER" "Minus" "exec" "dunstctl close")
-      (b "SUPER" "Equal" "exec" "dunstctl history-pop")
-      (b "SUPER" "Space" "exec" "dunstctl context")
+        # notifications
+        (b "CTRL" "Escape" "exec" "dunstctl close")
+        (b "SUPER" "Minus" "exec" "dunstctl close")
+        (b "SUPER" "Equal" "exec" "dunstctl history-pop")
+        (b "SUPER" "Space" "exec" "dunstctl context")
 
-      # switch to workspace
-      (b "SUPER" "1" "workspace" "1")
-      (b "SUPER" "2" "workspace" "2")
-      (b "SUPER" "3" "workspace" "3")
-      (b "SUPER" "4" "workspace" "4")
-      (b "SUPER" "5" "workspace" "5")
-      (b "SUPER" "6" "workspace" "6")
-      (b "SUPER" "7" "workspace" "7")
-      (b "SUPER" "8" "workspace" "8")
-      (b "SUPER" "9" "workspace" "9")
-      (b "SUPER" "0" "workspace" "10")
+        # switch to workspace
+        (b "SUPER" "1" "workspace" "1")
+        (b "SUPER" "2" "workspace" "2")
+        (b "SUPER" "3" "workspace" "3")
+        (b "SUPER" "4" "workspace" "4")
+        (b "SUPER" "5" "workspace" "5")
+        (b "SUPER" "6" "workspace" "6")
+        (b "SUPER" "7" "workspace" "7")
+        (b "SUPER" "8" "workspace" "8")
+        (b "SUPER" "9" "workspace" "9")
+        (b "SUPER" "0" "workspace" "10")
 
-      # move focused container to workspace
-      (b "SUPER_SHIFT" "1" "movetoworkspacesilent" "1")
-      (b "SUPER_SHIFT" "2" "movetoworkspacesilent" "2")
-      (b "SUPER_SHIFT" "3" "movetoworkspacesilent" "3")
-      (b "SUPER_SHIFT" "4" "movetoworkspacesilent" "4")
-      (b "SUPER_SHIFT" "5" "movetoworkspacesilent" "5")
-      (b "SUPER_SHIFT" "6" "movetoworkspacesilent" "6")
-      (b "SUPER_SHIFT" "7" "movetoworkspacesilent" "7")
-      (b "SUPER_SHIFT" "8" "movetoworkspacesilent" "8")
-      (b "SUPER_SHIFT" "9" "movetoworkspacesilent" "9")
-      (b "SUPER_SHIFT" "0" "movetoworkspacesilent" "10")
+        # move focused container to workspace
+        (b "SUPER_SHIFT" "1" "movetoworkspacesilent" "1")
+        (b "SUPER_SHIFT" "2" "movetoworkspacesilent" "2")
+        (b "SUPER_SHIFT" "3" "movetoworkspacesilent" "3")
+        (b "SUPER_SHIFT" "4" "movetoworkspacesilent" "4")
+        (b "SUPER_SHIFT" "5" "movetoworkspacesilent" "5")
+        (b "SUPER_SHIFT" "6" "movetoworkspacesilent" "6")
+        (b "SUPER_SHIFT" "7" "movetoworkspacesilent" "7")
+        (b "SUPER_SHIFT" "8" "movetoworkspacesilent" "8")
+        (b "SUPER_SHIFT" "9" "movetoworkspacesilent" "9")
+        (b "SUPER_SHIFT" "0" "movetoworkspacesilent" "10")
 
-      # change wallpaper
-      (b "SUPER_CTRL" "w" "exec" "${scripts.switchWallpaper}")
+        # change wallpaper
+        (b "SUPER_CTRL" "w" "exec" "${scripts.switchWallpaper}")
 
-      # screen capture
-      (b "SUPER" "Print" "exec" scripts.screenshot)
-      (b "SUPER_CTRL" "Print" "exec" "${scripts.screenshot} -s")
-      (b "SUPER_CTRL_ALT" "Print" "exec" "${scripts.screenshot} -o")
-      (b "SUPER_SHIFT" "Print" "exec" "${scripts.dir}/video_capture.fish")
+        # screen capture
+        (b "SUPER" "Print" "exec" scripts.screenshot)
+        (b "SUPER_CTRL" "Print" "exec" "${scripts.screenshot} -s")
+        (b "SUPER_CTRL_ALT" "Print" "exec" "${scripts.screenshot} -o")
+        (b "SUPER_SHIFT" "Print" "exec" "${scripts.dir}/video_capture.fish")
 
-      # discord push-to-talk
-      (b "" "Print" "pass" "^(discord)$")
+        # discord push-to-talk
+        (b "" "Print" "pass" "^(discord)$")
+      ];
 
-      # muni-tuber
-      (b "" "F1" "pass" "title:^(muni-tuber)$")
-      (b "" "F2" "pass" "title:^(muni-tuber)$")
-      (b "" "F3" "pass" "title:^(muni-tuber)$")
-      (b "" "F4" "pass" "title:^(muni-tuber)$")
-      (b "" "F5" "pass" "title:^(muni-tuber)$")
-      (b "" "F6" "pass" "title:^(muni-tuber)$")
-      (b "" "F7" "pass" "title:^(muni-tuber)$")
-      (b "" "F8" "pass" "title:^(muni-tuber)$")
-      (b "" "F9" "pass" "title:^(muni-tuber)$")
-      (b "" "F10" "pass" "title:^(muni-tuber)$")
-      (b "" "F11" "pass" "title:^(muni-tuber)$")
-      (b "" "F12" "pass" "title:^(muni-tuber)$")
-    ];
+      # repeatable bindings allowed when locked
+      bindel = [
+        # repeatable volume decrease
+        (b "" "XF86AudioLowerVolume" "exec" scripts.volume.down)
 
-    # repeatable bindings allowed when locked
-    bindel = [
-      # repeatable volume decrease
-      (b "" "XF86AudioLowerVolume" "exec" scripts.volume.down)
+        # brightness controls
+        (b "" "XF86MonBrightnessDown" "exec" scripts.brightness.down)
+        (b "" "XF86MonBrightnessUp" "exec" scripts.brightness.up)
 
-      # brightness controls
-      (b "" "XF86MonBrightnessDown" "exec" scripts.brightness.down)
-      (b "" "XF86MonBrightnessUp" "exec" scripts.brightness.up)
+        # quick resize
+        (b "SUPER_ALT" "h" "resizeactive" "-20 0")
+        (b "SUPER_ALT" "j" "resizeactive" "0 20")
+        (b "SUPER_ALT" "k" "resizeactive" "0 -20")
+        (b "SUPER_ALT" "l" "resizeactive" "20 0")
+        (b "SUPER_ALT" "Left" "resizeactive" "-20 0")
+        (b "SUPER_ALT" "Down" "resizeactive" "0 20")
+        (b "SUPER_ALT" "Up" "resizeactive" "0 -20")
+        (b "SUPER_ALT" "Right" "resizeactive" "20 0")
+      ];
 
-      # quick resize
-      (b "SUPER_ALT" "h" "resizeactive" "-20 0")
-      (b "SUPER_ALT" "j" "resizeactive" "0 20")
-      (b "SUPER_ALT" "k" "resizeactive" "0 -20")
-      (b "SUPER_ALT" "l" "resizeactive" "20 0")
-      (b "SUPER_ALT" "Left" "resizeactive" "-20 0")
-      (b "SUPER_ALT" "Down" "resizeactive" "0 20")
-      (b "SUPER_ALT" "Up" "resizeactive" "0 -20")
-      (b "SUPER_ALT" "Right" "resizeactive" "20 0")
-    ];
+      # bindings that are allowed even with input inhibitors (e.g. lock screens)
+      bindl = [
+        # allow suspending while locked
+        (b "SUPER_CTRL_ALT" "s" "exec" "systemctl suspend")
 
-    # bindings that are allowed even with input inhibitors (e.g. lock screens)
-    bindl = [
-      # allow suspending while locked
-      (b "SUPER_CTRL_ALT" "s" "exec" "systemctl suspend")
+        # volume controls
+        (b "" "XF86AudioRaiseVolume" "exec" scripts.volume.up)
+        (b "" "XF86AudioMute" "exec" scripts.volume.toggleMute)
 
-      # volume controls
-      (b "" "XF86AudioRaiseVolume" "exec" scripts.volume.up)
-      (b "" "XF86AudioMute" "exec" scripts.volume.toggleMute)
+        # player controls
+        (b "" "XF86AudioPlay" "exec" "playerctl play-pause")
+        (b "" "XF86AudioNext" "exec" "playerctl next")
+        (b "" "XF86AudioPrev" "exec" "playerctl previous")
+      ];
 
-      # player controls
-      (b "" "XF86AudioPlay" "exec" "playerctl play-pause")
-      (b "" "XF86AudioNext" "exec" "playerctl next")
-      (b "" "XF86AudioPrev" "exec" "playerctl previous")
-    ];
+      # mouse binds
+      bindm = [
+        (b "SUPER" "mouse:272" "movewindow" null)
+        (b "SUPER" "mouse:273" "resizewindow" null)
+      ];
 
-    # mouse binds
-    bindm = [
-      (b "SUPER" "mouse:272" "movewindow" null)
-      (b "SUPER" "mouse:273" "resizewindow" null)
-    ];
+      # bindings triggered on release
+      bindr = [
+        # exit hyprland
+        (b "SUPER_SHIFT" "e" "exit" "")
+      ];
+    };
 
-    # bindings triggered on release
-    bindr = [
-      # exit hyprland
-      (b "SUPER_SHIFT" "e" "exit" "")
-    ];
+    extraConfig = ''
+      bind = ${(b "SUPER_CTRL" "m" "submap" "munituber")}
+
+      submap = munituber
+      bind = ${(b "" "F1" "pass" "title:^(muni-tuber)$")}
+      bind = ${(b "" "F2" "pass" "title:^(muni-tuber)$")}
+      bind = ${(b "" "F3" "pass" "title:^(muni-tuber)$")}
+      bind = ${(b "" "F4" "pass" "title:^(muni-tuber)$")}
+      bind = ${(b "" "F5" "pass" "title:^(muni-tuber)$")}
+      bind = ${(b "" "F6" "pass" "title:^(muni-tuber)$")}
+      bind = ${(b "" "F7" "pass" "title:^(muni-tuber)$")}
+      bind = ${(b "" "F8" "pass" "title:^(muni-tuber)$")}
+      bind = ${(b "" "F9" "pass" "title:^(muni-tuber)$")}
+      bind = ${(b "" "F10" "pass" "title:^(muni-tuber)$")}
+      bind = ${(b "" "F11" "pass" "title:^(muni-tuber)$")}
+      bind = ${(b "" "F12" "pass" "title:^(muni-tuber)$")}
+      bind = ${(b "SUPER_CTRL" "m" "submap" "reset")}
+      submap = reset
+    '';
   };
 }
 # TODO: migrate from sway
@@ -248,6 +256,5 @@ in {
 #   (b "SUPER_SHIFT" "Delete" "exec" "${scriptsDir}/prompt_timestamp.fish")
 #   (b "SUPER_SHIFT" "Home" "exec" "${scriptsDir}/prompt_clock_in.fish")
 #   (b "SUPER_SHIFT" "End" "exec" "${scriptsDir}/prompt_clock_out.fish")
-#
 # }
 
