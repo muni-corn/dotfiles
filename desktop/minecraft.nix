@@ -1,6 +1,8 @@
-{
+{pkgs, ...}: {
   services.minecraft-server = {
     enable = true;
+    package = pkgs.vanilla-server;
+
     declarative = true;
     eula = true;
     openFirewall = true;

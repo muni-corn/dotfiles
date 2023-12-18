@@ -15,6 +15,9 @@
     # neorg overlay for up-to-date neorg stuff
     neorg.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
 
+    # updated minecraft servers
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+
     # extra hardware configuration
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -65,6 +68,7 @@
     muse-wallpapers,
     musnix,
     neorg,
+    nix-minecraft,
     nixos-hardware,
     nixvim,
     plymouth-theme-musicaloft-rainbow,
@@ -81,6 +85,7 @@
         muse-sounds.overlay
         muse-status.overlay
         neorg.overlays.default
+        nix-minecraft.overlay
         plymouth-theme-musicaloft-rainbow.overlay
         hyprland.overlays.default
       ];
