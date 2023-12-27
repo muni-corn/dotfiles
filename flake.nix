@@ -30,6 +30,7 @@
       flake = false;
     };
 
+    # to share audio with screen sharing on wayland
     pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
 
     # my stuff
