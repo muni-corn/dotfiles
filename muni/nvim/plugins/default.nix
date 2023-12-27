@@ -34,7 +34,6 @@
       };
     in [
       lsp-status-nvim
-      nvim-dap-virtual-text
       nvim-dap-vscode-js
       nvim-snippy
       nvim-web-devicons
