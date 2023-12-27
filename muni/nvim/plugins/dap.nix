@@ -20,7 +20,7 @@
             type = "pwa-node";
             request = "attach";
             name = "Attach";
-            processId = {__raw = "require'dap.utils'.pick_process()";};
+            processId = {__raw = "require'dap.utils'.pick_process";};
             cwd = "\${workspaceFolder}";
           }
         ];
