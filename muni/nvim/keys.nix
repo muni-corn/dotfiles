@@ -73,55 +73,55 @@
       options.desc = "lsp type definition";
     }
     {
-      key = "<leader>DB";
+      key = "<leader>dB";
       action = "require'telescope'.extensions.dap.list_breakpoints";
       lua = true;
-      options.desc = "debug list breakpoints";
+      options.desc = "list breakpoints";
     }
     {
-      key = "<leader>DC";
+      key = "<leader>dC";
       action = "require'telescope'.extensions.dap.commands";
       lua = true;
       options.desc = "run last";
     }
     {
-      key = "<leader>DO";
+      key = "<leader>do";
       action = "require'dap'.step_over";
       lua = true;
       options.desc = "step over";
     }
     {
-      key = "<leader>DV";
+      key = "<leader>dv";
       action = "require'telescope'.extensions.dap.variables";
       lua = true;
       options.desc = "list debug variables";
     }
     {
-      key = "<leader>Db";
+      key = "<leader>db";
       action = "require'dap'.toggle_breakpoint";
       lua = true;
       options.desc = "toggle breakpoint";
     }
     {
-      key = "<leader>Dc";
+      key = "<leader>dc";
       action = "require'dap'.continue";
       lua = true;
       options.desc = "continue";
     }
     {
-      key = "<leader>Di";
+      key = "<leader>di";
       action = "require'dap'.step_into";
       lua = true;
       options.desc = "step into";
     }
     {
-      key = "<leader>Do";
+      key = "<leader>dO";
       action = "require'dap'.step_out";
       lua = true;
       options.desc = "step out";
     }
     {
-      key = "<leader>Dr";
+      key = "<leader>dr";
       action = "require'dap'.repl.toggle";
       lua = true;
       options.desc = "toggle repl";
@@ -164,12 +164,12 @@
       options.desc = "change directory to file";
     }
     {
-      key = "<leader>do";
+      key = "<leader>DO";
       action = "<cmd>diffoff<cr>:set noscrollbind<cr>:set nocursorbind<cr>";
       options.desc = "diff off";
     }
     {
-      key = "<leader>dt";
+      key = "<leader>DT";
       action = "<cmd>diffthis<cr>";
       options.desc = "diff this";
     }
@@ -455,7 +455,7 @@
     {
       key = "<leader>xt";
       action = "<cmd>TroubleToggle<cr>";
-      options.desc = "show workspace diagnostics";
+      options.desc = "workspace diagnostics";
     }
     {
       key = "K";
