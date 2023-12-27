@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  nvim-dap-vscode-js-src,
   ...
 }: {
   imports = [
@@ -27,14 +26,8 @@
       undotree.enable = true;
     };
 
-    extraPlugins = with pkgs.vimPlugins; let
-      nvim-dap-vscode-js = pkgs.vimUtils.buildVimPlugin {
-        name = "nvim-dap-vscode-js";
-        src = nvim-dap-vscode-js-src;
-      };
-    in [
+    extraPlugins = with pkgs.vimPlugins; [
       lsp-status-nvim
-      nvim-dap-vscode-js
       nvim-snippy
       nvim-web-devicons
       playground
