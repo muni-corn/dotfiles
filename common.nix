@@ -214,7 +214,7 @@
       enable = true;
       enableBrowserSocket = true;
       enableSSHSupport = true;
-      pinentryFlavor = "gtk2";
+      pinentryFlavor = "qt";
     };
 
     gphoto2.enable = true;
