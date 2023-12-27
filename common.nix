@@ -50,7 +50,7 @@
     };
     plymouth = {
       enable = true;
-      font = "${pkgs.inter}/share/fonts/opentype/Inter-Regular.otf";
+      font = "${pkgs.inter}/share/fonts/truetype/Inter.ttc";
       theme = "musicaloft-rainbow";
       themePackages = [
         pkgs.plymouth-theme-musicaloft-rainbow
