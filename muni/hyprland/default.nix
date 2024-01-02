@@ -229,6 +229,7 @@ in {
         "float,title:^(Close Firefox)$"
         "float,class:^(openrgb)$"
         "float,title:^(Slack - Huddle)$"
+        "float,class:^(zenity)$"
 
         # firefox Picture-in-Picture
         "opacity 1.0 0.75,title:^(Picture-in-Picture)$"
