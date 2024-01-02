@@ -23,7 +23,6 @@ in {
     ./programs.nix
     ./nvim
     ./services.nix
-    ./sway
     ./systemd.nix
   ];
 
