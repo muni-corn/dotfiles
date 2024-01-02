@@ -157,6 +157,20 @@ in {
 
         # discord push-to-talk
         (b "" "Print" "pass" "^(discord)$")
+
+        # muni-tuber
+        (b "" "F1" "pass" "title:^(muni-tuber)$")
+        (b "" "F2" "pass" "title:^(muni-tuber)$")
+        (b "" "F3" "pass" "title:^(muni-tuber)$")
+        (b "" "F4" "pass" "title:^(muni-tuber)$")
+        (b "" "F5" "pass" "title:^(muni-tuber)$")
+        (b "" "F6" "pass" "title:^(muni-tuber)$")
+        (b "" "F7" "pass" "title:^(muni-tuber)$")
+        (b "" "F8" "pass" "title:^(muni-tuber)$")
+        (b "" "F9" "pass" "title:^(muni-tuber)$")
+        (b "" "F10" "pass" "title:^(muni-tuber)$")
+        (b "" "F11" "pass" "title:^(muni-tuber)$")
+        (b "" "F12" "pass" "title:^(muni-tuber)$")
       ];
 
       # repeatable bindings allowed when locked
@@ -207,23 +221,12 @@ in {
       ];
     };
 
+    # temporarily unmaps everything except Escape to exit (pretty much to escape
+    # the muni-tuber shortcuts)
     extraConfig = ''
-      bind = ${(b "SUPER_CTRL" "m" "submap" "munituber")}
-
-      submap = munituber
-      bind = ${(b "" "F1" "pass" "title:^(muni-tuber)$")}
-      bind = ${(b "" "F2" "pass" "title:^(muni-tuber)$")}
-      bind = ${(b "" "F3" "pass" "title:^(muni-tuber)$")}
-      bind = ${(b "" "F4" "pass" "title:^(muni-tuber)$")}
-      bind = ${(b "" "F5" "pass" "title:^(muni-tuber)$")}
-      bind = ${(b "" "F6" "pass" "title:^(muni-tuber)$")}
-      bind = ${(b "" "F7" "pass" "title:^(muni-tuber)$")}
-      bind = ${(b "" "F8" "pass" "title:^(muni-tuber)$")}
-      bind = ${(b "" "F9" "pass" "title:^(muni-tuber)$")}
-      bind = ${(b "" "F10" "pass" "title:^(muni-tuber)$")}
-      bind = ${(b "" "F11" "pass" "title:^(muni-tuber)$")}
-      bind = ${(b "" "F12" "pass" "title:^(muni-tuber)$")}
-      bind = ${(b "SUPER_CTRL" "m" "submap" "reset")}
+      bind = ${(b "SUPER_CTRL" "f" "submap" "literal")}
+      submap = literal
+      bind = ${(b "" "Escape" "submap" "reset")}
       submap = reset
     '';
   };
