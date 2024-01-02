@@ -22,6 +22,14 @@
             processId = {__raw = "require'dap.utils'.pick_process";};
             cwd = "\${workspaceFolder}";
           }
+          {
+            type = "pwa-node";
+            request = "attach";
+            name = "Attach to port 8001";
+            processId = {__raw = "require'dap.utils'.pick_process";};
+            cwd = "\${workspaceFolder}";
+            port = 8001;
+          }
         ];
       in {
         typescript = pwaNodeConfigs;

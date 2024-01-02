@@ -11,13 +11,32 @@
     src = vscode-js-debug-src;
     npmBuildScript = "compile";
     npmDepsHash = "sha256-0IMg70XJphcSX/bist9Ak/tygLuK4QuzL/UzMqLc/B0=";
+    npmBuildFlags = ["dapDebugServer"];
     makeCacheWritable = true;
-    patches = [ ./vscode-js-debug-remove-playwright.patch ];
-    nativeBuildInputs = with pkgs; [ pkg-config ];
-    buildInputs = with pkgs; [ libsecret ];
+    patches = [./vscode-js-debug-remove-playwright.patch];
+    nativeBuildInputs = with pkgs; [pkg-config];
+    buildInputs = with pkgs; [libsecret];
+    installPhase = ''
+      mkdir $out
+      mv dist/ $out/
+    '';
   };
 in {
-  programs.nixvim.extraPlugins = [
-    vscode-js-debug
-  ];
+  programs.nixvim = {
+    plugins.dap.adapters.servers.pwa-node = {
+      host = "localhost";
+      port = "\${port}";
+      executable = {
+        command = "node";
+        args = [
+          "${vscode-js-debug}/dist/src/dapDebugServer.js"
+          "\${port}"
+        ];
+      };
+    };
+
+    extraPlugins = [
+      vscode-js-debug
+    ];
+  };
 }
