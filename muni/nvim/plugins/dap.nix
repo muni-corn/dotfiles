@@ -1,6 +1,5 @@
 {
   pkgs,
-  nvim-dap-vscode-js-src,
   ...
 }: {
   programs.nixvim = {
@@ -58,22 +57,5 @@
       };
     };
 
-    # vscode-js-debug is cloned and built separately from the nix configuration
-    # for now
-    extraConfigLua = ''
-      require("dap-vscode-js").setup({
-        debugger_path = "/home/muni/.config/nvim/vscode-js-debug/dist/",
-        adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' },
-      })
-    '';
-
-    extraPlugins = with pkgs.vimPlugins; let
-      nvim-dap-vscode-js = pkgs.vimUtils.buildVimPlugin {
-        name = "nvim-dap-vscode-js";
-        src = nvim-dap-vscode-js-src;
-      };
-    in [
-      nvim-dap-vscode-js
-    ];
   };
 }

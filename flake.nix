@@ -25,8 +25,8 @@
     nixvim.url = "github:nix-community/nixvim";
 
     # node.js debugging
-    nvim-dap-vscode-js = {
-      url = "github:mxsdev/nvim-dap-vscode-js";
+    vscode-js-debug = {
+      url = "github:microsoft/vscode-js-debug";
       flake = false;
     };
 
@@ -74,7 +74,7 @@
     nixvim,
     plymouth-theme-musicaloft-rainbow,
     pipewire-screenaudio,
-    nvim-dap-vscode-js,
+    vscode-js-debug,
   } @ inputs: let
     lockFile = nixpkgs.lib.importJSON ./flake.lock;
 
@@ -100,7 +100,8 @@
         home-manager = {
           extraSpecialArgs = {
             inherit muse-wallpapers pipewire-screenaudio;
-            nvim-dap-vscode-js-src = nvim-dap-vscode-js;
+            vscode-js-debug-src = vscode-js-debug;
+
             pkgs-obs = import nixpkgs-obs {
               system = "x86_64-linux";
             };
