@@ -55,6 +55,7 @@ in {
       [
         # audio and music
         pavucontrol
+        playerctl
         spotify
 
         # desktop environment
