@@ -71,6 +71,7 @@ in {
     Conceal = hl "gray" null {};
     Conditional = hl "brown" null {};
     Constant = hl "orange" null {};
+    CmpItemMenuDefault = hl "gray" null {};
     Cursor = hl "black" "light-silver" {};
     CursorColumn = hl null "dark-gray" {};
     CursorLine = hl null "black" {};
@@ -131,7 +132,7 @@ in {
     Float = hl "orange" null {};
     FloatBorder = hl "light-gray" null {};
     FoldColumn = hl "cyan" null {};
-    Folded = hl "light-gray" "black" {};
+    Folded = hl "gray" "black" {};
     Function = hl "blue" null {};
     GitGutterAdd = hl "green" null {bold = true;};
     GitGutterChange = hl "orange" null {bold = true;};
@@ -150,6 +151,7 @@ in {
     MoreMsg = hl "green" null {};
     NonText = hl "light-gray" null {};
     Normal = hl "light-silver" null {};
+    NotifyBackground = hl "dark-gray" null {};
     Number = hl "orange" null {};
     Operator = hl "light-silver" null {};
     Pmenu = hl "light-silver" "dark-gray" {};
