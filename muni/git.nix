@@ -34,6 +34,7 @@
         gr = "git rebase";
         gra = "git rebase --abort";
         grc = "git rebase --continue";
+        grs = "git rebase --skip";
         gs = "git status";
         gw = "git switch";
       };
