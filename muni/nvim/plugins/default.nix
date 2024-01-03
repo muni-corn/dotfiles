@@ -13,6 +13,7 @@
     ./lsp.nix
     ./lspkind.nix
     ./mini
+    ./none-ls.nix
     ./neorg.nix
     ./telescope.nix
     ./treesitter.nix
