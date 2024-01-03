@@ -44,23 +44,23 @@
       signs = {
         dapBreakpoint = {
           text = " ";
-          texthl = "Warning";
+          texthl = "Error";
         };
         dapBreakpointCondition = {
           text = " ";
-          texthl = "Warning";
+          texthl = "Error";
         };
         dapBreakpointRejected = {
           text = " ";
-          texthl = "Comment";
+          texthl = "Warning";
         };
         dapLogPoint = {
           text = " ";
           texthl = "Info";
         };
         dapStopped = {
-          text = " ";
-          texthl = "Error";
+          text = " ";
+          texthl = "String";
         };
       };
     };
