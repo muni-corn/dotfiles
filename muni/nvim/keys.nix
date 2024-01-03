@@ -497,5 +497,20 @@
       key = "jf";
       action = "<esc>";
     }
+    {
+      mode = "t";
+      key = "jj";
+      action = "<esc>";
+    }
+    {
+      mode = "t";
+      key = "fj";
+      action = "<esc>";
+    }
+    {
+      mode = "t";
+      key = "jf";
+      action = "<esc>";
+    }
   ];
 }

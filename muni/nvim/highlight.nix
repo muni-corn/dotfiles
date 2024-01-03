@@ -63,6 +63,7 @@ in {
     "@neorg.headings.1.prefix" = hl "brown" null {};
     "@neorg.headings.1.title" = hl "brown" null {};
     "@text.literal" = hl "green" null {};
+    BarPill = hl "dark-gray" null {};
     Bold = hl null null {bold = true;};
     Boolean = hl "orange" null {};
     Character = hl "red" null {};
@@ -76,24 +77,12 @@ in {
     CursorColumn = hl null "dark-gray" {};
     CursorLine = hl null "black" {};
     CursorLineNr = hl "silver" null {bold = true;};
-    CustomBluePillInside = hl "blue" "dark-gray" {bold = true;};
-    CustomBlueStatus = hl "blue" null {bold = true;};
-    CustomClosePillInside = hl "red" "dark-gray" {bold = true;};
-    CustomCloseStatus = hl null null {bold = true;};
-    CustomCyanPillInside = hl "cyan" "dark-gray" {bold = true;};
-    CustomCyanStatus = hl "cyan" null {bold = true;};
-    CustomFuchsiaPillInside = hl "purple" "dark-gray" {bold = true;};
-    CustomFuchsiaStatus = hl "purple" null {bold = true;};
-    CustomGrayGreenFgPillInside = hl "green" "dark-gray" {bold = true;};
-    CustomGrayPillInside = hl "silver" "dark-gray" {italic = true;};
-    CustomGrayRedFgPillInside = hl "red" "dark-gray" {bold = true;};
-    CustomLimePillInside = hl "green" "dark-gray" {bold = true;};
-    CustomLimeStatus = hl "green" null {bold = true;};
-    CustomPillOutside = hl "dark-gray" null {};
-    CustomRedPillInside = hl "red" "dark-gray" {bold = true;};
-    CustomRedStatus = hl "red" null {bold = true;};
-    CustomYellowPillInside = hl "yellow" "dark-gray" {bold = true;};
-    CustomYellowStatus = hl "yellow" null {bold = true;};
+    CustomBlueStatus = hl "blue" "dark-gray" {bold = true;};
+    CustomCyanStatus = hl "cyan" "dark-gray" {bold = true;};
+    CustomFuchsiaStatus = hl "purple" "dark-gray" {bold = true;};
+    CustomLimeStatus = hl "green" "dark-gray" {bold = true;};
+    CustomRedStatus = hl "red" "dark-gray" {bold = true;};
+    CustomYellowStatus = hl "yellow" "dark-gray" {bold = true;};
     Debug = hl "red" null {};
     Define = hl "purple" null {};
     Delimiter = hl "light-silver" null {};
@@ -171,21 +160,15 @@ in {
     SpellCap = hl "purple" null {};
     SpellRare = hl "yellow" null {undercurl = true;};
     Statement = hl "red" null {};
-    StatusLine = hl "light-gray" null {
-      italic = true;
-      underline = true;
-    };
-    StatusLineNC = hl "gray" null {
-      italic = true;
-      underline = true;
-    };
+    StatusLine = hl "light-gray" "dark-gray" {italic = true;};
+    StatusLineNC = hl "gray" null {bold = true;};
     StorageClass = hl "purple" null {};
     String = hl "green" null {};
     Structure = hl "yellow" null {};
     Substitute = hl "dark-gray" "orange" {};
     TabLine = hl "light-gray" "dark-gray" {};
-    TabLineFill = hl "light-gray" null {};
-    TabLineSel = hl "green" "dark-gray" {};
+    TabLineFill = hl "light-gray" "dark-gray" {};
+    TabLineSel = hl "green" "dark-gray" {bold = true;};
     Tag = hl "yellow" null {};
     Title = hl "blue" null {};
     Todo = hl "yellow" "dark-gray" {

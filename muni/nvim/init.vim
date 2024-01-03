@@ -31,8 +31,8 @@ endfunction
 
 " Tab line {{{
 fu! TabLine()
-    let l:s = ''
-    let l:space = '  '
+    let l:s = '%#String#        %#BarPill#'
+    let l:space = '   '
     for i in range(tabpagenr('$'))
         let tabnr = i + 1 " range() starts at 0
         let winnr = tabpagewinnr(tabnr)
@@ -40,15 +40,13 @@ fu! TabLine()
         let bufnr = buflist[winnr - 1]
         let bufname = fnamemodify(bufname(bufnr), ':t')
 
-        let l:s .= l:space . '%' . tabnr . 'T'
+        let l:s .= '%' . tabnr . 'T'
 
-        " opening pill end
+        " opening
         if tabnr == tabpagenr()
-            let l:s .= "%#CustomPillOutside#"
-            let l:s .= "%#CustomCyanPillInside#"
+            let l:s .= "%#TabLineSel#"
         else
-            let l:s .= "%#CustomPillOutside#"
-            let l:s .= "%#CustomGrayPillInside#"
+            let l:s .= "%#TabLine#"
         endif
 
         " add mod identifier
@@ -58,26 +56,14 @@ fu! TabLine()
         endif
 
         " add file name
-        let l:s .= empty(bufname) ? '[No Name]' : bufname
+        let l:s .= empty(bufname) ? '[no name]' : bufname
 
-        " closing pill end
-        if tabnr == tabpagenr()
-            let l:s .= "%#CustomPillOutside#"
-        else
-            let l:s .= "%#CustomPillOutside#"
-        endif
+        " close, set highlight back to tab fill
+        let l:s .= l:space . "%#TabLineFill#"
     endfor
 
-    " after the last tab, fill with TabLineFill and reset tab page nr
-    let l:s .= '%#TabLineFill#%T'
-
-    " right-align the 'X' button
-    if tabpagenr('$') > 1
-        let l:s .= "%=%#CustomPillOutside#"
-        let l:s .= "%#CustomClosePillInside#"
-        let l:s .= '%999XX'
-        let l:s .= "%#CustomPillOutside# "
-    endif
+    " after the last tab, close last tab label and close pill
+    let l:s .= '%T%=%#BarPill#    '
 
     return s
 endfunction
