@@ -1,7 +1,17 @@
 #! /usr/bin/env fish
 
 ## hypr-screenshot.fish ##
-## takes screenshots for hyprland requires dunstify for nice notifications
+## takes screenshots for hyprland
+## requires dunstify for nice notifications
+
+function check_cancellation
+    set slurp_status $status
+    if test $slurp_status -ne 0
+        kill $picker_pid
+        dunstify "$type cancelled" "No problem!"
+        exit $slurp_status
+    end
+end
 
 # format the current time for the screenshot file
 set date (date +%Y%m%d-%H%M%S)
@@ -26,11 +36,7 @@ if test "$argv[1]" = "-s"
     set region (echo "$windows" | jq -r '.[] | "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' | slurp)
 
     # get status to see if selection was cancelled
-    set slurp_status $status
-    if test $slurp_status -ne 0
-        dunstify "$type cancelled" "No problem!"
-        exit $slurp_status
-    end
+    check_cancellation
 
     # snap! and get status
     sleep 0.3s
@@ -47,11 +53,7 @@ else if test "$argv[1]" = "-o"
     set region (slurp -o)
 
     # get status to see if selection was cancelled
-    set slurp_status $status
-    if test $slurp_status -ne 0
-        dunstify "$type cancelled" "No problem!"
-        exit $slurp_status
-    end
+    check_cancellation
 
     # snap! and get status
     sleep 0.3s
@@ -66,7 +68,6 @@ else
     grim $name
     set grim_status $status
 end
-
 
 if test $grim_status -eq 0
     wl-copy < $name
