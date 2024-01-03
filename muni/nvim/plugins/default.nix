@@ -13,8 +13,9 @@
     ./lsp.nix
     ./lspkind.nix
     ./mini
-    ./none-ls.nix
     ./neorg.nix
+    ./none-ls.nix
+    ./notify.nix
     ./telescope.nix
     ./treesitter.nix
     ./trouble.nix
