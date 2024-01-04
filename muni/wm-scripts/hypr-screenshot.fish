@@ -4,10 +4,16 @@
 ## takes screenshots for hyprland
 ## requires dunstify for nice notifications
 
+function kill_hyprpicker
+    if set -q picker_pid
+        kill $picker_pid
+    end
+end
+
 function check_cancellation
     set slurp_status $status
     if test $slurp_status -ne 0
-        kill $picker_pid
+        kill_hyprpicker
         dunstify "$type cancelled" "No problem!"
         exit $slurp_status
     end
@@ -15,7 +21,7 @@ end
 
 function launch_hyprpicker
     hyprpicker -r -z &
-    set picker_pid $last_pid
+    set -g picker_pid $last_pid
     sleep 0.3
 end
 
@@ -39,15 +45,11 @@ if test "$argv[1]" = "-s"
     # freeze screen and get region to capture
     launch_hyprpicker
     set region (echo "$windows" | jq -r '.[] | "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' | slurp)
-
-    # get status to see if selection was cancelled
     check_cancellation
 
     # snap! and get status
     sleep 0.3s
     grim -g $region $name
-    set grim_status $status
-    kill $picker_pid
 else if test "$argv[1]" = "-o"
     set type "Display screenshot"
     set name $folder/$date-o.png
@@ -55,28 +57,25 @@ else if test "$argv[1]" = "-o"
     # freeze screen and get region to capture
     launch_hyprpicker
     set region (slurp -o)
-
-    # get status to see if selection was cancelled
     check_cancellation
 
     # snap! and get status
     sleep 0.3s
     grim -g $region $name
-    set grim_status $status
-    kill $picker_pid
 else
     set type "Full screenshot"
     set name $folder/$date.png
 
     # snap! and get status
     grim $name
-    set grim_status $status
 end
 
-if test $grim_status -eq 0
+if test $status -eq 0
     wl-copy < $name
     and dunstify "$type saved and copied" "Your capture was saved as $name."
     or dunstify "$type saved" "Your capture was saved as $name."
 else
     dunstify "$type failed" "There was an error, so nothing was saved. Sorry. :("
 end
+
+kill_hyprpicker
