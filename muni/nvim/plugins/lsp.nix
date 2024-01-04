@@ -61,7 +61,10 @@ in {
         eslint.enable = true;
         html.enable = true;
         phpactor.enable = true;
-        tsserver.enable = true;
+        tsserver = {
+          enable = true;
+          installLanguageServer = false;
+        };
         vuels.enable = true;
         zls.enable = true;
         nixd = {
