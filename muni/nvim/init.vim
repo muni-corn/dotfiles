@@ -31,7 +31,7 @@ endfunction
 
 " Tab line {{{
 fu! TabLine()
-    let l:s = '%#String#        %#BarPill#'
+    let l:s = '%#String#        %#BarPill#'
     let l:space = '   '
     for i in range(tabpagenr('$'))
         let tabnr = i + 1 " range() starts at 0
@@ -63,7 +63,7 @@ fu! TabLine()
     endfor
 
     " after the last tab, close last tab label and close pill
-    let l:s .= '%T%=%#BarPill#    '
+    let l:s .= '%T%=%#BarPill#         '
 
     return s
 endfunction
