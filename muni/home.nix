@@ -161,6 +161,7 @@ in {
 
         # games
         prismlauncher
+        r2modman
       ];
 
     pointerCursor = {
