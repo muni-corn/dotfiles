@@ -168,7 +168,7 @@ in {
     Substitute = hl "dark-gray" "orange" {};
     TabLine = hl "light-gray" "dark-gray" {};
     TabLineFill = hl "light-gray" "dark-gray" {};
-    TabLineSel = hl "green" "dark-gray" {bold = true;};
+    TabLineSel = hl "blue" "dark-gray" {bold = true;};
     Tag = hl "yellow" null {};
     Title = hl "blue" null {};
     Todo = hl "yellow" "dark-gray" {
