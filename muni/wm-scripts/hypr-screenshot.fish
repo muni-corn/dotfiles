@@ -13,6 +13,12 @@ function check_cancellation
     end
 end
 
+function launch_hyprpicker
+    hyprpicker -r -z &
+    set picker_pid $last_pid
+    sleep 0.3
+end
+
 # format the current time for the screenshot file
 set date (date +%Y%m%d-%H%M%S)
 
@@ -31,8 +37,7 @@ if test "$argv[1]" = "-s"
     set windows (hyprctl clients -j | jq -r --argjson workspaces "$workspaces" 'map(select([.workspace.id] | inside($workspaces)))')
 
     # freeze screen and get region to capture
-    hyprpicker -r -z &
-    set picker_pid $last_pid
+    launch_hyprpicker
     set region (echo "$windows" | jq -r '.[] | "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"' | slurp)
 
     # get status to see if selection was cancelled
@@ -48,8 +53,7 @@ else if test "$argv[1]" = "-o"
     set name $folder/$date-o.png
 
     # freeze screen and get region to capture
-    hyprpicker -r -z &
-    set picker_pid $last_pid
+    launch_hyprpicker
     set region (slurp -o)
 
     # get status to see if selection was cancelled
