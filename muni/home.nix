@@ -10,6 +10,9 @@
 
   colors = config.muse.theme.finalPalette;
   deviceName = osConfig.networking.hostName;
+
+  toml = pkgs.formats.toml {};
+  yaml = pkgs.formats.yaml {};
 in {
   imports = [
     ./bemenu.nix
@@ -265,58 +268,63 @@ in {
       "inkscape/palettes/solarized_dark.gpl" = {
         source = ./inkscape/solarized_dark.gpl;
       };
-      "muse-status/daemon.yaml".text = let
+      "muse-status/daemon.yaml".source = let
         network_iface =
           if deviceName == "ponycastle"
           then "enp6s0"
           else "wlan0";
-      in ''
-        ---
-        daemon_addr: "localhost:2899"
-        primary_order:
-          - date
-          - weather
-          - mpris
-        secondary_order:
-          - brightness
-          - volume
-          - network
-          - battery
-        tertiary_order: []
-        brightness_id: amdgpu_bl0
-        network_interface_name: ${network_iface}
-        battery_config:
-          battery_id: BAT0
-          warning_level:
-            minutes_left: 60
-          alarm_level:
-            minutes_left: 30
-        weather_config:
-          update_interval_minutes: 10
-          units: imperial
-      '';
+      in
+        yaml.generate "muse-status-daemon-config" {
+          daemon_addr = "localhost:2899";
+          primary_order = [
+            "date"
+            "weather"
+            "mpris"
+          ];
+          secondary_order = [
+            "brightness"
+            "volume"
+            "network"
+            "battery"
+          ];
+          tertiary_order = [];
+          brightness_id = "amdgpu_bl0";
+          network_interface_name = network_iface;
+          battery_config = {
+            battery_id = "BAT0";
+            warning_level.
+            minutes_left = 60;
+            alarm_level. minutes_left = 30;
+          };
+          weather_config = {
+            update_interval_minutes = 10;
+            units = "imperial";
+          };
+        };
       "peaclock.conf".source = ./peaclock.conf;
       "sway/scripts" = {
         recursive = true;
         source = ./wm-scripts;
       };
-      "wob/wob.ini" = {
-        text = ''
-          width = 512
-          height = 24
-          anchor = bottom
-          bar_padding = 4
-          border_size = 6
-          margin = 256
-          border_offset = 0
+      "wob/wob.ini".text =
+        lib.generators.toINIWithGlobalSection {}
+        {
+          globalSection = {
+            width = 512;
+            height = 24;
+            anchor = "bottom";
+            bar_padding = 4;
+            border_size = 6;
+            margin = 256;
+            border_offset = 0;
 
-          background_color = ${colors.black}
-          border_color = ${colors.gray}
-          bar_color = ${colors.accent}
+            background_color = colors.black;
+            border_color = colors.gray;
+            bar_color = colors.accent;
 
-          output_mode = focused
-        '';
-      };
+            output_mode = "focused";
+          };
+        };
     };
   };
 }
