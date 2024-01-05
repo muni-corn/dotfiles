@@ -34,6 +34,7 @@
       Panko_Pai = "c1272cd8-6067-44a6-ac14-d07b673f0dea";
       PegasisWhovian = "4e9e47fc-c9ab-4fb4-9494-e6d857a0ccdd";
       SaxPon3 = "02df61e9-26fc-4519-8c36-b0c063531d05";
+      SeaGnash = "8abd1ff4-10de-4568-a37c-f9a83b178cdf";
       TDownit_Strider = "6de8f0f9-575a-4b66-adb0-2476d3af18ee";
       TranzCenDentz = "4e326eb9-b3a3-492a-999a-67d5abd95f6d";
       Wolfsonic = "e9eb2839-2f97-41f6-8fb2-2ba5f30c406e";
