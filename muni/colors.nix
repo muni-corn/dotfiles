@@ -170,4 +170,23 @@
     base0E = "d3869b"; # purple
     base0F = "d65d0e"; # brown
   };
+
+  muni = {
+    base00 = "16213c";
+    base01 = "374057";
+    base02 = "585f72";
+    base03 = "797e8d";
+    base04 = "9a9da8";
+    base05 = "bbbcc3";
+    base06 = "dcdbde";
+    base07 = "fdfaf9";
+    base08 = "bf616a";
+    base09 = "d08770";
+    base0A = "ebcb8b";
+    base0B = "a3be8c";
+    base0C = "88c0d0";
+    base0D = "81a1c1";
+    base0E = "5e81ac";
+    base0F = "b48ead";
+  };
 }

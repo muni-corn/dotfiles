@@ -32,7 +32,7 @@ in {
   muse.theme = {
     enable = true;
 
-    palette = (import ./colors.nix).nord;
+    palette = (import ./colors.nix).muni;
     sansFont = {
       package = pkgs.inter;
       name = "Inter";
