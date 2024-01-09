@@ -59,9 +59,9 @@
   link = to: {link = to;};
 in {
   programs.nixvim.highlight = {
-    "@neorg.markup.verbatim" = hl "orange" null {};
     "@neorg.headings.1.prefix" = hl "brown" null {};
     "@neorg.headings.1.title" = hl "brown" null {};
+    "@neorg.markup.verbatim" = hl "orange" null {};
     "@text.literal" = hl "green" null {};
     BarPill = hl "dark-gray" null {};
     Bold = hl null null {bold = true;};
