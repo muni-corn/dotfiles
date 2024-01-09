@@ -67,12 +67,16 @@ in {
     Bold = hl null null {bold = true;};
     Boolean = hl "orange" null {};
     Character = hl "red" null {};
+    CmpItemAbbr = hl "light-gray" null {};
+    CmpItemAbbrMatch = hl "cyan" null {bold = true;};
+    CmpItemAbbrMatchFuzzy = hl "blue" null {};
+    CmpItemKind = hl "purple" null {};
+    CmpItemMenu = hl "gray" null {};
     ColorColumn = hl null "dark-gray" {};
     Comment = hl "light-gray" null {};
     Conceal = hl "gray" null {};
     Conditional = hl "brown" null {};
     Constant = hl "orange" null {};
-    CmpItemMenuDefault = hl "gray" null {};
     Cursor = hl "black" "light-silver" {};
     CursorColumn = hl null "dark-gray" {};
     CursorLine = hl null "black" {};
