@@ -186,7 +186,7 @@
     base0B = "a3be8c";
     base0C = "88c0d0";
     base0D = "81a1c1";
-    base0E = "5e81ac";
-    base0F = "b48ead";
+    base0E = "b48ead";
+    base0F = "b59e89";
   };
 }
