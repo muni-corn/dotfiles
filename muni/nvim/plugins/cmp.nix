@@ -27,11 +27,11 @@
       snippet.expand = "snippy";
       window = {
         completion = {
-          border = ["╭" "─" "╮" "│" "╯" "─" "╰" "│"];
+          border = "rounded";
           winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CursorLine,Search:None";
         };
         documentation = {
-          border = ["╭" "─" "╮" "│" "╯" "─" "╰" "│"];
+          border = "rounded";
           winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:CursorLine,Search:None";
         };
       };
