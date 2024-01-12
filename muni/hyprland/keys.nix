@@ -222,9 +222,10 @@ in {
     };
 
     # temporarily unmaps everything except Escape to exit (pretty much to escape
-    # the muni-tuber shortcuts)
+    # the muni-tuber shortcuts so that F1-F12 can be used in games like
+    # minecraft)
     extraConfig = ''
-      bind = ${(b "SUPER_CTRL" "f" "submap" "literal")}
+      bind = ${(b "SUPER" "r" "submap" "literal")}
       submap = literal
       bind = ${(b "" "Escape" "submap" "reset")}
       submap = reset
