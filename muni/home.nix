@@ -159,6 +159,7 @@ in {
 
         # games
         prismlauncher
+        protonup-qt
         r2modman
       ];
 
