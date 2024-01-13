@@ -1,5 +1,7 @@
 {
   config,
+  lib,
+  osConfig,
   pkgs,
   ...
 }: {
@@ -7,7 +9,7 @@
     startServices = "sd-switch";
 
     services = {
-      hydroxide = {
+      hydroxide = lib.mkIf (osConfig.networking.hostName == "ponycastle") {
         Unit = {
           Description = "hydroxide service";
         };

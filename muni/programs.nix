@@ -1,5 +1,7 @@
 {
   config,
+  lib,
+  osConfig,
   pkgs,
   pkgs-obs,
   pipewire-screenaudio,
@@ -111,7 +113,7 @@
     # fish integration enabled by default
     nix-index.enable = true;
 
-    obs-studio = {
+    obs-studio = lib.mkIf (osConfig.networking.hostName == "ponycastle") {
       enable = true;
       package = pkgs-obs.obs-studio;
       plugins = with pkgs.obs-studio-plugins; [
