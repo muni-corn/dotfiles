@@ -2,6 +2,7 @@
   config,
   lib,
   pkgs,
+  pkgs-master,
   muse-wallpapers,
   osConfig,
   ...

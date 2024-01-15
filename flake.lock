@@ -749,18 +749,18 @@
         "type": "indirect"
       }
     },
-    "nixpkgs-obs": {
+    "nixpkgs-master": {
       "locked": {
-        "lastModified": 1703141638,
-        "narHash": "sha256-ZN4PGCx16j4U5msExVoUQqxANOH04RhTtMWN2+vvjhs=",
-        "owner": "muni-corn",
+        "lastModified": 1705204527,
+        "narHash": "sha256-WVz9WdaFBhAwO/7A+HlW8HPJ4VQ8QnpCD1WZAcAPneo=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "95f926f39b6c21522710ff2f0d3a50a06de26392",
+        "rev": "dd5621df6dcb90122b50da5ec31c411a0de3e538",
         "type": "github"
       },
       "original": {
-        "owner": "muni-corn",
-        "ref": "obs-30",
+        "owner": "nixos",
+        "ref": "master",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -1194,7 +1194,7 @@
         "nix-minecraft": "nix-minecraft",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_17",
-        "nixpkgs-obs": "nixpkgs-obs",
+        "nixpkgs-master": "nixpkgs-master",
         "nixvim": "nixvim",
         "pipewire-screenaudio": "pipewire-screenaudio",
         "plymouth-theme-musicaloft-rainbow": "plymouth-theme-musicaloft-rainbow",

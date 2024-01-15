@@ -7,6 +7,7 @@
   flake-inputs,
   lib,
   pkgs,
+  pkgs-master,
   ...
 }: {
   imports = [

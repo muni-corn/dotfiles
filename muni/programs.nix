@@ -3,7 +3,7 @@
   lib,
   osConfig,
   pkgs,
-  pkgs-obs,
+  pkgs-master,
   pipewire-screenaudio,
   ...
 }: {
@@ -115,7 +115,7 @@
 
     obs-studio = lib.mkIf (osConfig.networking.hostName == "ponycastle") {
       enable = true;
-      package = pkgs-obs.obs-studio;
+      package = pkgs-master.obs-studio;
       plugins = with pkgs.obs-studio-plugins; [
         obs-pipewire-audio-capture
       ];
