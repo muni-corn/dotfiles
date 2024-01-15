@@ -150,6 +150,7 @@ in {
         # video
         blender-hip
         kdenlive
+        libva-utils
         mediainfo
         movit
         pkgs-master.ffmpeg-full
@@ -159,6 +160,7 @@ in {
         wine
 
         # games
+        godot_4
         prismlauncher
         protonup-qt
         r2modman
