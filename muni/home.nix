@@ -113,7 +113,6 @@ in {
         qmk
 
         # other things
-        ffmpeg_6-full
         fnlfmt
         fortune
         imagemagick
@@ -153,6 +152,7 @@ in {
         kdenlive
         mediainfo
         movit
+        pkgs-master.ffmpeg-full
         synfigstudio
 
         # emulators and "emulators"
