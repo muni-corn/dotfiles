@@ -7,7 +7,6 @@
   flake-inputs,
   lib,
   pkgs,
-  pkgs-master,
   ...
 }: {
   imports = [
@@ -35,7 +34,6 @@
   hardware = {
     opengl = {
       enable = true;
-      package = pkgs-master.mesa.drivers;
       extraPackages = with pkgs; [
         amdvlk
         rocmPackages.clr

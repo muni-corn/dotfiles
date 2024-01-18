@@ -1,10 +1,9 @@
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable-small";
     home-manager.url = "github:nix-community/home-manager";
 
-    # for the most bleeding-edge packages
-    nixpkgs-master.url = "github:nixos/nixpkgs/master";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
 
     # hyprland from git
     hyprland.url = "github:hyprwm/Hyprland?ref=main";
@@ -58,7 +57,7 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-master,
+    nixpkgs-stable,
     home-manager,
     hyprland,
     arpeggio,
@@ -78,7 +77,7 @@
   } @ inputs: let
     lockFile = nixpkgs.lib.importJSON ./flake.lock;
 
-    pkgs-master = import nixpkgs-master {system = "x86_64-linux";};
+    pkgs-stable = import nixpkgs-stable {system = "x86_64-linux";};
 
     overlaysModule = {
       nixpkgs.overlays = [
@@ -101,7 +100,7 @@
       {
         home-manager = {
           extraSpecialArgs = {
-            inherit muse-wallpapers pipewire-screenaudio pkgs-master;
+            inherit muse-wallpapers pipewire-screenaudio pkgs-stable;
             vscode-js-debug-src = vscode-js-debug;
           };
           sharedModules = [nixvim.homeManagerModules.nixvim];
@@ -131,12 +130,12 @@
   in {
     nixosConfigurations = {
       littlepony = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit pipewire-screenaudio pkgs-master;};
+        specialArgs = {inherit pipewire-screenaudio pkgs-stable;};
         system = "x86_64-linux";
         modules = commonModules ++ littleponyHardwareModules ++ [./laptop];
       };
       ponycastle = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit pipewire-screenaudio pkgs-master;};
+        specialArgs = {inherit pipewire-screenaudio pkgs-stable;};
         system = "x86_64-linux";
         modules = commonModules ++ ponycastleHardwareModules ++ [./desktop];
       };

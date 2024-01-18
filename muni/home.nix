@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  pkgs-master,
+  pkgs-stable,
   muse-wallpapers,
   osConfig,
   ...
@@ -142,18 +142,18 @@ in {
         musescore
         pamixer # for muse-status, at least
         qpwgraph
-        sfizz
+        pkgs-stable.sfizz
         x42-gmsynth
         x42-plugins
         zyn-fusion
 
         # video
         blender-hip
+        ffmpeg-full
         kdenlive
         libva-utils
         mediainfo
         movit
-        pkgs-master.ffmpeg-full
         synfigstudio
 
         # emulators and "emulators"
