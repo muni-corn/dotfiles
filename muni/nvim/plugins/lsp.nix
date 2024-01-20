@@ -59,6 +59,7 @@ in {
 
       servers = {
         eslint.enable = true;
+        gdscript.enable = true;
         html.enable = true;
         phpactor.enable = true;
         tsserver = {
