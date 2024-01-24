@@ -369,10 +369,12 @@
   xdg = {
     portal = {
       enable = true;
-      wlr.enable = false;
       extraPortals = with pkgs; [
         xdg-desktop-portal-gtk
       ];
+
+      wlr.enable = false;
+      xdgOpenUsePortal = true;
     };
     sounds.enable = true;
   };
