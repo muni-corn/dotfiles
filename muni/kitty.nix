@@ -40,7 +40,7 @@ in {
     inactive_tab_foreground = "#${colors.silver}";
     selection_background = "#${colors.light-gray}";
     selection_foreground = "#${colors.bright-white}";
-    tab_bar_background = "#${colors.dark-gray}";
+    tab_bar_background = "#${colors.black}";
     url_color = "#${colors.blue}";
 
     # match 0-15 colors to their names
