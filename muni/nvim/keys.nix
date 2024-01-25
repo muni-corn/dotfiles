@@ -319,7 +319,7 @@
     }
     {
       key = "<leader>rc";
-      action = ":tabe ~/.config/home-manager/muni/nvim<cr>";
+      action = ":tabe ~/dotfiles/muni/nvim<cr>";
       options.desc = "go to config folder";
     }
     {
