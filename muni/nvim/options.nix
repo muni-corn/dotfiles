@@ -16,7 +16,7 @@
     errorbells = false;
     expandtab = true;
     fillchars = "vert:│,fold:~,stl: ,stlnc: ";
-    foldexpr = "nvim_treesitter#foldexpr()";
+    foldexpr = "v:lua.vim.treesitter.foldexpr()";
     foldlevelstart = 5;
     foldmethod = "expr";
     formatoptions = "lt"; # ensures word-wrap does not split words
