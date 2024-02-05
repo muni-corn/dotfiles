@@ -161,6 +161,8 @@ in {
 
         # games
         godot_4
+        itch
+        lutris
         prismlauncher
         protonup-qt
         r2modman
