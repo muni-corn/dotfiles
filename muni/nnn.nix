@@ -26,10 +26,9 @@
     ];
 
     bookmarks = {
-      c = "~/Pictures/dslr";
+      D = "~/dotfiles";
+      c = "~/code";
       d = "~/Documents";
-      e = "~/code";
-      g = "~/.config/nixpkgs";
       m = "~/Music";
       n = "~/notebook";
       o = "~/Downloads";
