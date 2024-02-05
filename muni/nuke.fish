@@ -233,35 +233,26 @@ function handle_extension
     end &> /dev/null
 end
 
-# sets the variable abs_target, this should be faster than calling printf
-function set_absolute_path -a path
-    switch $path
-        case '/*'
-            set abs_target $path
-        case '*'
-            set abs_target $PWD/$path
-    end
-end
-
 # storing the result to a tmp file is faster than calling populate_image_list twice
 function populate_image_list -a img_file
-    fd -0 -L -d1 -t file -t symlink "\.(jpe?g|png|gif|webp|tiff|bmp|ico|svg)\$" "///$(path dirname $img_file)" | sort -z | tee "$tmp"
+    fd -0 -L -d1 -t file -t symlink "\.(jpe?g|png|gif|webp|tiff|bmp|ico|svg)\$" (path dirname $img_file) | sort -z | tee "$tmp"
 end
 
-function load_img_dir -a arg1 arg2
-    set_absolute_path $arg2
+function load_img_dir -a program img_file
+    set abs_path (realpath -s $img_file)
     set tmp $TMPDIR/nuke_{$fish_pid}
     trap "rm -f $tmp" EXIT
-    set count (populate_image_list "$abs_target" | grep -a -m 1 -ZznF "$abs_target" | cut -d: -f1)
+    set count (populate_image_list "$abs_path" | grep -a -m 1 -ZznF "$abs_path" | cut -d: -f1)
 
     if test -n $count
         if test $GUI -ne 0
-            xargs -0 nohup $arg1 -n $count -- < $tmp
+            xargs -0 nohup $program -n $count -- < $tmp
         else
-            xargs -0 $arg1 -n $count -- < $tmp
+            xargs -0 $program -n $count -- < $tmp
         end
     else
-        $arg2 -- $argv[3..-1] # fallback
+        set program $img_file
+        $program -- $argv[3..-1] # fallback
     end
 end
 
