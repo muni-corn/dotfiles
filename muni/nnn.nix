@@ -4,7 +4,7 @@
   ...
 }: {
   home.sessionVariables = {
-    NNN_FCOLORS = "06030c1000050e0811100d01";
+    NNN_FCOLORS = "06030c0200050e08010b0d01";
     NNN_OPENER = pkgs.writeTextFile {
       name = "nuke";
       text = ''
