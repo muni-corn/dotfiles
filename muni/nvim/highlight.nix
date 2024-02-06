@@ -72,14 +72,14 @@
         dsts))
     set;
 
-  state = {
+  stateColors = {
     debug = "purple";
     error = "red";
-    hint = "yellow";
-    info = "cyan";
+    hint = "cyan";
+    info = "blue";
     ok = "green";
     trace = "brown";
-    warning = "orange";
+    warning = "yellow";
   };
 in {
   programs.nixvim.highlight =
@@ -106,30 +106,30 @@ in {
       CmpItemMenu = hl "gray" null {};
 
       # diagnostics
-      DiagnosticError = hl state.error null {};
-      DiagnosticHint = hl state.hint null {};
-      DiagnosticInfo = hl state.info null {};
-      DiagnosticOk = hl state.ok null {};
-      DiagnosticWarn = hl state.warning null {};
+      DiagnosticError = hl stateColors.error null {};
+      DiagnosticHint = hl stateColors.hint null {};
+      DiagnosticInfo = hl stateColors.info null {};
+      DiagnosticOk = hl stateColors.ok null {};
+      DiagnosticWarn = hl stateColors.warning null {};
       DiagnosticUnderlineError = hl null null {
         undercurl = true;
-        sp = nameToHex state.error;
+        sp = nameToHex stateColors.error;
       };
       DiagnosticUnderlineHint = hl null null {
         undercurl = true;
-        sp = nameToHex state.hint;
+        sp = nameToHex stateColors.hint;
       };
       DiagnosticUnderlineInfo = hl null null {
         undercurl = true;
-        sp = nameToHex state.info;
+        sp = nameToHex stateColors.info;
       };
       DiagnosticUnderlineOk = hl null null {
         underline = true;
-        sp = nameToHex state.ok;
+        sp = nameToHex stateColors.ok;
       };
       DiagnosticUnderlineWarn = hl null null {
         undercurl = true;
-        sp = nameToHex state.warning;
+        sp = nameToHex stateColors.warning;
       };
 
       # diffs
@@ -143,18 +143,18 @@ in {
 
       # notifications
       NotifyBackground = hl "dark-gray" null {};
-      NotifyDEBUGTitle = hl state.debug null {bold = true;};
-      NotifyERRORTitle = hl state.error null {bold = true;};
-      NotifyINFOTitle = hl state.info null {bold = true;};
-      NotifyTRACETitle = hl state.trace null {bold = true;};
+      NotifyDEBUGTitle = hl stateColors.debug null {bold = true;};
+      NotifyERRORTitle = hl stateColors.error null {bold = true;};
+      NotifyINFOTitle = hl stateColors.info null {bold = true;};
+      NotifyTRACETitle = hl stateColors.trace null {bold = true;};
       NotifyWARNTitle = hl null null {bold = true;};
 
       # state
-      Debug = hl state.debug null {};
-      Error = hl state.error null {};
-      Info = hl state.info null {};
-      Warning = hl state.warning null {};
-      Trace = hl state.trace null {};
+      Debug = hl stateColors.debug null {};
+      Error = hl stateColors.error null {};
+      Info = hl stateColors.info null {};
+      Warning = hl stateColors.warning null {};
+      Trace = hl stateColors.trace null {};
 
       # syntax
       "@neorg.headings.1.prefix" = hl "brown" null {};
