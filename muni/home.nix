@@ -157,7 +157,7 @@ in {
         synfigstudio
 
         # emulators and "emulators"
-        wine
+        wine-wayland
 
         # games
         godot_4
