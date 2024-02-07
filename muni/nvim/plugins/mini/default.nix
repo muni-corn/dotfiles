@@ -17,6 +17,7 @@
       };
       bracketed = {__empty = null;};
       comment = {__empty = null;};
+      extra = {__empty = null;};
       files = {__empty = null;};
       indentscope = {__empty = null;};
       notify = {__empty = null;};
