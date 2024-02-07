@@ -15,7 +15,6 @@
     ./mini
     ./neorg.nix
     ./none-ls.nix
-    ./notify.nix
     ./telescope.nix
     ./treesitter.nix
     ./trouble.nix

@@ -19,6 +19,7 @@
       comment = {__empty = null;};
       files = {__empty = null;};
       indentscope = {__empty = null;};
+      notify = {__empty = null;};
       pairs = {__empty = null;};
       sessions = {__empty = null;};
       surround = {__empty = null;};
