@@ -247,6 +247,7 @@ in {
       Italic = ["@text.emphasis"];
       Normal = ["NormalFloat"];
       SpellRare = ["SpellLocal"];
+      Todo = ["@comment.todo"];
       Trace = ["NotifyTRACEBorder" "NotifyTRACEIcon"];
       VirtualText = ["GitSignsCurrentLineBlame"];
       Warning = ["WarningMsg" "NotifyWARNBorder" "NotifyWARNIcon"];
