@@ -89,5 +89,10 @@
       {__raw = "require('mini.clue').gen_clues.windows()";}
       {__raw = "require('mini.clue').gen_clues.z()";}
     ];
+
+    window = {
+      config.border = "rounded";
+      delay = 0;
+    };
   };
 }

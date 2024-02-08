@@ -1,6 +1,7 @@
 {
   imports = [
     ./clue.nix
+    ./files.nix
     ./starter.nix
   ];
 
@@ -13,11 +14,10 @@
       bracketed = {__empty = null;};
       comment = {__empty = null;};
       extra = {__empty = null;};
-      files = {__empty = null;};
       indentscope = {__empty = null;};
-      notify = {__empty = null;};
+      notify = {window.config.border = "rounded";};
       pairs = {__empty = null;};
-      pick = {__empty = null;};
+      pick = {window.config.border = "rounded";};
       sessions = {autoread = true;};
       surround = {__empty = null;};
       trailspace = {__empty = null;};
