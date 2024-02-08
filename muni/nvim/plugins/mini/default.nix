@@ -18,7 +18,7 @@
       notify = {window.config.border = "rounded";};
       pairs = {__empty = null;};
       pick = {window.config.border = "rounded";};
-      sessions = {autoread = true;};
+      sessions = {__empty = null;};
       surround = {__empty = null;};
       trailspace = {__empty = null;};
     };
