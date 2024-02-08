@@ -9,12 +9,7 @@
     modules = {
       ai = {__empty = null;};
       animate = {__empty = null;};
-      basics = {
-        options = {
-          extra_ui = true;
-          win_borders = "rounded";
-        };
-      };
+      basics.options.extra_ui = true;
       bracketed = {__empty = null;};
       comment = {__empty = null;};
       extra = {__empty = null;};
