@@ -22,6 +22,7 @@
       indentscope = {__empty = null;};
       notify = {__empty = null;};
       pairs = {__empty = null;};
+      pick = {__empty = null;};
       sessions = {autoread = true;};
       surround = {__empty = null;};
       trailspace = {__empty = null;};

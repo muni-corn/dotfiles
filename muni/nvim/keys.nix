@@ -1,21 +1,21 @@
 {
   programs.nixvim.keymaps = let
-    telescope-buffers = "require'telescope.builtin'.buffers";
+    pick-buffers = "MiniPick.builtin.buffers";
+    pick-files = "MiniPick.builtin.files";
+    pick-git-branches = "MiniExtra.pickers.git_branches";
+    pick-git-commits = "MiniExtra.pickers.git_commits";
+    pick-grep-live = "MiniPick.builtin.grep_live";
+    pick-lsp-definition = "function() MiniExtra.pickers.lsp({ scope = 'definition' }) end";
+    pick-lsp-document-symbol = "function() MiniExtra.pickers.lsp({ scope = 'document_symbol' }) end";
+    pick-lsp-implementation = "function() MiniExtra.pickers.lsp({ scope = 'implementation' }) end";
+    pick-lsp-references = "function() MiniExtra.pickers.lsp({ scope = 'references' }) end";
+    pick-lsp-workspace-symbol = "function() MiniExtra.pickers.lsp({ scope = 'workspace_symbol' }) end";
+    pick-oldfiles = "MiniExtra.pickers.oldfiles";
+    pick-spell-suggest = "MiniExtra.pickers.spellsuggest";
     telescope-builtin = "require'telescope.builtin'.builtin";
-    telescope-fd = "require'telescope.builtin'.fd";
-    telescope-git-commits = "require'telescope.builtin'.git_commits";
     telescope-git-stash = "require'telescope.builtin'.git_stash";
     telescope-git-status = "require'telescope.builtin'.git_status";
-    telescope-git-switch-branch = "require'telescope.builtin'.git_branches";
     telescope-lsp-actions = "vim.lsp.buf.code_action";
-    telescope-lsp-definition = "require'telescope.builtin'.lsp_definitions";
-    telescope-lsp-document-symbols = "require'telescope.builtin'.lsp_document_symbols";
-    telescope-lsp-implementations = "require'telescope.builtin'.lsp_implementations";
-    telescope-lsp-references = "require'telescope.builtin'.lsp_references";
-    telescope-lsp-workspace-symbols = "require'telescope.builtin'.lsp_workspace_symbols";
-    telescope-oldfiles = "<cmd>Telescope oldfiles<cr>";
-    telescope-ripgrep = "require'telescope.builtin'.live_grep";
-    telescope-spell-suggest = "require'telescope.builtin'.spell_suggest";
 
     wrapLua = lua: "<cmd>lua ${lua}()<cr>";
   in [
@@ -38,13 +38,13 @@
     }
     {
       key = "<c-p>";
-      action = telescope-fd;
+      action = pick-files;
       lua = true;
       options.desc = "find file";
     }
     {
       key = "<leader>/";
-      action = telescope-lsp-definition;
+      action = pick-lsp-definition;
       lua = true;
       options.desc = "lsp defintion";
     }
@@ -68,7 +68,7 @@
     }
     {
       key = "<leader>?";
-      action = "vim.lsp.buf.type_definition";
+      action = "function() MiniExtra.pickers.lsp({ scope = 'type_definition' }) end";
       lua = true;
       options.desc = "lsp type definition";
     }
@@ -154,7 +154,7 @@
     }
     {
       key = "<leader>b";
-      action = telescope-buffers;
+      action = pick-buffers;
       lua = true;
       options.desc = "buffers";
     }
@@ -180,8 +180,14 @@
       options.desc = "explore files";
     }
     {
+      key = "<leader>fA";
+      action = telescope-builtin;
+      lua = true;
+      options.desc = "all pickers";
+    }
+    {
       key = "<leader>fY";
-      action = telescope-lsp-workspace-symbols;
+      action = pick-lsp-workspace-symbol;
       lua = true;
       options.desc = "all symbols";
     }
@@ -193,27 +199,27 @@
     }
     {
       key = "<leader>fb";
-      action = telescope-git-switch-branch;
+      action = pick-git-branches;
       lua = true;
       options.desc = "switch git branch";
     }
     {
       key = "<leader>fc";
-      action = telescope-git-commits;
+      action = pick-git-commits;
       lua = true;
       options.desc = "git commits";
     }
     {
       key = "<leader>fd";
-      action = telescope-fd;
+      action = pick-files;
       lua = true;
       options.desc = "find files";
     }
     {
       key = "<leader>ff";
-      action = telescope-builtin;
+      action = "MiniPick.builtin.resume";
       lua = true;
-      options.desc = "all telescopes";
+      options.desc = "resume last picker";
     }
     {
       key = "<leader>fg";
@@ -223,18 +229,18 @@
     }
     {
       key = "<leader>fi";
-      action = telescope-lsp-implementations;
+      action = pick-lsp-implementation;
       lua = true;
       options.desc = "lsp implementations";
     }
     {
       key = "<leader>fo";
-      action = telescope-oldfiles;
+      action = pick-oldfiles;
       options.desc = "old files";
     }
     {
       key = "<leader>fr";
-      action = telescope-ripgrep;
+      action = pick-grep-live;
       lua = true;
       options.desc = "ripgrep";
     }
@@ -246,19 +252,19 @@
     }
     {
       key = "<leader>fy";
-      action = telescope-lsp-document-symbols;
+      action = pick-lsp-document-symbol;
       lua = true;
       options.desc = "symbols";
     }
     {
       key = "<leader>fz";
-      action = telescope-spell-suggest;
+      action = pick-spell-suggest;
       lua = true;
       options.desc = "spellings";
     }
     {
       key = "<leader>gg";
-      action = telescope-ripgrep;
+      action = pick-grep-live;
       lua = true;
       options.desc = "ripgrep";
     }
@@ -324,7 +330,7 @@
     }
     {
       key = "<leader>rg";
-      action = telescope-ripgrep;
+      action = pick-grep-live;
       lua = true;
       options.desc = "ripgrep";
     }
@@ -335,7 +341,7 @@
     }
     {
       key = "<leader>sg";
-      action = "<cmd>new<cr>${wrapLua telescope-ripgrep}";
+      action = "<cmd>new<cr>${wrapLua pick-grep-live}";
       options.desc = "split ripgrep";
     }
     {
@@ -345,12 +351,12 @@
     }
     {
       key = "<leader>ss";
-      action = "<cmd>new<cr>${wrapLua telescope-fd}";
+      action = "<cmd>new<cr>${wrapLua pick-files}";
       options.desc = "split find file";
     }
     {
       key = "<leader>tg";
-      action = "<cmd>tabnew<cr>${wrapLua telescope-ripgrep}";
+      action = "<cmd>tabnew<cr>${wrapLua pick-grep-live}";
       options.desc = "tab ripgrep";
     }
     {
@@ -365,7 +371,7 @@
     }
     {
       key = "<leader>tt";
-      action = "<cmd>tabnew<cr>${wrapLua telescope-fd}";
+      action = "<cmd>tabnew<cr>${wrapLua pick-files}";
       options.desc = "find file in new tab";
     }
     {
@@ -398,7 +404,7 @@
     }
     {
       key = "<leader>vg";
-      action = "<cmd>vnew<cr>${wrapLua telescope-ripgrep}";
+      action = "<cmd>vnew<cr>${wrapLua pick-grep-live}";
       options.desc = "vertical ripgrep";
     }
     {
@@ -408,7 +414,7 @@
     }
     {
       key = "<leader>vv";
-      action = "<cmd>vnew<cr>${wrapLua telescope-fd}";
+      action = "<cmd>vnew<cr>${wrapLua pick-files}";
       options.desc = "vertical find file";
     }
     {
@@ -418,7 +424,7 @@
     }
     {
       key = "<leader>xR";
-      action = telescope-lsp-references;
+      action = pick-lsp-references;
       lua = true;
       options.desc = "lsp references";
     }
@@ -430,7 +436,7 @@
     }
     {
       key = "<leader>xd";
-      action = "vim.lsp.buf.declaration";
+      action = "function() MiniExtra.pickers.lsp({ scope = 'declaration' }) end";
       lua = true;
       options.desc = "lsp declarations";
     }
@@ -442,7 +448,7 @@
     }
     {
       key = "<leader>xi";
-      action = telescope-lsp-implementations;
+      action = pick-lsp-implementation;
       lua = true;
       options.desc = "lsp implementations";
     }
@@ -454,7 +460,8 @@
     }
     {
       key = "<leader>xt";
-      action = "<cmd>TroubleToggle<cr>";
+      action = "MiniExtra.pickers.diagnostic";
+      lua = true;
       options.desc = "workspace diagnostics";
     }
     {
