@@ -266,39 +266,6 @@ in {
   xdg = {
     enable = true;
     configFile = {
-      "muse-status/daemon.yaml".source = let
-        network_iface =
-          if deviceName == "ponycastle"
-          then "enp6s0"
-          else "wlan0";
-      in
-        yaml.generate "muse-status-daemon-config" {
-          daemon_addr = "localhost:2899";
-          primary_order = [
-            "date"
-            "weather"
-            "mpris"
-          ];
-          secondary_order = [
-            "brightness"
-            "volume"
-            "network"
-            "battery"
-          ];
-          tertiary_order = [];
-          brightness_id = "amdgpu_bl0";
-          network_interface_name = network_iface;
-          battery_config = {
-            battery_id = "BAT0";
-            warning_level.
-            minutes_left = 60;
-            alarm_level. minutes_left = 30;
-          };
-          weather_config = {
-            update_interval_minutes = 10;
-            units = "imperial";
-          };
-        };
       "peaclock.conf".source = ./peaclock.conf;
       "rustfmt/rustfmt.toml".source = toml.generate "rustfmt-config" {
         condense_wildcard_suffixes = true;

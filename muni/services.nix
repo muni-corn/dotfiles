@@ -39,7 +39,36 @@
 
     kdeconnect.enable = true;
 
-    muse-status.enable = true;
+    muse-status = {
+      enable = true;
+      settings = {
+        daemon_addr = "localhost:2899";
+        primary_order = [
+          "date"
+          "weather"
+          "mpris"
+        ];
+        secondary_order = [
+          "brightness"
+          "volume"
+          "network"
+          "battery"
+        ];
+        tertiary_order = [];
+        brightness_id = "amdgpu_bl0";
+        network_interface_name = "wlan0";
+        battery_config = {
+          battery_id = "BAT0";
+          warning_level.
+            minutes_left = 60;
+          alarm_level. minutes_left = 30;
+        };
+        weather_config = {
+          update_interval_minutes = 10;
+          units = "imperial";
+        };
+      };
+    };
 
     playerctld.enable = true;
 

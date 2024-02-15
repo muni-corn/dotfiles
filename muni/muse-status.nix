@@ -20,7 +20,9 @@ in {
       };
     };
   };
-  config = {
+  config = let
+    yaml = pkgs.formats.yaml {};
+  in {
     home.packages = [pkgs.muse-status];
     systemd.user.services.muse-status-daemon = {
       Unit.Description = "muse-status daemon";
@@ -31,7 +33,7 @@ in {
       Install.WantedBy = ["graphical-session.target"];
     };
     xdg.configFile."muse-status/daemon.yaml" = mkIf (cfg.settings != null) {
-      text = lib.toYAML cfg.settings;
+      source = yaml.generate "muse-status-daemon-config" cfg.settings;
     };
   };
 }
