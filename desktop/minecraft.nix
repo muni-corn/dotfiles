@@ -39,7 +39,7 @@
       TranzCenDentz = "4e326eb9-b3a3-492a-999a-67d5abd95f6d";
       Wolfsonic = "e9eb2839-2f97-41f6-8fb2-2ba5f30c406e";
       badmovieknight = "5ec42a67-69b4-4e5f-b63c-612499202e56";
-      choaticfoxvt = "4b055f2b-c68d-4c41-8390-997058c690b0";
+      chaoticfoxvt = "4b055f2b-c68d-4c41-8390-997058c690b0";
       iceswimmer08 = "dcbeca4d-d8be-4277-b310-96a412b23040";
       muni_corn = "30bb1692-6f6a-4103-9634-455e65d0269d";
     };
