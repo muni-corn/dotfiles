@@ -15,8 +15,6 @@
     ../firewall.nix
   ];
 
-  musnix.enable = true;
-
   networking.hostName = "littlepony";
 
   systemd = {
