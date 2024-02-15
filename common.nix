@@ -148,6 +148,18 @@
   location.provider = "geoclue2";
 
   networking = {
+    # Enables wireless support via iwd.
+    wireless.iwd = {
+      enable = true;
+      settings = {
+        Blacklist = {
+          InitialTimeout = 10;
+          Multiplier = 2;
+          MaximumTimeout = 1800;
+        };
+      };
+    };
+
     # Encrypts network traffic where possible (i think)
     tcpcrypt.enable = true;
   };
