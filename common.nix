@@ -280,6 +280,8 @@
 
     auto-cpufreq.enable = true;
 
+    automatic-timezoned.enable = true;
+
     fwupd.enable = true;
 
     geoclue2 = {
@@ -305,8 +307,6 @@
       enable = true;
       serviceWantedBy = ["multi-user.target"];
     };
-
-    localtimed.enable = true;
 
     logind.extraConfig = ''
       RuntimeDirectorySize=2G
