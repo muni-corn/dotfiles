@@ -64,7 +64,7 @@ in {
         phpactor.enable = true;
         tsserver = {
           enable = true;
-          installLanguageServer = false;
+          package = null;
         };
         vuels.enable = true;
         zls.enable = true;
@@ -74,8 +74,9 @@ in {
         };
         rust-analyzer = {
           enable = true;
+          package = null;
+
           installCargo = false;
-          installLanguageServer = false;
           installRustc = false;
           settings = {
             cargo = {
