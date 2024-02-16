@@ -352,7 +352,7 @@
   };
 
   # Set your time zone.
-  time.timeZone = "America/Chicago";
+  time.timeZone = "America/Denver";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
