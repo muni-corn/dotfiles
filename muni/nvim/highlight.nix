@@ -160,6 +160,7 @@ in {
       "@neorg.headings.1.prefix" = hl "brown" null {};
       "@neorg.headings.1.title" = hl "brown" null {};
       "@neorg.markup.verbatim" = hl "orange" null {};
+      "@neorg.todo_items.pending" = hl "yellow" null {};
       "@text.literal" = hl "green" null {};
       Bold = hl null null {bold = true;};
       Boolean = hl "orange" null {};
