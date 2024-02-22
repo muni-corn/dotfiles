@@ -95,7 +95,7 @@ in {
         rawtherapee
 
         # messaging
-        discord
+        webcord
         element-desktop
         slack
 
