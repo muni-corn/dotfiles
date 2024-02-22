@@ -239,13 +239,13 @@ in {
       WildMenu = hl "red" null {};
     }
     // links {
-      Bold = ["@text.strong"];
+      Bold = ["@text.strong" "@neorg.markup.bold"];
       Comment = ["MiniIndentscopeSymbol"];
       Debug = ["NotifyDEBUGBorder" "NotifyDEBUGIcon"];
       Error = ["ErrorMsg" "NotifyERRORBorder" "NotifyERRORIcon" "NvimInternalError"];
       FloatBorder = ["FloatermBorder" "LspInfoBorder" "TelescopeBorder"];
       Info = ["InfoMsg" "NotifyINFOBorder" "NotifyINFOIcon"];
-      Italic = ["@text.emphasis"];
+      Italic = ["@text.emphasis" "@neorg.markup.italic"];
       Normal = ["NormalFloat"];
       SpellRare = ["SpellLocal"];
       Todo = ["@comment.todo"];
