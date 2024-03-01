@@ -5,6 +5,9 @@
 
     nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-23.11";
 
+    # aylur's gtk shell
+    ags.url = "github:Aylur/ags";
+
     # hyprland from git
     hyprland.url = "github:hyprwm/Hyprland?ref=main";
 
@@ -62,6 +65,7 @@
     nixpkgs,
     nixpkgs-stable,
     home-manager,
+    ags,
     hyprland,
     arpeggio,
     iosevka-muse,
@@ -107,7 +111,10 @@
             inherit muse-wallpapers pipewire-screenaudio pkgs-stable;
             vscode-js-debug-src = vscode-js-debug;
           };
-          sharedModules = [nixvim.homeManagerModules.nixvim];
+          sharedModules = [
+            nixvim.homeManagerModules.nixvim
+            ags.homeManagerModules.default
+          ];
           useGlobalPkgs = true;
           useUserPackages = true;
           users.muni = ./muni/home.nix;
