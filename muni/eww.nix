@@ -11,7 +11,6 @@ in {
 
   programs.eww = {
     enable = true;
-    package = pkgs.eww-wayland;
     configDir = ./eww;
   };
   xdg.configFile = let
