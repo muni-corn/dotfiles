@@ -166,10 +166,6 @@ in {
           then "status-bar-1 status-bar-0"
           else "status-bar-laptop";
       in [
-        # to make xdg-open work with portal
-        "systemctl --user import-environment PATH"
-        "systemctl --user restart xdg-desktop-portal.service"
-
         # load last screen brightness
         "brillo -I &"
 
@@ -248,6 +244,8 @@ in {
         "pin,title:^(Picture-in-Picture)$"
       ];
     };
+
+    systemd.variables = ["PATH"];
   };
 
   xdg.configFile = {
