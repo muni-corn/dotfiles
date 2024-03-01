@@ -119,7 +119,8 @@ in {
         };
       };
 
-      "device:wacom-intuos-pro-m-pen" = {
+      device = {
+        name = "wacom-intuos-pro-m-pen";
         output = "DP-2";
       };
 
