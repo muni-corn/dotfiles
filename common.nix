@@ -358,12 +358,6 @@
         extraGroups = ["wheel" "audio" "video" "camera" "kvm" "plugdev" "libvirtd" "nixos-config" "adbusers" "docker"];
         uid = 1001;
       };
-      beans = {
-        isNormalUser = true;
-        description = "1800xxbakedbeans";
-        extraGroups = ["audio" "video"];
-        uid = 1002;
-      };
       tcpcryptd.group = "tcpcryptd";
     };
     groups = {
