@@ -188,30 +188,8 @@
     };
   };
 
-  nixpkgs.config = {
-    # allow some unfree packages to be installed
-    allowUnfreePredicate = pkg:
-      builtins.elem (lib.getName pkg) [
-        "minecraft-server"
-        "spotify"
-        "spotify-unwrapped"
-        "linuxsampler"
-        "memtest86-efi"
-        "surrealdb"
-
-        # if steam happens to be enabled
-        "steam"
-        "steam-original"
-        "steam-run"
-        "steam-runtime"
-
-        # moved from home-manager
-        "SpaceCadetPinball"
-        "discord"
-        "linuxsampler"
-        "slack"
-      ];
-  };
+  # allow unfree packages to be installed
+  nixpkgs.config.allowUnfree = true;
 
   programs = {
     adb.enable = true;

@@ -86,6 +86,7 @@ in {
         nodejs
         nodePackages.typescript-language-server
         python3
+        vscode-fhs
         zls
 
         # photo
@@ -96,6 +97,7 @@ in {
 
         # messaging
         webcord
+        discord
         element-desktop
         slack
 
