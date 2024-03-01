@@ -56,7 +56,7 @@
         ];
         tertiary_order = [];
         brightness_id = "amdgpu_bl0";
-        network_interface_name = "wlan0";
+        network_interface_name = "enp6s0";
         battery_config = {
           battery_id = "BAT0";
           warning_level.
