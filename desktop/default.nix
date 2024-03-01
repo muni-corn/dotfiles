@@ -108,6 +108,8 @@
       motherboard = "amd";
     };
 
+    invokeai.enable = true;
+
     psd.enable = true;
 
     surrealdb = {

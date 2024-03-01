@@ -17,6 +17,9 @@
     # updated minecraft servers
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
+    # ai
+    nixified-ai.url = "github:nixified-ai/flake";
+
     # extra hardware configuration
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
@@ -69,6 +72,7 @@
     musnix,
     neorg,
     nix-minecraft,
+    nixified-ai,
     nixos-hardware,
     nixvim,
     plymouth-theme-musicaloft-rainbow,
@@ -121,11 +125,13 @@
     # note: we would include common-pc-hdd, but it only sets vm.swappiness to
     # 10, which is overriden by common-pc-ssd, which sets vm.swappiness to 1.
     # swap on ponycastle is currently restricted to the ssd.
-    ponycastleHardwareModules = with nixos-hardware.nixosModules; [
+    ponycastleModules = with nixos-hardware.nixosModules; [
       common-cpu-amd
       common-gpu-amd
       common-pc
       common-pc-ssd
+
+      nixified-ai.nixosModules.invokeai-amd
     ];
   in {
     nixosConfigurations = {
@@ -137,7 +143,7 @@
       ponycastle = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit pipewire-screenaudio pkgs-stable;};
         system = "x86_64-linux";
-        modules = commonModules ++ ponycastleHardwareModules ++ [./desktop];
+        modules = commonModules ++ ponycastleModules ++ [./desktop];
       };
     };
   };
