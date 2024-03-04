@@ -8,8 +8,11 @@
     # aylur's gtk shell
     ags.url = "github:Aylur/ags";
 
-    # hyprland from git
+    # hypr ecosystem from git
+    hypridle.url = "github:hyprwm/hypridle?ref=main";
     hyprland.url = "github:hyprwm/Hyprland?ref=main";
+    hyprlock.url = "github:hyprwm/hyprlock?ref=main";
+    hyprpaper.url = "github:hyprwm/hyprpaper?ref=main";
 
     # realtime audio
     musnix.url = "github:musnix/musnix";
@@ -66,7 +69,10 @@
     nixpkgs-stable,
     home-manager,
     ags,
+    hypridle,
     hyprland,
+    hyprlock,
+    hyprpaper,
     arpeggio,
     iosevka-muse,
     matchpal,
@@ -97,7 +103,10 @@
         neorg.overlays.default
         nix-minecraft.overlay
         plymouth-theme-musicaloft-rainbow.overlay
+        hypridle.overlays.default
         hyprland.overlays.default
+        hyprlock.overlays.default
+        hyprpaper.overlays.default
       ];
     };
 
@@ -114,6 +123,9 @@
           sharedModules = [
             nixvim.homeManagerModules.nixvim
             ags.homeManagerModules.default
+            hypridle.homeManagerModules.default
+            hyprland.homeManagerModules.default
+            hyprlock.homeManagerModules.default
           ];
           useGlobalPkgs = true;
           useUserPackages = true;
