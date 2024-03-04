@@ -257,6 +257,7 @@ in {
     in ''
       preload = ${wallpaperDir}/${initialWallpaper}
       wallpaper = ,${wallpaperDir}/${initialWallpaper}
+      splash = false
     '';
   };
 }
