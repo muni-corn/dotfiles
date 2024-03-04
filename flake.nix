@@ -121,11 +121,11 @@
             vscode-js-debug-src = vscode-js-debug;
           };
           sharedModules = [
-            nixvim.homeManagerModules.nixvim
             ags.homeManagerModules.default
             hypridle.homeManagerModules.default
             hyprland.homeManagerModules.default
             hyprlock.homeManagerModules.default
+            nixvim.homeManagerModules.nixvim
           ];
           useGlobalPkgs = true;
           useUserPackages = true;
