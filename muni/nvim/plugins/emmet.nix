@@ -1,7 +1,9 @@
 {
   programs.nixvim.plugins.emmet = {
     enable = true;
-    leader = "<c-x>";
-    mode = "i";
+    settings = {
+      leader_key = "<c-x>";
+      mode = "i";
+    };
   };
 }
