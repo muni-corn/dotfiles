@@ -8,6 +8,7 @@
   scripts = import ./scripts.nix {inherit config osConfig pkgs;};
 in {
   imports = [
+    ./lock.nix
     ./keys.nix
     ./systemd.nix
   ];
@@ -17,7 +18,6 @@ in {
     hyprpaper
     hyprpicker
     slurp
-    swaylock
     wl-clipboard
     wob
   ];
