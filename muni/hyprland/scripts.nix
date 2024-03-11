@@ -24,6 +24,7 @@
     if osConfig.networking.hostName == "ponycastle"
     then ''
       hyprctl hyprpaper wallpaper HDMI-A-1,$new_wall
+      hyprctl hyprpaper wallpaper HDMI-A-2,$new_wall
       hyprctl hyprpaper wallpaper DP-2,$new_wall
     ''
     else "hyprctl hyprpaper wallpaper eDP-1,$new_wall";

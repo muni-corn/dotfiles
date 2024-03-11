@@ -24,6 +24,15 @@
         contrast = 1.0;
         noise = 0.02;
       }
+      {
+        monitor = "HDMI-A-2";
+        path = "/home/muni/.lock-HDMI-A-2.png";
+        blur_passes = 2;
+        blur_size = 8;
+        brightness = 1.0;
+        contrast = 1.0;
+        noise = 0.02;
+      }
     ];
     input-fields = [
       {

@@ -163,7 +163,7 @@ in {
       exec-once = let
         statusBars =
           if osConfig.networking.hostName == "ponycastle"
-          then "status-bar-1 status-bar-0"
+          then "status-bar-0 status-bar-1 status-bar-2"
           else "status-bar-laptop";
       in [
         # load last screen brightness
@@ -216,8 +216,9 @@ in {
         "eDP-1,1920x1080,0x0,1"
 
         # desktop
-        "DP-2,1920x1080,0x0,1"
-        "HDMI-A-1,1920x1080,1920x0,1"
+        "HDMI-A-2,preferred,0x180,1"
+        "DP-2,preferred,1920x0,1"
+        "HDMI-A-1,preferred,4480x180,1"
       ];
 
       windowrulev2 = [

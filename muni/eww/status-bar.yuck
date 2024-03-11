@@ -26,7 +26,7 @@
                         :windowtype "dock"
                         (status :monitor "eDP-1"))
 
-(defwindow status-bar-0 :monitor 0
+(defwindow status-bar-1 :monitor 0
                         :geometry (geometry :width "100%"
                                             :height "32px"
                                             :anchor "top center")
@@ -35,7 +35,7 @@
                         :windowtype "dock"
                         (status :monitor "DP-2"))
 
-(defwindow status-bar-1 :monitor 1
+(defwindow status-bar-2 :monitor 1
                         :geometry (geometry :width "100%"
                                             :height "32px"
                                             :anchor "top center")
@@ -43,3 +43,12 @@
                         :stacking "fg"
                         :windowtype "dock"
                         (status :monitor "HDMI-A-1"))
+
+(defwindow status-bar-0 :monitor 2
+                        :geometry (geometry :width "100%"
+                                            :height "32px"
+                                            :anchor "top center")
+                        :exclusive true
+                        :stacking "fg"
+                        :windowtype "dock"
+                        (status :monitor "HDMI-A-2"))

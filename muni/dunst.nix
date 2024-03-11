@@ -33,7 +33,7 @@ in {
         layer = "overlay";
         markup = "full";
         max_icon_size = 48;
-        monitor = 1;
+        monitor = 0;
         mouse_left_click = "do_action";
         mouse_middle_click = "close_current";
         mouse_right_click = "context";
