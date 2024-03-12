@@ -160,6 +160,7 @@ in {
 
         # emulators and "emulators"
         wine-wayland
+        winetricks
 
         # games
         godot_4
