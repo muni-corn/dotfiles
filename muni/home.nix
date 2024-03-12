@@ -71,7 +71,6 @@ in {
         pv
         qpdf
         sd
-        spotify-tui
         sshfs
         unar
         zip
