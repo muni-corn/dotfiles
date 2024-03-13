@@ -158,7 +158,7 @@ in {
         synfigstudio
 
         # emulators and "emulators"
-        wine-wayland
+        wineWowPackages.waylandFull
         winetricks
 
         # games
