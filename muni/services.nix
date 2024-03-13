@@ -12,11 +12,7 @@
         night = 1500;
       };
 
-      settings = {
-        general = {
-          adjustment-method = "wayland";
-        };
-      };
+      settings.general.adjustment-method = "wayland";
     };
 
     gnome-keyring.enable = true;
@@ -58,9 +54,8 @@
         network_interface_name = "enp6s0";
         battery_config = {
           battery_id = "BAT0";
-          warning_level.
-            minutes_left = 60;
-          alarm_level. minutes_left = 30;
+          warning_level.minutes_left = 60;
+          alarm_level.minutes_left = 30;
         };
         weather_config = {
           update_interval_minutes = 10;
