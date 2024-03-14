@@ -129,7 +129,7 @@
           ];
           useGlobalPkgs = true;
           useUserPackages = true;
-          users.muni = ./muni/home.nix;
+          users.muni = ./muni;
         };
       }
     ];
