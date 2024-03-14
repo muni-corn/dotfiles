@@ -1,7 +1,7 @@
 {
   programs.nixvim.plugins.copilot-vim = {
     enable = true;
-    filetypes = {
+    settings.filetypes = {
       norg = false;
       markdown = false;
     };
