@@ -143,8 +143,6 @@ in {
 
       # envs
       env = [
-        "BEMENU_BACKEND,wayland"
-        "BEMENU_OPTS,${config.home.sessionVariables.BEMENU_OPTS}"
         "CLUTTER_BACKEND,wayland"
         "ECORE_EVAS_ENGINE,wayland-egl"
         "ELM_ENGINE,wayland_egl"
@@ -206,9 +204,12 @@ in {
         "blur,gtk-layer-shell"
         "blur,menu"
         "blur,notifications"
+        "blur,rofi"
         "ignorezero,gtk-layer-shell"
         "ignorealpha 0.5,menu"
         "ignorealpha 0.5,notifications"
+        "ignorealpha 0.5,rofi"
+        "ignorealpha 0.5,gtk-layer-shell"
       ];
 
       monitor = [

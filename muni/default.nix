@@ -52,7 +52,6 @@ in {
         spotify
 
         # desktop environment
-        bemenu
         glib # for gtk theming
         ksshaskpass
 

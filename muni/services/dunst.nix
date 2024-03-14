@@ -16,7 +16,7 @@ in {
         background = "#000000c0";
         browser = "xdg-open";
         corner_radius = 16;
-        dmenu = "${pkgs.bemenu}/bin/bemenu -p 'Do what?' ${config.home.sessionVariables.BEMENU_OPTS}";
+        dmenu = "${config.programs.rofi.finalPackage}/bin/rofi -dmenu -p 'Do what?'";
         ellipsize = "end";
         follow = "none";
         font = "Inter 12";

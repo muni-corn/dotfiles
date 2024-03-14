@@ -187,7 +187,7 @@ in {
 
       keybindings = import ./keys.nix {inherit config lib pkgs sup alt lockCmd workspace wallpaperSwitchScript;};
 
-      menu = "bemenu-run -p 'Run what?'";
+      menu = "rofi -p 'Run what?' -show drun";
 
       # no modes
       modes = {};
@@ -260,7 +260,6 @@ in {
     extraConfig = builtins.readFile ./config;
 
     extraSessionCommands = ''
-      export BEMENU_BACKEND=wayland
       export CLUTTER_BACKEND=wayland
       export ECORE_EVAS_ENGINE=wayland-egl
       export ELM_ENGINE=wayland_egl

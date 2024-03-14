@@ -29,10 +29,7 @@
     media = "${config.programs.kodi.package}/bin/kodi --windowing=x11";
   };
 
-  # have to wrap this because it doesn't work inline for some reason :>
-  appMenu = pkgs.writeShellScript "menu" ''
-    bemenu-run -p "Run what?" ${config.home.sessionVariables.BEMENU_OPTS}
-  '';
+  appMenu = ''${config.programs.rofi.finalPackage}/bin/rofi -p "Run what?" -show drun'';
 
   scripts = import ./scripts.nix {inherit config osConfig pkgs shell;};
 in {

@@ -7,7 +7,6 @@
   ...
 }: {
   imports = [
-    ./bemenu.nix
     ./chromium.nix
     ./eww.nix
     ./fish.nix
