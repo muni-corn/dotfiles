@@ -165,8 +165,8 @@
   };
 
   nix = {
+    package = pkgs.nixVersions.unstable;
     # enables flakes
-    package = pkgs.nixVersions.stable;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
