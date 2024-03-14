@@ -7,7 +7,14 @@
   ...
 }: {
   imports = [
+    ./bemenu.nix
+    ./chromium.nix
+    ./eww.nix
+    ./fish.nix
     ./git.nix
+    ./nnn.nix
+    ./nvim
+    ./starship.nix
   ];
 
   programs = {
@@ -166,8 +173,6 @@
       enableFishIntegration = true;
       defaultCommand = ''fd --type f'';
     };
-
-    starship = import ./starship.nix;
 
     swaylock.settings = let
       colors = config.muse.theme.finalPalette;

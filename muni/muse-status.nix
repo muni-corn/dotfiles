@@ -7,19 +7,18 @@
   inherit (lib) mkEnableOption mkOption mkIf types;
   cfg = config.services.muse-status;
 in {
-  options = {
-    services.muse-status = {
-      enable = mkEnableOption "the muse-status-daemon service";
-      settings = mkOption {
-        description = ''
-          Settings for the muse-status-daemon service. Doesn't
-          generate a config file if null.
-        '';
-        type = types.nullOr types.attrs;
-        default = null;
-      };
+  options.services.muse-status = {
+    enable = mkEnableOption "the muse-status-daemon service";
+    settings = mkOption {
+      description = ''
+        Settings for the muse-status-daemon service. Doesn't
+        generate a config file if null.
+      '';
+      type = types.nullOr types.attrs;
+      default = null;
     };
   };
+
   config = let
     yaml = pkgs.formats.yaml {};
   in {

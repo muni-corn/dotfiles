@@ -16,17 +16,11 @@
   yaml = pkgs.formats.yaml {};
 in {
   imports = [
-    ./bemenu.nix
-    ./chromium.nix
-    ./eww.nix
-    ./fish.nix
     ./hyprland
     ./muse
     ./muse-status.nix
-    ./nnn.nix
-    ./programs.nix
-    ./nvim
-    ./services.nix
+    ./programs
+    ./services
     ./systemd.nix
   ];
 
