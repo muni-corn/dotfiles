@@ -1,5 +1,6 @@
 {
   osConfig,
+  pkgs,
   ...
 }: {
   imports = [
@@ -35,7 +36,7 @@
       sshKeys = ["23BF04AE05B5DAC1267FE74CD9F1DB7D2367AAE8"];
 
       extraConfig = "no-allow-external-cache";
-      pinentryFlavor = "qt";
+      pinentryPackage = pkgs.pinentry-rofi;
     };
 
     kdeconnect.enable = true;

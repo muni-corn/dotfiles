@@ -204,7 +204,7 @@
       enable = true;
       enableBrowserSocket = true;
       enableSSHSupport = true;
-      pinentryFlavor = "qt";
+      pinentryPackage = pkgs.pinentry-rofi;
     };
 
     gphoto2.enable = true;
