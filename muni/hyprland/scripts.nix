@@ -15,9 +15,9 @@
 
   # sound paths
   sounds = {
-    volumeDown = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/volume-down.oga";
-    volumeUp = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/volume-up.oga";
-    volumeUnmute = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/volume-unmute.oga";
+    volumeDown = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/audio-volume-change-down.oga";
+    volumeUp = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/audio-volume-change.oga";
+    volumeUnmute = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/audio-volume-change-unmute.oga";
   };
 
   hyprpaperCommands =

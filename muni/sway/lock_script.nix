@@ -24,7 +24,7 @@ in
         set fork_arg '-f'
     end
 
-    ${pkgs.pipewire}/bin/pw-play "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/Lock.oga" &
+    ${pkgs.pipewire}/bin/pw-play "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/desktop-screen-lock.oga" &
 
     set --local image_args
     set --local images

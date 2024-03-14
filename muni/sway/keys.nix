@@ -28,9 +28,9 @@
   media = "${config.programs.kodi.package}/bin/kodi --windowing=x11";
 
   # sounds
-  volumeDownSound = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/volume-down.oga";
-  volumeUpSound = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/volume-up.oga";
-  volumeUnmuteSound = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/volume-unmute.oga";
+  volumeDownSound = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/audio-volume-change-down.oga";
+  volumeUpSound = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/audio-volume-change.oga";
+  volumeUnmuteSound = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/audio-volume-change-unmute.oga";
 
   # package path convenience variables
   ms = "${pkgs.muse-status}/bin/muse-status";
