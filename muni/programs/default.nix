@@ -14,6 +14,7 @@
     ./git.nix
     ./nnn.nix
     ./nvim
+    ./rofi
     ./starship.nix
   ];
 
