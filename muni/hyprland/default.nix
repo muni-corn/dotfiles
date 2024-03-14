@@ -198,6 +198,9 @@ in {
         "fadeIn,1,2,museOut"
         "fadeOut,1,2,museIn"
         "workspaces,1,4,museInOut,slidevert"
+        "border,1,2,museOut"
+        "layers,1,1,museOut,popin 85%"
+        "fadeLayers,1,1,museOut"
       ];
 
       layerrule = [
