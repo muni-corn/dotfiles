@@ -3,8 +3,11 @@
   pkgs,
   ...
 }: {
-  home.packages = [
-    pkgs.wtype
+  home.packages = with pkgs; [
+    wtype
+    (rofimoji.override {
+      rofi = config.programs.rofi.finalPackage;
+    })
   ];
 
   programs.rofi = {
@@ -17,9 +20,8 @@
       stores = ["~/.password-store/"];
     };
     plugins = with pkgs; [
-      rofi-calc
-      rofi-emoji
       rofi-bluetooth
+      rofi-calc
     ];
 
     cycle = true;
@@ -37,14 +39,13 @@
       display-calc = "Calculator";
       display-combi = "All";
       display-drun = "Apps";
-      display-emoji = "Emoji";
       display-run = "Commands";
       display-ssh = "SSH";
       display-window = "Windows";
       drun-display-format = "<span>{name}</span>";
       hide-scrollbar = false;
       matching = "fuzzy";
-      modi = "drun,emoji,window";
+      modi = "drun,window";
       run-shell-command = "{terminal} -e ${config.programs.fish.package}/bin/fish -i -c \"{cmd}\"";
       scroll-method = 0;
       scrollbar-width = 4;
