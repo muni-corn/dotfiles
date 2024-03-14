@@ -24,7 +24,7 @@
 
   apps = {
     browser = "${config.programs.firefox.package}/bin/firefox";
-    music = ''${pkgs.spotify}'';
+    music = ''${pkgs.spotify}/bin/spotify'';
     email = "${pkgs.evolution}/bin/evolution";
     media = "${config.programs.kodi.package}/bin/kodi --windowing=x11";
   };
