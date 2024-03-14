@@ -45,7 +45,7 @@
       drun-display-format = "<span>{name}</span>";
       hide-scrollbar = false;
       matching = "fuzzy";
-      modi = "drun,window";
+      modi = "combi,drun,run,window";
       run-shell-command = "{terminal} -e ${config.programs.fish.package}/bin/fish -i -c \"{cmd}\"";
       scroll-method = 0;
       scrollbar-width = 4;
@@ -78,7 +78,7 @@
       window = {
         text-color = white;
         children = map mkLiteral ["mainbox"];
-        height = mkLiteral "50%";
+        height = mkLiteral "70%";
         width = mkLiteral "33%";
         border-radius = mkLiteral "16px";
       };
@@ -128,7 +128,7 @@
 
       inputbar = {
         text-color = white;
-        children = map mkLiteral [ "prompt" "spacer" "entry" "case-indicator" ];
+        children = map mkLiteral ["prompt" "spacer" "entry" "case-indicator"];
       };
 
       prompt = {
