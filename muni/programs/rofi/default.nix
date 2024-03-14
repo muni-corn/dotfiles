@@ -24,9 +24,9 @@
 
     cycle = true;
     font = "sans 12";
-    location = "left";
+    location = "top";
     terminal = "${config.programs.kitty.package}/bin/kitty";
-    yoffset = 16;
+    yoffset = 32;
     extraConfig = {
       auto-select = false;
       case-sensitive = false;
@@ -69,16 +69,17 @@
       inherit (config.lib.formats.rasi) mkLiteral;
     in {
       "*" = {
-        text-color = white;
-        background = background;
+        text-color = dim;
         background-color = mkColor "00000000";
+        background = background;
       };
 
       window = {
         text-color = white;
         children = map mkLiteral ["mainbox"];
-        height = mkLiteral "100%";
-        width = mkLiteral "512px";
+        height = mkLiteral "50%";
+        width = mkLiteral "33%";
+        border-radius = mkLiteral "16px";
       };
 
       button = {
@@ -98,7 +99,6 @@
 
       element = {
         padding = mkLiteral "12px";
-        text-color = dim;
       };
 
       "element selected.normal" = {
