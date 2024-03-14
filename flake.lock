@@ -781,11 +781,11 @@
         "nixpkgs": "nixpkgs_12"
       },
       "locked": {
-        "lastModified": 1697558064,
-        "narHash": "sha256-KkxFmyHMmiePC25MsSPZQt+7r4vDmuIkpi7DAk4cJZc=",
+        "lastModified": 1710436934,
+        "narHash": "sha256-D00r6few5L/l/DsXXZ2/Ukt/D6EUag4Go+aX+z1fJaQ=",
         "ref": "main",
-        "rev": "72e925ade2e47a7a90aab828e3438391bb6cf062",
-        "revCount": 19,
+        "rev": "f69542ff3bf9edc0bf708ae40b7b2d00367bdcca",
+        "revCount": 20,
         "type": "git",
         "url": "https://codeberg.org/municorn/muse-sounds"
       },
