@@ -78,7 +78,6 @@ in {
         nodejs
         nodePackages.typescript-language-server
         python3
-        vscode-fhs
         zls
 
         # photo
@@ -121,6 +120,8 @@ in {
       ++
       # ponycastle-specific packages
       lib.optionals (deviceName == "ponycastle") [
+        vscode-fhs
+
         # photo
         gmic
         gmic-qt
