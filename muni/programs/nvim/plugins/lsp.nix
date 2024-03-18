@@ -1,5 +1,10 @@
 {config, ...}: let
-  signs = config.programs.nixvim.plugins.trouble.signs;
+  signs = {
+    error = "󰅝 ";
+    warning = "󰀪 ";
+    hint = "󰌶 ";
+    information = "󰋽 ";
+  };
 in {
   programs.nixvim = {
     options.omnifunc = "v:lua.vim.lsp.omnifunc";

@@ -17,7 +17,6 @@
     ./none-ls.nix
     ./telescope.nix
     ./treesitter.nix
-    ./trouble.nix
     ./vscode-js-debug.nix
   ];
 
