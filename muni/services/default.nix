@@ -1,4 +1,7 @@
 {
+  osConfig,
+  ...
+}: {
   imports = [
     ./dunst.nix
   ];
@@ -54,7 +57,10 @@
         ];
         tertiary_order = [];
         brightness_id = "amdgpu_bl0";
-        network_interface_name = "enp6s0";
+        network_interface_name =
+          if osConfig.networking.hostName == "ponycastle"
+          then "enp6s0"
+          else "wlan0";
         battery_config = {
           battery_id = "BAT0";
           warning_level.minutes_left = 60;
