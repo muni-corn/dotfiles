@@ -8,16 +8,19 @@
   boot.kernelModules = ["kvm-amd" "vfio-pci"];
 
   # Enable libvirtd
-  virtualisation.libvirtd = {
-    enable = true;
-    onBoot = "ignore";
-    onShutdown = "shutdown";
-    qemu = {
-      ovmf.enable = true;
-      runAsRoot = true;
+  virtualisation = {
+    libvirtd = {
+      enable = true;
+      onBoot = "ignore";
+      onShutdown = "shutdown";
+      qemu = {
+        ovmf.enable = true;
+        runAsRoot = true;
+        vhostUserPackages = [pkgs.virtiofsd];
+      };
     };
+    spiceUSBRedirection.enable = true;
   };
-  virtualisation.spiceUSBRedirection.enable = true;
 
   # Add binaries to path so that hooks can use it
   systemd.services.libvirtd = {
