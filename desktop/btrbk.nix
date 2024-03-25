@@ -13,19 +13,13 @@
       target_preserve = "24h 7d 8w 12m 1y";
       target_preserve_min = "1h";
       preserve_hour_of_day = "5";
-      volume = {
-        "/" = {
-          subvolume = {
-            home = {};
-            var = {};
-          };
-          snapshot_dir = "/snaps";
-          target = "/backup/ponycastle";
+      volume."/" = {
+        subvolume = {
+          home = {};
+          var = {};
         };
-        "/archive" = {
-          target = "/backup/archive";
-          subvolume = "muni";
-        };
+        snapshot_dir = "/snaps";
+        target = "/crypt/backup/ponycastle";
       };
     };
   };

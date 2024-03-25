@@ -13,16 +13,30 @@
     initrd = {
       availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
       luks.devices = {
-        "cryptroot1" = {
-          device = "/dev/disk/by-uuid/f02bb0a3-b5cf-478e-9cf8-e426e8865174";
+        "cryptmain1" = {
+          device = "/dev/disk/by-uuid/613570b3-d525-48bb-bf87-3aadd2936ea7";
           allowDiscards = true;
         };
-        "cryptroot2" = {
-          device = "/dev/disk/by-uuid/d718061f-9973-4d6d-a816-5d2a57bda1ba";
+        "cryptmain2" = {
+          device = "/dev/disk/by-uuid/cc59a7e5-0dcf-4281-9b33-418131fecad4";
           allowDiscards = true;
         };
-        "cryptarchive".device = "/dev/disk/by-uuid/63c9847a-fecd-453d-a8d5-228df343ef36";
-        "cryptbackup".device = "/dev/disk/by-uuid/1ebf17c7-3097-40d9-89d2-6079b197664a";
+        "cryptmain3" = {
+          device = "/dev/disk/by-uuid/2b03c9c2-82a9-4a5c-b79c-b30dade6dc0f";
+          allowDiscards = true;
+        };
+        "cryptcrypt1" = {
+          device = "/dev/disk/by-uuid/a25ee387-6969-439e-8af0-3be0d5d6fef7";
+          allowDiscards = true;
+        };
+        "cryptcrypt2" = {
+          device = "/dev/disk/by-uuid/cc6794ec-8889-426d-8f97-2313fb58155b";
+          allowDiscards = true;
+        };
+        "cryptcrypt3" = {
+          device = "/dev/disk/by-uuid/4c530385-1be4-4b19-a0f3-5a2e3f3a96a3";
+          allowDiscards = true;
+        };
       };
     };
     kernelModules = ["kvm-amd"];
@@ -33,6 +47,22 @@
       device = "/dev/disk/by-uuid/cef72996-6b5b-4b13-bc59-4dfbc77a8307";
       fsType = "btrfs";
       options = ["compress=zstd"];
+    };
+
+    "/boot" = {
+      device = "/dev/disk/by-uuid/2198b02b-f981-4dfd-86ff-73d7079122c7";
+      fsType = "ext4";
+    };
+
+    "/boot/efi" = {
+      device = "/dev/disk/by-uuid/0584-7DD6";
+      fsType = "vfat";
+    };
+
+    "/crypt" = {
+      device = "/dev/disk/by-uuid/d3a3b6bd-3137-4b2b-8669-ecfe87e1722f";
+      fsType = "btrfs";
+      options = ["compress=zstd" "noatime"];
     };
 
     "/home" = {
@@ -46,35 +76,14 @@
       fsType = "btrfs";
       options = ["compress=zstd" "noatime" "subvol=nix"];
     };
-
-    "/archive" = {
-      device = "/dev/disk/by-uuid/d3a3b6bd-3137-4b2b-8669-ecfe87e1722f";
-      fsType = "btrfs";
-    };
-
-    "/boot" = {
-      device = "/dev/disk/by-uuid/0e042f1f-c4ac-475d-95a4-39b45225bd4a";
-      fsType = "ext4";
-    };
-
-    "/boot/efi" = {
-      device = "/dev/disk/by-uuid/3487-9A60";
-      fsType = "vfat";
-    };
-
-    "/backup" = {
-      device = "/dev/disk/by-uuid/90921c83-b2f4-419d-8649-f669bd66185c";
-      fsType = "btrfs";
-      options = ["compress=zstd" "noatime"];
-    };
   };
 
   swapDevices = [
     {
-      device = "/dev/disk/by-uuid/bfea90b5-0daa-4e41-a13e-6cc8ce76a7d7";
+      device = "/dev/disk/by-uuid/3f0cc5ee-6127-4efd-b2d2-c36b18b02e8f";
       encrypted = {
         enable = true;
-        blkDev = "/dev/disk/by-uuid/5d943ba6-77fa-45ec-94c6-ad5baaaf7eec";
+        blkDev = "/dev/disk/by-uuid/a76f2c98-c48b-4743-9794-6ad14b2df8d0";
         label = "cryptswap";
       };
     }
