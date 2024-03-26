@@ -1,6 +1,5 @@
 {
   osConfig,
-  pkgs,
   ...
 }: {
   imports = [
@@ -36,7 +35,7 @@
       sshKeys = ["23BF04AE05B5DAC1267FE74CD9F1DB7D2367AAE8"];
 
       extraConfig = "no-allow-external-cache";
-      pinentryPackage = pkgs.pinentry-rofi;
+      pinentryFlavor = "qt";
     };
 
     kdeconnect.enable = true;
@@ -60,7 +59,7 @@
         brightness_id = "amdgpu_bl0";
         network_interface_name =
           if osConfig.networking.hostName == "ponycastle"
-          then "enp6s0"
+          then "wlan0"
           else "wlan0";
         battery_config = {
           battery_id = "BAT0";

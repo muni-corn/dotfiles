@@ -55,8 +55,6 @@
   networking = {
     hostName = "ponycastle";
     hostId = "edafa5da";
-
-    interfaces.enp6s0.wakeOnLan.enable = true;
   };
 
   nixpkgs.config = {

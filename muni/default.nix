@@ -157,7 +157,7 @@ in {
 
         # games
         godot_4
-        itch
+        #itch
         lutris
         prismlauncher
         protonup-qt

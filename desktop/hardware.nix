@@ -89,15 +89,9 @@
     }
   ];
 
-  # The global useDHCP flag is deprecated, therefore explicitly set to false here.
-  # Per-interface useDHCP will be mandatory in the future, so this generated config
-  # replicates the default behaviour.
   networking = {
-    useDHCP = lib.mkDefault false;
-    interfaces = {
-      enp6s0.useDHCP = lib.mkDefault true;
-      wlan0.useDHCP = lib.mkDefault true;
-    };
+    useDHCP = true;
+    interfaces.wlan0.useDHCP = true;
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
