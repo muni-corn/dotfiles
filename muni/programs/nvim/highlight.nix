@@ -149,11 +149,10 @@ in {
       Trace = hl stateColors.trace null {};
 
       # syntax
-      "@neorg.headings.1.prefix" = hl "brown" null {};
-      "@neorg.headings.1.title" = hl "brown" null {};
-      "@neorg.markup.verbatim" = hl "orange" null {};
-      "@neorg.todo_items.pending" = hl "yellow" null {};
       "@text.literal" = hl "green" null {};
+      "@text.title" = hl "brown" null {};
+      "@text.verbatim" = hl "orange" null {};
+      "@todo.pending" = hl "yellow" null {};
       Bold = hl null null {bold = true;};
       Boolean = hl "orange" null {};
       Character = hl "red" null {};
@@ -233,7 +232,7 @@ in {
     // links {
       Bold = ["@text.strong" "@neorg.markup.bold"];
       Comment = ["MiniIndentscopeSymbol"];
-      Error = ["ErrorMsg" "NvimInternalError"];
+      Error = ["ErrorMsg" "NvimInternalError" "@comment.error"];
       FloatBorder = ["FloatermBorder" "LspInfoBorder" "TelescopeBorder"];
       Info = ["InfoMsg"];
       Italic = ["@text.emphasis" "@neorg.markup.italic"];
