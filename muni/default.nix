@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  pkgs-stable,
   muse-wallpapers,
   osConfig,
   ...
@@ -137,7 +136,7 @@ in {
         musescore
         pamixer # for muse-status, at least
         qpwgraph
-        pkgs-stable.sfizz
+        sfizz
         x42-gmsynth
         x42-plugins
         zyn-fusion
