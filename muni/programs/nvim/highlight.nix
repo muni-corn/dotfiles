@@ -141,14 +141,6 @@ in {
       GitGutterChange = hl "orange" null {bold = true;};
       GitGutterDelete = hl "red" null {bold = true;};
 
-      # notifications
-      NotifyBackground = hl "dark-gray" null {};
-      NotifyDEBUGTitle = hl stateColors.debug null {bold = true;};
-      NotifyERRORTitle = hl stateColors.error null {bold = true;};
-      NotifyINFOTitle = hl stateColors.info null {bold = true;};
-      NotifyTRACETitle = hl stateColors.trace null {bold = true;};
-      NotifyWARNTitle = hl null null {bold = true;};
-
       # state
       Debug = hl stateColors.debug null {};
       Error = hl stateColors.error null {};
@@ -241,17 +233,15 @@ in {
     // links {
       Bold = ["@text.strong" "@neorg.markup.bold"];
       Comment = ["MiniIndentscopeSymbol"];
-      Debug = ["NotifyDEBUGBorder" "NotifyDEBUGIcon"];
-      Error = ["ErrorMsg" "NotifyERRORBorder" "NotifyERRORIcon" "NvimInternalError"];
+      Error = ["ErrorMsg" "NvimInternalError"];
       FloatBorder = ["FloatermBorder" "LspInfoBorder" "TelescopeBorder"];
-      Info = ["InfoMsg" "NotifyINFOBorder" "NotifyINFOIcon"];
+      Info = ["InfoMsg"];
       Italic = ["@text.emphasis" "@neorg.markup.italic"];
       Normal = ["NormalFloat"];
       SpellRare = ["SpellLocal"];
       Todo = ["@comment.todo"];
-      Trace = ["NotifyTRACEBorder" "NotifyTRACEIcon"];
       VirtualText = ["GitSignsCurrentLineBlame"];
-      Warning = ["WarningMsg" "NotifyWARNBorder" "NotifyWARNIcon"];
+      Warning = ["WarningMsg"];
       DiffAdd = ["@diff.plus" "diffAdded"];
       DiffDelete = ["@diff.minus" "diffRemoved"];
     };
