@@ -19,7 +19,7 @@
           var = {};
         };
         snapshot_dir = "/snaps";
-        target = "/crypt/backup/ponycastle";
+        target = "/vault/backup/ponycastle";
       };
     };
   };

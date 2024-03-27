@@ -25,15 +25,15 @@
           device = "/dev/disk/by-uuid/2b03c9c2-82a9-4a5c-b79c-b30dade6dc0f";
           allowDiscards = true;
         };
-        "cryptcrypt1" = {
+        "cryptvault1" = {
           device = "/dev/disk/by-uuid/a25ee387-6969-439e-8af0-3be0d5d6fef7";
           allowDiscards = true;
         };
-        "cryptcrypt2" = {
+        "cryptvault2" = {
           device = "/dev/disk/by-uuid/cc6794ec-8889-426d-8f97-2313fb58155b";
           allowDiscards = true;
         };
-        "cryptcrypt3" = {
+        "cryptvault3" = {
           device = "/dev/disk/by-uuid/4c530385-1be4-4b19-a0f3-5a2e3f3a96a3";
           allowDiscards = true;
         };
@@ -59,7 +59,7 @@
       fsType = "vfat";
     };
 
-    "/crypt" = {
+    "/vault" = {
       device = "/dev/disk/by-uuid/d3a3b6bd-3137-4b2b-8669-ecfe87e1722f";
       fsType = "btrfs";
       options = ["compress=zstd" "noatime"];
