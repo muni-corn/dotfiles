@@ -84,10 +84,7 @@ in {
         "col.border_inactive" = rgba colors.black defaultAlpha;
         "col.border_locked_active" = rgba colors.light-gray defaultAlpha;
         "col.border_locked_inactive" = rgba colors.dark-gray defaultAlpha;
-        groupbar = {
-          font_size = 12;
-          gradients = false;
-        };
+        groupbar.gradients = false;
       };
 
       decoration = {

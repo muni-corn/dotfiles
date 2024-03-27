@@ -53,11 +53,13 @@
         };
       }
     ];
-    labels = [
+    labels = let
+      sansFontName = config.muse.theme.sansFont.name;
+    in [
       {
         monitor = "DP-2";
         color = "rgba(255, 255, 255, 1)";
-        font_family = "sans Thin";
+        font_family = "${sansFontName} Thin";
         font_size = 128;
         text = ''cmd[update:1000] date "+%-I:%M %P"'';
 
@@ -71,7 +73,7 @@
       {
         monitor = "DP-2";
         color = "rgba(255, 255, 255, 0.5)";
-        font_family = "sans";
+        font_family = sansFontName;
         font_size = 18;
         text = ''cmd[update:1000] date "+%A, %B %-d, %Y"'';
 

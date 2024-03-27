@@ -4,16 +4,8 @@
   ...
 }: let
   colors = config.muse.theme.palette;
-
-  fontName = "Iosevka Muse";
 in {
   enable = true;
-
-  font = {
-    package = pkgs.iosevka-muse.normal;
-    name = fontName;
-    size = 12;
-  };
   settings = {
     shell_integration = "enabled";
 
@@ -22,9 +14,6 @@ in {
     allow_remote_control = "socket-only";
 
     # theme font
-    bold_font = "${fontName} Bold";
-    italic_font = "${fontName} Italic";
-    bold_italic_font = "${fontName} Bold Italic";
     modify_font = "cell_height 115%";
 
     # theme colors

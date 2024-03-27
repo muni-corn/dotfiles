@@ -3,7 +3,7 @@
   lib,
   ...
 }: let
-  fontText = "Inter 12";
+  fontText = "${config.muse.theme.sansFont.name} ${config.muse.theme.sansFont.size}";
   colors = config.muse.theme.palette;
 
   q = s: "'${s}'";

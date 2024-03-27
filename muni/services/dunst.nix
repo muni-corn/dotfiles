@@ -2,9 +2,7 @@
   config,
   pkgs,
   ...
-}: let
-  colors = config.muse.theme.palette;
-in {
+}: {
   services.dunst = {
     enable = true;
     iconTheme = {
@@ -19,13 +17,9 @@ in {
         dmenu = "${config.programs.rofi.finalPackage}/bin/rofi -dmenu -p 'Do what?'";
         ellipsize = "end";
         follow = "none";
-        font = "Inter 12";
-        foreground = "#${colors.white}";
         format = "<b>%s</b>\\n%b";
-        frame_color = "#${colors.dark-gray}c0";
         frame_width = 2;
         gap_size = 4;
-        highlight = "#${colors.alert}";
         history_length = -1;
         horizontal_padding = 32;
         icon_corner_radius = 24;
@@ -50,13 +44,7 @@ in {
         height = 384;
         offset = "4x4";
       };
-      urgency_low.foreground = "#${colors.accent}";
-      urgency_normal.foreground = "#${colors.white}";
-      urgency_critical = {
-        foreground = "#${colors.white}";
-        frame_color = "#${colors.warning}c0";
-        timeout = "10s";
-      };
+      urgency_critical.timeout = "10s";
     };
     waylandDisplay = "";
   };

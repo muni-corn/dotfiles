@@ -6,8 +6,6 @@
   osConfig,
   ...
 }: let
-  fontText = "Inter 12";
-
   colors = config.muse.theme.palette;
   deviceName = osConfig.networking.hostName;
 
@@ -25,13 +23,7 @@ in {
 
   muse.theme = {
     enable = true;
-
     palette = (import ./colors.nix).muni;
-    sansFont = {
-      package = pkgs.inter;
-      name = "Inter";
-      size = 12;
-    };
     wallpapersDir = muse-wallpapers.generated;
   };
 
@@ -220,7 +212,6 @@ in {
         gtk-theme = config.gtk.theme.name;
         icon-theme = config.gtk.iconTheme.name;
         cursor-theme = config.home.pointerCursor.name;
-        font-name = "Inter 12";
         color-scheme = "prefer-dark";
       };
       "org/gnome/desktop/sound" = {
@@ -240,7 +231,6 @@ in {
       name = "Bibata-Original-Classic";
       size = 24;
     };
-    font = config.muse.theme.sansFont;
     iconTheme = {
       package = pkgs.papirus-icon-theme;
       name = "Papirus-Dark";

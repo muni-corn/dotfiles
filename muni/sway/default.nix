@@ -10,9 +10,9 @@
   alt = "Mod1";
 
   font = {
-    names = ["Inter"];
+    names = [config.muse.theme.sansFont.name];
     style = "Regular";
-    size = 12.0;
+    size = config.muse.theme.sansFont.size;
   };
 
   # background colors

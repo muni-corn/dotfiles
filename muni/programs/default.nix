@@ -189,7 +189,7 @@
       color = "667788";
       disable-caps-lock-text = true;
       font = "sans Thin";
-      font-size = 12;
+      font-size = config.muse.theme.sansFont.size;
       ignore-empty-password = true;
       indicator-caps-lock = true;
       indicator-radius = 128;
