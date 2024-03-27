@@ -10,7 +10,7 @@
       snapshot_create = "onchange";
       snapshot_preserve_min = "12h";
       snapshot_preserve = "24h 7d 4w 2m";
-      target_preserve = "24h 7d 8w 12m 1y";
+      target_preserve = "24h 7d 8w 12m 2y";
       target_preserve_min = "1h";
       preserve_hour_of_day = "5";
       volume."/" = {
