@@ -40,14 +40,7 @@
     pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
 
     # my stuff
-    arpeggio = {
-      url = "git+https://codeberg.org/municorn/arpeggio?ref=main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
-
-    matchpal.url = "git+https://codeberg.org/municorn/matchpal?ref=dithering";
 
     muse-status.url = "git+https://codeberg.org/municorn/muse-status?ref=unstable";
 
@@ -70,9 +63,7 @@
     hyprland,
     hyprlock,
     hyprpaper,
-    arpeggio,
     iosevka-muse,
-    matchpal,
     muse-sounds,
     muse-status,
     muse-wallpapers,
@@ -90,9 +81,7 @@
 
     overlaysModule = {
       nixpkgs.overlays = [
-        arpeggio.overlay
         iosevka-muse.overlay
-        matchpal.overlay
         muse-sounds.overlay
         muse-status.overlay
         neorg.overlays.default

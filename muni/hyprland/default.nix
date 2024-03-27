@@ -62,7 +62,7 @@ in {
 
       defaultAlpha = "c0";
 
-      colors = config.muse.theme.finalPalette;
+      colors = config.muse.theme.palette;
 
       wobStartScript = pkgs.writeScript "wob-start" ''
         #!${pkgs.fish}/bin/fish
@@ -252,7 +252,7 @@ in {
 
   xdg.configFile = {
     "hypr/hyprpaper.conf".text = let
-      wallpaperDir = config.muse.theme.finalWallpapersDir;
+      wallpaperDir = config.muse.theme.wallpapersDir;
       initialWallpaper =
         builtins.head
         (builtins.attrNames

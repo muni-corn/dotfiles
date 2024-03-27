@@ -4,7 +4,7 @@
   pkgs,
   ...
 }: let
-  colors = config.muse.theme.finalPalette;
+  colors = config.muse.theme.palette;
 
   sup = "Mod4";
   alt = "Mod1";
@@ -37,7 +37,7 @@
     #!${pkgs.fish}/bin/fish
 
     set existing_swaybgs (string split ' ' (pidof swaybg))
-    ${pkgs.swaybg}/bin/swaybg -o "*" -m fill -i (${pkgs.fd}/bin/fd --type f . ${config.muse.theme.finalWallpapersDir} | shuf -n 1) & disown
+    ${pkgs.swaybg}/bin/swaybg -o "*" -m fill -i (${pkgs.fd}/bin/fd --type f . ${config.muse.theme.wallpapersDir} | shuf -n 1) & disown
     sleep 1
     for pid in $existing_swaybgs
         kill $pid

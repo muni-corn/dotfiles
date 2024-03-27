@@ -174,7 +174,7 @@
     };
 
     swaylock.settings = let
-      colors = config.muse.theme.finalPalette;
+      colors = config.muse.theme.palette;
       bg = colors.background;
       fg = colors.foreground + "c0";
       fg_faded = colors.foreground + "80";

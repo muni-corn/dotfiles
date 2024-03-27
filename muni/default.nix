@@ -8,7 +8,7 @@
 }: let
   fontText = "Inter 12";
 
-  colors = config.muse.theme.finalPalette;
+  colors = config.muse.theme.palette;
   deviceName = osConfig.networking.hostName;
 
   toml = pkgs.formats.toml {};

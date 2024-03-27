@@ -71,7 +71,7 @@ in {
   switchWallpaper = pkgs.writeScript "hypr-switch-wallpaper" ''
     #!${pkgs.fish}/bin/fish
 
-    set new_wall (${pkgs.fd}/bin/fd --type f . ${config.muse.theme.finalWallpapersDir} | shuf -n 1)
+    set new_wall (${pkgs.fd}/bin/fd --type f . ${config.muse.theme.wallpapersDir} | shuf -n 1)
     hyprctl hyprpaper preload $new_wall
 
     ${hyprpaperCommands}
