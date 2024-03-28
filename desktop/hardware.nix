@@ -18,6 +18,8 @@
           value = {
             device = "/dev/disk/by-uuid/${uuid}";
             allowDiscards = true;
+            keyFileSize = 4096;
+            keyFile = "/dev/disk/by-id/usb-USB_SanDisk_3.2Gen1_0401754c8ba80f5d0839104fc3c6a98a3ba4aa9659f85cfb7b943b735f1d89e167140000000000000000000010094aedff906b1883558107133012e1-0:0";
           };
         };
       in
