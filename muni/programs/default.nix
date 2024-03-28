@@ -173,48 +173,6 @@
       defaultCommand = ''fd --type f'';
     };
 
-    swaylock.settings = let
-      colors = config.muse.theme.palette;
-      bg = colors.background;
-      fg = colors.foreground + "c0";
-      fg_faded = colors.foreground + "80";
-      primary = colors.accent + "80";
-      warning = colors.warning;
-      error = colors.alert;
-      transparent = "00000000";
-    in {
-      bs-hl-color = primary;
-      caps-lock-bs-hl-color = primary;
-      caps-lock-key-hl-color = warning;
-      color = "667788";
-      disable-caps-lock-text = true;
-      font = "sans Thin";
-      font-size = config.muse.theme.sansFont.size;
-      ignore-empty-password = true;
-      indicator-caps-lock = true;
-      indicator-radius = 128;
-      indicator-thickness = 8;
-      inside-caps-lock-color = transparent;
-      inside-clear-color = transparent;
-      inside-color = transparent;
-      inside-ver-color = transparent;
-      inside-wrong-color = transparent;
-      key-hl-color = fg_faded;
-      line-uses-inside = true;
-      ring-caps-lock-color = transparent;
-      ring-clear-color = warning;
-      ring-color = transparent;
-      ring-ver-color = transparent;
-      ring-wrong-color = error;
-      scaling = "fill";
-      separator-color = transparent;
-      text-caps-lock-color = warning;
-      text-clear-color = transparent;
-      text-color = fg;
-      text-ver-color = transparent;
-      text-wrong-color = transparent;
-    };
-
     texlive = {
       enable = true;
       extraPackages = tpkgs: {inherit (tpkgs) scheme-medium;};

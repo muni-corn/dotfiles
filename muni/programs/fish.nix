@@ -94,7 +94,6 @@
       n = "nvim";
       q = "exit";
       f = "nnn"; # for 'files'
-      s = "sway";
     };
 
     shellInit = ''set fish_greeting ""'';

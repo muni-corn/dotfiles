@@ -74,7 +74,7 @@
       # needed for xdg-open and such
       xdg-utils
 
-      # needed for sway/hyprland
+      # needed for hyprland
       qt5.qtwayland
       qt6.qtwayland
     ];
@@ -136,7 +136,7 @@
     # Ledger
     ledger.enable = true;
 
-    # enable driSupport for sway/hyprland
+    # enable driSupport for hyprland
     opengl = {
       enable = true;
       driSupport = true;
@@ -219,21 +219,6 @@
     ssh = {
       setXAuthLocation = true;
     };
-
-    sway = {
-      enable = true;
-      extraPackages = with pkgs; [
-        grim
-        kitty
-        slurp
-        swaybg
-        swayidle
-        swaylock
-        wf-recorder
-        wl-clipboard
-        wob
-      ];
-    };
   };
 
   security = {
@@ -247,9 +232,6 @@
 
     # for lockers to use password
     pam.services = {
-      swaylock.text = ''
-        auth include login
-      '';
       hyprlock.text = ''
         auth include login
       '';

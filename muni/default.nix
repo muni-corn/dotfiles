@@ -267,10 +267,6 @@ in {
         use_try_shorthand = true;
         wrap_comments = true;
       };
-      "sway/scripts" = {
-        recursive = true;
-        source = ./wm-scripts;
-      };
       "wob/wob.ini".text =
         lib.generators.toINIWithGlobalSection {}
         {
