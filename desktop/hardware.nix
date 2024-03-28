@@ -12,32 +12,23 @@
   boot = {
     initrd = {
       availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
-      luks.devices = {
-        "cryptmain1" = {
-          device = "/dev/disk/by-uuid/613570b3-d525-48bb-bf87-3aadd2936ea7";
-          allowDiscards = true;
+      luks.devices = let
+        ssd = label: uuid: {
+          name = label;
+          value = {
+            device = "/dev/disk/by-uuid/${uuid}";
+            allowDiscards = true;
+          };
         };
-        "cryptmain2" = {
-          device = "/dev/disk/by-uuid/cc59a7e5-0dcf-4281-9b33-418131fecad4";
-          allowDiscards = true;
-        };
-        "cryptmain3" = {
-          device = "/dev/disk/by-uuid/2b03c9c2-82a9-4a5c-b79c-b30dade6dc0f";
-          allowDiscards = true;
-        };
-        "cryptvault1" = {
-          device = "/dev/disk/by-uuid/a25ee387-6969-439e-8af0-3be0d5d6fef7";
-          allowDiscards = true;
-        };
-        "cryptvault2" = {
-          device = "/dev/disk/by-uuid/cc6794ec-8889-426d-8f97-2313fb58155b";
-          allowDiscards = true;
-        };
-        "cryptvault3" = {
-          device = "/dev/disk/by-uuid/4c530385-1be4-4b19-a0f3-5a2e3f3a96a3";
-          allowDiscards = true;
-        };
-      };
+      in
+        builtins.listToAttrs [
+          (ssd "cryptmain1" "613570b3-d525-48bb-bf87-3aadd2936ea7")
+          (ssd "cryptmain2" "cc59a7e5-0dcf-4281-9b33-418131fecad4")
+          (ssd "cryptmain3" "2b03c9c2-82a9-4a5c-b79c-b30dade6dc0f")
+          (ssd "cryptvault1" "a25ee387-6969-439e-8af0-3be0d5d6fef7")
+          (ssd "cryptvault2" "cc6794ec-8889-426d-8f97-2313fb58155b")
+          (ssd "cryptvault3" "4c530385-1be4-4b19-a0f3-5a2e3f3a96a3")
+        ];
     };
     kernelModules = ["kvm-intel"];
   };
