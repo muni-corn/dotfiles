@@ -15,9 +15,9 @@ in {
 
   home.packages = with pkgs; [
     grim
-    hyprpaper
     hyprpicker
     slurp
+    swww
     wl-clipboard
     wob
   ];
@@ -178,7 +178,7 @@ in {
         "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1 &"
 
         # wallpaper
-        "hyprpaper &"
+        "${pkgs.swww}/bin/swww-daemon &"
         "${scripts.switchWallpaper}"
       ];
 
@@ -244,22 +244,6 @@ in {
     };
 
     systemd.variables = ["PATH"];
-  };
-
-  xdg.configFile = {
-    "hypr/hyprpaper.conf".text = let
-      wallpaperDir = config.muse.theme.wallpapersDir;
-      initialWallpaper =
-        builtins.head
-        (builtins.attrNames
-          (lib.attrsets.filterAttrs
-            (path: type: type == "regular")
-            (builtins.readDir wallpaperDir)));
-    in ''
-      preload = ${wallpaperDir}/${initialWallpaper}
-      wallpaper = ,${wallpaperDir}/${initialWallpaper}
-      splash = false
-    '';
   };
 }
 # TODO migrate from sway:

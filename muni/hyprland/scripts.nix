@@ -20,15 +20,6 @@
     volumeUnmute = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/audio-volume-change-unmute.oga";
   };
 
-  hyprpaperCommands =
-    if osConfig.networking.hostName == "ponycastle"
-    then ''
-      hyprctl hyprpaper wallpaper HDMI-A-1,$new_wall
-      hyprctl hyprpaper wallpaper HDMI-A-2,$new_wall
-      hyprctl hyprpaper wallpaper DP-2,$new_wall
-    ''
-    else "hyprctl hyprpaper wallpaper eDP-1,$new_wall";
-
   mkVolumeScript = name: pamixerFlags: soundPath:
     pkgs.writeScript "volume-${name}" ''
       #!${config.programs.fish.package}/bin/fish
@@ -72,9 +63,7 @@ in {
     #!${pkgs.fish}/bin/fish
 
     set new_wall (${pkgs.fd}/bin/fd --type f . ${config.muse.theme.wallpapersDir} | shuf -n 1)
-    hyprctl hyprpaper preload $new_wall
-
-    ${hyprpaperCommands}
+    ${pkgs.swww}/bin/swww img -t grow --transition-duration 2 --transition-bezier 0.5,0,0,1 --transition-fps 60 $new_wall
   '';
 
   lock = import ./lock_script.nix {inherit config pkgs;};

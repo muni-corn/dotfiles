@@ -10,7 +10,6 @@
     hypridle.url = "github:hyprwm/hypridle?ref=main";
     hyprland.url = "github:hyprwm/Hyprland?ref=main";
     hyprlock.url = "github:hyprwm/hyprlock?ref=main";
-    hyprpaper.url = "github:hyprwm/hyprpaper?ref=main";
 
     # realtime audio
     musnix.url = "github:musnix/musnix";
@@ -67,7 +66,6 @@
     hypridle,
     hyprland,
     hyprlock,
-    hyprpaper,
     iosevka-muse,
     muni-bot,
     muse-sounds,
@@ -97,7 +95,6 @@
         hypridle.overlays.default
         hyprland.overlays.default
         hyprlock.overlays.default
-        hyprpaper.overlays.default
       ];
     };
 
