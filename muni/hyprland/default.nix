@@ -234,7 +234,6 @@ in {
         "float,class:^(zenity)$"
 
         # firefox Picture-in-Picture
-        "opacity 1.0 0.75,title:^(Picture-in-Picture)$"
         "float,title:^(Picture-in-Picture)$"
         "maxsize 480 270,title:^(Picture-in-Picture)$"
         "move 100%-480 32,title:^(Picture-in-Picture)$"
