@@ -22,7 +22,7 @@ in
     for output in (hyprctl monitors -j | ${pkgs.jq}/bin/jq -r '.[] | .name')
         set --local image_file "$HOME/.lock-$output.png"
         ${pkgs.grim}/bin/grim -o $output $image_file
-        ${pkgs.imagemagick}/bin/convert "$image_file" -resize 5% -fill "#${bg}" -colorize 25% "$image_file"
+        ${pkgs.imagemagick}/bin/convert "$image_file" -resize 1% -fill "#${bg}" -colorize 25% "$image_file"
         set images $images $image_file
     end
 
