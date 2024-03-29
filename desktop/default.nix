@@ -38,7 +38,11 @@
         rocmPackages.clr
         rocmPackages.clr.icd
       ];
+      extraPackages32 = with pkgs; [
+        driversi686Linux.amdvlk
+      ];
       driSupport = true;
+      driSupport32Bit = true;
     };
     openrazer = {
       enable = true;
