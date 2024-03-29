@@ -45,6 +45,8 @@
     # my stuff
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
 
+    muni-bot.url = "path:/home/muni/code/muni_bot";
+
     muse-status.url = "git+https://codeberg.org/municorn/muse-status?ref=unstable";
 
     muse-sounds.url = "git+https://codeberg.org/municorn/muse-sounds?ref=main";
@@ -67,6 +69,7 @@
     hyprlock,
     hyprpaper,
     iosevka-muse,
+    muni-bot,
     muse-sounds,
     muse-status,
     muse-wallpapers,
@@ -133,12 +136,15 @@
     # 10, which is overriden by common-pc-ssd, which sets vm.swappiness to 1.
     # swap on ponycastle is currently restricted to the ssd.
     ponycastleModules = with nixos-hardware.nixosModules; [
+      # hardware
       common-cpu-amd
       common-gpu-amd
       common-pc
       common-pc-ssd
 
+      # extra software configuration modules
       nixified-ai.nixosModules.invokeai-amd
+      muni-bot.nixosModules.default
     ];
   in {
     nixosConfigurations = {

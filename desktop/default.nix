@@ -109,6 +109,11 @@
 
     invokeai.enable = true;
 
+    muni_bot = {
+      enable = true;
+      environmentFile = config.sops.secrets."muni_bot.env".path;
+    };
+
     psd.enable = true;
 
     surrealdb = {
