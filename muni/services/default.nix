@@ -13,7 +13,7 @@
       provider = "geoclue2";
       temperature = {
         day = 7500;
-        night = 1500;
+        night = 3000;
       };
 
       dawnTime = "05:00-06:00";
