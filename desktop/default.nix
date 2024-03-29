@@ -15,6 +15,7 @@
     ../docker.nix
     ../openssh.nix
     ../firewall.nix
+    ../sops
     ../steam.nix
     ./btrbk.nix
     ./hardware.nix

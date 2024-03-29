@@ -39,6 +39,9 @@
     # to share audio with screen sharing on wayland
     pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
 
+    # for runtime-decrypted secrets
+    sops-nix.url = "github:Mic92/sops-nix";
+
     # my stuff
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
 
@@ -75,6 +78,7 @@
     nixvim,
     plymouth-theme-musicaloft-rainbow,
     pipewire-screenaudio,
+    sops-nix,
     vscode-js-debug,
   } @ inputs: let
     lockFile = nixpkgs.lib.importJSON ./flake.lock;
@@ -139,12 +143,12 @@
   in {
     nixosConfigurations = {
       littlepony = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit pipewire-screenaudio;};
+        specialArgs = {inherit inputs;};
         system = "x86_64-linux";
         modules = commonModules ++ littleponyHardwareModules ++ [./laptop];
       };
       ponycastle = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit pipewire-screenaudio;};
+        specialArgs = {inherit inputs;};
         system = "x86_64-linux";
         modules = commonModules ++ ponycastleModules ++ [./desktop];
       };
