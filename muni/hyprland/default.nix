@@ -178,7 +178,7 @@ in {
         "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1 &"
 
         # wallpaper
-        "${pkgs.swww}/bin/swww-daemon &"
+        "${pkgs.swww}/bin/swww init"
         "${scripts.switchWallpaper}"
       ];
 
