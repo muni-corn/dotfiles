@@ -7,6 +7,7 @@
   ...
 }: {
   imports = [
+    ./ags
     ./chromium.nix
     ./eww.nix
     ./fish.nix
@@ -20,11 +21,6 @@
   programs = {
     # let home-manager install and manage itself
     home-manager.enable = true;
-
-    ags = {
-      enable = true;
-      configDir = null;
-    };
 
     bat.enable = true;
 
