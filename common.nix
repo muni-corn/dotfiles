@@ -263,6 +263,9 @@
       };
     };
 
+    # for mpris album art on ags
+    gvfs.enable = true;
+
     input-remapper = {
       enable = true;
       serviceWantedBy = ["multi-user.target"];
