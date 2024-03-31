@@ -1,5 +1,5 @@
 {
-  programs.nixvim.options = {
+  programs.nixvim.opts = {
     autoread = true;
     autowriteall = true;
     background = "dark";

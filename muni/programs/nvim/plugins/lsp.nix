@@ -7,7 +7,7 @@
   };
 in {
   programs.nixvim = {
-    options.omnifunc = "v:lua.vim.lsp.omnifunc";
+    opts.omnifunc = "v:lua.vim.lsp.omnifunc";
     plugins.lsp = {
       enable = true;
       onAttach = ''
