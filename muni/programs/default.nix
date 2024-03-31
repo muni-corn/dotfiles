@@ -8,7 +8,6 @@
   imports = [
     ./ags
     ./chromium.nix
-    ./eww.nix
     ./fish.nix
     ./git.nix
     ./nnn.nix

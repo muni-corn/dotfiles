@@ -1,6 +1,0 @@
-(deflisten window-title-text :initial "" "fish ~/.config/eww/scripts/listen-window-title.fish")
-(deflisten focused-monitor :initial "" "fish ~/.config/eww/scripts/listen-focused-monitor.fish")
-
-(defwidget window-title [monitor]
-  (box :class "window-title" :visible {focused-monitor == monitor}
-   (label :limit-width 60 :show-truncated true :text window-title-text)))

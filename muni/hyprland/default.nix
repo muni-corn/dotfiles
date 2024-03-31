@@ -172,8 +172,7 @@ in {
         "brillo -I &"
 
         # widgets
-        "${config.programs.eww.package}/bin/eww daemon &"
-        "${config.programs.eww.package}/bin/eww open-many ${statusBars}"
+        "${config.programs.ags.package}/bin/ags &"
 
         # wob
         "${wobStartScript} &"
