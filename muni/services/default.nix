@@ -74,8 +74,6 @@
       };
     };
 
-    playerctld.enable = true;
-
     syncthing.enable = true;
   };
 }
