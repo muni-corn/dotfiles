@@ -63,7 +63,7 @@ in {
     #!${pkgs.fish}/bin/fish
 
     set new_wall (${pkgs.fd}/bin/fd --type f . ${config.muse.theme.wallpapersDir} | shuf -n 1)
-    ${pkgs.swww}/bin/swww img -t grow --transition-duration 2 --transition-bezier 0.5,0,0,1 --transition-fps 60 $new_wall
+    ${pkgs.swww}/bin/swww img $new_wall
   '';
 
   lock = import ./lock_script.nix {inherit config pkgs;};

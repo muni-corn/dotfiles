@@ -154,6 +154,13 @@ in {
         "_JAVA_AWT_WM_NONREPARENTING,1"
       ];
 
+      envd = [
+        "SWWW_TRANSITION,grow"
+        "SWWW_TRANSITION_DURATION,2"
+        "SWWW_TRANSITION_BEZIER,0.5,0,0,1"
+        "SWWW_TRANSITION_FPS,60"
+      ];
+
       # startup apps
       exec-once = let
         statusBars =
