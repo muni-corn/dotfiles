@@ -35,9 +35,6 @@
       flake = false;
     };
 
-    # to share audio with screen sharing on wayland
-    pipewire-screenaudio.url = "github:IceDBorn/pipewire-screenaudio";
-
     # for runtime-decrypted secrets
     sops-nix.url = "github:Mic92/sops-nix";
 
@@ -78,7 +75,6 @@
     nixos-hardware,
     nixvim,
     plymouth-theme-musicaloft-rainbow,
-    pipewire-screenaudio,
     sops-nix,
     vscode-js-debug,
   } @ inputs: let
@@ -105,7 +101,7 @@
       {
         home-manager = {
           extraSpecialArgs = {
-            inherit muse-wallpapers pipewire-screenaudio;
+            inherit muse-wallpapers;
             vscode-js-debug-src = vscode-js-debug;
           };
           sharedModules = [

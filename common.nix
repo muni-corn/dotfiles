@@ -6,7 +6,6 @@
   config,
   lib,
   pkgs,
-  pipewire-screenaudio,
   ...
 }: {
   imports = [

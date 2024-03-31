@@ -3,7 +3,6 @@
   lib,
   osConfig,
   pkgs,
-  pipewire-screenaudio,
   ...
 }: {
   imports = [
@@ -42,9 +41,7 @@
 
     firefox = {
       enable = true;
-      package = pkgs.firefox-wayland.override {
-        nativeMessagingHosts = [pipewire-screenaudio.packages.${pkgs.system}.default];
-      };
+      package = pkgs.firefox-wayland;
     };
 
     gpg.enable = true;
