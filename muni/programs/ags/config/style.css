@@ -1,0 +1,40 @@
+window.bar {
+    background-color: rgba(0, 0, 0, .75);
+    color: @theme_fg_color;
+}
+
+button {
+    min-width: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: transparent;
+    border-radius: 0;
+}
+
+.dim, .secondary {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+progressbar {
+    background-color: transparent;
+}
+
+progress, trough {
+    min-height: 2px;
+}
+
+trough {
+    min-width: 64px;
+}
+
+progress {
+    background-color: rgba(255, 255, 255, 1.0);
+}
+
+trough {
+    background-color: rgba(255, 255, 255, 0.25);
+}
+
+.workspaces {
+    margin-left: 32px;
+}
