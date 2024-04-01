@@ -27,6 +27,23 @@
       browsers = ["firefox" "chromium"];
     };
 
+    cava = {
+      enable = true;
+      settings = {
+        color = {
+          gradient = 1;
+          gradient_count = 3;
+          gradient_color_1 = "'#${config.muse.theme.palette.blue}'";
+          gradient_color_2 = "'#${config.muse.theme.palette.green}'";
+          gradient_color_3 = "'#${config.muse.theme.palette.yellow}'";
+        };
+        smoothing = {
+          gravity = 150;
+          noise_reduction = 50;
+        };
+      };
+    };
+
     direnv = {
       enable = true;
       nix-direnv.enable = true;

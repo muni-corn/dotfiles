@@ -47,7 +47,6 @@ in {
         ksshaskpass
 
         # terminal/cli stuff
-        cava
         fd
         jdupes
         libqalculate
