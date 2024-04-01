@@ -770,14 +770,17 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1711734209,
-        "narHash": "sha256-6zyumXcFj2CZDl67Tok4XP6xpbq0vmsDHKpOdzDzFCc=",
-        "path": "/home/muni/code/muni_bot",
-        "type": "path"
+        "lastModified": 1711929654,
+        "narHash": "sha256-QtCV0W8l4oNgIZQh5NHsfK1ZCSxOoyga0Or1ijSkRI4=",
+        "owner": "muni-corn",
+        "repo": "muni_bot",
+        "rev": "d240b20b9d7b429d86bc8d76920ac015f15b0f72",
+        "type": "github"
       },
       "original": {
-        "path": "/home/muni/code/muni_bot",
-        "type": "path"
+        "owner": "muni-corn",
+        "repo": "muni_bot",
+        "type": "github"
       }
     },
     "muse-sounds": {

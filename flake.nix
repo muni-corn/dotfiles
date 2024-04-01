@@ -41,7 +41,7 @@
     # my stuff
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
 
-    muni-bot.url = "path:/home/muni/code/muni_bot";
+    muni-bot.url = "github:muni-corn/muni_bot";
 
     muse-status.url = "git+https://codeberg.org/municorn/muse-status?ref=unstable";
 
