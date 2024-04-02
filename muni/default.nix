@@ -115,6 +115,7 @@ in {
         # photo
         gmic
         gmic-qt
+        upscayl
 
         # audio, sound, and music
         ardour
