@@ -147,12 +147,17 @@ in {
         winetricks
 
         # games
+        ace-of-penguins
+        gnome.aisleriot
         godot_4
         #itch
+        kdePackages.kmines
+        kdePackages.kpat
         lutris
         prismlauncher
         protonup-qt
         r2modman
+        tty-solitaire
       ];
 
     pointerCursor = {
