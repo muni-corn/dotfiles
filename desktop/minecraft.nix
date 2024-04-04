@@ -19,7 +19,6 @@
       white-list = true;
     };
     whitelist = {
-      "1800XXBakedBeans" = "3d63926e-db31-4839-b0bb-ddcbc811237c";
       Alilunaa = "a78bff88-4df0-4768-b2b7-0bbbc2cd2c69";
       Archycmd = "821e3d50-3d3f-4865-8cb4-80922cb22e8e";
       BlazeSolaris = "6c68ccc9-48b6-4051-ab87-8cd94183a79a";
@@ -30,6 +29,7 @@
       Flusanix = "92019296-321e-4788-a5e2-897865b2893d";
       HeartwarmingFox = "11c0bc33-5e55-4f0a-9418-178921e70104";
       ItsMsanii = "5d23c137-e0c9-4384-b08f-e8b3d6a6a4ec";
+      Mint_Slurpee = "aa65718e-a3aa-4a7b-9cbf-1d2967dcd3ed";
       Pankilik = "c3eb6377-b226-4c1e-b40d-111079911a75";
       Panko_Pai = "c1272cd8-6067-44a6-ac14-d07b673f0dea";
       PegasisWhovian = "4e9e47fc-c9ab-4fb4-9494-e6d857a0ccdd";
