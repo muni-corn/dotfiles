@@ -24,7 +24,7 @@
     kernelModules = ["v4l2loopback"];
 
     # use latest linux kernel
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxKernel.packages.linux_testing;
 
     kernelParams = ["quiet" "fbcon=nodefer" "nohibernate"];
 
