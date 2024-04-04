@@ -89,7 +89,10 @@
 
   networking = {
     useDHCP = true;
-    interfaces.wlan0.useDHCP = true;
+    interfaces = {
+      wlan0.useDHCP = true;
+      enp9s0.useDHCP = true;
+    };
   };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
