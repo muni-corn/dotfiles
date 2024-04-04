@@ -61,7 +61,7 @@
       colors = config.muse.theme.palette;
       mkColor = color: mkLiteral "#${color}";
 
-      background = mkColor "000000c0";
+      background = mkColor "00000080";
       dim = mkColor colors.accent;
       selected = mkColor "${colors.accent}80";
       white = mkColor colors.white;

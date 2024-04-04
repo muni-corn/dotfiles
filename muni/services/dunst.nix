@@ -11,7 +11,7 @@
     };
     settings = {
       global = {
-        background = "#000000c0";
+        background = "#00000080";
         browser = "xdg-open";
         corner_radius = 16;
         dmenu = "${config.programs.rofi.finalPackage}/bin/rofi -dmenu -p 'Do what?'";

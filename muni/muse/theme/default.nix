@@ -82,7 +82,7 @@ in {
         global = {
           font = sansFullFontName;
           foreground = "#${colors.white}";
-          frame_color = "#${colors.dark-gray}c0";
+          frame_color = "#${colors.dark-gray}80";
           highlight = "#${colors.alert}";
         };
 
@@ -90,7 +90,7 @@ in {
         urgency_normal.foreground = "#${colors.white}";
         urgency_critical = {
           foreground = "#${colors.white}";
-          frame_color = "#${colors.warning}c0";
+          frame_color = "#${colors.warning}80";
         };
       };
     };
