@@ -214,11 +214,11 @@ in {
         "blur,bar-0"
         "blur,bar-1"
         "blur,bar-2"
+        "blur,wob"
         "ignorezero,gtk-layer-shell"
         "ignorealpha 0.5,menu"
         "ignorealpha 0.5,notifications"
         "ignorealpha 0.5,rofi"
-        "ignorealpha 0.5,gtk-layer-shell"
       ];
 
       monitor = [

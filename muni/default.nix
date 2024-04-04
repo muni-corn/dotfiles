@@ -277,16 +277,16 @@ in {
         {
           globalSection = {
             width = 512;
-            height = 24;
+            height = 16;
             anchor = "bottom";
-            bar_padding = 4;
-            border_size = 6;
+            bar_padding = 6;
+            border_size = 0;
             margin = 256;
             border_offset = 0;
 
-            background_color = colors.black;
-            border_color = colors.gray;
-            bar_color = colors.accent;
+            background_color = "00000080";
+            border_color = "00000000";
+            bar_color = colors.bright-white;
 
             output_mode = "focused";
           };
