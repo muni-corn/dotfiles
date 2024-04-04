@@ -96,7 +96,7 @@
     # backups.
     btrfs.autoScrub = {
       enable = false;
-      fileSystems = ["/" "/archive"];
+      fileSystems = ["/" "/vault"];
     };
 
     # enable fstrim for btrfs
