@@ -40,15 +40,10 @@
 
     # my stuff
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
-
     muni-bot.url = "github:muni-corn/muni_bot";
-
     muse-status.url = "git+https://codeberg.org/municorn/muse-status?ref=unstable";
-
     muse-sounds.url = "git+https://codeberg.org/municorn/muse-sounds?ref=main";
-
     muse-wallpapers.url = "github:muni-corn/muse-wallpapers";
-
     plymouth-theme-musicaloft-rainbow = {
       url = "git+https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
