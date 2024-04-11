@@ -2,7 +2,10 @@
   programs.nixvim = {
     plugins.telescope = {
       enable = true;
-      extensionConfig.ui-select = {__raw = "require('telescope.themes').get_dropdown()";};
+      extensions.ui-select = {
+        enable = true;
+        settings = {__raw = "require('telescope.themes').get_dropdown()";};
+      };
       enabledExtensions = [
         "dap"
         "neorg"
@@ -14,7 +17,6 @@
     extraPlugins = with pkgs.vimPlugins; [
       neorg-telescope
       telescope-dap-nvim
-      telescope-ui-select-nvim
       telescope-zoxide
     ];
   };
