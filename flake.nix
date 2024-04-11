@@ -95,6 +95,7 @@
       overlaysModule
       {
         home-manager = {
+          backupFileExtension = "backup";
           extraSpecialArgs = {
             inherit muse-wallpapers;
             vscode-js-debug-src = vscode-js-debug;
