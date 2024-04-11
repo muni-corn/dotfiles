@@ -37,10 +37,7 @@
           gradient_color_2 = "'#${config.muse.theme.palette.green}'";
           gradient_color_3 = "'#${config.muse.theme.palette.yellow}'";
         };
-        smoothing = {
-          gravity = 150;
-          noise_reduction = 50;
-        };
+        smoothing.noise_reduction = 25;
       };
     };
 
