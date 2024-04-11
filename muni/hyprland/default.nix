@@ -71,7 +71,7 @@ in {
       '';
     in {
       general = {
-        "col.active_border" = rgba colors.accent defaultAlpha;
+        "col.active_border" = rgba colors.bright-white defaultAlpha;
         "col.inactive_border" = rgba colors.black defaultAlpha;
         border_size = 2;
         gaps_in = 16;

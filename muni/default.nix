@@ -286,7 +286,7 @@ in {
 
             background_color = "00000080";
             border_color = "00000000";
-            bar_color = colors.bright-white;
+            bar_color = "${colors.bright-white}80";
 
             output_mode = "focused";
           };
