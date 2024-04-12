@@ -24,7 +24,7 @@ in {
   muse.theme = {
     enable = true;
     palette = (import ./colors.nix).muni;
-    wallpapersDir = muni-wallpapers;
+    wallpapersDir = "${muni-wallpapers}/wallpapers";
   };
 
   home = {
