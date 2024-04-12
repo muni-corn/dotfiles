@@ -30,9 +30,7 @@ in {
   home = {
     extraOutputsToInstall = ["doc" "info" "devdoc"];
 
-    file.".npmrc" = {
-      source = ./npmrc;
-    };
+    file.".npmrc".source = ./npmrc;
 
     packages = with pkgs;
     # packages for all devices
