@@ -43,7 +43,10 @@
     muni-bot.url = "github:muni-corn/muni_bot";
     muse-status.url = "git+https://codeberg.org/municorn/muse-status?ref=unstable";
     muse-sounds.url = "git+https://codeberg.org/municorn/muse-sounds?ref=main";
-    muse-wallpapers.url = "github:muni-corn/muse-wallpapers";
+    muni-wallpapers = {
+      url = "github:muni-corn/muni-wallpapers";
+      flake = false;
+    };
     plymouth-theme-musicaloft-rainbow = {
       url = "git+https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -60,9 +63,9 @@
     hyprlock,
     iosevka-muse,
     muni-bot,
+    muni-wallpapers,
     muse-sounds,
     muse-status,
-    muse-wallpapers,
     musnix,
     neorg,
     nix-minecraft,
@@ -97,7 +100,7 @@
         home-manager = {
           backupFileExtension = "backup";
           extraSpecialArgs = {
-            inherit muse-wallpapers;
+            inherit muni-wallpapers;
             vscode-js-debug-src = vscode-js-debug;
           };
           sharedModules = [

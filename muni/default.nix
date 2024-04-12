@@ -2,7 +2,7 @@
   config,
   lib,
   pkgs,
-  muse-wallpapers,
+  muni-wallpapers,
   osConfig,
   ...
 }: let
@@ -24,7 +24,7 @@ in {
   muse.theme = {
     enable = true;
     palette = (import ./colors.nix).muni;
-    wallpapersDir = muse-wallpapers.generated;
+    wallpapersDir = muni-wallpapers;
   };
 
   home = {
