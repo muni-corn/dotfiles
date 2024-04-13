@@ -1,10 +1,16 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # aylur's gtk shell
-    ags.url = "github:Aylur/ags";
+    ags = {
+      url = "github:Aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # hypr ecosystem from git
     hypridle = {
@@ -21,22 +27,36 @@
     };
 
     # realtime audio
-    musnix.url = "github:musnix/musnix";
+    musnix = {
+      url = "github:musnix/musnix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # neorg overlay for up-to-date neorg stuff
-    neorg.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
+    neorg = {
+      url = "github:nvim-neorg/nixpkgs-neorg-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # updated minecraft servers
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    nix-minecraft = {
+      url = "github:Infinidoge/nix-minecraft";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # ai
-    nixified-ai.url = "github:nixified-ai/flake";
+    nixified-ai = {
+      url = "github:nixified-ai/flake";
+    };
 
     # extra hardware configuration
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # neovim config in nix
-    nixvim.url = "github:nix-community/nixvim";
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # node.js debugging
     vscode-js-debug = {
@@ -45,13 +65,25 @@
     };
 
     # for runtime-decrypted secrets
-    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # my stuff
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
-    muni-bot.url = "github:muni-corn/muni_bot";
-    muse-status.url = "git+https://codeberg.org/municorn/muse-status?ref=unstable";
-    muse-sounds.url = "git+https://codeberg.org/municorn/muse-sounds?ref=main";
+    muni-bot = {
+      url = "github:muni-corn/muni_bot";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    muse-status = {
+      url = "git+https://codeberg.org/municorn/muse-status?ref=unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    muse-sounds = {
+      url = "git+https://codeberg.org/municorn/muse-sounds?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     muni-wallpapers = {
       url = "github:muni-corn/muni-wallpapers";
       flake = false;
