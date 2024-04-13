@@ -7,9 +7,18 @@
     ags.url = "github:Aylur/ags";
 
     # hypr ecosystem from git
-    hypridle.url = "github:hyprwm/hypridle?ref=main";
-    hyprland.url = "github:hyprwm/Hyprland?ref=main";
-    hyprlock.url = "github:hyprwm/hyprlock?ref=main";
+    hypridle = {
+      url = "github:hyprwm/hypridle?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprland = {
+      url = "github:hyprwm/Hyprland?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    hyprlock = {
+      url = "github:hyprwm/hyprlock?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # realtime audio
     musnix.url = "github:musnix/musnix";
