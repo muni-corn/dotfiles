@@ -70,6 +70,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # database for muni_bot
+    surrealdb.url = "github:surrealdb/surrealdb?ref=v1.4.0";
+
     # my stuff
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
     muni-bot = {
@@ -115,6 +118,7 @@
     nixvim,
     plymouth-theme-musicaloft-rainbow,
     sops-nix,
+    surrealdb,
     vscode-js-debug,
   } @ inputs: let
     lockFile = nixpkgs.lib.importJSON ./flake.lock;

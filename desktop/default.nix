@@ -4,7 +4,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   config,
-  flake-inputs,
+  inputs,
   lib,
   pkgs,
   ...
@@ -129,6 +129,7 @@
 
     surrealdb = {
       enable = true;
+      package = inputs.surrealdb.packages.x86_64-linux.default;
       port = 7654;
     };
 
