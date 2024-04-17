@@ -130,6 +130,8 @@
     # CPU microcode
     cpu.amd.updateMicrocode = true;
 
+    enableRedistributableFirmware = true;
+
     keyboard.qmk.enable = true;
 
     # Ledger
