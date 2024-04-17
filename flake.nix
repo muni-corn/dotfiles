@@ -52,6 +52,12 @@
     # extra hardware configuration
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    # latest wayland packages
+    nixpkgs-wayland = {
+      url = "github:nix-community/nixpkgs-wayland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # neovim config in nix
     nixvim = {
       url = "github:nix-community/nixvim";
@@ -115,6 +121,7 @@
     nix-minecraft,
     nixified-ai,
     nixos-hardware,
+    nixpkgs-wayland,
     nixvim,
     plymouth-theme-musicaloft-rainbow,
     sops-nix,
@@ -130,6 +137,7 @@
         muse-status.overlay
         neorg.overlays.default
         nix-minecraft.overlay
+        nixpkgs-wayland.overlays.default
         plymouth-theme-musicaloft-rainbow.overlay
         hypridle.overlays.default
         hyprland.overlays.default
