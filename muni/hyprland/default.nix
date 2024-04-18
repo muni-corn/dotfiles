@@ -244,7 +244,7 @@ in {
 
         # firefox Picture-in-Picture
         "float,title:^(Picture-in-Picture)$"
-        "maxsize 480 270,title:^(Picture-in-Picture)$"
+        "size 480 270,title:^(Picture-in-Picture)$"
         "move 100%-480 32,title:^(Picture-in-Picture)$"
         "idleinhibit always,title:^(Picture-in-Picture)$"
         "keepaspectratio,title:^(Picture-in-Picture)$"
