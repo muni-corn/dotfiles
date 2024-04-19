@@ -929,11 +929,11 @@
     "muni-wallpapers": {
       "flake": false,
       "locked": {
-        "lastModified": 1712930824,
-        "narHash": "sha256-lp8gbe8EQlQBo9GFKukHlvWYWStOOaqG7H8QKIvXWN4=",
+        "lastModified": 1713549157,
+        "narHash": "sha256-sI/RdLgbbVuW/uXqpNfp0V02EuaJrz3+8kOhaDFYw0U=",
         "owner": "muni-corn",
         "repo": "muni-wallpapers",
-        "rev": "5f10a0626a609c6de147ee3e7625841af30b617b",
+        "rev": "560916ef6885f6e8bbb57ff25f4b4b76c45ae1c2",
         "type": "github"
       },
       "original": {
