@@ -98,7 +98,7 @@ in {
 
         blur = {
           passes = 3;
-          size = 16;
+          size = 12;
           noise = 0.025;
           contrast = 1.0;
           brightness = 1.0;
