@@ -913,11 +913,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1713455053,
-        "narHash": "sha256-gMcCZZHdWOxg7VtR94dBTbsetWqkGC0Xh9uKrAYbug8=",
+        "lastModified": 1713636480,
+        "narHash": "sha256-gjpIpSHERBDRj3HFWH6PtI+ouXzvoT1JEW1ZnQBakfo=",
         "owner": "muni-corn",
         "repo": "muni_bot",
-        "rev": "634ded193a8c301ce78cb28cf4c7a480e916045c",
+        "rev": "98b34b999f076528d7d942545eabb8506ca7982c",
         "type": "github"
       },
       "original": {
