@@ -185,7 +185,6 @@ in {
 
         # wallpaper
         "${pkgs.swww}/bin/swww-daemon --format xrgb &"
-        "${scripts.switchWallpaper}"
       ];
 
       # animation
