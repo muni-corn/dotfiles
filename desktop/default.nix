@@ -23,12 +23,7 @@
     ./vfio.nix
   ];
 
-  boot = {
-    loader.grub = {
-      gfxmodeEfi = "1920x1080";
-      memtest86.enable = true;
-    };
-  };
+  boot.loader.systemd-boot.memtest86.enable = true;
 
   hardware = {
     opengl = {
