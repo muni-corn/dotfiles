@@ -79,7 +79,7 @@
 
   swapDevices = [
     {
-      device = "/dev/disk/by-partuuid/523fb4e9-5c42-4168-a52e-c4333ecc873e";
+      device = "/dev/disk/by-partuuid/49585f15-1805-1345-b3f6-94cca10eb4f9";
       randomEncryption = {
         enable = true;
         allowDiscards = true;
