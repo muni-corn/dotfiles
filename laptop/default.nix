@@ -18,7 +18,6 @@
   networking.hostName = "littlepony";
 
   systemd = {
-    services."systemd-backlight@backlight:acpi_video0".enable = false;
     targets = {
       hibernate.enable = false;
       hybrid-sleep.enable = false;

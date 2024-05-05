@@ -222,7 +222,7 @@ in {
 
       monitor = [
         # laptop
-        "eDP-1,1920x1080,0x0,1"
+        "eDP-1,preferred,0x0,auto"
 
         # desktop
         "HDMI-A-1,preferred,0x180,1"
