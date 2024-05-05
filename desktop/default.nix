@@ -23,7 +23,10 @@
     ./vfio.nix
   ];
 
-  boot.loader.systemd-boot.memtest86.enable = true;
+  boot = {
+    loader.systemd-boot.memtest86.enable = true;
+    kernelPackages = pkgs.linuxKernel.packages.linux_testing;
+  };
 
   hardware = {
     opengl = {
