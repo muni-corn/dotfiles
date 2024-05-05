@@ -122,7 +122,7 @@ function Bar(monitor: number) {
       start_widget: Left(monitor),
       center_widget: Center(),
       end_widget: Right(),
-      spacing: 32,
+      spacing: 64,
     }),
   });
 }
