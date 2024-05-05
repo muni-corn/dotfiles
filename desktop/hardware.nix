@@ -91,7 +91,7 @@
     useDHCP = true;
     interfaces = {
       wlan0.useDHCP = true;
-      enp9s0.useDHCP = true;
+      enp8s0.useDHCP = true;
     };
   };
 
