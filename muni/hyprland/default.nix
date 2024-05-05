@@ -225,9 +225,9 @@ in {
         "eDP-1,1920x1080,0x0,1"
 
         # desktop
-        "HDMI-A-2,preferred,0x180,1"
+        "HDMI-A-1,preferred,0x180,1"
         "DP-2,preferred,1920x0,1"
-        "HDMI-A-1,preferred,4480x180,1"
+        "HDMI-A-2,preferred,4480x180,1"
       ];
 
       windowrulev2 = [
