@@ -20,7 +20,7 @@ export function Volume() {
 
   const icon = Widget.Label({
     label: Utils.watch(getIcon(), audio.speaker, getIcon),
-    classNames: ["icon", "primary"],
+    classNames: ["icon", "dim"],
     widthRequest: 16,
   });
 
