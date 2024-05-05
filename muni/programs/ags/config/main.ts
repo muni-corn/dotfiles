@@ -35,12 +35,16 @@ function Workspaces(monitor: number) {
   });
 }
 
+const MAX_CLIENT_TITLE_LENGTH = 48;
 function ClientTitle(monitor: number) {
   return Widget.Label({
     classNames: ["secondary", "client-title"],
     label: hyprland.bind("active").as((active) => {
       if (active.monitor.id === monitor) {
-        return active.client.title;
+        let title = active.client.title;
+        if (title.length > MAX_CLIENT_TITLE_LENGTH)
+          title = title.slice(0, MAX_CLIENT_TITLE_LENGTH) + "…";
+        return title;
       } else return "";
     }),
   });
