@@ -1,6 +1,7 @@
 import { Media } from "mpris";
 import { Clock } from "clock";
 import { Volume } from "volume";
+import { Weather } from "weather/index";
 
 const hyprland = await Service.import("hyprland");
 const battery = await Service.import("battery");
@@ -93,7 +94,7 @@ function Left(monitor: number) {
 function Center() {
   return Widget.Box({
     spacing: 32,
-    children: [Clock(), Media()],
+    children: [Clock(), Weather(), Media()],
   });
 }
 
