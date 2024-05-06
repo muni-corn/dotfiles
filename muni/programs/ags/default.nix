@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   programs.ags = {
     enable = true;
-    configDir = null;
+    configDir = ./config;
   };
 
   home.packages = with pkgs; [
