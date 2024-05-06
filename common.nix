@@ -286,6 +286,8 @@
 
     sshguard.enable = true;
 
+    upower.enable = true;
+
     xserver = {
       # Configure keymap in X11
       xkb.layout = "us";
