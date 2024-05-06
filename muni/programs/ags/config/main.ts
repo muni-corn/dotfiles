@@ -127,9 +127,14 @@ function Bar(monitor: number) {
   });
 }
 
+const windows = [Bar(0)];
+for (let i = 1; i < hyprland.monitors.length; i++) {
+  windows.push(Bar(i))
+}
+
 App.config({
   style: "./style.css",
-  windows: [Bar(0), Bar(1), Bar(2)],
+  windows,
 });
 
 export {};
