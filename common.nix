@@ -75,6 +75,8 @@
       qt6.qtwayland
     ];
 
+    sessionVariables.NIXOS_OZONE_WL = "1";
+
     systemPackages = with pkgs; [
       neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
 
