@@ -1,42 +1,38 @@
 {
   config,
+  osConfig,
+  lib,
   pkgs,
   ...
 }: {
-  programs.hyprlock = {
+  programs.hyprlock = let
+    monitor =
+      if osConfig.networking.hostName == "ponycastle"
+      then "DP-2"
+      else "eDP-1";
+  in {
     enable = true;
-    backgrounds = [
-      {
-        monitor = "DP-2";
-        path = "/home/muni/.lock-DP-2.png";
+    backgrounds = let
+      mkMonitor = name: {
+        monitor = name;
+        path = "/home/muni/.lock-${name}.png";
         blur_passes = 2;
         blur_size = 8;
         noise = 0.02;
         contrast = 1.0;
         brightness = 1.0;
-      }
-      {
-        monitor = "HDMI-A-1";
-        path = "/home/muni/.lock-HDMI-A-1.png";
-        blur_passes = 2;
-        blur_size = 8;
-        brightness = 1.0;
-        contrast = 1.0;
-        noise = 0.02;
-      }
-      {
-        monitor = "HDMI-A-2";
-        path = "/home/muni/.lock-HDMI-A-2.png";
-        blur_passes = 2;
-        blur_size = 8;
-        brightness = 1.0;
-        contrast = 1.0;
-        noise = 0.02;
-      }
-    ];
+      };
+    in
+      lib.optionals (osConfig.networking.hostName == "ponycastle") [
+        (mkMonitor "DP-2")
+        (mkMonitor "HDMI-A-1")
+        (mkMonitor "HDMI-A-2")
+      ]
+      ++ (lib.optionals (osConfig.networking.hostName == "littlepony") [(mkMonitor "eDP-1")]);
+
     input-fields = [
       {
-        monitor = "DP-2";
+        inherit monitor;
         dots_size = 0.25;
         dots_spacing = 1.0;
         font_color = "rgba(255, 255, 255, 1)";
@@ -57,7 +53,7 @@
       sansFontName = config.muse.theme.sansFont.name;
     in [
       {
-        monitor = "DP-2";
+        inherit monitor;
         color = "rgba(255, 255, 255, 1)";
         font_family = "${sansFontName} Thin";
         font_size = 128;
@@ -66,12 +62,12 @@
         halign = "left";
         valign = "top";
         position = {
-          x = 128;
-          y = -96;
+          x = 256;
+          y = -224;
         };
       }
       {
-        monitor = "DP-2";
+        inherit monitor;
         color = "rgba(255, 255, 255, 0.5)";
         font_family = sansFontName;
         font_size = 18;
@@ -80,8 +76,8 @@
         halign = "left";
         valign = "top";
         position = {
-          x = 128;
-          y = -320;
+          x = 256;
+          y = -448;
         };
       }
     ];
