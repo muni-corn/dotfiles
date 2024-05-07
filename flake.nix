@@ -83,11 +83,6 @@
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
     muni-bot = {
       url = "github:muni-corn/muni_bot";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    muse-status = {
-      url = "git+https://codeberg.org/municorn/muse-status?ref=unstable";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     muse-sounds = {
       url = "git+https://codeberg.org/municorn/muse-sounds?ref=main";
@@ -115,7 +110,6 @@
     muni-bot,
     muni-wallpapers,
     muse-sounds,
-    muse-status,
     musnix,
     neorg,
     nix-minecraft,
@@ -134,7 +128,6 @@
       nixpkgs.overlays = [
         iosevka-muse.overlay
         muse-sounds.overlay
-        muse-status.overlay
         neorg.overlays.default
         nix-minecraft.overlay
         nixpkgs-wayland.overlays.default

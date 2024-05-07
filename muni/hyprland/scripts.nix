@@ -10,7 +10,6 @@
   };
 
   # package path convenience variables
-  ms = "${pkgs.muse-status}/bin/muse-status";
   pamixer = "${pkgs.pamixer}/bin/pamixer";
 
   # sound paths
@@ -31,7 +30,6 @@
         ${pamixer} --get-volume > $XDG_RUNTIME_DIR/hypr.wob &
       end
 
-      ${ms} notify volume &
       ${pkgs.pipewire}/bin/pw-play --volume 1.0 ${soundPath} &
 
       wait
@@ -39,7 +37,6 @@
   mkBrightnessScript = name: brilloFlags:
     pkgs.writeShellScript "brightness-${name}" ''
       ${pkgs.brillo}/bin/brillo -q ${brilloFlags}
-      ${ms} notify brightness &
       ${pkgs.brillo}/bin/brillo -G | cut -d'.' -f1 > $XDG_RUNTIME_DIR/hypr.wob &
     '';
 in {

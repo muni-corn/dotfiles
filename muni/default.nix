@@ -15,7 +15,6 @@ in {
   imports = [
     ./hyprland
     ./muse
-    ./muse-status.nix
     ./programs
     ./services
     ./systemd.nix
@@ -124,7 +123,7 @@ in {
         geonkick
         lsp-plugins
         musescore
-        pamixer # for muse-status, at least
+        pamixer
         qpwgraph
         sfizz
         x42-gmsynth
