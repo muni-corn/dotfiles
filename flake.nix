@@ -6,8 +6,7 @@
     # aylur's gtk shell
     ags.url = "github:Aylur/ags";
 
-    # hypr ecosystem from git
-    hyprland.url = "github:hyprwm/Hyprland?ref=main";
+    # hyprlock for home-manager config
     hyprlock.url = "github:hyprwm/hyprlock?ref=main";
 
     # realtime audio
@@ -59,7 +58,6 @@
     nixpkgs,
     home-manager,
     ags,
-    hyprland,
     hyprlock,
     iosevka-muse,
     muni-bot,
@@ -87,7 +85,6 @@
         nix-minecraft.overlay
         nixpkgs-wayland.overlays.default
         plymouth-theme-musicaloft-rainbow.overlay
-        hyprland.overlays.default
         hyprlock.overlays.default
       ];
     };
@@ -121,7 +118,6 @@
           };
           sharedModules = [
             ags.homeManagerModules.default
-            hyprland.homeManagerModules.default
             hyprlock.homeManagerModules.default
             nixvim.homeManagerModules.nixvim
           ];
