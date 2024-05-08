@@ -2,9 +2,9 @@ import { Media } from "mpris";
 import { Clock } from "clock";
 import { Volume } from "volume";
 import { Weather } from "weather/index";
+import { Battery } from "battery";
 
 const hyprland = await Service.import("hyprland");
-const battery = await Service.import("battery");
 const network = await Service.import("network");
 const systemtray = await Service.import("systemtray");
 
@@ -50,26 +50,6 @@ function ClientTitle(monitor: number) {
   });
 }
 
-function BatteryLabel() {
-  const value = battery.bind("percent").as((p) => (p > 0 ? p / 100 : 0));
-  const icon = battery
-    .bind("percent")
-    .as((p) => `battery-level-${Math.floor(p / 10) * 10}-symbolic`);
-
-  return Widget.Box({
-    class_name: "battery",
-    visible: battery.bind("available"),
-    children: [
-      Widget.Icon({ icon }),
-      Widget.LevelBar({
-        widthRequest: 140,
-        vpack: "center",
-        value,
-      }),
-    ],
-  });
-}
-
 function SysTray() {
   const items = systemtray.bind("items").as((items) =>
     items.map((item) =>
@@ -106,7 +86,7 @@ function Right() {
   return Widget.Box({
     hpack: "end",
     spacing: 32,
-    children: [Volume(), SysTray()],
+    children: [Volume(), Battery(), SysTray()],
   });
 }
 
