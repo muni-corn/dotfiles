@@ -42,10 +42,6 @@
       driSupport = true;
       driSupport32Bit = true;
     };
-    openrazer = {
-      enable = true;
-      users = ["muni"];
-    };
   };
 
   musnix = {

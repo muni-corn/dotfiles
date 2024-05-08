@@ -277,6 +277,9 @@
       serviceWantedBy = ["multi-user.target"];
     };
 
+    # enable touchpad support
+    libinput.enable = true;
+
     logind.extraConfig = ''
       RuntimeDirectorySize=2G
     '';
@@ -298,9 +301,6 @@
     xserver = {
       # Configure keymap in X11
       xkb.layout = "us";
-
-      # Enable touchpad support (enabled default in most desktopManager).
-      libinput.enable = true;
 
       # wacom tablet support
       wacom.enable = true;
