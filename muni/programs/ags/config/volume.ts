@@ -1,4 +1,5 @@
 import { Align } from "types/@girs/gtk-3.0/gtk-3.0.cjs";
+import { ProgressTile, makeProgressTile } from "utils";
 
 const audio = await Service.import("audio");
 
@@ -13,31 +14,28 @@ export function Volume() {
     } else if (audio.speaker.volume.valueOf() === 0) {
       return ZERO_ICON;
     } else {
-      let index = Math.floor(audio.speaker.volume.valueOf() * VOLUME_ICONS.length)
+      let index = Math.floor(
+        audio.speaker.volume.valueOf() * VOLUME_ICONS.length,
+      );
       return VOLUME_ICONS[Math.min(index, VOLUME_ICONS.length - 1)];
     }
   }
 
-  const icon = Widget.Label({
-    label: Utils.watch(getIcon(), audio.speaker, getIcon),
-    classNames: ["icon", "dim"],
-    widthRequest: 16,
-  });
+  function getProgressTile(): ProgressTile {
+    return {
+      icon: getIcon(),
+      progress: audio.speaker.volume || 0,
+      visible: true,
+    };
+  }
 
-  const slider = Widget.ProgressBar({
-    setup: (self) =>
-      self.hook(audio.speaker, () => {
-        self.value = audio.speaker.volume || 0;
-      }),
-    valign: Align.CENTER,
-    hexpand: true,
-  });
+  const watcher = Utils.watch(
+    getProgressTile(),
+    audio.speaker,
+    getProgressTile,
+  );
 
-  return Widget.Box({
-    hexpand: true,
-    children: [icon, slider],
-    spacing: 16,
-  });
+  return makeProgressTile(watcher);
 }
 
 export {};
