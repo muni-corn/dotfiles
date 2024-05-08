@@ -88,7 +88,7 @@
   ];
 
   networking = {
-    useDHCP = true;
+    useDHCP = lib.mkDefault true;
     interfaces = {
       wlan0.useDHCP = true;
       enp8s0.useDHCP = true;

@@ -148,6 +148,11 @@
   location.provider = "geoclue2";
 
   networking = {
+    networkmanager = {
+      enable = true;
+      wifi.backend = "iwd";
+    };
+
     # Enables wireless support via iwd.
     wireless.iwd = {
       enable = true;
