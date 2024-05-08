@@ -1,68 +1,35 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    home-manager.url = "github:nix-community/home-manager";
 
     # aylur's gtk shell
-    ags = {
-      url = "github:Aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    ags.url = "github:Aylur/ags";
 
     # hypr ecosystem from git
-    hypridle = {
-      url = "github:hyprwm/hypridle?ref=main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprland = {
-      url = "github:hyprwm/Hyprland?ref=main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    hyprlock = {
-      url = "github:hyprwm/hyprlock?ref=main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    hyprland.url = "github:hyprwm/Hyprland?ref=main";
+    hyprlock.url = "github:hyprwm/hyprlock?ref=main";
 
     # realtime audio
-    musnix = {
-      url = "github:musnix/musnix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    musnix.url = "github:musnix/musnix";
 
     # neorg overlay for up-to-date neorg stuff
-    neorg = {
-      url = "github:nvim-neorg/nixpkgs-neorg-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    neorg.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
 
     # updated minecraft servers
-    nix-minecraft = {
-      url = "github:Infinidoge/nix-minecraft";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
     # ai
-    nixified-ai = {
-      url = "github:nixified-ai/flake";
-    };
+    nixified-ai.url = "github:nixified-ai/flake";
 
     # extra hardware configuration
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # latest wayland packages
-    nixpkgs-wayland = {
-      url = "github:nix-community/nixpkgs-wayland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
 
     # neovim config in nix
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixvim.url = "github:nix-community/nixvim";
 
     # node.js debugging
     vscode-js-debug = {
@@ -71,31 +38,20 @@
     };
 
     # for runtime-decrypted secrets
-    sops-nix = {
-      url = "github:Mic92/sops-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    sops-nix.url = "github:Mic92/sops-nix";
 
     # database for muni_bot
     surrealdb.url = "github:surrealdb/surrealdb?ref=v1.4.0";
 
     # my stuff
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
-    muni-bot = {
-      url = "github:muni-corn/muni_bot";
-    };
-    muse-sounds = {
-      url = "git+https://codeberg.org/municorn/muse-sounds?ref=main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    muni-bot.url = "github:muni-corn/muni_bot";
+    muse-sounds.url = "git+https://codeberg.org/municorn/muse-sounds?ref=main";
     muni-wallpapers = {
       url = "github:muni-corn/muni-wallpapers";
       flake = false;
     };
-    plymouth-theme-musicaloft-rainbow = {
-      url = "git+https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow?ref=main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    plymouth-theme-musicaloft-rainbow.url = "git+https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow?ref=main";
   };
 
   outputs = {
@@ -103,7 +59,6 @@
     nixpkgs,
     home-manager,
     ags,
-    hypridle,
     hyprland,
     hyprlock,
     iosevka-muse,
@@ -132,7 +87,6 @@
         nix-minecraft.overlay
         nixpkgs-wayland.overlays.default
         plymouth-theme-musicaloft-rainbow.overlay
-        hypridle.overlays.default
         hyprland.overlays.default
         hyprlock.overlays.default
       ];
@@ -167,7 +121,6 @@
           };
           sharedModules = [
             ags.homeManagerModules.default
-            hypridle.homeManagerModules.default
             hyprland.homeManagerModules.default
             hyprlock.homeManagerModules.default
             nixvim.homeManagerModules.nixvim
