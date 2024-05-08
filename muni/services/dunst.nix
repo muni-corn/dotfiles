@@ -41,7 +41,7 @@
         word_wrap = true;
 
         width = 384;
-        height = 384;
+        height = "(0, 384)";
         offset = "4x4";
       };
       urgency_critical.timeout = "10s";
