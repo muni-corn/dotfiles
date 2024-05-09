@@ -54,11 +54,12 @@ export function Weather() {
   );
 }
 
+const UNKNOWN_ICON = "\u{F1BF9}"
 function getIcon(code: string, sunTimes: Astronomy): string {
   if (isDark(sunTimes)) {
-    return NIGHT_WEATHER_ICONS[code] || DAY_WEATHER_ICONS[code];
+    return NIGHT_WEATHER_ICONS[code] || DAY_WEATHER_ICONS[code] || UNKNOWN_ICON;
   } else {
-    return DAY_WEATHER_ICONS[code];
+    return DAY_WEATHER_ICONS[code] || UNKNOWN_ICON;
   }
 }
 

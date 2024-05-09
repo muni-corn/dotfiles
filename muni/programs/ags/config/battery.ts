@@ -45,11 +45,11 @@ export function Battery() {
     } else if (charging) {
       return ICONS.charging[
         Math.floor((ICONS.charging.length * percent) / 100)
-      ];
+      ] || ICONS.unknown;
     } else
       return ICONS.discharging[
         Math.floor((ICONS.discharging.length * percent) / 100)
-      ];
+      ] || ICONS.unknown;
   }
 
   function getReadableTime(charged: boolean, charging: boolean, secondsRemaining: number): string {
