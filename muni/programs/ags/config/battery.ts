@@ -75,17 +75,18 @@ export function Battery() {
 
   let tileBinding = Utils.merge(
     [
+      battery.bind("available"),
       battery.bind("percent"),
       battery.bind("time_remaining"),
       battery.bind("charging"),
       battery.bind("charged"),
     ],
-    (percent, time_remaining, charging, charged): Tile => {
+    (available, percent, time_remaining, charging, charged): Tile => {
       return {
         icon: getIcon(charged, charging, percent),
         primary: charged ? "Full" : `${percent}%`,
         secondary: getReadableTime(charged, charging, time_remaining),
-        visible: true,
+        visible: available,
       };
     },
   );
