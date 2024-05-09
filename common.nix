@@ -58,6 +58,7 @@
     defaultPackages = with pkgs; [
       cachix
       chromium
+      gnome.gnome-bluetooth
       kodi
       konsole
       ksshaskpass
@@ -124,6 +125,7 @@
     # Bluetooth
     bluetooth = {
       enable = true;
+      settings.General.Experimental = true;
     };
 
     # CPU microcode
@@ -249,6 +251,8 @@
     auto-cpufreq.enable = true;
 
     automatic-timezoned.enable = true;
+
+    blueman.enable = true;
 
     fwupd.enable = true;
 

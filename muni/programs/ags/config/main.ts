@@ -3,6 +3,7 @@ import { Clock } from "clock";
 import { Volume } from "volume";
 import { Weather } from "weather/index";
 import { Battery } from "battery";
+import { Bluetooth } from "bluetooth";
 
 const hyprland = await Service.import("hyprland");
 const network = await Service.import("network");
@@ -86,7 +87,7 @@ function Right() {
   return Widget.Box({
     hpack: "end",
     spacing: 32,
-    children: [Volume(), Battery(), SysTray()],
+    children: [Volume(), Bluetooth(), Battery(), SysTray()],
   });
 }
 
