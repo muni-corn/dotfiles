@@ -4,9 +4,9 @@ import { Volume } from "volume";
 import { Weather } from "weather/index";
 import { Battery } from "battery";
 import { Bluetooth } from "bluetooth";
+import { Network } from "network";
 
 const hyprland = await Service.import("hyprland");
-const network = await Service.import("network");
 const systemtray = await Service.import("systemtray");
 
 // widgets can be only assigned as a child in one container
@@ -87,7 +87,7 @@ function Right() {
   return Widget.Box({
     hpack: "end",
     spacing: 32,
-    children: [Volume(), Bluetooth(), Battery(), SysTray()],
+    children: [Volume(), Bluetooth(), Network(), Battery(), SysTray()],
   });
 }
 
