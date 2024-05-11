@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   osConfig,
   pkgs,
   ...
@@ -222,7 +221,7 @@ in {
 
       monitor = [
         # laptop
-        "eDP-1,preferred,0x0,auto"
+        "eDP-1,preferred,0x0,1.333333"
 
         # desktop
         "HDMI-A-1,preferred,0x180,1"
