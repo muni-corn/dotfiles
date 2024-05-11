@@ -5,7 +5,7 @@ const network = await Service.import("network");
 
 function getIcon(iconList: string[], strength: number): string {
   const iconListLength = iconList.length;
-  const index = Math.min(iconListLength - 1, (iconListLength * strength) / 100);
+  const index = Math.min(iconListLength - 1, Math.floor((iconListLength * strength) / 100));
   return iconList[index];
 }
 
