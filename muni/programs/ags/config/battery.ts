@@ -55,14 +55,12 @@ export function Battery() {
   function getReadableTime(charged: boolean, charging: boolean, secondsRemaining: number): string {
     if (charged) {
       return "Plugged in";
-    } else {
+    } else if (secondsRemaining > 0) {
       if (secondsRemaining < 30 * 60) {
         const minutes = Math.ceil(secondsRemaining / 60);
         return `${minutes} min left`;
       } else {
-        const timeToCompletion = new Date(
-          Date.now() + secondsRemaining * 1000,
-        );
+        const timeToCompletion = new Date(Date.now() + secondsRemaining * 1000);
         const formatted = DATE_FORMAT.format(timeToCompletion).toLowerCase();
         if (charging) {
           return `Full at ${formatted}`;
@@ -70,6 +68,8 @@ export function Battery() {
           return `Until ${formatted}`;
         }
       }
+    } else {
+      return "";
     }
   }
 
