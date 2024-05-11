@@ -47,7 +47,11 @@ export function Battery() {
     } else return percentageToIconFromList(percent, ICONS.discharging);
   }
 
-  function getReadableTime(charged: boolean, charging: boolean, secondsRemaining: number): string {
+  function getReadableTime(
+    charged: boolean,
+    charging: boolean,
+    secondsRemaining: number,
+  ): string {
     if (charged) {
       return "Plugged in";
     } else if (secondsRemaining > 0) {
