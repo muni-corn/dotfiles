@@ -104,3 +104,13 @@ export function makeProgressTile(
     });
   }
 }
+
+/** Returns an icon from a list based on a percentage from 0 to 100 (not 0 to 1!) */
+export function percentageToIconFromList(percentage: number, icons: string[]) {
+  const listLength = icons.length;
+  const index = Math.min(
+    listLength - 1,
+    Math.floor((listLength * percentage) / 100),
+  );
+  return icons[index];
+}

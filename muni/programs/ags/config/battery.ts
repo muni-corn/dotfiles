@@ -1,4 +1,4 @@
-import { Tile, makeTile } from "utils";
+import { Tile, makeTile, percentageToIconFromList } from "utils";
 
 const battery = await Service.import("battery");
 
@@ -43,13 +43,8 @@ export function Battery() {
     if (charged) {
       return ICONS.full;
     } else if (charging) {
-      return ICONS.charging[
-        Math.floor((ICONS.charging.length * percent) / 100)
-      ] || ICONS.unknown;
-    } else
-      return ICONS.discharging[
-        Math.floor((ICONS.discharging.length * percent) / 100)
-      ] || ICONS.unknown;
+      return percentageToIconFromList(percent, ICONS.charging);
+    } else return percentageToIconFromList(percent, ICONS.discharging);
   }
 
   function getReadableTime(charged: boolean, charging: boolean, secondsRemaining: number): string {
@@ -83,7 +78,7 @@ export function Battery() {
     ],
     (available, percent, time_remaining, charging, charged): Tile => {
       return {
-        icon: getIcon(charged, charging, percent),
+        icon: getIcon(charged, charging, percent) || ICONS.unknown,
         primary: charged ? "Full" : `${percent}%`,
         secondary: getReadableTime(charged, charging, time_remaining),
         visible: available,

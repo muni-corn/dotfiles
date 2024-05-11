@@ -1,13 +1,7 @@
 import { Wifi } from "types/service/network";
-import { makeTile } from "utils";
+import { makeTile, percentageToIconFromList } from "utils";
 
 const network = await Service.import("network");
-
-function getIcon(iconList: string[], strength: number): string {
-  const iconListLength = iconList.length;
-  const index = Math.min(iconListLength - 1, Math.floor((iconListLength * strength) / 100));
-  return iconList[index];
-}
 
 const WIFI_ICONS = {
   connected: ["\u{F092F}", "\u{F091F}", "\u{F0922}", "\u{F0925}", "\u{F0928}"],
@@ -23,11 +17,11 @@ function getWifiIcon(): string {
   switch (wifi.state) {
     case "activated":
       if (wifi.internet === "disconnected") {
-        return getIcon(WIFI_ICONS.packetLoss, wifi.strength);
+        return percentageToIconFromList(wifi.strength, WIFI_ICONS.packetLoss);
       } else if (network.vpn.activated_connections.length > 0) {
-        return getIcon(WIFI_ICONS.vpn, wifi.strength);
+        return percentageToIconFromList(wifi.strength, WIFI_ICONS.vpn);
       } else {
-        return getIcon(WIFI_ICONS.connected, wifi.strength);
+        return percentageToIconFromList(wifi.strength, WIFI_ICONS.connected);
       }
     case "unavailable":
       return WIFI_ICONS.disabled;
