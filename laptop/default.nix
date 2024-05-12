@@ -3,13 +3,9 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
   imports = [
     ../common.nix
+    ../common-graphical.nix
     ./hardware.nix
     ../openssh.nix
     ../firewall.nix
@@ -32,8 +28,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.05"; # Did you read the comment?
-
-  users.users.muni.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpFoYAj02WzgnBokgr2ZzFKOaffOVRK5Ru7Ngh53sjr (none)"
-  ];
 }
