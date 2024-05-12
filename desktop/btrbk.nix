@@ -1,9 +1,4 @@
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
   services.btrbk.instances.backup = {
     onCalendar = "*:00/15";
     settings = {
