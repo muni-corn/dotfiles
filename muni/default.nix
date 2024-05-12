@@ -10,7 +10,6 @@
   deviceName = osConfig.networking.hostName;
 
   toml = pkgs.formats.toml {};
-  yaml = pkgs.formats.yaml {};
 in {
   imports = [
     ./hyprland
@@ -31,7 +30,7 @@ in {
 
     file.".npmrc".source = ./npmrc;
 
-    packages = with pkgs;
+    packages = (with pkgs;
     # packages for all devices
       [
         # audio and music
@@ -103,10 +102,10 @@ in {
         rsync
         wirelesstools
         xdragon
-      ]
+      ])
       ++
       # ponycastle-specific packages
-      lib.optionals (deviceName == "ponycastle") [
+      lib.optionals (deviceName == "ponycastle") (with pkgs; [
         vscode-fhs
 
         # photo
@@ -155,7 +154,7 @@ in {
         protonup-qt
         r2modman
         tty-solitaire
-      ];
+      ]);
 
     pointerCursor = {
       package = pkgs.bibata-cursors;
