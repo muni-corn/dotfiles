@@ -30,79 +30,80 @@ in {
 
     file.".npmrc".source = ./npmrc;
 
-    packages = (with pkgs;
-    # packages for all devices
-      [
-        # audio and music
-        pavucontrol
-        playerctl
-        spotify
+    packages =
+      (with pkgs;
+        # packages for all devices
+          [
+            # audio and music
+            pavucontrol
+            playerctl
+            spotify
 
-        # desktop environment
-        glib # for gtk theming
-        ksshaskpass
+            # desktop environment
+            glib # for gtk theming
+            ksshaskpass
 
-        # terminal/cli stuff
-        fd
-        jdupes
-        libqalculate
-        neovim-remote
-        pv
-        qpdf
-        sd
-        sshfs
-        unar
-        zip
+            # terminal/cli stuff
+            fd
+            jdupes
+            libqalculate
+            neovim-remote
+            pv
+            qpdf
+            sd
+            sshfs
+            unar
+            zip
 
-        # development/programming
-        alejandra
-        docker-compose
-        gcc
-        lld
-        meld
-        nixd
-        nodejs
-        nodePackages.typescript-language-server
-        python3
-        zls
+            # development/programming
+            alejandra
+            docker-compose
+            gcc
+            lld
+            meld
+            nixd
+            nodejs
+            nodePackages.typescript-language-server
+            python3
+            zls
 
-        # photo
-        hugin
-        inkscape
-        krita
-        rawtherapee
+            # photo
+            hugin
+            inkscape
+            krita
+            rawtherapee
 
-        # messaging
-        webcord
-        discord
-        element-desktop
-        slack
+            # messaging
+            webcord
+            discord
+            element-desktop
+            slack
 
-        # apps
-        android-file-transfer
-        ledger-live-desktop
-        libreoffice-fresh
+            # apps
+            android-file-transfer
+            ledger-live-desktop
+            libreoffice-fresh
 
-        # fish plugins
-        fishPlugins.done
-        fishPlugins.foreign-env
+            # fish plugins
+            fishPlugins.done
+            fishPlugins.foreign-env
 
-        # keyboard config
-        via
-        qmk
+            # keyboard config
+            via
+            qmk
 
-        # other things
-        fnlfmt
-        fortune
-        imagemagick
-        libnotify
-        peaclock
-        protontricks
-        qrencode
-        rsync
-        wirelesstools
-        xdragon
-      ])
+            # other things
+            fnlfmt
+            fortune
+            imagemagick
+            libnotify
+            peaclock
+            protontricks
+            qrencode
+            rsync
+            wirelesstools
+            xdragon
+          ])
       ++
       # ponycastle-specific packages
       lib.optionals (deviceName == "ponycastle") (with pkgs; [
