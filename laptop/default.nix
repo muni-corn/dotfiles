@@ -13,8 +13,15 @@
 
   networking.hostName = "littlepony";
 
-  # enable fstrim for btrfs
-  services.fstrim.enable = true;
+  security.pam.services.hyprlock.fprintAuth = true;
+
+  services = {
+    # enable fstrim for btrfs
+    fstrim.enable = true;
+
+    # for fingerprint reader support
+    fprintd.enable = true;
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
