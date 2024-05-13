@@ -34,6 +34,19 @@
     };
   };
 
+  home-manager.users.muni.wayland.windowManager.hyprland.settings.workspace = [
+    "1,monitor:DP-2,default:true"
+    "2,monitor:DP-2"
+    "3,monitor:DP-2"
+    "4,monitor:DP-2"
+    "5,monitor:HDMI-A-2,default:true"
+    "6,monitor:HDMI-A-2"
+    "7,monitor:HDMI-A-2"
+    "8,monitor:HDMI-A-1"
+    "9,monitor:HDMI-A-1"
+    "10,monitor:HDMI-A-1,default:true"
+  ];
+
   musnix = {
     enable = true;
     soundcardPciId = "0e:00.4";
