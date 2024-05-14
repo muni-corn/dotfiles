@@ -106,9 +106,12 @@
 
     commonModules = [
       binaryCachesModule
+      overlaysModule
+    ];
+
+    commonGraphicalModules = [
       home-manager.nixosModules.home-manager
       musnix.nixosModules.musnix
-      overlaysModule
       {
         home-manager = {
           backupFileExtension = "backup";
@@ -164,12 +167,12 @@
       littlepony = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         system = "x86_64-linux";
-        modules = commonModules ++ littleponyHardwareModules ++ [./laptop];
+        modules = commonModules ++ commonGraphicalModules ++ littleponyHardwareModules ++ [./laptop];
       };
       ponycastle = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         system = "x86_64-linux";
-        modules = commonModules ++ ponycastleModules ++ [./desktop];
+        modules = commonModules ++ commonGraphicalModules ++ ponycastleModules ++ [./desktop];
       };
       spiritcrypt = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
