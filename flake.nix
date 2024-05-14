@@ -147,6 +147,16 @@
 
       # extra software configuration modules
       nixified-ai.nixosModules.invokeai-amd
+    ];
+
+    spiritcryptModules = with nixos-hardware.nixosModules; [
+      # hardware
+      common-cpu-amd
+      common-gpu-amd
+      common-pc
+      common-pc-hdd
+
+      # extra software configuration modules
       muni-bot.nixosModules.default
     ];
   in {
@@ -160,6 +170,11 @@
         specialArgs = {inherit inputs;};
         system = "x86_64-linux";
         modules = commonModules ++ ponycastleModules ++ [./desktop];
+      };
+      spiritcrypt = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs;};
+        system = "x86_64-linux";
+        modules = commonModules ++ spiritcryptModules ++ [./nas];
       };
     };
   };
