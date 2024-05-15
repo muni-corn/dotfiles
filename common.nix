@@ -17,10 +17,7 @@
     kernelParams = ["quiet" "fbcon=nodefer" "nohibernate"];
 
     loader = {
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot/efi";
-      };
+      efi.canTouchEfiVariables = true;
       grub = {
         enable = false;
 
