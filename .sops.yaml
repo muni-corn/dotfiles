@@ -1,9 +1,11 @@
 keys:
   - &personal age1c6lg3d3syh2ggu3qjqjak0hsvfp8r0jg4z2cvs44lnmlymfguyaq9qkurc
   - &desktop age1yyg7h7qytsqcfdj2nn66a8gkdgf74yuqv8wxvuhkffrmdmu8jcwqw5c25r
+  - &spiritcrypt age174f925fc3nwr7ar4s86zvu44aufhm5lsw064vnhktkh8use79a8sevsn23
 creation_rules:
   - path_regex: secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:
       - age:
         - *personal
         - *desktop
+        - *spiritcrypt
