@@ -131,33 +131,30 @@
       }
     ];
 
-    littleponyHardwareModules = with nixos-hardware.nixosModules; [
-      common-cpu-amd
-      common-gpu-amd
-      common-pc-laptop
-      common-pc-laptop-hdd
+    littleponyHardwareModules = [
+      nixos-hardware.nixosModules.framework-16-7040-amd
     ];
 
     # note: we would include common-pc-hdd, but it only sets vm.swappiness to
     # 10, which is overriden by common-pc-ssd, which sets vm.swappiness to 1.
     # swap on ponycastle is currently restricted to the ssd.
-    ponycastleModules = with nixos-hardware.nixosModules; [
+    ponycastleModules = [
       # hardware
-      common-cpu-amd
-      common-gpu-amd
-      common-pc
-      common-pc-ssd
+      nixos-hardware.nixosModules.common-pc
+      nixos-hardware.nixosModules.common-cpu-amd
+      nixos-hardware.nixosModules.common-gpu-amd
+      nixos-hardware.nixosModules.common-pc-ssd
 
       # extra software configuration modules
       nixified-ai.nixosModules.invokeai-amd
     ];
 
-    spiritcryptModules = with nixos-hardware.nixosModules; [
+    spiritcryptModules = [
       # hardware
-      common-cpu-amd
-      common-gpu-amd
-      common-pc
-      common-pc-hdd
+      nixos-hardware.nixosModules.common-cpu-intel
+      nixos-hardware.nixosModules.common-gpu-intel
+      nixos-hardware.nixosModules.common-pc
+      nixos-hardware.nixosModules.common-pc-hdd
 
       # extra software configuration modules
       muni-bot.nixosModules.default
