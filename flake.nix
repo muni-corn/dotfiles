@@ -131,50 +131,63 @@
       }
     ];
 
-    littleponyHardwareModules = [
-      nixos-hardware.nixosModules.framework-16-7040-amd
-    ];
+    littleponyModules =
+      commonModules
+      ++ commonGraphicalModules
+      ++ [
+        nixos-hardware.nixosModules.framework-16-7040-amd
+        ./laptop
+      ];
 
     # note: we would include common-pc-hdd, but it only sets vm.swappiness to
     # 10, which is overriden by common-pc-ssd, which sets vm.swappiness to 1.
     # swap on ponycastle is currently restricted to the ssd.
-    ponycastleModules = [
-      # hardware
-      nixos-hardware.nixosModules.common-pc
-      nixos-hardware.nixosModules.common-cpu-amd
-      nixos-hardware.nixosModules.common-gpu-amd
-      nixos-hardware.nixosModules.common-pc-ssd
+    ponycastleModules =
+      commonModules
+      ++ commonGraphicalModules
+      ++ [
+        # hardware
+        nixos-hardware.nixosModules.common-pc
+        nixos-hardware.nixosModules.common-cpu-amd
+        nixos-hardware.nixosModules.common-gpu-amd
+        nixos-hardware.nixosModules.common-pc-ssd
 
-      # extra software configuration modules
-      nixified-ai.nixosModules.invokeai-amd
-    ];
+        # extra software configuration modules
+        nixified-ai.nixosModules.invokeai-amd
 
-    spiritcryptModules = [
-      # hardware
-      nixos-hardware.nixosModules.common-cpu-intel
-      nixos-hardware.nixosModules.common-gpu-intel
-      nixos-hardware.nixosModules.common-pc
-      nixos-hardware.nixosModules.common-pc-hdd
+        ./desktop
+      ];
 
-      # extra software configuration modules
-      muni-bot.nixosModules.default
-    ];
+    spiritcryptModules =
+      commonModules
+      ++ [
+        # hardware
+        nixos-hardware.nixosModules.common-cpu-intel
+        nixos-hardware.nixosModules.common-gpu-intel
+        nixos-hardware.nixosModules.common-pc
+        nixos-hardware.nixosModules.common-pc-hdd
+
+        # extra software configuration modules
+        muni-bot.nixosModules.default
+
+        ./nas
+      ];
   in {
     nixosConfigurations = {
       littlepony = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         system = "x86_64-linux";
-        modules = commonModules ++ commonGraphicalModules ++ littleponyHardwareModules ++ [./laptop];
+        modules = littleponyModules;
       };
       ponycastle = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         system = "x86_64-linux";
-        modules = commonModules ++ commonGraphicalModules ++ ponycastleModules ++ [./desktop];
+        modules = ponycastleModules;
       };
       spiritcrypt = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs;};
         system = "x86_64-linux";
-        modules = commonModules ++ spiritcryptModules ++ [./nas];
+        modules = spiritcryptModules;
       };
     };
   };
