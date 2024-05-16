@@ -187,21 +187,6 @@
     };
   };
 
-  systemd.services = {
-    boot-sound = {
-      enable = true;
-      description = "bootup sound";
-      wants = ["sound.target"];
-      after = ["sound.target"];
-      wantedBy = ["multi-user.target"];
-      serviceConfig = {
-        Type = "oneshot";
-        ExecStart = "${pkgs.alsa-utils}/bin/aplay -c 2 -D hdmi:CARD=HDMI,DEV=0 ${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/system-ready.wav";
-        RemainAfterExit = false;
-      };
-    };
-  };
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
     users = {

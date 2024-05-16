@@ -119,6 +119,21 @@
     extraConfig = "DefaultLimitNOFILE=524288";
     user.extraConfig = "DefaultLimitNOFILE=524288";
 
+    services = {
+      boot-sound = {
+        enable = true;
+        description = "bootup sound";
+        wants = ["sound.target"];
+        after = ["sound.target"];
+        wantedBy = ["multi-user.target"];
+        serviceConfig = {
+          Type = "oneshot";
+          ExecStart = "${pkgs.alsa-utils}/bin/aplay -c 2 -D hdmi:CARD=HDMI,DEV=0 ${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/system-ready.wav";
+          RemainAfterExit = false;
+        };
+      };
+    };
+
     # for Blender
     tmpfiles.rules = [
       "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
