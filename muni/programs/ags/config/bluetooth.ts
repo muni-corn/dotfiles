@@ -41,7 +41,7 @@ export function Bluetooth() {
             const battery = device.battery_percentage || device.battery_level;
             return {
               icon: "\u{F00B1}",
-              primary: connectedDevices[0].name,
+              primary: "",
               secondary:
                 battery > 0
                   ? BLUETOOTH_BATTERY_ICONS[
@@ -56,8 +56,8 @@ export function Bluetooth() {
           default:
             return {
               icon: "\u{F00B1}",
-              primary: `${connectedDevices.length} devices`,
-              secondary: "",
+              primary: "",
+              secondary: `${connectedDevices.length}`,
               visible: true,
             };
         }

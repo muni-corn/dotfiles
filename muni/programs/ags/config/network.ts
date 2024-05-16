@@ -86,21 +86,12 @@ export function Network() {
     Utils.merge(
       [network.bind("primary"), network.bind("wifi"), network.bind("wired")],
       (primary, wifi, wired) => {
-        if (primary === "wired") {
-          return {
-            icon: getWiredIcon(),
-            primary: transformState(wired.state),
-            secondary: "",
-            visible: true,
-          };
-        } else {
-          return {
-            icon: getWifiIcon(),
-            primary: wifi.ssid || transformState(wifi.state),
-            secondary: wifi.ssid ? transformState(wifi.state) : "",
-            visible: true,
-          };
-        }
+        return {
+          icon: primary === "wired" ? getWiredIcon() : getWifiIcon(),
+          primary: primary === "wired" ? "" : wifi.ssid || "",
+          secondary: transformState(primary === "wired" ? wired.state : wifi.state),
+          visible: true,
+        };
       },
     ),
   );
