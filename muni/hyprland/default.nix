@@ -63,7 +63,6 @@ in {
 
     settings = let
       rgba = c: a: "rgba(${c}${a})";
-      rgb = c: "rgb(${c})";
 
       defaultAlpha = "80";
 
@@ -167,12 +166,7 @@ in {
       ];
 
       # startup apps
-      exec-once = let
-        statusBars =
-          if osConfig.networking.hostName == "ponycastle"
-          then "status-bar-0 status-bar-1 status-bar-2"
-          else "status-bar-laptop";
-      in [
+      exec-once = [
         # load last screen brightness
         "brillo -I &"
 
