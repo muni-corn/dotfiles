@@ -29,7 +29,7 @@ export function makeTile(data: Tile | Binding<any, any, Tile>) {
           className: "secondary",
         }),
       ],
-      spacing: 16,
+      spacing: 12,
       visible: data.as((d) => d.visible),
     });
   } else {
@@ -52,7 +52,7 @@ export function makeTile(data: Tile | Binding<any, any, Tile>) {
           className: "secondary",
         }),
       ],
-      spacing: 16,
+      spacing: 12,
       visible: data.visible,
     });
   }
@@ -82,7 +82,7 @@ export function makeProgressTile(
           valign: Align.CENTER,
         }),
       ],
-      spacing: 16,
+      spacing: 8,
       visible: data.as((d) => d.visible),
     });
   } else {
@@ -99,7 +99,7 @@ export function makeProgressTile(
           valign: Align.CENTER,
         }),
       ],
-      spacing: 16,
+      spacing: 8,
       visible: data.visible,
     });
   }

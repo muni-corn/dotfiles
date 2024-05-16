@@ -71,14 +71,14 @@ function SysTray() {
 // layout of the bar
 function Left(monitor: number) {
   return Widget.Box({
-    spacing: 32,
+    spacing: 20,
     children: [Workspaces(monitor), ClientTitle(monitor)],
   });
 }
 
 function Center() {
   return Widget.Box({
-    spacing: 32,
+    spacing: 20,
     children: [Clock(), Weather(), Media()],
   });
 }
@@ -86,7 +86,7 @@ function Center() {
 function Right() {
   return Widget.Box({
     hpack: "end",
-    spacing: 32,
+    spacing: 20,
     children: [Volume(), Bluetooth(), Network(), Battery(), SysTray()],
   });
 }
@@ -103,7 +103,7 @@ function Bar(monitor: number) {
       start_widget: Left(monitor),
       center_widget: Center(),
       end_widget: Right(),
-      spacing: 64,
+      spacing: 40,
     }),
   });
 }

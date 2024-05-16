@@ -34,10 +34,10 @@ progress {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
-trough:hover {
-  min-width: 128px;
+.workspaces {
+  margin-left: 16px;
 }
 
-.workspaces {
-  margin-left: 32px;
+.icon {
+  margin-right: 4px;
 }
