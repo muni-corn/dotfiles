@@ -21,34 +21,40 @@ in {
     wob
   ];
 
-  services.swayidle = {
+  services.hypridle = let
+    lockWarningCmd = "${pkgs.libnotify}/bin/notify-send -u low -t 29500 'Are you still there?' 'Your system will lock itself soon.'";
+    powerOff = "hyprctl dispatch dpms off";
+    powerOn = "hyprctl dispatch dpms on";
+  in {
     enable = true;
 
-    events = [
-      {
-        event = "before-sleep";
-        command = "${scripts.lock}";
-      }
-    ];
-    timeouts = let
-      lockWarningCmd = "${pkgs.libnotify}/bin/notify-send -u low -t 29500 'Are you still there?' 'Your system will lock itself soon.'";
-      powerOff = "hyprctl dispatch dpms off";
-      powerOn = "hyprctl dispatch dpms on";
-    in [
-      {
-        timeout = 570;
-        command = lockWarningCmd;
-      }
-      {
-        timeout = 600;
-        command = "${scripts.lock}";
-      }
-      {
-        timeout = 610;
-        command = powerOff;
-        resumeCommand = powerOn;
-      }
-    ];
+    settings = {
+      general = {
+        lock_cmd = "pidof hyprlock || ${scripts.lock}";
+        before_sleep_cmd = "loginctl lock-session";
+        after_sleep_cmd = powerOn;
+      };
+
+      listener = [
+        {
+          timeout = 570;
+          on-timeout = lockWarningCmd;
+        }
+        {
+          timeout = 600;
+          on-timeout = "${scripts.lock}";
+        }
+        {
+          timeout = 610;
+          on-timeout = powerOff;
+          on-resume = powerOn;
+        }
+        {
+          timeout = 1800;
+          on-timeout = "systemctl suspend";
+        }
+      ];
+    };
   };
 
   wayland.windowManager.hyprland = {
