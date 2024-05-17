@@ -1,4 +1,4 @@
-import { Tile, makeTile, percentageToIconFromList } from "utils";
+import { Attention, Tile, makeTile, percentageToIconFromList } from "utils";
 
 const battery = await Service.import("battery");
 
@@ -81,11 +81,21 @@ export function Battery() {
       battery.bind("charged"),
     ],
     (available, percent, time_remaining, charging, charged): Tile => {
+      let attention = Attention.Normal;
+      if (!charging && !charged) {
+        if (percent <= 10 || time_remaining <= 1800) {
+          attention = Attention.Alarm;
+        } else if (percent <= 20 || time_remaining <= 3600) {
+          attention = Attention.Warning;
+        }
+      }
+
       return {
         icon: getIcon(charged, charging, percent) || ICONS.unknown,
         primary: charged ? "Full" : `${percent}%`,
         secondary: getReadableTime(charged, charging, time_remaining),
         visible: available,
+        attention,
       };
     },
   );

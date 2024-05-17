@@ -41,3 +41,25 @@ progress {
 .icon {
   margin-right: 4px;
 }
+
+.alarm {
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in;
+    animation-name: alarm;
+    color: rgba(255, 0, 0, 1);
+}
+
+@keyframes alarm {
+  from {
+    color: rgba(255, 0, 0, 1);
+  }
+  to {
+    color: rgba(255, 0, 0, 0.5);
+  }
+}
+
+.warning {
+    color: #ffaa00;
+}

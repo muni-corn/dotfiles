@@ -1,36 +1,45 @@
 import { Align } from "types/@girs/gtk-3.0/gtk-3.0.cjs";
 import { Binding } from "types/service";
 
+export enum Attention {
+  Alarm = "alarm",
+  Warning = "warning",
+  Normal = "",
+}
+
 export interface Tile {
   icon: string;
   primary: string;
   secondary: string;
-  visible: boolean;
+  visible?: boolean;
+  attention?: Attention
 }
 
-export function makeTile(data: Tile | Binding<any, any, Tile>) {
+export function makeTile(
+  data: Tile | Binding<any, any, Tile>
+) {
   if ("as" in data) {
     return Widget.Box({
       children: [
         Widget.Label({
           label: data.as((d) => d.icon),
           visible: data.as((d) => d.icon?.length > 0),
-          classNames: ["icon", "primary"],
+          classNames: data.as((d) => ["icon", d.attention || "primary"]),
           widthRequest: 16,
         }),
         Widget.Label({
           label: data.as((d) => trunc(d.primary)),
           visible: data.as((d) => d.primary.length > 0),
-          className: "primary",
+          className: data.as((d) => d.attention || "primary"),
         }),
         Widget.Label({
           label: data.as((d) => trunc(d.secondary)),
           visible: data.as((d) => d.secondary.length > 0),
-          className: "secondary",
+          className: data.as((d) => d.attention || "secondary"),
         }),
       ],
       spacing: 12,
-      visible: data.as((d) => d.visible),
+      visible: data.as((d) => d.visible === undefined ? true : d.visible),
     });
   } else {
     return Widget.Box({
@@ -38,22 +47,22 @@ export function makeTile(data: Tile | Binding<any, any, Tile>) {
         Widget.Label({
           label: data.icon,
           visible: data.icon.length > 0,
-          classNames: ["icon", "primary"],
+          classNames: ["icon", data.attention || "primary"],
           widthRequest: 16,
         }),
         Widget.Label({
           label: trunc(data.primary),
           visible: data.primary.length > 0,
-          className: "primary",
+          className: data.attention || "primary",
         }),
         Widget.Label({
           label: trunc(data.secondary),
           visible: data.secondary.length > 0,
-          className: "secondary",
+          className: data.attention || "secondary",
         }),
       ],
       spacing: 12,
-      visible: data.visible,
+      visible: data.visible === undefined ? true : data.visible,
     });
   }
 }
