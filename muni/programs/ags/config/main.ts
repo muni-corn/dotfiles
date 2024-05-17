@@ -5,7 +5,8 @@ import { Weather } from "weather/index";
 import { Battery } from "battery";
 import { Bluetooth } from "bluetooth";
 import { Network } from "network";
-import { trunc } from "utils";
+import { makeProgressTile, percentageToIconFromList, trunc } from "utils";
+import brightness from "brightness";
 
 const hyprland = await Service.import("hyprland");
 const systemtray = await Service.import("systemtray");
@@ -65,6 +66,22 @@ function SysTray() {
   });
 }
 
+const BRIGHTNESS_ICONS = [
+    '\u{F00DB}',
+    '\u{F00DC}',
+    '\u{F00DD}',
+    '\u{F00DE}',
+    '\u{F00DF}',
+    '\u{F00E0}',
+];
+function Brightness() {
+  return makeProgressTile(brightness.bind("screen_value").as((value) => ({
+    icon: percentageToIconFromList(value, BRIGHTNESS_ICONS),
+    progress: value / 100,
+    visible: true,
+  })));
+}
+
 // layout of the bar
 function Left(monitor: number) {
   return Widget.Box({
@@ -84,7 +101,7 @@ function Right() {
   return Widget.Box({
     hpack: "end",
     spacing: 20,
-    children: [Volume(), Bluetooth(), Network(), Battery(), SysTray()],
+    children: [Brightness(), Volume(), Bluetooth(), Network(), Battery(), SysTray()],
   });
 }
 
