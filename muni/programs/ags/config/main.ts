@@ -76,9 +76,9 @@ const BRIGHTNESS_ICONS = [
 ];
 function Brightness() {
   return makeProgressTile(brightness.bind("screen_value").as((value) => ({
-    icon: percentageToIconFromList(value, BRIGHTNESS_ICONS),
+    icon: percentageToIconFromList(value, BRIGHTNESS_ICONS) || "",
     progress: value / 100,
-    visible: true,
+    visible: brightness.available,
   })));
 }
 

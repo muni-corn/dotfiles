@@ -25,8 +25,8 @@ class BrilloService extends Service {
   #interface = Utils.exec("sh -c 'ls -w1 /sys/class/backlight | head -1'");
 
   #rawScreenValue = 0;
-  #min = Number(Utils.exec("brillo -rc"));
-  #max = Number(Utils.exec("brillo -rm"));
+  #min = Number(Utils.exec("brillo -rc")) || 0;
+  #max = Number(Utils.exec("brillo -rm")) || 1;
 
   get available() {
     return this.#interface.trim() !== "";
@@ -59,7 +59,7 @@ class BrilloService extends Service {
   }
 
   #onChange() {
-    this.#rawScreenValue = Number(Utils.exec("brillo -rG"));
+    this.#rawScreenValue = Number(Utils.exec("brillo -rG")) || 0;
 
     // or use Service.changed(propName: string) which does the above two
     this.changed('screen-value');
