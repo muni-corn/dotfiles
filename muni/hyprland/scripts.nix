@@ -1,6 +1,6 @@
 {
   config,
-  osConfig,
+  lib,
   pkgs,
   ...
 }: let
@@ -39,6 +39,12 @@
       ${pkgs.brillo}/bin/brillo -q ${brilloFlags}
       ${pkgs.brillo}/bin/brillo -G | cut -d'.' -f1 > $XDG_RUNTIME_DIR/hypr.wob &
     '';
+
+  journalFilePath = notebookDir: dateStr: let
+    split = lib.strings.splitString "/" dateStr;
+    parts = map (part: "(date +${part})") split;
+    dateDir = builtins.concatStringsSep "/" parts;
+  in "${notebookDir}/journal/${dateDir}.norg";
 in {
   dir = scriptsDir;
 
@@ -64,4 +70,13 @@ in {
   '';
 
   lock = import ./lock_script.nix {inherit config pkgs;};
+
+  openJournalFile = notebookDir: dateStr: let
+    filePath = journalFilePath notebookDir dateStr;
+  in pkgs.writeScript "open-journal-file-${dateStr}" ''
+    #!${pkgs.fish}/bin/fish
+    set parent_dir (path dirname ${filePath})
+    mkdir -p $parent_dir
+    nvim ${filePath}
+  '';
 }

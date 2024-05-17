@@ -5,7 +5,7 @@
   pkgs,
   ...
 }: let
-  scripts = import ./scripts.nix {inherit config osConfig pkgs;};
+  scripts = import ./scripts.nix {inherit config lib osConfig pkgs;};
 in {
   systemd.user = {
     services = {

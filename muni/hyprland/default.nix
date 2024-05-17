@@ -1,10 +1,11 @@
 {
   config,
+  lib,
   osConfig,
   pkgs,
   ...
 }: let
-  scripts = import ./scripts.nix {inherit config osConfig pkgs;};
+  scripts = import ./scripts.nix {inherit config lib osConfig pkgs;};
 in {
   imports = [
     ./lock.nix

@@ -31,7 +31,7 @@
 
   appMenu = ''${config.programs.rofi.finalPackage}/bin/rofi -p "Run what?" -show drun'';
 
-  scripts = import ./scripts.nix {inherit config osConfig pkgs shell;};
+  scripts = import ./scripts.nix {inherit config lib osConfig pkgs shell;};
 in {
   wayland.windowManager.hyprland = {
     settings = {
@@ -100,16 +100,21 @@ in {
         (b "SUPER" "e" "exec" ''${terminal} ${withShell "nnn"}'')
         (b "SUPER" "n" "exec" scripts.quickCode)
         (b "SUPER" "p" "exec" ''${terminal} ${withShell "htop"}'')
+        (b "SUPER" "t" "exec" (notebookTerminalWithShell "nvim ${notebookDir}/todo.norg"))
         (b "SUPER" "w" "exec" apps.browser)
         (b "SUPER_CTRL" "b" "exec" ''${terminal} ${withShell "bluetoothctl"}'')
         (b "SUPER_CTRL" "e" "exec" "rofimoji --prompt Emoji")
         (b "SUPER_CTRL" "n" "exec" (notebookTerminalWithShell "nvim ${notebookDir}/new/(date +%Y%m%d-%H%M%S).norg"))
         (b "SUPER_CTRL" "p" "exec" "${pkgs.pavucontrol}/bin/pavucontrol")
         (b "SUPER_CTRL" "r" "exec" "${scripts.dir}/toggle_gammastep.fish")
-        (b "SUPER_CTRL" "t" "exec" (notebookTerminalWithShell "nvim ${notebookDir}/todo.norg"))
         (b "SUPER_SHIFT" "b" "exec" (notebookTerminalWithShell "nvim ${notebookDir}/bored.norg"))
         (b "SUPER_SHIFT" "m" "exec" apps.media)
         (b "SUPER_SHIFT" "n" "exec" (notebookTerminalWithShell "nnn ${notebookDir}"))
+
+        # journal shortcuts (d for diary)
+        (b "SUPER" "d" "exec" (notebookTerminalWithShell "${scripts.openJournalFile notebookDir "%Y/%m%b/%d"}"))
+        (b "SUPER_ALT" "d" "exec" (notebookTerminalWithShell "${scripts.openJournalFile notebookDir "%Y/w%U"}"))
+        (b "SUPER_SHIFT" "d" "exec" (notebookTerminalWithShell "nnn ${notebookDir}/journal"))
 
         # lock
         (b "SUPER" "Escape" "exec" scripts.lock)
