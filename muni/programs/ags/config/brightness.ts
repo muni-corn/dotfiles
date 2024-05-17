@@ -17,7 +17,6 @@ class BrilloService extends Service {
         // 'w' means writable
         // guess what 'rw' means
         "screen-value": ["float", "rw"],
-        "percent-value": ["float", "rw"],
       },
     );
   }
@@ -29,13 +28,18 @@ class BrilloService extends Service {
   #min = Number(Utils.exec("brillo -rc"));
   #max = Number(Utils.exec("brillo -rm"));
 
+  get available() {
+    return this.#interface.trim() !== "";
+  }
+
   // the getter has to be in snake_case
   get screen_value() {
     return (100 * (this.#rawScreenValue - this.#min)) / (this.#max - this.#min);
   }
 
   // the setter has to be in snake_case too
-  set screen_value(raw_value) {
+  set screen_value(percent) {
+    let raw_value = this.#min + ((this.#max - this.#min) * percent) / 100;
     if (raw_value < this.#min) raw_value = this.#min;
     else if (raw_value > this.#max) raw_value = this.#max;
 
