@@ -5,6 +5,7 @@ import { Weather } from "weather/index";
 import { Battery } from "battery";
 import { Bluetooth } from "bluetooth";
 import { Network } from "network";
+import { trunc } from "utils";
 
 const hyprland = await Service.import("hyprland");
 const systemtray = await Service.import("systemtray");
@@ -36,18 +37,14 @@ function Workspaces(monitor: number) {
   });
 }
 
-const MAX_CLIENT_TITLE_LENGTH = 48;
 function ClientTitle(monitor: number) {
   return Widget.Label({
     classNames: ["secondary", "client-title"],
-    label: hyprland.bind("active").as((active) => {
-      if (active.monitor.id === monitor) {
-        let title = active.client.title;
-        if (title.length > MAX_CLIENT_TITLE_LENGTH)
-          title = title.slice(0, MAX_CLIENT_TITLE_LENGTH) + "…";
-        return title;
-      } else return "";
-    }),
+    label: hyprland
+      .bind("active")
+      .as((active) =>
+        active.monitor.id === monitor ? trunc(active.client.title, 48) : "",
+      ),
   });
 }
 

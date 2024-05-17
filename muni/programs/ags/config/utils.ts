@@ -19,12 +19,12 @@ export function makeTile(data: Tile | Binding<any, any, Tile>) {
           widthRequest: 16,
         }),
         Widget.Label({
-          label: data.as((d) => d.primary),
+          label: data.as((d) => trunc(d.primary)),
           visible: data.as((d) => d.primary.length > 0),
           className: "primary",
         }),
         Widget.Label({
-          label: data.as((d) => d.secondary),
+          label: data.as((d) => trunc(d.secondary)),
           visible: data.as((d) => d.secondary.length > 0),
           className: "secondary",
         }),
@@ -42,12 +42,12 @@ export function makeTile(data: Tile | Binding<any, any, Tile>) {
           widthRequest: 16,
         }),
         Widget.Label({
-          label: data.primary,
+          label: trunc(data.primary),
           visible: data.primary.length > 0,
           className: "primary",
         }),
         Widget.Label({
-          label: data.secondary,
+          label: trunc(data.secondary),
           visible: data.secondary.length > 0,
           className: "secondary",
         }),
@@ -113,4 +113,8 @@ export function percentageToIconFromList(percentage: number, icons: string[]) {
     Math.floor((listLength * percentage) / 100),
   );
   return icons[index];
+}
+
+export function trunc(s: string, n = 32) {
+  return s.length > n ? s.slice(0, n) + "…" : s;
 }
