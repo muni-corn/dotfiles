@@ -82,7 +82,7 @@ export function Battery() {
     ],
     (available, percent, time_remaining, charging, charged): Tile => {
       let attention = Attention.Normal;
-      if (!charging && !charged) {
+      if (!charging && !charged && time_remaining > 0 && percent > 0) {
         if (percent <= 10 || time_remaining <= 1800) {
           attention = Attention.Alarm;
         } else if (percent <= 20 || time_remaining <= 3600) {
