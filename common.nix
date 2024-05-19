@@ -14,7 +14,7 @@
       "kernel.task_delayacct" = 1;
     };
 
-    kernelParams = ["quiet" "fbcon=nodefer" "nohibernate"];
+    kernelParams = ["quiet" "fbcon=nodefer"];
 
     loader = {
       efi.canTouchEfiVariables = true;
