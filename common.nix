@@ -100,6 +100,16 @@
       pinentryPackage = pkgs.pinentry-rofi;
     };
 
+    nh = {
+      enable = true;
+      clean = {
+        enable = true;
+        dates = "monthly";
+        extraArgs = "--keep 5 --keep-since 30d";
+      };
+      flake = "/home/muni/dotfiles";
+    };
+
     ssh = {
       knownHosts = {
         spiritcrypt = {
