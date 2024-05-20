@@ -83,6 +83,12 @@
     };
 
     ssh = {
+      knownHosts = {
+        spiritcrypt = {
+          hostNames = ["192.168.68.70"];
+          publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBCyWusqqwfvUJHBhrpI9qPGFJpg4vHvU/QDrsL9hCu6";
+        };
+      };
       setXAuthLocation = true;
     };
   };
