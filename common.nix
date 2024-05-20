@@ -68,6 +68,24 @@
 
   location.provider = "geoclue2";
 
+  nix = {
+    package = pkgs.nixVersions.latest;
+    # enables flakes
+    extraOptions = ''
+      experimental-features = nix-command flakes
+    '';
+    optimise = {
+      automatic = true;
+      dates = ["weekly"];
+    };
+    settings = {
+      auto-optimise-store = true;
+      allowed-users = ["muni"];
+      substituters = ["https://cache.nixos.org"];
+      trusted-users = ["root" "muni"];
+    };
+  };
+
   # allow unfree packages to be installed
   nixpkgs.config.allowUnfree = true;
 

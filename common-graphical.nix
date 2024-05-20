@@ -109,30 +109,6 @@
     tcpcrypt.enable = true;
   };
 
-  nix = {
-    package = pkgs.nixVersions.latest;
-    # enables flakes
-    extraOptions = ''
-      experimental-features = nix-command flakes
-    '';
-    gc = {
-      automatic = true;
-      dates = "monthly";
-      options = "--delete-older-than 30d";
-      persistent = true;
-    };
-    optimise = {
-      automatic = true;
-      dates = ["weekly"];
-    };
-    settings = {
-      auto-optimise-store = true;
-      allowed-users = ["muni"];
-      substituters = ["https://cache.nixos.org"];
-      trusted-users = ["root" "muni"];
-    };
-  };
-
   programs = {
     adb.enable = true;
     evolution = {
