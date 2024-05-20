@@ -8,13 +8,17 @@
   ];
 
   boot = {
+    consoleLogLevel = 0;
+
+    initrd.verbose = false;
+
     kernel.sysctl = {
       "fs.inotify.max_user_watches" = 524288;
       "kernel.sysrq" = "0xf0";
       "kernel.task_delayacct" = 1;
     };
 
-    kernelParams = ["quiet" "fbcon=nodefer"];
+    kernelParams = ["quiet" "fbcon=nodefer" "udev.log_level=3"];
 
     loader = {
       efi.canTouchEfiVariables = true;
