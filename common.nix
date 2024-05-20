@@ -130,12 +130,10 @@
     # for secure boot (i hope)
     tpm2.enable = true;
 
-    # for lockers to use password
-    pam.services = {
-      hyprlock.text = ''
-        auth include login
-      '';
-    };
+    # for hyprlock to use password
+    pam.services.hyprlock.text = ''
+      auth include login
+    '';
   };
 
   services = {
