@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }: {
@@ -91,7 +90,7 @@
     useDHCP = lib.mkDefault true;
     interfaces = {
       wlan0.useDHCP = true;
-      enp8s0.useDHCP = true;
+      enp14s0.useDHCP = true;
     };
   };
 
