@@ -6,9 +6,6 @@
     # aylur's gtk shell
     ags.url = "github:Aylur/ags";
 
-    # hyprlock for home-manager config
-    hyprlock.url = "github:hyprwm/hyprlock?ref=main";
-
     # realtime audio
     musnix.url = "github:musnix/musnix";
 
@@ -58,7 +55,6 @@
     nixpkgs,
     home-manager,
     ags,
-    hyprlock,
     iosevka-muse,
     muni-bot,
     muni-wallpapers,
@@ -75,8 +71,6 @@
     surrealdb,
     vscode-js-debug,
   } @ inputs: let
-    lockFile = nixpkgs.lib.importJSON ./flake.lock;
-
     overlaysModule = {
       nixpkgs.overlays = [
         iosevka-muse.overlay
@@ -85,7 +79,6 @@
         nix-minecraft.overlay
         nixpkgs-wayland.overlays.default
         plymouth-theme-musicaloft-rainbow.overlay
-        hyprlock.overlays.default
       ];
     };
 
@@ -121,7 +114,6 @@
           };
           sharedModules = [
             ags.homeManagerModules.default
-            hyprlock.homeManagerModules.default
             nixvim.homeManagerModules.nixvim
           ];
           useGlobalPkgs = true;
