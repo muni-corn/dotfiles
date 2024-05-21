@@ -31,7 +31,7 @@
           (ssd "cryptvault3" "4c530385-1be4-4b19-a0f3-5a2e3f3a96a3")
         ];
     };
-    kernelModules = ["kvm-intel"];
+    kernelModules = ["kvm-amd"];
     kernelParams = [
       "acpi_enforce_resources=lax"
       "video=DP-2:2560x1440@60"
