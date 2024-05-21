@@ -105,7 +105,7 @@ in {
           passes = 3;
           size = 12;
           noise = 0.025;
-          contrast = 1.0;
+          contrast = 0.5;
           brightness = 1.0;
         };
       };
