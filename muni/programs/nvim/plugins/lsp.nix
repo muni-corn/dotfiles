@@ -75,7 +75,7 @@ in {
         zls.enable = true;
         nixd = {
           enable = true;
-          settings.formatting.command = "alejandra";
+          settings.formatting.command = ["alejandra"];
         };
         rust-analyzer = {
           enable = true;
