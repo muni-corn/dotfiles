@@ -1,20 +1,30 @@
 {
-  services.btrbk.instances.backup = {
-    onCalendar = "*:00/15";
-    settings = {
-      snapshot_create = "onchange";
-      snapshot_preserve_min = "12h";
-      snapshot_preserve = "24h 7d 4w 2m";
-      target_preserve = "24h 7d 8w 12m 2y";
-      target_preserve_min = "1h";
-      preserve_hour_of_day = "5";
-      volume."/" = {
-        subvolume = {
-          home = {};
-          var = {};
+  services.btrbk.instances = {
+    snapshots = {
+      onCalendar = "*:00/5";
+      settings = {
+        snapshot_create = "onchange";
+        snapshot_preserve_min = "48h";
+        snapshot_preserve = "48h 28d 8w";
+        preserve_hour_of_day = "5";
+        volume."/" = {
+          subvolume.home = {};
+          snapshot_dir = "/snaps";
         };
-        snapshot_dir = "/snaps";
-        target = "/vault/backup/ponycastle";
+      };
+    };
+    localbackup = {
+      onCalendar = "hourly";
+      settings = {
+        snapshot_create = "no";
+        target_preserve = "48h 28d 8w 12m *y";
+        target_preserve_min = "1h";
+        preserve_hour_of_day = "5";
+        volume."/" = {
+          subvolume.home = {};
+          target = "/vault/backup/ponycastle";
+          snapshot_dir = "/snaps";
+        };
       };
     };
   };
