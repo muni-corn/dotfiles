@@ -1,10 +1,9 @@
-{pkgs, ...}: {
-  programs.ags = {
-    enable = true;
-    configDir = ./config;
+{
+  programs = {
+    ags = {
+      enable = true;
+      configDir = ./config;
+    };
+    bun.enable = true;
   };
-
-  home.packages = with pkgs; [
-    bun
-  ];
 }
