@@ -163,7 +163,6 @@
       ++ [
         # hardware
         nixos-hardware.nixosModules.common-cpu-intel
-        nixos-hardware.nixosModules.common-gpu-intel
         nixos-hardware.nixosModules.common-pc
         nixos-hardware.nixosModules.common-pc-hdd
 
