@@ -73,12 +73,49 @@
   system.stateVersion = "21.05"; # Did you read the comment?
 
   services = {
-    btrbk.sshAccess = [
-      {
-        key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDAO190t98ValnU2yqPQMs1MJzHQcp9wpvywrfLkG7c3";
-        roles = ["source" "info" "delete"];
-      }
-    ];
+    btrbk = {
+      sshAccess = [
+        {
+          key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDAO190t98ValnU2yqPQMs1MJzHQcp9wpvywrfLkG7c3";
+          roles = ["source" "info" "delete"];
+        }
+      ];
+      instances = {
+        snapshots = {
+          onCalendar = "*:00/5";
+          settings = {
+            snapshot_create = "onchange";
+            snapshot_preserve_min = "2h";
+            snapshot_preserve = "48h";
+            preserve_hour_of_day = "5";
+            volume."/" = {
+              subvolume = {
+                home = {};
+                var = {};
+              };
+              snapshot_dir = "/snaps";
+            };
+          };
+        };
+        localbackup = {
+          onCalendar = "hourly";
+          settings = {
+            snapshot_create = "no";
+            target_preserve = "48h 28d 8w 12m *y";
+            target_preserve_min = "1h";
+            preserve_hour_of_day = "5";
+            volume."/" = {
+              subvolume = {
+                home = {};
+                var = {};
+              };
+              target = "/crypt/backup/spiritcrypt";
+              snapshot_dir = "/snaps";
+            };
+          };
+        };
+      };
+    };
 
     surrealdb = {
       enable = true;
