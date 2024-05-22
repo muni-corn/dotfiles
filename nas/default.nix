@@ -12,10 +12,9 @@
     ../sops
   ];
 
-  networking.hostName = "spiritcrypt"; # Define your hostname.
-
   # Enable networking
   networking = {
+    hostName = "spiritcrypt"; # Define your hostname.
     networkmanager.enable = true;
     wireless.iwd.enable = true;
   };
