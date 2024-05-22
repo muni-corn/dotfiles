@@ -73,10 +73,11 @@ in {
 
   openJournalFile = notebookDir: dateStr: let
     filePath = journalFilePath notebookDir dateStr;
-  in pkgs.writeScript "open-journal-file-${dateStr}" ''
-    #!${pkgs.fish}/bin/fish
-    set parent_dir (path dirname ${filePath})
-    mkdir -p $parent_dir
-    nvim ${filePath}
-  '';
+  in
+    pkgs.writeScript "open-journal-file-${dateStr}" ''
+      #!${pkgs.fish}/bin/fish
+      set parent_dir (path dirname ${filePath})
+      mkdir -p $parent_dir
+      nvim ${filePath}
+    '';
 }
