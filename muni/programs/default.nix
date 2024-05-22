@@ -86,8 +86,7 @@
       package =
         pkgs.pass.withExtensions
         (exts: [
-          #exts.pass-audit
-          #exts.pass-import
+          exts.pass-audit
           exts.pass-otp
           exts.pass-update
         ]);
