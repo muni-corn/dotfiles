@@ -169,19 +169,12 @@
       };
     };
 
-    pandoc.enable = true;
-
     ripgrep.enable = true;
 
     skim = {
       enable = true;
       enableFishIntegration = true;
       defaultCommand = ''fd --type f'';
-    };
-
-    texlive = {
-      enable = true;
-      extraPackages = tpkgs: {inherit (tpkgs) scheme-medium;};
     };
 
     tmux = {
