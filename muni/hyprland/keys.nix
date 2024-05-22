@@ -99,7 +99,7 @@ in {
         (b "SUPER" "c" "exec" ''${terminal} ${withShell "qalc"}'')
         (b "SUPER" "e" "exec" ''${terminal} ${withShell "nnn"}'')
         (b "SUPER" "n" "exec" scripts.quickCode)
-        (b "SUPER" "p" "exec" ''${terminal} ${withShell "htop"}'')
+        (b "SUPER" "p" "exec" ''${terminal} ${withShell "btop"}'')
         (b "SUPER" "t" "exec" (notebookTerminalWithShell "nvim ${notebookDir}/todo.norg"))
         (b "SUPER" "w" "exec" apps.browser)
         (b "SUPER_CTRL" "b" "exec" ''${terminal} ${withShell "bluetoothctl"}'')
