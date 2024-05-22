@@ -75,7 +75,7 @@
     btrbk = {
       sshAccess = [
         {
-          key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDAO190t98ValnU2yqPQMs1MJzHQcp9wpvywrfLkG7c3";
+          key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINwZxkJFGmyRqrPMeBbtupxSDYkhrX3gtyHCJvfy5sQX btrbk@ponycastle";
           roles = ["source" "info" "delete"];
         }
       ];
