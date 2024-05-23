@@ -76,7 +76,7 @@
       sshAccess = [
         {
           key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINwZxkJFGmyRqrPMeBbtupxSDYkhrX3gtyHCJvfy5sQX btrbk@ponycastle";
-          roles = ["source" "info" "delete"];
+          roles = ["source" "info" "delete" "target"];
         }
       ];
       instances = {
