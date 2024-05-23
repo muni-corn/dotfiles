@@ -52,6 +52,7 @@
       # misc
       clinfo
       psmisc
+      rsync
       vulkan-tools
     ];
   };

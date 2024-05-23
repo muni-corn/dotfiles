@@ -100,7 +100,6 @@ in {
             peaclock
             protontricks
             qrencode
-            rsync
             wirelesstools
             xdragon
           ])
