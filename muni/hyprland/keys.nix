@@ -12,7 +12,7 @@
   terminalInDir = dir: "${terminal} -d ${dir}";
   withShell = cmd: ''${shell} -i -c "${cmd}"'';
 
-  notebookTerminal = ''${terminal} -d ${notebookDir}'';
+  notebookTerminal = terminalInDir notebookDir;
   notebookTerminalWithShell = cmd: ''${notebookTerminal} ${withShell cmd}'';
 
   b = mods: key: dispatcher: args:
