@@ -117,7 +117,7 @@ in {
         (b "SUPER_SHIFT" "d" "exec" (notebookTerminalWithShell "nnn ${notebookDir}/journal"))
 
         # lock
-        (b "SUPER" "Escape" "exec" scripts.lock)
+        (b "SUPER" "Escape" "exec" "loginctl lock-session")
 
         # notifications
         (b "CTRL" "Escape" "exec" "dunstctl close")

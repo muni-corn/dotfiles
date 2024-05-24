@@ -69,8 +69,6 @@ in {
     ${pkgs.swww}/bin/swww img $new_wall
   '';
 
-  lock = import ./lock_script.nix {inherit config pkgs;};
-
   openJournalFile = notebookDir: dateStr: let
     filePath = journalFilePath notebookDir dateStr;
   in

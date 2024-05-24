@@ -31,7 +31,7 @@ in {
 
     settings = {
       general = {
-        lock_cmd = "pidof hyprlock || ${scripts.lock}";
+        lock_cmd = "pidof hyprlock || hyprlock";
         before_sleep_cmd = "loginctl lock-session";
         after_sleep_cmd = powerOn;
       };
@@ -43,7 +43,7 @@ in {
         }
         {
           timeout = 600;
-          on-timeout = "${scripts.lock}";
+          on-timeout = "loginctl lock-session";
         }
         {
           timeout = 610;
