@@ -1,8 +1,4 @@
 {
-  config,
-  pkgs,
-  ...
-}: {
   imports = [
     ./autocmd.nix
     ./globals.nix
