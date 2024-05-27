@@ -9,7 +9,6 @@
     ./dap.nix
     ./emmet.nix
     ./floaterm.nix
-    ./gitsigns.nix
     ./lsp.nix
     ./lspkind.nix
     ./mini
@@ -23,7 +22,6 @@
   programs.nixvim = {
     plugins = {
       auto-save.enable = true;
-      fugitive.enable = true;
       undotree.enable = true;
     };
 

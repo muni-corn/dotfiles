@@ -8,19 +8,48 @@
   programs.nixvim.plugins.mini = {
     enable = true;
     modules = {
-      ai = {__empty = null;};
-      animate = {__empty = null;};
+      ai.__empty = null;
+      animate.__empty = null;
       basics.options.extra_ui = true;
-      bracketed = {__empty = null;};
-      comment = {__empty = null;};
-      extra = {__empty = null;};
-      indentscope = {__empty = null;};
-      notify = {window.config.border = "rounded";};
-      pairs = {__empty = null;};
-      pick = {window.config.border = "rounded";};
-      sessions = {__empty = null;};
-      surround = {__empty = null;};
-      trailspace = {__empty = null;};
+      bracketed.__empty = null;
+      bufremove.__empty = null;
+      comment.__empty = null;
+      diff.signs = {
+        add = "+";
+        change = "~";
+        delete = "-";
+      };
+      extra.__empty = null;
+      git.__empty = null;
+      indentscope.__empty = null;
+      jump.__empty = null;
+      jump2d.__empty = null;
+      move.__empty = null;
+      notify = {
+        lsp_progress.enable = false;
+        window.config.border = "rounded";
+      };
+      operators.__empty = null;
+      pairs.__empty = null;
+      pick = {
+        options.use_cache = true;
+        window = {
+          config.border = "rounded";
+          prompt_prefix = ": ";
+        };
+      };
+      sessions.__empty = null;
+      # statusline = { # TODO
+      #   content = {
+      #     active = "";
+      #     inactive = "";
+      #   };
+      # };
+      splitjoin.__empty = null;
+      surround.__empty = null;
+      # tabline.format = {__raw = "";}; # TODO
+      trailspace.__empty = null;
+      visits.__empty = null;
     };
   };
 }
