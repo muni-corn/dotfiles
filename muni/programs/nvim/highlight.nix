@@ -222,6 +222,10 @@ in {
       QuickFixLine = hl null "dark-gray" {};
       Search = hl "dark-gray" "orange" {};
       SignColumn = hl null null {};
+      TreesitterContextBottom = hl null null {
+        sp = nameToHex "light-gray";
+        underline = true;
+      };
       Twilight = hl "gray" null {};
       VertSplit = hl "gray" null {};
       VirtualText = hl "gray" null {italic = true;};
@@ -243,5 +247,6 @@ in {
       Warning = ["WarningMsg"];
       DiffAdd = ["@diff.plus" "diffAdded"];
       DiffDelete = ["@diff.minus" "diffRemoved"];
+      TreesitterContextBottom = ["TreesitterContextLineNumberBottom"];
     };
 }
