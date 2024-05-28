@@ -93,7 +93,7 @@
     window = {
       config = {
         border = "rounded";
-        width = 32;
+        width = "auto";
       };
       delay = 0;
     };
