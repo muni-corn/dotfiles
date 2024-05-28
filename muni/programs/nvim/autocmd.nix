@@ -16,7 +16,7 @@
                 return
               end
             end
-            vim.diagnostic.open_float({focus = false})
+            vim.diagnostic.open_float()
           end
         '';
       };
