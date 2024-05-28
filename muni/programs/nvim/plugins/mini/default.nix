@@ -18,7 +18,7 @@
         signs = {
           add = "+";
           change = "~";
-          delete = "-";
+          delete = "_";
         };
         style = "sign";
       };
