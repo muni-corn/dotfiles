@@ -133,13 +133,13 @@ in {
       };
 
       # diffs
+      Added = hl "green" null {};
+      Changed = hl "orange" null {};
       DiffAdd = hl "green" "dark-gray" {bold = true;};
       DiffChange = hl null null {};
       DiffDelete = hl "red" "dark-gray" {bold = true;};
       DiffText = hl "yellow" "dark-gray" {bold = true;};
-      GitGutterAdd = hl "green" null {bold = true;};
-      GitGutterChange = hl "orange" null {bold = true;};
-      GitGutterDelete = hl "red" null {bold = true;};
+      Removed = hl "red" null {};
 
       # state
       Debug = hl stateColors.debug null {};

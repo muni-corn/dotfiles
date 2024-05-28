@@ -14,10 +14,13 @@
       bracketed.__empty = null;
       bufremove.__empty = null;
       comment.__empty = null;
-      diff.signs = {
-        add = "+";
-        change = "~";
-        delete = "-";
+      diff.view = {
+        signs = {
+          add = "+";
+          change = "~";
+          delete = "-";
+        };
+        style = "sign";
       };
       extra.__empty = null;
       git.__empty = null;

@@ -23,7 +23,8 @@
                 :t :t}
       block (fn [content hl-color]
               ;; if no content, no block
-              (if (= (length content) 0) ""
+              (if (= (length content) 0)
+                  ""
                   (let [inside-hl (string.format "%%#Custom%sStatus#" hl-color)]
                     (.. inside-hl content))))
       block-separator "%#StatusLine#  "
@@ -35,7 +36,7 @@
                          "")))
       modification-block (fn []
                            (let [modified? vim.bo.modified
-                                readonly? vim.bo.readonly]
+                                 readonly? vim.bo.readonly]
                              (if (and modified? readonly?)
                                  (block " +" :Red)
                                  modified?
@@ -47,11 +48,7 @@
       line-column "%l:%2c"
       file-type (fn []
                   (string.lower vim.bo.filetype))
-      git-branch (fn []
-                   (let [signs vim.b.gitsigns_status_dict
-                         head (or (?. signs :head) "")
-                         head-empty? (= (length head) 0)]
-                     (if head-empty? "" (.. " " head))))
+      git-branch (fn [] (or vim.b.minigit_summary_string ""))
       file-path "%f"
       current-mode (fn []
                      (let [api-mode (vim.api.nvim_get_mode)
@@ -75,13 +72,10 @@
                          (when (> (length p) 0)
                            p))))
       active-status (fn []
-                      (.. "%#BarPill#  %#StatusLine# " (table.concat (left-blocks) block-separator)
-                          block-separator
-                          "%<%="
-                          (lsp-status)
-                          block-separator
-                          "%="
-                          (table.concat (right-blocks) block-separator)
+                      (.. "%#BarPill#  %#StatusLine# "
+                          (table.concat (left-blocks) block-separator)
+                          block-separator "%<%=" (lsp-status) block-separator
+                          "%=" (table.concat (right-blocks) block-separator)
                           "%#StatusLine# %#BarPill#  "))
       inactive-status (fn []
                         (.. "       " file-path "%<%=" percent-scroll "    "))]
