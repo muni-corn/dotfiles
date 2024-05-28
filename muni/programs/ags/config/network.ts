@@ -64,13 +64,17 @@ function transformState(state: Wifi["state"]): string {
     case "activated":
       return "";
     case "need_auth":
-      return "Waiting for authorization";
+      return "Sign-in needed";
     case "config":
       return "Configuring";
     case "prepare":
       return "Preparing";
     case "secondaries":
       return "Waiting for secondaries";
+    case "ip_check":
+      return "Checking IP";
+    case "ip_config":
+      return "Configuring IP";
     default:
       let transformed = state as string;
       transformed = transformed.replace("_", " ");
@@ -89,7 +93,9 @@ export function Network() {
         return {
           icon: primary === "wired" ? getWiredIcon() : getWifiIcon(),
           primary: primary === "wired" ? "" : wifi.ssid || "",
-          secondary: transformState(primary === "wired" ? wired.state : wifi.state),
+          secondary: transformState(
+            primary === "wired" ? wired.state : wifi.state,
+          ),
           visible: true,
         };
       },
