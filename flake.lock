@@ -690,6 +690,22 @@
         "type": "github"
       }
     },
+    "mini-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1716711552,
+        "narHash": "sha256-0FObg6ayVpdKV9w1sxG6Kcm+7p0BkEFVGtMaP2S0m98=",
+        "owner": "echasnovski",
+        "repo": "mini.nvim",
+        "rev": "b0b435873375c4341f2ecbcb95e9e645abe0d679",
+        "type": "github"
+      },
+      "original": {
+        "owner": "echasnovski",
+        "repo": "mini.nvim",
+        "type": "github"
+      }
+    },
     "muni-bot": {
       "inputs": {
         "fenix": "fenix",
@@ -1419,6 +1435,7 @@
         "ags": "ags",
         "home-manager": "home-manager",
         "iosevka-muse": "iosevka-muse",
+        "mini-nvim": "mini-nvim",
         "muni-bot": "muni-bot",
         "muni-wallpapers": "muni-wallpapers",
         "muse-sounds": "muse-sounds",

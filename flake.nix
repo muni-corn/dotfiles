@@ -9,6 +9,12 @@
     # realtime audio
     musnix.url = "github:musnix/musnix";
 
+    # mini-nvim
+    mini-nvim = {
+      url = "github:echasnovski/mini.nvim";
+      flake = false;
+    };
+
     # neorg overlay for up-to-date neorg stuff
     neorg.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
 
@@ -56,6 +62,7 @@
     home-manager,
     ags,
     iosevka-muse,
+    mini-nvim,
     muni-bot,
     muni-wallpapers,
     muse-sounds,
@@ -71,6 +78,16 @@
     surrealdb,
     vscode-js-debug,
   } @ inputs: let
+    miniNvimOverlay = final: prev: {
+      vimPlugins =
+        prev.vimPlugins
+        // {
+          mini-nvim = prev.vimPlugins.mini-nvim.overrideAttrs (old: {
+            src = inputs.mini-nvim;
+          });
+        };
+    };
+
     overlaysModule = {
       nixpkgs.overlays = [
         iosevka-muse.overlay
@@ -79,6 +96,7 @@
         nix-minecraft.overlay
         nixpkgs-wayland.overlays.default
         plymouth-theme-musicaloft-rainbow.overlay
+        miniNvimOverlay
       ];
     };
 
