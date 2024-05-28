@@ -91,7 +91,10 @@
     ];
 
     window = {
-      config.border = "rounded";
+      config = {
+        border = "rounded";
+        width = 32;
+      };
       delay = 0;
     };
   };
