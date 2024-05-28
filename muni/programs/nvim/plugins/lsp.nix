@@ -59,7 +59,7 @@ in {
 
       capabilities = ''
         capabilities = vim.tbl_extend("force", capabilities, lsp_status.capabilities)
-        capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
+        -- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
       '';
 
       servers = {

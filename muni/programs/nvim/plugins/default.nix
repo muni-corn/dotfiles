@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   imports = [
-    ./cmp.nix
     ./copilot.nix
     ./dap.nix
     ./emmet.nix
