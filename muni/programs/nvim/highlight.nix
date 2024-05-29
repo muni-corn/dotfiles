@@ -224,7 +224,7 @@ in {
       SignColumn = hl null null {};
       TreesitterContextBottom = hl null null {
         sp = nameToHex "light-gray";
-        underline = true;
+        undercurl = true;
       };
       Twilight = hl "gray" null {};
       VertSplit = hl "gray" null {};
