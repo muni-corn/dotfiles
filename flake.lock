@@ -523,6 +523,23 @@
         "type": "github"
       }
     },
+    "geonkick": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1696659412,
+        "narHash": "sha256-RzWK1PzgrrLWpSJF4CpdBY1c5xOEncGxr8yUNJGB0Mw=",
+        "owner": "Geonkick-Synthesizer",
+        "repo": "geonkick",
+        "rev": "bfe7511d386557ed5f15ceab739503b6d5ab571c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Geonkick-Synthesizer",
+        "ref": "v2.10.2",
+        "repo": "geonkick",
+        "type": "github"
+      }
+    },
     "git-hooks": {
       "inputs": {
         "flake-compat": "flake-compat_8",
@@ -1433,6 +1450,7 @@
     "root": {
       "inputs": {
         "ags": "ags",
+        "geonkick": "geonkick",
         "home-manager": "home-manager",
         "iosevka-muse": "iosevka-muse",
         "mini-nvim": "mini-nvim",

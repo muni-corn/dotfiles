@@ -6,6 +6,12 @@
     # aylur's gtk shell
     ags.url = "github:Aylur/ags";
 
+    # geonkick 2
+    geonkick = {
+      url = "github:Geonkick-Synthesizer/geonkick/v2.10.2";
+      flake = false;
+    };
+
     # realtime audio
     musnix.url = "github:musnix/musnix";
 
@@ -57,10 +63,10 @@
   };
 
   outputs = {
-    self,
     nixpkgs,
     home-manager,
     ags,
+    geonkick,
     iosevka-muse,
     mini-nvim,
     muni-bot,
@@ -74,16 +80,18 @@
     nixpkgs-wayland,
     nixvim,
     plymouth-theme-musicaloft-rainbow,
-    sops-nix,
-    surrealdb,
     vscode-js-debug,
+    ...
   } @ inputs: let
-    miniNvimOverlay = final: prev: {
+    versionOverridesOverlay = final: prev: {
+      geonkick = prev.geonkick.overrideAttrs (old: {
+        src = geonkick;
+      });
       vimPlugins =
         prev.vimPlugins
         // {
           mini-nvim = prev.vimPlugins.mini-nvim.overrideAttrs (old: {
-            src = inputs.mini-nvim;
+            src = mini-nvim;
           });
         };
     };
@@ -96,7 +104,7 @@
         nix-minecraft.overlay
         nixpkgs-wayland.overlays.default
         plymouth-theme-musicaloft-rainbow.overlay
-        miniNvimOverlay
+        versionOverridesOverlay
       ];
     };
 
