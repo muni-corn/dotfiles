@@ -30,6 +30,7 @@
         style = "sign";
       };
       extra.__empty = null;
+      fuzzy.__empty = null;
       git.__empty = null;
       indentscope.__empty = null;
       jump.__empty = null;
