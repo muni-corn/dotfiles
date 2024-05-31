@@ -29,7 +29,7 @@
     };
 
     remotebackup = {
-      onCalendar = "hourly";
+      onCalendar = "18:00";
       settings = {
         snapshot_create = "no";
         target_preserve = "2h 14d 8w 12m *y";
