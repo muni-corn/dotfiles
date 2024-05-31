@@ -11,9 +11,9 @@
     modules = {
       ai.__empty = null;
       animate = {
-        cursor.timing.__raw = "require('mini.animate').gen_timing.cubic({easing='out'})";
-        scroll.timing.__raw = "require('mini.animate').gen_timing.cubic({easing='out'})";
-        resize.timing.__raw = "require('mini.animate').gen_timing.cubic({easing='out'})";
+        cursor.timing.__raw = "require('mini.animate').gen_timing.cubic({ easing = 'out', duration = 10 })";
+        scroll.timing.__raw = "require('mini.animate').gen_timing.cubic({ easing = 'out', duration = 10 })";
+        resize.timing.__raw = "require('mini.animate').gen_timing.cubic({ easing = 'out', duration = 10 })";
         open.enable = false;
         close.enable = false;
       };
