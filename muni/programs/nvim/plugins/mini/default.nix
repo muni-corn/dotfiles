@@ -10,7 +10,13 @@
     enable = true;
     modules = {
       ai.__empty = null;
-      animate.__empty = null;
+      animate = {
+        cursor.timing.__raw = "require('mini.animate').gen_timing.cubic({easing='out'})";
+        scroll.timing.__raw = "require('mini.animate').gen_timing.cubic({easing='out'})";
+        resize.timing.__raw = "require('mini.animate').gen_timing.cubic({easing='out'})";
+        open.enable = false;
+        close.enable = false;
+      };
       basics.options.extra_ui = true;
       bracketed.__empty = null;
       bufremove.__empty = null;
