@@ -127,8 +127,8 @@
       environmentFile = config.sops.secrets."muni_bot.env".path;
       settings = {
         twitch = {
-          raid_msg_all = "🐎🦄🐎🦄🐎 STAMPEEEEEDE! IT'S A MUNICORN RAID!!! 🦄🐎🦄🐎🦄";
-          raid_msg_subs = "munico1Giggle munico1Hype munico1Wiggle STAMPEEEEEDE! IT'S A MUNICORN RAID!!! munico1Giggle munico1Hype munico1Wiggle";
+          initial_channels = ["muni_corn" "phoenixredtail" "yumi_pegawolf" "melodismol" "piggynatorgaming" "fidget_the_batticorn" "starstrucksocks" "studiomega" "lil_mama_loser" "speedy526745" "yourpaltina" "passionateaboutponies" "starsongdusk" "suonova"];
+          twitch_user = "muni_bot_test";
         };
         discord.ventriloquists = [
           633840621626458115
