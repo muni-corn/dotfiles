@@ -35,8 +35,8 @@ in {
       type = fontType;
       description = "Default sans-serif font to use.";
       default = {
-        package = pkgs.msanii-font;
-        name = "Msanii";
+        package = pkgs.inter;
+        name = "Inter";
         size = 12;
       };
     };

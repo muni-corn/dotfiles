@@ -10,7 +10,7 @@
     kernelModules = ["v4l2loopback"];
     plymouth = {
       enable = true;
-      font = "${pkgs.msanii-font}/share/fonts/truetype/Msanii-Regular.ttf";
+      font = "${pkgs.inter}/share/fonts/truetype/Inter.ttc";
       theme = "musicaloft-rainbow";
       themePackages = [
         pkgs.plymouth-theme-musicaloft-rainbow
@@ -50,7 +50,6 @@
       libertine
       inter
       material-design-icons
-      msanii-font
       (nerdfonts.override {fonts = ["Iosevka"];})
       noto-fonts
       noto-fonts-cjk
@@ -64,7 +63,7 @@
       defaultFonts = {
         emoji = ["Noto Color Emoji"];
         monospace = ["Iosevka Muse" "Iosevka Nerd Font"];
-        sansSerif = ["Msanii"];
+        sansSerif = ["Inter"];
         serif = ["Noto Serif"];
       };
     };

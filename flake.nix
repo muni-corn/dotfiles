@@ -21,8 +21,6 @@
       flake = false;
     };
 
-    msanii-font.url = "github:muni-corn/msanii-font";
-
     # neorg overlay for up-to-date neorg stuff
     neorg.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
 
@@ -71,7 +69,6 @@
     geonkick,
     iosevka-muse,
     mini-nvim,
-    msanii-font,
     muni-bot,
     muni-wallpapers,
     muse-sounds,
@@ -104,7 +101,6 @@
         iosevka-muse.overlay
         muse-sounds.overlay
         neorg.overlays.default
-        msanii-font.overlay
         nix-minecraft.overlay
         nixpkgs-wayland.overlays.default
         plymouth-theme-musicaloft-rainbow.overlay
