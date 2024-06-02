@@ -98,7 +98,7 @@
       enable = true;
       enableBrowserSocket = true;
       enableSSHSupport = true;
-      pinentryPackage = pkgs.pinentry-rofi;
+      pinentryPackage = pkgs.pinentry-gtk2;
     };
 
     nh = {
