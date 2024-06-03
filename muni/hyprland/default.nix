@@ -228,7 +228,7 @@ in {
 
         # desktop
         "HDMI-A-1,preferred,0x180,1"
-        "DP-2,preferred,1920x0,1"
+        "DP-2,2560x1440@180,1920x0,1"
         "HDMI-A-2,preferred,4480x180,1"
       ];
 
