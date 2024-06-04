@@ -85,7 +85,7 @@
           settings = {
             snapshot_create = "onchange";
             snapshot_preserve_min = "2h";
-            snapshot_preserve = "48h";
+            snapshot_preserve = "48h 28d";
             preserve_hour_of_day = "5";
             volume."/" = {
               subvolume = {
@@ -97,7 +97,7 @@
           };
         };
         localbackup = {
-          onCalendar = "hourly";
+          onCalendar = "06:00"; # once every morning
           settings = {
             snapshot_create = "no";
             target_preserve = "48h 28d 8w 12m *y";

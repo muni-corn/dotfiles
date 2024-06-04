@@ -14,6 +14,20 @@
   security.pam.services.hyprlock.fprintAuth = true;
 
   services = {
+    btrbk.instances.snapshots = {
+      onCalendar = "*:00/5";
+      settings = {
+        snapshot_create = "onchange";
+        snapshot_preserve_min = "48h";
+        snapshot_preserve = "48h 28d 8w";
+        preserve_hour_of_day = "5";
+        volume."/" = {
+          subvolume.home = {};
+          snapshot_dir = "/snaps";
+        };
+      };
+    };
+
     # enable fstrim for btrfs
     fstrim.enable = true;
 
