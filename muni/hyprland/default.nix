@@ -254,6 +254,10 @@ in {
         # assign some apps to default workspaces
         "workspace 10,class:^(discord)$"
         "workspace 9,class:^(Slack)$"
+
+        # assign steam to workspace 1 and always center
+        "workspace 1,class:^(steam)$"
+        "center,class:^(steam)$"
       ];
     };
 
