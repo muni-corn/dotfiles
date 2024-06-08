@@ -12,6 +12,8 @@
   in {
     enable = true;
     settings = {
+      general.grace = 3;
+
       background = let
         mkMonitor = name: {
           monitor = name;
@@ -33,21 +35,22 @@
       input-field = [
         {
           inherit monitor;
-          capslock_color = "rgba(255, 128, 255, 0.5)";
-          check_color = "rgba(255, 255, 255, 0.5)";
+          capslock_color = "rgba(ffaa0040)";
+          check_color = "rgba(ffffff40)";
           dots_size = 0.25;
           dots_spacing = 1.0;
-          fail_color = "rgba(255, 0, 0, 0.5)";
-          font_color = "rgba(255, 255, 255, 1)";
-          inner_color = "rgba(0, 0, 0, 0)";
-          outer_color = "rgba(255, 255, 255, 0)";
-          outline_thickness = 2;
-          placeholder_text = "$PROMPT";
+          fail_color = "rgb(ff0000)";
+          fail_text = "$FAIL";
+          font_color = "rgb(ffffff)";
+          inner_color = "rgba(00000000)";
+          outer_color = "rgba(00000000)";
+          outline_thickness = 0;
+          placeholder_text = "";
 
           halign = "center";
           valign = "bottom";
-          position = "0, 64";
-          size = "420, 32";
+          position = "0, 128";
+          size = "420, 48";
         }
       ];
 
