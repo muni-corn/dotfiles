@@ -18,7 +18,17 @@
         open.enable = false;
         close.enable = false;
       };
-      basics.options.extra_ui = true;
+      basics = {
+        options = {
+          extra_ui = true;
+          winborders = "dot";
+        };
+        mappings = {
+          windows = true;
+          move_with_alt = true;
+        };
+        silent = true;
+      };
       bracketed.__empty = null;
       bufremove.__empty = null;
       comment.__empty = null;

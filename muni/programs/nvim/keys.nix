@@ -25,18 +25,6 @@
       options.desc = "shell";
     }
     {
-      key = "+";
-      action = "<cmd>5wincmd ><cr>";
-      options.silent = true;
-      options.desc = "wider window";
-    }
-    {
-      key = "-";
-      action = "<cmd>5wincmd <<cr>";
-      options.silent = true;
-      options.desc = "narrower window";
-    }
-    {
       key = "<c-p>";
       action = pick-files;
       lua = true;
@@ -274,26 +262,6 @@
       options.desc = "git status";
     }
     {
-      key = "<leader>h";
-      action = "<c-w>h";
-      options.desc = "focus window left";
-    }
-    {
-      key = "<leader>j";
-      action = "<c-w>j";
-      options.desc = "focus window down";
-    }
-    {
-      key = "<leader>k";
-      action = "<c-w>k";
-      options.desc = "focus window up";
-    }
-    {
-      key = "<leader>l";
-      action = "<c-w>l";
-      options.desc = "focus window right";
-    }
-    {
       key = "<leader>pd";
       action = "<cmd>!pandoc --citeproc \"%\" -o \"%.docx\"<cr>";
       options.desc = "docx";
@@ -418,11 +386,6 @@
       options.desc = "vertical find file";
     }
     {
-      key = "<leader>w";
-      action = "<cmd>set wrap!<cr>";
-      options.desc = "toggle wrap";
-    }
-    {
       key = "<leader>xR";
       action = pick-lsp-references;
       lua = true;
@@ -475,18 +438,6 @@
       key = "Y";
       action = "y$";
       options.desc = "yank to eol";
-    }
-    {
-      key = "^";
-      action = "<cmd>3wincmd +<cr>";
-      options.silent = true;
-      options.desc = "taller window";
-    }
-    {
-      key = "_";
-      action = "<cmd>3wincmd -<cr>";
-      options.silent = true;
-      options.desc = "shorter window";
     }
 
     {
