@@ -10,9 +10,9 @@
     black = "Black";
     dark-gray = "DarkGray";
     gray = "Gray";
-    light-gray = "LightGray";
+    light-gray = "Gray";
     silver = "LightGray";
-    light-silver = "White";
+    light-silver = "LightGray";
     white = "White";
     bright-white = "White";
 
@@ -85,18 +85,18 @@ in {
   programs.nixvim.highlight =
     {
       # bars
-      BarPill = hl "dark-gray" null {};
-      CustomBlueStatus = hl "blue" "dark-gray" {bold = true;};
-      CustomCyanStatus = hl "cyan" "dark-gray" {bold = true;};
-      CustomFuchsiaStatus = hl "purple" "dark-gray" {bold = true;};
-      CustomLimeStatus = hl "green" "dark-gray" {bold = true;};
-      CustomRedStatus = hl "red" "dark-gray" {bold = true;};
-      CustomYellowStatus = hl "yellow" "dark-gray" {bold = true;};
-      StatusLine = hl "light-gray" "dark-gray" {italic = true;};
-      StatusLineNC = hl "gray" null {bold = true;};
-      TabLine = hl "light-gray" "dark-gray" {};
-      TabLineFill = hl "light-gray" "dark-gray" {};
-      TabLineSel = hl "blue" "dark-gray" {bold = true;};
+      BarPill = hl "black" null {};
+      CustomBlueStatus = hl "blue" "black" {bold = true;};
+      CustomCyanStatus = hl "cyan" "black" {bold = true;};
+      CustomFuchsiaStatus = hl "purple" "black" {bold = true;};
+      CustomLimeStatus = hl "green" "black" {bold = true;};
+      CustomRedStatus = hl "red" "black" {bold = true;};
+      CustomYellowStatus = hl "yellow" "black" {bold = true;};
+      StatusLine = hl "light-gray" "black" {italic = true;};
+      StatusLineNC = hl "dark-gray" "black" {bold = true;};
+      TabLine = hl "light-gray" "black" {};
+      TabLineFill = hl "light-gray" "black" {};
+      TabLineSel = hl "blue" "black" {bold = true;};
 
       # cmp
       CmpItemAbbr = hl "light-gray" null {};
@@ -111,20 +111,25 @@ in {
       DiagnosticInfo = hl stateColors.info null {};
       DiagnosticOk = hl stateColors.ok null {};
       DiagnosticWarn = hl stateColors.warning null {};
+      DiagnosticFloatingError = hl stateColors.error "black" {};
+      DiagnosticFloatingHint = hl stateColors.hint "black" {};
+      DiagnosticFloatingInfo = hl stateColors.info "black" {};
+      DiagnosticFloatingOk = hl stateColors.ok "black" {};
+      DiagnosticFloatingWarn = hl stateColors.warning "black" {};
       DiagnosticUnderlineError = hl null null {
         undercurl = true;
         sp = nameToHex stateColors.error;
       };
       DiagnosticUnderlineHint = hl null null {
-        undercurl = true;
+        underdashed = true;
         sp = nameToHex stateColors.hint;
       };
       DiagnosticUnderlineInfo = hl null null {
-        undercurl = true;
+        underdashed = true;
         sp = nameToHex stateColors.info;
       };
       DiagnosticUnderlineOk = hl null null {
-        underline = true;
+        underdotted = true;
         sp = nameToHex stateColors.ok;
       };
       DiagnosticUnderlineWarn = hl null null {
@@ -205,9 +210,10 @@ in {
       ColorColumn = hl null "dark-gray" {};
       Cursor = hl "black" "light-silver" {};
       CursorColumn = hl null "dark-gray" {};
-      CursorLine = hl null "black" {};
-      CursorLineNr = hl "silver" null {bold = true;};
-      FloatBorder = hl "gray" null {};
+      CursorLine = hl null "dark-gray" {};
+      CursorLineNr = hl "light-silver" "black" {bold = true;};
+      FloatBorder = hl "light-gray" "black" {};
+      FloatTitle = hl "light-silver" "black" {};
       FoldColumn = hl "cyan" null {};
       Folded = hl "gray" "black" {};
       LineNr = hl "light-gray" null {};
@@ -215,17 +221,20 @@ in {
       MoreMsg = hl "green" null {};
       NonText = hl "light-gray" null {};
       Normal = hl "light-silver" null {};
-      Pmenu = hl "light-silver" "dark-gray" {};
+      NormalFloat = hl "light-silver" "black" {};
       PmenuSbar = hl null null {};
       PmenuSel = hl "dark-gray" "light-silver" {bold = true;};
       PmenuThumb = hl "light-silver" "light-silver" {};
       QuickFixLine = hl null "dark-gray" {};
       Search = hl "dark-gray" "orange" {};
       SignColumn = hl null null {};
+      TreesitterContext = hl "light-gray" null {blend = 0;};
       TreesitterContextBottom = hl null null {
         sp = nameToHex "light-gray";
         undercurl = true;
+        blend = 0;
       };
+      TreesitterContextLineNumber = hl "light-gray" null {blend = 0;};
       Twilight = hl "gray" null {};
       VertSplit = hl "gray" null {};
       VirtualText = hl "gray" null {italic = true;};
@@ -240,7 +249,7 @@ in {
       FloatBorder = ["FloatermBorder" "LspInfoBorder" "TelescopeBorder"];
       Info = ["InfoMsg"];
       Italic = ["@text.emphasis" "@neorg.markup.italic"];
-      Normal = ["NormalFloat"];
+      NormalFloat = ["Pmenu" "TelescopeNormal" "Floaterm"];
       SpellRare = ["SpellLocal"];
       Todo = ["@comment.todo"];
       VirtualText = ["GitSignsCurrentLineBlame"];
