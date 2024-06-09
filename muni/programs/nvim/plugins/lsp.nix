@@ -104,6 +104,7 @@ in {
             ];
           };
         };
+        tailwindcss.enable = true;
       };
       setupWrappers = [
         (prev: "setup_handlers(${prev})")
