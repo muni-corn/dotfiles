@@ -3,6 +3,7 @@
     ./clue.nix
     ./completion.nix
     ./files.nix
+    ./pick.nix
     ./starter.nix
   ];
 
@@ -42,13 +43,6 @@
       };
       operators.__empty = null;
       pairs.__empty = null;
-      pick = {
-        options.use_cache = true;
-        window = {
-          config.border = "rounded";
-          prompt_prefix = ": ";
-        };
-      };
       sessions.__empty = null;
       # statusline = { # TODO
       #   content = {
