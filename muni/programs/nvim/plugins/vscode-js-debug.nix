@@ -10,7 +10,7 @@
     inherit pname version;
     src = vscode-js-debug-src;
     npmBuildScript = "compile";
-    npmDepsHash = "sha256-cIMTtXr6bVIgdindgeiiRXLASJ/WxjiUx7GXMa3WzlE=";
+    npmDepsHash = "sha256-BDtshWHWFasb+aYUBRFz8OAP+9Ufh5uy3XNZCQOY79U=";
     npmBuildFlags = ["dapDebugServer"];
     makeCacheWritable = true;
     patches = [./vscode-js-debug-remove-playwright.patch];
