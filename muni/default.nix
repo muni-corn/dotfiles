@@ -45,8 +45,8 @@ in {
 
             # terminal/cli stuff
             fd
+            fend
             jdupes
-            libqalculate
             neovim-remote
             pv
             qpdf

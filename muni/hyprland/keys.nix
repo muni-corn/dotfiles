@@ -96,7 +96,7 @@ in {
         (b "SUPER" "Return" "exec" terminal)
         (b "SUPER" "a" "exec" appMenu)
         (b "SUPER" "b" "exec" apps.music)
-        (b "SUPER" "c" "exec" ''${terminal} ${withShell "qalc"}'')
+        (b "SUPER" "c" "exec" ''${terminal} ${withShell "fend"}'')
         (b "SUPER" "e" "exec" ''${terminal} ${withShell "nnn"}'')
         (b "SUPER" "n" "exec" scripts.quickCode)
         (b "SUPER" "p" "exec" ''${terminal} ${withShell "btop"}'')
