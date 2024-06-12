@@ -716,11 +716,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1718232710,
-        "narHash": "sha256-EnNrrj95NZRQ7jh+9ecFSTw+c3q8WwfdqlmVThFVFOk=",
+        "lastModified": 1718233591,
+        "narHash": "sha256-p0zKbLpiXdl72ePSHK8II3Jz0AxgRIe083jnH0hyFxs=",
         "owner": "muni-corn",
         "repo": "muni_bot",
-        "rev": "789a76cd4d7e2bf5cf582bff27bcf8a3b00ef38a",
+        "rev": "37d3a43f288c3d83b707efed3f846d155d9504e7",
         "type": "github"
       },
       "original": {
