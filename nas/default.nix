@@ -39,12 +39,12 @@
             maxUploadSize = "10G";
           };
           postgresql.package = pkgs.postgresql_16;
+          postfix = {
+            enable = true;
+            hostname = "mail.musicaloft.com";
+          };
         };
       };
-    };
-    postfix = {
-      enable = true;
-      hostname = "mail.musicaloft.com";
     };
   };
 
