@@ -53,7 +53,7 @@
 
     # my stuff
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
-    muni-bot.url = "github:muni-corn/muni_bot/autoban";
+    muni-bot.url = "github:muni-corn/muni_bot";
     muse-sounds.url = "git+https://codeberg.org/municorn/muse-sounds?ref=main";
     muni-wallpapers = {
       url = "github:muni-corn/muni-wallpapers";
