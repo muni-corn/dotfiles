@@ -30,43 +30,72 @@
       {inherit first second;}
       "${mixScript} ${first} ${second}");
 in {
-  paletteFromBase16 = bases:
-    with bases; {
-      # shades
-      black = base00;
-      dark-gray = base01;
-      gray = base02;
-      light-gray = base03;
-      silver = base04;
-      light-silver = base05;
-      white = base06;
-      bright-white = base07;
+  paletteFromBase16 = bases: let
+    inherit
+      (bases)
+      base00
+      base01
+      base02
+      base03
+      base04
+      base05
+      base06
+      base07
+      base08
+      base09
+      base0A
+      base0B
+      base0C
+      base0D
+      base0E
+      base0F
+      ;
+  in {
+    # shades
+    black = base00;
+    dark-gray = base01;
+    gray = base02;
+    light-gray = base03;
+    silver = base04;
+    light-silver = base05;
+    white = base06;
+    bright-white = base07;
 
-      # normal colors
-      red = base08;
-      orange = base09;
-      yellow = base0A;
-      green = base0B;
-      cyan = base0C;
-      blue = base0D;
-      purple = base0E;
-      brown = base0F;
+    # normal colors
+    red = base08;
+    orange = base09;
+    yellow = base0A;
+    green = base0B;
+    cyan = base0C;
+    blue = base0D;
+    purple = base0E;
+    brown = base0F;
 
-      # bright colors
-      bright-red = mix base06 base08;
-      bright-orange = mix base06 base09;
-      bright-yellow = mix base06 base0A;
-      bright-green = mix base06 base0B;
-      bright-cyan = mix base06 base0C;
-      bright-blue = mix base06 base0D;
-      bright-purple = mix base06 base0E;
-      bright-brown = mix base06 base0F;
+    # bright colors
+    bright-red = mix base06 base08;
+    bright-orange = mix base06 base09;
+    bright-yellow = mix base06 base0A;
+    bright-green = mix base06 base0B;
+    bright-cyan = mix base06 base0C;
+    bright-blue = mix base06 base0D;
+    bright-purple = mix base06 base0E;
+    bright-brown = mix base06 base0F;
 
-      # other named colors
-      background = base00;
-      foreground = base06;
-      accent = base0D;
-      warning = base09;
-      alert = base08;
-    };
+    # dark colors
+    dark-red = mix base00 base08;
+    dark-orange = mix base00 base09;
+    dark-yellow = mix base00 base0A;
+    dark-green = mix base00 base0B;
+    dark-cyan = mix base00 base0C;
+    dark-blue = mix base00 base0D;
+    dark-purple = mix base00 base0E;
+    dark-brown = mix base00 base0F;
+
+    # other named colors
+    background = base00;
+    foreground = base06;
+    accent = base0D;
+    warning = base09;
+    alert = base08;
+  };
 }

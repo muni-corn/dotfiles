@@ -33,6 +33,15 @@
     bright-blue = "Blue";
     bright-purple = "Magenta";
     bright-brown = "Brown";
+
+    dark-red = "Black";
+    dark-orange = "Black";
+    dark-yellow = "Black";
+    dark-green = "Black";
+    dark-cyan = "Black";
+    dark-blue = "Black";
+    dark-purple = "Black";
+    dark-brown = "Black";
   };
 
   nameToHex = name: "#" + config.muse.theme.palette.${name};
@@ -140,10 +149,10 @@ in {
       # diffs
       Added = hl "green" null {};
       Changed = hl "orange" null {};
-      DiffAdd = hl "green" "dark-gray" {bold = true;};
+      DiffAdd = hl "bright-green" "dark-green" {bold = true;};
       DiffChange = hl null null {};
-      DiffDelete = hl "red" "dark-gray" {bold = true;};
-      DiffText = hl "yellow" "dark-gray" {bold = true;};
+      DiffDelete = hl "bright-red" "dark-red" {bold = true;};
+      DiffText = hl "bright-yellow" "dark-yellow" {bold = true;};
       Removed = hl "red" null {};
 
       # state
