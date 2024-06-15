@@ -180,7 +180,7 @@ in {
       Float = hl "orange" null {};
       Function = hl "blue" null {};
       Identifier = hl "red" null {};
-      IncSearch = hl "black" "yellow" {};
+      IncSearch = hl "bright-yellow" "dark-yellow" {};
       Include = hl "blue" null {};
       Italic = hl null null {italic = true;};
       Keyword = hl "purple" null {};
@@ -202,7 +202,7 @@ in {
       StorageClass = hl "purple" null {};
       String = hl "green" null {};
       Structure = hl "yellow" null {};
-      Substitute = hl "dark-gray" "orange" {};
+      Substitute = hl "bright-red" "dark-red" {};
       Tag = hl "yellow" null {};
       Title = hl "blue" null {};
       Todo = hl "yellow" "dark-gray" {
@@ -235,7 +235,7 @@ in {
       PmenuSel = hl "dark-gray" "light-silver" {bold = true;};
       PmenuThumb = hl "light-silver" "light-silver" {};
       QuickFixLine = hl null "dark-gray" {};
-      Search = hl "dark-gray" "orange" {};
+      Search = hl "bright-orange" "dark-orange" {};
       SignColumn = hl null null {};
       TreesitterContext = hl "light-gray" null {blend = 0;};
       TreesitterContextBottom = hl null null {
@@ -265,6 +265,7 @@ in {
       Warning = ["WarningMsg"];
       DiffAdd = ["@diff.plus" "diffAdded"];
       DiffDelete = ["@diff.minus" "diffRemoved"];
+      Search = ["CurSearch"];
       TreesitterContextBottom = ["TreesitterContextLineNumberBottom"];
     };
 }
