@@ -19,7 +19,6 @@
       efi.efiSysMountPoint = "/boot/efi";
       systemd-boot.memtest86.enable = true;
     };
-    kernelPackages = pkgs.linuxKernel.packages.linux_testing;
   };
 
   hardware = {
