@@ -265,7 +265,7 @@ in {
       Warning = ["WarningMsg"];
       DiffAdd = ["@diff.plus" "diffAdded"];
       DiffDelete = ["@diff.minus" "diffRemoved"];
-      Search = ["CurSearch"];
+      IncSearch = ["CurSearch"];
       TreesitterContextBottom = ["TreesitterContextLineNumberBottom"];
     };
 }
