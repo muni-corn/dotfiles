@@ -138,8 +138,6 @@
   };
 
   services = {
-    auto-cpufreq.enable = true;
-
     automatic-timezoned.enable = true;
 
     fwupd.enable = true;
