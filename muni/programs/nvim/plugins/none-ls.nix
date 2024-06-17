@@ -1,10 +1,9 @@
 {
   programs.nixvim.plugins.none-ls = {
     enable = true;
+    enableLspFormat = true;
     sources = {
-      diagnostics = {
-        fish.enable = true;
-      };
+      diagnostics.fish.enable = true;
       formatting = {
         fish_indent.enable = true;
         leptosfmt.enable = true;

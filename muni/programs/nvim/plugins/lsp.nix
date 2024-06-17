@@ -9,6 +9,18 @@ in {
   programs.nixvim = {
     opts.omnifunc = "v:lua.vim.lsp.omnifunc";
     plugins = {
+      lsp-format = {
+        enable = true;
+        lspServersToEnable = "all";
+        setup = {
+          javascript.exclude = ["tsserver"];
+          typescript.exclude = ["tsserver"];
+          rust.order = [
+            "null-ls"
+            "rust-analyzer"
+          ];
+        };
+      };
       lsp-status = {
         enable = true;
         settings = {
