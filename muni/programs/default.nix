@@ -61,10 +61,6 @@
 
     gpg.enable = true;
 
-    helix.enable = true;
-
-    himalaya.enable = true;
-
     imv.enable = true;
 
     jq.enable = true;
