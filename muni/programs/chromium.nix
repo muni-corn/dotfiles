@@ -1,5 +1,4 @@
 {
-  config,
   lib,
   osConfig,
   pkgs,
@@ -7,7 +6,6 @@
 }: {
   programs.chromium = lib.mkIf (osConfig.networking.hostName == "ponycastle") {
     enable = true;
-    package = pkgs.ungoogled-chromium;
     dictionaries = [
       pkgs.hunspellDictsChromium.en_US
     ];
