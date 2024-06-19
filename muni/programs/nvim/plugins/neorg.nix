@@ -31,7 +31,10 @@
             };
           };
           markup.verbatim = "+@text.verbatim";
-          todo_items.pending = "+@todo.pending";
+          todo_items = {
+            pending = "+@todo.pending";
+            urgent = "+DiffRemoved";
+          };
         };
       };
       "core.keybinds".config = {
