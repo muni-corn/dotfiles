@@ -9,6 +9,8 @@
 
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
+  home-manager.users.muni.services.gammastep.settings.general.brightness-night = 0.5;
+
   networking.hostName = "littlepony";
 
   security.pam.services.hyprlock.fprintAuth = true;

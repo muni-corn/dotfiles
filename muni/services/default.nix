@@ -1,8 +1,4 @@
-{
-  osConfig,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
     ./dunst.nix
   ];
@@ -13,7 +9,7 @@
       provider = "geoclue2";
       temperature = {
         day = 7500;
-        night = 3000;
+        night = 2500;
       };
 
       dawnTime = "05:00-06:00";
