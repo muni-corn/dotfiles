@@ -32,6 +32,7 @@
       bracketed.__empty = null;
       bufremove.__empty = null;
       comment.__empty = null;
+      cursorword.__empty = null;
       diff.view = {
         signs = {
           add = "+";

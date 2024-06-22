@@ -226,6 +226,7 @@ in {
       FoldColumn = hl "cyan" null {};
       Folded = hl "gray" "black" {};
       LineNr = hl "light-gray" null {};
+      MiniCursorword = hl null "dark-blue" {};
       ModeMsg = hl "green" null {};
       MoreMsg = hl "green" null {};
       NonText = hl "light-gray" null {};
