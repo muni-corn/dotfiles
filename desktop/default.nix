@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ../common.nix
     ../common-graphical.nix
@@ -37,18 +41,115 @@
     };
   };
 
-  home-manager.users.muni.wayland.windowManager.hyprland.settings.workspace = [
-    "1,monitor:DP-2,default:true"
-    "2,monitor:DP-2"
-    "3,monitor:DP-2"
-    "4,monitor:DP-2"
-    "5,monitor:HDMI-A-2,default:true"
-    "6,monitor:HDMI-A-2"
-    "7,monitor:HDMI-A-2"
-    "8,monitor:HDMI-A-1"
-    "9,monitor:HDMI-A-1"
-    "10,monitor:HDMI-A-1,default:true"
-  ];
+  home-manager.users.muni = {
+    home.packages = with pkgs; [
+      vscode-fhs
+
+      # photo
+      gmic
+      gmic-qt
+      upscayl
+
+      # audio, sound, and music
+      ardour
+      audacity
+      autotalent
+      calf
+      easyeffects
+      geonkick
+      lsp-plugins
+      musescore
+      pamixer
+      qpwgraph
+      sfizz
+      x42-gmsynth
+      x42-plugins
+      zyn-fusion
+
+      # video
+      blender-hip
+      ffmpeg-full
+      kdenlive
+      libva-utils
+      mediainfo
+      movit
+      synfigstudio
+
+      # emulators and "emulators"
+      wineWowPackages.waylandFull
+      winetricks
+
+      # games
+      ace-of-penguins
+      gnome.aisleriot
+      godot_4
+      #itch
+      kdePackages.kmines
+      kdePackages.kpat
+      lutris
+      prismlauncher
+      protonup-qt
+      r2modman
+      tty-solitaire
+    ];
+
+    programs = {
+      chromium = {
+        enable = true;
+        dictionaries = [
+          pkgs.hunspellDictsChromium.en_US
+        ];
+        extensions = [
+          {id = "ajopnjidmegmdimjlfnijceegpefgped";} # betterttv
+          {id = "naepdomgkenhinolocfifgehidddafch";} # browserpass
+          {id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";} # dark reader
+          {id = "nkbihfbeogaeaoehlefnkodbefgpgknn";} # metamask
+          {id = "inpoelmimmiplkcldmdljiboidfkcfbh";} # presearch
+          {id = "bpaoeijjlplfjbagceilcgbkcdjbomjd";} # ttv lol pro
+          {id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";} # ublock origin
+          {id = "dbepggeogbaibhgnhhndojpepiihcmeb";} # vimium
+        ];
+      };
+
+      hyprlock.settings = (import ../utils.nix {inherit config;}).mkHyprlockSettings ["DP-2" "HDMI-A-1" "HDMI-A-2"];
+
+      obs-studio = {
+        enable = true;
+        plugins = with pkgs.obs-studio-plugins; [
+          obs-pipewire-audio-capture
+        ];
+      };
+    };
+
+    systemd.user.services.hydroxide = {
+      Unit = {
+        Description = "hydroxide service";
+      };
+
+      Service = {
+        ExecStart = "${pkgs.hydroxide}/bin/hydroxide -carddav-port 8079 serve";
+        Restart = "always";
+        RestartSec = 10;
+      };
+
+      Install = {
+        WantedBy = ["default.target"];
+      };
+    };
+
+    wayland.windowManager.hyprland.settings.workspace = [
+      "1,monitor:DP-2,default:true"
+      "2,monitor:DP-2"
+      "3,monitor:DP-2"
+      "4,monitor:DP-2"
+      "5,monitor:HDMI-A-2,default:true"
+      "6,monitor:HDMI-A-2"
+      "7,monitor:HDMI-A-2"
+      "8,monitor:HDMI-A-1"
+      "9,monitor:HDMI-A-1"
+      "10,monitor:HDMI-A-1,default:true"
+    ];
+  };
 
   musnix = {
     enable = true;

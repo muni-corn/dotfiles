@@ -1,4 +1,4 @@
-{
+{config, ...}: {
   imports = [
     ../common.nix
     ../common-graphical.nix
@@ -9,7 +9,10 @@
 
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  home-manager.users.muni.services.gammastep.settings.general.brightness-night = 0.5;
+  home-manager.users.muni = {
+    programs.hyprlock.settings = (import ../utils.nix {inherit config;}).mkHyprlockSettings ["eDP-1"];
+    services.gammastep.settings.general.brightness-night = 0.5;
+  };
 
   networking.hostName = "littlepony";
 

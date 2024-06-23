@@ -1,14 +1,9 @@
 {
   config,
-  lib,
-  osConfig,
   pkgs,
   ...
-}: let
-  scripts = import ./scripts.nix {inherit config lib osConfig pkgs;};
-in {
+}: {
   imports = [
-    ./lock.nix
     ./keys.nix
     ./systemd.nix
   ];
@@ -21,6 +16,8 @@ in {
     wl-clipboard
     wob
   ];
+
+  programs.hyprlock.enable = true;
 
   services.hypridle = let
     lockWarningCmd = "${pkgs.libnotify}/bin/notify-send -u low -t 29500 'Are you still there?' 'Your system will lock itself soon.'";

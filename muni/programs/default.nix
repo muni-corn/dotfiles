@@ -1,13 +1,10 @@
 {
   config,
-  lib,
-  osConfig,
   pkgs,
   ...
 }: {
   imports = [
     ./ags
-    ./chromium.nix
     ./fish.nix
     ./git.nix
     ./nnn.nix
@@ -69,13 +66,6 @@
 
     # fish integration enabled by default
     nix-index.enable = true;
-
-    obs-studio = lib.mkIf (osConfig.networking.hostName == "ponycastle") {
-      enable = true;
-      plugins = with pkgs.obs-studio-plugins; [
-        obs-pipewire-audio-capture
-      ];
-    };
 
     password-store = {
       enable = true;

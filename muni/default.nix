@@ -3,12 +3,9 @@
   lib,
   pkgs,
   muni-wallpapers,
-  osConfig,
   ...
 }: let
   colors = config.muse.theme.palette;
-  deviceName = osConfig.networking.hostName;
-
   toml = pkgs.formats.toml {};
 in {
   imports = [
@@ -16,7 +13,6 @@ in {
     ./muse
     ./programs
     ./services
-    ./systemd.nix
   ];
 
   muse.theme = {
@@ -30,131 +26,76 @@ in {
 
     file.".npmrc".source = ./npmrc;
 
-    packages =
-      (with pkgs;
-        # packages for all devices
-          [
-            # audio and music
-            pavucontrol
-            playerctl
-            spotify
+    packages = with pkgs; [
+      # audio and music
+      pavucontrol
+      playerctl
+      spotify
 
-            # desktop environment
-            glib # for gtk theming
-            ksshaskpass
+      # desktop environment
+      glib # for gtk theming
+      ksshaskpass
 
-            # terminal/cli stuff
-            fd
-            fend
-            jdupes
-            neovim-remote
-            pv
-            qpdf
-            sd
-            sshfs
-            unar
-            zip
+      # terminal/cli stuff
+      fd
+      fend
+      jdupes
+      neovim-remote
+      pv
+      qpdf
+      sd
+      sshfs
+      unar
+      zip
 
-            # development/programming
-            alejandra
-            docker-compose
-            gcc
-            lld
-            meld
-            nixd
-            nodejs
-            nodePackages.typescript-language-server
-            python3
-            zls
+      # development/programming
+      alejandra
+      docker-compose
+      gcc
+      lld
+      meld
+      nixd
+      nodejs
+      nodePackages.typescript-language-server
+      python3
+      zls
 
-            # photo
-            hugin
-            inkscape
-            krita
-            rawtherapee
+      # photo
+      hugin
+      inkscape
+      krita
+      rawtherapee
 
-            # messaging
-            webcord
-            discord
-            element-desktop
-            slack
+      # messaging
+      webcord
+      discord
+      element-desktop
+      slack
 
-            # apps
-            android-file-transfer
-            ledger-live-desktop
-            libreoffice-fresh
+      # apps
+      android-file-transfer
+      ledger-live-desktop
+      libreoffice-fresh
 
-            # fish plugins
-            fishPlugins.done
-            fishPlugins.foreign-env
+      # fish plugins
+      fishPlugins.done
+      fishPlugins.foreign-env
 
-            # keyboard config
-            via
-            qmk
+      # keyboard config
+      via
+      qmk
 
-            # other things
-            fnlfmt
-            fortune
-            imagemagick
-            libnotify
-            peaclock
-            protontricks
-            qrencode
-            wirelesstools
-            xdragon
-          ])
-      ++
-      # ponycastle-specific packages
-      lib.optionals (deviceName == "ponycastle") (with pkgs; [
-        vscode-fhs
-
-        # photo
-        gmic
-        gmic-qt
-        upscayl
-
-        # audio, sound, and music
-        ardour
-        audacity
-        autotalent
-        calf
-        easyeffects
-        geonkick
-        lsp-plugins
-        musescore
-        pamixer
-        qpwgraph
-        sfizz
-        x42-gmsynth
-        x42-plugins
-        zyn-fusion
-
-        # video
-        blender-hip
-        ffmpeg-full
-        kdenlive
-        libva-utils
-        mediainfo
-        movit
-        synfigstudio
-
-        # emulators and "emulators"
-        wineWowPackages.waylandFull
-        winetricks
-
-        # games
-        ace-of-penguins
-        gnome.aisleriot
-        godot_4
-        #itch
-        kdePackages.kmines
-        kdePackages.kpat
-        lutris
-        prismlauncher
-        protonup-qt
-        r2modman
-        tty-solitaire
-      ]);
+      # other things
+      fnlfmt
+      fortune
+      imagemagick
+      libnotify
+      peaclock
+      protontricks
+      qrencode
+      wirelesstools
+      xdragon
+    ];
 
     pointerCursor = {
       package = pkgs.bibata-cursors;
@@ -243,6 +184,8 @@ in {
   };
 
   manual.html.enable = true;
+
+  systemd.user.startServices = "sd-switch";
 
   qt = {
     enable = true;
