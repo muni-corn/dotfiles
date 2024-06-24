@@ -79,10 +79,7 @@
     ledger.enable = true;
 
     # enable driSupport for hyprland
-    opengl = {
-      enable = true;
-      driSupport = true;
-    };
+    opengl.enable = true;
 
     xpadneo.enable = true;
   };
