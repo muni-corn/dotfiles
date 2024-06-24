@@ -26,14 +26,12 @@
     }
     {
       key = "<c-p>";
-      action = pick-files;
-      lua = true;
+      action.__raw = pick-files;
       options.desc = "find file";
     }
     {
       key = "<leader>/";
-      action = pick-lsp-definition;
-      lua = true;
+      action.__raw = pick-lsp-definition;
       options.desc = "lsp defintion";
     }
     {
@@ -56,62 +54,52 @@
     }
     {
       key = "<leader>?";
-      action = "function() MiniExtra.pickers.lsp({ scope = 'type_definition' }) end";
-      lua = true;
+      action.__raw = "function() MiniExtra.pickers.lsp({ scope = 'type_definition' }) end";
       options.desc = "lsp type definition";
     }
     {
       key = "<leader>dB";
-      action = "require'telescope'.extensions.dap.list_breakpoints";
-      lua = true;
+      action.__raw = "require'telescope'.extensions.dap.list_breakpoints";
       options.desc = "list breakpoints";
     }
     {
       key = "<leader>dC";
-      action = "require'telescope'.extensions.dap.commands";
-      lua = true;
+      action.__raw = "require'telescope'.extensions.dap.commands";
       options.desc = "run last";
     }
     {
       key = "<leader>do";
-      action = "require'dap'.step_over";
-      lua = true;
+      action.__raw = "require'dap'.step_over";
       options.desc = "step over";
     }
     {
       key = "<leader>dv";
-      action = "require'telescope'.extensions.dap.variables";
-      lua = true;
+      action.__raw = "require'telescope'.extensions.dap.variables";
       options.desc = "list debug variables";
     }
     {
       key = "<leader>db";
-      action = "require'dap'.toggle_breakpoint";
-      lua = true;
+      action.__raw = "require'dap'.toggle_breakpoint";
       options.desc = "toggle breakpoint";
     }
     {
       key = "<leader>dc";
-      action = "require'dap'.continue";
-      lua = true;
+      action.__raw = "require'dap'.continue";
       options.desc = "continue";
     }
     {
       key = "<leader>di";
-      action = "require'dap'.step_into";
-      lua = true;
+      action.__raw = "require'dap'.step_into";
       options.desc = "step into";
     }
     {
       key = "<leader>dO";
-      action = "require'dap'.step_out";
-      lua = true;
+      action.__raw = "require'dap'.step_out";
       options.desc = "step out";
     }
     {
       key = "<leader>dr";
-      action = "require'dap'.repl.toggle";
-      lua = true;
+      action.__raw = "require'dap'.repl.toggle";
       options.desc = "toggle repl";
     }
     {
@@ -142,8 +130,7 @@
     }
     {
       key = "<leader>b";
-      action = pick-buffers;
-      lua = true;
+      action.__raw = pick-buffers;
       options.desc = "buffers";
     }
     {
@@ -163,62 +150,52 @@
     }
     {
       key = "<leader>e";
-      action = "require'mini.files'.open";
-      lua = true;
+      action.__raw = "require'mini.files'.open";
       options.desc = "explore files";
     }
     {
       key = "<leader>fA";
-      action = telescope-builtin;
-      lua = true;
+      action.__raw = telescope-builtin;
       options.desc = "all pickers";
     }
     {
       key = "<leader>fY";
-      action = pick-lsp-workspace-symbol;
-      lua = true;
+      action.__raw = pick-lsp-workspace-symbol;
       options.desc = "all symbols";
     }
     {
       key = "<leader>fa";
-      action = telescope-lsp-actions;
-      lua = true;
+      action.__raw = telescope-lsp-actions;
       options.desc = "lsp actions";
     }
     {
       key = "<leader>fb";
-      action = pick-git-branches;
-      lua = true;
+      action.__raw = pick-git-branches;
       options.desc = "switch git branch";
     }
     {
       key = "<leader>fc";
-      action = pick-git-commits;
-      lua = true;
+      action.__raw = pick-git-commits;
       options.desc = "git commits";
     }
     {
       key = "<leader>fd";
-      action = pick-files;
-      lua = true;
+      action.__raw = pick-files;
       options.desc = "find files";
     }
     {
       key = "<leader>ff";
-      action = "MiniPick.builtin.resume";
-      lua = true;
+      action.__raw = "MiniPick.builtin.resume";
       options.desc = "resume last picker";
     }
     {
       key = "<leader>fg";
-      action = telescope-git-status;
-      lua = true;
+      action.__raw = telescope-git-status;
       options.desc = "git status";
     }
     {
       key = "<leader>fi";
-      action = pick-lsp-implementation;
-      lua = true;
+      action.__raw = pick-lsp-implementation;
       options.desc = "lsp implementations";
     }
     {
@@ -228,32 +205,27 @@
     }
     {
       key = "<leader>fr";
-      action = pick-grep-live;
-      lua = true;
+      action.__raw = pick-grep-live;
       options.desc = "ripgrep";
     }
     {
       key = "<leader>fs";
-      action = telescope-git-stash;
-      lua = true;
+      action.__raw = telescope-git-stash;
       options.desc = "git stash";
     }
     {
       key = "<leader>fy";
-      action = pick-lsp-document-symbol;
-      lua = true;
+      action.__raw = pick-lsp-document-symbol;
       options.desc = "symbols";
     }
     {
       key = "<leader>fz";
-      action = pick-spell-suggest;
-      lua = true;
+      action.__raw = pick-spell-suggest;
       options.desc = "spellings";
     }
     {
       key = "<leader>gg";
-      action = pick-grep-live;
-      lua = true;
+      action.__raw = pick-grep-live;
       options.desc = "ripgrep";
     }
     {
@@ -298,8 +270,7 @@
     }
     {
       key = "<leader>rg";
-      action = pick-grep-live;
-      lua = true;
+      action.__raw = pick-grep-live;
       options.desc = "ripgrep";
     }
     {
@@ -344,8 +315,7 @@
     }
     {
       key = "<leader>tw";
-      action = "require('mini.trailspace').trim";
-      lua = true;
+      action.__raw = "require('mini.trailspace').trim";
       options = {
         silent = true;
         desc = "remove trailing whitespace";
@@ -353,8 +323,7 @@
     }
     {
       key = "<leader>tW";
-      action = "require('mini.trailspace').trim_last_lines";
-      lua = true;
+      action.__raw = "require('mini.trailspace').trim_last_lines";
       options = {
         silent = true;
         desc = "remove trailing newlines";
@@ -387,50 +356,42 @@
     }
     {
       key = "<leader>xR";
-      action = pick-lsp-references;
-      lua = true;
+      action.__raw = pick-lsp-references;
       options.desc = "lsp references";
     }
     {
       key = "<leader>xa";
-      action = telescope-lsp-actions;
-      lua = true;
+      action.__raw = telescope-lsp-actions;
       options.desc = "lsp actions";
     }
     {
       key = "<leader>xd";
-      action = "function() MiniExtra.pickers.lsp({ scope = 'declaration' }) end";
-      lua = true;
+      action.__raw = "function() MiniExtra.pickers.lsp({ scope = 'declaration' }) end";
       options.desc = "lsp declarations";
     }
     {
       key = "<leader>xf";
-      action = "vim.lsp.buf.format";
-      lua = true;
+      action.__raw = "vim.lsp.buf.format";
       options.desc = "lsp format";
     }
     {
       key = "<leader>xi";
-      action = pick-lsp-implementation;
-      lua = true;
+      action.__raw = pick-lsp-implementation;
       options.desc = "lsp implementations";
     }
     {
       key = "<leader>xr";
-      action = "vim.lsp.buf.rename";
-      lua = true;
+      action.__raw = "vim.lsp.buf.rename";
       options.desc = "lsp rename";
     }
     {
       key = "<leader>xt";
-      action = "MiniExtra.pickers.diagnostic";
-      lua = true;
+      action.__raw = "MiniExtra.pickers.diagnostic";
       options.desc = "workspace diagnostics";
     }
     {
       key = "K";
-      action = "vim.lsp.buf.hover";
-      lua = true;
+      action.__raw = "vim.lsp.buf.hover";
       options.silent = true;
       options.desc = "lsp hover";
     }

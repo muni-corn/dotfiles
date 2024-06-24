@@ -73,13 +73,13 @@
     # Enable brillo
     brillo.enable = true;
 
+    # enable driSupport for hyprland
+    graphics.enable = true;
+
     keyboard.qmk.enable = true;
 
     # Ledger
     ledger.enable = true;
-
-    # enable driSupport for hyprland
-    opengl.enable = true;
 
     xpadneo.enable = true;
   };
