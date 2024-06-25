@@ -17,7 +17,7 @@ in {
           typescript.exclude = ["tsserver"];
           rust.order = [
             "null-ls"
-            "rust-analyzer"
+            "rust_analyzer"
           ];
         };
       };
