@@ -18,6 +18,7 @@
     plugins = {
       auto-save.enable = true;
       undotree.enable = true;
+      ollama.enable = true;
     };
 
     extraPlugins = with pkgs.vimPlugins; [
