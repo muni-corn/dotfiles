@@ -42,7 +42,6 @@ in {
         # power controls
         (b "SUPER_CTRL_ALT" "o" "exec" "systemctl poweroff")
         (b "SUPER_CTRL_ALT" "b" "exec" "systemctl reboot")
-        (b "SUPER_CTRL_ALT" "s" "exec" "systemctl suspend")
 
         # change focus
         (b "SUPER" "h" "movefocus" "l")
