@@ -15,10 +15,6 @@ in {
         setup = {
           javascript.exclude = ["tsserver"];
           typescript.exclude = ["tsserver"];
-          rust.order = [
-            "null-ls"
-            "rust_analyzer"
-          ];
         };
       };
       lsp-status = {
