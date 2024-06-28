@@ -183,7 +183,7 @@
         "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1 &"
 
         # wallpaper
-        "${pkgs.swww}/bin/swww-daemon --format xrgb &"
+        "${pkgs.swww}/bin/swww-daemon &"
       ];
 
       # animation
