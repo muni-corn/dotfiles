@@ -26,13 +26,16 @@
     ];
 
     bookmarks = {
+      a = "~/Music/ardour";
       D = "~/dotfiles";
       c = "~/code";
       d = "~/Documents";
       m = "~/Music";
+      M = "~/Documents/municorn";
       n = "~/notebook";
       o = "~/Downloads";
       p = "~/Pictures";
+      s = "~/Sync";
       v = "~/Videos";
     };
     plugins = {
