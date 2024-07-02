@@ -3,7 +3,10 @@
     treesitter.enable = true;
     treesitter-context = {
       enable = true;
-      settings.mode = "topline";
+      settings = {
+        mode = "topline";
+        max_lines = 4;
+      };
     };
   };
 }
