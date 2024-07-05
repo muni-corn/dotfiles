@@ -154,8 +154,8 @@
 
       dwindle = {
         no_gaps_when_only = true;
+        preserve_split = true;
         pseudotile = true;
-        smart_split = true;
         special_scale_factor = 0.9;
       };
 
