@@ -10,7 +10,7 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   home-manager.users.muni = {
-    programs.hyprlock.settings = (import ../utils.nix {inherit config;}).mkHyprlockSettings ["eDP-1"];
+    programs.hyprlock.settings = (import ../utils.nix {inherit config;}).mkHyprlockSettings ["eDP-1" "DP-2"];
     services.gammastep.settings.general.brightness-night = 0.5;
   };
 
