@@ -238,7 +238,7 @@
 
       monitor = [
         # laptop
-        "eDP-1,preferred,0x0,1.333333"
+        "eDP-1,preferred,0x0,1.25"
 
         # desktop
         "HDMI-A-1,preferred,0x180,1"
