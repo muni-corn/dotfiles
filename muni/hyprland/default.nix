@@ -123,6 +123,12 @@
         output = "DP-2";
       };
 
+      gestures = {
+        workspace_swipe = true;
+        workspace_swipe_create_new = false;
+        workspace_swipe_forever = true;
+      };
+
       # misc
       misc = {
         allow_session_lock_restore = true;
