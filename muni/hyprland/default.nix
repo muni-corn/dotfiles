@@ -147,7 +147,10 @@
       xwayland.force_zero_scaling = true;
 
       # binds
-      binds.workspace_back_and_forth = true;
+      binds = {
+        movefocus_cycles_fullscreen = false;
+        workspace_back_and_forth = true;
+      };
 
       dwindle = {
         no_gaps_when_only = true;
