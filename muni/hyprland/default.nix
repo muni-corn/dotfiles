@@ -148,7 +148,12 @@
       # binds
       binds.workspace_back_and_forth = true;
 
-      dwindle.no_gaps_when_only = true;
+      dwindle = {
+        no_gaps_when_only = true;
+        pseudotile = true;
+        smart_split = true;
+        special_scale_factor = 0.9;
+      };
 
       # envs
       env = [
