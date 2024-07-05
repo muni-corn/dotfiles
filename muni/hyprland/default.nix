@@ -140,6 +140,7 @@
         mouse_move_enables_dpms = true;
         new_window_takes_over_fullscreen = 2;
         swallow_regex = "^kitty$";
+        vfr = true;
         vrr = 0;
       };
 
