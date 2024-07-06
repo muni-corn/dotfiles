@@ -110,13 +110,6 @@
       };
 
       hyprlock.settings = (import ../utils.nix {inherit config;}).mkHyprlockSettings ["DP-2" "HDMI-A-1" "HDMI-A-2"];
-
-      obs-studio = {
-        enable = true;
-        plugins = with pkgs.obs-studio-plugins; [
-          obs-pipewire-audio-capture
-        ];
-      };
     };
 
     systemd.user.services.hydroxide = {
