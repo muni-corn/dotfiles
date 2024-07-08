@@ -146,7 +146,7 @@
     # scrubs will suffice for finding corrupted files, which can be replaced by
     # backups.
     btrfs.autoScrub = {
-      enable = false;
+      enable = true;
       fileSystems = ["/" "/vault"];
     };
 
