@@ -3,6 +3,7 @@
     ../common.nix
     ../common-graphical.nix
     ./hardware.nix
+    ../music_production.nix
     ../openssh.nix
     ../firewall.nix
   ];
@@ -13,6 +14,8 @@
     programs.hyprlock.settings = (import ../utils.nix {inherit config;}).mkHyprlockSettings ["eDP-1" "DP-2"];
     services.gammastep.settings.general.brightness-night = 0.5;
   };
+
+  musnix.soundcardPciId = "c1:00.6";
 
   networking.hostName = "littlepony";
 
