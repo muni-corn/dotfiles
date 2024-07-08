@@ -20,25 +20,21 @@
     ./vfio.nix
   ];
 
-  boot = {
-    loader = {
-      efi.efiSysMountPoint = "/boot/efi";
-      systemd-boot.memtest86.enable = true;
-    };
+  boot.loader = {
+    efi.efiSysMountPoint = "/boot/efi";
+    systemd-boot.memtest86.enable = true;
   };
 
-  hardware = {
-    opengl = {
-      extraPackages = with pkgs; [
-        amdvlk
-        rocmPackages.clr
-        rocmPackages.clr.icd
-      ];
-      extraPackages32 = with pkgs; [
-        driversi686Linux.amdvlk
-      ];
-      driSupport32Bit = true;
-    };
+  hardware.opengl = {
+    extraPackages = with pkgs; [
+      amdvlk
+      rocmPackages.clr
+      rocmPackages.clr.icd
+    ];
+    extraPackages32 = with pkgs; [
+      driversi686Linux.amdvlk
+    ];
+    driSupport32Bit = true;
   };
 
   home-manager.users.muni = {
