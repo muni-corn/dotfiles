@@ -40,8 +40,8 @@ in {
         (b "SUPER" "Enter" "exec" terminal)
 
         # power controls
-        (b "SUPER_CTRL_ALT" "o" "exec" "systemctl poweroff")
-        (b "SUPER_CTRL_ALT" "b" "exec" "systemctl reboot")
+        (b "SUPER_CTRL_ALT" "o" "exec" "canberra-gtk-play -i system-shutdown; systemctl poweroff")
+        (b "SUPER_CTRL_ALT" "b" "exec" "canberra-gtk-play -i system-shutdown; systemctl reboot")
 
         # change focus
         (b "SUPER" "h" "movefocus" "l")
