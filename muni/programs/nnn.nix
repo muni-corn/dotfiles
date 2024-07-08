@@ -26,12 +26,12 @@
     ];
 
     bookmarks = {
-      a = "~/Music/ardour";
       D = "~/dotfiles";
+      M = "~/Documents/municorn";
+      a = "~/Music/ardour";
       c = "~/code";
       d = "~/Documents";
       m = "~/Music";
-      M = "~/Documents/municorn";
       n = "~/notebook";
       o = "~/Downloads";
       p = "~/Pictures";
