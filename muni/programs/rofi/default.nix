@@ -3,9 +3,9 @@
   pkgs,
   ...
 }: {
-  home.packages = with pkgs; [
-    wtype
-    (rofimoji.override {
+  home.packages = [
+    pkgs.wtype
+    (pkgs.rofimoji.override {
       rofi = config.programs.rofi.finalPackage;
     })
   ];
@@ -26,7 +26,7 @@
 
     cycle = true;
     font = "sans 12";
-    location = "top";
+    location = "center";
     terminal = "${config.programs.kitty.package}/bin/kitty";
     yoffset = 32;
     extraConfig = {
