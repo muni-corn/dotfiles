@@ -208,20 +208,23 @@
 
       # animation
       bezier = [
-        "museOut,0.25,1.5,0.5,1"
+        "museBouncyOut,0.25,1.5,0.5,1"
+        "museOut,0,0,0.15,1"
         "museIn,0,0,1,0.15"
         "museInOut,0.5,0,0,1"
       ];
       animation = [
-        "windowsIn,1,4,museOut,popin 75%"
+        "windowsIn,1,4,museBouncyOut,popin 75%"
         "windowsOut,1,2,museIn,popin 75%"
         "windowsMove,1,3,museInOut"
         "fadeIn,1,2,museOut"
         "fadeOut,1,2,museIn"
-        "workspaces,1,4,museInOut,slidevert"
+        "workspaces,1,4,museInOut,slidefadevert 50%"
         "border,1,2,museOut"
-        "layers,1,2,museOut,popin 85%"
-        "fadeLayers,1,1,museOut"
+        "layersIn,1,2,museBouncyOut,popin 85%"
+        "layersOut,1,1,museIn,popin 85%"
+        "fadeLayersIn,1,1,museOut"
+        "fadeLayersOut,1,1,museIn"
       ];
 
       layerrule = [
