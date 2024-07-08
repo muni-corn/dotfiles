@@ -13,6 +13,7 @@
     ../openssh.nix
     ../sops
     ../steam.nix
+    ../video_production.nix
     ./btrbk.nix
     ./hardware.nix
     ./home-assistant.nix
@@ -48,15 +49,6 @@
       gmic
       gmic-qt
       upscayl
-
-      # video
-      blender-hip
-      ffmpeg-full
-      kdenlive
-      libva-utils
-      mediainfo
-      movit
-      synfigstudio
 
       # emulators and "emulators"
       wineWowPackages.waylandFull
@@ -210,11 +202,6 @@
         };
       };
     };
-
-    # for Blender
-    tmpfiles.rules = [
-      "L+    /opt/rocm/hip   -    -    -     -    ${pkgs.rocmPackages.clr}"
-    ];
   };
 
   # This value determines the NixOS release from which the default

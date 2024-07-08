@@ -41,6 +41,7 @@ in {
       # terminal/cli stuff
       fd
       fend
+      ffmpeg-full
       jdupes
       neovim-remote
       pv
