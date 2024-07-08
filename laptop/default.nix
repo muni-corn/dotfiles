@@ -1,4 +1,8 @@
-{config, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   imports = [
     ../common.nix
     ../common-graphical.nix
@@ -18,6 +22,9 @@
   musnix.soundcardPciId = "c1:00.6";
 
   networking.hostName = "littlepony";
+
+  # force governor to default null to spite musnix
+  powerManagement.cpuFreqGovernor = lib.mkForce null;
 
   security.pam.services.hyprlock.fprintAuth = true;
 
