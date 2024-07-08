@@ -270,6 +270,7 @@
         "idleinhibit always,title:^(Picture-in-Picture)$"
         "keepaspectratio,title:^(Picture-in-Picture)$"
         "pin,title:^(Picture-in-Picture)$"
+        "suppressevent fullscreen maximize activate activatefocus,title:^(Picture-in-Picture)$"
 
         # assign some apps to default workspaces
         "workspace 10,class:^(discord)$"
