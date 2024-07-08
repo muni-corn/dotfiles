@@ -28,8 +28,10 @@ in {
 
     packages = with pkgs; [
       # audio and music
+      pamixer
       pavucontrol
       playerctl
+      qpwgraph
       spotify
 
       # desktop environment

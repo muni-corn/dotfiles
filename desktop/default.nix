@@ -8,8 +8,9 @@
     ../common-graphical.nix
 
     ../docker.nix
-    ../openssh.nix
     ../firewall.nix
+    ../music_production.nix
+    ../openssh.nix
     ../sops
     ../steam.nix
     ./btrbk.nix
@@ -47,22 +48,6 @@
       gmic
       gmic-qt
       upscayl
-
-      # audio, sound, and music
-      ardour
-      audacity
-      autotalent
-      calf
-      easyeffects
-      geonkick
-      lsp-plugins
-      musescore
-      pamixer
-      qpwgraph
-      sfizz
-      x42-gmsynth
-      x42-plugins
-      zyn-fusion
 
       # video
       blender-hip
@@ -142,10 +127,7 @@
     ];
   };
 
-  musnix = {
-    enable = true;
-    soundcardPciId = "0e:00.4";
-  };
+  musnix.soundcardPciId = "0e:00.4";
 
   networking = {
     hostName = "ponycastle";
