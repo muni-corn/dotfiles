@@ -12,14 +12,7 @@
   # package path convenience variables
   pamixer = "${pkgs.pamixer}/bin/pamixer";
 
-  # sound paths
-  sounds = {
-    volumeDown = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/audio-volume-change-down.oga";
-    volumeUp = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/audio-volume-change.oga";
-    volumeUnmute = "${pkgs.muse-sounds}/share/sounds/musicaloft/stereo/audio-volume-change-unmute.oga";
-  };
-
-  mkVolumeScript = name: pamixerFlags: soundPath:
+  mkVolumeScript = name: pamixerFlags:
     pkgs.writeScript "volume-${name}" ''
       #!${config.programs.fish.package}/bin/fish
       if set -q VOLUME_CTL_DEFAULT_SINK
@@ -30,7 +23,7 @@
         ${pamixer} --get-volume > $XDG_RUNTIME_DIR/hypr.wob &
       end
 
-      ${pkgs.pipewire}/bin/pw-play --volume 1.0 ${soundPath} &
+      canberra-gtk-play -i audio-volume-change &
 
       wait
     '';
@@ -52,9 +45,9 @@ in {
   quickCode = import ../quick-code-script.nix {inherit config pkgs;};
 
   volume = {
-    up = mkVolumeScript "up" "-i 5" sounds.volumeUp;
-    down = mkVolumeScript "down" "-d 5" sounds.volumeDown;
-    toggleMute = mkVolumeScript "toggle-mute" "--toggle-mute" sounds.volumeUnmute;
+    up = mkVolumeScript "up" "-i 5";
+    down = mkVolumeScript "down" "-d 5";
+    toggleMute = mkVolumeScript "toggle-mute" "--toggle-mute";
   };
 
   brightness = {

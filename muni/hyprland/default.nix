@@ -196,14 +196,14 @@
         # wob
         "${wobStartScript} &"
 
-        # play startup sound
-        "canberra-gtk-play --id=desktop-login &"
-
         # polkit
         "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1 &"
 
         # wallpaper
         "${pkgs.swww}/bin/swww-daemon &"
+
+        # play startup sound
+        "canberra-gtk-play -i desktop-login &"
       ];
 
       # animation
