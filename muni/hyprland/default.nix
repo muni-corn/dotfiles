@@ -237,6 +237,7 @@
         "ignorealpha 0.5,menu"
         "ignorealpha 0.5,notifications"
         "ignorealpha 0.5,rofi"
+        "dimaround,rofi"
       ];
 
       monitor = [
@@ -259,6 +260,8 @@
         "float,class:^(openrgb)$"
         "float,title:^(Slack - Huddle)$"
         "float,class:^(zenity)$"
+        "dimaround,class:^(Pinentry)$"
+        "pin,class:^(Pinentry)$"
 
         # firefox Picture-in-Picture
         "float,title:^(Picture-in-Picture)$"
