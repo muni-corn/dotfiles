@@ -89,22 +89,6 @@
       hyprlock.settings = (import ../utils.nix {inherit config;}).mkHyprlockSettings ["DP-2" "HDMI-A-1" "HDMI-A-2"];
     };
 
-    systemd.user.services.hydroxide = {
-      Unit = {
-        Description = "hydroxide service";
-      };
-
-      Service = {
-        ExecStart = "${pkgs.hydroxide}/bin/hydroxide -carddav-port 8079 serve";
-        Restart = "always";
-        RestartSec = 10;
-      };
-
-      Install = {
-        WantedBy = ["default.target"];
-      };
-    };
-
     wayland.windowManager.hyprland.settings.workspace = [
       "1,monitor:DP-2,default:true"
       "2,monitor:DP-2"
