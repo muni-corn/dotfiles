@@ -169,19 +169,19 @@
         "GTK_USE_PORTAL,1"
         "MOZ_ENABLE_WAYLAND,1"
         "NO_AT_BRIDGE,1"
-        "QT_AUTO_SCREEN_SCALE_FACTOR,2"
-        "QT_ENABLE_HIGHDPI_SCALING,1"
-        "QT_QPA_PLATFORM,wayland-egl"
-        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "SDL_VIDEODRIVER,wayland"
         "XDG_SESSION_TYPE,wayland"
         "_JAVA_AWT_WM_NONREPARENTING,1"
       ];
 
       envd = [
+        "QT_AUTO_SCREEN_SCALE_FACTOR,2"
+        "QT_ENABLE_HIGHDPI_SCALING,1"
+        "QT_QPA_PLATFORM,wayland-egl"
+        "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
+        "SDL_VIDEODRIVER,wayland"
         "SWWW_TRANSITION,grow"
-        "SWWW_TRANSITION_DURATION,2"
         "SWWW_TRANSITION_BEZIER,0.5,0,0,1"
+        "SWWW_TRANSITION_DURATION,2"
         "SWWW_TRANSITION_FPS,60"
       ];
 
