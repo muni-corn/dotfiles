@@ -158,7 +158,6 @@
         "CLUTTER_BACKEND,wayland"
         "ECORE_EVAS_ENGINE,wayland-egl"
         "ELM_ENGINE,wayland_egl"
-        "GDK_SCALE,2"
         "GTK_THEME,${config.gtk.theme.name}"
         "GTK_USE_PORTAL,1"
         "MOZ_ENABLE_WAYLAND,1"
@@ -168,8 +167,6 @@
       ];
 
       envd = [
-        "QT_AUTO_SCREEN_SCALE_FACTOR,2"
-        "QT_ENABLE_HIGHDPI_SCALING,1"
         "QT_QPA_PLATFORM,wayland-egl"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "SDL_VIDEODRIVER,wayland"
