@@ -65,12 +65,6 @@
       defaultAlpha = "80";
 
       colors = config.muse.theme.palette;
-
-      wobStartScript = pkgs.writeScript "wob-start" ''
-        #!${pkgs.fish}/bin/fish
-        mkfifo $XDG_RUNTIME_DIR/hypr.wob
-        tail -f $XDG_RUNTIME_DIR/hypr.wob | ${pkgs.wob}/bin/wob
-      '';
     in {
       general = {
         "col.active_border" = rgba colors.bright-white defaultAlpha;
@@ -190,17 +184,8 @@
         # load last screen brightness
         "brillo -I &"
 
-        # widgets
-        "${config.programs.ags.package}/bin/ags &"
-
-        # wob
-        "${wobStartScript} &"
-
         # polkit
         "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1 &"
-
-        # wallpaper
-        "${pkgs.swww}/bin/swww-daemon &"
 
         # play startup sound
         "canberra-gtk-play -i desktop-login &"

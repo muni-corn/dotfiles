@@ -55,10 +55,13 @@ in {
     down = mkBrightnessScript "down" "-U 2";
   };
 
-  switchWallpaper = pkgs.writeScript "hypr-switch-wallpaper" ''
-    #!${pkgs.fish}/bin/fish
+  startWob = pkgs.writeShellScript "wob-start" ''
+    mkfifo $XDG_RUNTIME_DIR/hypr.wob
+    tail -f $XDG_RUNTIME_DIR/hypr.wob | ${pkgs.wob}/bin/wob
+  '';
 
-    set new_wall (${pkgs.fd}/bin/fd --type f . ${config.muse.theme.wallpapersDir} | shuf -n 1)
+  switchWallpaper = pkgs.writeShellScript "hypr-switch-wallpaper" ''
+    new_wall=$(${pkgs.fd}/bin/fd --type f . ${config.muse.theme.wallpapersDir} | shuf -n 1)
     ${pkgs.swww}/bin/swww img $new_wall
   '';
 
