@@ -210,19 +210,23 @@
       ];
 
       layerrule = [
+        "animation fade,swww-daemon"
+        "animation slide top,bar-0"
+        "animation slide top,bar-1"
+        "animation slide top,bar-2"
+        "blur,bar-0"
+        "blur,bar-1"
+        "blur,bar-2"
         "blur,gtk-layer-shell"
         "blur,menu"
         "blur,notifications"
         "blur,rofi"
-        "blur,bar-0"
-        "blur,bar-1"
-        "blur,bar-2"
         "blur,wob"
-        "ignorezero,gtk-layer-shell"
+        "dimaround,rofi"
         "ignorealpha 0.5,menu"
         "ignorealpha 0.5,notifications"
         "ignorealpha 0.5,rofi"
-        "dimaround,rofi"
+        "ignorezero,gtk-layer-shell"
       ];
 
       monitor = [
