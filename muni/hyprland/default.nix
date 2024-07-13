@@ -251,6 +251,10 @@
         "float,class:^(zenity)$"
         "dimaround,class:^(Pinentry)$"
         "pin,class:^(Pinentry)$"
+        "dimaround,class:^(org.kde.polkit-kde-authentication-agent-1)$"
+        "pin,class:^(org.kde.polkit-kde-authentication-agent-1)$"
+        "float,class:^(org.kde.polkit-kde-authentication-agent-1)$"
+        "center,class:^(org.kde.polkit-kde-authentication-agent-1)$"
 
         # firefox Picture-in-Picture
         "float,title:^(Picture-in-Picture)$"
