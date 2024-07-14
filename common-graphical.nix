@@ -141,6 +141,8 @@
       serviceWantedBy = ["multi-user.target"];
     };
 
+    logind.extraConfig = "IdleActionSec=30min";
+
     pipewire = {
       enable = true;
       alsa = {

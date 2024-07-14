@@ -47,10 +47,6 @@
           on-timeout = powerOff;
           on-resume = powerOn;
         }
-        {
-          timeout = 1800;
-          on-timeout = "systemctl suspend";
-        }
       ];
     };
   };

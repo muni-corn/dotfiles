@@ -128,6 +128,8 @@
 
     invokeai.enable = true;
 
+    logind.extraConfig = "IdleAction=suspend";
+
     ollama.enable = true;
 
     psd.enable = true;
