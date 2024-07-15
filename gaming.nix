@@ -2,6 +2,7 @@
   home-manager.users.muni.home.packages = with pkgs; [
     # games
     ace-of-penguins
+    gamehub
     gnome.aisleriot
     godot_4
     #itch
