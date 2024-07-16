@@ -197,7 +197,7 @@
         "windowsMove,1,3,museInOut"
         "fadeIn,1,2,museOut"
         "fadeOut,1,2,museIn"
-        "workspaces,1,4,museInOut,slidefadevert 50%"
+        "workspaces,1,4,museInOut,slidefadevert 15%"
         "border,1,2,museOut"
         "layersIn,1,2,museBouncyOut,popin 85%"
         "layersOut,1,1,museIn,popin 85%"
