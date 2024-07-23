@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
@@ -72,6 +73,8 @@
       hyprlock.settings = (import ../utils.nix {inherit config;}).mkHyprlockSettings ["DP-2" "HDMI-A-1" "HDMI-A-2"];
     };
 
+    services.easyeffects.enable = true;
+
     wayland.windowManager.hyprland.settings.workspace = [
       "1,monitor:DP-2,default:true"
       "2,monitor:DP-2"
@@ -97,6 +100,9 @@
     rocmTargets = ["gfx1102"];
     rocmSupport = true;
   };
+
+  # for easyeffects
+  programs.dconf.enable = true;
 
   security.pam.loginLimits = [
     {
