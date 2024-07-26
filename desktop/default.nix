@@ -26,7 +26,7 @@
     systemd-boot.memtest86.enable = true;
   };
 
-  hardware.opengl = {
+  hardware.graphics = {
     extraPackages = with pkgs; [
       amdvlk
       rocmPackages.clr
@@ -35,7 +35,7 @@
     extraPackages32 = with pkgs; [
       driversi686Linux.amdvlk
     ];
-    driSupport32Bit = true;
+    enable32Bit = true;
   };
 
   home-manager.users.muni = {
