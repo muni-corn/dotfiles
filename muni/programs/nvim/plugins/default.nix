@@ -4,6 +4,7 @@
     ./dap.nix
     ./emmet.nix
     ./floaterm.nix
+    ./gen.nix
     ./lsp.nix
     ./lspkind.nix
     ./mini
@@ -18,7 +19,6 @@
     plugins = {
       auto-save.enable = true;
       undotree.enable = true;
-      ollama.enable = true;
     };
 
     extraPlugins = with pkgs.vimPlugins; [

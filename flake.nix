@@ -6,6 +6,12 @@
     # aylur's gtk shell
     ags.url = "github:Aylur/ags";
 
+    # gen.nvim
+    gen-nvim = {
+      url = "github:David-Kunz/gen.nvim";
+      flake = false;
+    };
+
     # geonkick 2
     geonkick = {
       url = "github:Geonkick-Synthesizer/geonkick/v2.10.2";

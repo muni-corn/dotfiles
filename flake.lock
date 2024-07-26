@@ -497,6 +497,22 @@
         "type": "github"
       }
     },
+    "gen-nvim": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1722007624,
+        "narHash": "sha256-QlpST2x3nTWGbGcRXtIiZdJbiESeqgSWnuqbdKVwc70=",
+        "owner": "David-Kunz",
+        "repo": "gen.nvim",
+        "rev": "d58cd6b5b7df47894eb5e453901c74a8e6045b6b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "David-Kunz",
+        "repo": "gen.nvim",
+        "type": "github"
+      }
+    },
     "geonkick": {
       "flake": false,
       "locked": {
@@ -1449,6 +1465,7 @@
     "root": {
       "inputs": {
         "ags": "ags",
+        "gen-nvim": "gen-nvim",
         "geonkick": "geonkick",
         "home-manager": "home-manager",
         "iosevka-muse": "iosevka-muse",
