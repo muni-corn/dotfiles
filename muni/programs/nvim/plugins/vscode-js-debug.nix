@@ -1,14 +1,14 @@
 {
   pkgs,
-  vscode-js-debug-src,
+  inputs,
   ...
 }: let
-  packageLock = builtins.fromJSON (builtins.readFile "${vscode-js-debug-src}/package.json");
+  packageLock = builtins.fromJSON (builtins.readFile "${inputs.vscode-js-debug}/package.json");
   pname = packageLock.name;
   version = packageLock.version;
   vscode-js-debug = pkgs.buildNpmPackage {
     inherit pname version;
-    src = vscode-js-debug-src;
+    src = inputs.vscode-js-debug;
     npmBuildScript = "compile";
     npmDepsHash = "sha256-BDtshWHWFasb+aYUBRFz8OAP+9Ufh5uy3XNZCQOY79U=";
     npmBuildFlags = ["dapDebugServer"];

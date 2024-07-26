@@ -1,8 +1,8 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
-  muni-wallpapers,
   ...
 }: let
   colors = config.muse.theme.palette;
@@ -18,7 +18,7 @@ in {
   muse.theme = {
     enable = true;
     palette = (import ./colors.nix).muni;
-    wallpapersDir = "${muni-wallpapers}/wallpapers";
+    wallpapersDir = "${inputs.muni-wallpapers}/wallpapers";
   };
 
   home = {

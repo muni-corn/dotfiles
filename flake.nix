@@ -70,7 +70,6 @@
     iosevka-muse,
     mini-nvim,
     muni-bot,
-    muni-wallpapers,
     muse-sounds,
     musnix,
     neorg,
@@ -80,7 +79,6 @@
     nixpkgs-wayland,
     nixvim,
     plymouth-theme-musicaloft-rainbow,
-    vscode-js-debug,
     ...
   } @ inputs: let
     versionOverridesOverlay = final: prev: {
@@ -135,8 +133,7 @@
         home-manager = {
           backupFileExtension = "backup";
           extraSpecialArgs = {
-            inherit muni-wallpapers;
-            vscode-js-debug-src = vscode-js-debug;
+            inherit inputs;
           };
           sharedModules = [
             ags.homeManagerModules.default
