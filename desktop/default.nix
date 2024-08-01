@@ -136,7 +136,12 @@
 
     logind.extraConfig = "IdleAction=suspend";
 
-    ollama.enable = true;
+    ollama = {
+      enable = true;
+      host = "[::]";
+      loadModels = ["llama3.1:8b" "llama3.1:70b" "mistral"];
+      openFirewall = true;
+    };
 
     smartd.enable = true;
   };
