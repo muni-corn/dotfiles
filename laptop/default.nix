@@ -49,10 +49,7 @@
     # for fingerprint reader support
     fprintd.enable = true;
 
-    logind = {
-      extraConfig = "IdleAction=suspend-then-hibernate";
-      lidSwitch = "suspend-then-hibernate";
-    };
+    logind.lidSwitch = "suspend-then-hibernate";
   };
 
   # This value determines the NixOS release from which the default
