@@ -165,6 +165,10 @@
     };
   };
 
+  systemd.packages = [
+    pkgs.libcanberra
+  ];
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
     users = {
