@@ -87,7 +87,8 @@
     plymouth-theme-musicaloft-rainbow,
     ...
   } @ inputs: let
-    versionOverridesOverlay = final: prev: {
+    customPackagesOverlay = final: prev: {
+      cursor-ide = prev.callPackage ./cursor-ide.nix {};
       geonkick = prev.geonkick.overrideAttrs (old: {
         src = geonkick;
       });
@@ -108,7 +109,7 @@
         nix-minecraft.overlay
         nixpkgs-wayland.overlays.default
         plymouth-theme-musicaloft-rainbow.overlay
-        versionOverridesOverlay
+        customPackagesOverlay
       ];
     };
 
