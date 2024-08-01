@@ -138,8 +138,6 @@
 
     ollama.enable = true;
 
-    psd.enable = true;
-
     smartd.enable = true;
   };
 

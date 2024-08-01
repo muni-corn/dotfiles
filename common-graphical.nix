@@ -153,6 +153,9 @@
       jack.enable = true;
     };
 
+    # profile sync daemon, for SSDs and browsers
+    psd.enable = true;
+
     xserver = {
       # Configure keymap in X11
       xkb.layout = "us";
