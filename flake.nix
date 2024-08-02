@@ -6,12 +6,6 @@
     # aylur's gtk shell
     ags.url = "github:Aylur/ags";
 
-    # gen.nvim
-    gen-nvim = {
-      url = "github:David-Kunz/gen.nvim";
-      flake = false;
-    };
-
     # geonkick 2
     geonkick = {
       url = "github:Geonkick-Synthesizer/geonkick/v2.10.2";
@@ -20,12 +14,6 @@
 
     # realtime audio
     musnix.url = "github:musnix/musnix";
-
-    # mini-nvim
-    mini-nvim = {
-      url = "github:echasnovski/mini.nvim";
-      flake = false;
-    };
 
     # neorg overlay for up-to-date neorg stuff
     neorg.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
@@ -56,6 +44,16 @@
 
     # database for muni_bot
     surrealdb.url = "github:surrealdb/surrealdb?ref=v1.4.0";
+
+    # neovim plugins
+    gen-nvim = {
+      url = "github:David-Kunz/gen.nvim";
+      flake = false;
+    };
+    mini-nvim = {
+      url = "github:echasnovski/mini.nvim";
+      flake = false;
+    };
 
     # my stuff
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
