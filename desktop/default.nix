@@ -69,19 +69,19 @@
         ];
       };
 
-      hyprlock.settings = (import ../utils.nix {inherit config;}).mkHyprlockSettings ["DP-2" "HDMI-A-1" "HDMI-A-2"];
+      hyprlock.settings = (import ../utils.nix {inherit config;}).mkHyprlockSettings ["DP-1" "DP-2" "HDMI-A-1"];
     };
 
     services.easyeffects.enable = true;
 
     wayland.windowManager.hyprland.settings.workspace = [
-      "1,monitor:DP-2,default:true"
-      "2,monitor:DP-2"
-      "3,monitor:DP-2"
-      "4,monitor:DP-2"
-      "5,monitor:HDMI-A-2,default:true"
-      "6,monitor:HDMI-A-2"
-      "7,monitor:HDMI-A-2"
+      "1,monitor:DP-1,default:true"
+      "2,monitor:DP-1"
+      "3,monitor:DP-1"
+      "4,monitor:DP-1"
+      "5,monitor:DP-2,default:true"
+      "6,monitor:DP-2"
+      "7,monitor:DP-2"
       "8,monitor:HDMI-A-1"
       "9,monitor:HDMI-A-1"
       "10,monitor:HDMI-A-1,default:true"

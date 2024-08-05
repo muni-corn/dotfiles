@@ -34,9 +34,9 @@
     kernelModules = ["kvm-amd"];
     kernelParams = [
       "acpi_enforce_resources=lax"
-      "video=DP-2:2560x1440@60"
+      "video=DP-1:2560x1440@60"
+      "video=DP-2:1920x1080@60"
       "video=HDMI-A-1:1920x1080@60"
-      "video=HDMI-A-2:1920x1080@60"
     ];
   };
 
