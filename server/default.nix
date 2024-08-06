@@ -111,6 +111,11 @@
   system.stateVersion = "21.05"; # Did you read the comment?
 
   services = {
+    btrfs.autoScrub = {
+      enable = true;
+      fileSystems = ["/crypt"];
+    };
+
     btrbk = {
       sshAccess = [
         {
