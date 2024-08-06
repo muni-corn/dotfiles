@@ -50,6 +50,8 @@
     fprintd.enable = true;
 
     logind.lidSwitch = "suspend-then-hibernate";
+
+    surrealdb.enable = true;
   };
 
   # This value determines the NixOS release from which the default
