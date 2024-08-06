@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }: {
@@ -130,15 +129,6 @@
     hardware.openrgb = {
       enable = true;
       package = pkgs.openrgb-with-all-plugins;
-    };
-
-    invokeai.enable = true;
-
-    ollama = {
-      enable = true;
-      host = "[::]";
-      loadModels = ["llama3.1:8b" "llama3.1:70b" "mistral"];
-      openFirewall = true;
     };
 
     smartd.enable = true;

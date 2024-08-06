@@ -83,7 +83,10 @@
   };
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config = {
+    allowUnfree = true;
+    rocmSupport = true;
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -150,6 +153,15 @@
           };
         };
       };
+    };
+
+    invokeai.enable = true;
+
+    ollama = {
+      enable = true;
+      host = "[::]";
+      loadModels = ["llama3.1:8b" "llama3.1:70b" "mistral"];
+      openFirewall = true;
     };
 
     surrealdb = {
