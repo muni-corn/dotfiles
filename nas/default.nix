@@ -163,8 +163,28 @@
       environmentFile = config.sops.secrets."muni_bot.env".path;
       settings = {
         twitch = {
-          initial_channels = ["muni_corn" "phoenixredtail" "yumi_pegawolf" "melodismol" "piggynatorgaming" "fidget_the_batticorn" "starstrucksocks" "studiomega" "lil_mama_loser" "speedy526745" "yourpaltina" "passionateaboutponies" "starsongdusk" "suonova"];
-          twitch_user = "muni_bot_test";
+          initial_channels = [
+            "fidget_the_batticorn"
+            "hors3noname"
+            "ichi_rose_"
+            "lil_mama_loser"
+            "melodismol"
+            "muni_corn"
+            "passionateaboutponies"
+            "phoenixredtail"
+            "piggynatorgaming"
+            "psychopretzel"
+            "pureblueheart"
+            "saphypone"
+            "speedy526745"
+            "starsongdusk"
+            "starstrucksocks"
+            "studiomega"
+            "suonova"
+            "yourpaltina"
+            "yumi_pegawolf"
+          ];
+          twitch_user = "muni_bot_";
         };
         discord.ventriloquists = [
           633840621626458115
