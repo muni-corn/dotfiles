@@ -4,7 +4,6 @@
 {
   config,
   lib,
-  pkgs,
   modulesPath,
   ...
 }: {
@@ -12,79 +11,84 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["vmd" "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
-  boot.initrd.kernelModules = [];
-  boot.kernelModules = ["kvm-intel"];
-  boot.extraModulePackages = [];
-
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/0601e2c9-f445-4a4f-b656-281ae21c9b8c";
-    fsType = "btrfs";
-    options = ["compress=zstd"];
+  boot = {
+    extraModulePackages = [];
+    initrd = {
+      availableKernelModules = ["vmd" "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
+      kernelModules = [];
+      luks.devices = let
+        mkEncryptedDrive = uuid: {
+          device = "/dev/disk/by-uuid/${uuid}";
+          keyFile = "/dev/disk/by-id/usb-USB_SanDisk_3.2Gen1_0401b0939440ba268e5a0c2ea2676c15e102936862ea7b55613f4481be4c3395ceb7000000000000000000001469fd21009b641883558107133040cd-0:0";
+          keyFileSize = 4096;
+        };
+      in {
+        cryptcrypt1 = mkEncryptedDrive "097e6ba4-5f5b-4b6b-8c35-8061b7100ce0";
+        cryptcrypt2 = mkEncryptedDrive "8ba32d27-9352-467c-a2a7-3151c3ce6a25";
+        cryptcrypt3 = mkEncryptedDrive "491c21ae-7000-4c01-ba53-3f143922f67d";
+        cryptcrypt4 = mkEncryptedDrive "60ec9031-347a-4fcc-949e-d1b66d72f55c";
+        cryptmain = mkEncryptedDrive "caf0cc37-432e-418f-bf1a-6df102875662";
+      };
+    };
+    kernelModules = ["kvm-intel"];
   };
 
-  fileSystems."/home" = {
-    device = "/dev/disk/by-uuid/0601e2c9-f445-4a4f-b656-281ae21c9b8c";
-    fsType = "btrfs";
-    options = ["compress=zstd" "subvol=home"];
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/0601e2c9-f445-4a4f-b656-281ae21c9b8c";
+      fsType = "btrfs";
+      options = ["compress=zstd"];
+    };
+
+    "/home" = {
+      device = "/dev/disk/by-uuid/0601e2c9-f445-4a4f-b656-281ae21c9b8c";
+      fsType = "btrfs";
+      options = ["compress=zstd" "subvol=home"];
+    };
+
+    "/nix" = {
+      device = "/dev/disk/by-uuid/0601e2c9-f445-4a4f-b656-281ae21c9b8c";
+      fsType = "btrfs";
+      options = ["compress=zstd" "noatime" "subvol=nix"];
+    };
+
+    "/root" = {
+      device = "/dev/disk/by-uuid/0601e2c9-f445-4a4f-b656-281ae21c9b8c";
+      fsType = "btrfs";
+      options = ["compress=zstd" "subvol=root"];
+    };
+
+    "/var" = {
+      device = "/dev/disk/by-uuid/0601e2c9-f445-4a4f-b656-281ae21c9b8c";
+      fsType = "btrfs";
+      options = ["compress=zstd" "subvol=var"];
+    };
+
+    "/boot" = {
+      device = "/dev/disk/by-uuid/22A9-1AE7";
+      fsType = "vfat";
+    };
+
+    "/crypt" = {
+      device = "/dev/disk/by-uuid/90072e03-ea6e-414d-86cd-a36aa6a114fe";
+      fsType = "btrfs";
+      options = ["compress=zstd" "noatime"];
+    };
   };
 
-  fileSystems."/nix" = {
-    device = "/dev/disk/by-uuid/0601e2c9-f445-4a4f-b656-281ae21c9b8c";
-    fsType = "btrfs";
-    options = ["compress=zstd" "noatime" "subvol=nix"];
-  };
-
-  fileSystems."/root" = {
-    device = "/dev/disk/by-uuid/0601e2c9-f445-4a4f-b656-281ae21c9b8c";
-    fsType = "btrfs";
-    options = ["compress=zstd" "subvol=root"];
-  };
-
-  fileSystems."/var" = {
-    device = "/dev/disk/by-uuid/0601e2c9-f445-4a4f-b656-281ae21c9b8c";
-    fsType = "btrfs";
-    options = ["compress=zstd" "subvol=var"];
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/22A9-1AE7";
-    fsType = "vfat";
-  };
-
-  fileSystems."/crypt" = {
-    device = "/dev/disk/by-uuid/90072e03-ea6e-414d-86cd-a36aa6a114fe";
-    fsType = "btrfs";
-    options = ["compress=zstd" "noatime"];
-  };
-
-  boot.initrd.luks.devices."cryptmain".device = "/dev/disk/by-uuid/caf0cc37-432e-418f-bf1a-6df102875662";
-  boot.initrd.luks.devices."cryptcrypt1".device = "/dev/disk/by-uuid/097e6ba4-5f5b-4b6b-8c35-8061b7100ce0";
-  boot.initrd.luks.devices."cryptcrypt2".device = "/dev/disk/by-uuid/8ba32d27-9352-467c-a2a7-3151c3ce6a25";
-  boot.initrd.luks.devices."cryptcrypt3".device = "/dev/disk/by-uuid/491c21ae-7000-4c01-ba53-3f143922f67d";
-  boot.initrd.luks.devices."cryptcrypt4".device = "/dev/disk/by-uuid/60ec9031-347a-4fcc-949e-d1b66d72f55c";
-  boot.initrd.luks.devices."cryptmain".keyFileSize = 4096;
-  boot.initrd.luks.devices."cryptcrypt1".keyFileSize = 4096;
-  boot.initrd.luks.devices."cryptcrypt2".keyFileSize = 4096;
-  boot.initrd.luks.devices."cryptcrypt3".keyFileSize = 4096;
-  boot.initrd.luks.devices."cryptcrypt4".keyFileSize = 4096;
-  boot.initrd.luks.devices."cryptmain".keyFile = "/dev/disk/by-id/usb-USB_SanDisk_3.2Gen1_0401b0939440ba268e5a0c2ea2676c15e102936862ea7b55613f4481be4c3395ceb7000000000000000000001469fd21009b641883558107133040cd-0:0";
-  boot.initrd.luks.devices."cryptcrypt1".keyFile = "/dev/disk/by-id/usb-USB_SanDisk_3.2Gen1_0401b0939440ba268e5a0c2ea2676c15e102936862ea7b55613f4481be4c3395ceb7000000000000000000001469fd21009b641883558107133040cd-0:0";
-  boot.initrd.luks.devices."cryptcrypt2".keyFile = "/dev/disk/by-id/usb-USB_SanDisk_3.2Gen1_0401b0939440ba268e5a0c2ea2676c15e102936862ea7b55613f4481be4c3395ceb7000000000000000000001469fd21009b641883558107133040cd-0:0";
-  boot.initrd.luks.devices."cryptcrypt3".keyFile = "/dev/disk/by-id/usb-USB_SanDisk_3.2Gen1_0401b0939440ba268e5a0c2ea2676c15e102936862ea7b55613f4481be4c3395ceb7000000000000000000001469fd21009b641883558107133040cd-0:0";
-  boot.initrd.luks.devices."cryptcrypt4".keyFile = "/dev/disk/by-id/usb-USB_SanDisk_3.2Gen1_0401b0939440ba268e5a0c2ea2676c15e102936862ea7b55613f4481be4c3395ceb7000000000000000000001469fd21009b641883558107133040cd-0:0";
-
-  swapDevices = [
-    {device = "/dev/disk/by-uuid/09992ab3-66b5-4cb5-8992-f05aa36b2e9c";}
-  ];
+  swapDevices = [{device = "/dev/disk/by-uuid/09992ab3-66b5-4cb5-8992-f05aa36b2e9c";}];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
   # with explicit per-interface declarations with `networking.interfaces.<interface>.useDHCP`.
-  networking.useDHCP = lib.mkDefault true;
-  networking.interfaces.enp4s0.useDHCP = lib.mkDefault true;
-  networking.interfaces.wlan0.useDHCP = lib.mkDefault true;
+  networking = {
+    useDHCP = lib.mkDefault true;
+    interfaces = {
+      enp4s0.useDHCP = lib.mkDefault true;
+      wlan0.useDHCP = lib.mkDefault true;
+    };
+  };
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
