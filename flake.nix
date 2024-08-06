@@ -172,9 +172,6 @@
         nixos-hardware.nixosModules.common-gpu-amd
         nixos-hardware.nixosModules.common-pc-ssd
 
-        # extra software configuration modules
-        nixified-ai.nixosModules.invokeai-amd
-
         ./desktop
       ];
 
@@ -185,6 +182,9 @@
         nixos-hardware.nixosModules.common-cpu-intel
         nixos-hardware.nixosModules.common-pc
         nixos-hardware.nixosModules.common-pc-hdd
+
+        # extra software configuration modules
+        nixified-ai.nixosModules.invokeai-amd
 
         # extra software configuration modules
         muni-bot.nixosModules.default
