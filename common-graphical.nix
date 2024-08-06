@@ -20,7 +20,6 @@
 
   environment = {
     defaultPackages = with pkgs; [
-      chromium
       gnome.gnome-bluetooth
       kodi
       konsole
