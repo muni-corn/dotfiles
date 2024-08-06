@@ -189,7 +189,7 @@
         # extra software configuration modules
         muni-bot.nixosModules.default
 
-        ./nas
+        ./server
       ];
   in {
     nixosConfigurations = {
