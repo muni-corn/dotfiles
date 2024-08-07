@@ -115,7 +115,7 @@
 
       device = {
         name = "wacom-intuos-pro-m-pen";
-        output = "DP-2";
+        output = "DP-1";
       };
 
       gestures = {
