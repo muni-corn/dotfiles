@@ -209,4 +209,7 @@
       };
     };
   };
+
+  # give ollama-post-start an infinite timeout
+  systemd.services.ollama.serviceConfig.TimeoutStartSec = "infinity";
 }
