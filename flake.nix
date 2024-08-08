@@ -180,7 +180,7 @@
         nixos-hardware.nixosModules.common-pc
 
         # extra software configuration modules
-        nixified-ai.nixosModules.invokeai-amd
+        nixified-ai.nixosModules.invokeai-nvidia
         muni-bot.nixosModules.default
 
         ./server

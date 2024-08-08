@@ -85,7 +85,7 @@
   # Allow unfree packages
   nixpkgs.config = {
     allowUnfree = true;
-    rocmSupport = true;
+    cudaSupport = true;
   };
 
   # List packages installed in system profile. To search, run:
