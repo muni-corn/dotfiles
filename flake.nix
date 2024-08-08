@@ -178,6 +178,7 @@
         # hardware
         nixos-hardware.nixosModules.common-cpu-intel
         nixos-hardware.nixosModules.common-pc
+        # TODO include nvidia hardware moduels?
 
         # extra software configuration modules
         nixified-ai.nixosModules.invokeai-nvidia
