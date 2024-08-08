@@ -159,9 +159,6 @@
         ./laptop
       ];
 
-    # note: we would include common-pc-hdd, but it only sets vm.swappiness to
-    # 10, which is overriden by common-pc-ssd, which sets vm.swappiness to 1.
-    # swap on ponycastle is currently restricted to the ssd.
     ponycastleModules =
       commonModules
       ++ commonGraphicalModules
@@ -181,12 +178,9 @@
         # hardware
         nixos-hardware.nixosModules.common-cpu-intel
         nixos-hardware.nixosModules.common-pc
-        nixos-hardware.nixosModules.common-pc-hdd
 
         # extra software configuration modules
         nixified-ai.nixosModules.invokeai-amd
-
-        # extra software configuration modules
         muni-bot.nixosModules.default
 
         ./server
