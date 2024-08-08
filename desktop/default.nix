@@ -95,10 +95,7 @@
     hostId = "edafa5da";
   };
 
-  nixpkgs.config = {
-    rocmTargets = ["gfx1102"];
-    rocmSupport = true;
-  };
+  nixpkgs.config.rocmSupport = true;
 
   # for easyeffects
   programs.dconf.enable = true;
