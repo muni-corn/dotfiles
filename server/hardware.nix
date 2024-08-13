@@ -15,7 +15,6 @@
     extraModulePackages = [];
     initrd = {
       availableKernelModules = ["vmd" "xhci_pci" "ahci" "nvme" "usb_storage" "usbhid" "sd_mod"];
-      kernelModules = [];
       luks.devices = let
         mkEncryptedDrive = uuid: {
           device = "/dev/disk/by-uuid/${uuid}";
@@ -92,7 +91,18 @@
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware = {
+    graphics.enable = true;
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    nvidia.open = lib.mkForce false;
+    nvidia = {
+      modesetting.enable = true;
+      prime = {
+        intelBusId = "PCI:0:2:0";
+        nvidiaBusId = "PCI:1:0:0";
+        offload = {
+          enable = true;
+          enableOffloadCmd = true;
+        };
+      };
+    };
   };
 }

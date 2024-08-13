@@ -208,6 +208,8 @@
         ];
       };
     };
+
+    xserver.enable = true;
   };
 
   # give ollama-post-start an infinite timeout

@@ -178,7 +178,7 @@
         # hardware
         nixos-hardware.nixosModules.common-cpu-intel
         nixos-hardware.nixosModules.common-pc
-        nixos-hardware.nixosModules.common-gpu-nvidia-nonprime
+        nixos-hardware.nixosModules.common-gpu-nvidia
 
         # extra software configuration modules
         nixified-ai.nixosModules.invokeai-nvidia
