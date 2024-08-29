@@ -97,6 +97,11 @@
             src = mini-nvim;
           });
         };
+      surrealdb = prev.surrealdb.overrideAttrs (old: {
+        cargoDeps = old.cargoDeps.overrideAttrs (_: {
+          patches = ["${nixpkgs}/pkgs/by-name/su/surrealdb/time.patch"];
+        });
+      });
     };
 
     overlaysModule = {

@@ -27,7 +27,6 @@
       libcanberra
       libcanberra-gtk3
       muse-sounds
-      surrealist
       v4l-utils
       wayfire
 
