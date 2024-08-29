@@ -3,7 +3,7 @@
     # games
     ace-of-penguins
     gamehub
-    gnome.aisleriot
+    aisleriot
     godot_4
     #itch
     kdePackages.kmines
