@@ -230,16 +230,6 @@
         "ignorezero,gtk-layer-shell"
       ];
 
-      monitor = [
-        # laptop
-        "eDP-1,preferred,0x0,1.25"
-
-        # desktop
-        "HDMI-A-1,preferred,0x180,1"
-        "DP-1,2560x1440@180,1920x0,1"
-        "DP-2,preferred,4480x180,1"
-      ];
-
       windowrulev2 = [
         "float,title:^(Firefox — Sharing Indicator)$"
         "nofocus,title:^(Firefox — Sharing Indicator)$"

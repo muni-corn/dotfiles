@@ -17,6 +17,10 @@
   home-manager.users.muni = {
     programs.hyprlock.settings = (import ../utils.nix {inherit config;}).mkHyprlockSettings ["eDP-1" "DP-2"];
     services.gammastep.settings.general.brightness-night = 0.5;
+    wayland.windowManager.hyprland.settings.monitor = [
+      "eDP-1,preferred,0x0,1.25"
+      "DP-2,preferred,2048x0,1"
+    ];
   };
 
   musnix.soundcardPciId = "c1:00.6";
