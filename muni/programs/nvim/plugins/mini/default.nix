@@ -3,6 +3,7 @@
     ./clue.nix
     ./completion.nix
     ./files.nix
+    ./icons.nix
     ./pick.nix
     ./starter.nix
   ];

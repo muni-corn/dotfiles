@@ -6,7 +6,6 @@
     ./floaterm.nix
     ./gen.nix
     ./lsp.nix
-    ./lspkind.nix
     ./mini
     ./neorg.nix
     ./none-ls.nix
@@ -24,7 +23,6 @@
     extraPlugins = with pkgs.vimPlugins; [
       lsp-status-nvim
       nvim-snippy
-      nvim-web-devicons
       playground
       plenary-nvim
       popup-nvim
