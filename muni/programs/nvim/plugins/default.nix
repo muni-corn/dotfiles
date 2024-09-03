@@ -7,6 +7,7 @@
     ./gen.nix
     ./lsp.nix
     ./mini
+    ./neocord.nix
     ./neorg.nix
     ./none-ls.nix
     ./telescope.nix
