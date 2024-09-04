@@ -36,6 +36,7 @@ in {
       pavucontrol
       playerctl
       qpwgraph
+      sox
       spotify
 
       # desktop environment
