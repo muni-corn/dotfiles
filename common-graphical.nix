@@ -20,7 +20,7 @@
 
   environment = {
     defaultPackages = with pkgs; [
-      gnome.gnome-bluetooth
+      gnome-bluetooth
       kodi
       konsole
       ksshaskpass
