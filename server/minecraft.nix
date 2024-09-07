@@ -33,6 +33,7 @@
       Pankilik = "c3eb6377-b226-4c1e-b40d-111079911a75";
       Panko_Pai = "c1272cd8-6067-44a6-ac14-d07b673f0dea";
       PegasisWhovian = "4e9e47fc-c9ab-4fb4-9494-e6d857a0ccdd";
+      RandomDoesThings = "66bc1a72-e6a7-43e9-8c2e-8377b9c3b2d1";
       SaxPon3 = "02df61e9-26fc-4519-8c36-b0c063531d05";
       SeaGnash = "8abd1ff4-10de-4568-a37c-f9a83b178cdf";
       TDownit_Strider = "6de8f0f9-575a-4b66-adb0-2476d3af18ee";
