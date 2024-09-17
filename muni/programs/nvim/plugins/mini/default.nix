@@ -13,7 +13,7 @@
     modules = {
       ai.__empty = null;
       animate = {
-        cursor.timing.__raw = "require('mini.animate').gen_timing.cubic({ easing = 'out', duration = 10 })";
+        cursor.enable = false;
         scroll.timing.__raw = "require('mini.animate').gen_timing.cubic({ easing = 'out', duration = 10 })";
         resize.timing.__raw = "require('mini.animate').gen_timing.cubic({ easing = 'out', duration = 3 })";
         open.enable = false;
