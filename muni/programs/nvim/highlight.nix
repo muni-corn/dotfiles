@@ -267,5 +267,6 @@ in {
       DiffDelete = ["@diff.minus" "diffRemoved"];
       IncSearch = ["CurSearch"];
       TreesitterContextBottom = ["TreesitterContextLineNumberBottom"];
+      VertSplit = ["WinSeparator"];
     };
 }
