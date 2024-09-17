@@ -99,8 +99,11 @@ in {
       fortune
       imagemagick
       libnotify
+      networkmanagerapplet
       peaclock
       protontricks
+      protonvpn-cli
+      protonvpn-gui
       qrencode
       wirelesstools
       xdragon
