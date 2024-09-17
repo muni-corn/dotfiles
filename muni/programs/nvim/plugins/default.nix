@@ -18,6 +18,7 @@
   programs.nixvim = {
     plugins = {
       auto-save.enable = true;
+      direnv.enable = true;
       undotree.enable = true;
     };
 
