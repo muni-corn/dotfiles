@@ -240,7 +240,7 @@ end
 
 function load_img_dir -a program img_file
     set abs_path (realpath -s $img_file)
-    set tmp $TMPDIR/nuke_{$fish_pid}
+    set -g tmp $TMPDIR/nuke_{$fish_pid}
     trap "rm -f $tmp" EXIT
     set count (populate_image_list "$abs_path" | grep -a -m 1 -ZznF "$abs_path" | cut -d: -f1)
 
