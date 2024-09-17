@@ -238,13 +238,12 @@ in {
       QuickFixLine = hl null "dark-gray" {};
       Search = hl "bright-orange" "dark-orange" {};
       SignColumn = hl null null {};
-      TreesitterContext = hl "light-gray" null {blend = 0;};
+      TreesitterContext = hl "light-gray" null {};
       TreesitterContextBottom = hl null null {
         sp = nameToHex "light-gray";
         undercurl = true;
-        blend = 0;
       };
-      TreesitterContextLineNumber = hl "light-gray" null {blend = 0;};
+      TreesitterContextLineNumber = hl "light-gray" null {};
       Twilight = hl "gray" null {};
       VertSplit = hl "gray" null {};
       VirtualText = hl "gray" null {italic = true;};

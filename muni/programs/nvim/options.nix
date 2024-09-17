@@ -15,6 +15,7 @@
     foldexpr = "v:lua.vim.treesitter.foldexpr()";
     foldlevelstart = 5;
     foldmethod = "expr";
+    guifont = "Iosevka Muse:h12";
     hidden = true;
     lazyredraw = true;
     listchars = "tab:> ,trail:·";

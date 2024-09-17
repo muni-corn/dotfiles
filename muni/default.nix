@@ -62,6 +62,7 @@ in {
       gcc
       lld
       meld
+      neovide
       nixd
       nodejs
       nodePackages.typescript-language-server
