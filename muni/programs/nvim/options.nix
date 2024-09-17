@@ -4,7 +4,7 @@
     autowriteall = true;
     background = "dark";
     clipboard = "unnamedplus";
-    cmdheight = 2;
+    cmdheight = 0;
     complete = ".,w,b,u,t,kspell"; # spell check
     conceallevel = 2;
     diffopt = "hiddenoff,iwhiteall,closeoff,internal,filler,indent-heuristic,linematch:60";
