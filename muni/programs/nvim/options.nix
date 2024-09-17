@@ -18,6 +18,7 @@
     guifont = "Iosevka Muse:h12";
     hidden = true;
     lazyredraw = true;
+    linespace = 4;
     listchars = "tab:> ,trail:·";
     pumheight = 20;
     pumwidth = 80;
