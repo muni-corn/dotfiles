@@ -105,7 +105,6 @@
         numlock_by_default = true;
         natural_scroll = false;
         kb_options = "compose:menu";
-        scroll_factor = 0.5;
 
         touchpad = {
           tap-to-click = true;
