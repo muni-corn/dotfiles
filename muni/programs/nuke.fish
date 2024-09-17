@@ -75,7 +75,7 @@ function handle_pdf
         exiftool $file_path | $PAGER
     else
         return
-    end &> /dev/null
+    end &>/dev/null
     exit 0
 end
 
@@ -83,7 +83,7 @@ end
 function handle_audio
     if type mocp
         and type mocq
-        mocq $file_path "opener"
+        mocq $file_path opener
     else if type mpv
         mpv $file_path & disown
     else if type media_client
@@ -91,10 +91,10 @@ function handle_audio
     else if type mediainfo
         mediainfo $file_path | $PAGER
     else if type exiftool
-        exiftool $file_path| $PAGER
+        exiftool $file_path | $PAGER
     else
         return
-    end &> /dev/null
+    end &>/dev/null
     exit 0
 end
 
@@ -120,7 +120,7 @@ function handle_video
         exiftool $file_path | $PAGER
     else
         return
-    end &> /dev/null
+    end &>/dev/null
     exit 0
 end
 
@@ -128,109 +128,109 @@ end
 function handle_extension
     switch $ext
         # Archive
-    case a ace alz arc arj bz bz2 cab cpio deb gz jar lha lz lzh lzma lzo rpm rz t7z tar tbz tbz2 tgz tlz txz tz tzo war xpi xz z zip
-        if type atool
-            atool --list -- $file_path | $PAGER
-            exit 0
-        else if type bsdtar
-            bsdtar --list --file $file_path | $PAGER
-            exit 0
-        end
-        exit 1
-    case rar
-        if type unrar
-            # Avoid password prompt by providing empty password
-            unrar lt -p- -- $file_path | $PAGER
-            exit 0
-        end
-        exit 1
-    case 7z
-        if type 7z
-            # Avoid password prompt by providing empty password
-            7z l -p -- $file_path | $PAGER
-            exit 0
-        end
-        exit 1
+        case a ace alz arc arj bz bz2 cab cpio deb gz jar lha lz lzh lzma lzo rpm rz t7z tar tbz tbz2 tgz tlz txz tz tzo war xpi xz z zip
+            if type atool
+                atool --list -- $file_path | $PAGER
+                exit 0
+            else if type bsdtar
+                bsdtar --list --file $file_path | $PAGER
+                exit 0
+            end
+            exit 1
+        case rar
+            if type unrar
+                # Avoid password prompt by providing empty password
+                unrar lt -p- -- $file_path | $PAGER
+                exit 0
+            end
+            exit 1
+        case 7z
+            if type 7z
+                # Avoid password prompt by providing empty password
+                7z l -p -- $file_path | $PAGER
+                exit 0
+            end
+            exit 1
 
-        # PDF
-    case pdf
-        handle_pdf
-        exit 1
+            # PDF
+        case pdf
+            handle_pdf
+            exit 1
 
-        # Audio
-    case aac flac m4a mid midi mpa mp2 mp3 ogg wav wma
-        handle_audio
-        exit 1
+            # Audio
+        case aac flac m4a mid midi mpa mp2 mp3 ogg wav wma
+            handle_audio
+            exit 1
 
-        # Video
-    case avi mkv mp4
-        handle_video
-        exit 1
+            # Video
+        case avi mkv mp4
+            handle_video
+            exit 1
 
-        # Log files
-    case log
-        $EDITOR $file_path
-        exit 0
-
-        # BitTorrent
-    case torrent
-        if type rtorrent
-            rtorrent $file_path
+            # Log files
+        case log
+            $EDITOR $file_path
             exit 0
-        else if type transmission-show
-            transmission-show -- $file_path
-            exit 0
-        end
-        exit 1
 
-        # OpenDocument
-    case odt ods odp sxw
-        if type odt2txt
+            # BitTorrent
+        case torrent
+            if type rtorrent
+                rtorrent $file_path
+                exit 0
+            else if type transmission-show
+                transmission-show -- $file_path
+                exit 0
+            end
+            exit 1
+
+            # OpenDocument
+        case odt ods odp sxw
+            if type odt2txt
+                # Preview as text conversion
+                odt2txt $file_path | $PAGER
+                exit 0
+            end
+            exit 1
+
+            # Markdown
+        case md
+            if type glow
+                glow -sdark $file_path | $PAGER
+                exit 0
+            else if type lowdown
+                lowdown -Tterm $file_path | $PAGER
+                exit 0
+            end
+
+            # Neorg
+        case norg
+            $EDITOR $file_path
+            exit 0
+
+            # HTML
+        case htm html xhtml
             # Preview as text conversion
-            odt2txt $file_path | $PAGER
-            exit 0
-        end
-        exit 1
+            if type w3m
+                w3m -dump $file_path | $PAGER
+                exit 0
+            else if type lynx
+                lynx -dump -- $file_path | $PAGER
+                exit 0
+            else if type elinks
+                elinks -dump $file_path | $PAGER
+                exit 0
+            end
 
-        # Markdown
-    case md
-        if type glow
-            glow -sdark $file_path | $PAGER
-            exit 0
-        else if type lowdown
-            lowdown -Tterm $file_path | $PAGER
-            exit 0
-        end
-
-        # Neorg
-    case norg
-        $EDITOR $file_path
-        exit 0
-
-        # HTML
-    case htm html xhtml
-        # Preview as text conversion
-        if type w3m
-            w3m -dump $file_path | $PAGER
-            exit 0
-        else if type lynx
-            lynx -dump -- $file_path | $PAGER
-            exit 0
-        else if type elinks
-            elinks -dump $file_path | $PAGER
-            exit 0
-        end
-
-    case json
-        # JSON
-        if type jq
-            jq --color-output . $file_path | $PAGER
-            exit 0
-        else if type python
-            python -m json.tool -- $file_path | $PAGER
-            exit 0
-        end
-    end &> /dev/null
+        case json
+            # JSON
+            if type jq
+                jq --color-output . $file_path | $PAGER
+                exit 0
+            else if type python
+                python -m json.tool -- $file_path | $PAGER
+                exit 0
+            end
+    end &>/dev/null
 end
 
 # storing the result to a tmp file is faster than calling populate_image_list twice
@@ -246,9 +246,9 @@ function load_img_dir -a program img_file
 
     if test -n $count
         if test $GUI -ne 0
-            xargs -0 nohup $program -n $count -- < $tmp
+            xargs -0 nohup $program -n $count -- <$tmp
         else
-            xargs -0 $program -n $count -- < $tmp
+            xargs -0 $program -n $count -- <$tmp
         end
     else
         set program $img_file
@@ -286,21 +286,21 @@ function handle_multimedia -a mimetype
             end
             exit 7
 
-        # PDF
+            # PDF
         case application/pdf
             handle_pdf
             exit 1
 
-        # Audio
+            # Audio
         case 'audio/*'
             handle_audio
             exit 1
 
-        # Video
+            # Video
         case 'video/*'
             handle_video
             exit 1
-    end &> /dev/null
+    end &>/dev/null
 end
 
 function handle_mime
@@ -311,12 +311,12 @@ function handle_mime
             man -l $file_path
             exit 0
 
-        # Text
+            # Text
         case 'text/*' '*/xml'
             "$EDITOR" $file_path
             exit 0
 
-        # DjVu
+            # DjVu
         case image/vnd.djvu
             if type djvutxt
                 # Preview as text conversion (requires djvulibre)
@@ -327,7 +327,7 @@ function handle_mime
                 exit 0
             end
             exit 1
-    end &> /dev/null
+    end &>/dev/null
 end
 
 function handle_fallback
@@ -339,7 +339,7 @@ function handle_fallback
             nohup open $file_path & disown
             exit 0
         end
-    end &> /dev/null
+    end &>/dev/null
 
     echo '----- File details -----'
     file --dereference --brief -- $file_path
