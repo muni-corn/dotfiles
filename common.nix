@@ -51,6 +51,7 @@
 
       # misc
       clinfo
+      powertop
       psmisc
       rsync
       vulkan-tools
