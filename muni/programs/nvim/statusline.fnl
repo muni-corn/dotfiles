@@ -72,12 +72,12 @@
                          (when (> (length p) 0)
                            p))))
       active-status (fn []
-                      (.. "%#BarPill#  %#StatusLine# "
+                      (.. "  "
                           (table.concat (left-blocks) block-separator)
                           block-separator "%<%=" (lsp-status) block-separator
                           "%=" (table.concat (right-blocks) block-separator)
-                          "%#StatusLine# %#BarPill#  "))
+                          "%#StatusLine#  "))
       inactive-status (fn []
-                        (.. "       " file-path "%<%=" percent-scroll "    "))]
+                        (.. "     " file-path))]
   (global active_statusline active-status)
   (global inactive_statusline inactive-status))
