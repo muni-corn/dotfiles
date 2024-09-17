@@ -1,8 +1,4 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   programs.fish = {
     enable = true;
     functions = {
@@ -91,7 +87,7 @@
 
     shellAbbrs = {
       h = "himalaya";
-      n = "nvim";
+      n = "neovide";
       q = "exit";
       f = "nnn"; # for 'files'
     };
