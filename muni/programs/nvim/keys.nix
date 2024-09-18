@@ -1,5 +1,7 @@
-{
+{config, ...}: {
   programs.nixvim.keymaps = let
+    helpers = config.lib.nixvim;
+
     pick-buffers = "MiniPick.builtin.buffers";
     pick-files = "MiniPick.builtin.files";
     pick-git-branches = "MiniExtra.pickers.git_branches";
@@ -16,6 +18,10 @@
     telescope-git-stash = "require'telescope.builtin'.git_stash";
     telescope-git-status = "require'telescope.builtin'.git_status";
     telescope-lsp-actions = "vim.lsp.buf.code_action";
+
+    write-session = helpers.mkRaw ''
+      function() vim.ui.input({ prompt = "New session name? " }, function(session) MiniSessions.write(session) end) end
+    '';
 
     wrapLua = lua: "<cmd>lua ${lua}()<cr>";
   in [
@@ -292,6 +298,22 @@
       key = "<leader>ss";
       action = "<cmd>new<cr>${wrapLua pick-files}";
       options.desc = "split find file";
+    }
+    {
+      key = "<leader>SD";
+      action = helpers.mkRaw ''function() MiniSessions.select("delete") end'';
+    }
+    {
+      key = "<leader>SR";
+      action = helpers.mkRaw "MiniSessions.select";
+    }
+    {
+      key = "<leader>SS";
+      action = helpers.mkRaw "MiniStarter.open";
+    }
+    {
+      key = "<leader>SW";
+      action = write-session;
     }
     {
       key = "<leader>tg";
