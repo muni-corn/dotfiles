@@ -72,6 +72,6 @@ in {
       #!${pkgs.fish}/bin/fish
       set parent_dir (path dirname ${filePath})
       mkdir -p $parent_dir
-      nvim ${filePath}
+      neovide ${filePath}
     '';
 }
