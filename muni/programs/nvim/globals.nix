@@ -11,6 +11,10 @@
     tex_conceal = "";
 
     # neovide config
+    neovide_cursor_vfx_mode = "pixiedust";
+    neovide_cursor_vfx_opacity = 200;
+    neovide_cursor_vfx_particle_density = 50;
+    neovide_cursor_vfx_particle_lifetime = 2;
     neovide_transparency = 0.75;
     neovide_floating_shadow = true;
     neovide_floating_z_height = 10;
