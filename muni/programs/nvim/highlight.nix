@@ -94,7 +94,6 @@ in {
   programs.nixvim.highlight =
     {
       # bars
-      BarPill = hl "black" null {};
       CustomBlueStatus = hl "blue" "black" {bold = true;};
       CustomCyanStatus = hl "cyan" "black" {bold = true;};
       CustomFuchsiaStatus = hl "purple" "black" {bold = true;};
@@ -102,9 +101,9 @@ in {
       CustomRedStatus = hl "red" "black" {bold = true;};
       CustomYellowStatus = hl "yellow" "black" {bold = true;};
       StatusLine = hl "light-gray" "black" {italic = true;};
-      StatusLineNC = hl "dark-gray" "black" {bold = true;};
+      StatusLineNC = hl "gray" "black" {bold = true;};
       TabLine = hl "light-gray" "black" {};
-      TabLineFill = hl "light-gray" "black" {};
+      TabLineFill = hl "light-gray" null {};
       TabLineSel = hl "blue" "black" {bold = true;};
 
       # cmp
@@ -238,12 +237,12 @@ in {
       QuickFixLine = hl null "dark-gray" {};
       Search = hl "bright-orange" "dark-orange" {};
       SignColumn = hl null null {};
-      TreesitterContext = hl "light-gray" null {};
-      TreesitterContextBottom = hl null null {
+      TreesitterContext = hl "light-gray" "black" {};
+      TreesitterContextBottom = hl null "black" {
         sp = nameToHex "light-gray";
         undercurl = true;
       };
-      TreesitterContextLineNumber = hl "light-gray" null {};
+      TreesitterContextLineNumber = hl "light-gray" "black" {};
       Twilight = hl "gray" null {};
       VertSplit = hl "gray" null {};
       VirtualText = hl "gray" null {italic = true;};

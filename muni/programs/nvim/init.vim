@@ -31,8 +31,7 @@ endfunction
 
 " Tab line {{{
 fu! TabLine()
-    let l:s = '%#String#%=    %#BarPill#'
-    let l:space = '   '
+    let l:s = '%=%#String#    '
     for i in range(tabpagenr('$'))
         let tabnr = i + 1 " range() starts at 0
         let winnr = tabpagewinnr(tabnr)
@@ -44,27 +43,24 @@ fu! TabLine()
 
         " opening
         if tabnr == tabpagenr()
-            let l:s .= "%#TabLineSel#"
+            let l:s .= "%#TabLineSel#  "
         else
-            let l:s .= "%#TabLine#"
-        endif
-
-        " add mod identifier
-        let bufmodified = getbufvar(bufnr, "&mod")
-        if bufmodified
-            let l:s .= '+ '
+            let l:s .= "%#TabLine#  "
         endif
 
         " add file name
         let l:s .= empty(bufname) ? '[no name]' : bufname
 
+        " add mod identifier
+        let bufmodified = getbufvar(bufnr, "&mod")
+        if bufmodified
+            let l:s .= ' +'
+        endif
+
         " close, set highlight back to tab fill
-        let l:s .= l:space . "%#TabLineFill#"
+        let l:s .= "  %#TabLineFill#  "
     endfor
 
-    " after the last tab, close last tab label and close pill
-    let l:s .= '%T%=%#BarPill#%='
-
-    return s
+    return s . '%='
 endfunction
 " }}}
