@@ -23,7 +23,8 @@
       function() vim.ui.input({ prompt = "New session name? " }, function(session) MiniSessions.write(session) end) end
     '';
 
-    wrapLua = lua: "<cmd>lua ${lua}()<cr>";
+    callLua = lua: "<cmd>lua ${lua}()<cr>";
+    wrapLua = lua: "<cmd>lua ${lua}<cr>";
   in [
     {
       key = "!";
@@ -34,6 +35,24 @@
       key = "<c-p>";
       action.__raw = pick-files;
       options.desc = "find file";
+    }
+    {
+      key = "<c-=>";
+      action = wrapLua "vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1";
+      options.silent = true;
+      options.desc = "increase gui scale";
+    }
+    {
+      key = "<c-->";
+      action = wrapLua "vim.g.neovide_scale_factor = math.max(vim.g.neovide_scale_factor - 0.1, 0.0)";
+      options.silent = true;
+      options.desc = "decrease gui scale";
+    }
+    {
+      key = "<c-0>";
+      action = wrapLua "vim.g.neovide_scale_factor = 1";
+      options.silent = true;
+      options.desc = "reset gui scale";
     }
     {
       key = "<leader>/";
@@ -286,7 +305,7 @@
     }
     {
       key = "<leader>sg";
-      action = "<cmd>new<cr>${wrapLua pick-grep-live}";
+      action = "<cmd>new<cr>${callLua pick-grep-live}";
       options.desc = "split ripgrep";
     }
     {
@@ -296,7 +315,7 @@
     }
     {
       key = "<leader>ss";
-      action = "<cmd>new<cr>${wrapLua pick-files}";
+      action = "<cmd>new<cr>${callLua pick-files}";
       options.desc = "split find file";
     }
     {
@@ -317,7 +336,7 @@
     }
     {
       key = "<leader>tg";
-      action = "<cmd>tabnew<cr>${wrapLua pick-grep-live}";
+      action = "<cmd>tabnew<cr>${callLua pick-grep-live}";
       options.desc = "tab ripgrep";
     }
     {
@@ -332,7 +351,7 @@
     }
     {
       key = "<leader>tt";
-      action = "<cmd>tabnew<cr>${wrapLua pick-files}";
+      action = "<cmd>tabnew<cr>${callLua pick-files}";
       options.desc = "find file in new tab";
     }
     {
@@ -363,7 +382,7 @@
     }
     {
       key = "<leader>vg";
-      action = "<cmd>vnew<cr>${wrapLua pick-grep-live}";
+      action = "<cmd>vnew<cr>${callLua pick-grep-live}";
       options.desc = "vertical ripgrep";
     }
     {
@@ -373,7 +392,7 @@
     }
     {
       key = "<leader>vv";
-      action = "<cmd>vnew<cr>${wrapLua pick-files}";
+      action = "<cmd>vnew<cr>${callLua pick-files}";
       options.desc = "vertical find file";
     }
     {
