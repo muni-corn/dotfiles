@@ -289,11 +289,6 @@
       options.desc = "close window";
     }
     {
-      key = "<leader>rc";
-      action = ":tabe ~/dotfiles/muni/nvim<cr>";
-      options.desc = "go to config folder";
-    }
-    {
       key = "<leader>rg";
       action.__raw = pick-grep-live;
       options.desc = "ripgrep";
