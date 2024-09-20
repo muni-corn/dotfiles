@@ -8,29 +8,16 @@
     {
       event = "CursorHold";
       pattern = "*";
-      callback = {
-        __raw = ''
-          function()
-            for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
-              if vim.api.nvim_win_get_config(winid).zindex then
-                return
-              end
+      callback.__raw = ''
+        function()
+          for _, winid in pairs(vim.api.nvim_tabpage_list_wins(0)) do
+            if vim.api.nvim_win_get_config(winid).zindex then
+              return
             end
-            vim.diagnostic.open_float()
           end
-        '';
-      };
-    }
-    {
-      event = "InsertLeave";
-      pattern = "*";
-      callback = "AutoSave";
-      nested = true;
-    }
-    {
-      event = "FileType";
-      pattern = ["markdown" "pandoc"];
-      callback = "SetupMarkdown";
+          vim.diagnostic.open_float()
+        end
+      '';
     }
     {
       event = "FileType";
