@@ -12,7 +12,6 @@
   programs.nixvim = {
     enable = true;
     clipboard.providers.wl-copy.enable = true;
-    extraConfigVim = builtins.readFile ./init.vim;
     viAlias = true;
     vimAlias = true;
 
