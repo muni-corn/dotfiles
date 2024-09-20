@@ -64,7 +64,7 @@
       # };
       splitjoin.__empty = null;
       surround.__empty = null;
-      # tabline.format = {__raw = "";}; # TODO
+      tabline.__empty = null;
       trailspace.__empty = null;
       visits.__empty = null;
     };
