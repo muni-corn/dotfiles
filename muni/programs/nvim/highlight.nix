@@ -228,6 +228,7 @@ in {
       MiniCursorword = hl null "dark-blue" {};
       ModeMsg = hl "green" null {};
       MoreMsg = hl "green" null {};
+      MsgArea = hl null "black" {};
       NonText = hl "light-gray" null {};
       Normal = hl "light-silver" null {};
       NormalFloat = hl "light-silver" "black" {};
