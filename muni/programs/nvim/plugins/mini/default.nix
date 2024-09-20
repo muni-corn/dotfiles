@@ -56,15 +56,10 @@
       operators.__empty = null;
       pairs.__empty = null;
       sessions.__empty = null;
-      # statusline = { # TODO
-      #   content = {
-      #     active = "";
-      #     inactive = "";
-      #   };
-      # };
+      statusline.__empty = null;
       splitjoin.__empty = null;
       surround.__empty = null;
-      tabline.__empty = null;
+      tabline.set_vim_settings = false;
       trailspace.__empty = null;
       visits.__empty = null;
     };
