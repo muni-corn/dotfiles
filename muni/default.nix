@@ -128,12 +128,10 @@ in {
       ANDROID_EMULATOR_USE_SYSTEM_LIBS = 1;
       BAT_THEME = "base16";
       BROWSER = "firefox";
-      EDITOR = "nvim";
       LC_COLLATE = "C";
       LEDGER_FILE = "$HOME/notebook/ledger/main.sfox";
       MOZ_DBUS_REMOTE = 1;
       SUDO_ASKPASS = "ksshaskpass";
-      VISUAL = "neovide";
       WINEPREFIX = "$HOME/.wine/";
 
       # so ardour can detect plugins
