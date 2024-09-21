@@ -36,6 +36,8 @@
       # needed for hyprland
       qt5.qtwayland
       qt6.qtwayland
+
+      config.programs.regreet.package
     ];
 
     sessionVariables.NIXOS_OZONE_WL = "1";
@@ -120,17 +122,26 @@
       enable = true;
       package = pkgs.jdk;
     };
+
+    regreet = {
+      enable = true;
+      cursorTheme = {inherit (config.home-manager.users.muni.gtk.cursorTheme) package name;};
+      font = config.home-manager.users.muni.muse.theme.sansFont;
+      iconTheme = config.home-manager.users.muni.gtk.iconTheme;
+      theme = config.home-manager.users.muni.gtk.theme;
+      cageArgs = ["-s" "-m" "last"];
+
+      settings.background = {
+        path = ./rainbow_bridge.png;
+        fit = "Cover";
+      };
+    };
   };
 
   services = {
     blueman.enable = true;
 
-    greetd = {
-      enable = true;
-      settings.default_session = {
-        command = "${pkgs.greetd.tuigreet}/bin/tuigreet -r -t --time-format '%-I:%M %P  %a, %b %-d' --asterisks --power-shutdown 'systemctl poweroff' --power-reboot 'systemctl reboot' --cmd Hyprland";
-      };
-    };
+    greetd.enable = true;
 
     # for mpris album art on ags
     gvfs.enable = true;
