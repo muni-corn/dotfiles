@@ -67,7 +67,7 @@ in {
           gdscript.enable = true;
           html.enable = true;
           phpactor.enable = true;
-          tsserver = {
+          ts-ls = {
             enable = true;
             package = null;
           };
