@@ -13,13 +13,6 @@
     mockDevIcons = true;
     modules = {
       ai.__empty = null;
-      animate = {
-        cursor.enable = false;
-        scroll.timing.__raw = "require('mini.animate').gen_timing.cubic({ easing = 'out', duration = 10 })";
-        resize.timing.__raw = "require('mini.animate').gen_timing.cubic({ easing = 'out', duration = 3 })";
-        open.enable = false;
-        close.enable = false;
-      };
       basics = {
         options = {
           extra_ui = true;
