@@ -103,7 +103,7 @@ in {
         (b "SUPER" "w" "exec" apps.browser)
         (b "SUPER_CTRL" "b" "exec" ''${terminal} ${withShell "bluetoothctl"}'')
         (b "SUPER_CTRL" "e" "exec" "rofimoji --prompt Emoji")
-        (b "SUPER_CTRL" "n" "exec" "neovide ${notebookDir}/new/(date +%Y%m%d-%H%M%S).norg")
+        (b "SUPER_CTRL" "n" "exec" "neovide ${notebookDir}/new/$(date +%Y%m%d-%H%M%S).norg")
         (b "SUPER_CTRL" "p" "exec" "${pkgs.pavucontrol}/bin/pavucontrol")
         (b "SUPER_CTRL" "r" "exec" "${scripts.dir}/toggle_gammastep.fish")
         (b "SUPER_SHIFT" "b" "exec" "neovide ${notebookDir}/bored.norg")
