@@ -239,10 +239,7 @@ in {
       Search = hl "bright-orange" "dark-orange" {};
       SignColumn = hl null null {};
       TreesitterContext = hl "light-gray" "black" {};
-      TreesitterContextBottom = hl null "black" {
-        sp = nameToHex "light-gray";
-        undercurl = true;
-      };
+      TreesitterContextBottom = hl null "black" {sp = nameToHex "light-gray";};
       TreesitterContextLineNumber = hl "light-gray" "black" {};
       Twilight = hl "gray" null {};
       VertSplit = hl "gray" null {};
