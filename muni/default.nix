@@ -86,10 +86,6 @@ in {
       ledger-live-desktop
       libreoffice-fresh
 
-      # fish plugins
-      fishPlugins.done
-      fishPlugins.foreign-env
-
       # keyboard config
       via
       qmk

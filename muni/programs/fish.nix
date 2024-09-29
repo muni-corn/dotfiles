@@ -1,4 +1,11 @@
 {pkgs, ...}: {
+  home.packages = with pkgs.fishPlugins; [
+    done
+    foreign-env
+    plugin-git
+    sponge
+  ];
+
   programs.fish = {
     enable = true;
     functions = {
@@ -75,6 +82,8 @@
         imv $file
       '';
     };
+
+    preferAbbrs = true;
 
     shellAliases = {
       scanqr = ''geo=(slurp) grim -g "$geo" - | ${pkgs.zbar}/bin/zbarimg --quiet --raw PNG:- 2> /dev/null | tr -d "\n"'';
