@@ -20,6 +20,7 @@
     neovide_floating_z_height = 10;
     neovide_floating_blur_amount_x = 2.0;
     neovide_floating_blur_amount_y = 2.0;
+    neovide_scroll_animation_far_lines = 200;
 
     # terminal buffer colors
     terminal_color_0 = "#" + config.muse.theme.palette.black;
