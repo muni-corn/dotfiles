@@ -55,7 +55,11 @@
 
     logind.lidSwitch = "suspend-then-hibernate";
 
-    surrealdb.enable = true;
+    surrealdb = {
+      enable = true;
+      dbPath = "file:///var/lib/surrealdb";
+      port = 7654;
+    };
   };
 
   # This value determines the NixOS release from which the default

@@ -172,6 +172,7 @@
     surrealdb = {
       enable = true;
       package = inputs.surrealdb.packages.x86_64-linux.default;
+      dbPath = "file:///var/lib/surrealdb";
       port = 7654;
     };
 

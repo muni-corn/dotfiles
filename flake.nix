@@ -42,9 +42,6 @@
     # for runtime-decrypted secrets
     sops-nix.url = "github:Mic92/sops-nix";
 
-    # database for muni_bot
-    surrealdb.url = "github:surrealdb/surrealdb?ref=v1.4.0";
-
     # neovim plugins
     gen-nvim = {
       url = "github:David-Kunz/gen.nvim";
