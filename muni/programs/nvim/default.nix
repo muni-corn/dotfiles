@@ -11,7 +11,6 @@
   programs.nixvim = {
     enable = true;
     clipboard.providers.wl-copy.enable = true;
-    defaultEditor = true;
     viAlias = true;
     vimAlias = true;
 
