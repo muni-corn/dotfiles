@@ -83,7 +83,7 @@ in {
         # other window controls
         (b "SUPER" "f" "fullscreen" "0")
         (b "SUPER" "q" "killactive" "")
-        (b "SUPER" "s" "togglefloating" "") # TODO: reset border from floating video?
+        (b "SUPER" "s" "togglefloating" "")
         (b "SUPER" "u" "focusurgentorlast" "")
         (b "SUPER" "x" "pin" "")
         (b "SUPER_SHIFT" "f" "fullscreen" "1")
@@ -99,20 +99,20 @@ in {
         (b "SUPER" "e" "exec" ''${terminal} ${withShell "nnn"}'')
         (b "SUPER" "n" "exec" scripts.quickCode)
         (b "SUPER" "p" "exec" ''${terminal} ${withShell "btop"}'')
-        (b "SUPER" "t" "exec" "$EDITOR ${notebookDir}/todo.norg")
+        (b "SUPER" "t" "exec" "neovide ${notebookDir}/todo.norg")
         (b "SUPER" "w" "exec" apps.browser)
         (b "SUPER_CTRL" "b" "exec" ''${terminal} ${withShell "bluetoothctl"}'')
         (b "SUPER_CTRL" "e" "exec" "rofimoji --prompt Emoji")
-        (b "SUPER_CTRL" "n" "exec" "$EDITOR ${notebookDir}/new/$(date +%Y%m%d-%H%M%S).norg")
+        (b "SUPER_CTRL" "n" "exec" "neovide ${notebookDir}/new/$(date +%Y%m%d-%H%M%S).norg")
         (b "SUPER_CTRL" "p" "exec" "${pkgs.pavucontrol}/bin/pavucontrol")
         (b "SUPER_CTRL" "r" "exec" "${scripts.dir}/toggle_gammastep.fish")
-        (b "SUPER_SHIFT" "b" "exec" "$EDITOR ${notebookDir}/bored.norg")
+        (b "SUPER_SHIFT" "b" "exec" "neovide ${notebookDir}/bored.norg")
         (b "SUPER_SHIFT" "m" "exec" apps.media)
         (b "SUPER_SHIFT" "n" "exec" (notebookTerminalWithShell "nnn ${notebookDir}"))
 
         # journal shortcuts (d for diary)
-        (b "SUPER" "d" "exec" "${scripts.openJournalFile notebookDir "%Y/%m%b/%d"}")
-        (b "SUPER_ALT" "d" "exec" "${scripts.openJournalFile notebookDir "%Y/w%U"}")
+        (b "SUPER" "d" "exec" (scripts.openJournalFile notebookDir "%Y/%m%b/%d"))
+        (b "SUPER_ALT" "d" "exec" (scripts.openJournalFile notebookDir "%Y/w%U"))
         (b "SUPER_SHIFT" "d" "exec" (notebookTerminalWithShell "nnn ${notebookDir}/journal"))
 
         # lock
