@@ -9,6 +9,14 @@
   programs.fish = {
     enable = true;
     functions = {
+      starship_transient_prompt_func = ''
+        echo
+        starship module character
+      '';
+      starship_transient_rprompt_func = ''
+        echo
+        date "+%-I:%M %P"
+      '';
       crypt-edit = ''
         if count $argv > /dev/null
           # set temp file
