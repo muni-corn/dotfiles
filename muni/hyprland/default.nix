@@ -123,6 +123,11 @@
         workspace_swipe_forever = true;
       };
 
+      cursor = {
+        no_warps = true;
+        warp_on_change_workspace = true;
+      };
+
       # misc
       misc = {
         allow_session_lock_restore = true;
