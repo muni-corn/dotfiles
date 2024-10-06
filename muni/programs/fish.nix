@@ -15,6 +15,7 @@
       '';
       starship_transient_rprompt_func = ''
         echo
+        set_color brblack
         date "+%-I:%M %P"
       '';
       crypt-edit = ''
