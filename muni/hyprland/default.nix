@@ -265,9 +265,6 @@
         # assign some apps to default workspaces
         "workspace 10,class:^(discord)$"
         "workspace 9,class:^(Slack)$"
-
-        # fix for moving layers in krita
-        "nofocus,class:^krita$,title:^Krita$,floating:1"
       ];
     };
 
