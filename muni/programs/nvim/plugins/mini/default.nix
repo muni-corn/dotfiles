@@ -10,6 +10,11 @@
 
   programs.nixvim.plugins.mini = {
     enable = true;
+
+    luaConfig.post = ''
+      vim.notify = require('mini.notify').make_notify()
+    '';
+
     mockDevIcons = true;
     modules = {
       ai.__empty = null;
@@ -43,10 +48,7 @@
       jump.__empty = null;
       jump2d.__empty = null;
       move.__empty = null;
-      notify = {
-        lsp_progress.enable = false;
-        window.config.border = "rounded";
-      };
+      notify.window.config.border = "rounded";
       operators.__empty = null;
       pairs.__empty = null;
       sessions.__empty = null;
