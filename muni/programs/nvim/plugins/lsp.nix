@@ -64,20 +64,18 @@ in {
 
         servers = {
           eslint.enable = true;
-          gdscript.enable = true;
           html.enable = true;
           phpactor.enable = true;
-          ts-ls = {
+          ts_ls = {
             enable = true;
             package = null;
           };
-          vuels.enable = true;
           zls.enable = true;
           nixd = {
             enable = true;
             settings.formatting.command = ["alejandra"];
           };
-          rust-analyzer = {
+          rust_analyzer = {
             enable = true;
             package = null;
 
