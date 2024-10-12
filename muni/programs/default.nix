@@ -7,6 +7,7 @@
     ./ags
     ./fish.nix
     ./git.nix
+    ./kitty.nix
     ./nnn.nix
     ./nvim
     ./rofi
@@ -61,8 +62,6 @@
     imv.enable = true;
 
     jq.enable = true;
-
-    kitty = import ./kitty.nix {inherit config pkgs;};
 
     # fish integration enabled by default
     nix-index.enable = true;
