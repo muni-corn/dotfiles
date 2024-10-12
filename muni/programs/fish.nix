@@ -92,8 +92,6 @@
       '';
     };
 
-    preferAbbrs = true;
-
     shellAliases = {
       scanqr = ''geo=(slurp) grim -g "$geo" - | ${pkgs.zbar}/bin/zbarimg --quiet --raw PNG:- 2> /dev/null | tr -d "\n"'';
       todo = "$EDITOR $HOME/notebook/todo.norg";
