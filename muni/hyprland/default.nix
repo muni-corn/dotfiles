@@ -221,6 +221,7 @@
         "animation slide top,bar-0"
         "animation slide top,bar-1"
         "animation slide top,bar-2"
+        "animation slide top,notifications"
         "blur,bar-0"
         "blur,bar-1"
         "blur,bar-2"
