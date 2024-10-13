@@ -76,10 +76,10 @@ in {
       rawtherapee
 
       # messaging
-      webcord
       discord
       element-desktop
       slack
+      vesktop
 
       # apps
       android-file-transfer
