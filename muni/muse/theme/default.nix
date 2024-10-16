@@ -5,8 +5,7 @@
   ...
 }: let
   inherit (import ../palette.nix {inherit config pkgs;}) paletteFromBase16;
-  inherit (lib) mkEnableOption mkIf mkOption types;
-  inherit (types) mkOptionType;
+  inherit (lib) mkEnableOption mkOption types mkIf;
 
   fontType =
     types.submodule
@@ -73,42 +72,43 @@ in {
 
     sansFontName = cfg.sansFont.name;
     sansFullFontName = "${sansFontName} ${toString cfg.sansFont.size}";
-  in {
-    dconf.settings."org/gnome/desktop/interface".font-name = sansFullFontName;
-    gtk.font = config.muse.theme.sansFont;
+  in
+    mkIf cfg.enable {
+      dconf.settings."org/gnome/desktop/interface".font-name = sansFullFontName;
+      gtk.font = config.muse.theme.sansFont;
 
-    services.dunst = {
-      settings = {
-        global = {
-          font = sansFullFontName;
-          foreground = "#${colors.white}";
-          frame_color = "#${colors.dark-gray}80";
-          highlight = "#${colors.alert}";
-        };
+      services.dunst = {
+        settings = {
+          global = {
+            font = sansFullFontName;
+            foreground = "#${colors.white}";
+            frame_color = "#${colors.dark-gray}80";
+            highlight = "#${colors.alert}";
+          };
 
-        urgency_low.foreground = "#${colors.accent}";
-        urgency_normal.foreground = "#${colors.white}";
-        urgency_critical = {
-          foreground = "#${colors.white}";
-          frame_color = "#${colors.warning}80";
+          urgency_low.foreground = "#${colors.accent}";
+          urgency_normal.foreground = "#${colors.white}";
+          urgency_critical = {
+            foreground = "#${colors.white}";
+            frame_color = "#${colors.warning}80";
+          };
         };
       };
-    };
 
-    wayland.windowManager.hyprland.settings.group.groupbar.font_size = cfg.sansFont.size;
+      wayland.windowManager.hyprland.settings.group.groupbar.font_size = cfg.sansFont.size;
 
-    programs.kitty = {
-      font = config.muse.theme.codeFont;
-      settings = {
-        bold_font = "${codeFontName} Bold";
-        italic_font = "${codeFontName} Italic";
-        bold_italic_font = "${codeFontName} Bold Italic";
+      programs.kitty = {
+        font = config.muse.theme.codeFont;
+        settings = {
+          bold_font = "${codeFontName} Bold";
+          italic_font = "${codeFontName} Italic";
+          bold_italic_font = "${codeFontName} Bold Italic";
+        };
       };
-    };
 
-    home.packages = [
-      config.muse.theme.sansFont.package
-      config.muse.theme.codeFont.package
-    ];
-  };
+      home.packages = [
+        config.muse.theme.sansFont.package
+        config.muse.theme.codeFont.package
+      ];
+    };
 }
