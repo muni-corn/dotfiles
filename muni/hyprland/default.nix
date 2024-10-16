@@ -80,7 +80,10 @@
         "col.border_inactive" = rgba colors.black defaultAlpha;
         "col.border_locked_active" = rgba colors.light-gray defaultAlpha;
         "col.border_locked_inactive" = rgba colors.dark-gray defaultAlpha;
-        groupbar.gradients = false;
+        groupbar = {
+          gradients = false;
+          font_size = config.stylix.fonts.sizes.desktop;
+        };
       };
 
       decoration = {

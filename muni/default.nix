@@ -16,7 +16,6 @@ in {
   ];
 
   muse.theme = {
-    enable = true;
     palette = (import ./colors.nix).muni;
     wallpapersDir = "${inputs.muni-wallpapers}/wallpapers";
   };
@@ -106,10 +105,6 @@ in {
     ];
 
     pointerCursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Original-Classic";
-      size = 24;
-
       gtk.enable = true;
       x11.enable = true;
     };
@@ -162,7 +157,7 @@ in {
         gtk-theme = config.gtk.theme.name;
         icon-theme = config.gtk.iconTheme.name;
         cursor-theme = config.home.pointerCursor.name;
-        color-scheme = "prefer-dark";
+        color-scheme = lib.mkForce "prefer-dark";
       };
       "org/gnome/desktop/sound" = {
         theme-name = "musicaloft";
@@ -176,18 +171,13 @@ in {
 
   gtk = {
     enable = true;
-    cursorTheme = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Original-Classic";
-      size = 24;
-    };
     iconTheme = {
       package = pkgs.papirus-icon-theme;
       name = "Papirus-Dark";
     };
     theme = {
-      package = pkgs.materia-theme;
-      name = "Materia-dark";
+      package = lib.mkForce pkgs.materia-theme;
+      name = lib.mkForce "Materia-dark";
     };
   };
 

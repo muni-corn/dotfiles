@@ -1,11 +1,6 @@
 {
-  config,
-  lib,
-  pkgs,
-  ...
-}: {
   imports = [
-    ./theme
+    ./theme.nix
     ./menu.nix
   ];
 }

@@ -42,6 +42,9 @@
     # for runtime-decrypted secrets
     sops-nix.url = "github:Mic92/sops-nix";
 
+    # for system themes and styling
+    stylix.url = "github:danth/stylix";
+
     # neovim plugins
     gen-nvim = {
       url = "github:David-Kunz/gen.nvim";

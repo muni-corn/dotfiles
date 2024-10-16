@@ -11,7 +11,7 @@
 in {
   mkHyprlockSettings = monitors: let
     primaryMonitor = builtins.head monitors;
-    sansFontName = config.home-manager.users.muni.muse.theme.sansFont.name;
+    sansFontName = config.stylix.fonts.sansSerif.name;
   in {
     general.grace = 3;
 

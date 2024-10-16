@@ -3,6 +3,10 @@
   pkgs,
   ...
 }: {
+  imports = [
+    ./stylix.nix
+  ];
+
   boot = {
     extraModulePackages = builtins.attrValues {
       inherit (config.boot.kernelPackages) v4l2loopback;
@@ -47,27 +51,12 @@
     fontDir.enable = true;
 
     packages = with pkgs; [
-      # google-fonts
-      libertine
-      inter
-      material-design-icons
       (nerdfonts.override {fonts = ["Iosevka"];})
-      noto-fonts
+      libertine
+      material-design-icons
       noto-fonts-cjk
-      noto-fonts-emoji
       noto-fonts-extra
-
-      iosevka-muse.normal
     ];
-
-    fontconfig = {
-      defaultFonts = {
-        emoji = ["Noto Color Emoji"];
-        monospace = ["Iosevka Muse" "Iosevka Nerd Font"];
-        sansSerif = ["Inter"];
-        serif = ["Noto Serif"];
-      };
-    };
   };
 
   hardware = {
@@ -125,16 +114,9 @@
 
     regreet = {
       enable = true;
-      cursorTheme = {inherit (config.home-manager.users.muni.gtk.cursorTheme) package name;};
-      font = config.home-manager.users.muni.muse.theme.sansFont;
       iconTheme = config.home-manager.users.muni.gtk.iconTheme;
-      theme = config.home-manager.users.muni.gtk.theme;
       cageArgs = ["-s" "-m" "last"];
-
-      settings.background = {
-        path = ./rainbow_bridge.png;
-        fit = "Cover";
-      };
+      settings.background.fit = "Cover";
     };
   };
 

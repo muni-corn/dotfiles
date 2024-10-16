@@ -172,10 +172,10 @@
   };
 
   muni = {
-    base00 = "16213c";
-    base01 = "374057";
-    base02 = "585f72";
-    base03 = "797e8d";
+    base00 = "000000";
+    base01 = "16213c";
+    base02 = "374057";
+    base03 = "585f72";
     base04 = "9a9da8";
     base05 = "bbbcc3";
     base06 = "dcdbde";

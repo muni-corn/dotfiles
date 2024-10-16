@@ -33,9 +33,9 @@
         color = {
           gradient = 1;
           gradient_count = 3;
-          gradient_color_1 = "'#${config.muse.theme.palette.blue}'";
-          gradient_color_2 = "'#${config.muse.theme.palette.green}'";
-          gradient_color_3 = "'#${config.muse.theme.palette.yellow}'";
+          gradient_color_1 = "'#${config.lib.stylix.colors.blue}'";
+          gradient_color_2 = "'#${config.lib.stylix.colors.green}'";
+          gradient_color_3 = "'#${config.lib.stylix.colors.yellow}'";
         };
         smoothing.noise_reduction = 25;
       };
