@@ -22,21 +22,7 @@
         type = "auto";
         tab = "  ";
       };
-      "core.highlights".config = {
-        highlights = {
-          headings = {
-            "1" = {
-              prefix = "+@text.title";
-              title = "+@text.title";
-            };
-          };
-          markup.verbatim = "+@text.verbatim";
-          todo_items = {
-            pending = "+@todo.pending";
-            urgent = "+DiffRemoved";
-          };
-        };
-      };
+      "core.highlights".__empty = null;
       "core.keybinds".config = {
         undojoin_updates = true;
         hook.__raw = ''
