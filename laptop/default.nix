@@ -6,6 +6,7 @@
   imports = [
     ../common.nix
     ../common-graphical.nix
+    ../docker.nix
     ./hardware.nix
     ../music_production.nix
     ../openssh.nix
