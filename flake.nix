@@ -86,7 +86,6 @@
     ...
   } @ inputs: let
     customPackagesOverlay = final: prev: {
-      cursor-ide = prev.callPackage ./cursor-ide.nix {};
       geonkick = prev.geonkick.overrideAttrs (old: {
         src = geonkick;
       });

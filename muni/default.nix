@@ -26,9 +26,6 @@ in {
     file.".npmrc".source = ./npmrc;
 
     packages = with pkgs; [
-      # experimental: cursor ide
-      cursor-ide
-
       # audio and music
       flac
       pamixer
