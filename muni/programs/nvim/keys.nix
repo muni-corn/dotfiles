@@ -83,51 +83,6 @@
       options.desc = "lsp type definition";
     }
     {
-      key = "<leader>dB";
-      action.__raw = "require'telescope'.extensions.dap.list_breakpoints";
-      options.desc = "list breakpoints";
-    }
-    {
-      key = "<leader>dC";
-      action.__raw = "require'telescope'.extensions.dap.commands";
-      options.desc = "run last";
-    }
-    {
-      key = "<leader>do";
-      action.__raw = "require'dap'.step_over";
-      options.desc = "step over";
-    }
-    {
-      key = "<leader>dv";
-      action.__raw = "require'telescope'.extensions.dap.variables";
-      options.desc = "list debug variables";
-    }
-    {
-      key = "<leader>db";
-      action.__raw = "require'dap'.toggle_breakpoint";
-      options.desc = "toggle breakpoint";
-    }
-    {
-      key = "<leader>dc";
-      action.__raw = "require'dap'.continue";
-      options.desc = "continue";
-    }
-    {
-      key = "<leader>di";
-      action.__raw = "require'dap'.step_into";
-      options.desc = "step into";
-    }
-    {
-      key = "<leader>dO";
-      action.__raw = "require'dap'.step_out";
-      options.desc = "step out";
-    }
-    {
-      key = "<leader>dr";
-      action.__raw = "require'dap'.repl.toggle";
-      options.desc = "toggle repl";
-    }
-    {
       key = "<leader>H";
       action = "<c-w>H";
       options.desc = "move window left";

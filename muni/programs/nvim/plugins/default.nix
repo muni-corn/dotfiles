@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   imports = [
-    ./dap.nix
     ./emmet.nix
     ./floaterm.nix
     ./gen.nix
@@ -11,7 +10,6 @@
     ./none-ls.nix
     ./telescope.nix
     ./treesitter.nix
-    ./vscode-js-debug.nix
   ];
 
   programs.nixvim = {

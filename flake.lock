@@ -1542,8 +1542,7 @@
         "nixvim": "nixvim",
         "plymouth-theme-musicaloft-rainbow": "plymouth-theme-musicaloft-rainbow",
         "sops-nix": "sops-nix",
-        "stylix": "stylix",
-        "vscode-js-debug": "vscode-js-debug"
+        "stylix": "stylix"
       }
     },
     "rust-analyzer-src": {
@@ -1841,23 +1840,6 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
-        "type": "github"
-      }
-    },
-    "vscode-js-debug": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1718392198,
-        "narHash": "sha256-mAh/7SENZL1xsKOve9Jc5cI/IyZWpqb611ejqTgcNCA=",
-        "owner": "microsoft",
-        "repo": "vscode-js-debug",
-        "rev": "5e7b2a151ea14ea597c0c9a8cb44a05d1db98446",
-        "type": "github"
-      },
-      "original": {
-        "owner": "microsoft",
-        "repo": "vscode-js-debug",
-        "rev": "5e7b2a151ea14ea597c0c9a8cb44a05d1db98446",
         "type": "github"
       }
     }

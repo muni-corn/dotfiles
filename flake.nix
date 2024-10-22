@@ -33,12 +33,6 @@
     # neovim config in nix
     nixvim.url = "github:nix-community/nixvim";
 
-    # node.js debugging
-    vscode-js-debug = {
-      url = "github:microsoft/vscode-js-debug/5e7b2a151ea14ea597c0c9a8cb44a05d1db98446";
-      flake = false;
-    };
-
     # for runtime-decrypted secrets
     sops-nix.url = "github:Mic92/sops-nix";
 
