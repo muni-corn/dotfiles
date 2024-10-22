@@ -1,70 +1,67 @@
 {
   config,
   lib,
+  inputs,
   ...
 }: let
   inherit (builtins) listToAttrs map;
   inherit (lib.attrsets) concatMapAttrs nameValuePair;
 
-  nameToCterm = {
-    black = "Black";
-    dark-gray = "DarkGray";
-    gray = "Gray";
-    light-gray = "Gray";
-    silver = "LightGray";
-    light-silver = "LightGray";
-    white = "White";
-    bright-white = "White";
+  nc = inputs.nix-colorizer;
 
-    red = "DarkRed";
-    orange = "DarkRed";
-    green = "DarkGreen";
-    yellow = "DarkYellow";
-    blue = "DarkBlue";
-    purple = "DarkMagenta";
-    cyan = "DarkCyan";
-    brown = "Brown";
+  lighten = hex: nc.oklchToHex (nc.lighten (nc.hexToOklch hex) 25);
+  darken = hex: nc.oklchToHex (nc.darken (nc.hexToOklch hex) 25);
 
-    bright-red = "Red";
-    bright-orange = "Red";
-    bright-yellow = "Yellow";
-    bright-green = "Green";
-    bright-cyan = "Cyan";
-    bright-blue = "Blue";
-    bright-purple = "Magenta";
-    bright-brown = "Brown";
+  hexOf = let
+    attrs = {
+      black = config.lib.stylix.colors.withHashtag.base00;
+      dark-gray = config.lib.stylix.colors.withHashtag.base01;
+      gray = config.lib.stylix.colors.withHashtag.base02;
+      light-gray = config.lib.stylix.colors.withHashtag.base03;
+      silver = config.lib.stylix.colors.withHashtag.base04;
+      light-silver = config.lib.stylix.colors.withHashtag.base05;
+      white = config.lib.stylix.colors.withHashtag.base06;
+      bright-white = config.lib.stylix.colors.withHashtag.base07;
 
-    dark-red = "Black";
-    dark-orange = "Black";
-    dark-yellow = "Black";
-    dark-green = "Black";
-    dark-cyan = "Black";
-    dark-blue = "Black";
-    dark-purple = "Black";
-    dark-brown = "Black";
-  };
+      red = config.lib.stylix.colors.withHashtag.red;
+      orange = config.lib.stylix.colors.withHashtag.orange;
+      green = config.lib.stylix.colors.withHashtag.green;
+      yellow = config.lib.stylix.colors.withHashtag.yellow;
+      blue = config.lib.stylix.colors.withHashtag.blue;
+      magenta = config.lib.stylix.colors.withHashtag.magenta;
+      cyan = config.lib.stylix.colors.withHashtag.cyan;
+      brown = config.lib.stylix.colors.withHashtag.brown;
 
-  nameToHex = name: "#" + config.muse.theme.palette.${name};
+      bright-red = lighten config.lib.stylix.colors.withHashtag.red;
+      bright-orange = lighten config.lib.stylix.colors.withHashtag.orange;
+      bright-green = lighten config.lib.stylix.colors.withHashtag.green;
+      bright-yellow = lighten config.lib.stylix.colors.withHashtag.yellow;
+      bright-blue = lighten config.lib.stylix.colors.withHashtag.blue;
+      bright-magenta = lighten config.lib.stylix.colors.withHashtag.magenta;
+      bright-cyan = lighten config.lib.stylix.colors.withHashtag.cyan;
+      bright-brown = lighten config.lib.stylix.colors.withHashtag.brown;
 
-  # TODO: instead of passing in strings, pass in attrsets
-  # of { cterm, hex } assigned to variables
+      dark-red = darken config.lib.stylix.colors.withHashtag.red;
+      dark-orange = darken config.lib.stylix.colors.withHashtag.orange;
+      dark-green = darken config.lib.stylix.colors.withHashtag.green;
+      dark-yellow = darken config.lib.stylix.colors.withHashtag.yellow;
+      dark-blue = darken config.lib.stylix.colors.withHashtag.blue;
+      dark-magenta = darken config.lib.stylix.colors.withHashtag.magenta;
+      dark-cyan = darken config.lib.stylix.colors.withHashtag.cyan;
+      dark-brown = darken config.lib.stylix.colors.withHashtag.brown;
+    };
+  in
+    name: attrs.${name};
+
   hl = fg: bg: attrs:
     {
       fg =
         if fg != null
-        then nameToHex fg
+        then hexOf fg
         else "NONE";
       bg =
         if bg != null
-        then nameToHex bg
-        else "NONE";
-      ctermfg =
-        if fg != null
-        then nameToCterm.${fg}
-        else "NONE";
-      ctermbg =
-        if bg != null
-        then nameToCterm.${bg}
+        then hexOf bg
         else "NONE";
     }
     // attrs;
@@ -82,7 +79,7 @@
     set;
 
   stateColors = {
-    debug = "purple";
+    debug = "magenta";
     error = "red";
     hint = "cyan";
     info = "blue";
