@@ -5,7 +5,6 @@
   pkgs,
   ...
 }: let
-  colors = config.muse.theme.palette;
   toml = pkgs.formats.toml {};
 in {
   imports = [
@@ -220,7 +219,7 @@ in {
 
             background_color = "00000080";
             border_color = "00000000";
-            bar_color = "${colors.bright-white}80";
+            bar_color = config.lib.stylix.colors.base07 + "80";
 
             output_mode = "focused";
           };

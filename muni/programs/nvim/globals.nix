@@ -1,5 +1,13 @@
-{config, ...}: {
-  programs.nixvim.globals = {
+{
+  config,
+  inputs,
+  ...
+}: {
+  programs.nixvim.globals = let
+    colors = config.lib.stylix.colors.withHashtag;
+    nc = inputs.nix-colorizer;
+    lighten = hex: nc.oklchToHex (nc.lighten (nc.hexToOklch hex) 25);
+  in {
     mapleader = ",";
 
     # plugin configs
@@ -23,21 +31,21 @@
     neovide_scroll_animation_far_lines = 200;
 
     # terminal buffer colors
-    terminal_color_0 = "#" + config.muse.theme.palette.black;
-    terminal_color_1 = "#" + config.muse.theme.palette.red;
-    terminal_color_2 = "#" + config.muse.theme.palette.green;
-    terminal_color_3 = "#" + config.muse.theme.palette.yellow;
-    terminal_color_4 = "#" + config.muse.theme.palette.blue;
-    terminal_color_5 = "#" + config.muse.theme.palette.purple;
-    terminal_color_6 = "#" + config.muse.theme.palette.cyan;
-    terminal_color_7 = "#" + config.muse.theme.palette.silver;
-    terminal_color_8 = "#" + config.muse.theme.palette.gray;
-    terminal_color_9 = "#" + config.muse.theme.palette.bright-red;
-    terminal_color_10 = "#" + config.muse.theme.palette.bright-green;
-    terminal_color_11 = "#" + config.muse.theme.palette.bright-yellow;
-    terminal_color_12 = "#" + config.muse.theme.palette.bright-blue;
-    terminal_color_13 = "#" + config.muse.theme.palette.bright-purple;
-    terminal_color_14 = "#" + config.muse.theme.palette.bright-cyan;
-    terminal_color_15 = "#" + config.muse.theme.palette.white;
+    terminal_color_0 = colors.base00;
+    terminal_color_1 = colors.red;
+    terminal_color_2 = colors.green;
+    terminal_color_3 = colors.yellow;
+    terminal_color_4 = colors.blue;
+    terminal_color_5 = colors.magenta;
+    terminal_color_6 = colors.cyan;
+    terminal_color_7 = colors.base05;
+    terminal_color_8 = colors.base03;
+    terminal_color_9 = lighten colors.red;
+    terminal_color_10 = lighten colors.green;
+    terminal_color_11 = lighten colors.yellow;
+    terminal_color_12 = lighten colors.blue;
+    terminal_color_13 = lighten colors.magenta;
+    terminal_color_14 = lighten colors.cyan;
+    terminal_color_15 = colors.base07;
   };
 }

@@ -64,11 +64,11 @@
 
       defaultAlpha = "80";
 
-      colors = config.muse.theme.palette;
+      colors = config.lib.stylix.colors;
     in {
       general = {
-        "col.active_border" = rgba colors.bright-white defaultAlpha;
-        "col.inactive_border" = rgba colors.black defaultAlpha;
+        "col.active_border" = rgba colors.base07 defaultAlpha;
+        "col.inactive_border" = rgba colors.base00 "00";
         border_size = 2;
         gaps_in = 16;
         gaps_out = 32;
@@ -76,10 +76,10 @@
       };
 
       group = {
-        "col.border_active" = rgba colors.accent defaultAlpha;
-        "col.border_inactive" = rgba colors.black defaultAlpha;
-        "col.border_locked_active" = rgba colors.light-gray defaultAlpha;
-        "col.border_locked_inactive" = rgba colors.dark-gray defaultAlpha;
+        "col.border_active" = rgba colors.blue defaultAlpha;
+        "col.border_inactive" = rgba colors.base00 defaultAlpha;
+        "col.border_locked_active" = rgba colors.base03 defaultAlpha;
+        "col.border_locked_inactive" = rgba colors.base01 defaultAlpha;
         groupbar = {
           gradients = false;
           font_size = config.stylix.fonts.sizes.desktop;

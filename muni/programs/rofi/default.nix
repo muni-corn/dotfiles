@@ -58,14 +58,14 @@
     };
 
     theme = let
-      colors = config.muse.theme.palette;
+      colors = config.lib.stylix.colors;
       mkColor = color: mkLiteral "#${color}";
 
       background = mkColor "00000080";
-      dim = mkColor colors.accent;
-      selected = mkColor "${colors.accent}80";
-      white = mkColor colors.white;
-      warning = mkColor colors.warning;
+      dim = mkColor colors.blue;
+      selected = mkColor "${colors.blue}80";
+      white = mkColor colors.base06;
+      warning = mkColor colors.orange;
 
       inherit (config.lib.formats.rasi) mkLiteral;
     in {
