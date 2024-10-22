@@ -18,6 +18,9 @@
     # neorg overlay for up-to-date neorg stuff
     neorg.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
 
+    # color utils
+    nix-colorizer.url = "github:nutsalhan87/nix-colorizer";
+
     # updated minecraft servers
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
