@@ -21,7 +21,6 @@
 
     extraPlugins = with pkgs.vimPlugins; [
       lsp-status-nvim
-      nvim-snippy
       playground
       plenary-nvim
       popup-nvim
