@@ -119,6 +119,22 @@
       };
     };
 
+    homeManagerModule = {
+      home-manager = {
+        backupFileExtension = "backup";
+        extraSpecialArgs = {
+          inherit inputs;
+        };
+        sharedModules = [
+          ags.homeManagerModules.default
+          nixvim.homeManagerModules.nixvim
+        ];
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        users.muni = ./muni;
+      };
+    };
+
     commonModules = [
       binaryCachesModule
       overlaysModule
@@ -127,21 +143,7 @@
     commonGraphicalModules = [
       home-manager.nixosModules.home-manager
       musnix.nixosModules.musnix
-      {
-        home-manager = {
-          backupFileExtension = "backup";
-          extraSpecialArgs = {
-            inherit inputs;
-          };
-          sharedModules = [
-            ags.homeManagerModules.default
-            nixvim.homeManagerModules.nixvim
-          ];
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          users.muni = ./muni;
-        };
-      }
+      homeManagerModule
     ];
 
     littleponyModules =
