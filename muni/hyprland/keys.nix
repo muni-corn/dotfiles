@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   osConfig,
   pkgs,
@@ -31,7 +32,7 @@
 
   appMenu = ''${config.programs.rofi.finalPackage}/bin/rofi -p "Run what?" -show drun'';
 
-  scripts = import ./scripts.nix {inherit config lib osConfig pkgs shell;};
+  scripts = import ./scripts.nix {inherit config lib osConfig pkgs shell inputs;};
 in {
   wayland.windowManager.hyprland = {
     settings = {

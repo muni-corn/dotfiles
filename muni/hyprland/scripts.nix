@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -60,10 +61,13 @@ in {
     tail -f $XDG_RUNTIME_DIR/hypr.wob | ${pkgs.wob}/bin/wob
   '';
 
-  switchWallpaper = pkgs.writeShellScript "hypr-switch-wallpaper" ''
-    new_wall=$(${pkgs.fd}/bin/fd --type f . ${config.muse.theme.wallpapersDir} | shuf -n 1)
-    ${pkgs.swww}/bin/swww img $new_wall
-  '';
+  switchWallpaper = let
+    wallpapersDir = "${inputs.muni-wallpapers}/wallpapers";
+  in
+    pkgs.writeShellScript "hypr-switch-wallpaper" ''
+      new_wall=$(${pkgs.fd}/bin/fd --type f . ${wallpapersDir} | shuf -n 1)
+      ${pkgs.swww}/bin/swww img $new_wall
+    '';
 
   openJournalFile = notebookDir: dateStr: let
     filePath = journalFilePath notebookDir dateStr;

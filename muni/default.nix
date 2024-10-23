@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   ...
@@ -9,15 +8,9 @@
 in {
   imports = [
     ./hyprland
-    ./muse
     ./programs
     ./services
   ];
-
-  muse.theme = {
-    palette = (import ./colors.nix).muni;
-    wallpapersDir = "${inputs.muni-wallpapers}/wallpapers";
-  };
 
   home = {
     extraOutputsToInstall = ["doc" "info" "devdoc"];
