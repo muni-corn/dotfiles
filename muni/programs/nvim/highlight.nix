@@ -1,12 +1,8 @@
 {
   config,
-  lib,
   inputs,
   ...
 }: let
-  inherit (builtins) listToAttrs map;
-  inherit (lib.attrsets) concatMapAttrs nameValuePair;
-
   nc = inputs.nix-colorizer;
 
   lighten = hex: nc.oklchToHex (nc.lighten (nc.hexToOklch hex) 25);
@@ -65,77 +61,6 @@
         else "NONE";
     }
     // attrs;
-  link = to: {link = to;};
-
-  # transform an attr set of { ${src} = [ "dst1" "dst2" ... ]; ... } into
-  # a set of { dst1 = link src; dst2 = link src; ... }
-  links = set:
-    concatMapAttrs
-    (src: dsts:
-      listToAttrs
-      (map
-        (dst: nameValuePair dst (link src))
-        dsts))
-    set;
-
-  stateColors = {
-    debug = "magenta";
-    error = "red";
-    hint = "cyan";
-    info = "blue";
-    ok = "green";
-    trace = "brown";
-    warning = "yellow";
-  };
 in {
-  programs.nixvim.highlight = {
-    # diagnostics
-    DiagnosticError = hl stateColors.error null {};
-    DiagnosticHint = hl stateColors.hint null {};
-    DiagnosticInfo = hl stateColors.info null {};
-    DiagnosticOk = hl stateColors.ok null {};
-    DiagnosticWarn = hl stateColors.warning null {};
-    DiagnosticFloatingError = hl stateColors.error "black" {};
-    DiagnosticFloatingHint = hl stateColors.hint "black" {};
-    DiagnosticFloatingInfo = hl stateColors.info "black" {};
-    DiagnosticFloatingOk = hl stateColors.ok "black" {};
-    DiagnosticFloatingWarn = hl stateColors.warning "black" {};
-    DiagnosticUnderlineError = hl null null {
-      undercurl = true;
-      sp = nameToHex stateColors.error;
-    };
-    DiagnosticUnderlineHint = hl null null {
-      underdashed = true;
-      sp = nameToHex stateColors.hint;
-    };
-    DiagnosticUnderlineInfo = hl null null {
-      underdashed = true;
-      sp = nameToHex stateColors.info;
-    };
-    DiagnosticUnderlineOk = hl null null {
-      underdotted = true;
-      sp = nameToHex stateColors.ok;
-    };
-    DiagnosticUnderlineWarn = hl null null {
-      undercurl = true;
-      sp = nameToHex stateColors.warning;
-    };
-
-    # diffs
-    Added = hl "green" null {};
-    Changed = hl "orange" null {};
-    DiffAdd = hl "bright-green" "dark-green" {bold = true;};
-    DiffChange = hl null null {};
-    DiffDelete = hl "bright-red" "dark-red" {bold = true;};
-    DiffText = hl "bright-yellow" "dark-yellow" {bold = true;};
-    Removed = hl "red" null {};
-
-    # state
-    Debug = hl stateColors.debug null {};
-    Error = hl stateColors.error null {};
-    Info = hl stateColors.info null {};
-    Warning = hl stateColors.warning null {};
-    Trace = hl stateColors.trace null {};
-
-  };
+  programs.nixvim.highlight.Twilight = hl "gray" null {};
 }
