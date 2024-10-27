@@ -127,7 +127,7 @@
       };
 
       cursor = {
-        no_warps = true;
+        no_warps = false;
         warp_on_change_workspace = true;
       };
 
