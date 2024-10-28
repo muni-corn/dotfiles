@@ -12,7 +12,7 @@ in {
       lsp-format = {
         enable = true;
         lspServersToEnable = "all";
-        setup = {
+        settings = {
           javascript.exclude = ["tsserver"];
           typescript.exclude = ["tsserver"];
         };

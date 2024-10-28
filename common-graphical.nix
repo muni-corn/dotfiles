@@ -54,7 +54,7 @@
       (nerdfonts.override {fonts = ["Iosevka"];})
       libertine
       material-design-icons
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
       noto-fonts-extra
     ];
   };
