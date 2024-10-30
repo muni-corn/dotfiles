@@ -68,7 +68,6 @@
 
       extraConfig = {
         advice.skippedCherryPicks = false;
-        annex.autocommit = false;
         color = {
           ui = "auto";
           diff = {
