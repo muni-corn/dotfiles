@@ -63,27 +63,22 @@ in {
   screenshot = "${scriptsDir}/hypr-screenshot.fish";
   quickCode = import ../quick-code-script.nix {inherit config pkgs;};
 
-  clock = {
-    "in" = pkgs.writeShellScript "clock-in" ''
-      ${recordTime} '(clock-in)';
-    '';
-    out = pkgs.writeShellScript "clock-in" ''
-      ${recordTime} '(clock-out)';
-    '';
-    now = pkgs.writeShellScript "clock-in" ''
-      ${recordTime} '(checkpoint)';
-    '';
-    prompt = let
-      mkPromptScript = type:
-        pkgs.writeShellScript "prompt-clock-${type}" ''
-          desc=$(${config.programs.rofi.finalPackage}/bin/rofi -dmenu -p 'Clock ${type} for?')
-          ${recordTime} "(clock-${type}),$desc";
-        '';
-    in {
-      "in" = mkPromptScript "in";
-      out = mkPromptScript "out";
-      now = mkPromptScript "here";
-    };
+  clock = let
+    mkInstantScript = type:
+      pkgs.writeShellScript "clock-${type}" ''
+        ${recordTime} '(clock-${type}),';
+      '';
+
+    mkPromptScript = type:
+      pkgs.writeShellScript "prompt-clock-${type}" ''
+        desc=$(${config.programs.rofi.finalPackage}/bin/rofi -dmenu -p 'Clock ${type} for?')
+        ${recordTime} "(clock-${type}),$desc";
+      '';
+
+    mkClockScriptSet = fn: (builtins.listToAttrs (map (type: lib.nameValuePair type (fn type)) ["in" "out" "now"]));
+  in {
+    instant = mkClockScriptSet mkInstantScript;
+    prompt = mkClockScriptSet mkPromptScript;
   };
 
   volume = {
