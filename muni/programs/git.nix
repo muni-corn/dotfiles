@@ -12,6 +12,7 @@
     fish = {
       shellAbbrs = {
         g = "git";
+        gA = "git annex";
         gP = "git push";
         gPF = "git push --force-with-lease";
         gR = "git restore";
@@ -68,6 +69,15 @@
 
       extraConfig = {
         advice.skippedCherryPicks = false;
+        annex = {
+          autocommit = true;
+          genmetadata = "importfeed";
+          gitaddtoannex = true;
+          jobs = "cpus";
+          mincopies = 2;
+          numcopies = 3;
+          synccontent = true;
+        };
         color = {
           ui = "auto";
           diff = {
