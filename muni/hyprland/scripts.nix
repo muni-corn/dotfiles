@@ -66,16 +66,16 @@ in {
   clock = let
     mkInstantScript = type:
       pkgs.writeShellScript "clock-${type}" ''
-        ${recordTime} '(clock-${type}),';
+        ${recordTime} ${type}
       '';
 
     mkPromptScript = type:
       pkgs.writeShellScript "prompt-clock-${type}" ''
         desc=$(${config.programs.rofi.finalPackage}/bin/rofi -dmenu -p 'Clock ${type} for?')
-        ${recordTime} "(clock-${type}),$desc";
+        ${recordTime} "${type}: $desc"
       '';
 
-    mkClockScriptSet = fn: (builtins.listToAttrs (map (type: lib.nameValuePair type (fn type)) ["in" "out" "now"]));
+    mkClockScriptSet = fn: (builtins.listToAttrs (map (type: lib.nameValuePair type (fn type)) ["start" "break" "stamp"]));
   in {
     instant = mkClockScriptSet mkInstantScript;
     prompt = mkClockScriptSet mkPromptScript;
