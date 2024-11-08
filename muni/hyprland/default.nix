@@ -165,6 +165,7 @@
       env = [
         "CLUTTER_BACKEND,wayland"
         "ECORE_EVAS_ENGINE,wayland-egl"
+        "EDITOR,neovide"
         "ELM_ENGINE,wayland_egl"
         "GTK_THEME,${config.gtk.theme.name}"
         "GTK_USE_PORTAL,1"
