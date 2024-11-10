@@ -346,6 +346,11 @@
       options.desc = "vertical find file";
     }
     {
+      key = "<leader>w";
+      action = "<cmd>w<cr>";
+      options.desc = "write file";
+    }
+    {
       key = "<leader>xR";
       action.__raw = pick-lsp-references;
       options.desc = "lsp references";
