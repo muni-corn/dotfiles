@@ -165,7 +165,19 @@
       muni = {
         isNormalUser = true;
         description = "municorn";
-        extraGroups = ["wheel" "audio" "video" "camera" "kvm" "plugdev" "libvirtd" "nixos-config" "adbusers" "docker"];
+        extraGroups = [
+          "adbusers"
+          "audio"
+          "camera"
+          "docker"
+          "kvm"
+          "libvirtd"
+          "networkmanager"
+          "nixos-config"
+          "plugdev"
+          "video"
+          "wheel"
+        ];
         uid = 1001;
       };
       tcpcryptd.group = "tcpcryptd";
