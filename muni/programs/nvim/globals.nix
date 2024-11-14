@@ -11,6 +11,7 @@
     tex_conceal = "";
 
     # neovide config
+    neovide_cursor_smooth_blink = true;
     neovide_cursor_vfx_mode = "pixiedust";
     neovide_cursor_vfx_opacity = 200;
     neovide_cursor_vfx_particle_density = 50;

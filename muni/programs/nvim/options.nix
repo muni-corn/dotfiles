@@ -15,6 +15,7 @@
     foldexpr = "v:lua.vim.treesitter.foldexpr()";
     foldlevelstart = 5;
     foldmethod = "expr";
+    guicursor = "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20,a:blinkon750-blinkoff250-blinkwait1000";
     guifont = "Iosevka Muse:h12";
     hidden = true;
     lazyredraw = true;
