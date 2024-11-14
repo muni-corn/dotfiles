@@ -63,6 +63,11 @@
 
     jq.enable = true;
 
+    neovide = {
+      enable = true;
+      settings = {};
+    };
+
     # fish integration enabled by default
     nix-index.enable = true;
 
