@@ -105,7 +105,8 @@
       h = "himalaya";
       n = "$EDITOR";
       q = "exit";
-      f = "nnn"; # for 'files'
+      f = "ranger"; # for 'files'
+      r = "ranger";
     };
 
     shellInit = ''set fish_greeting ""'';
