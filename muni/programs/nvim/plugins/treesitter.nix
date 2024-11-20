@@ -4,6 +4,7 @@
       enable = true;
       gccPackage = null;
       nodejsPackage = null;
+      folding = true;
       settings = {
         indent.enable = true;
         highlight.enable = true;
