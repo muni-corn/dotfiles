@@ -827,11 +827,11 @@
     "muni-wallpapers": {
       "flake": false,
       "locked": {
-        "lastModified": 1722222956,
-        "narHash": "sha256-SR6Mhzd5ju73WSmEXrilqDRelY83xSoiiuCmVm//qIE=",
+        "lastModified": 1732223170,
+        "narHash": "sha256-tM4MAInFOhw4O0dLUwgd0nINjWO4iZDjXgdr1/F3zDk=",
         "owner": "muni-corn",
         "repo": "muni-wallpapers",
-        "rev": "961a86c3a630dbafcf97132cfb77718994392776",
+        "rev": "0d4903c3a79b382c6bd3376016d689576d341470",
         "type": "github"
       },
       "original": {
