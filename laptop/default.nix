@@ -16,7 +16,7 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   home-manager.users.muni = {
-    programs.hyprlock.settings = (import ../utils.nix {inherit config;}).mkHyprlockSettings ["eDP-1" "DP-2"];
+    programs.hyprlock.settings = (import ../utils.nix {inherit config lib;}).mkHyprlockSettings ["eDP-1" "DP-2"];
     services.gammastep.settings.general.brightness-night = 0.5;
     wayland.windowManager.hyprland.settings.monitor = [
       "eDP-1,preferred,0x0,1.25"

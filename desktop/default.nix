@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }: {
@@ -69,7 +70,7 @@
         ];
       };
 
-      hyprlock.settings = (import ../utils.nix {inherit config;}).mkHyprlockSettings ["DP-1" "DP-2" "HDMI-A-1"];
+      hyprlock.settings = (import ../utils.nix {inherit config lib;}).mkHyprlockSettings ["DP-1" "DP-2" "HDMI-A-1"];
     };
 
     services.easyeffects.enable = true;

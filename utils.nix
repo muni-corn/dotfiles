@@ -1,4 +1,7 @@
-{config}: let
+{
+  config,
+  lib,
+}: let
   mkHyprlockMonitor = name: {
     monitor = name;
     path = "screenshot";
@@ -12,56 +15,57 @@ in {
   mkHyprlockSettings = monitors: let
     primaryMonitor = builtins.head monitors;
     sansFontName = config.stylix.fonts.sansSerif.name;
-  in {
-    general.grace = 3;
+  in
+    lib.mkForce {
+      general.grace = 3;
 
-    background = map mkHyprlockMonitor monitors;
+      background = map mkHyprlockMonitor monitors;
 
-    input-field = [
-      {
-        monitor = primaryMonitor;
-        capslock_color = "rgba(ffaa0040)";
-        check_color = "rgba(ffffff40)";
-        dots_size = 0.25;
-        dots_spacing = 1.0;
-        fail_color = "rgb(ff0000)";
-        fail_text = "$FAIL";
-        font_color = "rgb(ffffff)";
-        inner_color = "rgba(00000000)";
-        outer_color = "rgba(00000000)";
-        outline_thickness = 0;
-        placeholder_text = "";
+      input-field = [
+        {
+          monitor = primaryMonitor;
+          capslock_color = "rgba(ffaa0040)";
+          check_color = "rgba(ffffff40)";
+          dots_size = 0.25;
+          dots_spacing = 1.0;
+          fail_color = "rgb(ff0000)";
+          fail_text = "$FAIL";
+          font_color = "rgb(ffffff)";
+          inner_color = "rgba(00000000)";
+          outer_color = "rgba(00000000)";
+          outline_thickness = 0;
+          placeholder_text = "";
 
-        halign = "center";
-        valign = "bottom";
-        position = "0, 128";
-        size = "420, 48";
-      }
-    ];
+          halign = "center";
+          valign = "bottom";
+          position = "0, 128";
+          size = "420, 48";
+        }
+      ];
 
-    label = [
-      {
-        monitor = primaryMonitor;
-        color = "rgba(255, 255, 255, 1)";
-        font_family = "${sansFontName} Thin";
-        font_size = 128;
-        text = ''cmd[update:1000] date "+%-I:%M %P"'';
+      label = [
+        {
+          monitor = primaryMonitor;
+          color = "rgba(255, 255, 255, 1)";
+          font_family = "${sansFontName} Thin";
+          font_size = 128;
+          text = ''cmd[update:1000] date "+%-I:%M %P"'';
 
-        halign = "left";
-        valign = "top";
-        position = "256, -224";
-      }
-      {
-        monitor = primaryMonitor;
-        color = "rgba(255, 255, 255, 0.5)";
-        font_family = sansFontName;
-        font_size = 18;
-        text = ''cmd[update:1000] date "+%A, %B %-d, %Y"'';
+          halign = "left";
+          valign = "top";
+          position = "256, -224";
+        }
+        {
+          monitor = primaryMonitor;
+          color = "rgba(255, 255, 255, 0.5)";
+          font_family = sansFontName;
+          font_size = 18;
+          text = ''cmd[update:1000] date "+%A, %B %-d, %Y"'';
 
-        halign = "left";
-        valign = "top";
-        position = "256, -448";
-      }
-    ];
-  };
+          halign = "left";
+          valign = "top";
+          position = "256, -448";
+        }
+      ];
+    };
 }
