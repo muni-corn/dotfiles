@@ -13,8 +13,8 @@ in {
 
   home-manager.users.muni.home.packages = with pkgs; [
     ace-of-penguins
-    gamehub
     aisleriot
+    gamehub
     godot_4
     #itch
     kdePackages.kmines
