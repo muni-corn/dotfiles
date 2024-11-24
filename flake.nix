@@ -12,6 +12,12 @@
       flake = false;
     };
 
+    # packages for moza wheel
+    moza-racing-wheel = {
+      url = "github:computerdane/moza-racing-wheel-nix";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # realtime audio
     musnix.url = "github:musnix/musnix";
 
