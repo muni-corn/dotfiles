@@ -22,6 +22,7 @@ in {
     lutris
     oversteer
     prismlauncher
+    protonup-ng
     protonup-qt
     r2modman
     tty-solitaire
