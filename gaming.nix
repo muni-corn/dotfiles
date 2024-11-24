@@ -26,6 +26,7 @@ in {
     protonup-qt
     r2modman
     tty-solitaire
+    unityhub
   ];
 
   programs = {
