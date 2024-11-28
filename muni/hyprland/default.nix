@@ -68,7 +68,7 @@
     in {
       general = {
         "col.active_border" = rgba colors.base07 defaultAlpha;
-        "col.inactive_border" = rgba colors.base00 "00";
+        "col.inactive_border" = rgba colors.base00 "80";
         border_size = 2;
         gaps_in = 16;
         gaps_out = 32;
