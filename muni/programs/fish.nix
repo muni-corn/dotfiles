@@ -102,11 +102,12 @@
     };
 
     shellAbbrs = {
+      f = "yazi"; # for 'files'
       h = "himalaya";
       n = "$EDITOR";
       q = "exit";
-      f = "ranger"; # for 'files'
       r = "ranger";
+      y = "yazi";
     };
 
     shellInit = ''set fish_greeting ""'';

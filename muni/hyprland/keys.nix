@@ -12,6 +12,7 @@
   terminal = "kitty -1";
   terminalInDir = dir: "${terminal} -d ${dir}";
   withShell = cmd: ''${shell} -i -c "${cmd}"'';
+  fileManager = "yazi";
 
   notebookTerminal = terminalInDir notebookDir;
   notebookTerminalWithShell = cmd: ''${notebookTerminal} ${withShell cmd}'';
@@ -97,7 +98,7 @@ in {
         (b "SUPER" "a" "exec" appMenu)
         (b "SUPER" "b" "exec" apps.music)
         (b "SUPER" "c" "exec" ''${terminal} ${withShell "fend"}'')
-        (b "SUPER" "e" "exec" ''${terminal} ${withShell "ranger"}'')
+        (b "SUPER" "e" "exec" ''${terminal} ${withShell fileManager}'')
         (b "SUPER" "n" "exec" scripts.quickCode)
         (b "SUPER" "p" "exec" ''${terminal} ${withShell "btop"}'')
         (b "SUPER" "t" "exec" "neovide ${notebookDir}/todo.norg")
@@ -109,12 +110,12 @@ in {
         (b "SUPER_CTRL" "r" "exec" "${scripts.dir}/toggle_gammastep.fish")
         (b "SUPER_SHIFT" "b" "exec" "neovide ${notebookDir}/bored.norg")
         (b "SUPER_SHIFT" "m" "exec" apps.media)
-        (b "SUPER_SHIFT" "n" "exec" (notebookTerminalWithShell "ranger ${notebookDir}"))
+        (b "SUPER_SHIFT" "n" "exec" (notebookTerminalWithShell "${fileManager} ${notebookDir}"))
 
         # journal shortcuts (d for diary)
         (b "SUPER" "d" "exec" (scripts.openJournalFile notebookDir "%Y/%m%b/%d"))
         (b "SUPER_ALT" "d" "exec" (scripts.openJournalFile notebookDir "%Y/w%U"))
-        (b "SUPER_SHIFT" "d" "exec" (notebookTerminalWithShell "ranger ${notebookDir}/journal"))
+        (b "SUPER_SHIFT" "d" "exec" (notebookTerminalWithShell "${fileManager} ${notebookDir}/journal"))
 
         # lock
         (b "SUPER" "Escape" "exec" "loginctl lock-session")

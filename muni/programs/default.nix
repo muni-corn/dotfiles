@@ -132,6 +132,11 @@
       shortcut = "a";
     };
 
+    yazi = {
+      enable = true;
+      shellWrapperName = "y";
+    };
+
     yt-dlp.enable = true;
 
     zathura.enable = true;
