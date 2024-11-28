@@ -4,7 +4,8 @@
     home-manager.url = "github:nix-community/home-manager";
 
     # aylur's gtk shell
-    ags.url = "github:Aylur/ags";
+    # TODO: update to 2.0
+    ags.url = "github:Aylur/ags/v1.9.0";
 
     # geonkick 2
     geonkick = {
@@ -22,7 +23,7 @@
     musnix.url = "github:musnix/musnix";
 
     # neorg overlay for up-to-date neorg stuff
-    neorg.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
+    # neorg.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
 
     # color utils
     nix-colorizer.url = "github:nutsalhan87/nix-colorizer";
@@ -79,7 +80,7 @@
     muni-bot,
     muse-sounds,
     musnix,
-    neorg,
+    # neorg,
     nix-minecraft,
     nixified-ai,
     nixos-hardware,
@@ -113,7 +114,7 @@
       nixpkgs.overlays = [
         iosevka-muse.overlay
         muse-sounds.overlay
-        neorg.overlays.default
+        # neorg.overlays.default
         nix-minecraft.overlay
         nixpkgs-wayland.overlays.default
         plymouth-theme-musicaloft-rainbow.overlay

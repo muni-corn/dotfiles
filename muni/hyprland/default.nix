@@ -87,13 +87,16 @@
       };
 
       decoration = {
-        "col.shadow" = rgba "000000" "80";
         dim_around = 0.5;
         dim_special = 0.5;
         rounding = 8;
-        shadow_offset = "0 8";
-        shadow_range = 32;
-        shadow_render_power = 2;
+
+        shadow = {
+          offset = "0 12";
+          range = 48;
+          render_power = 2;
+          color = rgba "000000" "80";
+        };
 
         blur = {
           passes = 3;
@@ -155,7 +158,6 @@
       };
 
       dwindle = {
-        no_gaps_when_only = true;
         preserve_split = true;
         pseudotile = true;
         special_scale_factor = 0.9;
@@ -270,6 +272,18 @@
         # assign some apps to default workspaces
         "workspace 10,class:^(discord)$"
         "workspace 9,class:^(Slack)$"
+
+        # for smart gaps
+        "bordersize 0, floating:0, onworkspace:w[tv1]"
+        "rounding 0, floating:0, onworkspace:w[tv1]"
+        "bordersize 0, floating:0, onworkspace:f[1]"
+        "rounding 0, floating:0, onworkspace:f[1]"
+      ];
+
+      # for smart gaps
+      workspace = [
+        "w[tv1], gapsout:0, gapsin:0"
+        "f[1], gapsout:0, gapsin:0"
       ];
     };
 
