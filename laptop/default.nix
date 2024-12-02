@@ -7,6 +7,7 @@
     ../common.nix
     ../common-graphical.nix
     ../docker.nix
+    ../gaming.nix
     ./hardware.nix
     ../music_production.nix
     ../openssh.nix
