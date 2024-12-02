@@ -125,7 +125,7 @@
 
     greetd.enable = true;
 
-    # for mpris album art on ags
+    # for mpris album art on muse-shell
     gvfs.enable = true;
 
     input-remapper = {

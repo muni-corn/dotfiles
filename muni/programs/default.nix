@@ -1,10 +1,5 @@
-{
-  config,
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   imports = [
-    ./ags
     ./fish.nix
     ./git.nix
     ./kitty.nix
