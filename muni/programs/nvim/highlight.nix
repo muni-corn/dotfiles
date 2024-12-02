@@ -151,7 +151,7 @@ in {
       Twilight = hl "gray" null {};
     }
     // links {
-      Comment = ["MiniIndentscopeSymbol"];
+      Comment = ["MiniIndentscopeSymbol" "MiniIndentscopeSymbolOff"];
       Error = ["TooLong"];
       Todo = ["@comment.todo"];
       DiffAdd = ["@diff.plus" "diffAdded"];
