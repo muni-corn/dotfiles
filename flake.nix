@@ -70,7 +70,6 @@
   outputs = {
     nixpkgs,
     home-manager,
-    ags,
     geonkick,
     iosevka-muse,
     mini-nvim,
