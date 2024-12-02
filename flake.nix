@@ -3,10 +3,6 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
 
-    # aylur's gtk shell
-    # TODO: update to 2.0
-    ags.url = "github:Aylur/ags/v1.9.0";
-
     # geonkick 2
     geonkick = {
       url = "github:Geonkick-Synthesizer/geonkick/v2.10.2";
@@ -62,6 +58,7 @@
     # my stuff
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
     muni-bot.url = "github:muni-corn/muni_bot";
+    muse-shell.url = "github:muni-corn/muse-shell";
     muse-sounds.url = "git+https://codeberg.org/municorn/muse-sounds?ref=main";
     muni-wallpapers = {
       url = "github:muni-corn/muni-wallpapers";
@@ -78,6 +75,7 @@
     iosevka-muse,
     mini-nvim,
     muni-bot,
+    muse-shell,
     muse-sounds,
     musnix,
     # neorg,
@@ -98,6 +96,7 @@
           hash = "sha256-y4eNo0ukRL6v0T1XvJ46sYnsiVSdL527punnkmf/TIU=";
         };
       });
+      muse-shell = muse-shell.packages.${prev.system}.default;
       geonkick = prev.geonkick.overrideAttrs (old: {
         src = geonkick;
       });
@@ -143,10 +142,7 @@
         extraSpecialArgs = {
           inherit inputs;
         };
-        sharedModules = [
-          ags.homeManagerModules.default
-          nixvim.homeManagerModules.nixvim
-        ];
+        sharedModules = [nixvim.homeManagerModules.nixvim];
         useGlobalPkgs = true;
         useUserPackages = true;
         users.muni = ./muni;

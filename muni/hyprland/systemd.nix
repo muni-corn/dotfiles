@@ -10,10 +10,10 @@
 in {
   systemd.user = {
     services = {
-      ags = {
-        Unit.Description = "ags daemon";
+      muse-shell = {
+        Unit.Description = "muse-shell";
         Service = {
-          ExecStart = "${config.programs.ags.package}/bin/ags ";
+          ExecStart = "${pkgs.muse-shell}/bin/muse-shell";
           Restart = "always";
           RestartSec = 15;
         };
