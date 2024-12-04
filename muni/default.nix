@@ -15,8 +15,6 @@ in {
   home = {
     extraOutputsToInstall = ["doc" "info" "devdoc"];
 
-    file.".npmrc".source = ./npmrc;
-
     packages = with pkgs; [
       # audio and music
       flac
@@ -100,7 +98,7 @@ in {
     sessionPath = [
       "$HOME/.cargo/bin"
       "$HOME/.local/bin"
-      "$HOME/go/bin"
+      "$HOME/.npm/bin"
     ];
     sessionVariables = {
       # from fish
