@@ -51,7 +51,7 @@
     fontDir.enable = true;
 
     packages = with pkgs; [
-      (nerdfonts.override {fonts = ["Iosevka"];})
+      nerd-fonts.iosevka
       libertine
       material-design-icons
       noto-fonts-cjk-sans
