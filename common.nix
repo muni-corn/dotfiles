@@ -112,6 +112,8 @@
       flake = "/home/muni/dotfiles";
     };
 
+    npm.enable = true;
+
     ssh = {
       knownHosts = {
         spiritcrypt = {
