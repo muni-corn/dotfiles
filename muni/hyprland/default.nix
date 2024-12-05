@@ -14,7 +14,6 @@
     slurp
     swww
     wl-clipboard
-    wob
   ];
 
   programs.hyprlock.enable = true;
@@ -235,7 +234,6 @@
         "blur,menu"
         "blur,notifications"
         "blur,rofi"
-        "blur,wob"
         "dimaround,rofi"
         "ignorealpha 0.5,menu"
         "ignorealpha 0.5,notifications"

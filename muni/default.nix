@@ -187,25 +187,6 @@ in {
         use_try_shorthand = true;
         wrap_comments = true;
       };
-      "wob/wob.ini".text =
-        lib.generators.toINIWithGlobalSection {}
-        {
-          globalSection = {
-            width = 512;
-            height = 16;
-            anchor = "bottom";
-            bar_padding = 6;
-            border_size = 0;
-            margin = 256;
-            border_offset = 0;
-
-            background_color = "00000080";
-            border_color = "00000000";
-            bar_color = config.lib.stylix.colors.base07 + "80";
-
-            output_mode = "focused";
-          };
-        };
     };
   };
 }

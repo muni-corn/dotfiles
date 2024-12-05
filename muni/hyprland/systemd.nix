@@ -38,16 +38,6 @@ in {
         };
         Install.WantedBy = ["hyprland-session.target"];
       };
-
-      wob = {
-        Unit.Description = "wob";
-        Service = {
-          ExecStart = scripts.startWob;
-          Restart = "always";
-          RestartSec = 15;
-        };
-        Install.WantedBy = ["hyprland-session.target"];
-      };
     };
 
     timers.wallpaper-switch = {
