@@ -155,6 +155,8 @@
       };
     };
 
+    getty.greetingLine = "Welcome!";
+
     # enable touchpad support
     libinput.enable = true;
 
