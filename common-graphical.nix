@@ -4,6 +4,7 @@
   ...
 }: {
   imports = [
+    ./greetd.nix
     ./stylix.nix
   ];
 
@@ -40,8 +41,6 @@
       # needed for hyprland
       qt5.qtwayland
       qt6.qtwayland
-
-      config.programs.regreet.package
     ];
 
     sessionVariables.NIXOS_OZONE_WL = "1";
@@ -111,19 +110,10 @@
       enable = true;
       package = pkgs.jdk;
     };
-
-    regreet = {
-      enable = true;
-      iconTheme = config.home-manager.users.muni.gtk.iconTheme;
-      cageArgs = ["-s" "-m" "last"];
-      settings.background.fit = "Cover";
-    };
   };
 
   services = {
     blueman.enable = true;
-
-    greetd.enable = true;
 
     # for mpris album art on muse-shell
     gvfs.enable = true;
