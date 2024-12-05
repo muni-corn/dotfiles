@@ -22,16 +22,12 @@
   mkVolumeScript = name: pamixerFlags:
     pkgs.writeShellScript "volume-${name}" ''
       ${pamixer} ${pamixerFlags}
-      ${pamixer} --get-volume > $XDG_RUNTIME_DIR/hypr.wob &
-
-      canberra-gtk-play -i audio-volume-change &
-
+      canberra-gtk-play -i audio-volume-change
       wait
     '';
   mkBrightnessScript = name: brilloFlags:
     pkgs.writeShellScript "brightness-${name}" ''
       ${pkgs.brillo}/bin/brillo -q ${brilloFlags}
-      ${pkgs.brillo}/bin/brillo -G | cut -d'.' -f1 > $XDG_RUNTIME_DIR/hypr.wob &
     '';
 
   journalFilePath = notebookDir: dateStr: let
@@ -91,11 +87,6 @@ in {
     up = mkBrightnessScript "up" "-A 2";
     down = mkBrightnessScript "down" "-U 2";
   };
-
-  startWob = pkgs.writeShellScript "wob-start" ''
-    mkfifo $XDG_RUNTIME_DIR/hypr.wob
-    tail -f $XDG_RUNTIME_DIR/hypr.wob | ${pkgs.wob}/bin/wob
-  '';
 
   switchWallpaper = let
     wallpapersDir = "${inputs.muni-wallpapers}/wallpapers";
