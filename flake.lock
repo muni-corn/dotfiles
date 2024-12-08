@@ -30,16 +30,16 @@
         "nixpkgs": "nixpkgs_7"
       },
       "locked": {
-        "lastModified": 1733344648,
+        "lastModified": 1733430557,
         "narHash": "sha256-TUhvT7M/Mpj2WfS77Vjrzoad9mQVRUYACIAUQrBLhi4=",
-        "owner": "muni-corn",
+        "owner": "Aylur",
         "repo": "astal",
-        "rev": "d55a4d4c3a2a5079d95e4ef694a28bc8adde1a19",
+        "rev": "c9f8f984a38df29fd4c265b77c8eedddc96b3ad1",
         "type": "github"
       },
       "original": {
-        "owner": "muni-corn",
-        "ref": "network-enum-fix",
+        "owner": "Aylur",
+        "ref": "main",
         "repo": "astal",
         "type": "github"
       }
@@ -811,11 +811,11 @@
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "lastModified": 1733344664,
-        "narHash": "sha256-AzzO9iPOkdzu9cJHsU+ic1l4ECii6xgOkx3ROK5n880=",
+        "lastModified": 1733629858,
+        "narHash": "sha256-uHLYwHkX47c0NIf7hoOG7vSIkUNXgLzgG7qp4aAlqFY=",
         "owner": "muni-corn",
         "repo": "muse-shell",
-        "rev": "ea63ef751fc478583f107619a2d3ff4e8479c392",
+        "rev": "804e43aa988ba4dcb7a5a1b5ca9ebca88a31843d",
         "type": "github"
       },
       "original": {
