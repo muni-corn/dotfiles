@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-  imports = [
-    ./dunst.nix
-  ];
-
   services = {
     gammastep = {
       enable = true;
