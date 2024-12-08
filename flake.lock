@@ -811,11 +811,11 @@
         "nixpkgs": "nixpkgs_8"
       },
       "locked": {
-        "lastModified": 1733629858,
-        "narHash": "sha256-uHLYwHkX47c0NIf7hoOG7vSIkUNXgLzgG7qp4aAlqFY=",
+        "lastModified": 1733636418,
+        "narHash": "sha256-m9KZT+dpbX5VqHDtZVZmrZXz3Bvknmn69giyMWhL7Ys=",
         "owner": "muni-corn",
         "repo": "muse-shell",
-        "rev": "804e43aa988ba4dcb7a5a1b5ca9ebca88a31843d",
+        "rev": "62d47d49c9aa9f7d977d96f48b05d7947234bd4f",
         "type": "github"
       },
       "original": {
