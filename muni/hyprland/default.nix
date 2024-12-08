@@ -223,22 +223,21 @@
 
       layerrule = [
         "animation fade,swww-daemon"
-        "animation slide top,bar-0"
-        "animation slide top,bar-1"
-        "animation slide top,bar-2"
+        "animation slide top,bar"
         "animation slide top,notifications"
-        "blur,bar-0"
-        "blur,bar-1"
-        "blur,bar-2"
-        "blur,gtk-layer-shell"
+        "blur,bar"
         "blur,menu"
         "blur,notifications"
         "blur,rofi"
         "dimaround,rofi"
+        "ignorealpha 0.5,bar"
+        "ignorealpha 0.5,gtk-layer-shell"
         "ignorealpha 0.5,menu"
         "ignorealpha 0.5,notifications"
         "ignorealpha 0.5,rofi"
+        "ignorezero,bar"
         "ignorezero,gtk-layer-shell"
+        "ignorezero,notifications"
       ];
 
       windowrulev2 = [
