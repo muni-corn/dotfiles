@@ -124,7 +124,7 @@ in {
         (b "CTRL" "Escape" "exec" "dunstctl close")
         (b "SUPER" "Minus" "exec" "dunstctl close")
         (b "SUPER" "Equal" "exec" "dunstctl history-pop")
-        (b "SUPER" "Space" "exec" "dunstctl context")
+        (b "SUPER" "Space" "exec" "${pkgs.muse-shell}/bin/muse-shell noti act")
 
         # switch to workspace
         (b "SUPER" "1" "workspace" "1")
