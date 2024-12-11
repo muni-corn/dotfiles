@@ -104,7 +104,8 @@
     shellAbbrs = {
       f = "yazi"; # for 'files'
       h = "himalaya";
-      n = "$EDITOR";
+      n = "neovide";
+      nv = "nvim";
       q = "exit";
       r = "ranger";
       y = "yazi";
