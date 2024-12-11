@@ -12,10 +12,10 @@ mkdir -p $folder
 
 set nid -1
 for i in (seq 5 -1 1)
-    set nid (dunstify -p -r $nid "Video capture started" "Use the same keyboard shortcut to stop. Recording starts in $i...")
+    set nid (notify-send -e -p -t 1100 -r $nid "Video capture started" "Use the same keyboard shortcut to stop. Recording starts in $i...")
     sleep 1
 end
 
-dunstify -C $nid
+notify-send -e -t 100 -r $nid "Video capture started" "Recording now."
 
-wf-recorder -f $folder/$date.mp4 && dunstify "Video capture stopped" "Your video was saved in $folder." || dunstify "Video capture failed" "Nothing was saved."
+wf-recorder -f $folder/$date.mp4 && notify-send "Video capture stopped" "Your video was saved in $folder." || notify-send "Video capture failed" "Nothing was saved."
