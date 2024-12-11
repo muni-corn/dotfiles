@@ -14,7 +14,7 @@ function check_cancellation
     set slurp_status $status
     if test $slurp_status -ne 0
         kill_hyprpicker
-        notify-send "$type cancelled" "No problem!"
+        notify-send -a Capture "$type cancelled" "No problem!"
         exit $slurp_status
     end
 end
@@ -34,7 +34,7 @@ if ! test -d $folder
     mkdir -p $folder
 end
 
-if test "$argv[1]" = "-s"
+if test "$argv[1]" = -s
     set type "Selection screenshot"
     set name $folder/$date-s.png
 
@@ -50,7 +50,7 @@ if test "$argv[1]" = "-s"
     # snap! and get status
     sleep 0.3s
     grim -g $region $name
-else if test "$argv[1]" = "-o"
+else if test "$argv[1]" = -o
     set type "Display screenshot"
     set name $folder/$date-o.png
 
@@ -71,11 +71,11 @@ else
 end
 
 if test $status -eq 0
-    wl-copy < $name
-    and notify-send "$type saved and copied" "Your capture was saved as $name."
-    or notify-send "$type saved" "Your capture was saved as $name."
+    wl-copy <$name
+    and notify-send -a Capture "$type saved and copied" "Your capture was saved as $name."
+    or notify-send -a Capture "$type saved" "Your capture was saved as $name."
 else
-    notify-send "$type failed" "There was an error, so nothing was saved. Sorry. :("
+    notify-send -a Capture "$type failed" "There was an error, so nothing was saved. Sorry. :("
 end
 
 kill_hyprpicker

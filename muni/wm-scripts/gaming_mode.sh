@@ -23,7 +23,7 @@ if [ "$answer" = "$yes" ]; then
         killall $prog
     done
 
-    notify-send "Steam is starting" "Just a moment..."
+    notify-send -a "Game mode" "Steam is starting" "Just a moment..."
 
     # run steam
     steam -bigpicture -steamos

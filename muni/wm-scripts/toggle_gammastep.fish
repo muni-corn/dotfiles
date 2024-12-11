@@ -15,10 +15,10 @@ trap "rm -f $lock_file_path" EXIT
 set -l feature_name "Night Display"
 
 if systemctl --user --quiet is-active gammastep
-    set nid (notify-send -p -u low "Turning $feature_name off" "Turn $feature_name on before bed to help you sleep better.")
+    set nid (notify-send -a $feature_name -p -u low "Turning $feature_name off" "Turn $feature_name on before bed to help you sleep better.")
     systemctl --user stop gammastep
-    and notify-send -u low -t 5000 -r $nid "$feature_name is now off" "Turn $feature_name on before bed to help you sleep better."
+    and notify-send -a $feature_name -u low -t 5000 -r $nid "$feature_name is now off" "Turn $feature_name on before bed to help you sleep better."
 else
     systemctl --user start gammastep
-    and notify-send -u low -t 5000 "$feature_name is now on" "$feature_name filters blue light to help you sleep when it's late."
+    and notify-send -a $feature_name -u low -t 5000 "$feature_name is now on" "$feature_name filters blue light to help you sleep when it's late."
 end
