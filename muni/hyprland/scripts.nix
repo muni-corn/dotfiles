@@ -51,7 +51,7 @@
     # to simplify the path displayed
     set display_path (string replace ${config.home.homeDirectory} "~" $file)
 
-    ${config.services.dunst.package}/bin/dunstify "Time recorded" "\"$desc\" has been recorded in $display_path."
+    notify-send "Time recorded" "\"$desc\" has been recorded in $display_path."
   '';
 in {
   dir = scriptsDir;

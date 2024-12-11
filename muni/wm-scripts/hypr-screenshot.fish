@@ -2,7 +2,7 @@
 
 ## hypr-screenshot.fish ##
 ## takes screenshots for hyprland
-## requires dunstify for nice notifications
+## requires notify-send for nice notifications
 
 function kill_hyprpicker
     if set -q picker_pid
@@ -14,7 +14,7 @@ function check_cancellation
     set slurp_status $status
     if test $slurp_status -ne 0
         kill_hyprpicker
-        dunstify "$type cancelled" "No problem!"
+        notify-send "$type cancelled" "No problem!"
         exit $slurp_status
     end
 end
@@ -72,10 +72,10 @@ end
 
 if test $status -eq 0
     wl-copy < $name
-    and dunstify "$type saved and copied" "Your capture was saved as $name."
-    or dunstify "$type saved" "Your capture was saved as $name."
+    and notify-send "$type saved and copied" "Your capture was saved as $name."
+    or notify-send "$type saved" "Your capture was saved as $name."
 else
-    dunstify "$type failed" "There was an error, so nothing was saved. Sorry. :("
+    notify-send "$type failed" "There was an error, so nothing was saved. Sorry. :("
 end
 
 kill_hyprpicker
