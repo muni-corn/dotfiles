@@ -19,7 +19,7 @@
   programs.hyprlock.enable = true;
 
   services.hypridle = let
-    lockWarningCmd = "${pkgs.libnotify}/bin/notify-send -u low -t 29500 'Are you still there?' 'Your system will lock itself soon.'";
+    lockWarningCmd = "${pkgs.libnotify}/bin/notify-send -a 'System' -e -u low -t 29500 'Are you still there?' 'Your system will lock itself soon.'";
     powerOff = "hyprctl dispatch dpms off";
     powerOn = "hyprctl dispatch dpms on";
   in {
