@@ -180,7 +180,7 @@
         "EDITOR,neovide"
         "QT_QPA_PLATFORM,wayland-egl"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
-        "SDL_VIDEODRIVER,wayland"
+        "SDL_VIDEODRIVER,wayland,x11,windows"
         "SWWW_TRANSITION,grow"
         "SWWW_TRANSITION_BEZIER,0.5,0,0,1"
         "SWWW_TRANSITION_DURATION,2"
