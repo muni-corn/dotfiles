@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   imports = [
     ./fish.nix
     ./git.nix
@@ -22,19 +26,19 @@
 
     btop.enable = true;
 
-    # cava = {
-    #   enable = true;
-    #   settings = {
-    #     color = {
-    #       gradient = 1;
-    #       gradient_count = 3;
-    #       gradient_color_1 = "'#${config.lib.stylix.colors.blue}'";
-    #       gradient_color_2 = "'#${config.lib.stylix.colors.green}'";
-    #       gradient_color_3 = "'#${config.lib.stylix.colors.yellow}'";
-    #     };
-    #     smoothing.noise_reduction = 25;
-    #   };
-    # };
+    cava = {
+      enable = true;
+      settings = {
+        color = {
+          gradient = 1;
+          gradient_count = 3;
+          gradient_color_1 = "'#${config.lib.stylix.colors.blue}'";
+          gradient_color_2 = "'#${config.lib.stylix.colors.green}'";
+          gradient_color_3 = "'#${config.lib.stylix.colors.yellow}'";
+        };
+        smoothing.noise_reduction = 25;
+      };
+    };
 
     direnv = {
       enable = true;
