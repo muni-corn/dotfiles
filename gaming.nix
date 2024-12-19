@@ -1,16 +1,5 @@
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}: let
-  universal-pidff = config.boot.kernelPackages.callPackage "${inputs.moza-racing-wheel}/universal-pidff/universal-pidff.nix" {};
-  # boxflat = inputs.moza-racing-wheel.packages.${pkgs.hostPlatform.system}.boxflat;
+{pkgs, ...}: let
 in {
-  boot.extraModulePackages = [universal-pidff];
-
-  # environment.systemPackages = [boxflat];
-
   home-manager.users.muni.home.packages = with pkgs; [
     ace-of-penguins
     aisleriot
@@ -50,8 +39,4 @@ in {
       remotePlay.openFirewall = true;
     };
   };
-
-  services.udev.extraRules = ''
-    SUBSYSTEM=="tty", KERNEL=="ttyACM*", ATTRS{idVendor}=="346e", ACTION=="add", MODE="0666", TAG+="uaccess"
-  '';
 }
