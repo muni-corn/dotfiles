@@ -81,14 +81,6 @@
     ...
   } @ inputs: let
     customPackagesOverlay = final: prev: {
-      ardour = prev.ardour.overrideAttrs (old: {
-        version = "8.10";
-        src = prev.fetchgit {
-          url = "git://git.ardour.org/ardour/ardour.git";
-          rev = "8.10";
-          hash = "sha256-y4eNo0ukRL6v0T1XvJ46sYnsiVSdL527punnkmf/TIU=";
-        };
-      });
       muse-shell = muse-shell.packages.${prev.system}.default;
       geonkick = prev.geonkick.overrideAttrs (old: {
         src = geonkick;
