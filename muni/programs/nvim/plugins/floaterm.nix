@@ -10,15 +10,15 @@
 
     plugins.floaterm = {
       enable = true;
-
-      autoclose = 1;
-      autoinsert = true;
-      borderchars = "─│─│╭╮╯╰";
-      opener = "tabe";
-      position = "top";
-
-      height = 0.9;
-      width = 0.9;
+      settings = {
+        autoclose = 1;
+        autoinsert = true;
+        borderchars = "─│─│╭╮╯╰";
+        height = 0.9;
+        opener = "tabe";
+        position = "top";
+        width = 0.9;
+      };
     };
   };
 }
