@@ -19,6 +19,10 @@ in {
   ];
 
   programs = {
+    alvr = {
+      enable = true;
+      openFirewall = true;
+    };
     gamescope = {
       enable = true;
       capSysNice = true;
@@ -36,6 +40,8 @@ in {
     };
     steam = {
       enable = true;
+      extest.enable = true;
+      protontricks.enable = true;
       remotePlay.openFirewall = true;
     };
   };

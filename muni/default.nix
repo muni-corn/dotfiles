@@ -83,7 +83,6 @@ in {
       libnotify
       networkmanagerapplet
       peaclock
-      protontricks
       protonvpn-cli
       protonvpn-gui
       qrencode
