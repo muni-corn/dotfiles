@@ -25,17 +25,24 @@
     efi.efiSysMountPoint = "/boot/efi";
     systemd-boot.memtest86.enable = true;
   };
+  boot.kernelPatches = [
+    {
+      name = "amdgpu-ignore-ctx-privileges";
+      patch = pkgs.fetchpatch {
+        name = "cap_sys_nice_begone.patch";
+        url = "https://github.com/Frogging-Family/community-patches/raw/master/linux61-tkg/cap_sys_nice_begone.mypatch";
+        hash = "sha256-Y3a0+x2xvHsfLax/uwycdJf3xLxvVfkfDVqjkxNaYEo=";
+      };
+    }
+  ];
 
-  hardware.graphics = {
-    extraPackages = with pkgs; [
-      amdvlk
-      rocmPackages.clr
-      rocmPackages.clr.icd
-    ];
-    extraPackages32 = with pkgs; [
-      driversi686Linux.amdvlk
-    ];
-    enable32Bit = true;
+  hardware = {
+    amdgpu = {
+      amdvlk.enable = false;
+      initrd.enable = true;
+      opencl.enable = true;
+    };
+    graphics.enable32Bit = true;
   };
 
   home-manager.users.muni = {
