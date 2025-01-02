@@ -15,6 +15,7 @@
     ../openssh.nix
     ../sops
     ../video_production.nix
+    ../vr.nix
     ./btrbk.nix
     ./hardware.nix
     ./home-assistant.nix
