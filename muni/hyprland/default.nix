@@ -222,6 +222,8 @@
       ];
 
       layerrule = [
+        "animation fade,hyprpicker"
+        "animation fade,selection"
         "animation fade,swww-daemon"
         "animation slide top,bar"
         "animation slide top,notifications"
