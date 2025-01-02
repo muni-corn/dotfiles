@@ -145,6 +145,12 @@
     };
 
     smartd.enable = true;
+
+    surrealdb = {
+      enable = true;
+      dbPath = "file:///var/lib/surrealdb";
+      port = 7654;
+    };
   };
 
   systemd = {
