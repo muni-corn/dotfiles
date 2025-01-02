@@ -17,7 +17,7 @@
       onCalendar = "hourly";
       settings = {
         snapshot_create = "no";
-        target_preserve = "48h 28d 8w 12m *y";
+        target_preserve = "12h 10d 2w";
         target_preserve_min = "1h";
         preserve_hour_of_day = "5";
         volume."/" = {
