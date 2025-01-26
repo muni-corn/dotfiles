@@ -1,20 +1,15 @@
 {pkgs, ...}: let
 in {
   home-manager.users.muni.home.packages = with pkgs; [
-    ace-of-penguins
     aisleriot
-    gamehub
     godot_4
     #itch
     kdePackages.kmines
     kdePackages.kpat
-    lutris
-    oversteer
     prismlauncher
     protonup-ng
     protonup-qt
     r2modman
-    tty-solitaire
     unityhub
   ];
 
