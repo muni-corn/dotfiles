@@ -82,9 +82,6 @@
   } @ inputs: let
     customPackagesOverlay = final: prev: {
       muse-shell = muse-shell.packages.${prev.system}.default;
-      geonkick = prev.geonkick.overrideAttrs (old: {
-        src = geonkick;
-      });
       vimPlugins =
         prev.vimPlugins
         // {
