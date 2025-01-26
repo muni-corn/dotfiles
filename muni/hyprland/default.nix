@@ -269,7 +269,7 @@
         "suppressevent fullscreen maximize activate activatefocus,title:^(Picture-in-Picture)$"
 
         # assign some apps to default workspaces
-        "workspace 10,class:^(discord)$"
+        "workspace 10,class:^(discord|vesktop)$"
         "workspace 9,class:^(Slack)$"
 
         # for smart gaps
@@ -277,6 +277,9 @@
         "rounding 0, floating:0, onworkspace:w[tv1]"
         "bordersize 0, floating:0, onworkspace:f[1]"
         "rounding 0, floating:0, onworkspace:f[1]"
+
+        # unity fixes ugh
+        "size 600 400,title:^(UnityEditorInternal.AddCurvesPopup)$"
       ];
 
       # for smart gaps
