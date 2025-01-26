@@ -86,6 +86,7 @@ in {
       protonvpn-cli
       protonvpn-gui
       qrencode
+      vrc-get
       wirelesstools
       xdragon
     ];
