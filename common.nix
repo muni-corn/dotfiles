@@ -93,7 +93,13 @@
 
   programs = {
     fish.enable = true;
-    git.enable = true;
+    git = {
+      enable = true;
+      lfs = {
+        enable = true;
+        enablePureSSHTransfer = true;
+      };
+    };
 
     gnupg.agent = {
       enable = true;
