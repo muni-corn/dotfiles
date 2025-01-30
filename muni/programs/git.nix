@@ -76,6 +76,9 @@
           jobs = "cpus";
           mincopies = 2;
           numcopies = 3;
+          retry = 2;
+          retry-delay = 10;
+          stalldetection = "500KB/3m";
           synccontent = true;
         };
         color = {
