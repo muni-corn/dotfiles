@@ -107,7 +107,6 @@
         fetch.prune = true;
         init.defaultBranch = "main";
         interactive.diffFilter = "${pkgs.diffr}/bin/diffr --colors ${diffrColors} --line-numbers";
-        lfs.enable = true;
         merge = {
           conflictStyle = "zdiff3";
           guitool = "meld";
@@ -128,9 +127,6 @@
           "git@gitlab.com:".insteadOf = "https://gitlab.com/";
         };
       };
-
-      # configure Large File Storage
-      lfs.enable = true;
     };
   };
 }
