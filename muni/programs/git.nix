@@ -128,6 +128,9 @@
           "git@gitlab.com:".insteadOf = "https://gitlab.com/";
         };
       };
+
+      # configure Large File Storage
+      lfs.enable = true;
     };
   };
 }
