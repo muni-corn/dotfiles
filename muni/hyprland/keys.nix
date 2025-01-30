@@ -113,7 +113,7 @@ in {
         (b "SUPER_SHIFT" "n" "exec" (notebookTerminalWithShell "${fileManager} ${notebookDir}"))
 
         # journal shortcuts (d for diary)
-        (b "SUPER" "d" "exec" (scripts.openJournalFile notebookDir "%Y/%m%b/%d"))
+        (b "SUPER" "d" "exec" (scripts.openJournalFile notebookDir "%Y/%m%b/%d%a"))
         (b "SUPER_ALT" "d" "exec" (scripts.openJournalFile notebookDir "%Y/w%U"))
         (b "SUPER_SHIFT" "d" "exec" (notebookTerminalWithShell "${fileManager} ${notebookDir}/journal"))
 
