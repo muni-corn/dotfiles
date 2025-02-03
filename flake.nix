@@ -4,10 +4,7 @@
     home-manager.url = "github:nix-community/home-manager";
 
     # geonkick 2
-    geonkick = {
-      url = "github:Geonkick-Synthesizer/geonkick/v2.10.2";
-      flake = false;
-    };
+    geonkick-nixpkgs.url = "github:nixos/nixpkgs/1af754ac1e481efa5284df47d6e13be09f69bc53";
 
     # realtime audio
     musnix.url = "github:musnix/musnix";
@@ -64,7 +61,7 @@
   outputs = {
     nixpkgs,
     home-manager,
-    geonkick,
+    geonkick-nixpkgs,
     iosevka-muse,
     mini-nvim,
     muni-bot,
@@ -82,6 +79,7 @@
   } @ inputs: let
     customPackagesOverlay = final: prev: {
       muse-shell = muse-shell.packages.${prev.system}.default;
+      geonkick = (import geonkick-nixpkgs {inherit (prev) system;}).geonkick;
       vimPlugins =
         prev.vimPlugins
         // {
