@@ -511,20 +511,19 @@
         "type": "github"
       }
     },
-    "geonkick": {
-      "flake": false,
+    "geonkick-nixpkgs": {
       "locked": {
-        "lastModified": 1696659412,
-        "narHash": "sha256-RzWK1PzgrrLWpSJF4CpdBY1c5xOEncGxr8yUNJGB0Mw=",
-        "owner": "Geonkick-Synthesizer",
-        "repo": "geonkick",
-        "rev": "bfe7511d386557ed5f15ceab739503b6d5ab571c",
+        "lastModified": 1656043919,
+        "narHash": "sha256-w3u8KjemJgqdwF9585aLtSk1Q2qGalXYRPZncKJCnu4=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1af754ac1e481efa5284df47d6e13be09f69bc53",
         "type": "github"
       },
       "original": {
-        "owner": "Geonkick-Synthesizer",
-        "ref": "v2.10.2",
-        "repo": "geonkick",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "1af754ac1e481efa5284df47d6e13be09f69bc53",
         "type": "github"
       }
     },
@@ -1414,7 +1413,7 @@
     "root": {
       "inputs": {
         "gen-nvim": "gen-nvim",
-        "geonkick": "geonkick",
+        "geonkick-nixpkgs": "geonkick-nixpkgs",
         "home-manager": "home-manager",
         "iosevka-muse": "iosevka-muse",
         "mini-nvim": "mini-nvim",
