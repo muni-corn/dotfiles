@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  pkgs,
   ...
 }: {
   imports = [
@@ -15,6 +16,8 @@
   ];
 
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
+
+  environment.defaultPackages = with pkgs; [blender];
 
   home-manager.users.muni = {
     programs.hyprlock.settings = (import ../utils.nix {inherit config lib;}).mkHyprlockSettings ["eDP-1" "DP-2"];
