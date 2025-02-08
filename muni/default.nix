@@ -36,11 +36,11 @@ in {
       ffmpeg-full
       jdupes
       neovim-remote
+      ouch
       pv
       qpdf
       sd
       sshfs
-      unar
       zip
 
       # development/programming
