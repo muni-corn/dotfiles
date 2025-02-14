@@ -118,8 +118,8 @@
       };
 
       device = {
-        name = "wacom-intuos-pro-m-pen";
-        output = "DP-1";
+        name = "wacom-co.,ltd.-wacom-intuos-pro-m-mouse";
+        enabled = true;
       };
 
       gestures = {
