@@ -71,6 +71,8 @@
     # Ledger
     ledger.enable = true;
 
+    opentabletdriver.enable = true;
+
     xpadneo.enable = true;
   };
 
@@ -140,9 +142,6 @@
     xserver = {
       # Configure keymap in X11
       xkb.layout = "us";
-
-      # wacom tablet support
-      wacom.enable = true;
     };
   };
 
@@ -161,6 +160,7 @@
           "audio"
           "camera"
           "docker"
+          "input"
           "kvm"
           "libvirtd"
           "networkmanager"
