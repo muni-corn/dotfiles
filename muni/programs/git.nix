@@ -64,7 +64,10 @@
 
       difftastic.enable = true;
 
-      lfs.enable = true;
+      lfs = {
+        enable = true;
+        skipSmudge = true;
+      };
 
       maintenance = {
         enable = true;
