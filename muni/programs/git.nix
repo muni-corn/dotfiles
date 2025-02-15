@@ -52,13 +52,15 @@
       enable = true;
       package = pkgs.gitAndTools.gitFull;
 
-      difftastic.enable = true;
-
       aliases = {
         dt = "difftool";
         dlog = "log -p --ext-diff";
         dshow = "show -p --ext-diff";
       };
+
+      difftastic.enable = true;
+
+      lfs.enable = true;
 
       signing = {
         key = "4B21310A52B15162";
