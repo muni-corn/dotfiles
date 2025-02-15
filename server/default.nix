@@ -6,6 +6,7 @@
 }: {
   imports = [
     ../common.nix
+    ./forgejo.nix
     ./hardware.nix
     ./minecraft.nix
     ../openssh.nix
