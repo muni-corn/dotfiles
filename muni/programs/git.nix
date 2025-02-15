@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  config,
+  pkgs,
+  ...
+}: {
   home.packages = builtins.attrValues {
     inherit
       (pkgs)
@@ -61,6 +65,19 @@
       difftastic.enable = true;
 
       lfs.enable = true;
+
+      maintenance = {
+        enable = true;
+        repositories = let
+          home = config.home.homeDirectory;
+          code = "${home}/code";
+        in [
+          "${home}/dotfiles"
+          "${code}/*"
+          "${code}/unity/muni-vrc"
+        ];
+        timers.tenmin = "*-*-* *:*:00/10";
+      };
 
       signing = {
         key = "4B21310A52B15162";
