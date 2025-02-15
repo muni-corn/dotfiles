@@ -132,10 +132,10 @@
     commonModules = [
       binaryCachesModule
       overlaysModule
+      home-manager.nixosModules.home-manager
     ];
 
     commonGraphicalModules = [
-      home-manager.nixosModules.home-manager
       musnix.nixosModules.musnix
       homeManagerModule
     ];
