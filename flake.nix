@@ -133,11 +133,14 @@
       binaryCachesModule
       overlaysModule
       home-manager.nixosModules.home-manager
+      homeManagerModule
     ];
 
     commonGraphicalModules = [
       musnix.nixosModules.musnix
-      homeManagerModule
+      {
+        home-manager.users.muni = ./muni/graphical;
+      }
     ];
 
     littleponyModules =
