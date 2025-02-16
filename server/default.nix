@@ -1,6 +1,7 @@
 {
   config,
   inputs,
+  lib,
   pkgs,
   ...
 }: {
@@ -74,7 +75,7 @@
   };
 
   # Set your time zone.
-  time.timeZone = "America/Boise";
+  time.timeZone = lib.mkForce "America/Boise";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.muni = {
@@ -161,7 +162,16 @@
       };
     };
 
-    invokeai.enable = true;
+    # comfyui = {
+    #   enable = true;
+    #   package = pkgs.comfyui;
+    #   host = "0.0.0.0";
+    #   models = builtins.attrValues pkgs.nixified-ai.models;
+    #   customNodes = with pkgs.comfyui.pkgs; [
+    #     comfyui-gguf
+    #     comfyui-impact-pack
+    #   ];
+    # };
 
     ollama = {
       enable = true;
@@ -172,7 +182,6 @@
 
     surrealdb = {
       enable = true;
-      package = inputs.surrealdb.packages.x86_64-linux.default;
       dbPath = "rocksdb:///var/lib/surrealdb";
       port = 7654;
     };

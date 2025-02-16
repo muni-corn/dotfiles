@@ -173,7 +173,7 @@
         nixos-hardware.nixosModules.common-gpu-nvidia
 
         # extra software configuration modules
-        nixified-ai.nixosModules.invokeai-nvidia
+        nixified-ai.nixosModules.comfyui
         muni-bot.nixosModules.default
 
         ./server
