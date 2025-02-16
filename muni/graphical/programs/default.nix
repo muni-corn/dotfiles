@@ -4,7 +4,6 @@
   ...
 }: {
   imports = [
-    ./fish.nix
     ./kitty.nix
     ./nnn.nix
     ./nvim

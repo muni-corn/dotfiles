@@ -13,8 +13,6 @@ in {
   ];
 
   home = {
-    extraOutputsToInstall = ["doc" "info" "devdoc"];
-
     packages = with pkgs; [
       # audio and music
       flac
@@ -96,11 +94,6 @@ in {
       x11.enable = true;
     };
 
-    sessionPath = [
-      "$HOME/.cargo/bin"
-      "$HOME/.local/bin"
-      "$HOME/.npm/bin"
-    ];
     sessionVariables = {
       # from fish
       ANDROID_EMULATOR_USE_SYSTEM_LIBS = 1;
@@ -113,11 +106,6 @@ in {
       WINEPREFIX = "$HOME/.wine/";
     };
 
-    # Home Manager needs a bit of information about you and the
-    # paths it should manage.
-    username = "muni";
-    homeDirectory = "/home/muni";
-
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
     # when a new Home Manager release introduces backwards
@@ -126,7 +114,6 @@ in {
     # You can update Home Manager without changing this value. See
     # the Home Manager release notes for a list of state version
     # changes in each release.
-    stateVersion = "21.11";
   };
 
   dconf = {
