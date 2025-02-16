@@ -5,7 +5,6 @@
 }: {
   imports = [
     ./fish.nix
-    ./git.nix
     ./kitty.nix
     ./nnn.nix
     ./nvim
