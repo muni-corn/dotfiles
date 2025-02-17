@@ -280,6 +280,8 @@
 
         # unity fixes ugh
         "size 600 400,title:^(UnityEditorInternal.AddCurvesPopup)$"
+        "stayfocused,initialTitle:^(Unity.*Selector),floating:1"
+        "center,initialTitle:^(Unity.*Selector),floating:1"
       ];
 
       # for smart gaps
