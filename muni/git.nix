@@ -95,11 +95,14 @@
           autocommit = true;
           genmetadata = "importfeed";
           gitaddtoannex = true;
-          jobs = "cpus";
+          jobs = 8;
+          maxextensionlength = 5;
           mincopies = 2;
           numcopies = 3;
+          queuesize = 81920;
           retry = 2;
           retry-delay = 10;
+          securehashesonly = true;
           stalldetection = "500KB/3m";
           synccontent = true;
         };
