@@ -118,6 +118,8 @@
       flake = "/home/muni/dotfiles";
     };
 
+    nix-ld.enable = true;
+
     npm.enable = true;
 
     ssh = {
