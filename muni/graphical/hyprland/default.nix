@@ -280,6 +280,7 @@
 
         # unity fixes ugh
         "size 600 400,title:^(UnityEditorInternal.AddCurvesPopup)$"
+        "size 600 400,title:^(UnityEditor.Graphs.LayerSettingsWindow)$"
         "stayfocused,initialTitle:^(Unity.*Selector),floating:1"
         "center,initialTitle:^(Unity.*Selector),floating:1"
       ];
