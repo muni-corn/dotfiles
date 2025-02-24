@@ -9,9 +9,6 @@
     # realtime audio
     musnix.url = "github:musnix/musnix";
 
-    # neorg overlay for up-to-date neorg stuff
-    # neorg.url = "github:nvim-neorg/nixpkgs-neorg-overlay";
-
     # color utils
     nix-colorizer.url = "github:nutsalhan87/nix-colorizer";
 
@@ -68,7 +65,6 @@
     muse-shell,
     muse-sounds,
     musnix,
-    # neorg,
     nix-minecraft,
     nixified-ai,
     nixos-hardware,
@@ -93,7 +89,6 @@
       nixpkgs.overlays = [
         iosevka-muse.overlay
         muse-sounds.overlay
-        # neorg.overlays.default
         nix-minecraft.overlay
         nixpkgs-wayland.overlays.default
         plymouth-theme-musicaloft-rainbow.overlay
