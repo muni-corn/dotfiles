@@ -16,14 +16,10 @@
     path = ../wm-scripts;
   };
 
-  # package path convenience variables
-  pamixer = "${pkgs.pamixer}/bin/pamixer";
-
-  mkVolumeScript = name: pamixerFlags:
+  mkVolumeScript = name: wpctlArgs:
     pkgs.writeShellScript "volume-${name}" ''
-      ${pamixer} ${pamixerFlags}
+      wpctl ${wpctlArgs}
       canberra-gtk-play -i audio-volume-change
-      wait
     '';
   mkBrightnessScript = name: brilloFlags:
     pkgs.writeShellScript "brightness-${name}" ''
@@ -78,9 +74,9 @@ in {
   };
 
   volume = {
-    up = mkVolumeScript "up" "-i 5";
-    down = mkVolumeScript "down" "-d 5";
-    toggleMute = mkVolumeScript "toggle-mute" "--toggle-mute";
+    up = mkVolumeScript "up" "set-volume @DEFAULT_SINK@ 5%+ --limit 1.0";
+    down = mkVolumeScript "down" "set-volume @DEFAULT_SINK@ 5%- --limit 1.0";
+    toggleMute = mkVolumeScript "toggle-mute" "set-mute @DEFAULT_SINK@ toggle";
   };
 
   brightness = {

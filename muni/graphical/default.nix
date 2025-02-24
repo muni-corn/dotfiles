@@ -16,7 +16,6 @@ in {
     packages = with pkgs; [
       # audio and music
       flac
-      pamixer
       pavucontrol
       playerctl
       qpwgraph
