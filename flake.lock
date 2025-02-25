@@ -814,11 +814,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1733784839,
-        "narHash": "sha256-F6cSORu/5H/bcxp4JMpp8fhcV+FTTZADtf8xW6sbOmQ=",
+        "lastModified": 1740467328,
+        "narHash": "sha256-DF7LmO2bUL9lqD+KhlQhfg+6tvu55lI4D2x3GvqQ8N4=",
         "owner": "muni-corn",
         "repo": "muni_bot",
-        "rev": "7aa665d20b608a9315e9d376ae4a96bf03c6d7b3",
+        "rev": "9cfa2d588e2d935bc02c7d273e4edfd8d79820ee",
         "type": "github"
       },
       "original": {
