@@ -116,7 +116,12 @@
   nixpkgs.config.rocmSupport = true;
 
   # for easyeffects
-  programs.dconf.enable = true;
+  programs = {
+    dconf.enable = true;
+    corectrl = {
+      enable = true;
+    };
+  };
 
   security.pam.loginLimits = [
     {

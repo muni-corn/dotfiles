@@ -159,6 +159,7 @@
           "adbusers"
           "audio"
           "camera"
+          "corectrl"
           "docker"
           "input"
           "kvm"
