@@ -154,16 +154,21 @@
       };
     };
 
-    # comfyui = {
-    #   enable = true;
-    #   package = pkgs.comfyui;
-    #   host = "0.0.0.0";
-    #   models = builtins.attrValues pkgs.nixified-ai.models;
-    #   customNodes = with pkgs.comfyui.pkgs; [
-    #     comfyui-gguf
-    #     comfyui-impact-pack
-    #   ];
-    # };
+    comfyui = {
+      enable = true;
+      # package = pkgs.comfyui-nvidia;
+      host = "0.0.0.0";
+      # models = builtins.attrValues pkgs.nixified-ai.models;
+      # customNodes = with pkgs.comfyui.pkgs; [
+      #   comfyui-gguf
+      #   comfyui-impact-pack
+      # ];
+    };
+
+    nextjs-ollama-llm-ui = {
+      enable = true;
+      hostname = "0.0.0.0";
+    };
 
     ollama = {
       enable = true;
