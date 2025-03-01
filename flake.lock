@@ -512,22 +512,6 @@
         "type": "github"
       }
     },
-    "geonkick-nixpkgs": {
-      "locked": {
-        "lastModified": 1656043919,
-        "narHash": "sha256-w3u8KjemJgqdwF9585aLtSk1Q2qGalXYRPZncKJCnu4=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "1af754ac1e481efa5284df47d6e13be09f69bc53",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "1af754ac1e481efa5284df47d6e13be09f69bc53",
-        "type": "github"
-      }
-    },
     "git-hooks": {
       "inputs": {
         "flake-compat": [
@@ -1377,7 +1361,6 @@
     "root": {
       "inputs": {
         "gen-nvim": "gen-nvim",
-        "geonkick-nixpkgs": "geonkick-nixpkgs",
         "home-manager": "home-manager",
         "iosevka-muse": "iosevka-muse",
         "mini-nvim": "mini-nvim",
