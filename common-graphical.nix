@@ -27,8 +27,7 @@
     defaultPackages = with pkgs; [
       gnome-bluetooth
       kodi
-      konsole
-      ksshaskpass
+      kdePackages.ksshaskpass
       libcanberra
       libcanberra-gtk3
       muse-sounds

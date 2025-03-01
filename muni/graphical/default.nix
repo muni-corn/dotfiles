@@ -24,7 +24,6 @@ in {
 
       # desktop environment
       glib # for gtk theming
-      ksshaskpass
       muse-shell
 
       # terminal/cli stuff
