@@ -41,6 +41,7 @@ in {
       zip
 
       # development/programming
+      alcom
       alejandra
       docker-compose
       gcc
