@@ -31,7 +31,9 @@
     media = "${config.programs.kodi.package}/bin/kodi --windowing=x11";
   };
 
-  appMenu = ''${config.programs.rofi.finalPackage}/bin/rofi -p "Run what?" -show drun'';
+  appMenu = ''${config.programs.rofi.finalPackage}/bin/rofi -p "Run what?" -show drun -run-command "uwsm app -- {cmd}"'';
+
+  launch = args: "uwsm app -- ${args}";
 
   scripts = import ./scripts.nix {inherit config lib osConfig pkgs shell inputs;};
 in {
@@ -39,7 +41,7 @@ in {
     settings = {
       bind = [
         # open terminal
-        (b "SUPER" "Enter" "exec" terminal)
+        (b "SUPER" "Return" "exec" (launch terminal))
 
         # power controls
         (b "SUPER_CTRL_ALT" "o" "exec" "canberra-gtk-play -i system-shutdown; systemctl poweroff")
@@ -94,28 +96,27 @@ in {
         (b "SUPER" "g" "togglegroup" "")
 
         # shortcuts for apps
-        (b "SUPER" "Return" "exec" terminal)
-        (b "SUPER" "a" "exec" appMenu)
-        (b "SUPER" "b" "exec" apps.music)
-        (b "SUPER" "c" "exec" ''${terminal} ${withShell "fend"}'')
-        (b "SUPER" "e" "exec" ''${terminal} ${withShell fileManager}'')
-        (b "SUPER" "n" "exec" scripts.quickCode)
-        (b "SUPER" "p" "exec" ''${terminal} ${withShell "btop"}'')
-        (b "SUPER" "t" "exec" "neovide ${notebookDir}/todo.norg")
-        (b "SUPER" "w" "exec" apps.browser)
-        (b "SUPER_CTRL" "b" "exec" ''${terminal} ${withShell "bluetoothctl"}'')
-        (b "SUPER_CTRL" "e" "exec" "rofimoji --prompt Emoji")
-        (b "SUPER_CTRL" "n" "exec" "neovide ${notebookDir}/new/$(date +%Y%m%d-%H%M%S).norg")
-        (b "SUPER_CTRL" "p" "exec" "${pkgs.pavucontrol}/bin/pavucontrol")
-        (b "SUPER_CTRL" "r" "exec" "${scripts.dir}/toggle_gammastep.fish")
-        (b "SUPER_SHIFT" "b" "exec" "neovide ${notebookDir}/bored.norg")
-        (b "SUPER_SHIFT" "m" "exec" apps.media)
-        (b "SUPER_SHIFT" "n" "exec" (notebookTerminalWithShell "${fileManager} ${notebookDir}"))
+        (b "SUPER" "a" "exec" (launch appMenu))
+        (b "SUPER" "b" "exec" (launch apps.music))
+        (b "SUPER" "c" "exec" (launch ''${terminal} ${withShell "fend"}''))
+        (b "SUPER" "e" "exec" (launch ''${terminal} ${withShell fileManager}''))
+        (b "SUPER" "n" "exec" (launch scripts.quickCode))
+        (b "SUPER" "p" "exec" (launch ''${terminal} ${withShell "btop"}''))
+        (b "SUPER" "t" "exec" (launch "neovide ${notebookDir}/todo.norg"))
+        (b "SUPER" "w" "exec" (launch apps.browser))
+        (b "SUPER_CTRL" "b" "exec" (launch ''${terminal} ${withShell "bluetoothctl"}''))
+        (b "SUPER_CTRL" "e" "exec" (launch "rofimoji --prompt Emoji"))
+        (b "SUPER_CTRL" "n" "exec" (launch "neovide ${notebookDir}/new/$(date +%Y%m%d-%H%M%S).norg"))
+        (b "SUPER_CTRL" "p" "exec" (launch "${pkgs.pavucontrol}/bin/pavucontrol"))
+        (b "SUPER_CTRL" "r" "exec" (launch "${scripts.dir}/toggle_gammastep.fish"))
+        (b "SUPER_SHIFT" "b" "exec" (launch "neovide ${notebookDir}/bored.norg"))
+        (b "SUPER_SHIFT" "m" "exec" (launch apps.media))
+        (b "SUPER_SHIFT" "n" "exec" (launch (notebookTerminalWithShell "${fileManager} ${notebookDir}")))
 
         # journal shortcuts (d for diary)
-        (b "SUPER" "d" "exec" (scripts.openJournalFile notebookDir "%Y/%m%b/%d%a"))
-        (b "SUPER_ALT" "d" "exec" (scripts.openJournalFile notebookDir "%Y/w%U"))
-        (b "SUPER_SHIFT" "d" "exec" (notebookTerminalWithShell "${fileManager} ${notebookDir}/journal"))
+        (b "SUPER" "d" "exec" (launch (scripts.openJournalFile notebookDir "%Y/%m%b/%d%a")))
+        (b "SUPER_ALT" "d" "exec" (launch (scripts.openJournalFile notebookDir "%Y/w%U")))
+        (b "SUPER_SHIFT" "d" "exec" (launch (notebookTerminalWithShell "${fileManager} ${notebookDir}/journal")))
 
         # lock
         (b "SUPER" "Escape" "exec" "loginctl lock-session")
@@ -151,7 +152,7 @@ in {
         (b "SUPER_SHIFT" "0" "movetoworkspace" "10")
 
         # change wallpaper
-        (b "SUPER_CTRL" "w" "exec" "${scripts.switchWallpaper}")
+        (b "SUPER_CTRL" "w" "exec" scripts.switchWallpaper)
 
         # screen capture
         (b "SUPER" "Print" "exec" scripts.screenshot)
@@ -244,33 +245,3 @@ in {
     '';
   };
 }
-# TODO: migrate from sway
-#
-#   # floating video mode
-#   (b "SUPER" "i" "fullscreen disable,\\
-#   floating enable,\\
-#   sticky enable,\\
-#   border pixel 6,\\
-#   resizeactive" "set 356 200,\\
-#   move position 1564 px 0 px,\\
-#   inhibit_idle open
-#   (b "SUPER_SHIFT" "i" "fullscreen disable,\\
-#   floating enable,\\
-#   sticky enable,\\
-#   border pixel 6,\\
-#   resizeactive" "set 711 400,\\
-#   move position 1209 px 0 px,\\
-#   inhibit_idle open
-#
-#   # mobile (as in cell phone) width
-#   (b "SUPER" "m" "resizeactive" "set width 512 px")
-#
-#   # record clock times (easy clock-in or clock-out :))
-#   (b "SUPER" "Delete" "exec" "${notebookDir}/record_time.fish")
-#   (b "SUPER" "Home" "exec" "${notebookDir}/record_time.fish '(clock-in)'")
-#   (b "SUPER" "End" "exec" "${notebookDir}/record_time.fish '(clock-out)'")
-#   (b "SUPER_SHIFT" "Delete" "exec" "${scriptsDir}/prompt_timestamp.fish")
-#   (b "SUPER_SHIFT" "Home" "exec" "${scriptsDir}/prompt_clock_in.fish")
-#   (b "SUPER_SHIFT" "End" "exec" "${scriptsDir}/prompt_clock_out.fish")
-# }
-

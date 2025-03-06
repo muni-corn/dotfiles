@@ -56,7 +56,8 @@
 
   wayland.windowManager.hyprland = {
     enable = true;
-    xwayland.enable = true;
+    package = null;
+    portalPackage = null;
 
     settings = let
       rgba = c: a: "rgba(${c}${a})";
@@ -292,51 +293,7 @@
       ];
     };
 
-    systemd.variables = ["PATH"];
+    # disabled because hyprland will be launched with uwsm
+    systemd.enable = false;
   };
 }
-# TODO migrate from sway:
-#
-#   config = {
-#     bars = [
-#       {
-#         trayOutput = "*";
-#         trayPadding = 8;
-#         colors = {
-#           urgentWorkspace = {
-#             background = warning;
-#             border = warning;
-#             text = black;
-#           };
-#         };
-#       }
-#     ];
-#
-#     floating = {
-#       criteria = [
-#         {title = "Lutris";}
-#         {title = "^OpenRGB$";}
-#         {title = "Extension:.*Firefox";}
-#       ];
-#     };
-#
-#     window = {
-#       commands = [
-#         {
-#           command = "floating enable, resize set 600 px 400 px";
-#           criteria = {title = "Page Unresponsive";};
-#         }
-#         {
-#           command = "floating enable, sticky enable, resize set 30 ppt 60 ppt";
-#           criteria = {app_id = "^launcher$";};
-#         }
-#         {
-#           command = "inhibit_idle fullscreen";
-#           criteria = {class = ".*";};
-#         }
-#       ];
-#     };
-#   };
-# }
-#
-

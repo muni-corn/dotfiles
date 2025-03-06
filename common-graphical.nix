@@ -106,7 +106,13 @@
 
     gphoto2.enable = true;
 
-    hyprland.enable = true;
+    hyprland = {
+      enable = true;
+      systemd.setPath.enable = true;
+
+      # this will enable and configure Hyprland with uwsm
+      withUWSM = true;
+    };
 
     java = {
       enable = true;
