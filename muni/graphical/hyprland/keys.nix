@@ -230,7 +230,7 @@ in {
       # bindings triggered on release
       bindr = [
         # exit hyprland
-        (b "SUPER_SHIFT" "e" "exec" "canberra-gtk-play -i desktop-logout; hyprctl dispatch exit")
+        (b "SUPER_SHIFT" "e" "exec" "canberra-gtk-play -i desktop-logout; uwsm stop")
       ];
     };
 
