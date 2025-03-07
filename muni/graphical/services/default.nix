@@ -31,8 +31,6 @@
       pinentryPackage = pkgs.pinentry-gtk2;
     };
 
-    kdeconnect.enable = true;
-
     syncthing.enable = true;
   };
 }
