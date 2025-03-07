@@ -1,8 +1,6 @@
 {
   imports = [
-    ./fish.nix
-    ./git.nix
-    ./helix.nix
+    ./programs
   ];
 
   home = {
