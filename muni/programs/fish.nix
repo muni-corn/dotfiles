@@ -102,9 +102,10 @@
     };
 
     shellAbbrs = {
+      e = "hx"; # for 'editor'
       f = "y"; # for 'files'
-      h = "himalaya";
-      n = "neovide";
+      h = "hx";
+      n = "hx";
       nv = "nvim";
       q = "exit";
       r = "ranger";
