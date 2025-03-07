@@ -2,6 +2,7 @@
   imports = [
     ./fish.nix
     ./git.nix
+    ./helix.nix
   ];
 
   home = {

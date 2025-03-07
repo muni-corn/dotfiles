@@ -167,7 +167,6 @@
       env = [
         "CLUTTER_BACKEND,wayland"
         "ECORE_EVAS_ENGINE,wayland-egl"
-        "EDITOR,neovide"
         "ELM_ENGINE,wayland_egl"
         "GTK_THEME,${config.gtk.theme.name}"
         "GTK_USE_PORTAL,1"
@@ -178,7 +177,6 @@
       ];
 
       envd = [
-        "EDITOR,neovide"
         "QT_QPA_PLATFORM,wayland-egl"
         "QT_WAYLAND_DISABLE_WINDOWDECORATION,1"
         "SDL_VIDEODRIVER,wayland,x11,windows"
