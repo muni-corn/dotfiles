@@ -57,16 +57,12 @@
     monadoEnvironment = {
       STEAMVR_LH_ENABLE = "1";
       XRT_COMPOSITOR_COMPUTE = "1";
+      U_PACING_COMP_MIN_TIME_MS = "5";
     };
 
     openFirewall = true;
 
     # Config for WiVRn (https://github.com/WiVRn/WiVRn/blob/master/docs/configuration.md)
-    config = {
-      enable = true;
-      json = {
-        application = [pkgs.wlx-overlay-s];
-      };
-    };
+    config.enable = false;
   };
 }
