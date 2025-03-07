@@ -24,6 +24,9 @@
     # latest wayland packages
     nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
 
+    # latest xr packages
+    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
+
     # neovim config in nix
     nixvim.url = "github:nix-community/nixvim";
 
@@ -69,6 +72,7 @@
     nixified-ai,
     nixos-hardware,
     nixpkgs-wayland,
+    nixpkgs-xr,
     nixvim,
     plymouth-theme-musicaloft-rainbow,
     ...
@@ -150,6 +154,9 @@
       commonModules
       ++ commonGraphicalModules
       ++ [
+        # mixed reality
+        nixpkgs-xr.nixosModules.nixpkgs-xr
+
         # hardware
         nixos-hardware.nixosModules.common-pc
         nixos-hardware.nixosModules.common-cpu-amd
