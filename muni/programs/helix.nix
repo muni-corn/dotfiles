@@ -49,12 +49,24 @@
           };
         };
 
-        whitespace.render = "all";
+        whitespace.render = {
+          space = "none";
+          tab = "all";
+          nbsp = "all";
+          nnbsp = "all";
+          newline = "none";
+        };
       };
-      keys.normal = {
-        space.space = "file_picker";
-        space.w = ":w";
-        space.q = ":q";
+      keys = {
+        normal = {
+          space.space = "file_picker";
+          space.w = ":w";
+          space.q = ":q";
+        };
+        insert = {
+          f.j = "normal_mode";
+          j.j = "normal_mode";
+        };
       };
     };
     languages.language = [
