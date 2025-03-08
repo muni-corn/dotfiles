@@ -17,7 +17,7 @@ in {
           Restart = "always";
           RestartSec = 15;
         };
-        Install.WantedBy = ["hyprland-session.target"];
+        Install.WantedBy = ["graphical-session.target"];
       };
 
       swww-daemon = {
@@ -27,7 +27,7 @@ in {
           Restart = "always";
           RestartSec = 15;
         };
-        Install.WantedBy = ["hyprland-session.target"];
+        Install.WantedBy = ["graphical-session.target"];
       };
 
       wallpaper-switch = {
@@ -36,7 +36,7 @@ in {
           ExecStart = "${scripts.switchWallpaper}";
           Type = "oneshot";
         };
-        Install.WantedBy = ["hyprland-session.target"];
+        Install.WantedBy = ["graphical-session.target"];
       };
     };
 
