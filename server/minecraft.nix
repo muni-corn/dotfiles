@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   services.minecraft-server = {
     enable = true;
     package = pkgs.vanilla-server;

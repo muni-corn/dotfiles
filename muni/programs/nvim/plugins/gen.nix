@@ -3,7 +3,8 @@
   inputs,
   pkgs,
   ...
-}: let
+}:
+let
   gen-nvim = pkgs.vimUtils.buildVimPlugin {
     name = "gen.nvim";
     src = inputs.gen-nvim;
@@ -23,9 +24,10 @@
     replace = true;
     extract = "```$filetype\n(.-)```";
   };
-in {
+in
+{
   programs.nixvim = {
-    extraPlugins = [gen-nvim];
+    extraPlugins = [ gen-nvim ];
     extraConfigLua = ''
       require('gen').setup(${nv.toLuaObject settings})
       require('gen').prompts['Resolve_Conflict'] = ${nv.toLuaObject resolveConflict}

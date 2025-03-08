@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   home.sessionVariables = {
     NNN_FCOLORS = "06030c0200050e08010b0d01";
     NNN_OPENER = pkgs.writeTextFile {
@@ -19,7 +20,7 @@
 
   programs.nnn = {
     enable = true;
-    package = pkgs.nnn.override {withNerdIcons = true;};
+    package = pkgs.nnn.override { withNerdIcons = true; };
     extraPackages = with pkgs; [
       ffmpegthumbnailer
       mediainfo

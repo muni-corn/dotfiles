@@ -2,7 +2,8 @@
   inputs,
   pkgs,
   ...
-}: let
+}:
+let
   theme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
 
   commonConfig = {
@@ -77,37 +78,34 @@
       };
     };
   };
-in {
-  imports = [inputs.stylix.nixosModules.stylix];
+in
+{
+  imports = [ inputs.stylix.nixosModules.stylix ];
 
-  stylix =
-    commonConfig
-    // {
-      # individual targets
-      targets = {
-        plymouth.enable = false;
-        grub = {
-          enable = true;
-          useImage = true;
-        };
+  stylix = commonConfig // {
+    # individual targets
+    targets = {
+      plymouth.enable = false;
+      grub = {
+        enable = true;
+        useImage = true;
       };
     };
+  };
 
   home-manager.users.muni = {
     services.hyprpaper.enable = false;
 
-    stylix =
-      commonConfig
-      // {
-        targets = {
-          dunst.enable = false;
-          hyprland.enable = false;
-          hyprpaper.enable = false;
-          # kitty.enable = false;
-          neovim.enable = false;
-          rofi.enable = false;
-          swaylock.enable = false;
-        };
+    stylix = commonConfig // {
+      targets = {
+        dunst.enable = false;
+        hyprland.enable = false;
+        hyprpaper.enable = false;
+        # kitty.enable = false;
+        neovim.enable = false;
+        rofi.enable = false;
+        swaylock.enable = false;
       };
+    };
   };
 }

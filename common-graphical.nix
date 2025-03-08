@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./greetd.nix
   ];
@@ -11,7 +12,7 @@
     extraModulePackages = builtins.attrValues {
       inherit (config.boot.kernelPackages) v4l2loopback;
     };
-    kernelModules = ["v4l2loopback"];
+    kernelModules = [ "v4l2loopback" ];
     plymouth = {
       enable = true;
       font = "${pkgs.inter}/share/fonts/truetype/Inter.ttc";
@@ -100,7 +101,7 @@
     adb.enable = true;
     evolution = {
       enable = true;
-      plugins = [pkgs.evolution-ews];
+      plugins = [ pkgs.evolution-ews ];
     };
 
     gphoto2.enable = true;
@@ -127,7 +128,7 @@
 
     input-remapper = {
       enable = true;
-      serviceWantedBy = ["multi-user.target"];
+      serviceWantedBy = [ "multi-user.target" ];
     };
 
     pipewire = {
@@ -179,8 +180,8 @@
       tcpcryptd.group = "tcpcryptd";
     };
     groups = {
-      nixos-config = {};
-      tcpcryptd = {};
+      nixos-config = { };
+      tcpcryptd = { };
     };
     defaultUserShell = pkgs.fish;
   };

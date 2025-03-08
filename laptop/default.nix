@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ../common.nix
     ../common-graphical.nix
@@ -17,10 +18,13 @@
 
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  environment.defaultPackages = with pkgs; [blender];
+  environment.defaultPackages = with pkgs; [ blender ];
 
   home-manager.users.muni = {
-    programs.hyprlock.settings = (import ../utils.nix {inherit config lib;}).mkHyprlockSettings ["eDP-1" "DP-2"];
+    programs.hyprlock.settings = (import ../utils.nix { inherit config lib; }).mkHyprlockSettings [
+      "eDP-1"
+      "DP-2"
+    ];
     services.gammastep.settings.general.brightness-night = 0.5;
     wayland.windowManager.hyprland.settings.monitor = [
       "eDP-1,preferred,0x0,1.25"
@@ -46,7 +50,7 @@
         snapshot_preserve = "48h 28d 8w";
         preserve_hour_of_day = "5";
         volume."/" = {
-          subvolume.home = {};
+          subvolume.home = { };
           snapshot_dir = "/snaps";
         };
       };

@@ -4,8 +4,10 @@
   lib,
   pkgs,
   ...
-}: let
-  writeFishScript = name: script:
+}:
+let
+  writeFishScript =
+    name: script:
     pkgs.writeScript name ''
       #!${config.programs.fish.package}/bin/fish
       ${script}
@@ -16,21 +18,26 @@
     path = ../wm-scripts;
   };
 
-  mkVolumeScript = name: wpctlArgs:
+  mkVolumeScript =
+    name: wpctlArgs:
     pkgs.writeShellScript "volume-${name}" ''
       wpctl ${wpctlArgs}
       canberra-gtk-play -i audio-volume-change
     '';
-  mkBrightnessScript = name: brilloFlags:
+  mkBrightnessScript =
+    name: brilloFlags:
     pkgs.writeShellScript "brightness-${name}" ''
       ${pkgs.brillo}/bin/brillo -q ${brilloFlags}
     '';
 
-  journalFilePath = notebookDir: dateStr: let
-    split = lib.strings.splitString "/" dateStr;
-    parts = map (part: "$(date +${part})") split;
-    dateDir = builtins.concatStringsSep "/" parts;
-  in "${notebookDir}/journal/${dateDir}.norg";
+  journalFilePath =
+    notebookDir: dateStr:
+    let
+      split = lib.strings.splitString "/" dateStr;
+      parts = map (part: "$(date +${part})") split;
+      dateDir = builtins.concatStringsSep "/" parts;
+    in
+    "${notebookDir}/journal/${dateDir}.norg";
 
   recordTime = writeFishScript "record-time" ''
     set file $HOME/notebook/times.csv
@@ -49,29 +56,42 @@
 
     notify-send -a "Quick clock" "Time recorded" "\"$desc\" has been recorded in $display_path."
   '';
-in {
+in
+{
   dir = scriptsDir;
 
   screenshot = "${scriptsDir}/hypr-screenshot.fish";
-  quickCode = import ../quick-code-script.nix {inherit config pkgs;};
+  quickCode = import ../quick-code-script.nix { inherit config pkgs; };
 
-  clock = let
-    mkInstantScript = type:
-      pkgs.writeShellScript "clock-${type}" ''
-        ${recordTime} ${type}
-      '';
+  clock =
+    let
+      mkInstantScript =
+        type:
+        pkgs.writeShellScript "clock-${type}" ''
+          ${recordTime} ${type}
+        '';
 
-    mkPromptScript = type:
-      pkgs.writeShellScript "prompt-clock-${type}" ''
-        desc=$(${config.programs.rofi.finalPackage}/bin/rofi -dmenu -p 'Clock ${type} for?')
-        ${recordTime} "${type}: $desc"
-      '';
+      mkPromptScript =
+        type:
+        pkgs.writeShellScript "prompt-clock-${type}" ''
+          desc=$(${config.programs.rofi.finalPackage}/bin/rofi -dmenu -p 'Clock ${type} for?')
+          ${recordTime} "${type}: $desc"
+        '';
 
-    mkClockScriptSet = fn: (builtins.listToAttrs (map (type: lib.nameValuePair type (fn type)) ["start" "break" "stamp"]));
-  in {
-    instant = mkClockScriptSet mkInstantScript;
-    prompt = mkClockScriptSet mkPromptScript;
-  };
+      mkClockScriptSet =
+        fn:
+        (builtins.listToAttrs (
+          map (type: lib.nameValuePair type (fn type)) [
+            "start"
+            "break"
+            "stamp"
+          ]
+        ));
+    in
+    {
+      instant = mkClockScriptSet mkInstantScript;
+      prompt = mkClockScriptSet mkPromptScript;
+    };
 
   volume = {
     up = mkVolumeScript "up" "set-volume @DEFAULT_SINK@ 5%+ --limit 1.0";
@@ -84,17 +104,20 @@ in {
     down = mkBrightnessScript "down" "-U 2";
   };
 
-  switchWallpaper = let
-    wallpapersDir = "${inputs.muni-wallpapers}/wallpapers";
-  in
+  switchWallpaper =
+    let
+      wallpapersDir = "${inputs.muni-wallpapers}/wallpapers";
+    in
     pkgs.writeShellScript "hypr-switch-wallpaper" ''
       new_wall=$(${pkgs.fd}/bin/fd --type f . ${wallpapersDir} | shuf -n 1)
       ${pkgs.swww}/bin/swww img $new_wall
     '';
 
-  openJournalFile = notebookDir: dateStr: let
-    filePath = journalFilePath notebookDir dateStr;
-  in
+  openJournalFile =
+    notebookDir: dateStr:
+    let
+      filePath = journalFilePath notebookDir dateStr;
+    in
     pkgs.writeShellScript "open-journal-file-${dateStr}" ''
       parent_dir=$(dirname ${filePath})
       mkdir -p $parent_dir

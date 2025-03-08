@@ -39,9 +39,26 @@
         soft-wrap.enable = true;
 
         statusline = {
-          left = ["mode" "file-name" "read-only-indicator" "file-modification-indicator" "version-control"];
-          center = ["spinner" "diagnostics"];
-          right = ["file-type" "register" "selections" "primary-selection-length" "position" "total-line-numbers" "position-percentage"];
+          left = [
+            "mode"
+            "file-name"
+            "read-only-indicator"
+            "file-modification-indicator"
+            "version-control"
+          ];
+          center = [
+            "spinner"
+            "diagnostics"
+          ];
+          right = [
+            "file-type"
+            "register"
+            "selections"
+            "primary-selection-length"
+            "position"
+            "total-line-numbers"
+            "position-percentage"
+          ];
 
           mode = {
             normal = "n";

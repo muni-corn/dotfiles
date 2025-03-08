@@ -2,7 +2,8 @@
   config,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ./kitty.nix
     ./rofi
@@ -11,7 +12,10 @@
   programs = {
     browserpass = {
       enable = true;
-      browsers = ["firefox" "chromium"];
+      browsers = [
+        "firefox"
+        "chromium"
+      ];
     };
 
     cava = {
@@ -37,7 +41,7 @@
 
     neovide = {
       enable = true;
-      settings = {};
+      settings = { };
     };
 
     mpv = {
@@ -48,8 +52,7 @@
         force-window = "yes";
       };
       scripts = builtins.attrValues {
-        inherit
-          (pkgs.mpvScripts)
+        inherit (pkgs.mpvScripts)
           mpris
           thumbnail
           quality-menu

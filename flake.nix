@@ -58,117 +58,115 @@
     plymouth-theme-musicaloft-rainbow.url = "git+https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow?ref=main";
   };
 
-  outputs = {
-    nixpkgs,
-    home-manager,
-    # geonkick-nixpkgs,
-    iosevka-muse,
-    mini-nvim,
-    muni-bot,
-    muse-shell,
-    muse-sounds,
-    musnix,
-    nix-minecraft,
-    nixified-ai,
-    nixos-hardware,
-    nixpkgs-wayland,
-    nixpkgs-xr,
-    nixvim,
-    plymouth-theme-musicaloft-rainbow,
-    ...
-  } @ inputs: let
-    customPackagesOverlay = final: prev: {
-      muse-shell = muse-shell.packages.${prev.system}.default;
-      # geonkick = (import geonkick-nixpkgs {inherit (prev) system;}).geonkick;
-      vimPlugins =
-        prev.vimPlugins
-        // {
+  outputs =
+    {
+      nixpkgs,
+      home-manager,
+      # geonkick-nixpkgs,
+      iosevka-muse,
+      mini-nvim,
+      muni-bot,
+      muse-shell,
+      muse-sounds,
+      musnix,
+      nix-minecraft,
+      nixified-ai,
+      nixos-hardware,
+      nixpkgs-wayland,
+      nixpkgs-xr,
+      nixvim,
+      plymouth-theme-musicaloft-rainbow,
+      ...
+    }@inputs:
+    let
+      customPackagesOverlay = final: prev: {
+        muse-shell = muse-shell.packages.${prev.system}.default;
+        # geonkick = (import geonkick-nixpkgs {inherit (prev) system;}).geonkick;
+        vimPlugins = prev.vimPlugins // {
           mini-nvim = prev.vimPlugins.mini-nvim.overrideAttrs (old: {
             src = mini-nvim;
           });
         };
-    };
+      };
 
-    overlaysModule = {
-      nixpkgs.overlays = [
-        iosevka-muse.overlay
-        muse-sounds.overlay
-        nix-minecraft.overlay
-        nixpkgs-wayland.overlays.default
-        plymouth-theme-musicaloft-rainbow.overlay
-        customPackagesOverlay
-      ];
-    };
-
-    binaryCachesModule = {
-      nix.settings = {
-        trusted-public-keys = [
-          "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-          "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
-          "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
-        ];
-        substituters = [
-          "https://cache.nixos.org"
-          "https://nixpkgs-wayland.cachix.org"
-          "https://hyprland.cachix.org"
+      overlaysModule = {
+        nixpkgs.overlays = [
+          iosevka-muse.overlay
+          muse-sounds.overlay
+          nix-minecraft.overlay
+          nixpkgs-wayland.overlays.default
+          plymouth-theme-musicaloft-rainbow.overlay
+          customPackagesOverlay
         ];
       };
-    };
 
-    homeManagerModule = {
-      home-manager = {
-        backupFileExtension = "backup";
-        extraSpecialArgs = {
-          inherit inputs;
+      binaryCachesModule = {
+        nix.settings = {
+          trusted-public-keys = [
+            "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+            "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
+            "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
+          ];
+          substituters = [
+            "https://cache.nixos.org"
+            "https://nixpkgs-wayland.cachix.org"
+            "https://hyprland.cachix.org"
+          ];
         };
-        sharedModules = [nixvim.homeManagerModules.nixvim];
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        users.muni = ./muni;
       };
-    };
 
-    commonModules = [
-      binaryCachesModule
-      overlaysModule
-      home-manager.nixosModules.home-manager
-      homeManagerModule
-    ];
+      homeManagerModule = {
+        home-manager = {
+          backupFileExtension = "backup";
+          extraSpecialArgs = {
+            inherit inputs;
+          };
+          sharedModules = [ nixvim.homeManagerModules.nixvim ];
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          users.muni = ./muni;
+        };
+      };
 
-    commonGraphicalModules = [
-      musnix.nixosModules.musnix
-      {
-        home-manager.users.muni = ./muni/graphical;
-      }
-    ];
-
-    littleponyModules =
-      commonModules
-      ++ commonGraphicalModules
-      ++ [
-        nixos-hardware.nixosModules.framework-16-7040-amd
-        ./laptop
+      commonModules = [
+        binaryCachesModule
+        overlaysModule
+        home-manager.nixosModules.home-manager
+        homeManagerModule
       ];
 
-    ponycastleModules =
-      commonModules
-      ++ commonGraphicalModules
-      ++ [
-        # mixed reality
-        nixpkgs-xr.nixosModules.nixpkgs-xr
-
-        # hardware
-        nixos-hardware.nixosModules.common-pc
-        nixos-hardware.nixosModules.common-cpu-amd
-        nixos-hardware.nixosModules.common-gpu-amd
-        nixos-hardware.nixosModules.common-pc-ssd
-
-        ./desktop
+      commonGraphicalModules = [
+        musnix.nixosModules.musnix
+        {
+          home-manager.users.muni = ./muni/graphical;
+        }
       ];
 
-    spiritcryptModules =
-      commonModules
-      ++ [
+      littleponyModules =
+        commonModules
+        ++ commonGraphicalModules
+        ++ [
+          nixos-hardware.nixosModules.framework-16-7040-amd
+          ./laptop
+        ];
+
+      ponycastleModules =
+        commonModules
+        ++ commonGraphicalModules
+        ++ [
+          # mixed reality
+          nixpkgs-xr.nixosModules.nixpkgs-xr
+
+          # hardware
+          nixos-hardware.nixosModules.common-pc
+          nixos-hardware.nixosModules.common-cpu-amd
+          nixos-hardware.nixosModules.common-gpu-amd
+          nixos-hardware.nixosModules.common-pc-ssd
+
+          ./desktop
+        ];
+
+      spiritcryptModules = commonModules ++ [
         # hardware
         nixos-hardware.nixosModules.common-cpu-intel
         nixos-hardware.nixosModules.common-pc
@@ -180,23 +178,24 @@
 
         ./server
       ];
-  in {
-    nixosConfigurations = {
-      littlepony = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        system = "x86_64-linux";
-        modules = littleponyModules;
-      };
-      ponycastle = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        system = "x86_64-linux";
-        modules = ponycastleModules;
-      };
-      spiritcrypt = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs;};
-        system = "x86_64-linux";
-        modules = spiritcryptModules;
+    in
+    {
+      nixosConfigurations = {
+        littlepony = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          system = "x86_64-linux";
+          modules = littleponyModules;
+        };
+        ponycastle = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          system = "x86_64-linux";
+          modules = ponycastleModules;
+        };
+        spiritcrypt = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit inputs; };
+          system = "x86_64-linux";
+          modules = spiritcryptModules;
+        };
       };
     };
-  };
 }

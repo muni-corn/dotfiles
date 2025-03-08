@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ../common.nix
     ./forgejo.nix
@@ -46,7 +47,10 @@
   users.users.muni = {
     isNormalUser = true;
     description = "municorn";
-    extraGroups = ["networkmanager" "wheel"];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
   };
 
   # Allow unfree packages
@@ -72,14 +76,19 @@
   services = {
     btrfs.autoScrub = {
       enable = true;
-      fileSystems = ["/crypt"];
+      fileSystems = [ "/crypt" ];
     };
 
     btrbk = {
       sshAccess = [
         {
           key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINwZxkJFGmyRqrPMeBbtupxSDYkhrX3gtyHCJvfy5sQX btrbk@ponycastle";
-          roles = ["source" "info" "delete" "target"];
+          roles = [
+            "source"
+            "info"
+            "delete"
+            "target"
+          ];
         }
       ];
       instances = {
@@ -92,8 +101,8 @@
             preserve_hour_of_day = "5";
             volume."/" = {
               subvolume = {
-                home = {};
-                var = {};
+                home = { };
+                var = { };
               };
               snapshot_dir = "/snaps";
             };
@@ -108,8 +117,8 @@
             preserve_hour_of_day = "5";
             volume."/" = {
               subvolume = {
-                home = {};
-                var = {};
+                home = { };
+                var = { };
               };
               target = "/crypt/backup/spiritcrypt";
               snapshot_dir = "/snaps";
@@ -138,7 +147,11 @@
     ollama = {
       enable = true;
       host = "[::]";
-      loadModels = ["llama3.1:8b" "llama3.1:70b" "mistral"];
+      loadModels = [
+        "llama3.1:8b"
+        "llama3.1:70b"
+        "mistral"
+      ];
       openFirewall = true;
     };
 

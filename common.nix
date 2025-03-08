@@ -2,7 +2,8 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./cachix
     ./stylix.nix
@@ -19,7 +20,11 @@
       "kernel.task_delayacct" = 1;
     };
 
-    kernelParams = ["quiet" "fbcon=nodefer" "udev.log_level=3"];
+    kernelParams = [
+      "quiet"
+      "fbcon=nodefer"
+      "udev.log_level=3"
+    ];
 
     loader = {
       efi.canTouchEfiVariables = true;
@@ -28,7 +33,7 @@
 
         enableCryptodisk = true;
         configurationLimit = 5;
-        devices = ["nodev"];
+        devices = [ "nodev" ];
         efiSupport = true;
         splashMode = "normal";
       };
@@ -79,13 +84,16 @@
     '';
     optimise = {
       automatic = true;
-      dates = ["weekly"];
+      dates = [ "weekly" ];
     };
     settings = {
       auto-optimise-store = true;
-      allowed-users = ["muni"];
-      substituters = ["https://cache.nixos.org"];
-      trusted-users = ["root" "muni"];
+      allowed-users = [ "muni" ];
+      substituters = [ "https://cache.nixos.org" ];
+      trusted-users = [
+        "root"
+        "muni"
+      ];
     };
   };
 
@@ -126,7 +134,7 @@
     ssh = {
       knownHosts = {
         spiritcrypt = {
-          hostNames = ["192.168.68.70"];
+          hostNames = [ "192.168.68.70" ];
           publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBCyWusqqwfvUJHBhrpI9qPGFJpg4vHvU/QDrsL9hCu6";
         };
       };

@@ -3,25 +3,34 @@
   lib,
   modulesPath,
   ...
-}: {
+}:
+{
   imports = [
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
   boot = {
     initrd = {
-      availableKernelModules = ["nvme" "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod"];
-      luks.devices = let
-        ssd = label: uuid: {
-          name = label;
-          value = {
-            device = "/dev/disk/by-uuid/${uuid}";
-            allowDiscards = true;
-            keyFileSize = 4096;
-            keyFile = "/dev/disk/by-id/usb-USB_SanDisk_3.2Gen1_0401754c8ba80f5d0839104fc3c6a98a3ba4aa9659f85cfb7b943b735f1d89e167140000000000000000000010094aedff906b1883558107133012e1-0:0";
+      availableKernelModules = [
+        "nvme"
+        "xhci_pci"
+        "ahci"
+        "usbhid"
+        "usb_storage"
+        "sd_mod"
+      ];
+      luks.devices =
+        let
+          ssd = label: uuid: {
+            name = label;
+            value = {
+              device = "/dev/disk/by-uuid/${uuid}";
+              allowDiscards = true;
+              keyFileSize = 4096;
+              keyFile = "/dev/disk/by-id/usb-USB_SanDisk_3.2Gen1_0401754c8ba80f5d0839104fc3c6a98a3ba4aa9659f85cfb7b943b735f1d89e167140000000000000000000010094aedff906b1883558107133012e1-0:0";
+            };
           };
-        };
-      in
+        in
         builtins.listToAttrs [
           (ssd "cryptmain1" "613570b3-d525-48bb-bf87-3aadd2936ea7")
           (ssd "cryptmain2" "cc59a7e5-0dcf-4281-9b33-418131fecad4")
@@ -31,7 +40,7 @@
           (ssd "cryptvault3" "4c530385-1be4-4b19-a0f3-5a2e3f3a96a3")
         ];
     };
-    kernelModules = ["kvm-amd"];
+    kernelModules = [ "kvm-amd" ];
     kernelParams = [
       "acpi_enforce_resources=lax"
       "video=DP-1:2560x1440@60"
@@ -44,7 +53,7 @@
     "/" = {
       device = "/dev/disk/by-uuid/cef72996-6b5b-4b13-bc59-4dfbc77a8307";
       fsType = "btrfs";
-      options = ["compress=zstd"];
+      options = [ "compress=zstd" ];
     };
 
     "/boot" = {
@@ -60,19 +69,29 @@
     "/vault" = {
       device = "/dev/disk/by-uuid/d3a3b6bd-3137-4b2b-8669-ecfe87e1722f";
       fsType = "btrfs";
-      options = ["compress=zstd" "noatime"];
+      options = [
+        "compress=zstd"
+        "noatime"
+      ];
     };
 
     "/home" = {
       device = "/dev/disk/by-uuid/cef72996-6b5b-4b13-bc59-4dfbc77a8307";
       fsType = "btrfs";
-      options = ["compress=zstd" "subvol=home"];
+      options = [
+        "compress=zstd"
+        "subvol=home"
+      ];
     };
 
     "/nix" = {
       device = "/dev/disk/by-uuid/cef72996-6b5b-4b13-bc59-4dfbc77a8307";
       fsType = "btrfs";
-      options = ["compress=zstd" "noatime" "subvol=nix"];
+      options = [
+        "compress=zstd"
+        "noatime"
+        "subvol=nix"
+      ];
     };
   };
 

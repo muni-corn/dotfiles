@@ -1,5 +1,7 @@
-{pkgs, ...}: let
-in {
+{ pkgs, ... }:
+let
+in
+{
   home-manager.users.muni.home.packages = with pkgs; [
     aisleriot
     godot_4

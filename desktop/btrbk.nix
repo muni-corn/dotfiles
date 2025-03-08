@@ -8,7 +8,7 @@
         snapshot_preserve = "96h";
         preserve_hour_of_day = "5";
         volume."/" = {
-          subvolume.home = {};
+          subvolume.home = { };
           snapshot_dir = "/snaps";
         };
       };
@@ -21,7 +21,7 @@
         target_preserve_min = "1h";
         preserve_hour_of_day = "5";
         volume."/" = {
-          subvolume.home = {};
+          subvolume.home = { };
           target = "/vault/backup/ponycastle";
           snapshot_dir = "/snaps";
         };
@@ -41,7 +41,7 @@
         stream_compress = "zstd";
 
         volume."/" = {
-          subvolume.home = {};
+          subvolume.home = { };
           target = "ssh://192.168.68.70/crypt/backup/ponycastle";
           snapshot_dir = "/snaps";
         };

@@ -5,7 +5,8 @@
   osConfig,
   pkgs,
   ...
-}: let
+}:
+let
   # basic variables
   notebookDir = "${config.home.homeDirectory}/notebook/";
   shell = "${config.programs.fish.package}/bin/fish";
@@ -17,11 +18,24 @@
   notebookTerminal = terminalInDir notebookDir;
   notebookTerminalWithShell = cmd: ''${notebookTerminal} ${withShell cmd}'';
 
-  b = mods: key: dispatcher: args:
+  b =
+    mods: key: dispatcher: args:
     lib.concatStringsSep "," (
-      if !isNull args
-      then ([mods key dispatcher] ++ (lib.toList args))
-      else [mods key dispatcher]
+      if !isNull args then
+        (
+          [
+            mods
+            key
+            dispatcher
+          ]
+          ++ (lib.toList args)
+        )
+      else
+        [
+          mods
+          key
+          dispatcher
+        ]
     );
 
   apps = {
@@ -35,8 +49,18 @@
 
   launch = args: "uwsm app -- ${args}";
 
-  scripts = import ./scripts.nix {inherit config lib osConfig pkgs shell inputs;};
-in {
+  scripts = import ./scripts.nix {
+    inherit
+      config
+      lib
+      osConfig
+      pkgs
+      shell
+      inputs
+      ;
+  };
+in
+{
   wayland.windowManager.hyprland = {
     settings = {
       bind = [
@@ -116,7 +140,9 @@ in {
         # journal shortcuts (d for diary)
         (b "SUPER" "d" "exec" (launch (scripts.openJournalFile notebookDir "%Y/%m%b/%d%a")))
         (b "SUPER_ALT" "d" "exec" (launch (scripts.openJournalFile notebookDir "%Y/w%U")))
-        (b "SUPER_SHIFT" "d" "exec" (launch (notebookTerminalWithShell "${fileManager} ${notebookDir}/journal")))
+        (b "SUPER_SHIFT" "d" "exec" (
+          launch (notebookTerminalWithShell "${fileManager} ${notebookDir}/journal")
+        ))
 
         # lock
         (b "SUPER" "Escape" "exec" "loginctl lock-session")

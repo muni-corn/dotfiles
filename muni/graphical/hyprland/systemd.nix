@@ -5,9 +5,19 @@
   osConfig,
   pkgs,
   ...
-}: let
-  scripts = import ./scripts.nix {inherit config lib osConfig pkgs inputs;};
-in {
+}:
+let
+  scripts = import ./scripts.nix {
+    inherit
+      config
+      lib
+      osConfig
+      pkgs
+      inputs
+      ;
+  };
+in
+{
   systemd.user = {
     services = {
       muse-shell = {
@@ -17,7 +27,7 @@ in {
           Restart = "always";
           RestartSec = 15;
         };
-        Install.WantedBy = ["graphical-session.target"];
+        Install.WantedBy = [ "graphical-session.target" ];
       };
 
       swww-daemon = {
@@ -27,7 +37,7 @@ in {
           Restart = "always";
           RestartSec = 15;
         };
-        Install.WantedBy = ["graphical-session.target"];
+        Install.WantedBy = [ "graphical-session.target" ];
       };
 
       wallpaper-switch = {
@@ -36,7 +46,7 @@ in {
           ExecStart = "${scripts.switchWallpaper}";
           Type = "oneshot";
         };
-        Install.WantedBy = ["graphical-session.target"];
+        Install.WantedBy = [ "graphical-session.target" ];
       };
     };
 
@@ -46,7 +56,7 @@ in {
         OnCalendar = "hourly";
         Persistent = true;
       };
-      Install.WantedBy = ["graphical-session.target"];
+      Install.WantedBy = [ "graphical-session.target" ];
     };
   };
 }

@@ -21,7 +21,11 @@
     }
     {
       event = "FileType";
-      pattern = ["nix" "javascript" "typescript"];
+      pattern = [
+        "nix"
+        "javascript"
+        "typescript"
+      ];
       command = "setlocal shiftwidth=2 tabstop=2";
     }
   ];

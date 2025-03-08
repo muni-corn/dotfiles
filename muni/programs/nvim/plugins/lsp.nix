@@ -5,7 +5,8 @@ let
     hint = "󰌶 ";
     information = "󰋽 ";
   };
-in {
+in
+{
   programs.nixvim = {
     opts.omnifunc = "v:lua.vim.lsp.omnifunc";
     plugins = {
@@ -13,8 +14,8 @@ in {
         enable = true;
         lspServersToEnable = "all";
         settings = {
-          javascript.exclude = ["tsserver"];
-          typescript.exclude = ["tsserver"];
+          javascript.exclude = [ "tsserver" ];
+          typescript.exclude = [ "tsserver" ];
         };
       };
       lsp-status = {
@@ -73,7 +74,7 @@ in {
           zls.enable = true;
           nixd = {
             enable = true;
-            settings.formatting.command = ["alejandra"];
+            settings.formatting.command = [ "alejandra" ];
           };
           rust_analyzer = {
             enable = true;

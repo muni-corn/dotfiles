@@ -1,11 +1,15 @@
-{pkgs,...}:
+{ pkgs, ... }:
 {
   imports = [
     ./programs
   ];
 
   home = {
-    extraOutputsToInstall = ["doc" "info" "devdoc"];
+    extraOutputsToInstall = [
+      "doc"
+      "info"
+      "devdoc"
+    ];
 
     stateVersion = "21.11";
 
@@ -20,7 +24,7 @@
       "$HOME/.npm/bin"
     ];
 
-     packages = with pkgs; [
+    packages = with pkgs; [
       # audio and music
       flac
       playerctl
@@ -40,12 +44,12 @@
       zip
 
       # development/programming
-      alejandra
       docker-compose
       gcc
       lld
       meld
       nixd
+      nixfmt-rfc-style
       nodejs
       nodePackages.typescript-language-server
       python3

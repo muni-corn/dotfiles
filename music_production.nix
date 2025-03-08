@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home-manager.users.muni.home.packages = with pkgs; [
     ardour
     audacity

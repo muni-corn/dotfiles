@@ -82,12 +82,12 @@
 
     clues = [
       # Enhance this by adding descriptions for <leader> mapping groups
-      {__raw = "require('mini.clue').gen_clues.builtin_completion()";}
-      {__raw = "require('mini.clue').gen_clues.g()";}
-      {__raw = "require('mini.clue').gen_clues.marks()";}
-      {__raw = "require('mini.clue').gen_clues.registers()";}
-      {__raw = "require('mini.clue').gen_clues.windows()";}
-      {__raw = "require('mini.clue').gen_clues.z()";}
+      { __raw = "require('mini.clue').gen_clues.builtin_completion()"; }
+      { __raw = "require('mini.clue').gen_clues.g()"; }
+      { __raw = "require('mini.clue').gen_clues.marks()"; }
+      { __raw = "require('mini.clue').gen_clues.registers()"; }
+      { __raw = "require('mini.clue').gen_clues.windows()"; }
+      { __raw = "require('mini.clue').gen_clues.z()"; }
     ];
 
     window = {

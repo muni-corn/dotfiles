@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   imports = [
     ./fish.nix
     ./git.nix
@@ -36,13 +37,11 @@
 
     password-store = {
       enable = true;
-      package =
-        pkgs.pass.withExtensions
-        (exts: [
-          exts.pass-audit
-          exts.pass-otp
-          exts.pass-update
-        ]);
+      package = pkgs.pass.withExtensions (exts: [
+        exts.pass-audit
+        exts.pass-otp
+        exts.pass-update
+      ]);
       settings = {
         PASSWORD_STORE_DIR = "$HOME/.password-store";
         PASSWORD_STORE_KEY = "4B21310A52B15162";

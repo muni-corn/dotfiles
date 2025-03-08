@@ -3,7 +3,8 @@
   lib,
   pkgs,
   ...
-}: {
+}:
+{
   imports = [
     ../common.nix
     ../common-graphical.nix
@@ -68,18 +69,22 @@
           pkgs.hunspellDictsChromium.en_US
         ];
         extensions = [
-          {id = "ajopnjidmegmdimjlfnijceegpefgped";} # betterttv
-          {id = "naepdomgkenhinolocfifgehidddafch";} # browserpass
-          {id = "eimadpbcbfnmbkopoojfekhnkhdbieeh";} # dark reader
-          {id = "nkbihfbeogaeaoehlefnkodbefgpgknn";} # metamask
-          {id = "inpoelmimmiplkcldmdljiboidfkcfbh";} # presearch
-          {id = "bpaoeijjlplfjbagceilcgbkcdjbomjd";} # ttv lol pro
-          {id = "cjpalhdlnbpafiamejdnhcphjbkeiagm";} # ublock origin
-          {id = "dbepggeogbaibhgnhhndojpepiihcmeb";} # vimium
+          { id = "ajopnjidmegmdimjlfnijceegpefgped"; } # betterttv
+          { id = "naepdomgkenhinolocfifgehidddafch"; } # browserpass
+          { id = "eimadpbcbfnmbkopoojfekhnkhdbieeh"; } # dark reader
+          { id = "nkbihfbeogaeaoehlefnkodbefgpgknn"; } # metamask
+          { id = "inpoelmimmiplkcldmdljiboidfkcfbh"; } # presearch
+          { id = "bpaoeijjlplfjbagceilcgbkcdjbomjd"; } # ttv lol pro
+          { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; } # ublock origin
+          { id = "dbepggeogbaibhgnhhndojpepiihcmeb"; } # vimium
         ];
       };
 
-      hyprlock.settings = (import ../utils.nix {inherit config lib;}).mkHyprlockSettings ["DP-1" "DP-2" "HDMI-A-1"];
+      hyprlock.settings = (import ../utils.nix { inherit config lib; }).mkHyprlockSettings [
+        "DP-1"
+        "DP-2"
+        "HDMI-A-1"
+      ];
     };
 
     services.easyeffects.enable = true;
@@ -139,7 +144,10 @@
     # backups.
     btrfs.autoScrub = {
       enable = true;
-      fileSystems = ["/" "/vault"];
+      fileSystems = [
+        "/"
+        "/vault"
+      ];
     };
 
     create_ap = {

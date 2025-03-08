@@ -1,6 +1,8 @@
 {
   programs.nixvim = {
-    plugins.mini.modules.files = {__empty = null;};
+    plugins.mini.modules.files = {
+      __empty = null;
+    };
     autoCmd = [
       {
         event = "User";

@@ -3,9 +3,11 @@
   lib,
   pkgs,
   ...
-}: let
-  toml = pkgs.formats.toml {};
-in {
+}:
+let
+  toml = pkgs.formats.toml { };
+in
+{
   imports = [
     ./hyprland
     ./programs
@@ -144,4 +146,3 @@ in {
   };
 }
 # vim: ts=2 sw=2 expandtab
-

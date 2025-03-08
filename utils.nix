@@ -1,7 +1,8 @@
 {
   config,
   lib,
-}: let
+}:
+let
   mkHyprlockMonitor = name: {
     monitor = name;
     path = "screenshot";
@@ -11,11 +12,14 @@
     contrast = 1.0;
     brightness = 0.5;
   };
-in {
-  mkHyprlockSettings = monitors: let
-    primaryMonitor = builtins.head monitors;
-    sansFontName = config.stylix.fonts.sansSerif.name;
-  in
+in
+{
+  mkHyprlockSettings =
+    monitors:
+    let
+      primaryMonitor = builtins.head monitors;
+      sansFontName = config.stylix.fonts.sansSerif.name;
+    in
     lib.mkForce {
       general.grace = 3;
 
