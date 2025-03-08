@@ -15,42 +15,17 @@ in {
   home = {
     packages = with pkgs; [
       # audio and music
-      flac
       pavucontrol
-      playerctl
       qpwgraph
-      sox
       spotify
 
       # desktop environment
       glib # for gtk theming
       muse-shell
 
-      # terminal/cli stuff
-      fd
-      fend
-      ffmpeg-full
-      jdupes
-      neovim-remote
-      ouch
-      pv
-      qpdf
-      sd
-      sshfs
-      zip
-
       # development/programming
       alcom
-      alejandra
-      docker-compose
-      gcc
-      lld
-      meld
-      nixd
-      nodejs
-      nodePackages.typescript-language-server
       python3
-      zls
 
       # photo
       hugin
@@ -74,17 +49,9 @@ in {
       qmk
 
       # other things
-      fnlfmt
-      fortune
-      imagemagick
       libnotify
       networkmanagerapplet
-      peaclock
-      protonvpn-cli
       protonvpn-gui
-      qrencode
-      vrc-get
-      wirelesstools
       xdragon
     ];
 

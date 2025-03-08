@@ -1,3 +1,4 @@
+{pkgs,...}:
 {
   imports = [
     ./programs
@@ -17,6 +18,48 @@
       "$HOME/.cargo/bin"
       "$HOME/.local/bin"
       "$HOME/.npm/bin"
+    ];
+
+     packages = with pkgs; [
+      # audio and music
+      flac
+      playerctl
+      sox
+
+      # terminal/cli stuff
+      fd
+      fend
+      ffmpeg-full
+      jdupes
+      neovim-remote
+      ouch
+      pv
+      qpdf
+      sd
+      sshfs
+      zip
+
+      # development/programming
+      alejandra
+      docker-compose
+      gcc
+      lld
+      meld
+      nil
+      nodejs
+      nodePackages.typescript-language-server
+      python3
+      zls
+
+      # other things
+      fnlfmt
+      fortune
+      imagemagick
+      peaclock
+      protonvpn-cli
+      qrencode
+      vrc-get
+      wirelesstools
     ];
   };
 }
