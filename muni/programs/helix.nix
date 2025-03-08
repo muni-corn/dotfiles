@@ -4,13 +4,14 @@
     defaultEditor = true;
     settings = {
       editor = {
-        line-number = "relative";
-        completion-timeout = 50;
-        completion-trigger-len = 1;
         bufferline = "multiple";
         color-modes = true;
-        jump-label-alphabet = "fjdkslaghtyrueiwoqpbnvmcxz";
+        completion-timeout = 50;
+        completion-trigger-len = 1;
+        cursorline = true;
         end-of-line-diagnostics = "info";
+        jump-label-alphabet = "fjdkslaghtyrueiwoqpbnvmcxz";
+        line-number = "relative";
 
         auto-save = {
           focus-lost = true;
