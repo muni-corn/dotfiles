@@ -184,7 +184,6 @@
         "SWWW_TRANSITION_BEZIER,0.5,0,0,1"
         "SWWW_TRANSITION_DURATION,2"
         "SWWW_TRANSITION_FPS,60"
-        "VISUAL,neovide"
       ];
 
       # startup apps
