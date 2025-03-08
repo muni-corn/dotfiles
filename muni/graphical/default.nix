@@ -50,7 +50,6 @@ in {
 
       # other things
       libnotify
-      networkmanagerapplet
       protonvpn-gui
       xdragon
     ];
