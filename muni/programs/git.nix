@@ -137,6 +137,7 @@
         };
         pager.difftool = true;
         pull.rebase = true;
+        push.autoSetupRemote = true;
         rebase = {
           autoSquash = true;
           autoStash = true;
