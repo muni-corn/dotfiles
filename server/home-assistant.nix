@@ -7,6 +7,6 @@
       name = "Sunni's Home";
     };
     configWritable = true;
-    defaultIntegrations = ["emulated_kasa"];
+    extraComponents = ["default_config" "met" "esphome" "emulated_kasa"];
   };
 }
