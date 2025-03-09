@@ -18,7 +18,6 @@
     ../vr.nix
     ./btrbk.nix
     ./hardware.nix
-    ./home-assistant.nix
     ./vfio.nix
   ];
 

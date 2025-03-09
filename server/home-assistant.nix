@@ -4,7 +4,9 @@
     config.homeassistant = {
       unit_system = "us_customary";
       time_zone = "America/Boise";
-      name = "Home";
+      name = "Sunni's Home";
     };
+    configWritable = true;
+    defaultIntegrations = ["emulated_kasa"];
   };
 }

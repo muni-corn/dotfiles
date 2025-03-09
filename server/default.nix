@@ -9,6 +9,7 @@
     ../common.nix
     ./forgejo.nix
     ./hardware.nix
+    ./home-assistant.nix
     ./minecraft.nix
     ../openssh.nix
     ../sops
