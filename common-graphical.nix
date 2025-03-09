@@ -5,7 +5,6 @@
 }: {
   imports = [
     ./greetd.nix
-    ./stylix.nix
   ];
 
   boot = {

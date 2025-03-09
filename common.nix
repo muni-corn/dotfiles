@@ -5,6 +5,7 @@
 {pkgs, ...}: {
   imports = [
     ./cachix
+    ./stylix.nix
   ];
 
   boot = {
