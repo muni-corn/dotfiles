@@ -87,24 +87,49 @@
         };
       };
     };
-    languages.language = [
-      {
-        name = "rust";
-        auto-pairs = {
-          "(" = '')'';
-          "{" = ''}'';
-          "[" = '']'';
-          "\"" = ''"'';
-          "`" = ''`'';
-          "<" = ''>'';
+    languages = {
+      language-server = {
+        rust-analyzer = {
+          config = {
+            cargo = {
+              autoreload = true;
+              buildScripts.enable = true;
+              features = "all";
+            };
+            notifications.cargoTomlNotFound = false;
+            check.command = "clippy";
+            inlayHints = {
+              bindingModeHints.enable = true;
+              closureReturnTypeHints.enable = "with_block";
+              expressionAdjustmentHints.enable = "always";
+              lifetimeElisionHints.enable = "skip_trivial";
+            };
+            diagnostics.disabled = [
+              "unresolved-proc-macro"
+              "unresolved-macro-call"
+              "macro-error"
+            ];
+          };
         };
-      }
-      {
-        name = "nix";
-        formatter = {
-          command = "nixfmt";
-        };
-      }
-    ];
+      };
+      language = [
+        {
+          name = "rust";
+          auto-pairs = {
+            "(" = '')'';
+            "{" = ''}'';
+            "[" = '']'';
+            "\"" = ''"'';
+            "`" = ''`'';
+            "<" = ''>'';
+          };
+        }
+        {
+          name = "nix";
+          formatter.command = "nixfmt";
+          auto-format = true;
+        }
+      ];
+    };
   };
 }
