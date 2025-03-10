@@ -99,6 +99,12 @@
           "<" = ''>'';
         };
       }
+      {
+        name = "nix";
+        formatter = {
+          command = "nixfmt";
+        };
+      }
     ];
   };
 }
