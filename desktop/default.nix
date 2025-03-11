@@ -124,7 +124,10 @@
     dconf.enable = true;
     corectrl = {
       enable = true;
-      gpuOverclock.ppfeaturemask = "0xffffffff";
+      gpuOverclock = {
+        enable = true;
+        ppfeaturemask = "0xffffffff";
+      };
     };
   };
 
