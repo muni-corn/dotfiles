@@ -131,7 +131,10 @@
 
     yt-dlp.enable = true;
 
-    zellij.enable = true;
+    zellij = {
+      enable = true;
+      enableFishIntegration = false;
+    };
 
     zoxide = {
       enable = true;
