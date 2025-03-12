@@ -96,19 +96,30 @@
               buildScripts.enable = true;
               features = "all";
             };
-            notifications.cargoTomlNotFound = false;
             check.command = "clippy";
-            inlayHints = {
-              bindingModeHints.enable = true;
-              closureReturnTypeHints.enable = "with_block";
-              expressionAdjustmentHints.enable = "always";
-              lifetimeElisionHints.enable = "skip_trivial";
-            };
             diagnostics.disabled = [
               "unresolved-proc-macro"
               "unresolved-macro-call"
               "macro-error"
             ];
+            inlayHints = {
+              closureReturnTypeHints.enable = "with_block";
+              expressionAdjustmentHints = {
+                enable = "reborrow";
+                hideOutsideUnsafe = true;
+              };
+              lifetimeElisionHints.enable = "skip_trivial";
+              renderColons = false;
+              parameterHints.enable = false;
+              typeHints = {
+                enable = false;
+                hideClosureInitialization = true;
+                hideClosureParameter = true;
+                hideNamedConstructor = true;
+              };
+            };
+            rustfmt.rangeFormatting.enable = true;
+            notifications.cargoTomlNotFound = false;
           };
         };
       };
