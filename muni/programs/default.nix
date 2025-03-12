@@ -64,6 +64,8 @@
       defaultCommand = ''fd --type f'';
     };
 
+    taskwarrior.enable = true;
+
     tmux = {
       enable = true;
       keyMode = "vi";

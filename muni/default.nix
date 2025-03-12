@@ -66,4 +66,6 @@
       wirelesstools
     ];
   };
+
+  services.taskwarrior-sync.enable = true;
 }
