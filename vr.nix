@@ -4,11 +4,6 @@
   ...
 }:
 {
-  # rule for Quest 3
-  services.udev.extraRules = ''
-    ACTION=="add", SUBSYSTEM=="usb", ATTRS{idVendor}=="2833", ATTRS{idProduct}=="0186", RUN+="${config.systemd.package}/bin/systemctl start --user vr-adb.service"
-  '';
-
   # For WiVRn:
   home-manager.users.muni =
     let
