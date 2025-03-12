@@ -76,11 +76,18 @@
 
   location.provider = "geoclue2";
 
-  networking.nameservers = [
-    "8.8.8.8"
-    "8.8.4.4"
-    "1.1.1.1"
-  ];
+  networking = {
+    nameservers = [
+      "8.8.8.8"
+      "8.8.4.4"
+      "1.1.1.1"
+    ];
+
+    networkmanager.enable = true;
+
+    # Encrypts network traffic where possible (i think)
+    tcpcrypt.enable = true;
+  };
 
   nix = {
     package = pkgs.nixVersions.latest;
@@ -140,7 +147,7 @@
     ssh = {
       knownHosts = {
         spiritcrypt = {
-          hostNames = [ "192.168.68.70" ];
+          hostNames = [ "192.168.0.170" ];
           publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBCyWusqqwfvUJHBhrpI9qPGFJpg4vHvU/QDrsL9hCu6";
         };
       };
@@ -200,7 +207,13 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.05";
 
-  users.users.muni.openssh.authorizedKeys.keys = [
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpFoYAj02WzgnBokgr2ZzFKOaffOVRK5Ru7Ngh53sjr (none)"
-  ];
+  users.users.muni = {
+    description = "municorn";
+    extraGroups = [ "networkmanager" ];
+    isNormalUser = true;
+
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpFoYAj02WzgnBokgr2ZzFKOaffOVRK5Ru7Ngh53sjr (none)"
+    ];
+  };
 }

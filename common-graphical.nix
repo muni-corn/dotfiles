@@ -75,13 +75,6 @@
     xpadneo.enable = true;
   };
 
-  networking = {
-    networkmanager.enable = true;
-
-    # Encrypts network traffic where possible (i think)
-    tcpcrypt.enable = true;
-  };
-
   programs = {
     adb.enable = true;
     evolution = {

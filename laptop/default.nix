@@ -34,7 +34,10 @@
 
   musnix.soundcardPciId = "c1:00.6";
 
-  networking.hostName = "littlepony";
+  networking = {
+    hostName = "littlepony";
+    networkmanager.wifi.powersave = true;
+  };
 
   # force governor to default null to spite musnix
   powerManagement.cpuFreqGovernor = lib.mkForce null;

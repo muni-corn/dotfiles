@@ -16,12 +16,8 @@
     ../sops
   ];
 
-  # Enable networking
-  networking = {
-    hostName = "spiritcrypt"; # Define your hostname.
-    networkmanager.enable = true;
-    wireless.iwd.enable = true;
-  };
+  # Define your hostname.
+  networking.hostName = "spiritcrypt";
 
   i18n = {
     # Select internationalisation properties.
@@ -44,14 +40,7 @@
   time.timeZone = lib.mkForce "America/Boise";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.muni = {
-    isNormalUser = true;
-    description = "municorn";
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-    ];
-  };
+  users.users.muni.extraGroups = [ "wheel" ];
 
   # Allow unfree packages
   nixpkgs.config = {
