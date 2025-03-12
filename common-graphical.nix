@@ -76,22 +76,7 @@
   };
 
   networking = {
-    networkmanager = {
-      enable = true;
-      wifi.backend = "iwd";
-    };
-
-    # Enables wireless support via iwd.
-    wireless.iwd = {
-      enable = true;
-      settings = {
-        Blacklist = {
-          InitialTimeout = 10;
-          Multiplier = 2;
-          MaximumTimeout = 1800;
-        };
-      };
-    };
+    networkmanager.enable = true;
 
     # Encrypts network traffic where possible (i think)
     tcpcrypt.enable = true;

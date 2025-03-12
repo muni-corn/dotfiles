@@ -76,6 +76,12 @@
 
   location.provider = "geoclue2";
 
+  networking.nameservers = [
+    "8.8.8.8"
+    "8.8.4.4"
+    "1.1.1.1"
+  ];
+
   nix = {
     package = pkgs.nixVersions.latest;
     # enables flakes
