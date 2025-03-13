@@ -169,5 +169,13 @@
       xdgOpenUsePortal = true;
     };
     sounds.enable = true;
+    terminal-exec = {
+      enable = true;
+      settings = {
+        default = [
+          "kitty.desktop"
+        ];
+      };
+    };
   };
 }
