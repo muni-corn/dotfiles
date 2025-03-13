@@ -10,13 +10,7 @@ let
   # basic variables
   notebookDir = "${config.home.homeDirectory}/notebook/";
   shell = "${config.programs.fish.package}/bin/fish";
-  terminal = "kitty -1";
-  terminalInDir = dir: "${terminal} -d ${dir}";
-  withShell = cmd: ''${shell} -i -c "${cmd}"'';
   fileManager = "yazi";
-
-  notebookTerminal = terminalInDir notebookDir;
-  notebookTerminalWithShell = cmd: ''${notebookTerminal} ${withShell cmd}'';
 
   b =
     mods: key: dispatcher: args:
@@ -47,7 +41,9 @@ let
 
   appMenu = ''${config.programs.rofi.finalPackage}/bin/rofi -p "Run what?" -show drun -run-command "uwsm app -- {cmd}"'';
 
-  launch = args: "uwsm app -- ${args}";
+  launch = args: "uwsm-app -- ${args}";
+  editFile = file: "uwsm-app -T -- hx ${file}";
+  launchInTerminal = args: "uwsm-app -T -- ${args}";
 
   scripts = import ./scripts.nix {
     inherit
@@ -65,7 +61,7 @@ in
     settings = {
       bind = [
         # open terminal
-        (b "SUPER" "Return" "exec" (launch terminal))
+        (b "SUPER" "Return" "exec" (launchInTerminal ""))
 
         # power controls
         (b "SUPER_CTRL_ALT" "o" "exec" "canberra-gtk-play -i system-shutdown; systemctl poweroff")
@@ -122,27 +118,29 @@ in
         # shortcuts for apps
         (b "SUPER" "a" "exec" (launch appMenu))
         (b "SUPER" "b" "exec" (launch apps.music))
-        (b "SUPER" "c" "exec" (launch ''${terminal} ${withShell "fend"}''))
-        (b "SUPER" "e" "exec" (launch ''${terminal} ${withShell fileManager}''))
         (b "SUPER" "n" "exec" (launch scripts.quickCode))
-        (b "SUPER" "p" "exec" (launch ''${terminal} ${withShell "btop"}''))
-        (b "SUPER" "t" "exec" (launch "neovide ${notebookDir}/todo.norg"))
         (b "SUPER" "w" "exec" (launch apps.browser))
-        (b "SUPER_CTRL" "b" "exec" (launch ''${terminal} ${withShell "bluetoothctl"}''))
         (b "SUPER_CTRL" "e" "exec" (launch "rofimoji --prompt Emoji"))
-        (b "SUPER_CTRL" "n" "exec" (launch "neovide ${notebookDir}/new/$(date +%Y%m%d-%H%M%S).norg"))
         (b "SUPER_CTRL" "p" "exec" (launch "${pkgs.pavucontrol}/bin/pavucontrol"))
-        (b "SUPER_CTRL" "r" "exec" (launch "${scripts.dir}/toggle_gammastep.fish"))
-        (b "SUPER_SHIFT" "b" "exec" (launch "neovide ${notebookDir}/bored.norg"))
         (b "SUPER_SHIFT" "m" "exec" (launch apps.media))
-        (b "SUPER_SHIFT" "n" "exec" (launch (notebookTerminalWithShell "${fileManager} ${notebookDir}")))
 
-        # journal shortcuts (d for diary)
-        (b "SUPER" "d" "exec" (launch (scripts.openJournalFile notebookDir "%Y/%m%b/%d%a")))
-        (b "SUPER_ALT" "d" "exec" (launch (scripts.openJournalFile notebookDir "%Y/w%U")))
-        (b "SUPER_SHIFT" "d" "exec" (
-          launch (notebookTerminalWithShell "${fileManager} ${notebookDir}/journal")
-        ))
+        # shortcuts for terminal apps
+        (b "SUPER" "c" "exec" (launchInTerminal "fend"))
+        (b "SUPER" "e" "exec" (launchInTerminal fileManager))
+        (b "SUPER" "p" "exec" (launchInTerminal "btop"))
+        (b "SUPER_CTRL" "b" "exec" (launchInTerminal "bluetoothctl"))
+        (b "SUPER_SHIFT" "n" "exec" (launchInTerminal "${fileManager} ${notebookDir}"))
+        (b "SUPER_SHIFT" "d" "exec" (launchInTerminal "${fileManager} ${notebookDir}/journal"))
+
+        # shortcuts for files
+        (b "SUPER" "t" "exec" (editFile "${notebookDir}/todo.norg"))
+        (b "SUPER_CTRL" "n" "exec" (editFile "${notebookDir}/new/$(date +%Y%m%d-%H%M%S).norg"))
+        (b "SUPER_SHIFT" "b" "exec" (editFile "${notebookDir}/bored.norg"))
+
+        # other script shortcuts
+        (b "SUPER" "d" "exec" (scripts.openJournalFile notebookDir "%Y/%m%b/%d%a"))
+        (b "SUPER_ALT" "d" "exec" (scripts.openJournalFile notebookDir "%Y/w%U"))
+        (b "SUPER_CTRL" "r" "exec" "${scripts.dir}/toggle_gammastep.fish")
 
         # lock
         (b "SUPER" "Escape" "exec" "loginctl lock-session")

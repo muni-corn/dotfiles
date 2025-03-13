@@ -121,6 +121,6 @@ in
     pkgs.writeShellScript "open-journal-file-${dateStr}" ''
       parent_dir=$(dirname ${filePath})
       mkdir -p $parent_dir
-      $EDITOR ${filePath}
+      uwsm-app -T -- $EDITOR ${filePath}
     '';
 }
