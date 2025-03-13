@@ -139,6 +139,11 @@
     zellij = {
       enable = true;
       enableFishIntegration = false;
+      settings = {
+        pane_frames = false;
+        simplified_ui = true;
+        default_mode = "locked";
+      };
     };
 
     zoxide = {
