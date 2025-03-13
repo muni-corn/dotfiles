@@ -50,9 +50,11 @@
       meld
       nixd
       nixfmt-rfc-style
-      nodejs
+      nodePackages.prettier
       nodePackages.typescript-language-server
+      nodejs
       python3
+      tailwindcss-language-server
       zls
 
       # other things
