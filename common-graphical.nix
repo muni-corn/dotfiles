@@ -148,18 +148,12 @@
           "kvm"
           "libvirtd"
           "networkmanager"
-          "nixos-config"
           "plugdev"
           "video"
           "wheel"
         ];
         uid = 1001;
       };
-      tcpcryptd.group = "tcpcryptd";
-    };
-    groups = {
-      nixos-config = { };
-      tcpcryptd = { };
     };
     defaultUserShell = pkgs.fish;
   };

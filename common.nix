@@ -100,10 +100,10 @@
       "1.1.1.1"
     ];
 
-    networkmanager.enable = true;
-
-    # Encrypts network traffic where possible (i think)
-    tcpcrypt.enable = true;
+    networkmanager = {
+      enable = true;
+      dns = "systemd-resolved";
+    };
   };
 
   nix = {
@@ -210,6 +210,8 @@
     logind.extraConfig = ''
       RuntimeDirectorySize=2G
     '';
+
+    resolved.enable = true;
 
     sshguard.enable = true;
 
