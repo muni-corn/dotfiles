@@ -109,6 +109,7 @@
     useDHCP = lib.mkDefault true;
     interfaces = {
       wlan0.useDHCP = true;
+      wlp15s0.useDHCP = true;
       enp14s0.useDHCP = true;
     };
   };

@@ -104,6 +104,8 @@
       enable = true;
       dns = "systemd-resolved";
     };
+
+    nftables.enable = true;
   };
 
   nix = {
@@ -164,7 +166,7 @@
     ssh = {
       knownHosts = {
         spiritcrypt = {
-          hostNames = [ "192.168.0.170" ];
+          hostNames = [ "192.168.0.70" ];
           publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBCyWusqqwfvUJHBhrpI9qPGFJpg4vHvU/QDrsL9hCu6";
         };
       };
