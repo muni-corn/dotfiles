@@ -67,5 +67,8 @@
     ];
   };
 
-  services.taskwarrior-sync.enable = true;
+  services.taskwarrior-sync = {
+    enable = true;
+    package = pkgs.taskwarrior3;
+  };
 }

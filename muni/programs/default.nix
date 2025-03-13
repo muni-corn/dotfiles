@@ -64,7 +64,10 @@
       defaultCommand = ''fd --type f'';
     };
 
-    taskwarrior.enable = true;
+    taskwarrior = {
+      enable = true;
+      package = pkgs.taskwarrior3;
+    };
 
     tmux = {
       enable = true;
