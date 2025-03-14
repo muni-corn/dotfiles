@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
     inputs.sops-nix.nixosModules.sops
@@ -11,4 +11,6 @@
       "muni_bot.env" = { };
     };
   };
+
+  environment.systemPackages = [ pkgs.sops ];
 }
