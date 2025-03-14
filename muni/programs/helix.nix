@@ -140,6 +140,24 @@
           formatter.command = "nixfmt";
           auto-format = true;
         }
+        {
+          name = "neorg";
+          grammar = "tree-sitter-norg";
+          file-types = [ "norg" ];
+          scope = "text.norg";
+        }
+        {
+          name = "tsx";
+          formatter = {
+            command = "prettier";
+            args = [
+              "-w"
+              "--parser"
+              "typescript"
+            ];
+          };
+          auto-format = true;
+        }
       ];
     };
   };
