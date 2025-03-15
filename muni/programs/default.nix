@@ -67,6 +67,15 @@
     taskwarrior = {
       enable = true;
       package = pkgs.taskwarrior3;
+      config = {
+        sync = {
+          encryption_secret = "@terr1b!3encrypt!on$ecr3t";
+          server = {
+            url = "http://192.168.68.70:10222";
+            client_id = "municorn";
+          };
+        };
+      };
     };
 
     tmux = {

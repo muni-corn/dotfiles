@@ -133,6 +133,12 @@
       port = 7654;
     };
 
+    taskchampion-sync-server = {
+      enable = true;
+      openFirewall = true;
+      allowClientIds = [ "municorn" ];
+    };
+
     muni_bot = {
       enable = true;
       environmentFile = config.sops.secrets."muni_bot.env".path;
