@@ -2,6 +2,6 @@
 {
   nix.settings = {
     substituters = [ "https://municorn.cachix.org" ];
-    trusted-public-keys = [ "municorn.cachix.org-1:o41vsB5U8BWCqjHaj8D9DpK+8BKwBgGotT5mr85t1s0=" ];
+    trusted-public-keys = [ "municorn.cachix.org-1:Ku1dLOtDrJ4K8g7z8E+4hE72sSztpPYrigcoTQHRgH4=" ];
   };
 }
