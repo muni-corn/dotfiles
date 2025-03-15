@@ -18,7 +18,7 @@
           work = "~/notebook/work";
         };
         "core.export".__empty = null;
-        "core.export.markdown".__empty = null;
+        "core.export.markdown".extensions = "all";
         "core.esupports.metagen".config = {
           type = "auto";
           tab = "  ";
