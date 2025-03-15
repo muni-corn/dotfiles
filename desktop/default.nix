@@ -141,17 +141,6 @@
       ];
     };
 
-    create_ap = {
-      enable = true;
-      settings = {
-        CHANNEL = 48;
-        INTERNET_IFACE = "enp14s0";
-        PASSPHRASE = "mi1ksh@ke";
-        WIFI_IFACE = "wlan0";
-        SSID = "ponycastle_hotspot";
-      };
-    };
-
     # enable fstrim for btrfs
     fstrim.enable = true;
 
