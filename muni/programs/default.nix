@@ -72,7 +72,7 @@
           encryption_secret = "@terr1b!3encrypt!on$ecr3t";
           server = {
             url = "http://192.168.68.70:10222";
-            client_id = "municorn";
+            client_id = "89440068-6754-49d6-adaf-007f78f06070";
           };
         };
       };

@@ -136,7 +136,7 @@
     taskchampion-sync-server = {
       enable = true;
       openFirewall = true;
-      allowClientIds = [ "municorn" ];
+      allowClientIds = [ "89440068-6754-49d6-adaf-007f78f06070" ];
     };
 
     muni_bot = {
