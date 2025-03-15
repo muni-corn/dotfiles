@@ -2,7 +2,7 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     ./cachix
@@ -191,6 +191,13 @@
 
   services = {
     automatic-timezoned.enable = true;
+
+    cachix-watch-store = {
+      enable = true;
+      cacheName = "municorn";
+      cachixTokenFile = config.sops.secrets.cachix_token.path;
+      compressionLevel = 10;
+    };
 
     fwupd.enable = true;
 
