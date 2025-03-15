@@ -75,6 +75,9 @@
             client_id = "89440068-6754-49d6-adaf-007f78f06070";
           };
         };
+
+        # remove news popup
+        verbose = "affected,blank,context,edit,header,footnote,label,new-id,project,special,sync,override,recur";
       };
     };
 
