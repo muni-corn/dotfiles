@@ -2,14 +2,12 @@
   config,
   inputs,
   lib,
-  osConfig,
   pkgs,
   ...
 }:
 let
   # basic variables
   notebookDir = "${config.home.homeDirectory}/notebook/";
-  shell = "${config.programs.fish.package}/bin/fish";
   fileManager = "yazi";
 
   b =
@@ -48,11 +46,9 @@ let
   scripts = import ./scripts.nix {
     inherit
       config
-      lib
-      osConfig
-      pkgs
-      shell
       inputs
+      lib
+      pkgs
       ;
   };
 in

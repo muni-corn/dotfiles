@@ -2,7 +2,6 @@
   config,
   inputs,
   lib,
-  osConfig,
   pkgs,
   ...
 }:
@@ -11,7 +10,6 @@ let
     inherit
       config
       lib
-      osConfig
       pkgs
       inputs
       ;
