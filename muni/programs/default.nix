@@ -144,7 +144,6 @@
 
     zellij = {
       enable = true;
-      enableFishIntegration = false;
       settings = {
         pane_frames = false;
         default_mode = "locked";
