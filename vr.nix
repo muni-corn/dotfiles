@@ -15,16 +15,10 @@
         configFile = {
           "openxr/1/active_runtime.json" = {
             force = true;
-            onChange = ''
-              chmod -Rhv 555 ${homeConfig.xdg.configHome}/openxr/1
-            '';
             source = "${pkgs.wivrn}/share/openxr/1/openxr_wivrn.json";
           };
           "openvr/openvrpaths.vrpath" = {
             force = true;
-            onChange = ''
-              chmod -Rhv 555 ${homeConfig.xdg.configHome}/openvr
-            '';
             text = ''
               {
                 "config" :
