@@ -78,12 +78,6 @@
       };
     };
 
-    tmux = {
-      enable = true;
-      keyMode = "vi";
-      shortcut = "a";
-    };
-
     yazi = {
       enable = true;
       shellWrapperName = "y";
