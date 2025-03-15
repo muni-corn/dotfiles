@@ -45,6 +45,7 @@ in
       android-file-transfer
       ledger-live-desktop
       libreoffice-fresh
+      obsidian
 
       # keyboard config
       via
