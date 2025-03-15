@@ -6,14 +6,15 @@
 }:
 {
   imports = [
-    ../common.nix
     ../common-graphical.nix
+    ../common.nix
     ../docker.nix
+    ../firewall.nix
     ../gaming.nix
-    ./hardware.nix
     ../music_production.nix
     ../openssh.nix
-    ../firewall.nix
+    ../sops
+    ./hardware.nix
   ];
 
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
