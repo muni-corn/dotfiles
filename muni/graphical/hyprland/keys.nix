@@ -134,6 +134,7 @@ in
 
         # shortcuts for files
         (b "SUPER" "t" "exec" (editFile "${notebookDir}/todo.norg"))
+        (b "SUPER_CTRL" "t" "exec" (editFile "${notebookDir}/times.csv"))
         (b "SUPER_CTRL" "n" "exec" (editFile "${notebookDir}/new/$(date +%Y%m%d-%H%M%S).norg"))
         (b "SUPER_SHIFT" "b" "exec" (editFile "${notebookDir}/bored.norg"))
 
