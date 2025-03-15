@@ -45,8 +45,10 @@
 
       # development/programming
       docker-compose
+      dprint
       gcc
       lld
+      markdown-oxide
       meld
       nixd
       nixfmt-rfc-style

@@ -136,6 +136,24 @@
           };
         }
         {
+          name = "markdown";
+          auto-format = true;
+          formatter = {
+            command = "dprint";
+            args = [
+              "fmt"
+              "--stdin"
+              "md"
+            ];
+          };
+          auto-pairs = {
+            "*" = "*";
+            "_" = "_";
+            "(" = ")";
+            "[" = "]";
+          };
+        }
+        {
           name = "nix";
           formatter.command = "nixfmt";
           auto-format = true;
@@ -145,6 +163,23 @@
           grammar = "tree-sitter-norg";
           file-types = [ "norg" ];
           scope = "text.norg";
+        }
+        {
+          name = "toml";
+          auto-format = true;
+          formatter = {
+            command = "dprint";
+            args = [
+              "fmt"
+              "--stdin"
+              "toml"
+            ];
+          };
+          auto-pairs = {
+            "[" = "]";
+            "{" = "}";
+            "\"" = ''"'';
+          };
         }
         {
           name = "tsx";
