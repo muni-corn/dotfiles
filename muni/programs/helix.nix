@@ -122,6 +122,10 @@
             notifications.cargoTomlNotFound = false;
           };
         };
+        biome = {
+          command = "biome";
+          args = [ "lsp-proxy" ];
+        };
       };
       language = [
         {
@@ -181,6 +185,8 @@
             "\"" = ''"'';
           };
         }
+
+        # javascript and adjacent languages
         {
           name = "tsx";
           formatter = {
@@ -192,6 +198,60 @@
             ];
           };
           auto-format = true;
+        }
+        {
+          name = "javascript";
+          language-servers = [
+            {
+              name = "typescript-language-server";
+              except-features = [ "format" ];
+            }
+            "biome"
+          ];
+          auto-format = true;
+        }
+        {
+          name = "typescript";
+          language-servers = [
+            {
+              name = "typescript-language-server";
+              except-features = [ "format" ];
+            }
+            "biome"
+          ];
+          auto-format = true;
+        }
+        {
+          name = "tsx";
+          auto-format = true;
+          language-servers = [
+            {
+              name = "typescript-language-server";
+              except-features = [ "format" ];
+            }
+            "biome"
+          ];
+        }
+        {
+          name = "jsx";
+          auto-format = true;
+          language-servers = [
+            {
+              name = "typescript-language-server";
+              except-features = [ "format" ];
+            }
+            "biome"
+          ];
+        }
+        {
+          name = "json";
+          language-servers = [
+            {
+              name = "vscode-json-language-server";
+              except-features = [ "format" ];
+            }
+            "biome"
+          ];
         }
       ];
     };

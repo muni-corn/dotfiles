@@ -44,6 +44,7 @@
       zip
 
       # development/programming
+      biome
       docker-compose
       dprint
       gcc
