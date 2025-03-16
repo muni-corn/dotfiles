@@ -155,7 +155,6 @@
         uid = 1001;
       };
     };
-    defaultUserShell = pkgs.fish;
   };
 
   xdg = {

@@ -236,13 +236,16 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "21.05";
 
-  users.users.muni = {
-    description = "municorn";
-    extraGroups = [ "networkmanager" ];
-    isNormalUser = true;
+  users = {
+    users.muni = {
+      description = "municorn";
+      extraGroups = [ "networkmanager" ];
+      isNormalUser = true;
 
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpFoYAj02WzgnBokgr2ZzFKOaffOVRK5Ru7Ngh53sjr (none)"
-    ];
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpFoYAj02WzgnBokgr2ZzFKOaffOVRK5Ru7Ngh53sjr (none)"
+      ];
+    };
+    defaultUserShell = pkgs.fish;
   };
 }
