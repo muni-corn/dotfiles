@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     ./fish.nix
@@ -68,17 +68,14 @@
       enable = true;
       package = pkgs.taskwarrior3;
       config = {
-        sync = {
-          encryption_secret = "@terr1b!3encrypt!on$ecr3t";
-          server = {
-            url = "http://192.168.68.70:10222";
-            client_id = "89440068-6754-49d6-adaf-007f78f06070";
-          };
-        };
+        sync.server.url = "http://192.168.68.70:10222";
 
         # remove news popup
         verbose = "affected,blank,context,edit,header,footnote,label,new-id,project,special,sync,override,recur";
       };
+      extraConfig = ''
+        include ${config.sops.secrets.taskwarrior_secrets.path}
+      '';
     };
 
     yazi = {

@@ -136,7 +136,7 @@
     taskchampion-sync-server = {
       enable = true;
       openFirewall = true;
-      allowClientIds = [ "89440068-6754-49d6-adaf-007f78f06070" ];
+      allowClientIds = [ "b3063e75-5cc7-4eaa-b8dd-b365774fb0eb" ];
     };
 
     muni_bot = {

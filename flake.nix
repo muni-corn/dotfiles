@@ -76,6 +76,7 @@
       nixpkgs-xr,
       nixvim,
       plymouth-theme-musicaloft-rainbow,
+      sops-nix,
       ...
     }@inputs:
     let
@@ -121,7 +122,10 @@
           extraSpecialArgs = {
             inherit inputs;
           };
-          sharedModules = [ nixvim.homeManagerModules.nixvim ];
+          sharedModules = [
+            nixvim.homeManagerModules.nixvim
+            sops-nix.homeManagerModules.sops
+          ];
           useGlobalPkgs = true;
           useUserPackages = true;
           users.muni = ./muni;
