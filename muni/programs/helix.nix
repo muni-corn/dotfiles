@@ -188,19 +188,8 @@
 
         # javascript and adjacent languages
         {
-          name = "tsx";
-          formatter = {
-            command = "prettier";
-            args = [
-              "-w"
-              "--parser"
-              "typescript"
-            ];
-          };
-          auto-format = true;
-        }
-        {
           name = "javascript";
+          auto-format = true;
           language-servers = [
             {
               name = "typescript-language-server";
@@ -208,10 +197,10 @@
             }
             "biome"
           ];
-          auto-format = true;
         }
         {
           name = "typescript";
+          auto-format = true;
           language-servers = [
             {
               name = "typescript-language-server";
@@ -219,7 +208,6 @@
             }
             "biome"
           ];
-          auto-format = true;
         }
         {
           name = "tsx";
