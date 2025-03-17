@@ -139,17 +139,13 @@
 
     yt-dlp.enable = true;
 
-    zellij = {
-      enable = true;
-      settings = {
-        pane_frames = false;
-        default_mode = "locked";
-      };
-    };
+    zellij.enable = true;
 
     zoxide = {
       enable = true;
       enableFishIntegration = true;
     };
   };
+
+  xdg.configFile."zellij/config.kdl".source = ./zellij.kdl;
 }

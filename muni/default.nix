@@ -25,6 +25,10 @@
       "$HOME/.npm/bin"
     ];
 
+    sessionVariables = {
+      "ZELLIJ_AUTO_EXIT" = "true";
+    };
+
     packages = with pkgs; [
       # audio and music
       flac
