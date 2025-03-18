@@ -121,8 +121,14 @@
       host = "[::]";
       loadModels = [
         "llama3.1:8b"
-        "llama3.1:70b"
-        "mistral"
+        "llama3.2:3b"
+        "llama3.3:70b"
+        "deepseek-r1:8b"
+        "deepseek-r1:70b"
+        "qwq" # hehe
+        "gemma3:1b"
+        "gemma3:4b"
+        "gemma3:27b"
       ];
       openFirewall = true;
     };
