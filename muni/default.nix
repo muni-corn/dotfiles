@@ -72,10 +72,12 @@
       fortune
       imagemagick
       peaclock
+      perl # for mr
       protonvpn-cli
       qrencode
       vrc-get
       wirelesstools
+
     ];
   };
 
