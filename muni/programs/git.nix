@@ -125,6 +125,7 @@
             colorMoved = "zebra";
             guitool = "meld";
             tool = "difftastic";
+            renamelimit = 2016;
           };
           difftool = {
             prompt = false;
@@ -133,12 +134,7 @@
           fetch.prune = true;
           init.defaultBranch = "main";
           interactive.diffFilter = "${pkgs.diffr}/bin/diffr --colors ${diffrColors} --line-numbers";
-          merge = {
-            conflictStyle = "zdiff3";
-            guitool = "meld";
-            renamelimit = 2016;
-            tool = "nvimdiff";
-          };
+          merge.tool = "meld";
           pager.difftool = true;
           pull.rebase = true;
           push.autoSetupRemote = true;
