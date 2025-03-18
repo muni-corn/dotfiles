@@ -53,9 +53,11 @@
       docker-compose
       dprint
       gcc
+      gitui
       lld
       markdown-oxide
       meld
+      mr
       nixd
       nixfmt-rfc-style
       nodePackages.prettier
