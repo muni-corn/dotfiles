@@ -65,17 +65,14 @@
       ];
       instances = {
         snapshots = {
-          onCalendar = "*:00/5";
+          onCalendar = "*:00/15";
           settings = {
             snapshot_create = "onchange";
             snapshot_preserve_min = "2h";
-            snapshot_preserve = "48h 28d";
+            snapshot_preserve = "48h";
             preserve_hour_of_day = "5";
             volume."/" = {
-              subvolume = {
-                home = { };
-                var = { };
-              };
+              subvolume.home = { };
               snapshot_dir = "/snaps";
             };
           };
