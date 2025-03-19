@@ -12,43 +12,46 @@ let
   };
 in
 {
-  programs.zellij = {
-    enable = true;
+  programs = {
+    fish.interactiveShellInit = ''
+      if set -q SSH_TTY
+        eval (zellij setup --generate-auto-start fish | string collect)
+      end
+    '';
 
-    # shell support has to be explicitly enabled
-    enableFishIntegration = true;
-    exitShellOnExit = true;
+    zellij = {
+      enable = true;
+      settings = {
+        theme_dir = "${config.xdg.configHome}/zellij/themes/";
+        scroll_buffer_size = 10000;
+        serialize_pane_viewport = true;
+        show_startup_tips = false;
 
-    settings = {
-      theme_dir = "${config.xdg.configHome}/zellij/themes/";
-      scroll_buffer_size = 10000;
-      serialize_pane_viewport = true;
-      show_startup_tips = false;
+        keybinds = {
+          normal._children = [
+            (bind [ "Alt h" ] [ { MoveFocusOrTab = "left"; } ])
+            (bind [ "Alt j" ] [ { MoveFocus = "down"; } ])
+            (bind [ "Alt k" ] [ { MoveFocus = "up"; } ])
+            (bind [ "Alt l" ] [ { MoveFocusOrTab = "right"; } ])
+            (bind [ "Alt t" ] [ { NewTab = { }; } ])
+            (bind [ "Alt f" ] [ { ToggleFloatingPanes = { }; } ])
 
-      keybinds = {
-        normal._children = [
-          (bind [ "Alt h" ] [ { MoveFocusOrTab = "left"; } ])
-          (bind [ "Alt j" ] [ { MoveFocus = "down"; } ])
-          (bind [ "Alt k" ] [ { MoveFocus = "up"; } ])
-          (bind [ "Alt l" ] [ { MoveFocusOrTab = "right"; } ])
-          (bind [ "Alt t" ] [ { NewTab = { }; } ])
-          (bind [ "Alt f" ] [ { ToggleFloatingPanes = { }; } ])
+            (unbind "Alt n")
+            (bind [ "Alt Space" ] [ { NewPane = { }; } ])
+          ];
 
-          (unbind "Alt n")
-          (bind [ "Alt Space" ] [ { NewPane = { }; } ])
-        ];
+          locked._children = [
+            (bind [ "Alt h" ] [ { MoveFocusOrTab = "left"; } ])
+            (bind [ "Alt j" ] [ { MoveFocus = "down"; } ])
+            (bind [ "Alt k" ] [ { MoveFocus = "up"; } ])
+            (bind [ "Alt l" ] [ { MoveFocusOrTab = "right"; } ])
+            (bind [ "Alt Space" ] [ { NewPane = { }; } ])
+            (bind [ "Alt t" ] [ { NewTab = { }; } ])
 
-        locked._children = [
-          (bind [ "Alt h" ] [ { MoveFocusOrTab = "left"; } ])
-          (bind [ "Alt j" ] [ { MoveFocus = "down"; } ])
-          (bind [ "Alt k" ] [ { MoveFocus = "up"; } ])
-          (bind [ "Alt l" ] [ { MoveFocusOrTab = "right"; } ])
-          (bind [ "Alt Space" ] [ { NewPane = { }; } ])
-          (bind [ "Alt t" ] [ { NewTab = { }; } ])
-
-          (unbind "Ctrl g")
-          (bind [ "Ctrl Alt g" ] [ { SwitchToMode = "normal"; } ])
-        ];
+            (unbind "Ctrl g")
+            (bind [ "Ctrl Alt g" ] [ { SwitchToMode = "normal"; } ])
+          ];
+        };
       };
     };
   };

@@ -110,7 +110,6 @@
       enableFishIntegration = true;
     };
   };
-
   # install `timesheet` script extension for timew
   xdg.configFile."timewarrior/extensions/timesheet.py".source =
     lib.getExe' pkgs.muni-scripts "timesheet";
