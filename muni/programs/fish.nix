@@ -112,6 +112,9 @@
       r = "ranger";
     };
 
-    shellInit = ''set fish_greeting ""'';
+    shellInit = ''
+      set fish_greeting ""
+      set sponge_delay 4
+    '';
   };
 }
