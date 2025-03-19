@@ -110,11 +110,22 @@
       nv = "nvim";
       q = "exit";
       r = "ranger";
+
+      # taskwarrior abbrs
+      t = "task";
+      ta = "task add";
+      td = "task done";
+      te = "task edit";
+      tm = "task modify";
+      tn = "task next";
+      ts = "task start";
+      ty = "task sync";
+      tS = "task stop";
     };
 
     shellInit = ''
       set fish_greeting ""
-      set sponge_delay 4
+      set sponge_delay 8
     '';
   };
 }
