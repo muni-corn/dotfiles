@@ -127,7 +127,9 @@
         "gemma3:4b"
         "gemma3:27b"
       ];
-      models = "/home/ollama/models";
+      home = "/home/ollama";
+      user = "ollama";
+      group = "ollama";
       openFirewall = true;
     };
 
