@@ -7,6 +7,7 @@
     ./nnn.nix
     ./nvim
     ./starship.nix
+    ./zellij.nix
   ];
 
   programs = {
@@ -139,16 +140,9 @@
 
     yt-dlp.enable = true;
 
-    zellij = {
-      enable = true;
-      enableFishIntegration = false;
-    };
-
     zoxide = {
       enable = true;
       enableFishIntegration = true;
     };
   };
-
-  xdg.configFile."zellij/config.kdl".source = ./zellij.kdl;
 }
