@@ -244,6 +244,7 @@
 
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpFoYAj02WzgnBokgr2ZzFKOaffOVRK5Ru7Ngh53sjr (none)"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP0f4PM3RULjNQBXS2/fMOe/NwbSjzKJZc5gJFgTiudu muni@spiritcrypt"
       ];
     };
     defaultUserShell = pkgs.fish;
