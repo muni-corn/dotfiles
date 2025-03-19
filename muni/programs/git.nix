@@ -125,7 +125,7 @@
             colorMoved = "zebra";
             guitool = "meld";
             tool = "difftastic";
-            renamelimit = 2016;
+            renamelimit = 24817;
           };
           difftool = {
             prompt = false;
@@ -141,6 +141,10 @@
           rebase = {
             autoSquash = true;
             autoStash = true;
+          };
+          rerere = {
+            enabled = true;
+            autoUpdate = true;
           };
           receive.denyCurrentBranch = "refuse";
           url = {
