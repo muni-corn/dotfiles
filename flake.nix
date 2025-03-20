@@ -80,6 +80,10 @@
       ...
     }@inputs:
     let
+      specialArgs = {
+        inherit inputs;
+      };
+
       customPackagesOverlay = final: prev: {
         muse-shell = muse-shell.packages.${prev.system}.default;
         # geonkick = (import geonkick-nixpkgs {inherit (prev) system;}).geonkick;
@@ -119,9 +123,7 @@
       homeManagerModule = {
         home-manager = {
           backupFileExtension = "backup";
-          extraSpecialArgs = {
-            inherit inputs;
-          };
+          extraSpecialArgs = specialArgs;
           sharedModules = [
             nixvim.homeManagerModules.nixvim
             sops-nix.homeManagerModules.sops
@@ -186,17 +188,17 @@
     {
       nixosConfigurations = {
         littlepony = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+          inherit specialArgs;
           system = "x86_64-linux";
           modules = littleponyModules;
         };
         ponycastle = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+          inherit specialArgs;
           system = "x86_64-linux";
           modules = ponycastleModules;
         };
         spiritcrypt = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit inputs; };
+          inherit specialArgs;
           system = "x86_64-linux";
           modules = spiritcryptModules;
         };
