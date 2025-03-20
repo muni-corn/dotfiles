@@ -93,7 +93,6 @@
         extraConfig = {
           advice.skippedCherryPicks = false;
           annex = {
-            autocommit = true;
             genmetadata = "importfeed";
             gitaddtoannex = true;
             jobs = 8;
@@ -131,6 +130,7 @@
             prompt = false;
             difftastic.cmd = ''${pkgs.difftastic}/bin/difft "$LOCAL" "$REMOTE"'';
           };
+          feature.manyFiles = true;
           fetch.prune = true;
           init.defaultBranch = "main";
           interactive.diffFilter = "${pkgs.diffr}/bin/diffr --colors ${diffrColors} --line-numbers";
