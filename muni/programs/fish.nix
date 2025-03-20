@@ -111,6 +111,9 @@
       q = "exit";
       r = "ranger";
 
+      # my annex repos
+      "mar" = "mr -c ~/.annex.mrconfig";
+
       # taskwarrior abbrs
       t = "task";
       ta = "task add";

@@ -1,4 +1,7 @@
 { pkgs, ... }:
+let
+  toml = pkgs.formats.toml { };
+in
 {
   imports = [
     ./programs
@@ -18,6 +21,50 @@
     # paths it should manage.
     username = "muni";
     homeDirectory = "/home/muni";
+
+    file = {
+      ".annex.mrconfig".source = toml.generate "annex-mrconfig" {
+        Documents = { };
+        Music = { };
+        Pictures = { };
+        Videos = { };
+      };
+
+      # must be included verbatim because toml.generate will quote keys with slashes, and mr doesn't like that
+      ".mrconfig".text = ''
+        [dotfiles]
+        checkout = git clone 'https://codeberg.org/municorn/dotfiles' 'dotfiles'
+
+        [code/muni-wallpapers]
+        checkout = git clone 'git@github.com:muni-corn/muni-wallpapers.git' 'muni-wallpapers'
+
+        [code/muni_bot]
+        checkout = git clone 'https://github.com/muni-corn/muni_bot' 'muni_bot'
+
+        [code/muse-shell]
+        checkout = git clone 'https://github.com/muni-corn/muse-shell' 'muse-shell'
+
+        [code/muse-sounds]
+        checkout = git clone 'git@codeberg.org:municorn/muse-sounds' 'muse-sounds'
+
+        [code/musicaloft-web]
+        checkout = git clone 'git@github.com:musicaloft/musicaloft-web.git' 'musicaloft-web'
+
+        [code/silverfox]
+        checkout = git clone 'https://github.com/muni-corn/silverfox' 'silverfox'
+
+        [code/unity/muni-vrc]
+        checkout = git clone 'git@github.com:muni-corn/muni-vrc' 'muni-vrc'
+
+        [code/apollo]
+        skip = true
+        chain = true
+
+        [code/liberdus]
+        skip = true
+        chain = true
+      '';
+    };
 
     sessionPath = [
       "$HOME/.cargo/bin"
@@ -86,43 +133,39 @@
     package = pkgs.taskwarrior3;
   };
 
-  xdg =
-    let
-      toml = pkgs.formats.toml { };
-    in
-    {
-      enable = true;
-      configFile = {
-        "peaclock.conf".source = ./peaclock.conf;
-        "rustfmt/rustfmt.toml".source = toml.generate "rustfmt-config" {
-          condense_wildcard_suffixes = true;
-          edition = "2021";
-          format_code_in_doc_comments = true;
-          format_macro_bodies = true;
-          format_macro_matchers = true;
-          group_imports = "StdExternalCrate";
-          imports_granularity = "Crate";
-          normalize_comments = true;
-          normalize_doc_attributes = true;
-          reorder_impl_items = true;
-          use_field_init_shorthand = true;
-          use_try_shorthand = true;
-          wrap_comments = true;
-        };
-        "gitui/key_bindings.ron".text = ''
-          (
-              move_left: Some(( code: Char('h'), modifiers: "")),
-              move_right: Some(( code: Char('l'), modifiers: "")),
-              move_up: Some(( code: Char('k'), modifiers: "")),
-              move_down: Some(( code: Char('j'), modifiers: "")),
-
-              stash_open: Some(( code: Char('l'), modifiers: "")),
-              open_help: Some(( code: F(1), modifiers: "")),
-
-              status_reset_item: Some(( code: Char('U'), modifiers: "SHIFT")),
-          )
-        '';
+  xdg = {
+    enable = true;
+    configFile = {
+      "peaclock.conf".source = ./peaclock.conf;
+      "rustfmt/rustfmt.toml".source = toml.generate "rustfmt-config" {
+        condense_wildcard_suffixes = true;
+        edition = "2021";
+        format_code_in_doc_comments = true;
+        format_macro_bodies = true;
+        format_macro_matchers = true;
+        group_imports = "StdExternalCrate";
+        imports_granularity = "Crate";
+        normalize_comments = true;
+        normalize_doc_attributes = true;
+        reorder_impl_items = true;
+        use_field_init_shorthand = true;
+        use_try_shorthand = true;
+        wrap_comments = true;
       };
+      "gitui/key_bindings.ron".text = ''
+        (
+            move_left: Some(( code: Char('h'), modifiers: "")),
+            move_right: Some(( code: Char('l'), modifiers: "")),
+            move_up: Some(( code: Char('k'), modifiers: "")),
+            move_down: Some(( code: Char('j'), modifiers: "")),
+
+            stash_open: Some(( code: Char('l'), modifiers: "")),
+            open_help: Some(( code: F(1), modifiers: "")),
+
+            status_reset_item: Some(( code: Char('U'), modifiers: "SHIFT")),
+        )
+      '';
     };
+  };
 
 }
