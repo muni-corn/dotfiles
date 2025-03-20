@@ -113,6 +113,7 @@
 
       # my annex repos
       "mar" = "mr -c ~/.annex.mrconfig";
+      "mars" = "mr -c ~/.annex.mrconfig run git annex assist";
 
       # taskwarrior abbrs
       t = "task";
