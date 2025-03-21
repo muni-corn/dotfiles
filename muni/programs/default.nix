@@ -10,6 +10,10 @@
     ./zellij.nix
   ];
 
+  home.packages = with pkgs; [
+    taskwarrior-tui
+  ];
+
   programs = {
     # let home-manager install and manage itself
     home-manager.enable = true;
