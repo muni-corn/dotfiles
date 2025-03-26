@@ -79,6 +79,7 @@ in
 
     sessionVariables = {
       "ZELLIJ_AUTO_EXIT" = "true";
+      "STARSHIP_LOG" = "error";
     };
 
     packages = with pkgs; [
