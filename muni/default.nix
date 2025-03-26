@@ -27,15 +27,19 @@ in
       ".mrconfig".text = ''
         [Documents]
         update = git annex assist
+        order = 1
 
         [Music]
         update = git annex assist
+        order = 90
 
         [Pictures]
         update = git annex assist
+        order = 20
 
         [Videos]
         update = git annex assist
+        order = 15
 
         [dotfiles]
         checkout = git clone 'https://codeberg.org/municorn/dotfiles' 'dotfiles'
