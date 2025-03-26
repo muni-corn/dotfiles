@@ -68,7 +68,6 @@
     {
       nixpkgs,
       home-manager,
-      # geonkick-nixpkgs,
       iosevka-muse,
       mini-nvim,
       muni-bot,
@@ -93,7 +92,6 @@
 
       customPackagesOverlay = final: prev: {
         muse-shell = muse-shell.packages.${prev.system}.default;
-        # geonkick = (import geonkick-nixpkgs {inherit (prev) system;}).geonkick;
         vimPlugins = prev.vimPlugins // {
           mini-nvim = prev.vimPlugins.mini-nvim.overrideAttrs (old: {
             src = mini-nvim;

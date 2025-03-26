@@ -101,7 +101,6 @@ in
         dunst.enable = false;
         hyprland.enable = false;
         hyprpaper.enable = false;
-        # kitty.enable = false;
         neovim.enable = false;
         rofi.enable = false;
         swaylock.enable = false;
