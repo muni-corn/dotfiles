@@ -4,7 +4,7 @@
     # enableTransience = true;
     settings = {
       format = ''$directory$character'';
-      right_format = ''$shell$jobs$status$all'';
+      right_format = ''$shell$all$jobs$status'';
       add_newline = false;
 
       battery.display = [

@@ -24,6 +24,7 @@ in
 
     file = {
       # must be included verbatim because toml.generate will quote keys with slashes, and mr doesn't like that
+      # maybe we should try ini instead
       ".mrconfig".text = ''
         [Documents]
         update = git annex assist
