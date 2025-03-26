@@ -93,6 +93,8 @@
         extraConfig = {
           advice.skippedCherryPicks = false;
           annex = {
+            backend = "BLAKE2B256E";
+            diskreserve = "1G";
             genmetadata = "importfeed";
             gitaddtoannex = true;
             jobs = 8;
