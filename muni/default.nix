@@ -23,15 +23,20 @@ in
     homeDirectory = "/home/muni";
 
     file = {
-      ".annex.mrconfig".source = toml.generate "annex-mrconfig" {
-        Documents = { };
-        Music = { };
-        Pictures = { };
-        Videos = { };
-      };
-
       # must be included verbatim because toml.generate will quote keys with slashes, and mr doesn't like that
       ".mrconfig".text = ''
+        [Documents]
+        update = git annex assist
+
+        [Music]
+        update = git annex assist
+
+        [Pictures]
+        update = git annex assist
+
+        [Videos]
+        update = git annex assist
+
         [dotfiles]
         checkout = git clone 'https://codeberg.org/municorn/dotfiles' 'dotfiles'
 
