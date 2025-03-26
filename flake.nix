@@ -30,6 +30,12 @@
     # neovim config in nix
     nixvim.url = "github:nix-community/nixvim";
 
+    # nix user repository
+    nur = {
+      url = "github:nix-community/NUR";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # for runtime-decrypted secrets
     sops-nix.url = "github:Mic92/sops-nix";
 
@@ -75,6 +81,7 @@
       nixpkgs-wayland,
       nixpkgs-xr,
       nixvim,
+      nur,
       plymouth-theme-musicaloft-rainbow,
       sops-nix,
       ...
@@ -146,6 +153,7 @@
         {
           home-manager.users.muni = ./muni/graphical;
         }
+        nur.modules.nixos.default
       ];
 
       littleponyModules =

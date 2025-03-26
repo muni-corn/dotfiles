@@ -7,6 +7,7 @@
   imports = [
     ./kitty.nix
     ./rofi
+    ./firefox.nix
   ];
 
   programs = {
@@ -30,11 +31,6 @@
         };
         smoothing.noise_reduction = 25;
       };
-    };
-
-    firefox = {
-      enable = true;
-      package = pkgs.firefox-wayland;
     };
 
     imv.enable = true;

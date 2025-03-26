@@ -105,6 +105,8 @@ in
         neovim.enable = false;
         rofi.enable = false;
         swaylock.enable = false;
+
+        firefox.profileNames = [ "muni" ];
       };
     };
   };
