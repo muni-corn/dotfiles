@@ -41,7 +41,7 @@ let
 
   launch = args: "uwsm-app -- ${args}";
   editFile = file: "uwsm-app -T -- hx ${file}";
-  launchInTerminal = args: "uwsm-app -T -- ${args}";
+  launchInTerminal = args: "uwsm-app -T -- fish -i -c ${args}";
 
   scripts = import ./scripts.nix {
     inherit
@@ -57,7 +57,7 @@ in
     settings = {
       bind = [
         # open terminal
-        (b "SUPER" "Return" "exec" (launchInTerminal ""))
+        (b "SUPER" "Return" "exec" (launch "kitty"))
 
         # power controls
         (b "SUPER_CTRL_ALT" "o" "exec" "canberra-gtk-play -i system-shutdown; systemctl poweroff")
