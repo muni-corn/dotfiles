@@ -166,7 +166,7 @@
           name = "neorg";
           grammar = "tree-sitter-norg";
           file-types = [ "norg" ];
-          scope = "text.norg";
+          scope = "source.norg";
         }
         {
           name = "toml";
