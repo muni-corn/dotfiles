@@ -73,6 +73,7 @@
       enable = true;
       package = pkgs.taskwarrior3;
       config = {
+        search.case.sensitive = "no";
         sync.server.url = "http://192.168.68.70:10222";
 
         # remove news popup
