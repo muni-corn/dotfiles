@@ -129,10 +129,10 @@ in
         (b "SUPER_SHIFT" "d" "exec" (launchInTerminal "${fileManager} ${notebookDir}/journal"))
 
         # shortcuts for files
-        (b "SUPER" "t" "exec" (editFile "${notebookDir}/todo.norg"))
+        (b "SUPER" "t" "exec" (editFile "${notebookDir}/todo.md"))
         (b "SUPER_CTRL" "t" "exec" (editFile "${notebookDir}/times.csv"))
-        (b "SUPER_CTRL" "n" "exec" (editFile "${notebookDir}/new/$(date +%Y%m%d-%H%M%S).norg"))
-        (b "SUPER_SHIFT" "b" "exec" (editFile "${notebookDir}/bored.norg"))
+        (b "SUPER_CTRL" "n" "exec" (editFile "${notebookDir}/new/$(date +%Y%m%d-%H%M%S).md"))
+        (b "SUPER_SHIFT" "b" "exec" (editFile "${notebookDir}/bored.md"))
 
         # other script shortcuts
         (b "SUPER" "d" "exec" (scripts.openJournalFile notebookDir "%Y/%m%b/%d%a"))

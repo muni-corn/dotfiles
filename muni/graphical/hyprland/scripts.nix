@@ -36,7 +36,7 @@ let
       parts = map (part: "$(date +${part})") split;
       dateDir = builtins.concatStringsSep "/" parts;
     in
-    "${notebookDir}/journal/${dateDir}.norg";
+    "${notebookDir}/journal/${dateDir}.md";
 
   recordTime = writeFishScript "record-time" ''
     set file $HOME/notebook/times.csv

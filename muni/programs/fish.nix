@@ -95,7 +95,7 @@
 
     shellAliases = {
       scanqr = ''geo=(slurp) grim -g "$geo" - | ${pkgs.zbar}/bin/zbarimg --quiet --raw PNG:- 2> /dev/null | tr -d "\n"'';
-      todo = "$EDITOR $HOME/notebook/todo.norg";
+      todo = "$EDITOR $HOME/notebook/todo.md";
       yt = "ytfzf --thumb-viewer=imv -t";
       bonsai = ''${pkgs.cbonsai}/bin/cbonsai -li -w 10 -t 0.1 -L 50 -m'';
       cheer-me-up = ''bonsai "keep going, you're doing great"'';
