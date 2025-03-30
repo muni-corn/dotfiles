@@ -5,7 +5,6 @@
     ./git.nix
     ./helix.nix
     ./nnn.nix
-    ./nvim
     ./starship.nix
     ./zellij.nix
   ];
