@@ -6,9 +6,7 @@
 {
   home.packages = [
     pkgs.wtype
-    (pkgs.rofimoji.override {
-      rofi = config.programs.rofi.finalPackage;
-    })
+    pkgs.rofimoji
   ];
 
   programs.rofi = {
