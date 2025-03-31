@@ -108,9 +108,11 @@
       # ];
     };
 
-    nextjs-ollama-llm-ui = {
+    open-webui = {
       enable = true;
-      hostname = "0.0.0.0";
+      host = "0.0.0.0";
+      openFirewall = true;
+      port = 3030;
     };
 
     ollama = {
