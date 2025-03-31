@@ -4,9 +4,6 @@
   pkgs,
   ...
 }:
-let
-  toml = pkgs.formats.toml { };
-in
 {
   imports = [
     ./hyprland
@@ -54,7 +51,6 @@ in
       # other things
       libnotify
       protonvpn-gui
-      xdragon
     ];
 
     pointerCursor = {

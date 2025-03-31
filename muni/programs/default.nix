@@ -11,6 +11,7 @@
 
   home.packages = with pkgs; [
     taskwarrior-tui
+    dragon-drop
   ];
 
   programs = {
@@ -121,7 +122,7 @@
           }
           {
             on = "<C-n>";
-            run = ''shell -- dragon -x -i -T "$1"'';
+            run = ''shell -- ${pkgs.dragon-drop}/bin/dragon-drop -x -T "$1"'';
             desc = "Open dragon dialog";
           }
         ];
