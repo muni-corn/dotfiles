@@ -129,23 +129,21 @@ in
         (b "SUPER_SHIFT" "d" "exec" (launchInTerminal "${fileManager} ${notebookDir}/journal"))
 
         # shortcuts for files
-        (b "SUPER" "t" "exec" (editFile "${notebookDir}/todo.md"))
+        (b "SUPER" "t" "exec" (launchInTerminal "taskwarrior-tui"))
         (b "SUPER_CTRL" "t" "exec" (editFile "${notebookDir}/times.csv"))
         (b "SUPER_CTRL" "n" "exec" (editFile "${notebookDir}/new/$(date +%Y%m%d-%H%M%S).md"))
-        (b "SUPER_SHIFT" "b" "exec" (editFile "${notebookDir}/bored.md"))
 
         # other script shortcuts
         (b "SUPER" "d" "exec" (scripts.openJournalFile notebookDir "%Y/%m%b/%d%a"))
-        (b "SUPER_ALT" "d" "exec" (scripts.openJournalFile notebookDir "%Y/w%U"))
         (b "SUPER_CTRL" "r" "exec" "${scripts.dir}/toggle_gammastep.fish")
 
         # lock
         (b "SUPER" "Escape" "exec" "loginctl lock-session")
 
         # notifications
-        (b "CTRL" "Escape" "exec" "dunstctl close")
-        (b "SUPER" "Minus" "exec" "dunstctl close")
-        (b "SUPER" "Equal" "exec" "dunstctl history-pop")
+        (b "CTRL" "Escape" "exec" "${pkgs.muse-shell}/bin/muse-shell noti dismiss")
+        (b "SUPER" "Minus" "exec" "${pkgs.muse-shell}/bin/muse-shell noti dismiss")
+        (b "SUPER" "Equal" "exec" "${pkgs.muse-shell}/bin/muse-shell noti history-pop")
         (b "SUPER" "Space" "exec" "${pkgs.muse-shell}/bin/muse-shell noti act")
 
         # switch to workspace
@@ -179,7 +177,6 @@ in
         (b "SUPER" "Print" "exec" scripts.screenshot)
         (b "SUPER_CTRL" "Print" "exec" "${scripts.screenshot} -s")
         (b "SUPER_CTRL_ALT" "Print" "exec" "${scripts.screenshot} -o")
-        (b "SUPER_SHIFT" "Print" "exec" "${scripts.dir}/video_capture.fish")
 
         # discord push-to-talk
         (b "" "Print" "pass" "^(discord)$")
