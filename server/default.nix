@@ -129,9 +129,6 @@
         "gemma3:4b"
         "gemma3:27b"
       ];
-      home = "/home/ollama";
-      user = "ollama";
-      group = "ollama";
       openFirewall = true;
     };
 
