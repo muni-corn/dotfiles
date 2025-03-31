@@ -111,13 +111,11 @@
       q = "exit";
       r = "ranger";
 
-      # my annex repos
-      "mar" = "mr -c ~/.annex.mrconfig";
-      "mars" = "mr -c ~/.annex.mrconfig run git annex assist";
-
       # taskwarrior abbrs
       t = "task";
       ta = "task add";
+      tc = "task context";
+      tcn = "task context none";
       td = "task done";
       te = "task edit";
       tm = "task modify";
