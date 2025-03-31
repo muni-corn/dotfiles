@@ -163,6 +163,11 @@
 
     npm.enable = true;
 
+    pay-respects = {
+      enable = true;
+      aiIntegration = true;
+    };
+
     ssh = {
       knownHosts = {
         spiritcrypt = {
