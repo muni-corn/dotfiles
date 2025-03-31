@@ -4,6 +4,7 @@
     ./fish.nix
     ./git.nix
     ./helix.nix
+    ./mr.nix
     ./nnn.nix
     ./starship.nix
     ./zellij.nix

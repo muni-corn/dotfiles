@@ -22,60 +22,6 @@ in
     username = "muni";
     homeDirectory = "/home/muni";
 
-    file = {
-      # must be included verbatim because toml.generate will quote keys with slashes, and mr doesn't like that
-      # maybe we should try ini instead
-      ".mrconfig".text = ''
-        [Documents]
-        update = git annex assist
-        order = 1
-
-        [Music]
-        update = git annex assist
-        order = 90
-
-        [Pictures]
-        update = git annex assist
-        order = 20
-
-        [Videos]
-        update = git annex assist
-        order = 15
-
-        [dotfiles]
-        checkout = git clone 'https://codeberg.org/municorn/dotfiles' 'dotfiles'
-
-        [code/muni-wallpapers]
-        checkout = git clone 'git@github.com:muni-corn/muni-wallpapers.git' 'muni-wallpapers'
-
-        [code/muni_bot]
-        checkout = git clone 'https://github.com/muni-corn/muni_bot' 'muni_bot'
-
-        [code/muse-shell]
-        checkout = git clone 'https://github.com/muni-corn/muse-shell' 'muse-shell'
-
-        [code/muse-sounds]
-        checkout = git clone 'git@codeberg.org:municorn/muse-sounds' 'muse-sounds'
-
-        [code/musicaloft-web]
-        checkout = git clone 'git@github.com:musicaloft/musicaloft-web.git' 'musicaloft-web'
-
-        [code/silverfox]
-        checkout = git clone 'https://github.com/muni-corn/silverfox' 'silverfox'
-
-        [code/unity/muni-vrc]
-        checkout = git clone 'git@github.com:muni-corn/muni-vrc' 'muni-vrc'
-
-        [code/apollo]
-        skip = true
-        chain = true
-
-        [code/liberdus]
-        skip = true
-        chain = true
-      '';
-    };
-
     sessionPath = [
       "$HOME/.cargo/bin"
       "$HOME/.local/bin"
@@ -135,7 +81,6 @@ in
       qrencode
       vrc-get
       wirelesstools
-
     ];
   };
 
