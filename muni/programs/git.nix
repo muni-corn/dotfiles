@@ -136,7 +136,19 @@
           fetch.prune = true;
           init.defaultBranch = "main";
           interactive.diffFilter = "${pkgs.diffr}/bin/diffr --colors ${diffrColors} --line-numbers";
-          merge.tool = "meld";
+          merge = {
+            tool = "nvimdiff";
+            guitool = "meld";
+          };
+          mergetool = {
+            guiDefault = true;
+            meld = {
+              hasOutput = true;
+              useAutoMerge = true;
+            };
+            vimdiff.layout = "LOCAL,@BASE,REMOTE";
+            writeToTemp = true;
+          };
           pager.difftool = true;
           pull.rebase = true;
           push.autoSetupRemote = true;
