@@ -2,6 +2,8 @@
   programs.mr = {
     enable = true;
     settings = {
+      DEFAULT.jobs = 4;
+
       dotfiles.checkout = "git clone https://codeberg.org/municorn/dotfiles";
 
       Documents = {
