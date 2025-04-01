@@ -24,7 +24,8 @@
         order = 15;
       };
 
-      ".local/share/password-store".checkout = "git clone https://codeberg.org/municorn/passwords.git";
+      ".local/share/password-store".checkout =
+        "git clone https://codeberg.org/municorn/passwords.git password-store";
       "code/muni-wallpapers".checkout = "git clone git@github.com:muni-corn/muni-wallpapers.git";
       "code/muni_bot".checkout = "git clone https://github.com/muni-corn/muni_bot";
       "code/muse-shell".checkout = "git clone https://github.com/muni-corn/muse-shell";
