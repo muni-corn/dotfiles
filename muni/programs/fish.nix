@@ -104,7 +104,6 @@
 
     shellAbbrs = {
       e = "hx"; # for 'editor'
-      f = "y"; # for 'files'
       h = "hx";
       n = "hx";
       nv = "nvim";
