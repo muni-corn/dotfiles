@@ -9,7 +9,7 @@
         completion-timeout = 50;
         completion-trigger-len = 1;
         cursorline = true;
-        end-of-line-diagnostics = "info";
+        end-of-line-diagnostics = "hint";
         jump-label-alphabet = "fjdkslaghtyrueiwoqpbnvmcxz";
         line-number = "relative";
 
@@ -27,7 +27,7 @@
 
         inline-diagnostics = {
           cursor-line = "hint";
-          other-lines = "info";
+          other-lines = "disable";
         };
 
         lsp = {
