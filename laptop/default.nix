@@ -6,6 +6,7 @@
 }:
 {
   imports = [
+    ../church-broadcasting.nix
     ../common-graphical.nix
     ../common.nix
     ../docker.nix
