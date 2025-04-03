@@ -8,21 +8,25 @@
 
       Documents = {
         update = "git annex assist";
+        push = "git annex push";
         order = 1;
       };
 
       Music = {
         update = "git annex assist";
+        push = "git annex push";
         order = 90; # since this one takes its GOSH DARN TIME
       };
 
       Pictures = {
         update = "git annex assist";
+        push = "git annex push";
         order = 20;
       };
 
       Videos = {
         update = "git annex assist";
+        push = "git annex push";
         order = 15;
       };
 
