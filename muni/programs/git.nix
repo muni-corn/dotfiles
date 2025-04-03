@@ -151,7 +151,10 @@
           };
           pager.difftool = true;
           pull.rebase = true;
-          push.autoSetupRemote = true;
+          push = {
+            autoSetupRemote = true;
+            default = "current";
+          };
           rebase = {
             autoSquash = true;
             autoStash = true;
