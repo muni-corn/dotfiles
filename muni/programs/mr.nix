@@ -1,4 +1,11 @@
 {
+  home.file = {
+    ".mrtrust".text = ''
+      "~/code/apollo/.mrconfig"
+      "~/code/liberdus/.mrconfig"
+    '';
+  };
+
   programs.mr = {
     enable = true;
     settings = {
