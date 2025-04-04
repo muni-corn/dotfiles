@@ -14,6 +14,7 @@
     ./nextcloud.nix
     ../openssh.nix
     ../sops
+    ../twitchtrot
   ];
 
   # Define your hostname.

@@ -16,4 +16,8 @@ creation_rules:
       - age:
         - *home_desktop
         - *home_laptop
-
+  - path_regex: ^twitchtrot/secrets.yaml$
+    key_groups:
+      - age:
+        - *spiritcrypt
+        - *home_laptop
