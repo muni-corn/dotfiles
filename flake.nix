@@ -9,9 +9,6 @@
     # realtime audio
     musnix.url = "github:musnix/musnix";
 
-    # color utils
-    nix-colorizer.url = "github:nutsalhan87/nix-colorizer";
-
     # updated minecraft servers
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
@@ -27,9 +24,6 @@
     # latest xr packages
     nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
 
-    # neovim config in nix
-    nixvim.url = "github:nix-community/nixvim";
-
     # nix user repository
     nur = {
       url = "github:nix-community/NUR";
@@ -41,16 +35,6 @@
 
     # for system themes and styling
     stylix.url = "github:danth/stylix";
-
-    # neovim plugins
-    gen-nvim = {
-      url = "github:David-Kunz/gen.nvim";
-      flake = false;
-    };
-    mini-nvim = {
-      url = "github:echasnovski/mini.nvim";
-      flake = false;
-    };
 
     # my stuff
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
@@ -69,7 +53,6 @@
       nixpkgs,
       home-manager,
       iosevka-muse,
-      mini-nvim,
       muni-bot,
       muse-shell,
       muse-sounds,
@@ -79,7 +62,6 @@
       nixos-hardware,
       nixpkgs-wayland,
       nixpkgs-xr,
-      nixvim,
       nur,
       plymouth-theme-musicaloft-rainbow,
       sops-nix,
@@ -92,11 +74,6 @@
 
       customPackagesOverlay = final: prev: {
         muse-shell = muse-shell.packages.${prev.system}.default;
-        vimPlugins = prev.vimPlugins // {
-          mini-nvim = prev.vimPlugins.mini-nvim.overrideAttrs (old: {
-            src = mini-nvim;
-          });
-        };
       };
 
       overlaysModule = {
@@ -129,10 +106,7 @@
         home-manager = {
           backupFileExtension = "backup";
           extraSpecialArgs = specialArgs;
-          sharedModules = [
-            nixvim.homeManagerModules.nixvim
-            sops-nix.homeManagerModules.sops
-          ];
+          sharedModules = [ sops-nix.homeManagerModules.sops ];
           useGlobalPkgs = true;
           useUserPackages = true;
           users.muni = ./muni;

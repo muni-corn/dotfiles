@@ -65,11 +65,10 @@ let
       terminal = 0.75;
     };
 
-    # nixvim
     targets = {
       console.enable = true;
 
-      nixvim = {
+      neovim = {
         enable = true;
         transparentBackground = {
           main = true;
