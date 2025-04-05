@@ -44,6 +44,10 @@
       "code/muse-shell".checkout = "git clone https://github.com/muni-corn/muse-shell";
       "code/muse-sounds".checkout = "git clone git@codeberg.org:municorn/muse-sounds";
       "code/musicaloft-web".checkout = "git clone git@github.com:musicaloft/musicaloft-web.git";
+      "code/nixpkgs" = {
+        checkout = "git clone git@github.com:muni-corn/nixpkgs.git";
+        post_checkout = "git remote add upstream git@github.com:NixOS/nixpkgs";
+      };
       "code/silverfox".checkout = "git clone https://github.com/muni-corn/silverfox";
       "code/unity/muni-vrc".checkout = "git clone git@github.com:muni-corn/muni-vrc";
 
