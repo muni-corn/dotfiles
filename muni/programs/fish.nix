@@ -1,24 +1,27 @@
-{ pkgs, ... }:
 {
-  home.packages = with pkgs.fishPlugins; [
-    done
-    foreign-env
-    plugin-git
-    sponge
-  ];
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+{
+  home = {
+    activation.installTide = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+      ${config.programs.fish.package}/bin/fish -i -c "tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time=No --lean_prompt_height='One line' --prompt_spacing=Compact --icons='Few icons' --transient=Yes"
+    '';
+
+    packages = with pkgs.fishPlugins; [
+      done
+      foreign-env
+      plugin-git
+      sponge
+      tide
+    ];
+  };
 
   programs.fish = {
     enable = true;
     functions = {
-      starship_transient_prompt_func = ''
-        echo
-        starship module character
-      '';
-      starship_transient_rprompt_func = ''
-        echo
-        set_color brblack
-        date "+%-I:%M %P"
-      '';
       crypt-edit = ''
         if count $argv > /dev/null
           # set temp file
