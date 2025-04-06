@@ -7,7 +7,7 @@
   imports = [
     ./kitty.nix
     ./rofi
-    ./firefox.nix
+    ./firefox
   ];
 
   programs = {
