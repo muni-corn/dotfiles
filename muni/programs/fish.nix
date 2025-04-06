@@ -96,6 +96,17 @@
       '';
     };
 
+    interactiveShellInit = ''
+      set --universal tide_cmd_duration_icon 
+      set --universal tide_direnv_icon
+      set --universal tide_git_icon 
+      set --universal tide_jobs_icon 
+      set --universal tide_private_mode_icon 
+      set --universal tide_pwd_icon_unwritable 
+      set --universal tide_status_icon 
+      set --universal tide_status_icon_failure 
+    '';
+
     shellAliases = {
       scanqr = ''geo=(slurp) grim -g "$geo" - | ${pkgs.zbar}/bin/zbarimg --quiet --raw PNG:- 2> /dev/null | tr -d "\n"'';
       todo = "task next";
