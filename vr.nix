@@ -15,7 +15,7 @@
         configFile = {
           "openxr/1/active_runtime.json" = {
             force = true;
-            source = "${pkgs.wivrn}/share/openxr/1/openxr_wivrn.json";
+            source = "${config.services.wivrn.package}/share/openxr/1/openxr_wivrn.json";
           };
           "openvr/openvrpaths.vrpath" = {
             force = true;
@@ -45,6 +45,15 @@
 
   services.wivrn = {
     enable = true;
+    package = pkgs.wivrn.overrideAttrs (oldAttrs: {
+      version = "0.24";
+      src = pkgs.fetchFromGitHub {
+        owner = "wivrn";
+        repo = "wivrn";
+        rev = "v0.24";
+        hash = "sha256-0F+JHhVT/Axo+ycoh/qCL/jVncD+GrcuvYrxKE+UFGc=";
+      };
+    });
 
     # Run WiVRn as a systemd service on startup
     autoStart = true;
