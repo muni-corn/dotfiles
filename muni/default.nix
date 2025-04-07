@@ -55,6 +55,7 @@ in
       biome
       docker-compose
       dprint
+      flyctl
       gcc
       gitui
       lld
