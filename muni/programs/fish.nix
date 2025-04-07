@@ -131,6 +131,7 @@
       tcn = "task context none";
       td = "task done";
       te = "task edit";
+      tl = "task log";
       tm = "task modify";
       tn = "task next";
       ts = "task start";
