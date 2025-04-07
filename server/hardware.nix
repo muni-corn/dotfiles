@@ -38,6 +38,7 @@
           cryptcrypt3 = mkEncryptedDrive "491c21ae-7000-4c01-ba53-3f143922f67d";
           cryptcrypt4 = mkEncryptedDrive "60ec9031-347a-4fcc-949e-d1b66d72f55c";
           cryptmain = mkEncryptedDrive "caf0cc37-432e-418f-bf1a-6df102875662";
+          cryptmain1 = mkEncryptedDrive "0d49fc53-fe4f-4500-a085-1847ab90e351";
         };
     };
     kernelModules = [ "kvm-intel" ];
