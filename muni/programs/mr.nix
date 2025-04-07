@@ -12,6 +12,7 @@
       DEFAULT.jobs = 4;
 
       dotfiles.checkout = "git clone https://codeberg.org/municorn/dotfiles";
+      notebook.checkout = "git clone https://codeberg.org/municorn/notebook";
 
       Documents = {
         update = "git annex assist";
