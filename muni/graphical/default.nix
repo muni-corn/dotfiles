@@ -123,5 +123,10 @@
     enable = true;
     platformTheme.name = "qtct";
   };
+
+  xdg.dataFile."sounds/__custom/index.theme".text = ''
+    [Sound Theme]
+    Inherits=musicaloft
+  '';
 }
 # vim: ts=2 sw=2 expandtab
