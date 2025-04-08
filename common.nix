@@ -5,7 +5,6 @@
 { config, pkgs, ... }:
 {
   imports = [
-    ./cachix
     ./stylix.nix
   ];
 
