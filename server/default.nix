@@ -119,6 +119,9 @@
 
     ollama = {
       enable = true;
+      environmentVariables = {
+        OLLAMA_CONTEXT_LENGTH = "8192";
+      };
       host = "[::]";
       loadModels = [
         "llama3.1:8b"
