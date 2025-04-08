@@ -12,6 +12,7 @@
     ./home-assistant.nix
     ./minecraft.nix
     ./nextcloud.nix
+    ./workarounds.nix
     ../openssh.nix
     ../sops
     ../twitchtrot
