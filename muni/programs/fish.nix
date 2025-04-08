@@ -123,6 +123,7 @@
       nv = "nvim";
       q = "exit";
       r = "ranger";
+      s = "kitten ssh";
 
       # taskwarrior abbrs
       t = "task";
