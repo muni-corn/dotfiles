@@ -8,6 +8,18 @@
       hashedPasswordFile = config.sops.secrets.twitchtrot-user-passhash.path;
       home = "/var/lib/twitchtrot";
       isSystemUser = true;
+      subGidRanges = [
+        {
+          startUid = 10000;
+          count = 65536;
+        }
+      ];
+      subUidRanges = [
+        {
+          startUid = 10000;
+          count = 65536;
+        }
+      ];
     };
     groups.twitchtrot = { };
   };
