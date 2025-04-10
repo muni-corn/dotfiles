@@ -202,6 +202,7 @@
       cachixTokenFile = config.sops.secrets.cachix_token.path;
       compressionLevel = 10;
       signingKeyFile = config.sops.secrets.cachix_signing_key.path;
+      verbose = true;
     };
 
     fwupd.enable = true;
