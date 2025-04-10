@@ -103,26 +103,13 @@
 
   fonts.fontconfig.enable = true;
 
-  gtk = {
-    enable = true;
-    iconTheme = {
-      package = pkgs.papirus-icon-theme;
-      name = "Papirus-Dark";
-    };
-    theme = {
-      package = lib.mkForce pkgs.materia-theme;
-      name = lib.mkForce "Materia-dark";
-    };
-  };
+  gtk.enable = true;
 
   manual.html.enable = true;
 
-  systemd.user.startServices = "sd-switch";
+  qt.enable = true;
 
-  qt = {
-    enable = true;
-    platformTheme.name = "qtct";
-  };
+  systemd.user.startServices = "sd-switch";
 
   xdg.dataFile."sounds/__custom/index.theme".text = ''
     [Sound Theme]

@@ -92,20 +92,20 @@ in
     };
   };
 
-  home-manager.users.muni = {
-    services.hyprpaper.enable = false;
+  home-manager.users.muni.stylix = {
+    iconTheme = {
+      enable = true;
+      package = pkgs.papirus-icon-theme;
+      dark = "Papirus-Dark";
+      light = "Papirus";
+    };
 
-    stylix = commonConfig // {
-      targets = {
-        dunst.enable = false;
-        hyprland.enable = false;
-        hyprpaper.enable = false;
-        neovim.enable = false;
-        rofi.enable = false;
-        swaylock.enable = false;
-
-        firefox.profileNames = [ "muni" ];
-      };
+    targets = {
+      hyprland.enable = false;
+      hyprpaper.enable = false;
+      rofi.enable = false;
+      swaylock.enable = false;
+      firefox.profileNames = [ "muni" ];
     };
   };
 }
