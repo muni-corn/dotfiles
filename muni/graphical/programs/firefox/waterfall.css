@@ -86,7 +86,6 @@
      #back-button{ display: -moz-inline-box !important; }
      #forward-button{ display: none !important; }
      #stop-button{ display: none !important; }
-     #reload-button{ display: none !important; }
 
      /* bookmark icon */
      #star-button{ display: none !important; }
@@ -98,12 +97,6 @@
      #PanelUI-button { display: -moz-inline-box !important;}
 
      #reader-mode-button{ display: none !important; }
-
-     /* tracking protection shield icon */
-     #tracking-protection-icon-container { display: none !important; }
-
-     /* #identity-box { display: none !important } /* hides encryption AND permission items */
-     #identity-permission-box { display: none !important; } /* only hides permission items */
 
      /* e.g. playing indicator (secondary - not icon) */
      .tab-secondary-label { display: none !important; }
@@ -217,8 +210,6 @@ window,
   padding: 1.5px !important;
   inset-inline-end: -8px !important;
   width: 16px !important; height: 16px !important;
-
-  border-radius: 10px !important;
 
 }
 
