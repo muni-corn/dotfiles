@@ -19,6 +19,7 @@
   ];
 
   programs.hyprlock.enable = true;
+  services.hyprpolkitagent.enable = true;
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -159,9 +160,6 @@
           # load last screen brightness
           "brillo -I &"
 
-          # polkit
-          "${pkgs.libsForQt5.polkit-kde-agent}/libexec/polkit-kde-authentication-agent-1 &"
-
           # play startup sound
           "canberra-gtk-play -i desktop-login &"
         ];
@@ -258,7 +256,7 @@
         ];
       };
 
-    # disabled because hyprland will be launched with uwsm
+    # disabled because hyprland is managed by uwsm
     systemd.enable = false;
   };
 }
