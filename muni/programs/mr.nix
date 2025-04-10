@@ -1,8 +1,8 @@
 {
   home.file = {
     ".mrtrust".text = ''
-      "~/code/apollo/.mrconfig"
-      "~/code/liberdus/.mrconfig"
+      ~/code/apollo/.mrconfig
+      ~/code/liberdus/.mrconfig
     '';
   };
 
