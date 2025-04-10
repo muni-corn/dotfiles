@@ -43,6 +43,12 @@
           serviceName = "twitchtrot-linkstack";
           user = "twitchtrot:twitchtrot";
           volumes = [ "twitchtrot-linkstack-data:/htdocs" ];
+
+          # Hub login
+          login = {
+            username = "musicaloft";
+            passwordFile = config.sops.secrets.twitchtrot-dockerhub-key;
+          };
         };
       };
     };
