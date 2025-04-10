@@ -10,7 +10,7 @@
       isSystemUser = true;
       subGidRanges = [
         {
-          startUid = 10000;
+          startGid = 10000;
           count = 65536;
         }
       ];
@@ -36,18 +36,19 @@
         twitchtrot-linkstack = {
           autoStart = true;
           environmentFiles = [ config.sops.secrets.twitchtrot-linkstack-env.path ];
-          hostname = "linkstack";
-          image = "linkstackorg/linkstack:latest";
-          podman.user = "twitchtrot";
-          ports = [ "8999:443" ];
+          hostname = "twitchtrot-linkstack";
+          image = "docker.io/linkstackorg/linkstack:latest";
+          ports = [
+            "8998:80"
+            "8999:443"
+          ];
           serviceName = "twitchtrot-linkstack";
-          user = "twitchtrot:twitchtrot";
           volumes = [ "twitchtrot-linkstack-data:/htdocs" ];
 
           # Hub login
           login = {
             username = "musicaloft";
-            passwordFile = config.sops.secrets.twitchtrot-dockerhub-key;
+            passwordFile = "${config.sops.secrets.twitchtrot-dockerhub-key.path}";
           };
         };
       };

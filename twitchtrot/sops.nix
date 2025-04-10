@@ -11,7 +11,10 @@
     in
     {
       twitchtrot-linkstack-env = defaultConfig;
-      twitchtrot-user-passhash = defaultConfig;
       twitchtrot-dockerhub-key = defaultConfig;
+      twitchtrot-user-passhash = {
+        sopsFile = ./secrets.yaml;
+        neededForUsers = true;
+      };
     };
 }
