@@ -1,28 +1,47 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager";
+
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # geonkick 2
     # geonkick-nixpkgs.url = "github:nixos/nixpkgs/1af754ac1e481efa5284df47d6e13be09f69bc53";
 
     # realtime audio
-    musnix.url = "github:musnix/musnix";
+    musnix = {
+      url = "github:musnix/musnix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # updated minecraft servers
-    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    nix-minecraft = {
+      url = "github:Infinidoge/nix-minecraft";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # ai
-    nixified-ai.url = "github:nixified-ai/flake";
+    nixified-ai = {
+      url = "github:nixified-ai/flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # extra hardware configuration
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
     # latest wayland packages
-    nixpkgs-wayland.url = "github:nix-community/nixpkgs-wayland";
+    nixpkgs-wayland = {
+      url = "github:nix-community/nixpkgs-wayland";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # latest xr packages
-    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
+    nixpkgs-xr = {
+      url = "github:nix-community/nixpkgs-xr";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # nix user repository
     nur = {
@@ -31,21 +50,42 @@
     };
 
     # for runtime-decrypted secrets
-    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix = {
+      url = "github:Mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # for system themes and styling
-    stylix.url = "github:danth/stylix";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # my stuff
-    iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
-    muni-bot.url = "github:muni-corn/muni_bot";
-    muse-shell.url = "github:muni-corn/muse-shell";
-    muse-sounds.url = "git+https://codeberg.org/municorn/muse-sounds?ref=main";
+    iosevka-muse = {
+      url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    muni-bot = {
+      url = "github:muni-corn/muni_bot";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    muse-shell = {
+      url = "github:muni-corn/muse-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    muse-sounds = {
+      url = "git+https://codeberg.org/municorn/muse-sounds?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     muni-wallpapers = {
       url = "github:muni-corn/muni-wallpapers";
       flake = false;
     };
-    plymouth-theme-musicaloft-rainbow.url = "git+https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow?ref=main";
+    plymouth-theme-musicaloft-rainbow = {
+      url = "git+https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow?ref=main";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
