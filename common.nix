@@ -151,7 +151,7 @@
       enable = true;
       enableBrowserSocket = true;
       enableSSHSupport = true;
-      pinentryPackage = pkgs.pinentry-gtk2;
+      pinentryPackage = pkgs.pinentry-gnome3;
     };
 
     nh = {
