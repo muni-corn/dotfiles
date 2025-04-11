@@ -50,22 +50,12 @@
     --uc-identity-color-pink:      #F78FB3;
     --uc-identity-color-purple:    #786FA6;
      
-    
-    /* URL colour in URL bar suggestions */
-    --urlbar-popup-url-color: var(--uc-identity-color-purple) !important;
-     
-     
-     
     /*---+---+---+---+---+---+---+
      | V | I | S | U | A | L | S |
      +---+---+---+---+---+---+---*/
     
     /* dynamic url bar width settings */
     --uc-urlbar-width: clamp(250px, 50vw, 600px);
-
-    /* dynamic tab width settings */
-    --uc-active-tab-width:   clamp( 50px, 18vw, 220px);
-    --uc-inactive-tab-width: clamp( 50px, 15vw, 200px);
 
     /* if active always shows the tab close button */
     --show-tab-close-button: none; /* DEFAULT: -moz-inline-box; */ 
@@ -75,7 +65,6 @@
 
     /* adds left and right margin to the container-tabs indicator */
     --container-tabs-indicator-margin: 0px;
-
 }
 
     /*---+---+---+---+---+---+---+
@@ -118,16 +107,6 @@
 /* No need to change anything below this comment.
  * Just tweak it if you want to tweak the overall layout. c: */
 
-:root {
-    
-    --tab-block-margin: 2px !important;
-    
-}
-
-
-
-
-
 window,
 #main-window,
 #toolbar-menubar,
@@ -136,170 +115,49 @@ window,
 #navigator-toolbox,
 #sidebar-box,
 #nav-bar {
-
     -moz-appearance: none !important;
     
     border: none !important;
     box-shadow: none !important;
-
 }
-
-
-
-
-
-/* grey out ccons inside the toolbar to make it
- * more aligned with the Black & White colour look */
-#PersonalToolbar toolbarbutton:not(:hover),
-#bookmarks-toolbar-button:not(:hover) { filter: grayscale(1) !important; }
-
-
-/* Show Window Control Button */
-.titlebar-buttonbox-container { display: -moz-inline-box !important; }
-
 
 /* remove "padding" left and right from tabs */
 .titlebar-spacer { display: none !important; }
-
 
 /* remove gap after pinned tabs */
 #tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])
     > #tabbrowser-arrowscrollbox
     > .tabbrowser-tab[first-visible-unpinned-tab] { margin-inline-start: 0 !important; }
 
-
 /* remove tab shadow */
 .tabbrowser-tab
     >.tab-stack
     > .tab-background { box-shadow: none !important;  }
 
-
-/* tab close button options */
-.tabbrowser-tab:not([pinned]) .tab-close-button { display: var(--show-tab-close-button) !important; }
-.tabbrowser-tab:not([pinned]):hover .tab-close-button { display: var(--show-tab-close-button-hover) !important }
-
-
-/* adaptive tab width */
-.tabbrowser-tab[selected][fadein]:not([pinned]) { max-width: var(--uc-active-tab-width) !important; }
-.tabbrowser-tab[fadein]:not([selected]):not([pinned]) { max-width: var(--uc-inactive-tab-width) !important; }
-
-
-/* container tabs indicator */
-.tabbrowser-tab[usercontextid]
-    > .tab-stack
-    > .tab-background
-    > .tab-context-line {
-    
-        margin: -1px var(--container-tabs-indicator-margin) 0 var(--container-tabs-indicator-margin) !important;
-
-
-}
-
-
-/* show favicon when media is playing but tab is hovered */
-.tab-icon-image:not([pinned]) { opacity: 1 !important; }
-
-
-/* Makes the speaker icon to always appear if the tab is playing (not only on hover) */
-.tab-icon-overlay:not([crashed]),
-.tab-icon-overlay[pinned][crashed][selected] {
-
-  top: 5px !important;
-  z-index: 1 !important;
-
-  padding: 1.5px !important;
-  inset-inline-end: -8px !important;
-  width: 16px !important; height: 16px !important;
-
-}
-
-
-/* style and position speaker icon */
-.tab-icon-overlay:not([sharing], [crashed]):is([soundplaying], [muted], [activemedia-blocked]) {
-
-  stroke: transparent !important;
-  background: transparent !important;
-  opacity: 1 !important; fill-opacity: 0.8 !important;
-
-  color: currentColor !important;
-
-}
-
-
-.tab-icon-overlay:not([pinned], [sharing], [crashed]):is([soundplaying], [muted], [activemedia-blocked]) { margin-inline-end: 9.5px !important; }
-
-
-.tabbrowser-tab:not([image]) .tab-icon-overlay:not([pinned], [sharing], [crashed]) {
-
-  top: 0 !important;
-
-  padding: 0 !important;
-  margin-inline-end: 5.5px !important; 
-  inset-inline-end: 0 !important;
-
-}
-
-
-.tab-icon-overlay:not([crashed])[soundplaying]:hover,
-.tab-icon-overlay:not([crashed])[muted]:hover,
-.tab-icon-overlay:not([crashed])[activemedia-blocked]:hover {
-    
-    color: currentColor !important;
-    fill-opacity: 0.95 !important;
-    
-}
-
-
-.tabbrowser-tab[selected] .tab-icon-overlay:not([crashed])[soundplaying]:hover,
-.tabbrowser-tab[selected] .tab-icon-overlay:not([crashed])[muted]:hover,
-.tabbrowser-tab[selected] .tab-icon-overlay:not([crashed])[activemedia-blocked]:hover {
-    
-    color: currentColor !important;
-    fill-opacity: 0.95 !important;
-    
-}
-
-
 #nav-bar {
-
     border:     none !important;
     box-shadow: none !important;
     background: transparent !important;
-
 }
-
 
 /* remove border below whole nav */
 #navigator-toolbox { border-bottom: none !important; }
-
 
 #urlbar,
 #urlbar * { box-shadow: none !important; }
 
 
-#urlbar[focused="true"]
-    > #urlbar-background,
 #urlbar:not([open])
     > #urlbar-background { background: transparent !important; }
 
-
 /* transition to oneline */
 @media (min-width: 1000px) { 
-    
-
     /* move tabs bar over */
     #TabsToolbar { margin-left: var(--uc-urlbar-width) !important; }
 
-
     /* move entire nav bar  */
     #nav-bar { margin: calc((var(--urlbar-min-height) * -1) - 8px) calc(100vw - var(--uc-urlbar-width)) 0 0 !important; }
-
-
-} /* end media query */
-
-
-
-
+}
 
 /* Container Tabs */
 .identity-color-blue      { --identity-tab-color: var(--uc-identity-color-blue)      !important; --identity-icon-color: var(--uc-identity-color-blue)      !important; }
