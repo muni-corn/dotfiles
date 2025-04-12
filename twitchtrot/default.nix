@@ -4,9 +4,7 @@
 
   services.caddy = {
     enable = true;
-
-    # for testing
-    acmeCA = "https://acme-staging-v02.api.letsencrypt.org/directory";
+    email = "caddy@musicaloft.com";
 
     virtualHosts."links.twitchtrot.horse" = {
       extraConfig = ''
@@ -14,6 +12,11 @@
       '';
     };
   };
+
+  networking.firewall.allowedTCPPorts = [
+    80
+    443
+  ];
 
   virtualisation = {
     podman = {
