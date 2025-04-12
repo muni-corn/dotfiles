@@ -73,6 +73,10 @@
             noise = 0.025;
             contrast = 0.5;
             brightness = 1.0;
+            popups = true;
+            popups_ignorealpha = 0.5;
+            input_methods = true;
+            input_methods_ignorealpha = 0.5;
           };
         };
 
