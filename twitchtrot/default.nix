@@ -2,14 +2,18 @@
 {
   imports = [ ./sops.nix ];
 
-  security.acme = {
-    acceptTerms = true;
-    certs."links.twitchtrot.horse" = {
-      email = "twitchtrot@musicaloft.com";
-      webroot = "/var/lib/containers/storage/volumes/twitchtrot-linkstack-data/_data";
+  services.caddy = {
+    enable = true;
+
+    # for testing
+    acmeCA = "https://acme-staging-v02.api.letsencrypt.org/directory";
+
+    virtualHosts."links.twitchtrot.horse" = {
+      extraConfig = ''
+        reverse_proxy 127.0.0.1:8998
+      '';
     };
   };
-
 
   virtualisation = {
     podman = {
@@ -26,8 +30,8 @@
           hostname = "twitchtrot-linkstack";
           image = "docker.io/linkstackorg/linkstack:latest";
           ports = [
-            "8998:80"
-            "8999:443"
+            "127.0.0.1:8998:80"
+            "127.0.0.1:8999:443"
           ];
           serviceName = "twitchtrot-linkstack";
           volumes = [ "twitchtrot-linkstack-data:/htdocs" ];
