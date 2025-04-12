@@ -1,6 +1,15 @@
 { config, ... }:
 {
   imports = [ ./sops.nix ];
+
+  security.acme = {
+    acceptTerms = true;
+    certs."links.twitchtrot.horse" = {
+      email = "twitchtrot@musicaloft.com";
+      webroot = "/var/lib/containers/storage/volumes/twitchtrot-linkstack-data/_data";
+    };
+  };
+
   users = {
     users.twitchtrot = {
       createHome = true;
