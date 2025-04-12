@@ -10,28 +10,6 @@
     };
   };
 
-  users = {
-    users.twitchtrot = {
-      createHome = true;
-      group = "twitchtrot";
-      hashedPasswordFile = config.sops.secrets.twitchtrot-user-passhash.path;
-      home = "/var/lib/twitchtrot";
-      isSystemUser = true;
-      subGidRanges = [
-        {
-          startGid = 10000;
-          count = 65536;
-        }
-      ];
-      subUidRanges = [
-        {
-          startUid = 10000;
-          count = 65536;
-        }
-      ];
-    };
-    groups.twitchtrot = { };
-  };
 
   virtualisation = {
     podman = {
