@@ -20,7 +20,10 @@
 
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  environment.defaultPackages = with pkgs; [ blender ];
+  environment.defaultPackages = with pkgs; [
+    blender
+    upscayl
+  ];
 
   home-manager.users.muni = {
     programs.hyprlock.settings = (import ../utils.nix { inherit config lib; }).mkHyprlockSettings [
