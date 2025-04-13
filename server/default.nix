@@ -148,4 +148,6 @@
 
     xserver.enable = true;
   };
+
+  systemd.units.display-manager.enable = false;
 }
