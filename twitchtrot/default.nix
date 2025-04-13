@@ -9,6 +9,7 @@
     virtualHosts."links.twitchtrot.horse" = {
       extraConfig = ''
         reverse_proxy 127.0.0.1:8998
+        header Content-Security-Policy "upgrade-insecure-requests"
       '';
     };
   };
