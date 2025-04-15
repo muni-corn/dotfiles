@@ -10,6 +10,8 @@
     zellij = {
       enable = true;
       enableFishIntegration = false;
+      exitShellOnExit = true;
+      attachExistingSession = true;
     };
   };
 
