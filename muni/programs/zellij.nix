@@ -1,8 +1,5 @@
 {
-  home.sessionVariables = {
-    ZELLIJ_AUTO_EXIT = "true";
-    ZELLIJ_AUTO_ATTACH = "true";
-  };
+  home.sessionVariables.ZELLIJ_AUTO_EXIT = "true";
 
   programs = {
     # start with zellij if accessed by ssh
@@ -17,6 +14,8 @@
 
       # only valid if integration is enabled :c so sessionVariables must be set manually instead
       # exitShellOnExit = true;
+
+      # this causes problems with the ssh auto start
       # attachExistingSession = true;
     };
   };
