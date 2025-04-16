@@ -117,6 +117,9 @@
     };
   };
 
+  systemd.network.netdevs.wlan0.enable = false;
+  systemd.network.netdevs.wlp15s0.enable = false;
+
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
