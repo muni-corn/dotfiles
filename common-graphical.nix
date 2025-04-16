@@ -126,6 +126,13 @@
       # Configure keymap in X11
       xkb.layout = "us";
     };
+
+    udev.extraRules = ''
+      # Huion Kamvas 13 (Gen 3)
+      KERNEL=="hidraw*", ATTRS{idVendor}=="256c", ATTRS{idProduct}=="2009", TAG+="uaccess", TAG+="udev-acl"
+      SUBSYSTEM=="usb", ATTRS{idVendor}=="256c", ATTRS{idProduct}=="2009", TAG+="uaccess", TAG+="udev-acl"
+      SUBSYSTEM=="input", ATTRS{idVendor}=="256c", ATTRS{idProduct}=="2009", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+    '';
   };
 
   systemd.packages = [
