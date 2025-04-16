@@ -1,4 +1,8 @@
 {
+  home.sessionVariables = {
+    ZELLIJ_AUTO_EXIT = "true";
+    ZELLIJ_AUTO_ATTACH = "true";
+  };
 
   programs = {
     # start with zellij if accessed by ssh
@@ -10,8 +14,10 @@
     zellij = {
       enable = true;
       enableFishIntegration = false;
-      exitShellOnExit = true;
-      attachExistingSession = true;
+
+      # only valid if integration is enabled :c so sessionVariables must be set manually instead
+      # exitShellOnExit = true;
+      # attachExistingSession = true;
     };
   };
 
