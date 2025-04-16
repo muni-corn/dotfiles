@@ -1,5 +1,15 @@
 {
   services = {
+    caddy = {
+      enable = true;
+      email = "caddy@musicaloft.com";
+
+      virtualHosts."ai.musicaloft.com" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:3030
+        '';
+      };
+    };
 
     comfyui = {
       enable = true;
