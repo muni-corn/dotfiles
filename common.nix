@@ -202,6 +202,8 @@
   services = {
     automatic-timezoned.enable = true;
 
+    avahi.enable = true;
+
     cachix-watch-store = {
       enable = true;
       cacheName = "municorn";
