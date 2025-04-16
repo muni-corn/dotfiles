@@ -129,28 +129,24 @@
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users = {
-    users = {
-      muni = {
-        isNormalUser = true;
-        description = "municorn";
-        extraGroups = [
-          "adbusers"
-          "audio"
-          "camera"
-          "corectrl"
-          "docker"
-          "input"
-          "kvm"
-          "libvirtd"
-          "networkmanager"
-          "plugdev"
-          "video"
-          "wheel"
-        ];
-        uid = 1001;
-      };
-    };
+  users.users.muni = {
+    isNormalUser = true;
+    description = "municorn";
+    extraGroups = [
+      "adbusers"
+      "audio"
+      "camera"
+      "corectrl"
+      "docker"
+      "input"
+      "kvm"
+      "libvirtd"
+      "networkmanager"
+      "plugdev"
+      "video"
+      "wheel"
+    ];
+    uid = 1001;
   };
 
   xdg = {
@@ -166,11 +162,9 @@
     sounds.enable = true;
     terminal-exec = {
       enable = true;
-      settings = {
-        default = [
-          "kitty.desktop"
-        ];
-      };
+      settings.default = [
+        "kitty.desktop"
+      ];
     };
   };
 }
