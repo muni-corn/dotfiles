@@ -12,7 +12,7 @@
     ../docker.nix
     ../firewall.nix
     ../gaming.nix
-    ../music_production.nix
+    ../music-production.nix
     ../openssh.nix
     ../sops
     ./hardware.nix

@@ -12,10 +12,10 @@
     ../docker.nix
     ../firewall.nix
     ../gaming.nix
-    ../music_production.nix
+    ../music-production.nix
     ../openssh.nix
     ../sops
-    ../video_production.nix
+    ../video-production.nix
     ../vr.nix
     ./btrbk.nix
     ./hardware.nix
