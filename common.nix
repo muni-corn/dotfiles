@@ -213,6 +213,12 @@
       verbose = true;
     };
 
+    fail2ban = {
+      enable = true;
+      bantime = "72h";
+      bantime-increment.enable = true;
+    };
+
     fwupd.enable = true;
 
     geoclue2 = {
