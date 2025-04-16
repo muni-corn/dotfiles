@@ -6,6 +6,7 @@
 }:
 {
   imports = [
+    ../art.nix
     ../church-broadcasting.nix
     ../common-graphical.nix
     ../common.nix

@@ -9,6 +9,7 @@
     ../common.nix
     ../common-graphical.nix
 
+    ../art.nix
     ../docker.nix
     ../firewall.nix
     ../gaming.nix
