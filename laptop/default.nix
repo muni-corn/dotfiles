@@ -43,6 +43,9 @@
   networking = {
     hostName = "littlepony";
     networkmanager.wifi.powersave = true;
+
+    # for development
+    firewall.allowedTCPPorts = [ 3000 ];
   };
 
   # force governor to default null to spite musnix
