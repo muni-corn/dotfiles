@@ -12,6 +12,7 @@
     ./hardware.nix
     ./home-assistant.nix
     ./minecraft.nix
+    ./municorn.nix
     ./nextcloud.nix
     ./workarounds.nix
     ../openssh.nix
