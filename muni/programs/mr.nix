@@ -51,7 +51,7 @@
 
       # forked repos
       "code/home-manager" = {
-        checkout = "git clone git@github.com:muni-corn/nixpkgs.git";
+        checkout = "git clone git@github.com:muni-corn/home-manager.git";
         post_checkout = "git remote add upstream git@github.com:nix-community/home-manager";
         update = "git fetch --all";
       };
