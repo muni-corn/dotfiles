@@ -91,23 +91,6 @@
           };
         };
 
-        device = [
-          {
-            name = "wacom-co.,ltd.-wacom-intuos-pro-m-mouse";
-            enabled = true;
-          }
-          {
-            name = "huion-huion-tablet_gs1563-pen";
-            enabled = true;
-            output = "HDMI-A-2";
-          }
-          {
-            name = "huion-huion-tablet_gs1563";
-            enabled = true;
-            output = "HDMI-A-2";
-          }
-        ];
-
         gestures = {
           workspace_swipe = true;
           workspace_swipe_create_new = false;
