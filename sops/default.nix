@@ -11,6 +11,7 @@
       "muni_bot.env" = { };
       cachix_token = { };
       cachix_signing_key = { };
+      nextcloud_admin_pass = { };
     };
   };
 

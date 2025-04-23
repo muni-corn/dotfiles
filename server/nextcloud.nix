@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   containers.nextcloud = {
     autoStart = true;
@@ -21,7 +21,7 @@
 
             caching.redis = true;
             config = {
-              adminpassFile = ''${pkgs.writeText "adminpass" "weakpass"}'';
+              adminpassFile = config.sops.secrets.nextcloud_admin_pass.path;
               dbtype = "pgsql";
             };
             database.createLocally = true;
