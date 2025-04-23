@@ -106,6 +106,17 @@
   networking = {
     hostName = "ponycastle";
     hostId = "edafa5da";
+
+    hosts."192.168.68.70" = [
+      "ai.musicaloft.com"
+      "cloud.musicaloft.com"
+      "munibot"
+      "spiritcrypt"
+      "ssh.muni.bot"
+    ];
+
+    # for development
+    firewall.allowedTCPPorts = [ 3000 ];
   };
 
   nixpkgs.config.rocmSupport = true;

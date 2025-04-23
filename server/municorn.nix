@@ -15,10 +15,6 @@
       "municorn.horse".extraConfig = ''
         redir https://musicaloft.com/card temporary
       '';
-
-      "municorn.nom".extraConfig = ''
-        redir https://musicaloft.com/card temporary
-      '';
     };
   };
 }

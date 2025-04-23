@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 {
-  containers.nextcloud = {
+  containers.nextcloud2 = {
     autoStart = true;
 
     # where to keep data
@@ -17,19 +17,34 @@
         services = {
           nextcloud = {
             enable = true;
-            package = pkgs.nextcloud30;
+            package = pkgs.nextcloud31;
 
             caching.redis = true;
+            configureRedis = true;
+            database.createLocally = true;
+            hostName = "cloud.musicaloft.com";
+            maxUploadSize = "10G";
+
             config = {
               adminpassFile = config.sops.secrets.nextcloud_admin_pass.path;
               dbtype = "pgsql";
             };
-            database.createLocally = true;
-            hostName = "cloud.musicaloft.com";
-            configureRedis = true;
-            maxUploadSize = "10G";
+
+            settings.enabledPreviewProviders = [
+              "OC\\Preview\\BMP"
+              "OC\\Preview\\GIF"
+              "OC\\Preview\\JPEG"
+              "OC\\Preview\\Krita"
+              "OC\\Preview\\MarkDown"
+              "OC\\Preview\\MP3"
+              "OC\\Preview\\OpenDocument"
+              "OC\\Preview\\PNG"
+              "OC\\Preview\\TXT"
+              "OC\\Preview\\XBitmap"
+              "OC\\Preview\\HEIC"
+            ];
           };
-          postgresql.package = pkgs.postgresql_16;
+          postgresql.package = pkgs.postgresql_17;
           postfix = {
             enable = true;
             hostname = "mail.musicaloft.com";
@@ -47,6 +62,8 @@
     ];
   };
 
+  networking.firewall.allowedTCPPorts = [ 25683 ];
+
   services.caddy = {
     enable = true;
     email = "caddy@musicaloft.com";
@@ -57,5 +74,4 @@
       '';
     };
   };
-
 }
