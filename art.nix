@@ -11,8 +11,9 @@
     SUBSYSTEM=="usb", ATTRS{idVendor}=="256c", ATTRS{idProduct}=="2009", GROUP="input", MODE="0660"
   '';
 
-  home-manager.users.muni.xdg.dataFile."OpenTabletDriver/Configurations/Huion Kamvas 16 (Gen 3).json".text =
-    builtins.toJSON {
+  home-manager.users.muni.xdg = {
+    configFile."OpenTabletDriver/Presets/Krita.json".source = ./otd_krita_preset.json;
+    dataFile."OpenTabletDriver/Configurations/Huion Kamvas 16 (Gen 3).json".text = builtins.toJSON {
       Name = "Huion Kamvas 16 (Gen 3)";
       Specifications = {
         Digitizer = {
@@ -39,4 +40,5 @@
       ];
       "Attributes"."libinputoverride" = "1";
     };
+  };
 }
