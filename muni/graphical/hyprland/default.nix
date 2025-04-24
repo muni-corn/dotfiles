@@ -84,6 +84,7 @@
           numlock_by_default = true;
           natural_scroll = false;
           kb_options = "compose:menu";
+          focus_on_close = 1;
 
           touchpad = {
             tap-to-click = true;
