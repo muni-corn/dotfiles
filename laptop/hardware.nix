@@ -52,6 +52,17 @@
 
   swapDevices = [ { device = "/dev/disk/by-uuid/4c0de7c7-61e8-4b10-ae4a-2205d161d6d5"; } ];
 
+  services.udev.extraRules = ''
+    # Audio Expansion Card
+    ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="32ac", ATTR{idProduct}=="0010", ATTR{power/autosuspend}="10", ATTR{power/control}="auto"
+
+    # Framework Laptop 16 Keyboard Module - ANSI
+    ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="32ac", ATTR{idProduct}=="0012", ATTR{power/wakeup}="disabled"
+
+    # Framework Laptop 16 Numpad Module
+    ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="32ac", ATTR{idProduct}=="0014", ATTR{power/wakeup}="disabled"
+  '';
+
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
