@@ -1,77 +1,86 @@
 { config, pkgs, ... }:
+let
+  port = 25683;
+in
 {
-  containers.nextcloud2 = {
-    autoStart = true;
+  services = {
+    caddy = {
+      enable = true;
+      email = "caddy@musicaloft.com";
 
-    # where to keep data
-    bindMounts.nextcloud = {
-      hostPath = "/crypt/nextcloud";
-      mountPoint = "/var/lib/nextcloud";
-      isReadOnly = false;
+      virtualHosts.${config.services.nextcloud.hostName} = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:${builtins.toString port}
+        '';
+      };
     };
+    nextcloud = {
+      enable = true;
+      package = pkgs.nextcloud31;
 
-    # nixos configuration for nextcloud
-    config =
-      { ... }:
-      {
-        services = {
-          nextcloud = {
-            enable = true;
-            package = pkgs.nextcloud31;
+      caching.redis = true;
+      configureRedis = true;
+      database.createLocally = true;
+      datadir = "/crypt/nextcloud";
+      extraAppsEnable = false;
+      hostName = "cloud.musicaloft.com";
+      maxUploadSize = "10G";
 
-            caching.redis = true;
-            configureRedis = true;
-            database.createLocally = true;
-            hostName = "cloud.musicaloft.com";
-            maxUploadSize = "10G";
+      # notify_push.enable = true;
 
-            config = {
-              adminpassFile = config.sops.secrets.nextcloud_admin_pass.path;
-              dbtype = "pgsql";
-            };
-
-            settings.enabledPreviewProviders = [
-              "OC\\Preview\\BMP"
-              "OC\\Preview\\GIF"
-              "OC\\Preview\\JPEG"
-              "OC\\Preview\\Krita"
-              "OC\\Preview\\MarkDown"
-              "OC\\Preview\\MP3"
-              "OC\\Preview\\OpenDocument"
-              "OC\\Preview\\PNG"
-              "OC\\Preview\\TXT"
-              "OC\\Preview\\XBitmap"
-              "OC\\Preview\\HEIC"
-            ];
-          };
-          postgresql.package = pkgs.postgresql_17;
-          postfix = {
-            enable = true;
-            hostname = "mail.musicaloft.com";
-          };
-        };
+      config = {
+        adminuser = "municorn";
+        adminpassFile = config.sops.secrets.nextcloud_admin_pass.path;
+        dbtype = "pgsql";
       };
 
-    # ports to forward
-    forwardPorts = [
+      settings = {
+        enabledPreviewProviders = [
+          "OC\\Preview\\BMP"
+          "OC\\Preview\\GIF"
+          "OC\\Preview\\JPEG"
+          "OC\\Preview\\Krita"
+          "OC\\Preview\\MarkDown"
+          "OC\\Preview\\MP3"
+          "OC\\Preview\\OpenDocument"
+          "OC\\Preview\\PNG"
+          "OC\\Preview\\TXT"
+          "OC\\Preview\\XBitmap"
+          "OC\\Preview\\HEIC"
+        ];
+        trusted_proxies = [ "127.0.0.1" ];
+      };
+    };
+
+    nginx.virtualHosts.${config.services.nextcloud.hostName}.listen = [
       {
-        containerPort = 80;
-        hostPort = 25683;
-        protocol = "tcp";
+        inherit port;
+        addr = "127.0.0.1";
       }
     ];
-  };
-
-  networking.firewall.allowedTCPPorts = [ 25683 ];
-
-  services.caddy = {
-    enable = true;
-    email = "caddy@musicaloft.com";
-
-    virtualHosts."cloud.musicaloft.com" = {
-      extraConfig = ''
-        reverse_proxy 127.0.0.1:25683
-      '';
+    postgresql = {
+      enable = true;
+      package = pkgs.postgresql_17;
+    };
+    postfix = {
+      enable = true;
+      hostname = "mail.musicaloft.com";
     };
   };
+
+  networking.firewall.allowedTCPPorts = [ port ];
+
+  sops.secrets =
+    let
+      mkSecret = {
+        mode = "0440";
+        owner = "nextcloud";
+        group = "nextcloud";
+        sopsFile = ../sops/secrets/nextcloud.yaml;
+      };
+    in
+    {
+      nextcloud_admin_pass = mkSecret;
+      nextcloud_pgsql = mkSecret;
+    };
 }
