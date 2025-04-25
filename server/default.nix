@@ -14,6 +14,7 @@
     ./minecraft.nix
     ./municorn.nix
     ./nextcloud.nix
+    ./peertube.nix
     ./workarounds.nix
     ../openssh.nix
     ../sops
