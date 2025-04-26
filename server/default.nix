@@ -22,7 +22,7 @@
   ];
 
   # Define your hostname.
-  networking.hostName = "spiritcrypt";
+  networking.hostName = "munibot";
 
   # Set your time zone.
   time.timeZone = lib.mkForce "America/Boise";
@@ -94,7 +94,7 @@
                 home = { };
                 var = { };
               };
-              target = "/crypt/backup/spiritcrypt";
+              target = "/crypt/backup/munibot";
               snapshot_dir = "/snaps";
             };
           };

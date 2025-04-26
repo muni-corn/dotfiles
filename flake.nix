@@ -198,7 +198,7 @@
           ./desktop
         ];
 
-      spiritcryptModules = commonModules ++ [
+      munibotModules = commonModules ++ [
         # hardware
         nixos-hardware.nixosModules.common-cpu-intel
         nixos-hardware.nixosModules.common-pc
@@ -223,10 +223,10 @@
           system = "x86_64-linux";
           modules = ponycastleModules;
         };
-        spiritcrypt = nixpkgs.lib.nixosSystem {
+        munibot = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           system = "x86_64-linux";
-          modules = spiritcryptModules;
+          modules = munibotModules;
         };
       };
     };

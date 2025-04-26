@@ -111,7 +111,6 @@
       "ai.musicaloft.com"
       "cloud.musicaloft.com"
       "munibot"
-      "spiritcrypt"
       "ssh.muni.bot"
     ];
 

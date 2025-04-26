@@ -175,7 +175,7 @@
 
     ssh = {
       knownHosts = {
-        spiritcrypt = {
+        munibot = {
           hostNames = [ "192.168.0.70" ];
           publicKey = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBCyWusqqwfvUJHBhrpI9qPGFJpg4vHvU/QDrsL9hCu6";
         };
@@ -263,7 +263,7 @@
 
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpFoYAj02WzgnBokgr2ZzFKOaffOVRK5Ru7Ngh53sjr (none)"
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP0f4PM3RULjNQBXS2/fMOe/NwbSjzKJZc5gJFgTiudu muni@spiritcrypt"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIP0f4PM3RULjNQBXS2/fMOe/NwbSjzKJZc5gJFgTiudu muni@munibot"
       ];
 
       shell = config.home-manager.users.muni.programs.fish.package;
