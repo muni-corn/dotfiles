@@ -12,7 +12,13 @@
   programs.taskwarrior = {
     enable = true;
     package = pkgs.taskwarrior3;
+
+    colorTheme = "dark-violets-256";
+
     config = {
+      # color overrides
+      color.tag.started = "black on cyan";
+
       # contexts
       context = {
         apollo = {
