@@ -1,5 +1,14 @@
 { config, pkgs, ... }:
 {
+  imports = [
+    ../../extra-modules/hm/timewarrior.nix
+  ];
+
+  programs.timewarrior = {
+    enable = true;
+    installTaskHook = true;
+  };
+
   programs.taskwarrior = {
     enable = true;
     package = pkgs.taskwarrior3;
@@ -57,5 +66,4 @@
       include ${config.sops.secrets.taskwarrior_secrets.path}
     '';
   };
-
 }

@@ -45,7 +45,6 @@ in
       qpdf
       sd
       sshfs
-      timewarrior
       zip
 
       # development/programming
