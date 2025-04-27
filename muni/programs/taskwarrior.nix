@@ -61,6 +61,11 @@
         task-report.next.filter = "status:pending";
       };
 
+      urgency = {
+        uda.priority.L.coefficient = -1;
+        user.tag.started.coefficient = 4.0;
+      };
+
       # remove news popup
       verbose = "affected,blank,context,edit,header,footnote,label,new-id,project,special,sync,override,recur";
 
