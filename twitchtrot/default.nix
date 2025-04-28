@@ -6,11 +6,21 @@
     enable = true;
     email = "caddy@musicaloft.com";
 
-    virtualHosts."links.twitchtrot.horse" = {
-      extraConfig = ''
-        reverse_proxy 127.0.0.1:8998
-        header Content-Security-Policy "upgrade-insecure-requests"
-      '';
+    virtualHosts = {
+      "links.twitchtrot.horse:80" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:8998
+        '';
+      };
+      "links.twitchtrot.horse:443" = {
+        extraConfig = ''
+          reverse_proxy 127.0.0.1:8999 {
+            transport http {
+              tls_insecure_skip_verify
+            }
+          }
+        '';
+      };
     };
   };
 
