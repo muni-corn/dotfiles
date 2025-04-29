@@ -15,8 +15,6 @@
       settings.general.adjustment-method = "wayland";
     };
 
-    gnome-keyring.enable = true;
-
     gpg-agent = {
       enable = true;
 
@@ -31,6 +29,8 @@
       extraConfig = "no-allow-external-cache";
       pinentryPackage = pkgs.pinentry-gnome3;
     };
+
+    pass-secret-service.enable = true;
 
     syncthing.enable = true;
   };
