@@ -43,7 +43,7 @@
       enable = true;
       settings = {
         Server.BaseURL = "192.168.68.70:8463";
-        Client.UserID = -1;
+        Client.UserID = 0;
       };
     };
   };
