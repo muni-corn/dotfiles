@@ -116,6 +116,11 @@
       allowClientIds = [ "b3063e75-5cc7-4eaa-b8dd-b365774fb0eb" ];
     };
 
+    timew-sync-server = {
+      enable = true;
+      openFirewall = true;
+    };
+
     muni_bot = {
       enable = true;
       environmentFile = config.sops.secrets."muni_bot.env".path;
