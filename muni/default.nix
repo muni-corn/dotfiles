@@ -80,11 +80,6 @@ in
     ];
   };
 
-  services.taskwarrior-sync = {
-    enable = true;
-    package = pkgs.taskwarrior3;
-  };
-
   xdg = {
     enable = true;
     configFile = {
