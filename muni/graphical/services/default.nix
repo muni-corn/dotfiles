@@ -42,7 +42,7 @@
     timewarrior-sync = {
       enable = true;
       settings = {
-        Server.BaseURL = "192.168.68.70:8463";
+        Server.BaseURL = "http://192.168.68.70:8463";
         Client.UserID = 0;
       };
     };
