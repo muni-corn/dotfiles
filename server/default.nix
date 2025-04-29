@@ -19,6 +19,8 @@
     ../openssh.nix
     ../sops
     ../twitchtrot
+
+    ../extra-modules/nixos/timew-sync-server.nix
   ];
 
   # Define your hostname.
