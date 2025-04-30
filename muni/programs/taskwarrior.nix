@@ -19,7 +19,7 @@
 
       config = {
         # color overrides
-        color.tag.started = "black on cyan";
+        color.tag.started = "bright bold cyan";
 
         # contexts
         context = {
