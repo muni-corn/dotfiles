@@ -135,7 +135,7 @@ in
         (b "SUPER_CTRL" "n" "exec" (editFile "${notebookDir}/new/$(date +%Y%m%d-%H%M%S).md"))
 
         # other script shortcuts
-        (b "SUPER" "d" "exec" (scripts.openJournalFile notebookDir "%Y/%m%b/%d%a"))
+        (b "SUPER" "d" "exec" (scripts.openJournalFile notebookDir "%Y_%m_%d"))
         (b "SUPER_CTRL" "r" "exec" "${scripts.dir}/toggle_gammastep.fish")
 
         # lock
