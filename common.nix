@@ -122,8 +122,9 @@
       allowed-users = [ "muni" ];
       substituters = [ "https://cache.nixos.org" ];
       trusted-users = [
-        "root"
+        "builder"
         "muni"
+        "root"
       ];
     };
     sshServe = {
