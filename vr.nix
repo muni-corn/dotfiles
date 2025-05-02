@@ -72,6 +72,35 @@
     openFirewall = true;
 
     # Config for WiVRn (https://github.com/WiVRn/WiVRn/blob/master/docs/configuration.md)
-    config.enable = false;
+    config = {
+      enable = true;
+      json = {
+        application = [
+          pkgs.wlx-overlay-s
+        ];
+        bitrate = 50000000;
+        encoders = [
+          {
+            encoder = "vaapi";
+            codec = "av1";
+            width = 0.5;
+            height = 1;
+            offset_x = 0;
+            offset_y = 0;
+            group = 0;
+          }
+          {
+            encoder = "vaapi";
+            codec = "av1";
+            width = 0.5;
+            height = 1;
+            offset_x = 0.5;
+            offset_y = 0;
+            group = 0;
+          }
+        ];
+        scale = 1.0;
+      };
+    };
   };
 }
