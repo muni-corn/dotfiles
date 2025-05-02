@@ -1,12 +1,24 @@
 {
-  networking.hosts."127.0.0.1" = [
-    "ai.musicaloft.com"
-    "cloud.musicaloft.com"
-    "git.musicaloft.com"
-    "watch.musicaloft.com"
-    "munibot"
-    "ssh.muni.bot"
-  ];
+  networking.hosts = {
+    "127.0.0.1" = [
+      "ai.musicaloft.com"
+      "cache.musicaloft.com"
+      "cloud.musicaloft.com"
+      "git.musicaloft.com"
+      "watch.musicaloft.com"
+      "nixbld.musicaloft.com"
+      "munibot"
+      "ssh.muni.bot"
+    ];
+
+    "192.168.68.60" = [
+      "ponycastle"
+    ];
+
+    "192.168.68.80" = [
+      "littlepony"
+    ];
+  };
 
   services.dnsmasq = {
     enable = true;
