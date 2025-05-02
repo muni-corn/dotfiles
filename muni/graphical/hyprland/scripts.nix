@@ -45,12 +45,13 @@ let
       failureTitle,
     }:
     writeFishScript "timew-${action}" ''
-      set out (${lib.getExe config.programs.timewarrior.package} ${action} :yes $argv 2>&1)
+      set outfile (mktemp)
+      ${lib.getExe config.programs.timewarrior.package} ${action} :yes $argv > $outfile 2>&1
 
-      if $status
-        notify-send -a "Quick clock" "${successTitle}" (string join \n $out)
+      if test $status -eq 0
+        notify-send -a "Quick clock" "${successTitle}" "$(cat $outfile)"
       else
-        notify-send -a "Quick clock" -u critical "${failureTitle}" (string join \n $out)
+        notify-send -a "Quick clock" -u critical "${failureTitle}" "$(cat $outfile)"
       end
     '';
 
@@ -59,7 +60,7 @@ let
     pkgs.writeShellScript "prompt-timew-${action}" ''
       args=$(${config.programs.rofi.finalPackage}/bin/rofi -dmenu -p '${promptText}')
       ${script} $args
-  '';
+    '';
 in
 {
   dir = scriptsDir;
@@ -94,7 +95,7 @@ in
 
       status = writeFishScript "timew-status" ''
         set out (${lib.getExe pkgs.timewarrior} 2>&1)
-        notify-send -a "Quick clock" "Time tracking status" (string join \n $out)
+        notify-send -a "Quick clock" "Time tracking status" "$(string join \n $out)"
       '';
     };
 
