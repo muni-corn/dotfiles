@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   nix = {
     buildMachines = [
@@ -10,12 +10,12 @@
         sshKey = config.sops.secrets.nix_builder_private_key.path;
         sshUser = "builder";
         supportedFeatures = config.nix.settings.system-features;
-        system = config.nixpkgs.hostPlatform;
+        system = pkgs.stdenv.hostPlatform.system;
       }
     ];
     distributedBuilds = true;
     settings = {
-      builders-use-substituters = true;
+      builders-use-substitutes = true;
       substituters = [
         "https://cache.musicaloft.com"
       ];

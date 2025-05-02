@@ -33,8 +33,8 @@
       group = "builder";
       hashedPasswordFile = config.sops.secrets.nix_builder_passwd.path;
       isSystemUser = true;
-      openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIPaXLPvVvo2cKqprylq4XvCS+WXrCe/1H7xs+yqcjtYw nix builder"
+      openssh.authorizedKeys.keyFiles = [
+        ./builder.pub
       ];
     };
     groups.builder = { };
