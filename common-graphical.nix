@@ -73,6 +73,11 @@
     xpadneo.enable = true;
   };
 
+  networking.networkmanager = {
+    enable = true;
+    dns = "systemd-resolved";
+  };
+
   programs = {
     adb.enable = true;
     evolution = {
@@ -119,6 +124,9 @@
 
     # profile sync daemon, for SSDs and browsers
     psd.enable = true;
+
+    # systemd name resolution
+    resolved.enable = true;
 
     # Configure keymap in X11
     xserver.xkb.layout = "us";

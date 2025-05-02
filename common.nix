@@ -99,11 +99,6 @@
       "1.1.1.1"
     ];
 
-    networkmanager = {
-      enable = true;
-      dns = "systemd-resolved";
-    };
-
     nftables.enable = true;
   };
 
@@ -240,8 +235,6 @@
     logind.extraConfig = ''
       RuntimeDirectorySize=2G
     '';
-
-    resolved.enable = true;
 
     sshguard.enable = true;
 
