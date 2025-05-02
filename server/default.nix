@@ -8,6 +8,7 @@
   imports = [
     ../common.nix
     ./ai.nix
+    ./dnsmasq.nix
     ./forgejo.nix
     ./hardware.nix
     ./home-assistant.nix
