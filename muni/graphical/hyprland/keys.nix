@@ -197,12 +197,11 @@ in
         (b "" "F12" "pass" "title:^(muni-tuber)$")
 
         # quick clock-in/clock-out scripts
-        (b "SUPER" "Delete" "exec" scripts.clock.instant.stamp)
-        (b "SUPER" "Home" "exec" scripts.clock.instant.start)
-        (b "SUPER" "End" "exec" scripts.clock.instant.break)
-        (b "SUPER_CTRL" "Delete" "exec" scripts.clock.prompt.stamp)
-        (b "SUPER_CTRL" "Home" "exec" scripts.clock.prompt.start)
-        (b "SUPER_CTRL" "End" "exec" scripts.clock.prompt.break)
+        (b "SUPER" "Delete" "exec" scripts.timew.status)
+        (b "SUPER" "Home" "exec" scripts.timew.start.now)
+        (b "SUPER" "End" "exec" scripts.timew.stop.now)
+        (b "SUPER_CTRL" "Home" "exec" scripts.timew.start.prompt)
+        (b "SUPER_CTRL" "End" "exec" scripts.timew.stop.prompt)
       ];
 
       # repeatable bindings allowed when locked

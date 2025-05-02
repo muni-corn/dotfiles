@@ -38,22 +38,27 @@ let
     in
     "${notebookDir}/journal/${dateDir}.md";
 
-  recordTime = writeFishScript "record-time" ''
-    set file $HOME/notebook/times.csv
-    set now (date -Iseconds)
+  recordTimew =
+    {
+      action,
+      successTitle,
+      failureTitle,
+    }:
+    writeFishScript "timew-${action}" ''
+      set out (${lib.getExe config.programs.timewarrior.package} ${action} :yes $argv 2>&1)
 
-    echo "$now,$argv" >>$file
+      if $status
+        notify-send -a "Quick clock" "${successTitle}" (string join \n $out)
+      else
+        notify-send -a "Quick clock" -u critical "${failureTitle}" (string join \n $out)
+      end
+    '';
 
-    if ! set -q argv || ! test -n "$argv"
-        set desc $now
-    else
-        set desc "$argv"
-    end
-
-    # to simplify the path displayed
-    set display_path (string replace ${config.home.homeDirectory} "~" $file)
-
-    notify-send -a "Quick clock" "Time recorded" "\"$desc\" has been recorded in $display_path."
+  promptTimewArgs =
+    action: promptText: script:
+    pkgs.writeShellScript "prompt-timew-${action}" ''
+      args=$(${config.programs.rofi.finalPackage}/bin/rofi -dmenu -p '${promptText}')
+      ${script} $args
   '';
 in
 {
@@ -62,34 +67,35 @@ in
   screenshot = "${scriptsDir}/hypr-screenshot.fish";
   quickCode = import ../quick-code-script.nix { inherit config pkgs; };
 
-  clock =
+  timew =
     let
-      mkInstantScript =
-        type:
-        pkgs.writeShellScript "clock-${type}" ''
-          ${recordTime} ${type}
-        '';
+      start = recordTimew {
+        action = "start";
+        successTitle = "Clock started";
+        failureTitle = "Couldn't start clock";
+      };
 
-      mkPromptScript =
-        type:
-        pkgs.writeShellScript "prompt-clock-${type}" ''
-          desc=$(${config.programs.rofi.finalPackage}/bin/rofi -dmenu -p 'Clock ${type} for?')
-          ${recordTime} "${type}: $desc"
-        '';
-
-      mkClockScriptSet =
-        fn:
-        (builtins.listToAttrs (
-          map (type: lib.nameValuePair type (fn type)) [
-            "start"
-            "break"
-            "stamp"
-          ]
-        ));
+      stop = recordTimew {
+        action = "stop";
+        successTitle = "Clock stopped";
+        failureTitle = "Couldn't stop clock";
+      };
     in
     {
-      instant = mkClockScriptSet mkInstantScript;
-      prompt = mkClockScriptSet mkPromptScript;
+      start = {
+        now = start;
+        prompt = promptTimewArgs "start" "Started when/what?" start;
+      };
+
+      stop = {
+        now = stop;
+        prompt = promptTimewArgs "stop" "Stopped when/what?" stop;
+      };
+
+      status = writeFishScript "timew-status" ''
+        set out (${lib.getExe pkgs.timewarrior} 2>&1)
+        notify-send -a "Quick clock" "Time tracking status" (string join \n $out)
+      '';
     };
 
   volume = {
