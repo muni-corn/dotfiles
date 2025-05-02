@@ -35,6 +35,7 @@ in
       sox
 
       # terminal/cli stuff
+      dig
       fd
       fend
       ffmpeg-full
@@ -42,6 +43,7 @@ in
       neovim-remote
       openpomodoro-cli
       ouch
+      pom
       pv
       qpdf
       sd
