@@ -40,6 +40,7 @@ in
       ffmpeg-full
       jdupes
       neovim-remote
+      openpomodoro-cli
       ouch
       pv
       qpdf
