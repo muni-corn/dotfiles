@@ -16,6 +16,10 @@ in
   ];
 
   programs = {
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
     alvr = {
       enable = true;
       openFirewall = true;
