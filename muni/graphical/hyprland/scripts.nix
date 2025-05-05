@@ -38,6 +38,7 @@ let
     in
     "${notebookDir}/journal/${dateDir}.md";
 
+  timew = lib.getExe config.programs.timewarrior.package;
   recordTimew =
     {
       action,
@@ -45,13 +46,12 @@ let
       failureTitle,
     }:
     writeFishScript "timew-${action}" ''
-      set outfile (mktemp)
-      ${lib.getExe config.programs.timewarrior.package} ${action} :yes $argv > $outfile 2>&1
+      set out (eval ${timew} ${action} :yes $argv &| string collect -a)
 
-      if test $status -eq 0
-        notify-send -a "Quick clock" "${successTitle}" "$(cat $outfile)"
+      if test $pipestatus[1] -eq 0
+        notify-send -a "Quick clock" "${successTitle}" "$out"
       else
-        notify-send -a "Quick clock" -u critical "${failureTitle}" "$(cat $outfile)"
+        notify-send -a "Quick clock" -u critical "${failureTitle}" "$out"
       end
     '';
 
@@ -94,8 +94,7 @@ in
       };
 
       status = writeFishScript "timew-status" ''
-        set out (${lib.getExe pkgs.timewarrior} 2>&1)
-        notify-send -a "Quick clock" "Time tracking status" "$(string join \n $out)"
+        notify-send -a "Quick clock" "Time tracking status" "$(${timew} &| string collect -a)"
       '';
     };
 
