@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
     ./fish.nix
@@ -50,7 +50,7 @@
         exts.pass-update
       ]);
       settings = {
-        PASSWORD_STORE_DIR = "$HOME/.local/share/password-store";
+        PASSWORD_STORE_DIR = "${config.home.homeDirectory}/.local/share/password-store";
         PASSWORD_STORE_KEY = "4B21310A52B15162";
         PASSWORD_STORE_CLIP_TIME = "15";
         PASSWORD_STORE_GENERATED_LENGTH = "32";
