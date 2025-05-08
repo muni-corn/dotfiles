@@ -30,6 +30,8 @@
       };
       host = "[::]";
       loadModels = [
+        "llama4:scout"
+        "llama4:maverick"
         "llama3.1:8b"
         "llama3.2:3b"
         "llama3.3:70b"
