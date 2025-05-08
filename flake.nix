@@ -61,6 +61,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # up-to-date zed editor, temporary until zed is up-to-date in nixpkgs
+    zed-editor = {
+      url = "github:HPsaucii/zed-editor-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # my stuff
     iosevka-muse = {
       url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";

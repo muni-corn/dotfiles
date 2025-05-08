@@ -343,6 +343,24 @@
         "type": "github"
       }
     },
+    "flake-parts_5": {
+      "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib_2"
+      },
+      "locked": {
+        "lastModified": 1736143030,
+        "narHash": "sha256-+hu54pAoLDEZT9pjHlqL9DNzWz0NbUn8NEAHP7PQPzU=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "b905f6fc23a9051a6e1b741e1438dbfc0634c6de",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
     "flake-utils": {
       "locked": {
         "lastModified": 1637014545,
@@ -842,6 +860,18 @@
         "type": "github"
       }
     },
+    "nixpkgs-lib_2": {
+      "locked": {
+        "lastModified": 1735774519,
+        "narHash": "sha256-CewEm1o2eVAnoqb6Ml+Qi9Gg/EfNAxbRx1lANGVyoLI=",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/e9b51731911566bbf7e4895475a87fe06961de0b.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/e9b51731911566bbf7e4895475a87fe06961de0b.tar.gz"
+      }
+    },
     "nixpkgs-wayland": {
       "inputs": {
         "flake-compat": "flake-compat_2",
@@ -948,6 +978,22 @@
         "type": "github"
       }
     },
+    "patched-nixpkgs": {
+      "locked": {
+        "lastModified": 1746733066,
+        "narHash": "sha256-t4zHTFysoqPBzDbjAFl3+p+5Zl1RZp4rw4XfutbHDTc=",
+        "owner": "TomaSajt",
+        "repo": "nixpkgs",
+        "rev": "689f4710d0dedbd785df5cea9af25ab877891816",
+        "type": "github"
+      },
+      "original": {
+        "owner": "TomaSajt",
+        "ref": "fetch-cargo-vendor-dup",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "plymouth-theme-musicaloft-rainbow": {
       "inputs": {
         "flake-compat": "flake-compat_4",
@@ -989,7 +1035,8 @@
         "nur": "nur",
         "plymouth-theme-musicaloft-rainbow": "plymouth-theme-musicaloft-rainbow",
         "sops-nix": "sops-nix",
-        "stylix": "stylix"
+        "stylix": "stylix",
+        "zed-editor": "zed-editor"
       }
     },
     "rust-analyzer-src": {
@@ -1302,6 +1349,28 @@
       "original": {
         "owner": "numtide",
         "repo": "flake-utils",
+        "type": "github"
+      }
+    },
+    "zed-editor": {
+      "inputs": {
+        "flake-parts": "flake-parts_5",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "patched-nixpkgs": "patched-nixpkgs"
+      },
+      "locked": {
+        "lastModified": 1746730747,
+        "narHash": "sha256-6nldGX/TMPDkca6OBb6UVbcJPezsN8c7TNdoFN5/9cc=",
+        "owner": "HPsaucii",
+        "repo": "zed-editor-flake",
+        "rev": "bf2279ff9a0dbd33e06e20a1fe290f21c22305ad",
+        "type": "github"
+      },
+      "original": {
+        "owner": "HPsaucii",
+        "repo": "zed-editor-flake",
         "type": "github"
       }
     }

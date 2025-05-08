@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }:
 {
@@ -78,5 +79,5 @@
     # };
 
   };
-  home.packages = with pkgs; [ zed-editor-fhs ];
+  home.packages = [ inputs.zed-editor.packages."x86_64-linux".zed-editor-bin-fhs ];
 }
