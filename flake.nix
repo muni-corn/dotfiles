@@ -68,10 +68,7 @@
     };
 
     # my stuff
-    iosevka-muse = {
-      url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
     muni-bot = {
       url = "github:muni-corn/muni_bot";
       inputs.nixpkgs.follows = "nixpkgs";
