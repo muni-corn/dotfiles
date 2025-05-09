@@ -13,6 +13,7 @@
     ./forgejo.nix
     ./hardware.nix
     ./home-assistant.nix
+    ./hydra.nix
     ./minecraft.nix
     ./municorn.nix
     ./nextcloud.nix
