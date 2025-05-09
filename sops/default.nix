@@ -14,6 +14,7 @@
       nix_builder_private_key = { };
       nix_builder_passwd = { };
       nix_serve_secret_key = { };
+      atticd_env = { };
     };
   };
 
