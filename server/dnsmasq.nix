@@ -1,24 +1,32 @@
 {
-  networking.hosts = {
-    "192.168.68.70" = [
-      "ai.musicaloft.com"
-      "cache.musicaloft.com"
-      "cloud.musicaloft.com"
-      "git.musicaloft.com"
-      "munibot"
-      "musicaloft.tplinkdns.com"
-      "nixbld.musicaloft.com"
-      "ssh.muni.bot"
-      "watch.musicaloft.com"
-    ];
+  networking = {
+    firewall = {
+      allowedTCPPorts = [ 53 ];
+      allowedUDPPorts = [ 53 ];
+    };
+    hosts = {
+      "192.168.68.70" = [
+        "ai.musicaloft.com"
+        "cache.musicaloft.com"
+        "cloud.musicaloft.com"
+        "git.musicaloft.com"
+        "munibot"
+        "musicaloft.tplinkdns.com"
+        "nixbld.musicaloft.com"
+        "ssh.muni.bot"
+        "watch.musicaloft.com"
+      ];
 
-    "192.168.68.60" = [
-      "ponycastle"
-    ];
+      "192.168.68.60" = [
+        "ponycastle"
+        "pc.ssh.muni.bot"
+      ];
 
-    "192.168.68.80" = [
-      "littlepony"
-    ];
+      "192.168.68.80" = [
+        "littlepony"
+        "lp.ssh.muni.bot"
+      ];
+    };
   };
 
   services.dnsmasq = {
