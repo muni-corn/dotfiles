@@ -25,7 +25,7 @@
         context = {
           apollo = {
             read = "project:apollo";
-            write = "project:apollo";
+            write = "project:apollo +work";
           };
           art = {
             read = "+art";
@@ -40,8 +40,16 @@
             write = "project:liberdus";
           };
           munibot = {
-            read = "project:muni_bot";
-            write = "project:muni_bot";
+            read = "project:munibot";
+            write = "project:munibot";
+          };
+          muse-shell = {
+            read = "project:muse-shell";
+            write = "project:muse-shell";
+          };
+          musicaloft = {
+            read = "project:musicaloft";
+            write = "project:musicaloft";
           };
           music = {
             read = "+music";
