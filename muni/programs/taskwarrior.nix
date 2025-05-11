@@ -18,8 +18,17 @@
       colorTheme = "bubblegum-256";
 
       config = {
+        # no writing without a filter
+        allow.empty.filter = false;
+
+        # set calendar detail
+        calendar.details = "full";
+
         # color overrides
         color.tag.started = "bright bold cyan";
+
+        # allow completion for all tags
+        complete.all.tags = true;
 
         # contexts
         context = {
@@ -63,11 +72,26 @@
         };
 
         # journal settings
-        "journal.time" = 1;
+        "journal.time" = true;
         journal.time = {
           start.annotation = "started";
           stop.annotation = "stopped";
         };
+
+        # set the nag message
+        nag = "Some tasks are more urgent!";
+
+        # give space for terminal prompts
+        reserved.lines = 3;
+
+        # add a lil space around rows
+        row.padding = 1;
+
+        # searches can be case-insensitive
+        search.case.sensitive = false;
+
+        # sync setting
+        sync.server.url = "http://192.168.68.70:10222";
 
         # set default filter for taskwarrior-tui
         uda.taskwarrior-tui = {
@@ -85,10 +109,6 @@
 
         # remove news popup
         verbose = "affected,blank,context,edit,header,footnote,label,new-id,project,special,sync,override,recur";
-
-        # other settings
-        search.case.sensitive = "no";
-        sync.server.url = "http://192.168.68.70:10222";
       };
       extraConfig = ''
         include ${config.sops.secrets.taskwarrior_secrets.path}
