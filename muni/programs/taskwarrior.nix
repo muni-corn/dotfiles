@@ -62,6 +62,13 @@
           };
         };
 
+        # journal settings
+        "journal.time" = 1;
+        journal.time = {
+          start.annotation = "started";
+          stop.annotation = "stopped";
+        };
+
         # set default filter for taskwarrior-tui
         uda.taskwarrior-tui = {
           selection = {
