@@ -715,15 +715,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1746773011,
-        "narHash": "sha256-5c+TJC6uUpiwoNpg4Og4FRpeE69nOoglwxAyAcrnI60=",
+        "lastModified": 1746942300,
+        "narHash": "sha256-FjnRoUWZAGcnQ0adQjFr3kAvz/doTePHDms8HdEz/uc=",
         "owner": "muni-corn",
         "repo": "muse-shell",
-        "rev": "99f5bbbc9c55a4c300ddfdae09e76dae4d99644d",
+        "rev": "a3b76d7fe4644abd7f216263994af9dd30efa6fc",
         "type": "github"
       },
       "original": {
         "owner": "muni-corn",
+        "ref": "gtk4",
         "repo": "muse-shell",
         "type": "github"
       }
