@@ -102,6 +102,8 @@
   };
 
   services = {
+    automatic-timezoned.enable = true;
+
     blueman.enable = true;
 
     # for mpris album art on muse-shell
