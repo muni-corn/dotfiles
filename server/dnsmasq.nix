@@ -1,14 +1,15 @@
 {
   networking.hosts = {
-    "127.0.0.1" = [
+    "192.168.68.70" = [
       "ai.musicaloft.com"
       "cache.musicaloft.com"
       "cloud.musicaloft.com"
       "git.musicaloft.com"
-      "watch.musicaloft.com"
-      "nixbld.musicaloft.com"
       "munibot"
+      "musicaloft.tplinkdns.com"
+      "nixbld.musicaloft.com"
       "ssh.muni.bot"
+      "watch.musicaloft.com"
     ];
 
     "192.168.68.60" = [
