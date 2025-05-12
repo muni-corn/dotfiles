@@ -80,6 +80,8 @@
           };
         };
 
+        ecosystem.enforce_permissions = true;
+
         input = {
           numlock_by_default = true;
           natural_scroll = false;
@@ -106,6 +108,7 @@
         # misc
         misc = {
           allow_session_lock_restore = true;
+          anr_missed_pings = 3;
           disable_splash_rendering = true;
           enable_swallow = true;
           focus_on_activate = true;
