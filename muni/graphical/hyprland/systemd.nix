@@ -21,6 +21,7 @@ in
       muse-shell = {
         Unit.Description = "muse-shell";
         Service = {
+          Environment = "GSK_RENDERER=gl";
           ExecStart = "${pkgs.muse-shell}/bin/muse-shell";
           Restart = "always";
           RestartSec = 15;
