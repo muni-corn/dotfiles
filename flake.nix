@@ -74,7 +74,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     muse-shell = {
-      url = "github:muni-corn/muse-shell/gtk4";
+      url = "github:muni-corn/muse-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     muse-sounds = {
