@@ -5,6 +5,9 @@
     allowedTCPPorts = [
       10001
       9001
+
+      # for development
+      8080
     ];
   };
 }
