@@ -25,7 +25,7 @@
         calendar.details = "full";
 
         # color overrides
-        color.tag.started = "bright bold cyan";
+        color.keyword.started = "bright bold cyan";
 
         # allow completion for all tags
         complete.all.tags = true;
@@ -71,6 +71,9 @@
           };
         };
 
+        # use ascii for table headings (personal preference)
+        fontunderline = false;
+
         # journal settings
         "journal.time" = true;
         journal.time = {
@@ -103,8 +106,14 @@
         };
 
         urgency = {
+          # inherit urgency of blocking tasks
+          "inherit" = true;
+          blocking.coefficient = 0;
+          blocked.coefficient = 0;
+
+          # custom
           uda.priority.L.coefficient = -1;
-          user.tag.started.coefficient = 4.0;
+          user.keyword.started.coefficient = 4.0;
         };
 
         # remove news popup
