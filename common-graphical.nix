@@ -101,6 +101,8 @@
     };
   };
 
+  security.soteria.enable = true;
+
   services = {
     automatic-timezoned.enable = true;
 
