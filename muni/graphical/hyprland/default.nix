@@ -32,6 +32,8 @@
         defaultAlpha = "80";
 
         colors = config.lib.stylix.colors;
+
+        r = rule: args: "${rule},${args}";
       in
       {
         general = {
@@ -165,87 +167,87 @@
 
         # animation
         bezier = [
-          "museBouncyOut,0.25,1.5,0.5,1"
-          "museOut,0,0,0.15,1"
-          "museIn,0,0,1,0.15"
-          "museInOut,0.5,0,0,1"
+          (r "museBouncyOut" "0.25,1.5,0.5,1")
+          (r "museOut" "0,0,0.15,1")
+          (r "museIn" "0,0,1,0.15")
+          (r "museInOut" "0.5,0,0,1")
         ];
         animation = [
-          "windowsIn,1,4,museBouncyOut,popin 75%"
-          "windowsOut,1,2,museIn,popin 75%"
-          "windowsMove,1,3,museInOut"
-          "fadeIn,1,2,museOut"
-          "fadeOut,1,2,museIn"
-          "workspaces,1,4,museInOut,slidefadevert 15%"
-          "border,1,2,museOut"
-          "layersIn,1,2,museBouncyOut,popin 85%"
-          "layersOut,1,1,museIn,popin 85%"
-          "fadeLayersIn,1,1,museOut"
-          "fadeLayersOut,1,1,museIn"
+          (r "windowsIn" "1,4,museBouncyOut,popin 75%")
+          (r "windowsOut" "1,2,museIn,popin 75%")
+          (r "windowsMove" "1,3,museInOut")
+          (r "fadeIn" "1,2,museOut")
+          (r "fadeOut" "1,2,museIn")
+          (r "workspaces" "1,4,museInOut,slidefadevert 15%")
+          (r "border" "1,2,museOut")
+          (r "layersIn" "1,2,museBouncyOut,popin 85%")
+          (r "layersOut" "1,1,museIn,popin 85%")
+          (r "fadeLayersIn" "1,1,museOut")
+          (r "fadeLayersOut" "1,1,museIn")
         ];
 
         layerrule = [
-          "animation fade,hyprpicker"
-          "animation fade,selection"
-          "animation fade,swww-daemon"
-          "animation slide top,bar"
-          "animation slide top,notifications"
-          "blur,bar"
-          "blur,menu"
-          "blur,notifications"
-          "blur,rofi"
-          "dimaround,rofi"
-          "ignorealpha 0.5,bar"
-          "ignorealpha 0.5,gtk-layer-shell"
-          "ignorealpha 0.5,menu"
-          "ignorealpha 0.5,notifications"
-          "ignorealpha 0.5,rofi"
-          "ignorezero,bar"
-          "ignorezero,gtk-layer-shell"
-          "ignorezero,notifications"
+          (r "animation fade" "hyprpicker")
+          (r "animation fade" "selection")
+          (r "animation fade" "swww-daemon")
+          (r "animation slide top" "bar")
+          (r "animation slide top" "notifications")
+          (r "blur" "bar")
+          (r "blur" "menu")
+          (r "blur" "notifications")
+          (r "blur" "rofi")
+          (r "dimaround" "rofi")
+          (r "ignorealpha 0.5" "bar")
+          (r "ignorealpha 0.5" "gtk-layer-shell")
+          (r "ignorealpha 0.5" "menu")
+          (r "ignorealpha 0.5" "notifications")
+          (r "ignorealpha 0.5" "rofi")
+          (r "ignorezero" "bar")
+          (r "ignorezero" "gtk-layer-shell")
+          (r "ignorezero" "notifications")
         ];
 
         windowrulev2 = [
-          "float,title:^(Firefox — Sharing Indicator)$"
-          "nofocus,title:^(Firefox — Sharing Indicator)$"
-          "move 50% 0,title:^(Firefox — Sharing Indicator)$"
-          "noblur,title:^(Firefox — Sharing Indicator)$"
-          "float,class:^(xdg-desktop-portal-gtk)$"
-          "float,title:^(Close Firefox)$"
-          "float,class:^(openrgb)$"
-          "float,title:^(Slack - Huddle)$"
-          "float,class:^(zenity)$"
-          "dimaround,class:^(Pinentry|gcr-prompter)$"
-          "pin,class:^(Pinentry|gcr-prompter)$"
-          "dimaround,class:^(org.kde.polkit-kde-authentication-agent-1)$"
-          "pin,class:^(org.kde.polkit-kde-authentication-agent-1)$"
-          "float,class:^(org.kde.polkit-kde-authentication-agent-1)$"
-          "center,class:^(org.kde.polkit-kde-authentication-agent-1)$"
+          (r "float" "title:^(Firefox — Sharing Indicator)$")
+          (r "nofocus" "title:^(Firefox — Sharing Indicator)$")
+          (r "move 50% 0" "title:^(Firefox — Sharing Indicator)$")
+          (r "noblur" "title:^(Firefox — Sharing Indicator)$")
+          (r "float" "class:^(xdg-desktop-portal-gtk)$")
+          (r "float" "title:^(Close Firefox)$")
+          (r "float" "class:^(openrgb)$")
+          (r "float" "title:^(Slack - Huddle)$")
+          (r "float" "class:^(zenity)$")
+
+          # auth agents
+          (r "dimaround" "class:^(Pinentry|gcr-prompter|org.kde.polkit-kde-authentication-agent-1|gay.vaskel.Soteria)$")
+          (r "pin" "class:^(Pinentry|gcr-prompter|org.kde.polkit-kde-authentication-agent-1|gay.vaskel.Soteria)$")
+          (r "float" "class:^(Pinentry|gcr-prompter|org.kde.polkit-kde-authentication-agent-1|gay.vaskel.Soteria)$")
+          (r "center" "class:^(Pinentry|gcr-prompter|org.kde.polkit-kde-authentication-agent-1|gay.vaskel.Soteria)$")
 
           # firefox Picture-in-Picture
-          "float,title:^(Picture-in-Picture)$"
-          "size 480 270,title:^(Picture-in-Picture)$"
-          "move 100%-480 32,title:^(Picture-in-Picture)$"
-          "idleinhibit always,title:^(Picture-in-Picture)$"
-          "keepaspectratio,title:^(Picture-in-Picture)$"
-          "pin,title:^(Picture-in-Picture)$"
-          "suppressevent fullscreen maximize activate activatefocus,title:^(Picture-in-Picture)$"
+          (r "float" "title:^(Picture-in-Picture)$")
+          (r "size 480 270" "title:^(Picture-in-Picture)$")
+          (r "move 100%-480 32" "title:^(Picture-in-Picture)$")
+          (r "idleinhibit always" "title:^(Picture-in-Picture)$")
+          (r "keepaspectratio" "title:^(Picture-in-Picture)$")
+          (r "pin" "title:^(Picture-in-Picture)$")
+          (r "suppressevent fullscreen maximize activate activatefocus" "title:^(Picture-in-Picture)$")
 
           # assign some apps to default workspaces
-          "workspace 10,class:^(discord|vesktop)$"
-          "workspace 9,class:^(Slack)$"
+          (r "workspace 10" "class:^(discord|vesktop)$")
+          (r "workspace 9" "class:^(Slack)$")
 
           # for smart gaps
-          "bordersize 0, floating:0, onworkspace:w[tv1]"
-          "rounding 0, floating:0, onworkspace:w[tv1]"
-          "bordersize 0, floating:0, onworkspace:f[1]"
-          "rounding 0, floating:0, onworkspace:f[1]"
+          (r "bordersize 0" "floating:0, onworkspace:w[tv1]")
+          (r "rounding 0" "floating:0, onworkspace:w[tv1]")
+          (r "bordersize 0" "floating:0, onworkspace:f[1]")
+          (r "rounding 0" "floating:0, onworkspace:f[1]")
 
           # unity fixes ugh
-          "size 600 400,title:^(UnityEditorInternal.AddCurvesPopup)$"
-          "size 600 400,title:^(UnityEditor.Graphs.LayerSettingsWindow)$"
-          "stayfocused,initialTitle:^(Unity.*Selector),floating:1"
-          "center,initialTitle:^(Unity.*Selector),floating:1"
+          (r "size 600 400" "title:^(UnityEditorInternal.AddCurvesPopup)$")
+          (r "size 600 400" "title:^(UnityEditor.Graphs.LayerSettingsWindow)$")
+          (r "stayfocused" "initialTitle:^(Unity.*Selector),floating:1")
+          (r "center" "initialTitle:^(Unity.*Selector),floating:1")
         ];
 
         # for smart gaps
