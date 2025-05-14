@@ -68,28 +68,34 @@
         application = [
           pkgs.wlx-overlay-s
         ];
-        bitrate = 50000000;
+        bitrate = 150000000;
         encoders = [
           {
-            encoder = "vaapi";
             codec = "av1";
+            encoder = "vaapi";
+            height = 0.25;
+            offset_x = 0.0;
+            offset_y = 0.75;
             width = 0.5;
-            height = 1;
-            offset_x = 0;
-            offset_y = 0;
-            group = 0;
           }
           {
-            encoder = "vaapi";
             codec = "av1";
+            encoder = "vaapi";
+            height = 0.75;
+            offset_x = 0.0;
+            offset_y = 0.0;
             width = 0.5;
-            height = 1;
+          }
+          {
+            codec = "h264";
+            encoder = "x264";
+            height = 1.0;
             offset_x = 0.5;
-            offset_y = 0;
-            group = 0;
+            offset_y = 0.0;
+            width = 0.5;
           }
         ];
-        scale = 1.0;
+        scale = 0.45;
       };
     };
   };
