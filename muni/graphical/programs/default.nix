@@ -79,5 +79,5 @@
     # };
 
   };
-  home.packages = [ inputs.zed-editor.packages."x86_64-linux".zed-editor-bin-fhs ];
+  home.packages = [ inputs.zed-editor.packages."x86_64-linux".zed-editor-fhs ];
 }
