@@ -55,7 +55,6 @@
     defaultRuntime = true;
 
     monadoEnvironment = {
-      STEAMVR_LH_ENABLE = "1";
       XRT_COMPOSITOR_COMPUTE = "1";
       U_PACING_COMP_MIN_TIME_MS = "5";
     };
