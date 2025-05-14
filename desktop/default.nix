@@ -110,6 +110,18 @@
 
     # for development
     firewall.allowedTCPPorts = [ 3000 ];
+
+    hosts."192.168.68.70" = [
+      "ai.musicaloft.com"
+      "cache.musicaloft.com"
+      "cloud.musicaloft.com"
+      "git.musicaloft.com"
+      "munibot"
+      "musicaloft.tplinkdns.com"
+      "nixbld.musicaloft.com"
+      "ssh.muni.bot"
+      "watch.musicaloft.com"
+    ];
   };
 
   nixpkgs.config.rocmSupport = true;
