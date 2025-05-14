@@ -108,8 +108,8 @@
   networking = {
     useDHCP = lib.mkDefault true;
     interfaces = {
-      wlan0.useDHCP = true;
-      wlp15s0.useDHCP = true;
+      wlan0.useDHCP = false;
+      wlp15s0.useDHCP = false;
       enp14s0 = {
         useDHCP = true;
         wakeOnLan.enable = true;
