@@ -25,7 +25,7 @@
         calendar.details = "full";
 
         # color overrides
-        color.keyword.started = "bright bold cyan";
+        color.uda.inprogress = "bright bold cyan";
 
         # allow completion for all tags
         complete.all.tags = true;
@@ -97,23 +97,26 @@
         sync.server.url = "http://192.168.68.70:10222";
 
         # set default filter for taskwarrior-tui
-        uda.taskwarrior-tui = {
-          selection = {
-            reverse = true;
-            italic = true;
+        uda = {
+          inprogress = {
+            label = "In progress";
+            indicator = "I";
+            type = "string";
+            values = "I";
           };
-          task-report.next.filter = "status:pending";
+          taskwarrior-tui = {
+            selection = {
+              reverse = true;
+              italic = true;
+            };
+            task-report.next.filter = "status:pending";
+          };
         };
 
-        urgency = {
-          # inherit urgency of blocking tasks
-          "inherit" = true;
-          blocking.coefficient = 0;
-          blocked.coefficient = 0;
-
-          # custom
-          uda.priority.L.coefficient = -1;
-          user.keyword.started.coefficient = 4.0;
+        # custom urgency values
+        urgency.uda = {
+          inprogress.coefficient = 4.0;
+          priority.values = "H,M,,L";
         };
 
         # remove news popup
