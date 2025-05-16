@@ -164,7 +164,7 @@
             enabled = true;
             autoUpdate = true;
           };
-          receive.denyCurrentBranch = "refuse";
+          receive.denyCurrentBranch = "updateInstead";
           url = {
             "git@bitbucket.org:".insteadOf = "https://bitbucket.org/";
             "git@codeberg.org:".insteadOf = "https://codeberg.org/";
