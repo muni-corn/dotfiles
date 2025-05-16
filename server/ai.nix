@@ -30,16 +30,22 @@
       };
       host = "[::]";
       loadModels = [
-        "llama4:scout"
-        "llama3.1:8b"
-        "llama3.2:3b"
-        "llama3.3:70b"
-        "deepseek-r1:8b"
         "deepseek-r1:70b"
-        "qwq" # hehe
+        "deepseek-r1:8b"
         "gemma3:1b"
         "gemma3:4b"
         "gemma3:27b"
+        "llama3.1:8b"
+        "llama3.2:3b"
+        "llama3.3:70b"
+        "llama4:scout"
+        "qwen3:0.6b"
+        "qwen3:8b"
+        "qwen3:14b"
+        "qwen3:32b"
+        "qwen3:30b-a3b"
+        "qwen3:235b-a22b"
+        "qwq" # hehe
       ];
       openFirewall = true;
     };
