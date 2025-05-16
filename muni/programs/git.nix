@@ -149,6 +149,7 @@
             vimdiff.layout = "LOCAL,@BASE,REMOTE";
             writeToTemp = true;
           };
+          notes.rewriteMode = "cat_sort_uniq";
           pager.difftool = true;
           pull.rebase = true;
           push = {
