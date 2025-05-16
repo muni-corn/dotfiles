@@ -151,7 +151,7 @@
           };
           notes.rewriteMode = "cat_sort_uniq";
           pager.difftool = true;
-          pull.rebase = true;
+          pull.rebase = "i";
           push = {
             autoSetupRemote = true;
             default = "current";
