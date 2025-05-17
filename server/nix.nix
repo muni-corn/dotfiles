@@ -32,7 +32,7 @@
       createHome = false;
       group = "builder";
       hashedPasswordFile = config.sops.secrets.nix_builder_passwd.path;
-      isSystemUser = true;
+      isNormalUser = true;
       openssh.authorizedKeys.keyFiles = [
         ./builder.pub
       ];
