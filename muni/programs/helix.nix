@@ -244,4 +244,9 @@
       ];
     };
   };
+
+  systemd.user.sessionVariables = {
+    EDITOR = "hx";
+    VISUAL = "hx";
+  };
 }
