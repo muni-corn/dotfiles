@@ -177,7 +177,7 @@
         nur.modules.nixos.default
       ];
 
-      littleponyModules =
+      laptopModules =
         commonModules
         ++ commonGraphicalModules
         ++ [
@@ -185,7 +185,7 @@
           ./laptop
         ];
 
-      ponycastleModules =
+      desktopModules =
         commonModules
         ++ commonGraphicalModules
         ++ [
@@ -216,15 +216,15 @@
     in
     {
       nixosConfigurations = {
-        littlepony = nixpkgs.lib.nixosSystem {
+        cherri-compass = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           system = "x86_64-linux";
-          modules = littleponyModules;
+          modules = laptopModules;
         };
-        ponycastle = nixpkgs.lib.nixosSystem {
+        breezi-brigantine = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           system = "x86_64-linux";
-          modules = ponycastleModules;
+          modules = desktopModules;
         };
         munibot = nixpkgs.lib.nixosSystem {
           inherit specialArgs;

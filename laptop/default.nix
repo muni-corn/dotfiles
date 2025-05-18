@@ -43,7 +43,7 @@
   musnix.soundcardPciId = "c1:00.6";
 
   networking = {
-    hostName = "littlepony";
+    hostName = "cherri-compass";
     networkmanager.wifi.powersave = true;
 
     # for development
