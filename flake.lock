@@ -690,22 +690,6 @@
         "type": "github"
       }
     },
-    "muni-wallpapers": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1744079212,
-        "narHash": "sha256-BVb/R1inkSz5vCN6j/W4HNa1cnLbkb8fYWVwUElAu9s=",
-        "owner": "muni-corn",
-        "repo": "muni-wallpapers",
-        "rev": "5b3b02883cf638e496176f25006a312ca5fb6546",
-        "type": "github"
-      },
-      "original": {
-        "owner": "muni-corn",
-        "repo": "muni-wallpapers",
-        "type": "github"
-      }
-    },
     "muse-shell": {
       "inputs": {
         "ags": "ags",
@@ -748,6 +732,21 @@
         "ref": "main",
         "type": "git",
         "url": "https://codeberg.org/municorn/muse-sounds"
+      }
+    },
+    "muse-wallpapers": {
+      "locked": {
+        "lastModified": 1697913264,
+        "narHash": "sha256-GLXsG2Hfct9rrNq1rxp8FCfkIYdrY3frKBTn8LUceGw=",
+        "owner": "muni-corn",
+        "repo": "muse-wallpapers",
+        "rev": "9355308ad447e66b0e47e431817a429aa8b3b14e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "muni-corn",
+        "repo": "muse-wallpapers",
+        "type": "github"
       }
     },
     "musnix": {
@@ -1042,9 +1041,9 @@
         "home-manager": "home-manager",
         "iosevka-muse": "iosevka-muse",
         "muni-bot": "muni-bot",
-        "muni-wallpapers": "muni-wallpapers",
         "muse-shell": "muse-shell",
         "muse-sounds": "muse-sounds",
+        "muse-wallpapers": "muse-wallpapers",
         "musnix": "musnix",
         "nix-minecraft": "nix-minecraft",
         "nixified-ai": "nixified-ai",

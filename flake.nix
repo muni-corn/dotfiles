@@ -69,6 +69,7 @@
 
     # my stuff
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
+    muse-wallpapers.url = "github:muni-corn/muse-wallpapers";
     muni-bot = {
       url = "github:muni-corn/muni_bot";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -80,10 +81,6 @@
     muse-sounds = {
       url = "git+https://codeberg.org/municorn/muse-sounds?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
-    };
-    muni-wallpapers = {
-      url = "github:muni-corn/muni-wallpapers";
-      flake = false;
     };
     plymouth-theme-musicaloft-rainbow = {
       url = "git+https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow?ref=main";

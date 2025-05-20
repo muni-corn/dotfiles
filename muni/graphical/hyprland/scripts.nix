@@ -111,7 +111,7 @@ in
 
   switchWallpaper =
     let
-      wallpapersDir = "${inputs.muni-wallpapers}/wallpapers";
+      wallpapersDir = inputs.muse-wallpapers.generated;
     in
     pkgs.writeShellScript "hypr-switch-wallpaper" ''
       new_wall=$(${pkgs.fd}/bin/fd --type f . ${wallpapersDir} | shuf -n 1)
