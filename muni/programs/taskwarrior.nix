@@ -25,7 +25,7 @@
         calendar.details = "full";
 
         # color overrides
-        color.uda.inprogress = "bright bold cyan";
+        color.tag.p = "bright bold cyan";
 
         # allow completion for all tags
         complete.all.tags = true;
@@ -98,12 +98,6 @@
 
         # set default filter for taskwarrior-tui
         uda = {
-          inprogress = {
-            label = "In progress";
-            indicator = "I";
-            type = "string";
-            values = "I";
-          };
           taskwarrior-tui = {
             selection = {
               reverse = true;
@@ -115,8 +109,8 @@
 
         # custom urgency values
         urgency.uda = {
-          inprogress.coefficient = 4.0;
-          priority.values = "H,M,,L";
+          user.tag.p.coefficient = 4.0;
+          uda.priority.values = "HH,H,M,,L,LL";
         };
 
         # remove news popup
