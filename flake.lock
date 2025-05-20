@@ -1396,11 +1396,11 @@
         "patched-nixpkgs": "patched-nixpkgs"
       },
       "locked": {
-        "lastModified": 1747125777,
-        "narHash": "sha256-uz9ayfGFmiyAbUIuL/KFKSyi8Krfb7+wbzB+0TXjI50=",
+        "lastModified": 1747467107,
+        "narHash": "sha256-IIewGkpjoV6zSJNgxsL7p+wij/Q7RpDAlf0OVggK/ME=",
         "owner": "HPsaucii",
         "repo": "zed-editor-flake",
-        "rev": "83f927d654102dfc3cb1778b3550e5391dd1ae6d",
+        "rev": "50b08c64d1abed4318b8289ec3f62b64b4f34231",
         "type": "github"
       },
       "original": {
