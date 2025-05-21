@@ -105,7 +105,7 @@
   musnix.soundcardPciId = "0e:00.4";
 
   networking = {
-    hostName = "breezi-brigantine";
+    hostName = "breezi";
     hostId = "edafa5da";
 
     # for development

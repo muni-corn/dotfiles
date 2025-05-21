@@ -213,12 +213,12 @@
     in
     {
       nixosConfigurations = {
-        cherri-compass = nixpkgs.lib.nixosSystem {
+        cherri = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           system = "x86_64-linux";
           modules = laptopModules;
         };
-        breezi-brigantine = nixpkgs.lib.nixosSystem {
+        breezi = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           system = "x86_64-linux";
           modules = desktopModules;

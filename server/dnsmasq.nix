@@ -18,12 +18,12 @@
       ];
 
       "192.168.68.60" = [
-        "breezi-brigantine"
+        "breezi"
         "pc.ssh.muni.bot"
       ];
 
       "192.168.68.80" = [
-        "cherri-compass"
+        "cherri"
         "lp.ssh.muni.bot"
       ];
     };

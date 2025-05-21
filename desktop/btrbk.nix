@@ -22,7 +22,7 @@
         preserve_hour_of_day = "5";
         volume."/" = {
           subvolume.home = { };
-          target = "/vault/backup/breezi-brigantine";
+          target = "/vault/backup/breezi";
           snapshot_dir = "/snaps";
         };
       };
@@ -42,7 +42,7 @@
 
         volume."/" = {
           subvolume.home = { };
-          target = "ssh://192.168.68.70/crypt/backup/breezi-brigantine";
+          target = "ssh://192.168.68.70/crypt/backup/breezi";
           snapshot_dir = "/snaps";
         };
       };
