@@ -32,7 +32,6 @@
       "eDP-1"
       "DP-2"
     ];
-    services.gammastep.settings.general.brightness-night = 0.5;
     wayland.windowManager.hyprland.settings.monitor = [
       "eDP-1,preferred,0x0,1"
       "DP-2,preferred,2560x0,1"
