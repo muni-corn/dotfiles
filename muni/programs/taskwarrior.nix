@@ -25,7 +25,17 @@
         calendar.details = "full";
 
         # color overrides
-        color.tag.p = "bright bold cyan";
+        color = {
+          tag = {
+            p = "bright bold cyan";
+          };
+          uda = {
+            priority = {
+              HH = "bold black on magenta";
+              LL = "gray7";
+            };
+          };
+        };
 
         # allow completion for all tags
         complete.all.tags = true;
@@ -111,9 +121,22 @@
         };
 
         # custom urgency values
-        urgency.uda = {
+        urgency = {
           user.tag.p.coefficient = 4.0;
-          uda.priority.values = "HH,H,M,,L,LL";
+
+          uda = {
+            # make low priority lower than no priority
+            priority = {
+              HH.coefficient = 15;
+              L.coefficient = -1;
+              LL.coefficient = -3;
+            };
+          };
+        };
+
+        uda = {
+          # custom priority values
+          priority.values = "HH,H,M,,L,LL";
         };
 
         # remove news popup
