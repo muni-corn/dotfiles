@@ -28,8 +28,11 @@
         color = {
           tag = {
             p = "bright bold cyan";
+            paid = "bright bold green";
+            unpaid = "red";
           };
           uda = {
+            tip = "bright bold magenta";
             priority = {
               HH = "bold black on magenta";
               LL = "gray7";
@@ -125,6 +128,9 @@
           user.tag.p.coefficient = 4.0;
 
           uda = {
+            # add half an urgency point per tip %
+            tip.coefficient = 0.5;
+
             # make low priority lower than no priority
             priority = {
               HH.coefficient = 15;
@@ -137,6 +143,12 @@
         uda = {
           # custom priority values
           priority.values = "HH,H,M,,L,LL";
+
+          # tip uda, for recording paid tips for tasks
+          tip = {
+            label = "Tip %";
+            type = "numeric";
+          };
         };
 
         # remove news popup
