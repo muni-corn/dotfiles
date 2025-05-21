@@ -81,6 +81,9 @@
           stop.annotation = "stopped";
         };
 
+        # show all tags for `task tags`
+        list.all.tags = 1;
+
         # set the nag message
         nag = "Some tasks are more urgent!";
 
