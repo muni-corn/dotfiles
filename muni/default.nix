@@ -48,6 +48,7 @@ in
       qpdf
       sd
       sshfs
+      wget
       zip
 
       # development/programming

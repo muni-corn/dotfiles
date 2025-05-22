@@ -60,6 +60,7 @@
       psmisc
       rsync
       vulkan-tools
+      wget
     ];
   };
 
