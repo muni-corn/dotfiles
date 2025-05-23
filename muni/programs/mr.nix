@@ -52,12 +52,17 @@
       # forked repos
       "code/home-manager" = {
         checkout = "git clone git@github.com:muni-corn/home-manager.git";
-        post_checkout = "cd home-manager && git remote add upstream git@github.com:nix-community/home-manager";
+        post_checkout = "cd $MR_REPO && git remote add upstream git@github.com:nix-community/home-manager";
         update = "git fetch --all";
       };
       "code/nixpkgs" = {
         checkout = "git clone git@github.com:muni-corn/nixpkgs.git";
-        post_checkout = "cd nixpkgs && git remote add upstream git@github.com:NixOS/nixpkgs";
+        post_checkout = "cd $MR_REPO && git remote add upstream git@github.com:NixOS/nixpkgs";
+        update = "git fetch --all";
+      };
+      "code/nixified-ai" = {
+        checkout = "git clone git@github.com:muni-corn/nixified-ai.git";
+        post_checkout = "cd $MR_REPO && git remote add upstream git@github.com:nixified-ai/flake";
         update = "git fetch --all";
       };
 
