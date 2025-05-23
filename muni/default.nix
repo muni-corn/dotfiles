@@ -64,6 +64,8 @@ in
       mr
       nixd
       nixfmt-rfc-style
+      nix-prefetch-github
+      nix-prefetch
       nodePackages.prettier
       nodePackages.typescript-language-server
       nodejs
