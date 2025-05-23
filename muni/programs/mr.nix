@@ -9,6 +9,8 @@
   programs.mr = {
     enable = true;
     settings = {
+      DEFAULT.update = "git pull --rebase";
+
       # home-level repos
       dotfiles.checkout = "git clone https://codeberg.org/municorn/dotfiles";
       notebook.checkout = "git clone https://codeberg.org/municorn/notebook";
