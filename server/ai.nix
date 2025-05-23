@@ -1,25 +1,35 @@
 {
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
+{
   services = {
     caddy = {
       enable = true;
       email = "caddy@musicaloft.com";
 
-      virtualHosts."ai.musicaloft.com" = {
-        extraConfig = ''
-          reverse_proxy 127.0.0.1:3030
+      virtualHosts = {
+        "comfy.musicaloft.com".extraConfig = ''
+          reverse_proxy 127.0.0.1:${builtins.toString config.services.comfyui.port}
+        '';
+        "ai.musicaloft.com".extraConfig = ''
+          reverse_proxy 127.0.0.1:${builtins.toString config.services.open-webui.port}
         '';
       };
     };
 
     comfyui = {
       enable = true;
-      # package = pkgs.comfyui-nvidia;
+      package = inputs.nixified-ai.packages.x86_64-linux.comfyui-nvidia;
       host = "0.0.0.0";
+      openFirewall = true;
       # models = builtins.attrValues pkgs.nixified-ai.models;
-      # customNodes = with pkgs.comfyui.pkgs; [
-      #   comfyui-gguf
-      #   comfyui-impact-pack
-      # ];
+      customNodes = with pkgs.comfyuiPackages; [
+        comfyui-gguf
+        comfyui-impact-pack
+      ];
     };
 
     ollama = {
