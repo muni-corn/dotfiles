@@ -28,7 +28,6 @@
         color = {
           tag = {
             p = "bright bold cyan";
-            paid = "bright bold green";
             unpaid = "red";
           };
           uda = {
@@ -127,7 +126,6 @@
         urgency = {
           user.tag = {
             p.coefficient = 4;
-            paid.coefficient = 3;
             unpaid.coefficient = -5;
           };
 
