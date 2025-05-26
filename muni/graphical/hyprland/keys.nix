@@ -106,7 +106,7 @@ in
         (b "SUPER" "s" "togglefloating" "")
         (b "SUPER" "u" "focusurgentorlast" "")
         (b "SUPER" "x" "pin" "")
-        (b "SUPER_SHIFT" "f" "fullscreen" "1")
+        (b "SUPER_CTRL" "f" "fullscreen" "1")
         (b "SUPER_CTRL" "s" "toggleswallow" "")
 
         # toggle groups
