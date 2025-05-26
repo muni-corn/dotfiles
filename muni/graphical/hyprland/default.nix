@@ -248,6 +248,9 @@
           (r "size 600 400" "title:^(UnityEditor.Graphs.LayerSettingsWindow)$")
           (r "stayfocused" "initialTitle:^(Unity.*Selector),floating:1")
           (r "center" "initialTitle:^(Unity.*Selector),floating:1")
+
+          # since i always make meld fullscreen
+          (r "maximize" "class:^(org.gnome.Meld)$")
         ];
 
         # for smart gaps
