@@ -16,6 +16,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # niri, the scrolling window manager
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # updated minecraft servers
     nix-minecraft = {
       url = "github:Infinidoge/nix-minecraft";
@@ -103,6 +109,7 @@
       muse-shell,
       muse-sounds,
       musnix,
+      niri,
       nix-minecraft,
       nixified-ai,
       nixos-hardware,
@@ -175,10 +182,12 @@
       ];
 
       commonGraphicalModules = [
-        musnix.nixosModules.musnix
         {
           home-manager.users.muni = ./muni/graphical;
         }
+
+        musnix.nixosModules.musnix
+        niri.nixosModules.niri
         nur.modules.nixos.default
       ];
 
