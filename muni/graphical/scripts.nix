@@ -14,7 +14,7 @@ let
 
   scriptsDir = builtins.path {
     name = "wm-scripts";
-    path = ../wm-scripts;
+    path = ./wm-scripts;
   };
 
   mkVolumeScript =
@@ -66,7 +66,7 @@ in
   dir = scriptsDir;
 
   screenshot = "${scriptsDir}/hypr-screenshot.fish";
-  quickCode = import ../quick-code-script.nix { inherit config pkgs; };
+  quickCode = import ./quick-code-script.nix { inherit config pkgs; };
 
   timew =
     let

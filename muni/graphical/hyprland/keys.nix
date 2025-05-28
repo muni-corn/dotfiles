@@ -43,7 +43,7 @@ let
   editFile = file: "uwsm-app -T -- hx ${file}";
   launchInTerminal = args: "uwsm-app -T -- fish -i -c ${args}";
 
-  scripts = import ./scripts.nix {
+  scripts = import ../scripts.nix {
     inherit
       config
       inputs
