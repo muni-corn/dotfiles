@@ -66,8 +66,26 @@
       fsType = "vfat";
     };
 
-    "/vault" = {
-      device = "/dev/disk/by-uuid/d3a3b6bd-3137-4b2b-8669-ecfe87e1722f";
+    "/vault1" = {
+      device = "/dev/disk/by-uuid/037a6aa8-777b-4780-b0d5-e3dfe5a19a0f";
+      fsType = "btrfs";
+      options = [
+        "compress=zstd"
+        "noatime"
+      ];
+    };
+
+    "/vault2" = {
+      device = "/dev/disk/by-uuid/ec9655be-96b0-49dc-8d8a-9633630602d4";
+      fsType = "btrfs";
+      options = [
+        "compress=zstd"
+        "noatime"
+      ];
+    };
+
+    "/vault3" = {
+      device = "/dev/disk/by-uuid/921c2546-3f52-46f0-ab94-2f283db8bdad";
       fsType = "btrfs";
       options = [
         "compress=zstd"
