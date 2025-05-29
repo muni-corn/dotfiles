@@ -1,11 +1,13 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
 {
   imports = [
     ./greetd.nix
+    ./niri.nix
   ];
 
   boot = {
