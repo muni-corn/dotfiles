@@ -61,6 +61,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # fancy wallpaper daemon
+    swww = {
+      url = "github:LGFae/swww";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # up-to-date zed editor, temporary until zed is up-to-date in nixpkgs
     zed-editor = {
       url = "github:HPsaucii/zed-editor-flake";
@@ -105,6 +111,7 @@
       nur,
       plymouth-theme-musicaloft-rainbow,
       sops-nix,
+      swww,
       ...
     }@inputs:
     let
@@ -123,6 +130,7 @@
           nix-minecraft.overlay
           nixpkgs-wayland.overlays.default
           plymouth-theme-musicaloft-rainbow.overlay
+          swww.overlays.default
           customPackagesOverlay
         ];
       };
