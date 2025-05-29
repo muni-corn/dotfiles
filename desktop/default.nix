@@ -34,6 +34,10 @@
       amdvlk.enable = false;
       initrd.enable = true;
       opencl.enable = true;
+      overdrive = {
+        enable = true;
+        ppfeaturemask = "0xffffffff";
+      };
     };
     graphics.enable32Bit = true;
   };
@@ -131,10 +135,6 @@
     dconf.enable = true;
     corectrl = {
       enable = true;
-      gpuOverclock = {
-        enable = true;
-        ppfeaturemask = "0xffffffff";
-      };
     };
   };
 
