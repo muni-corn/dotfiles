@@ -6,7 +6,6 @@
 {
   imports = [
     ./keys.nix
-    ./systemd.nix
     ./hypridle.nix
   ];
 

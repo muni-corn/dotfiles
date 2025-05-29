@@ -6,7 +6,7 @@
   ...
 }:
 let
-  scripts = import ../scripts.nix {
+  scripts = import ./scripts.nix {
     inherit
       config
       lib

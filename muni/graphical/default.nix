@@ -9,6 +9,7 @@
     ./hyprland
     ./programs
     ./services
+    ./systemd.nix
   ];
 
   home = {
