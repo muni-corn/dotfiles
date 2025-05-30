@@ -134,6 +134,7 @@
         nixpkgs.overlays = [
           iosevka-muse.overlay
           muse-sounds.overlay
+          niri.overlays.niri
           nix-minecraft.overlay
           nixpkgs-wayland.overlays.default
           plymouth-theme-musicaloft-rainbow.overlay
