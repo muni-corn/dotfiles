@@ -241,7 +241,7 @@
         {
           matches = [
             {
-              app-id = "^org\.keepassxc\.KeePassXC$";
+              app-id = "^(Pinentry|gcr-prompter|org\\.kde\\.polkit-kde-authentication-agent-1|gay\\.vaskel\\.Soteria)$";
             }
           ];
 
