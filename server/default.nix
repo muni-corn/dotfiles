@@ -6,7 +6,6 @@
 }:
 {
   imports = [
-    ../common.nix
     ./ai.nix
     ./attic.nix
     ./dnsmasq.nix

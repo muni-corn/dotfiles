@@ -6,9 +6,6 @@
 }:
 {
   imports = [
-    ../common.nix
-    ../common-graphical.nix
-
     ../art.nix
     ../distributed-builds.nix
     ../docker.nix

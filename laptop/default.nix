@@ -8,8 +8,6 @@
   imports = [
     ../art.nix
     ../church-broadcasting.nix
-    ../common-graphical.nix
-    ../common.nix
     ../distributed-builds.nix
     ../docker.nix
     ../firewall.nix

@@ -179,6 +179,8 @@
         overlaysModule
         home-manager.nixosModules.home-manager
         homeManagerModule
+
+        ./common.nix
       ];
 
       commonGraphicalModules = [
@@ -189,6 +191,8 @@
         musnix.nixosModules.musnix
         niri.nixosModules.niri
         nur.modules.nixos.default
+
+        ./common-graphical.nix
       ];
 
       laptopModules =
