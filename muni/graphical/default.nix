@@ -7,6 +7,7 @@
 {
   imports = [
     ./hyprland
+    ./niri
     ./programs
     ./services
     ./systemd.nix
