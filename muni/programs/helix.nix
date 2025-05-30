@@ -163,12 +163,6 @@
           auto-format = true;
         }
         {
-          name = "neorg";
-          grammar = "tree-sitter-norg";
-          file-types = [ "norg" ];
-          scope = "source.norg";
-        }
-        {
           name = "toml";
           auto-format = true;
           formatter = {
