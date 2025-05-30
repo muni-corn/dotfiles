@@ -34,7 +34,7 @@
           stiffness = 800;
         };
         workspace-switch.spring = {
-          damping-ratio = 0.75;
+          damping-ratio = 0.85;
           epsilon = 0.001;
           stiffness = 400;
         };
@@ -145,7 +145,7 @@
         focus-ring = {
           enable = true;
           width = 2;
-          active.color = "#fff";
+          active.color = "#fffc";
           inactive.color = "#8888";
         };
         border.enable = false;
