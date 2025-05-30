@@ -113,7 +113,7 @@ in
     let
       wallpapersDir = inputs.muse-wallpapers.generated;
     in
-    pkgs.writeShellScript "hypr-switch-wallpaper" ''
+    pkgs.writeShellScript "switch-wallpaper" ''
       new_wall=$(${pkgs.fd}/bin/fd --type f . ${wallpapersDir} | shuf -n 1)
       ${pkgs.swww}/bin/swww img $new_wall
     '';
