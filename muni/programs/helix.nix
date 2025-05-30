@@ -1,7 +1,11 @@
+{ pkgs, ... }:
 {
   programs.helix = {
     enable = true;
     defaultEditor = true;
+    extraPackages = with pkgs; [
+      kdlfmt
+    ];
     settings = {
       editor = {
         bufferline = "multiple";
@@ -177,6 +181,16 @@
             "[" = "]";
             "{" = "}";
             "\"" = ''"'';
+          };
+        }
+
+        # kdl
+        {
+          name = "kdl";
+          auto-format = true;
+          formatter = {
+            command = pkgs.kdlfmt;
+            args = [ "--stdin" ];
           };
         }
 
