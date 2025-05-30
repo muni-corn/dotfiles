@@ -81,15 +81,6 @@ in
     "Mod+Shift+K".action = move-window-up-or-to-workspace-up;
     "Mod+Shift+L".action = move-column-right-or-to-monitor-right;
 
-    "Mod+Alt+Left".action = focus-monitor-left;
-    "Mod+Alt+Down".action = focus-monitor-down;
-    "Mod+Alt+Up".action = focus-monitor-up;
-    "Mod+Alt+Right".action = focus-monitor-right;
-    "Mod+Alt+H".action = focus-monitor-left;
-    "Mod+Alt+J".action = focus-monitor-down;
-    "Mod+Alt+K".action = focus-monitor-up;
-    "Mod+Alt+L".action = focus-monitor-right;
-
     "Mod+Ctrl+Shift+Left".action = move-column-to-monitor-left;
     "Mod+Ctrl+Shift+Down".action = move-column-to-monitor-down;
     "Mod+Ctrl+Shift+Up".action = move-column-to-monitor-up;
@@ -99,14 +90,6 @@ in
     "Mod+Ctrl+Shift+K".action = move-column-to-monitor-up;
     "Mod+Ctrl+Shift+L".action = move-column-to-monitor-right;
 
-    # Alternatively, there are commands to move just a single window:
-    # "Mod+Ctrl+Shift+Left".action = move-window-to-monitor-left;
-    # ...
-
-    # And you can also move a whole workspace to another monitor:
-    # "Mod+Ctrl+Shift+Left".action = move-workspace-to-monitor-left;
-    # ...
-
     "Mod+Page_Down".action = focus-workspace-down;
     "Mod+Page_Up".action = focus-workspace-up;
     "Mod+U".action = focus-workspace-down;
@@ -115,10 +98,6 @@ in
     "Mod+Ctrl+Page_Up".action = move-column-to-workspace-up;
     "Mod+Ctrl+U".action = move-column-to-workspace-down;
     "Mod+Ctrl+I".action = move-column-to-workspace-up;
-
-    # Alternatively, there are commands to move just a single window:
-    # "Mod+Ctrl+Page_Down".action = move-window-to-workspace-down;
-    # ...
 
     "Mod+Shift+Page_Down".action = move-workspace-down;
     "Mod+Shift+Page_Up".action = move-workspace-up;
@@ -131,22 +110,22 @@ in
     # To avoid scrolling through workspaces really fast, you can use
     # the cooldown-ms property. The bind will be rate-limited to this value.
     # You can set a cooldown on any bind, but it's most useful for the wheel.
-    # "Mod+WheelScrollDown".action = cooldown-ms=150 { focus-workspace-down; }
-    # "Mod+WheelScrollUp".action = cooldown-ms=150 { focus-workspace-up; }
-    # "Mod+Ctrl+WheelScrollDown".action = cooldown-ms=150 { move-column-to-workspace-down; }
-    # "Mod+Ctrl+WheelScrollUp".action = cooldown-ms=150 { move-column-to-workspace-up; }
+    "Mod+WheelScrollDown" = {
+      action = focus-workspace-down;
+      cooldown-ms = 100;
+    };
+    "Mod+WheelScrollUp" = {
+      action = focus-workspace-up;
+      cooldown-ms = 100;
+    };
 
     "Mod+WheelScrollRight".action = focus-column-right;
     "Mod+WheelScrollLeft".action = focus-column-left;
-    "Mod+Ctrl+WheelScrollRight".action = move-column-right;
-    "Mod+Ctrl+WheelScrollLeft".action = move-column-left;
 
     # Usually scrolling up and down with Shift in applications results in
     # horizontal scrolling; these binds replicate that.
     "Mod+Shift+WheelScrollDown".action = focus-column-right;
     "Mod+Shift+WheelScrollUp".action = focus-column-left;
-    "Mod+Ctrl+Shift+WheelScrollDown".action = move-column-right;
-    "Mod+Ctrl+Shift+WheelScrollUp".action = move-column-left;
 
     # Similarly, you can bind touchpad scroll "ticks".
     # Touchpad scrolling is continuous, so for these binds it is split into
@@ -212,12 +191,10 @@ in
     # * adjust width as a percentage of screen width: "-10%" or "+10%"
     # Pixel sizes use logical, or scaled, pixels. I.e. on an output with scale 2.0,
     # set-column-width "100" will make the column occupy 200 physical screen pixels.
-    "Mod+Alt+Minus".action = set-column-width "-10%";
-    "Mod+Alt+Equal".action = set-column-width "+10%";
-
-    # Finer height adjustments when in column with other windows.
-    "Mod+Shift+Minus".action = set-window-height "-10%";
-    "Mod+Shift+Equal".action = set-window-height "+10%";
+    "Mod+Alt+H".action = set-column-width "-10%";
+    "Mod+Alt+J".action = set-window-height "+10%";
+    "Mod+Alt+K".action = set-window-height "-10%";
+    "Mod+Alt+L".action = set-column-width "+10%";
 
     # Move the focused window between the floating and the tiling layout.
     "Mod+S".action = toggle-window-floating;
@@ -232,8 +209,8 @@ in
     # a matching layout switch hotkey configured in xkb options above.
     # Having both at once on the same hotkey will break the switching,
     # since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
-    # "Mod+Space".action = switch-layout "next";
-    # "Mod+Shift+Space".action = switch-layout "prev";
+    "Mod+Alt+Space".action = switch-layout "next";
+    "Mod+Ctrl+Space".action = switch-layout "prev";
 
     "Mod+Print".action = screenshot;
     "Mod+Ctrl+Print".action = screenshot-window { write-to-disk = true; };
