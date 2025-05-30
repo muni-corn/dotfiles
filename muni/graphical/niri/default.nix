@@ -252,6 +252,21 @@
         }
       ];
 
+      layer-rules = [
+        {
+          matches = [
+            { namespace = "swww-daemon"; }
+          ];
+
+        }
+        {
+          excludes = [
+            { namespace = "bar"; }
+          ];
+          shadow.enable = true;
+        }
+      ];
+
       #
       # TODO hyprland config
       #
