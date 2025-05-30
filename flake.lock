@@ -693,11 +693,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1747033782,
-        "narHash": "sha256-sr3ic/sbVaCiqlFEPTeXk0JVsH0rOfkWKoGbMJQgMyc=",
+        "lastModified": 1748620346,
+        "narHash": "sha256-0ai8LPGjkB4sD3DBmaICVCj3S2FDQU0kBoK2KPgZoUo=",
         "owner": "muni-corn",
         "repo": "muse-shell",
-        "rev": "ff810087594bd2006bcdfafb96f4b69ebcb2793b",
+        "rev": "e14a240982ee2f576d0eb7238432fb186189f376",
         "type": "github"
       },
       "original": {
@@ -1495,6 +1495,24 @@
         "type": "github"
       }
     },
+    "utils_2": {
+      "inputs": {
+        "systems": "systems_7"
+      },
+      "locked": {
+        "lastModified": 1731533236,
+        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "flake-utils",
+        "type": "github"
+      }
+    },
     "xwayland-satellite-stable": {
       "flake": false,
       "locked": {
@@ -1525,24 +1543,6 @@
       "original": {
         "owner": "Supreeeme",
         "repo": "xwayland-satellite",
-        "type": "github"
-      }
-    },
-    "utils_2": {
-      "inputs": {
-        "systems": "systems_7"
-      },
-      "locked": {
-        "lastModified": 1731533236,
-        "narHash": "sha256-l0KFg5HjrsfsO/JpG+r7fRrqm12kzFHyUHqHCVpMMbI=",
-        "owner": "numtide",
-        "repo": "flake-utils",
-        "rev": "11707dc2f618dd54ca8739b309ec4fc024de578b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "flake-utils",
         "type": "github"
       }
     },
