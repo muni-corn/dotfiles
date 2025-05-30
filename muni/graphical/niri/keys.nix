@@ -53,45 +53,33 @@ in
     # shows a list of important hotkeys.
     "Mod+Shift+Slash".action = show-hotkey-overlay;
 
-    # Suggested binds for running programs: terminal, app launcher, screen locker.
-    # "Mod+T".action = hotkey-overlay-title="Open a Terminal: alacritty" { spawn "alacritty"; }
-    # "Mod+D".action = hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
-    # Super+Alt+L hotkey-overlay-title="Lock the Screen: swaylock" { spawn "swaylock"; }
-
-    # You can also use a shell. Do this if you need pipes, multiple commands, etc.
-    # Note: the entire command goes as a single argument in the end.
-    # "Mod+T".action = spawn "bash" "-c" "notify-send hello && exec alacritty";
-
-    # Example volume keys mappings for PipeWire & WirePlumber.
-    # The allow-when-locked=true property makes them work even when the session is locked.
-
     # Open/close the Overview: a zoomed-out view of workspaces and windows.
     # You can also move the mouse into the top-left hot corner,
     # or do a four-finger swipe up on a touchpad.
-    "Mod+O" = {
+    "Mod+Tab" = {
       action = toggle-overview;
       repeat = false;
     };
 
     "Mod+Q".action = close-window;
 
-    "Mod+Left".action = focus-column-left;
-    "Mod+Down".action = focus-window-down;
-    "Mod+Up".action = focus-window-up;
-    "Mod+Right".action = focus-column-right;
-    "Mod+H".action = focus-column-left;
+    "Mod+Left".action = focus-column-or-monitor-left;
+    "Mod+Down".action = focus-window-or-workspace-down;
+    "Mod+Up".action = focus-window-or-workspace-up;
+    "Mod+Right".action = focus-column-or-monitor-right;
+    "Mod+H".action = focus-column-or-monitor-left;
     "Mod+J".action = focus-window-or-workspace-down;
     "Mod+K".action = focus-window-or-workspace-up;
-    "Mod+L".action = focus-column-right;
+    "Mod+L".action = focus-column-or-monitor-right;
 
-    "Mod+Shift+Left".action = move-column-left;
-    "Mod+Shift+Down".action = move-window-down;
-    "Mod+Shift+Up".action = move-window-up;
-    "Mod+Shift+Right".action = move-column-right;
-    "Mod+Shift+H".action = move-column-left;
+    "Mod+Shift+Left".action = move-column-left-or-to-monitor-left;
+    "Mod+Shift+Down".action = move-window-down-or-to-workspace-down;
+    "Mod+Shift+Up".action = move-window-up-or-to-workspace-up;
+    "Mod+Shift+Right".action = move-column-right-or-to-monitor-right;
+    "Mod+Shift+H".action = move-column-left-or-to-monitor-left;
     "Mod+Shift+J".action = move-window-down-or-to-workspace-down;
     "Mod+Shift+K".action = move-window-up-or-to-workspace-up;
-    "Mod+Shift+L".action = move-column-right;
+    "Mod+Shift+L".action = move-column-right-or-to-monitor-right;
 
     "Mod+Alt+Left".action = focus-monitor-left;
     "Mod+Alt+Down".action = focus-monitor-down;
@@ -198,12 +186,6 @@ in
     # "Mod+Shift+9".action = move-column-to-workspace 9;
     # "Mod+Shift+0".action = move-column-to-workspace 10;
 
-    # Alternatively, there are commands to move just a single window:
-    # "Mod+Ctrl+1".action = move-window-to-workspace 1;
-
-    # Switches focus between the current and the previous workspace.
-    # "Mod+Tab".action = focus-workspace-previous;
-
     # The following binds move the focused window in and out of a column.
     # If the window is alone, they will consume it into the nearby column to the side.
     # If the window is already in a column, they will expel it out.
@@ -218,8 +200,8 @@ in
     # "Mod+R".action = switch-preset-column-width;
     # "Mod+Shift+R".action = switch-preset-window-height;
     # "Mod+Ctrl+R".action = reset-window-height;
-    "Mod+Ctrl+F".action = maximize-column;
-    "Mod+F".action = fullscreen-window;
+    "Mod+F".action = maximize-column;
+    "Mod+Shift+F".action = fullscreen-window;
     "Mod+Ctrl+C".action = center-column;
 
     # Finer width adjustments.

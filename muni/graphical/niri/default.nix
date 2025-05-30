@@ -20,15 +20,18 @@
           scroll-method = "two-finger";
         };
 
-        warp-mouse-to-focus = true;
-
         # Focus windows and outputs automatically when moving the mouse into them.
         # Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
         focus-follows-mouse = {
           enable = true;
           max-scroll-amount = "50%";
         };
+
+        warp-mouse-to-focus = true;
+        workspace-auto-back-and-forth = true;
       };
+
+      overview.backdrop-color = "#000";
 
       # You can configure outputs by their name, which you can find
       # by running `niri msg outputs` while inside a niri instance.
@@ -71,9 +74,6 @@
       # Find more information on the wiki:
       # https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
       layout = {
-        # Set gaps around windows in logical pixels.
-        gaps = 16;
-
         # When to center a column when changing focus, options are:
         # - "never", default behavior, focusing an off-screen column will keep at the left
         #   or right edge of the screen.
@@ -110,13 +110,17 @@
         # `draw-border-with-background`.
 
         # You can change how the focus ring looks.
-        focus-ring.width = 4;
+        focus-ring = {
+          enable = true;
+          width = 2;
+          active.color = "#fff";
+          inactive.color = "#8888";
+        };
+        border.enable = false;
 
         # You can enable drop shadows for windows.
         shadow = {
           enable = true;
-          # Uncomment the next line to enable shadows.
-          # on
 
           # By default, the shadow draws only around its window, and not behind it.
           # Uncomment this setting to make the shadow draw behind its window.
@@ -132,7 +136,7 @@
           # window. These will also remove client-side shadows if the window
           # draws any.
           #
-          # draw-behind-window true
+          # draw-behind-window = true;
 
           # You can change how shadows look. The values below are in logical
           # pixels and match the CSS box-shadow properties.
@@ -150,46 +154,26 @@
           color = "#0008";
         };
 
-        # Struts shrink the area occupied by windows, similarly to layer-shell panels.
-        # You = true; c;an think of them as a kind of outer gaps. They are set in logical pixels.
-        # Left and r;ight struts will cause the next window to the side to always be visible.
-        # Top and bottom struts will simply add outer gaps in addition to the area occupied by
-        # layer-shell = true; panels and regular gaps.
-        struts = {
-          # left 64
-          # = right 64
-          # top 64
-          # bottom = 64 = true;
+        insert-hint.display.gradient = {
+          from = "#fffc";
+          to = "#fff4";
+          angle = -45;
         };
-      };
 
-      # Add lines like this to spawn processes at startup.
-      # Note that running niri as a session supports xdg-desktop-autostart, = true;
-      # which may be more convenient to use.
-      # See the binds section below for more spawn examples. = true;
+        always-center-single-column = true;
+      };
 
       # Uncomment this line to ask the clients to omit their client-;side decorations if possible.
       # If the client will specifically ask for CSD, the request will be honored.
-      # Additionally, clients = will be informed that they are tiled, removing some client-side rounded corners.
+      # Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
       # This option will also fix border/focus ring drawing behind some semitransparent windows.
       # After enabling or disabling this, you need to restart the apps for this to take effect.
       prefer-no-csd = true;
 
       # You can change the path where screenshots are saved.
-      # = A ~ at the front will be expanded to the home directory.;
+      # A ~ at the front will be expanded to the home directory.;
       # The path is formatted with strftime(3) to give you the screenshot date and time.
       screenshot-path = "~/Pictures/Screenshots/%Y%m%d-%H%M%S.png";
-
-      # Animation settings.
-      # The wiki explains how to configure individual animations:
-      # https://github.com/YaLTeR/niri/wiki/Configuration:-Animations
-      animations = {
-        # Uncomment to turn off all animations.
-        # off
-
-        # Slow down all animations by this factor. Values below 1 speed them up instead.
-        # slowdown 3.0
-      };
 
       # Window rules let you adjust behavior for individual windows.
       # Find more information on the wiki:
@@ -240,25 +224,13 @@
       # TODO hyprland config
       #
 
-      # general
-      #
-      # gaps_in = 16;
-      # gaps_out = 32;
-
       # decoration
       #
       # dim_around = 0.5;
       # dim_special = 0.5;
       # rounding = 8;
 
-      # shadow
-      #
-      # offset = "0 12";
-      # range = 48;
-      # render_power = 2;
-      # color = rgba "000000" "80";
-
-      # blur
+      # blur (not yet in niri)
       #
       # passes = 3;
       # size = 12;
@@ -274,11 +246,6 @@
       #
       # focus_on_close = 1;
 
-      # touchpad
-      #
-      # tap-to-click = true;
-      # natural_scroll = true;
-
       gestures = {
         dnd-edge-view-scroll = {
           max-speed = 3000;
@@ -286,10 +253,6 @@
         };
         hot-corners.enable = true;
       };
-      #
-      # workspace_swipe = true;
-      # workspace_swipe_create_new = false;
-      # workspace_swipe_forever = true;
 
       # cursor
       #
@@ -299,7 +262,6 @@
       # # misc
       #
       # allow_session_lock_restore = true;
-      # disable_splash_rendering = true;
       # enable_swallow = true;
       # focus_on_activate = true;
       # force_default_wallpaper = 0;
@@ -315,7 +277,6 @@
       # # binds
       #
       # movefocus_cycles_fullscreen = false;
-      # workspace_back_and_forth = true;
 
       # dwindle
       #
