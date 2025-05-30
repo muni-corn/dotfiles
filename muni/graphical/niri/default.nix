@@ -8,6 +8,38 @@
     # enable = true;
     package = pkgs.niri-unstable;
     settings = {
+      animations = {
+        horizontal-view-movement.spring = {
+          damping-ratio = 0.75;
+          epsilon = 0.001;
+          stiffness = 600;
+        };
+        window-close.easing = {
+          curve = "ease-out-quad";
+          duration-ms = 200;
+        };
+        window-open.spring = {
+          damping-ratio = 0.75;
+          epsilon = 0.001;
+          stiffness = 800;
+        };
+        window-movement.spring = {
+          damping-ratio = 0.75;
+          epsilon = 0.001;
+          stiffness = 800;
+        };
+        window-resize.spring = {
+          damping-ratio = 0.75;
+          epsilon = 0.001;
+          stiffness = 800;
+        };
+        workspace-switch.spring = {
+          damping-ratio = 0.75;
+          epsilon = 0.001;
+          stiffness = 400;
+        };
+      };
+
       # TODO default config
       input = {
         keyboard.xkb.options = "compose:menu";
