@@ -4,6 +4,7 @@ let
 in
 {
   imports = [
+    ./dprint.nix
     ./programs
     ./sops
   ];
