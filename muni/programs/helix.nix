@@ -3,9 +3,6 @@
   programs.helix = {
     enable = true;
     defaultEditor = true;
-    extraPackages = with pkgs; [
-      kdlfmt
-    ];
     settings = {
       editor = {
         bufferline = "multiple";
