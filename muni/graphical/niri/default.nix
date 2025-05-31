@@ -257,11 +257,11 @@
           matches = [
             { namespace = "swww-daemon"; }
           ];
-
         }
+
         {
           excludes = [
-            { namespace = "bar"; }
+            { namespace = "bar|notifications"; }
           ];
           shadow.enable = true;
         }
