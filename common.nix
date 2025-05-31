@@ -61,6 +61,9 @@
       rsync
       vulkan-tools
       wget
+
+      # for showing btrbk progress
+      mbuffer
     ];
   };
 
