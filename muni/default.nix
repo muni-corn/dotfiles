@@ -49,6 +49,7 @@ in
       qpdf
       sd
       sshfs
+      tldr
       wget
       zip
 
@@ -86,6 +87,8 @@ in
       wirelesstools
     ];
   };
+
+  services.tldr-update.enable = true;
 
   xdg = {
     enable = true;
