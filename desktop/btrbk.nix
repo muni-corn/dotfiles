@@ -5,7 +5,7 @@
       settings = {
         snapshot_create = "onchange";
         snapshot_preserve_min = "48h";
-        snapshot_preserve = "96h";
+        snapshot_preserve = "96h 7d 2w";
         preserve_hour_of_day = "5";
         volume."/" = {
           subvolume.home = { };
