@@ -57,6 +57,11 @@
         post_checkout = "cd $MR_REPO && git remote add upstream git@github.com:nix-community/home-manager";
         update = "git fetch --all";
       };
+      "code/niri-flake" = {
+        checkout = "git clone git@github.com:muni-corn/niri-flake.git";
+        post_checkout = "cd $MR_REPO && git remote add upstream git@github.com:sodiboo/niri-flake";
+        update = "git fetch --all";
+      };
       "code/nixpkgs" = {
         checkout = "git clone git@github.com:muni-corn/nixpkgs.git";
         post_checkout = "cd $MR_REPO && git remote add upstream git@github.com:NixOS/nixpkgs";
