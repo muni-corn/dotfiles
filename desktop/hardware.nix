@@ -67,30 +67,18 @@
     };
 
     "/vault1" = {
-      device = "/dev/disk/by-uuid/037a6aa8-777b-4780-b0d5-e3dfe5a19a0f";
-      fsType = "btrfs";
-      options = [
-        "compress=zstd"
-        "noatime"
-      ];
+      device = "/dev/disk/by-uuid/4dc752bd-c8c4-4dea-b7e5-a86a1009fcae";
+      fsType = "ext4";
     };
 
     "/vault2" = {
-      device = "/dev/disk/by-uuid/ec9655be-96b0-49dc-8d8a-9633630602d4";
-      fsType = "btrfs";
-      options = [
-        "compress=zstd"
-        "noatime"
-      ];
+      device = "/dev/disk/by-uuid/100030e1-fa1a-4943-8b98-caa6d693fdac";
+      fsType = "ext4";
     };
 
     "/vault3" = {
-      device = "/dev/disk/by-uuid/921c2546-3f52-46f0-ab94-2f283db8bdad";
-      fsType = "btrfs";
-      options = [
-        "compress=zstd"
-        "noatime"
-      ];
+      device = "/dev/disk/by-uuid/27dd7f84-7788-4bb2-b649-ddb4d85b57f5";
+      fsType = "ext4";
     };
 
     "/home" = {
