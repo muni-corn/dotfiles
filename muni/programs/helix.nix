@@ -2,6 +2,9 @@
 {
   programs.helix = {
     enable = true;
+    extraPackages = with pkgs; [
+      kdlfmt
+    ];
     defaultEditor = true;
     settings = {
       editor = {
@@ -186,8 +189,11 @@
           name = "kdl";
           auto-format = true;
           formatter = {
-            command = pkgs.kdlfmt;
-            args = [ "--stdin" ];
+            command = "kdlfmt";
+            args = [
+              "format"
+              "--stdin"
+            ];
           };
         }
 

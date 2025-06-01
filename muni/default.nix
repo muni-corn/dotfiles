@@ -60,7 +60,6 @@ in
       flyctl
       gcc
       gitui
-      kdlfmt
       lld
       markdown-oxide
       meld
