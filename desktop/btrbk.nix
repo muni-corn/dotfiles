@@ -7,8 +7,16 @@
         snapshot_preserve_min = "48h";
         snapshot_preserve = "96h 7d 2w";
         preserve_hour_of_day = "5";
-        volume."/" = {
-          subvolume.home = { };
+        volume."/home" = {
+          subvolume = {
+            muni = { };
+            "muni/.local" = { };
+            "muni/Documents" = { };
+            "muni/Music" = { };
+            "muni/Pictures" = { };
+            "muni/Videos" = { };
+            "muni/code" = { };
+          };
           snapshot_dir = "/snaps";
         };
       };
