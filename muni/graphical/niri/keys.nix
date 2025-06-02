@@ -185,11 +185,12 @@ in
     # Expel the bottom window from the focused column to the right.
     "Mod+Period".action = expel-window-from-column;
 
-    # "Mod+R".action = switch-preset-column-width;
-    # "Mod+Shift+R".action = switch-preset-window-height;
-    # "Mod+Ctrl+R".action = reset-window-height;
+    "Mod+R".action = switch-preset-column-width;
+    "Mod+Shift+R".action = switch-preset-window-height;
+    "Mod+Alt+R".action = reset-window-height;
     "Mod+F".action = maximize-column;
     "Mod+Shift+F".action = fullscreen-window;
+    "Mod+Ctrl+F".action = expand-column-to-available-width;
     "Mod+Ctrl+C".action = center-column;
 
     # Finer width adjustments.
@@ -221,9 +222,9 @@ in
     "Mod+Alt+Space".action = switch-layout "next";
     "Mod+Ctrl+Space".action = switch-layout "prev";
 
-    "Mod+Print".action = screenshot;
-    "Mod+Ctrl+Print".action = screenshot-window { write-to-disk = true; };
-    # "Mod+Alt+Print".action = screenshot-screen { write-to-disk = true; };
+    # "Mod+Print".action = screenshot-screen { write-to-disk = true; };
+    "Mod+Print".action = screenshot-window { write-to-disk = true; };
+    "Mod+Ctrl+Print".action = screenshot;
 
     # Applications such as remote-desktop clients and software KVM switches may
     # request that niri stops processing the keyboard shortcuts defined here
@@ -233,7 +234,7 @@ in
     #
     # The allow-inhibiting=false property can be applied to other binds as well,
     # which ensures niri always processes them, even when an inhibitor is active.
-    "Mod+R" = {
+    "Mod+`" = {
       action = toggle-keyboard-shortcuts-inhibit;
       allow-inhibiting = false;
     };
