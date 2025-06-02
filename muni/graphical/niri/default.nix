@@ -247,7 +247,18 @@ in
             };
           };
           focus-ring.enable = false;
-          shadow.color = red;
+          shadow = {
+            softness = 32;
+            offset = {
+              x = 0;
+              y = 0;
+            };
+            color = "${red}80";
+          };
+          tab-indicator = {
+            active.color = red;
+            inactive.color = "${red}80";
+          };
         }
 
         # TODO old hyprland window rules
