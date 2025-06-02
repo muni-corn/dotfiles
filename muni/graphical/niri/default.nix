@@ -284,6 +284,18 @@ in
           focus-ring.enable = false;
           shadow.color = red;
         }
+
+        # TODO old hyprland window rules
+        #
+        # (r "float" "title:^(Firefox — Sharing Indicator)$")
+        # (r "nofocus" "title:^(Firefox — Sharing Indicator)$")
+        # (r "move 50% 0" "title:^(Firefox — Sharing Indicator)$")
+        # (r "noblur" "title:^(Firefox — Sharing Indicator)$")
+        # (r "float" "class:^(xdg-desktop-portal-gtk)$")
+        # (r "float" "title:^(Close Firefox)$")
+        # (r "float" "class:^(openrgb)$")
+        # (r "float" "title:^(Slack - Huddle)$")
+        # (r "float" "class:^(zenity)$")
       ];
 
       layer-rules = [
@@ -403,27 +415,6 @@ in
         }
       ];
 
-      # beziers
-      #
-      # (r "museBouncyOut" "0.25,1.5,0.5,1")
-      # (r "museOut" "0,0,0.15,1")
-      # (r "museIn" "0,0,1,0.15")
-      # (r "museInOut" "0.5,0,0,1")
-      #
-      # animations
-      #
-      # (r "windowsIn" "1,4,museBouncyOut,popin 75%")
-      # (r "windowsOut" "1,2,museIn,popin 75%")
-      # (r "windowsMove" "1,3,museInOut")
-      # (r "fadeIn" "1,2,museOut")
-      # (r "fadeOut" "1,2,museIn")
-      # (r "workspaces" "1,4,museInOut,slidefadevert 15%")
-      # (r "border" "1,2,museOut")
-      # (r "layersIn" "1,2,museBouncyOut,popin 85%")
-      # (r "layersOut" "1,1,museIn,popin 85%")
-      # (r "fadeLayersIn" "1,1,museOut")
-      # (r "fadeLayersOut" "1,1,museIn")
-
       # layer rules
       #
       # (r "animation fade" "hyprpicker")
@@ -444,18 +435,6 @@ in
       # (r "ignorezero" "bar")
       # (r "ignorezero" "gtk-layer-shell")
       # (r "ignorezero" "notifications")
-
-      # window rules
-      #
-      # (r "float" "title:^(Firefox — Sharing Indicator)$")
-      # (r "nofocus" "title:^(Firefox — Sharing Indicator)$")
-      # (r "move 50% 0" "title:^(Firefox — Sharing Indicator)$")
-      # (r "noblur" "title:^(Firefox — Sharing Indicator)$")
-      # (r "float" "class:^(xdg-desktop-portal-gtk)$")
-      # (r "float" "title:^(Close Firefox)$")
-      # (r "float" "class:^(openrgb)$")
-      # (r "float" "title:^(Slack - Huddle)$")
-      # (r "float" "class:^(zenity)$")
 
       # # auth agents
       # (r "dimaround" "class:^(Pinentry|gcr-prompter|org.kde.polkit-kde-authentication-agent-1|gay.vaskel.Soteria)$")
@@ -487,10 +466,6 @@ in
       # (r "size 600 400" "title:^(UnityEditor.Graphs.LayerSettingsWindow)$")
       # (r "stayfocused" "initialTitle:^(Unity.*Selector),floating:1")
       # (r "center" "initialTitle:^(Unity.*Selector),floating:1")
-
-      # # since i always make meld fullscreen
-      # (r "maximize" "class:^(org.gnome.Meld)$")
-      # ];
 
       # # for smart gaps
       # workspace = [
