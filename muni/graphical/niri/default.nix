@@ -297,6 +297,8 @@ in
         }
       ];
 
+      hotkey-overlay.skip-at-startup = true;
+
       #
       # TODO hyprland config
       #
