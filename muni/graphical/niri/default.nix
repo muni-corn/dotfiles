@@ -287,6 +287,14 @@ in
           ];
           shadow.enable = true;
         }
+
+        # hide notifications from screencasts
+        {
+          matches = [
+            { namespace = "^notifications$"; }
+          ];
+          block-out-from = "screencast";
+        }
       ];
 
       #
