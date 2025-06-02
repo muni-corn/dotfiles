@@ -411,7 +411,11 @@ in
       allow-when-locked = true;
       repeat = false;
     };
-    # ];
+
+    # set dynamic screencast targets
+    "Mod+Backspace".action = set-dynamic-cast-window;
+    "Mod+Shift+Backspace".action = set-dynamic-cast-monitor;
+    "Mod+Ctrl+Backspace".action = clear-dynamic-cast-target;
 
     # TODO mouse binds
     # "Mod+Mouse:272".action = movewindow null;
