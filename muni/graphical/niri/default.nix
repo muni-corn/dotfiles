@@ -394,6 +394,9 @@ in
         SWWW_TRANSITION_BEZIER = "0.5,0,0,1";
         SWWW_TRANSITION_DURATION = "2";
         SWWW_TRANSITION_FPS = "60";
+
+        # for xwayland-satellite
+        DISPLAY = ":0";
       };
 
       spawn-at-startup = [
@@ -473,5 +476,10 @@ in
       # "f[1], gapsout:0, gapsin:0"
       # ];
     };
+  };
+
+  systemd.user.services.xwayland-satellite = {
+    Unit.Description = "xwayland-satellite";
+    Service.ExecStart = lib.getExe pkgs.xwayland-satellite-unstable;
   };
 }
