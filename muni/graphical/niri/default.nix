@@ -19,7 +19,7 @@ in
     settings = {
       animations = {
         horizontal-view-movement.spring = {
-          damping-ratio = 0.75;
+          damping-ratio = 0.8;
           epsilon = 0.001;
           stiffness = 600;
         };
@@ -28,22 +28,22 @@ in
           duration-ms = 200;
         };
         window-open.spring = {
-          damping-ratio = 0.75;
+          damping-ratio = 0.8;
           epsilon = 0.001;
           stiffness = 800;
         };
         window-movement.spring = {
-          damping-ratio = 0.75;
+          damping-ratio = 0.8;
           epsilon = 0.001;
           stiffness = 800;
         };
         window-resize.spring = {
-          damping-ratio = 0.75;
+          damping-ratio = 0.8;
           epsilon = 0.001;
           stiffness = 800;
         };
         workspace-switch.spring = {
-          damping-ratio = 0.85;
+          damping-ratio = 0.8;
           epsilon = 0.001;
           stiffness = 400;
         };
