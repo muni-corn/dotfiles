@@ -30,7 +30,7 @@
     '';
 
     keymap = {
-      manager.prepend_keymap = [
+      mgr.prepend_keymap = [
         {
           on = "!";
           run = ''shell "$SHELL" --block'';
@@ -44,7 +44,7 @@
       ];
     };
     settings = {
-      manager = {
+      mgr = {
         show_hidden = true;
         sort_by = "natural";
         sort_translit = true;
