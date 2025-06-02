@@ -181,6 +181,7 @@
         home-manager.nixosModules.home-manager
         homeManagerModule
 
+        ./stylix.nix
         ./common.nix
       ];
 
