@@ -137,20 +137,8 @@ in
         # preset-window-heights { }
 
         # windows themselves will decide their initial width.
-        default-column-width = { };
+        default-column-width.proportion = 0.4;
 
-        # By default focus ring and border are rendered as a solid background rectangle
-        # behind windows. That is, they will show up through semitransparent windows.
-        # This is because windows using client-side decorations can have an arbitrary shape.
-        #
-        # If you don't like that, you should uncomment `prefer-no-csd` below.
-        # Niri will draw focus ring and border *around* windows that agree to omit their
-        # client-side decorations.
-        #
-        # Alternatively, you can override it with a window rule called
-        # `draw-border-with-background`.
-
-        # You can change how the focus ring looks.
         focus-ring = {
           enable = true;
           width = 2;
