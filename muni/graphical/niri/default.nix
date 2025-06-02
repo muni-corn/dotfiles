@@ -65,7 +65,7 @@ in
         # Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
         focus-follows-mouse = {
           enable = true;
-          max-scroll-amount = "50%";
+          max-scroll-amount = "25%";
         };
 
         warp-mouse-to-focus = true;
