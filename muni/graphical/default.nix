@@ -23,6 +23,7 @@
       # desktop environment
       glib # for gtk theming
       muse-shell
+      nautilus
 
       # development/programming
       alcom
