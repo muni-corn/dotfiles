@@ -246,7 +246,7 @@ in
           clip-to-geometry = true;
         }
 
-        # block out two password managers from screen capture.
+        # block out auth agents from screen capture
         {
           matches = [
             {
@@ -255,9 +255,15 @@ in
           ];
 
           block-out-from = "screen-capture";
+        }
 
-          # Use this instead if you want them visible on third-party screenshot tools.
-          # block-out-from = "screencast";
+        # since i always make meld fullscreen
+        {
+          matches = [
+            { app-id = "^org.gnome.Meld$"; }
+          ];
+
+          open-maximized = true;
         }
 
         # highlight screencasted windows
