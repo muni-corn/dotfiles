@@ -49,20 +49,25 @@ in
         };
       };
 
-      # TODO default config
+      gestures = {
+        dnd-edge-view-scroll = {
+          max-speed = 3000;
+          trigger-width = 64;
+        };
+        hot-corners.enable = true;
+      };
+
       input = {
         keyboard.xkb.options = "compose:menu";
 
-        # Next sections include libinput settings.
-        # Omitting settings disables them, or leaves them at their default values.
         touchpad = {
           natural-scroll = true;
           click-method = "clickfinger";
           scroll-method = "two-finger";
         };
 
-        # Focus windows and outputs automatically when moving the mouse into them.
-        # Setting max-scroll-amount="0%" makes it work only on windows already fully on screen.
+        # focus windows and outputs automatically when moving the mouse into them.
+        # setting max-scroll-amount to"0%" makes it work only on windows already fully on screen.
         focus-follows-mouse = {
           enable = true;
           max-scroll-amount = "25%";
@@ -73,43 +78,6 @@ in
       };
 
       overview.backdrop-color = "#000";
-
-      # You can configure outputs by their name, which you can find
-      # by running `niri msg outputs` while inside a niri instance.
-      # The built-in laptop monitor is usually called "eDP-1".
-      # Find more information on the wiki:
-      # https://github.com/YaLTeR/niri/wiki/Configuration:-Outputs
-      # Remember to uncomment the node by removing "/-"!
-      # output "eDP-1" {
-      #     # Uncomment this line to disable this output.
-      #     # off
-
-      #     # Resolution and, optionally, refresh rate of the output.
-      #     # The format is "<width>x<height>" or "<width>x<height>@<refresh rate>".
-      #     # If the refresh rate is omitted, niri will pick the highest refresh rate
-      #     # for the resolution.
-      #     # If the mode is omitted altogether or is invalid, niri will pick one automatically.
-      #     # Run `niri msg outputs` while inside a niri instance to list all outputs and their modes.
-      #     mode "1920x1080@120.030"
-
-      #     # You can use integer or fractional scale, for example use 1.5 for 150% scale.
-      #     scale 2
-
-      #     # Transform allows to rotate the output counter-clockwise, valid values are:
-      #     # normal, 90, 180, 270, flipped, flipped-90, flipped-180 and flipped-270.
-      #     transform "normal"
-
-      #     # Position of the output in the global coordinate space.
-      #     # This affects directional monitor actions like "focus-monitor-left", and cursor movement.
-      #     # The cursor can only move between directly adjacent outputs.
-      #     # Output scale and rotation has to be taken into account for positioning:
-      #     # outputs are sized in logical, or scaled, pixels.
-      #     # For example, a 3840×2160 output with scale 2.0 will have a logical size of 1920×1080,
-      #     # so to put another output directly adjacent to it on the right, set its x to 1920.
-      #     # If the position is unset or results in an overlap, the output is instead placed
-      #     # automatically.
-      #     position x=1280 y=0
-      # }
 
       # Settings that influence how windows are positioned and sized.
       # Find more information on the wiki:
@@ -168,28 +136,15 @@ in
         always-center-single-column = true;
       };
 
-      # Uncomment this line to ask the clients to omit their client-;side decorations if possible.
-      # If the client will specifically ask for CSD, the request will be honored.
-      # Additionally, clients will be informed that they are tiled, removing some client-side rounded corners.
-      # This option will also fix border/focus ring drawing behind some semitransparent windows.
-      # After enabling or disabling this, you need to restart the apps for this to take effect.
+      # ask clients to omit their client-side decorations if possible
       prefer-no-csd = true;
 
-      # You can change the path where screenshots are saved.
-      # A ~ at the front will be expanded to the home directory.;
-      # The path is formatted with strftime(3) to give you the screenshot date and time.
+      # change the path where screenshots are saved
       screenshot-path = "~/Pictures/Screenshots/%Y%m%d-%H%M%S.png";
 
-      # Window rules let you adjust behavior for individual windows.
-      # Find more information on the wiki:
-      # https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
-
-      # Open the Firefox picture-in-picture player as floating by default.
       window-rules = [
         {
-          # This app-id regular expression will work for both:
-          # - host Firefox (app-id is "firefox")
-          # - Flatpak Firefox (app-id is "org.mozilla.firefox")
+          # open the firefox picture-in-picture player as floating by default
           matches = [
             {
               app-id = "firefox$";
@@ -197,6 +152,15 @@ in
             }
           ];
           open-floating = true;
+
+          # TODO: rules from hyprland
+          # float
+          # size 480 270
+          # move 100%-480 32
+          # idleinhibit always
+          # keepaspectratio
+          # pin
+          # suppressevent fullscreen maximize activate activatefocus
         }
 
         # enable rounded corners for all windows.
@@ -275,12 +239,14 @@ in
       ];
 
       layer-rules = [
+        # put wallpaper as backdrop
         {
           matches = [
             { namespace = "swww-daemon"; }
           ];
         }
 
+        # put shadows on all layers but bars and notifications
         {
           excludes = [
             { namespace = "bar|notifications"; }
@@ -307,7 +273,6 @@ in
       #
       # dim_around = 0.5;
       # dim_special = 0.5;
-      # rounding = 8;
 
       # blur (not yet in niri)
       #
@@ -324,14 +289,6 @@ in
       # input
       #
       # focus_on_close = 1;
-
-      gestures = {
-        dnd-edge-view-scroll = {
-          max-speed = 3000;
-          trigger-width = 64;
-        };
-        hot-corners.enable = true;
-      };
 
       # cursor
       #
@@ -430,15 +387,6 @@ in
       # (r "pin" "class:^(Pinentry|gcr-prompter|org.kde.polkit-kde-authentication-agent-1|gay.vaskel.Soteria)$")
       # (r "float" "class:^(Pinentry|gcr-prompter|org.kde.polkit-kde-authentication-agent-1|gay.vaskel.Soteria)$")
       # (r "center" "class:^(Pinentry|gcr-prompter|org.kde.polkit-kde-authentication-agent-1|gay.vaskel.Soteria)$")
-
-      # # firefox Picture-in-Picture
-      # (r "float" "title:^(Picture-in-Picture)$")
-      # (r "size 480 270" "title:^(Picture-in-Picture)$")
-      # (r "move 100%-480 32" "title:^(Picture-in-Picture)$")
-      # (r "idleinhibit always" "title:^(Picture-in-Picture)$")
-      # (r "keepaspectratio" "title:^(Picture-in-Picture)$")
-      # (r "pin" "title:^(Picture-in-Picture)$")
-      # (r "suppressevent fullscreen maximize activate activatefocus" "title:^(Picture-in-Picture)$")
 
       # # assign some apps to default workspaces
       # (r "workspace 10" "class:^(discord|vesktop)$")
