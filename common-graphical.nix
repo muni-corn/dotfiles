@@ -128,6 +128,8 @@
 
     blueman.enable = true;
 
+    dbus.packages = [ pkgs.gcr ];
+
     # for mpris album art on muse-shell
     gvfs.enable = true;
 
