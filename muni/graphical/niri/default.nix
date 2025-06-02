@@ -1,4 +1,13 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+let
+  colors = config.lib.stylix.colors;
+  red = colors.red;
+in
 {
   imports = [
     ./keys.nix
@@ -249,6 +258,25 @@
 
           # Use this instead if you want them visible on third-party screenshot tools.
           # block-out-from = "screencast";
+        }
+
+        # highlight screencasted windows
+        {
+          matches = [
+            { is-window-cast-target = true; }
+          ];
+
+          border = {
+            enable = true;
+            width = 2;
+            active.color = red;
+            inactive.gradient = {
+              from = "#0004";
+              to = red;
+            };
+          };
+          focus-ring.enable = false;
+          shadow.color = red;
         }
       ];
 
