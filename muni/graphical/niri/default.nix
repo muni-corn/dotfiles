@@ -210,7 +210,7 @@ in
           clip-to-geometry = true;
         }
 
-        # block out auth agents from screen capture
+        # block out auth agents from screen capture and make them float cutely
         {
           matches = [
             {
@@ -219,6 +219,7 @@ in
           ];
 
           block-out-from = "screen-capture";
+          baba-is-float = true;
         }
 
         # since i always make meld fullscreen
