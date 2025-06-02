@@ -72,14 +72,23 @@ in
     "Mod+K".action = focus-window-or-workspace-up;
     "Mod+L".action = focus-column-or-monitor-right;
 
-    "Mod+Shift+Left".action = move-column-left-or-to-monitor-left;
-    "Mod+Shift+Down".action = move-window-down-or-to-workspace-down;
-    "Mod+Shift+Up".action = move-window-up-or-to-workspace-up;
-    "Mod+Shift+Right".action = move-column-right-or-to-monitor-right;
-    "Mod+Shift+H".action = move-column-left-or-to-monitor-left;
-    "Mod+Shift+J".action = move-window-down-or-to-workspace-down;
-    "Mod+Shift+K".action = move-window-up-or-to-workspace-up;
-    "Mod+Shift+L".action = move-column-right-or-to-monitor-right;
+    "Mod+Shift+Left".action = focus-monitor-left;
+    "Mod+Shift+Down".action = focus-monitor-down;
+    "Mod+Shift+Up".action = focus-monitor-up;
+    "Mod+Shift+Right".action = focus-monitor-right;
+    "Mod+Shift+H".action = focus-monitor-left;
+    "Mod+Shift+J".action = focus-monitor-down;
+    "Mod+Shift+K".action = focus-monitor-up;
+    "Mod+Shift+L".action = focus-monitor-right;
+
+    "Mod+Ctrl+Left".action = move-column-left-or-to-monitor-left;
+    "Mod+Ctrl+Down".action = move-window-down-or-to-workspace-down;
+    "Mod+Ctrl+Up".action = move-window-up-or-to-workspace-up;
+    "Mod+Ctrl+Right".action = move-column-right-or-to-monitor-right;
+    "Mod+Ctrl+H".action = move-column-left-or-to-monitor-left;
+    "Mod+Ctrl+J".action = move-window-down-or-to-workspace-down;
+    "Mod+Ctrl+K".action = move-window-up-or-to-workspace-up;
+    "Mod+Ctrl+L".action = move-column-right-or-to-monitor-right;
 
     "Mod+Ctrl+Shift+Left".action = move-column-to-monitor-left;
     "Mod+Ctrl+Shift+Down".action = move-column-to-monitor-down;
@@ -154,16 +163,16 @@ in
     "Mod+8".action = focus-workspace 8;
     "Mod+9".action = focus-workspace 9;
     "Mod+0".action = focus-workspace 10;
-    # "Mod+Shift+1".action = move-column-to-workspace 1;
-    # "Mod+Shift+2".action = move-column-to-workspace 2;
-    # "Mod+Shift+3".action = move-column-to-workspace 3;
-    # "Mod+Shift+4".action = move-column-to-workspace 4;
-    # "Mod+Shift+5".action = move-column-to-workspace 5;
-    # "Mod+Shift+6".action = move-column-to-workspace 6;
-    # "Mod+Shift+7".action = move-column-to-workspace 7;
-    # "Mod+Shift+8".action = move-column-to-workspace 8;
-    # "Mod+Shift+9".action = move-column-to-workspace 9;
-    # "Mod+Shift+0".action = move-column-to-workspace 10;
+    # "Mod+Ctrl+1".action = move-column-to-workspace 1;
+    # "Mod+Ctrl+2".action = move-column-to-workspace 2;
+    # "Mod+Ctrl+3".action = move-column-to-workspace 3;
+    # "Mod+Ctrl+4".action = move-column-to-workspace 4;
+    # "Mod+Ctrl+5".action = move-column-to-workspace 5;
+    # "Mod+Ctrl+6".action = move-column-to-workspace 6;
+    # "Mod+Ctrl+7".action = move-column-to-workspace 7;
+    # "Mod+Ctrl+8".action = move-column-to-workspace 8;
+    # "Mod+Ctrl+9".action = move-column-to-workspace 9;
+    # "Mod+Ctrl+0".action = move-column-to-workspace 10;
 
     # The following binds move the focused window in and out of a column.
     # If the window is alone, they will consume it into the nearby column to the side.
@@ -256,14 +265,14 @@ in
     };
 
     # TODO move focused workspace to outputs
-    # "Mod+Ctrl+H".action = movecurrentworkspacetomonitor "l";
-    # "Mod+Ctrl+J".action = movecurrentworkspacetomonitor "d";
-    # "Mod+Ctrl+K".action = movecurrentworkspacetomonitor "u";
-    # "Mod+Ctrl+L".action = movecurrentworkspacetomonitor "r";
-    # "Mod+Ctrl+Left".action = movecurrentworkspacetomonitor "l";
-    # "Mod+Ctrl+Down".action = movecurrentworkspacetomonitor "d";
-    # "Mod+Ctrl+Up".action = movecurrentworkspacetomonitor "u";
-    # "Mod+Ctrl+Right".action = movecurrentworkspacetomonitor "r";
+    # "Mod+Shift+H".action = movecurrentworkspacetomonitor "l";
+    # "Mod+Shift+J".action = movecurrentworkspacetomonitor "d";
+    # "Mod+Shift+K".action = movecurrentworkspacetomonitor "u";
+    # "Mod+Shift+L".action = movecurrentworkspacetomonitor "r";
+    # "Mod+Shift+Left".action = movecurrentworkspacetomonitor "l";
+    # "Mod+Shift+Down".action = movecurrentworkspacetomonitor "d";
+    # "Mod+Shift+Up".action = movecurrentworkspacetomonitor "u";
+    # "Mod+Shift+Right".action = movecurrentworkspacetomonitor "r";
 
     # TODO special workspaces (minimize)
     # "Mod+V".action = movetoworkspacesilent "special";
