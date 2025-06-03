@@ -36,6 +36,7 @@
       rawtherapee
 
       # messaging
+      cinny-desktop
       discord
       element-desktop
       slack
