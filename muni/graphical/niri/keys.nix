@@ -234,17 +234,14 @@ in
     #
     # The allow-inhibiting=false property can be applied to other binds as well,
     # which ensures niri always processes them, even when an inhibitor is active.
-    "Mod+`" = {
+    "Mod+Grave" = {
       action = toggle-keyboard-shortcuts-inhibit;
       allow-inhibiting = false;
     };
 
-    # Powers off the monitors. To turn them back on, do any input like
+    # powers off the monitors. to turn them back on, do any input like
     # moving the mouse or pressing any other key.
-    "Mod+Shift+P" = {
-      action = power-off-monitors;
-      allow-when-locked = true;
-    };
+    "Mod+Shift+P".action = power-off-monitors;
 
     # open terminal
     "Mod+Return" = {
