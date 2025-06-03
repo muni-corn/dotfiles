@@ -116,17 +116,10 @@
     settings = {
       auto-optimise-store = true;
       allowed-users = [ "muni" ];
-      substituters = [ "https://cache.nixos.org" ];
       trusted-users = [
         "builder"
         "muni"
         "root"
-      ];
-    };
-    sshServe = {
-      enable = true;
-      keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpFoYAj02WzgnBokgr2ZzFKOaffOVRK5Ru7Ngh53sjr (none)"
       ];
     };
   };
