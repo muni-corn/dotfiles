@@ -104,7 +104,7 @@
   };
 
   nix = {
-    package = pkgs.nixVersions.git;
+    package = pkgs.nixVersions.latest;
     # enables flakes
     extraOptions = ''
       experimental-features = nix-command flakes
