@@ -21,31 +21,31 @@ in
         horizontal-view-movement.spring = {
           damping-ratio = 0.8;
           epsilon = 0.001;
-          stiffness = 600;
+          stiffness = 500;
         };
         window-close.easing = {
           curve = "ease-out-quad";
           duration-ms = 200;
         };
         window-open.spring = {
-          damping-ratio = 0.8;
+          damping-ratio = 0.75;
           epsilon = 0.001;
-          stiffness = 800;
+          stiffness = 700;
         };
         window-movement.spring = {
           damping-ratio = 0.8;
           epsilon = 0.001;
-          stiffness = 800;
+          stiffness = 700;
         };
         window-resize.spring = {
           damping-ratio = 0.8;
           epsilon = 0.001;
-          stiffness = 800;
+          stiffness = 700;
         };
         workspace-switch.spring = {
           damping-ratio = 0.8;
           epsilon = 0.001;
-          stiffness = 400;
+          stiffness = 300;
         };
       };
 
