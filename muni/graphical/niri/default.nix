@@ -414,6 +414,7 @@ in
 
   systemd.user.services.xwayland-satellite = {
     Unit.Description = "xwayland-satellite";
+    Install.WantedBy = [ "graphical-session.target" ];
     Service.ExecStart = lib.getExe pkgs.xwayland-satellite-unstable;
   };
 }
