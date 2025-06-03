@@ -12,11 +12,6 @@
             reverse_proxy 127.0.0.1:${builtins.toString config.services.nix-serve.port}
           '';
         };
-        "nixbld.musicaloft.com" = {
-          extraConfig = ''
-            reverse_proxy 127.0.0.1
-          '';
-        };
       };
     };
 
