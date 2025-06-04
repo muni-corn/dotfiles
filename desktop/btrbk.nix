@@ -33,9 +33,17 @@
         ssh_user = "btrbk";
         stream_compress = "zstd";
 
-        volume."/" = {
-          subvolume.home = { };
-          target = "ssh://192.168.68.70/crypt/backup/breezi";
+        volume."/home" = {
+          subvolume = {
+            muni = { };
+            "muni/.local" = { };
+            "muni/Documents" = { };
+            "muni/Music" = { };
+            "muni/Pictures" = { };
+            "muni/Videos" = { };
+            "muni/code" = { };
+          };
+          target = "ssh://192.168.68.70/crypt/backup/breezi/muni";
           snapshot_dir = "/snaps";
         };
       };
