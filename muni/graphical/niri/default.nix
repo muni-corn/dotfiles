@@ -222,6 +222,17 @@ in
           };
         }
 
+        # messaging apps
+        {
+          matches = [
+            { app-id = "discord"; }
+            { app-id = "Slack"; }
+            { app-id = "vesktop"; }
+            { app-id = "cinny"; }
+          ];
+          open-on-output = "HDMI-A-1";
+        }
+
         # TODO old hyprland window rules
         #
         # (r "float" "title:^(Firefox — Sharing Indicator)$")
