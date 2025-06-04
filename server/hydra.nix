@@ -23,4 +23,6 @@
       };
     };
   };
+
+  networking.firewall.allowedTCPPorts = [ config.services.hydra.port ];
 }

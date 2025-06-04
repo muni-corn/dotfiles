@@ -145,6 +145,7 @@
       "cache.musicaloft.com"
       "cloud.musicaloft.com"
       "git.musicaloft.com"
+      "hydra.musicaloft.com"
       "munibot"
       "musicaloft.tplinkdns.com"
       "nixbld.musicaloft.com"
