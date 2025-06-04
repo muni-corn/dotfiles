@@ -30,7 +30,7 @@
 
     # ai
     nixified-ai = {
-      url = "github:nixified-ai/flake";
+      url = "github:BatteredBunny/nixifed-ai/bump-comfyui";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

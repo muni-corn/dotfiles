@@ -852,16 +852,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1747142274,
-        "narHash": "sha256-5WuEIrM4yTSMMoxJHQ9RBwO0liBE9KcCldyiBfcYIHU=",
-        "owner": "nixified-ai",
-        "repo": "flake",
-        "rev": "ba83e9b493f5fd278abe8ee91040323296da3f39",
+        "lastModified": 1745670019,
+        "narHash": "sha256-/Q3VAHf2SBowO5PibH/EiNCdOzu1o+GWs6JfT2rVjoM=",
+        "owner": "BatteredBunny",
+        "repo": "nixifed-ai",
+        "rev": "1d16882c6c263a0464068ca5923910042116d2a6",
         "type": "github"
       },
       "original": {
-        "owner": "nixified-ai",
-        "repo": "flake",
+        "owner": "BatteredBunny",
+        "ref": "bump-comfyui",
+        "repo": "nixifed-ai",
         "type": "github"
       }
     },
