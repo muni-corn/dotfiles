@@ -26,6 +26,7 @@
 
         # color overrides
         color = {
+          keyword.await = "gray7 on black";
           tag = {
             p = "bright bold cyan";
             unpaid = "red";
