@@ -25,6 +25,7 @@
 
       settings = {
         listen.hostname = "0.0.0.0";
+        instance.hostname = "Musicaloft Video";
         storage = {
           tmp = "/var/tmp/peertube/";
           logs = "/var/lib/peertube/logs/";
@@ -41,7 +42,8 @@
 
       virtualHosts.${config.services.peertube.localDomain} = {
         extraConfig = ''
-          reverse_proxy 127.0.0.1:8823
+          reverse_proxy 127.0.0.1:${builtins.toString config.services.peertube.listenWeb}
+          header Host watch.musicaloft.com
         '';
       };
     };
