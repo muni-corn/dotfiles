@@ -7,7 +7,6 @@
 {
   imports = [
     ../art.nix
-    ../distributed-builds.nix
     ../docker.nix
     ../firewall.nix
     ../gaming.nix
