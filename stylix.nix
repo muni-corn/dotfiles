@@ -42,8 +42,8 @@ let
       };
 
       sansSerif = {
-        package = pkgs.inter;
-        name = "Inter";
+        package = pkgs.adwaita-fonts;
+        name = "Adwaita Sans";
       };
 
       monospace = {
