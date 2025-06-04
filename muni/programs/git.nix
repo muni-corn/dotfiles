@@ -17,6 +17,7 @@
       shellAbbrs = {
         g = "git";
         gA = "git annex";
+        gM = "git mergetool";
         gP = "git push";
         gPF = "git push --force-with-lease";
         gR = "git restore";
@@ -34,11 +35,14 @@
         gds = "git diff --staged";
         gf = "git fetch";
         gl = "git log";
-        gm = "git mergetool";
+        gm = "git merge";
+        gma = "git merge --abort";
+        gmc = "git merge --continue";
         gp = "git pull";
         gr = "git rebase";
         gra = "git rebase --abort";
         grc = "git rebase --continue";
+        gri = "git rebase --interactive";
         grs = "git rebase --skip";
         gs = "git status";
         gw = "git switch";
