@@ -77,7 +77,7 @@ in
         workspace-auto-back-and-forth = true;
       };
 
-      overview.backdrop-color = "#000";
+      overview.backdrop-color = colors.withHashtag.base01;
 
       # Settings that influence how windows are positioned and sized.
       # Find more information on the wiki:
