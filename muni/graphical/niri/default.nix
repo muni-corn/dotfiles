@@ -177,9 +177,10 @@ in
         # block out auth agents from screen capture and make them float cutely
         {
           matches = [
-            {
-              app-id = "^(Pinentry|gcr-prompter|org\\.kde\\.polkit-kde-authentication-agent-1|gay\\.vaskel\\.Soteria)$";
-            }
+            { app-id = "Pinentry"; }
+            { app-id = "gcr-prompter"; }
+            { app-id = "org\\.kde\\.polkit-kde-authentication-agent-1"; }
+            { app-id = "gay\\.vaskel\\.Soteria"; }
           ];
 
           block-out-from = "screen-capture";
@@ -188,18 +189,14 @@ in
 
         # since i always make meld fullscreen
         {
-          matches = [
-            { app-id = "^org.gnome.Meld$"; }
-          ];
+          matches = [ { app-id = "^org.gnome.Meld$"; } ];
 
           open-maximized = true;
         }
 
         # highlight screencasted windows
         {
-          matches = [
-            { is-window-cast-target = true; }
-          ];
+          matches = [ { is-window-cast-target = true; } ];
 
           border = {
             enable = true;
@@ -240,25 +237,20 @@ in
 
       layer-rules = [
         # put wallpaper as backdrop
-        {
-          matches = [
-            { namespace = "swww-daemon"; }
-          ];
-        }
+        { matches = [ { namespace = "swww-daemon"; } ]; }
 
         # put shadows on all layers but bars and notifications
         {
           excludes = [
-            { namespace = "bar|notifications"; }
+            { namespace = "bar"; }
+            { namespace = "notifications"; }
           ];
           shadow.enable = true;
         }
 
         # hide notifications from screencasts
         {
-          matches = [
-            { namespace = "^notifications$"; }
-          ];
+          matches = [ { namespace = "^notifications$"; } ];
           block-out-from = "screencast";
         }
       ];
@@ -387,10 +379,6 @@ in
       # (r "pin" "class:^(Pinentry|gcr-prompter|org.kde.polkit-kde-authentication-agent-1|gay.vaskel.Soteria)$")
       # (r "float" "class:^(Pinentry|gcr-prompter|org.kde.polkit-kde-authentication-agent-1|gay.vaskel.Soteria)$")
       # (r "center" "class:^(Pinentry|gcr-prompter|org.kde.polkit-kde-authentication-agent-1|gay.vaskel.Soteria)$")
-
-      # # assign some apps to default workspaces
-      # (r "workspace 10" "class:^(discord|vesktop)$")
-      # (r "workspace 9" "class:^(Slack)$")
 
       # # for smart gaps
       # (r "bordersize 0" "floating:0, onworkspace:w[tv1]")
