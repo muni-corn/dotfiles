@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }:
 {
@@ -45,6 +46,7 @@
 
   services.wivrn = {
     enable = true;
+    package = inputs.nixpkgs.legacyPackages."x86_64-linux".wivrn;
 
     # Run WiVRn as a systemd service on startup
     autoStart = true;
