@@ -27,7 +27,7 @@
       remotebackup = {
         onCalendar = "*:00";
         settings = {
-          archive_preserve_min = "12m *y";
+          archive_preserve = "12m *y";
           snapshot_create = "no";
           target_preserve = "2h 14d 8w 12m *y";
           target_preserve_min = "5m";
