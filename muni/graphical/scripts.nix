@@ -61,6 +61,8 @@ let
       args=$(${config.programs.rofi.finalPackage}/bin/rofi -dmenu -p '${promptText}')
       ${script} $args
     '';
+
+  kitty = lib.getExe config.programs.kitty.package;
 in
 {
   dir = scriptsDir;
@@ -126,6 +128,6 @@ in
     pkgs.writeShellScript "open-journal-file-${dateStr}" ''
       parent_dir=$(dirname ${filePath})
       mkdir -p $parent_dir
-      uwsm-app -T -- hx ${filePath}
+      ${kitty} hx ${filePath}
     '';
 }

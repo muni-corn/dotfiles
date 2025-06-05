@@ -102,23 +102,7 @@
       package = pkgs.jdk;
     };
 
-    uwsm = {
-      enable = true;
-      waylandCompositors.niri =
-        let
-          # wrapper script for `binPath` since the option type is `path`
-          niriSession = lib.getExe (
-            pkgs.writeShellScriptBin "niriSession" ''
-              ${lib.getExe config.programs.niri.package} --session
-            ''
-          );
-        in
-        {
-          prettyName = "niri";
-          comment = "niri compositor managed by UWSM";
-          binPath = niriSession;
-        };
-    };
+    uwsm.enable = true;
   };
 
   security.soteria.enable = true;

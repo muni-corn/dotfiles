@@ -18,7 +18,7 @@ let
     media = "${config.programs.kodi.package}/bin/kodi --windowing=x11";
   };
 
-  appMenu = ''${config.programs.rofi.finalPackage}/bin/rofi -p "Run what?" -show drun -run-command "uwsm app -- {cmd}"'';
+  appMenu = ''${config.programs.rofi.finalPackage}/bin/rofi -p "Run what?" -show drun'';
 
   scripts = import ../scripts.nix {
     inherit
@@ -30,10 +30,11 @@ let
   };
 
   sh = spawn "sh" "-c";
+  kitty = lib.getExe config.programs.kitty.package;
   script = s: spawn (builtins.toString s);
-  launch = args: sh "uwsm-app -- ${args}";
-  editFile = file: sh "uwsm-app -T -- hx ${file}";
-  launchInTerminal = args: sh "uwsm-app -T -- fish -i -c ${args}";
+  launch = args: sh "${args}";
+  editFile = file: sh "${kitty} hx ${file}";
+  launchInTerminal = args: sh "${kitty} fish -i -c ${args}";
 in
 {
   programs.niri.settings.binds = {
@@ -419,6 +420,6 @@ in
     # "Mod+Mouse:273".action = resizewindow null;
 
     # quit niri
-    "Mod+Shift+E".action = sh "canberra-gtk-play -i desktop-logout; uwsm stop";
+    "Mod+Shift+E".action = sh "canberra-gtk-play -i desktop-logout; niri msg action quit";
   };
 }
