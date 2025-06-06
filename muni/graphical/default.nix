@@ -11,6 +11,7 @@
     ./programs
     ./services
     ./systemd.nix
+    ./zed.nix
   ];
 
   home = {

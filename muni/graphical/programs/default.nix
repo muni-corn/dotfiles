@@ -66,18 +66,5 @@
     };
 
     zathura.enable = true;
-
-    # zed-editor = {
-    #   enable = true;
-    #   userSettings = {
-    #     language_models = {
-    #       ollama = {
-    #         api_url = "http://192.168.68.70:11434";
-    #       };
-    #     };
-    #   };
-    # };
-
   };
-  home.packages = [ inputs.zed-editor.packages."x86_64-linux".zed-editor-fhs ];
 }
