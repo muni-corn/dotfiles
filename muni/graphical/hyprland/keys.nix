@@ -130,7 +130,7 @@ in
         (b "SUPER_SHIFT" "d" "exec" (launchInTerminal "${fileManager} ${notebookDir}/journal"))
 
         # shortcuts for files
-        (b "SUPER" "t" "exec" (launchInTerminal "taskwarrior-tui"))
+        (b "SUPER" "t" "exec" (launchInTerminal "vit"))
         (b "SUPER_CTRL" "t" "exec" (editFile "${notebookDir}/times.csv"))
         (b "SUPER_CTRL" "n" "exec" (editFile "${notebookDir}/new/$(date +%Y%m%d-%H%M%S).md"))
 

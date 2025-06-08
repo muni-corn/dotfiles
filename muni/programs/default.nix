@@ -12,7 +12,6 @@
   ];
 
   home.packages = with pkgs; [
-    taskwarrior-tui
     dragon-drop
   ];
 

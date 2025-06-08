@@ -304,7 +304,7 @@ in
     "Mod+Shift+D".action = launchInTerminal "${fileManager} ${notebookDir}/journal";
 
     # shortcuts for files
-    "Mod+T".action = launchInTerminal "taskwarrior-tui";
+    "Mod+T".action = launchInTerminal "vit";
     "Mod+Ctrl+N".action = editFile "${notebookDir}/new/$(date +%Y%m%d-%H%M%S).md";
 
     # other script shortcuts
