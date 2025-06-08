@@ -58,38 +58,38 @@
         "HDMI-A-1"
         "HDMI-A-2"
       ];
+
+      niri.settings.outputs = {
+        "HDMI-A-1" = {
+          position = {
+            x = 0;
+            y = 0;
+          };
+          transform.rotation = 90;
+        };
+
+        "DP-1" = {
+          mode = {
+            width = 2560;
+            height = 1440;
+            refresh = 180.;
+          };
+          position = {
+            x = 1080;
+            y = 0;
+          };
+        };
+
+        # (let niri place DP-2 automatically)
+
+        "HDMI-A-2".position = {
+          x = 1080;
+          y = 1440;
+        };
+      };
     };
 
     services.easyeffects.enable = true;
-
-    programs.niri.settings.outputs = {
-      "HDMI-A-1" = {
-        position = {
-          x = 0;
-          y = 0;
-        };
-        transform.rotation = 90;
-      };
-
-      "DP-1" = {
-        mode = {
-          width = 2560;
-          height = 1440;
-          refresh = 180.;
-        };
-        position = {
-          x = 1080;
-          y = 0;
-        };
-      };
-
-      # let niri place DP-2 automatically
-
-      "HDMI-A-2".position = {
-        x = 1080;
-        y = 1440;
-      };
-    };
 
     wayland.windowManager.hyprland.settings = {
       monitor = [
@@ -141,9 +141,7 @@
   # for easyeffects
   programs = {
     dconf.enable = true;
-    corectrl = {
-      enable = true;
-    };
+    corectrl.enable = true;
   };
 
   security.pam.loginLimits = [
