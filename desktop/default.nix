@@ -17,7 +17,6 @@
     ../vr.nix
     ./btrbk.nix
     ./hardware.nix
-    ./vfio.nix
   ];
 
   boot.loader = {
