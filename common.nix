@@ -228,8 +228,6 @@
       RuntimeDirectorySize=2G
     '';
 
-    sshguard.enable = true;
-
     upower.enable = true;
   };
 
