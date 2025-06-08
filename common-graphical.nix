@@ -117,11 +117,6 @@
     # for mpris album art on muse-shell
     gvfs.enable = true;
 
-    input-remapper = {
-      enable = true;
-      serviceWantedBy = [ "multi-user.target" ];
-    };
-
     pipewire = {
       enable = true;
       alsa = {
