@@ -86,11 +86,5 @@
     fprintd.enable = true;
 
     logind.lidSwitch = "suspend-then-hibernate";
-
-    surrealdb = {
-      enable = true;
-      dbPath = "rocksdb:///var/lib/surrealdb";
-      port = 7654;
-    };
   };
 }
