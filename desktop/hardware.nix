@@ -113,18 +113,11 @@
 
   networking = {
     useDHCP = lib.mkDefault true;
-    interfaces = {
-      wlan0.useDHCP = false;
-      wlp15s0.useDHCP = false;
-      enp14s0 = {
-        useDHCP = true;
-        wakeOnLan.enable = true;
-      };
+    interfaces.enp14s0 = {
+      useDHCP = true;
+      wakeOnLan.enable = true;
     };
   };
-
-  systemd.network.netdevs.wlan0.enable = false;
-  systemd.network.netdevs.wlp15s0.enable = false;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
