@@ -192,15 +192,6 @@
   services = {
     avahi.enable = true;
 
-    cachix-watch-store = {
-      enable = true;
-      cacheName = "municorn";
-      cachixTokenFile = config.sops.secrets.cachix_token.path;
-      compressionLevel = 10;
-      signingKeyFile = config.sops.secrets.cachix_signing_key.path;
-      verbose = true;
-    };
-
     fail2ban = {
       enable = true;
       bantime = "72h";
