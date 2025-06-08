@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  inputs,
   ...
 }:
 {
@@ -33,6 +32,8 @@
         smoothing.noise_reduction = 25;
       };
     };
+
+    hyprlock.enable = true;
 
     imv.enable = true;
 
