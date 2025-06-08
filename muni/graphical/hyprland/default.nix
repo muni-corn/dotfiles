@@ -6,7 +6,6 @@
 {
   imports = [
     ./keys.nix
-    ./hypridle.nix
   ];
 
   home.packages = with pkgs; [
