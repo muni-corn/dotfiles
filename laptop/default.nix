@@ -21,7 +21,6 @@
 
   environment.defaultPackages = with pkgs; [
     blender
-    upscayl
   ];
 
   home-manager.users.muni = {

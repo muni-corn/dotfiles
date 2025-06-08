@@ -37,11 +37,6 @@
 
     imv.enable = true;
 
-    neovide = {
-      enable = true;
-      settings = { };
-    };
-
     mpv = {
       enable = true;
       config = {
@@ -62,7 +57,6 @@
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [
         obs-pipewire-audio-capture
-        obs-ndi
       ];
     };
 
