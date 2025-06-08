@@ -112,17 +112,6 @@
         # sync setting
         sync.server.url = "http://192.168.68.70:10222";
 
-        # set default filter for taskwarrior-tui
-        uda = {
-          taskwarrior-tui = {
-            selection = {
-              reverse = true;
-              italic = true;
-            };
-            task-report.next.filter = "status:pending";
-          };
-        };
-
         # custom urgency values
         urgency = {
           user.tag = {
@@ -146,6 +135,15 @@
         uda = {
           # custom priority values
           priority.values = "HH,H,M,,L,LL";
+
+          # set default filter for taskwarrior-tui
+          taskwarrior-tui = {
+            selection = {
+              reverse = true;
+              italic = true;
+            };
+            task-report.next.filter = "status:pending";
+          };
 
           # tip uda, for recording paid tips for tasks
           tip = {
