@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }:
@@ -61,6 +60,12 @@
   };
 
   hardware = {
+    # Bluetooth
+    bluetooth = {
+      enable = true;
+      settings.General.Experimental = true;
+    };
+
     # Enable brillo
     brillo.enable = true;
 
@@ -74,6 +79,8 @@
 
     xpadneo.enable = true;
   };
+
+  location.provider = "geoclue2";
 
   networking.networkmanager = {
     enable = true;
@@ -105,7 +112,17 @@
     uwsm.enable = true;
   };
 
-  security.soteria.enable = true;
+  security = {
+    # for hyprlock to use password
+    pam.services.hyprlock.text = ''
+      auth include login
+    '';
+
+    # for pipewire. optional, but recommended
+    rtkit.enable = true;
+
+    soteria.enable = true;
+  };
 
   services = {
     automatic-timezoned.enable = true;
@@ -113,6 +130,14 @@
     blueman.enable = true;
 
     dbus.packages = [ pkgs.gcr ];
+
+    geoclue2 = {
+      enable = true;
+      appConfig.gammastep = {
+        isSystem = false;
+        isAllowed = true;
+      };
+    };
 
     # for mpris album art on muse-shell
     gvfs.enable = true;

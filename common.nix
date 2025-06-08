@@ -80,17 +80,7 @@
     };
   };
 
-  hardware = {
-    # Bluetooth
-    bluetooth = {
-      enable = true;
-      settings.General.Experimental = true;
-    };
-
-    enableRedistributableFirmware = true;
-  };
-
-  location.provider = "geoclue2";
+  hardware.enableRedistributableFirmware = true;
 
   networking = {
     nameservers = [
@@ -177,16 +167,8 @@
   security = {
     polkit.enable = true;
 
-    # for pipewire. optional, but recommended
-    rtkit.enable = true;
-
     # for secure boot (i hope)
     tpm2.enable = true;
-
-    # for hyprlock to use password
-    pam.services.hyprlock.text = ''
-      auth include login
-    '';
   };
 
   services = {
@@ -199,16 +181,6 @@
     };
 
     fwupd.enable = true;
-
-    geoclue2 = {
-      enable = true;
-      appConfig = {
-        gammastep = {
-          isSystem = false;
-          isAllowed = true;
-        };
-      };
-    };
 
     getty.greetingLine = "Welcome!";
 
