@@ -4,6 +4,7 @@ keys:
   - &laptop age1uyvl4uakcgjnllw8sqr5c5dzldah2jaxz9tneljjrngcvtmjvsvq03ryg7
   - &home_laptop age1rrt2jcn6csppu2xjfmzfcy2r922cenvn8gygkrct25mxwelhcpeqzrrj2j
   - &home_desktop age15uj6pjpu9ma36qg4gzp5guhp68qh9lashjahx39vyry8nsl9np7sz4vcfl
+  - &home_munibot age1rvzveql3utzaq6ve2gt09dezarqrs9nkrj3whmps8xdn85r5v9sstjgfzy
 creation_rules:
   - path_regex: ^sops/secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:
@@ -16,8 +17,9 @@ creation_rules:
       - age:
         - *home_desktop
         - *home_laptop
+        - *home_munibot
   - path_regex: ^twitchtrot/secrets.yaml$
     key_groups:
       - age:
         - *munibot
-        - *home_laptop
+        - *home_munibot
