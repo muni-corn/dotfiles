@@ -183,7 +183,6 @@
         home-manager.nixosModules.home-manager
         homeManagerModule
 
-        ./stylix.nix
         ./common.nix
       ];
 
@@ -196,6 +195,7 @@
         niri.nixosModules.niri
         nur.modules.nixos.default
 
+        ./stylix.nix
         ./common-graphical.nix
       ];
 
