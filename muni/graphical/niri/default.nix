@@ -264,6 +264,16 @@ in
           matches = [ { namespace = "^notifications$"; } ];
           block-out-from = "screencast";
         }
+
+        {
+          matches = [ { namespace = "^rofi$"; } ];
+          geometry-corner-radius = {
+            bottom-left = 16.;
+            bottom-right = 16.;
+            top-left = 16.;
+            top-right = 16.;
+          };
+        }
       ];
 
       hotkey-overlay.skip-at-startup = true;
