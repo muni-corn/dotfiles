@@ -1,8 +1,6 @@
-{ inputs, ... }:
 {
   programs.zed-editor = {
     enable = true;
-    package = inputs.zed-editor.packages."x86_64-linux".zed-editor-fhs;
     extensions = [
       "biome"
       "html"
