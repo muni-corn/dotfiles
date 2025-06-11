@@ -128,8 +128,8 @@
             # make low priority lower than no priority
             priority = {
               HH.coefficient = 15;
-              L.coefficient = -1;
-              LL.coefficient = -3;
+              L.coefficient = -5;
+              LL.coefficient = -15;
             };
           };
         };
