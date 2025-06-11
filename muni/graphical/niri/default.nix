@@ -99,6 +99,7 @@ in
           { proportion = 1. / 3.; }
           { proportion = 1. / 2.; }
           { proportion = 2. / 3.; }
+          { proportion = 19. / 20.; }
         ];
 
         # You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
