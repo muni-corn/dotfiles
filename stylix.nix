@@ -13,7 +13,7 @@ let
     # colors
     base16Scheme = theme;
     override = {
-      base00 = "000000";
+      base00 = "000221";
       base01 = "16213c";
       base02 = "374057";
       base03 = "585f72";
