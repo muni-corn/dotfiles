@@ -112,8 +112,6 @@
       plugins = [ pkgs.evolution-ews ];
     };
 
-    gphoto2.enable = true;
-
     # probably needed for minecraft
     java = {
       enable = true;
