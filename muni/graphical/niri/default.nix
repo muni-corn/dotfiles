@@ -420,14 +420,19 @@ in
 
   systemd.user.services.xwayland-satellite = {
     Unit = {
-      Description = "xwayland-satellite";
+      Description = "xwayland satellite";
+      BindsTo = "graphical-session.target";
       PartOf = "graphical-session.target";
       After = "graphical-session.target";
       Requisite = "graphical-session.target";
     };
     Service = {
+      Type = "notify";
       ExecStart = lib.getExe pkgs.xwayland-satellite-unstable;
       Restart = "on-failure";
+      NotifyAccess = "all";
+      StandardOutput = "journal";
     };
+    Install.WantedBy = [ "graphical-session.target" ];
   };
 }
