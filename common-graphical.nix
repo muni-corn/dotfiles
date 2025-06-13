@@ -39,7 +39,7 @@
       # needed for xdg-open and such
       xdg-utils
 
-      # needed for hyprland
+      # may or may not be needed after removing hyprland, idk
       qt5.qtwayland
       qt6.qtwayland
     ];
@@ -60,13 +60,13 @@
   };
 
   hardware = {
-    # Bluetooth
+    # bluetooth
     bluetooth = {
       enable = true;
       settings.General.Experimental = true;
     };
 
-    # Enable brillo
+    # enable brillo
     brillo.enable = true;
 
     # enable driSupport
@@ -74,7 +74,7 @@
 
     keyboard.qmk.enable = true;
 
-    # Ledger
+    # ledger devices
     ledger.enable = true;
 
     xpadneo.enable = true;
@@ -138,6 +138,7 @@
 
     blueman.enable = true;
 
+    # for pinentry-gnome3
     dbus.packages = [ pkgs.gcr ];
 
     geoclue2 = {
@@ -167,7 +168,7 @@
     # systemd name resolution
     resolved.enable = true;
 
-    # Configure keymap in X11
+    # configure keymap in X11
     xserver.xkb.layout = "us";
   };
 
@@ -175,7 +176,6 @@
     pkgs.libcanberra
   ];
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.muni = {
     isNormalUser = true;
     description = "municorn";
