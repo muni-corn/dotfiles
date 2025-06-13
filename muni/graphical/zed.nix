@@ -69,19 +69,30 @@
           }
         ];
       };
-      languages.TypeScript = {
-        language_servers = [
-          "typescript-language-server"
-          "biome"
-        ];
-        formatter.external = {
-          command = "dprint";
-          arguments = [
-            "--stdin"
-            "{buffer_path}"
-          ];
+      languages =
+        let
+          typescriptConfig = {
+            language_servers = [
+              "typescript-language-server"
+              "biome"
+            ];
+            formatter.external = {
+              command = "biome";
+              arguments = [
+                "check"
+                "--fix"
+                "--formatter-enabled=true"
+                "--linter-enabled=false"
+                "--organize-imports-enabled=true"
+                "--stdin-file-path={buffer_path}"
+              ];
+            };
+          };
+        in
+        {
+          TypeScript = typescriptConfig;
+          TSX = typescriptConfig;
         };
-      };
       minimap.show = "auto";
       preview_tabs.enable_preview_from_code_navigation = true;
       soft_wrap = "editor_width";
