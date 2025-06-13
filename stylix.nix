@@ -101,7 +101,6 @@ in
     };
 
     targets = {
-      hyprland.enable = false;
       hyprpaper.enable = false;
       rofi.enable = false;
       swaylock.enable = false;

@@ -69,7 +69,7 @@
     # Enable brillo
     brillo.enable = true;
 
-    # enable driSupport for hyprland
+    # enable driSupport
     graphics.enable = true;
 
     keyboard.qmk.enable = true;
@@ -114,20 +114,11 @@
 
     gphoto2.enable = true;
 
-    hyprland = {
-      enable = true;
-      systemd.setPath.enable = true;
-
-      # this will enable and configure Hyprland with uwsm
-      withUWSM = true;
-    };
-
+    # probably needed for minecraft
     java = {
       enable = true;
       package = pkgs.jdk;
     };
-
-    uwsm.enable = true;
   };
 
   security = {
@@ -208,7 +199,6 @@
   xdg = {
     portal = {
       enable = true;
-      wlr.enable = false;
       xdgOpenUsePortal = true;
     };
     sounds.enable = true;

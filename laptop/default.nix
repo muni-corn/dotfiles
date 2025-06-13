@@ -23,17 +23,12 @@
     blender
   ];
 
-  home-manager.users.muni = {
-    programs.hyprlock.settings = (import ../utils.nix { inherit config lib; }).mkHyprlockSettings [
-      "eDP-1"
-      "DP-2"
-    ];
-    wayland.windowManager.hyprland.settings.monitor = [
-      "eDP-1,preferred,0x0,1"
-      "DP-2,preferred,2560x0,1"
-      "DP-3,preferred,2560x0,1"
-    ];
-  };
+  home-manager.users.muni.programs.hyprlock.settings =
+    (import ../utils.nix { inherit config lib; }).mkHyprlockSettings
+      [
+        "eDP-1"
+        "DP-2"
+      ];
 
   musnix.soundcardPciId = "c1:00.6";
 
@@ -61,6 +56,7 @@
   # force governor to default null to spite musnix
   powerManagement.cpuFreqGovernor = lib.mkForce null;
 
+  # enable fingerprint for hyprlock
   security.pam.services.hyprlock.fprintAuth = true;
 
   services = {

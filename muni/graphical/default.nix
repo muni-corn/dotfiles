@@ -7,7 +7,6 @@
 {
   imports = [
     ./hypridle.nix
-    ./hyprland
     ./niri
     ./programs
     ./services

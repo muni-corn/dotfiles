@@ -90,27 +90,6 @@
     };
 
     services.easyeffects.enable = true;
-
-    wayland.windowManager.hyprland.settings = {
-      monitor = [
-        "HDMI-A-1,preferred,0x0,1,transform,1"
-        "DP-1,2560x1440@180,1080x0,1"
-        "DP-2,preferred,auto-right,1"
-        "HDMI-A-2,preferred,1080x1440,1"
-      ];
-      workspace = [
-        "1,monitor:DP-1,default:true"
-        "2,monitor:DP-1"
-        "3,monitor:DP-1"
-        "4,monitor:DP-1"
-        "5,monitor:DP-2,default:true"
-        "6,monitor:DP-2"
-        "7,monitor:DP-2"
-        "8,monitor:HDMI-A-1"
-        "9,monitor:HDMI-A-1"
-        "10,monitor:HDMI-A-1,default:true"
-      ];
-    };
   };
 
   musnix.soundcardPciId = "0e:00.4";
