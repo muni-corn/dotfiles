@@ -6,82 +6,74 @@
     '';
   };
 
-  programs.mr = {
-    enable = true;
-    settings = {
-      DEFAULT.update = "git pull --rebase";
-
-      # home-level repos
-      dotfiles.checkout = "git clone https://codeberg.org/municorn/dotfiles";
-      notebook.checkout = "git clone https://codeberg.org/municorn/notebook";
-
-      # annex repos
-      Documents = {
-        update = "git annex assist";
-        push = "git annex push";
-        order = 1;
+  programs.mr =
+    let
+      fromMyCodeberg = myRepoName: {
+        checkout = "git clone git@codeberg.org:municorn/${myRepoName}.git";
       };
-      Music = {
-        update = "git annex assist";
-        push = "git annex push";
-        order = 90; # since this one takes its GOSH DARN TIME
+      fromGitHub = myRepoName: {
+        checkout = "git clone git@github.com:muni-corn/${myRepoName}.git";
       };
-      Pictures = {
-        update = "git annex assist";
-        push = "git annex push";
-        order = 20;
-      };
-      Videos = {
-        update = "git annex assist";
-        push = "git annex push";
-        order = 15;
-      };
-
-      # passwords uwu
-      ".local/share/password-store".checkout =
-        "git clone https://codeberg.org/municorn/passwords.git password-store";
-
-      # my projects
-      "code/muni-wallpapers".checkout = "git clone git@github.com:muni-corn/muni-wallpapers.git";
-      "code/muni_bot".checkout = "git clone https://github.com/muni-corn/muni_bot";
-      "code/muse-shell".checkout = "git clone https://github.com/muni-corn/muse-shell";
-      "code/muse-sounds".checkout = "git clone git@codeberg.org:municorn/muse-sounds";
-      "code/musicaloft-web".checkout = "git clone git@github.com:musicaloft/musicaloft-web.git";
-      "code/nix-templates".checkout = "git clone git@github.com:muni-corn/nix-templates.git";
-      "code/silverfox".checkout = "git clone https://github.com/muni-corn/silverfox";
-      "code/unity/muni-vrc".checkout = "git clone git@github.com:muni-corn/muni-vrc";
-
-      # forked repos
-      "code/home-manager" = {
-        checkout = "git clone git@github.com:muni-corn/home-manager.git";
-        post_checkout = "cd $MR_REPO && git remote add upstream git@github.com:nix-community/home-manager";
+      fromMyGitHubForkRenamed = upstreamOwner: upstreamRepoName: newName: {
+        checkout = "git clone git@github.com:muni-corn/${newName}.git";
+        post_checkout = "cd $MR_REPO && git remote add upstream git@github.com:${upstreamOwner}/${upstreamRepoName}";
         update = "git fetch --all";
       };
-      "code/niri-flake" = {
-        checkout = "git clone git@github.com:muni-corn/niri-flake.git";
-        post_checkout = "cd $MR_REPO && git remote add upstream git@github.com:sodiboo/niri-flake";
-        update = "git fetch --all";
-      };
-      "code/nixpkgs" = {
-        checkout = "git clone git@github.com:muni-corn/nixpkgs.git";
-        post_checkout = "cd $MR_REPO && git remote add upstream git@github.com:NixOS/nixpkgs";
-        update = "git fetch --all";
-      };
-      "code/nixified-ai" = {
-        checkout = "git clone git@github.com:muni-corn/nixified-ai.git";
-        post_checkout = "cd $MR_REPO && git remote add upstream git@github.com:nixified-ai/flake";
-        update = "git fetch --all";
-      };
+      fromMyGitHubFork =
+        upstreamOwner: upstreamRepoName:
+        fromMyGitHubForkRenamed upstreamOwner upstreamRepoName upstreamRepoName;
 
-      # work repos
-      "code/apollo" = {
-        skip = true;
-        chain = true;
+      annex = order: {
+        inherit order;
+        update = "git annex assist";
+        push = "git annex push";
       };
-      "code/liberdus" = {
-        skip = true;
-        chain = true;
+    in
+    {
+      enable = true;
+      settings = {
+        DEFAULT.update = "git pull --rebase=true";
+
+        # home-level repos
+        dotfiles = fromMyCodeberg "dotfiles";
+        notebook = fromMyCodeberg "notebook";
+
+        # annex repos
+        Documents = annex 1;
+        Music = annex 90; # since this one takes its GOSH DARN TIME
+        Pictures = annex 20;
+        Videos = annex 15;
+
+        # passwords uwu
+        ".local/share/password-store".checkout =
+          "git clone https://codeberg.org/municorn/passwords.git password-store";
+
+        # my projects
+        "code/muni-wallpapers" = fromGitHub "muni-wallpapers";
+        "code/muni_bot" = fromGitHub "muni_bot";
+        "code/muse-shell" = fromGitHub "muse-shell";
+        "code/muse-sounds" = fromMyCodeberg "muse-sounds";
+        "code/musicaloft-web".checkout = "git clone git@github.com:musicaloft/musicaloft-web.git";
+        "code/nix-templates" = fromGitHub "nix-templates";
+        "code/silverfox" = fromGitHub "silverfox";
+        "code/unity/muni-vrc" = fromGitHub "muni-vrc";
+
+        # forked repos
+        "code/home-manager" = fromMyGitHubFork "nix-community" "home-manager";
+        "code/niri-flake" = fromMyGitHubFork "sodiboo" "niri-flake";
+        "code/nixpkgs" = fromMyGitHubFork "NixOS" "nixpkgs";
+        "code/nixified-ai" = fromMyGitHubForkRenamed "nixified-ai" "flake" "nixified-ai";
+        "code/stylix" = fromMyGitHubFork "nix-community" "stylix";
+
+        # work repos
+        "code/apollo" = {
+          skip = true;
+          chain = true;
+        };
+        "code/liberdus" = {
+          skip = true;
+          chain = true;
+        };
       };
     };
-  };
 }
