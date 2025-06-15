@@ -50,7 +50,7 @@
 
         # my projects
         "code/muni-wallpapers" = fromGitHub "muni-wallpapers";
-        "code/muni_bot" = fromGitHub "muni_bot";
+        "code/munibot" = fromGitHub "munibot";
         "code/muse-shell" = fromGitHub "muse-shell";
         "code/muse-sounds" = fromMyCodeberg "muse-sounds";
         "code/musicaloft-web".checkout = "git clone git@github.com:musicaloft/musicaloft-web.git";
