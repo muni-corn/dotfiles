@@ -1,4 +1,7 @@
 { config, ... }:
+let
+  inherit (config.lib.file) mkOutOfStoreSymlink;
+in
 {
   sops = {
     defaultSopsFile = ./secrets/default.yaml;
@@ -8,5 +11,10 @@
       liberdus_mrconfig = { };
       apollo_mrconfig = { };
     };
+  };
+
+  home.file = {
+    "code/liberdus/.mrconfig".source = mkOutOfStoreSymlink config.sops.secrets.liberdus_mrconfig.path;
+    "code/apollo/.mrconfig".source = mkOutOfStoreSymlink config.sops.secrets.apollo_mrconfig.path;
   };
 }
