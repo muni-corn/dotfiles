@@ -61,6 +61,11 @@
       # for showing btrbk progress
       mbuffer
     ];
+
+    variables = {
+      _PR_MODEL = "claude-sonnet-4-20250514";
+      _PR_AI_URL = "https://api.anthropic.com/v1/";
+    };
   };
 
   i18n = {

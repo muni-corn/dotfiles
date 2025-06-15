@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 {
   imports = [
     inputs.sops-nix.nixosModules.sops
@@ -15,11 +20,17 @@
       nix_builder_passwd = { };
       nix_serve_secret_key = { };
       atticd_env = { };
+      pay_respects_anthropic_api_key = { };
     };
   };
 
-  environment.systemPackages = with pkgs; [
-    sops
-    age
-  ];
+  environment = {
+    shellInit = ''
+      export _PR_AI_API_KEY="$(cat ${config.sops.secrets.pay_respects_anthropic_api_key.path})"
+    '';
+    systemPackages = with pkgs; [
+      sops
+      age
+    ];
+  };
 }
