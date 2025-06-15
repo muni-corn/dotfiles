@@ -102,7 +102,6 @@ in
 
     targets = {
       hyprpaper.enable = false;
-      rofi.enable = false;
       swaylock.enable = false;
       firefox.profileNames = [ "muni" ];
     };

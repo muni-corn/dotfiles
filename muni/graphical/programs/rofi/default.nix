@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
@@ -24,7 +25,7 @@
     ];
 
     cycle = true;
-    font = "sans 12";
+    font = lib.mkForce "sans 12";
     location = "center";
     terminal = "${config.programs.kitty.package}/bin/kitty";
     yoffset = 32;
@@ -58,97 +59,30 @@
 
     theme =
       let
-        colors = config.lib.stylix.colors;
-        mkColor = color: mkLiteral "#${color}";
-
-        background = mkColor "00000080";
-        dim = mkColor colors.blue;
-        selected = mkColor "${colors.blue}80";
-        white = mkColor colors.base06;
-        warning = mkColor colors.orange;
-
         inherit (config.lib.formats.rasi) mkLiteral;
       in
       {
-        "*" = {
-          text-color = dim;
-          background-color = mkColor "00000000";
-          background = background;
-        };
-
         window = {
-          text-color = white;
-          children = map mkLiteral [ "mainbox" ];
-          height = mkLiteral "70%";
-          width = mkLiteral "33%";
           border-radius = mkLiteral "16px";
         };
 
-        button = {
-          text-color = dim;
-        };
 
-        "button selected" = {
-          text-color = white;
-        };
 
         mainbox = {
-          expand = true;
-          background-color = background;
           spacing = mkLiteral "1em";
           padding = mkLiteral "32px";
         };
 
         element = {
           padding = mkLiteral "12px";
-        };
-
-        "element selected.normal" = {
-          background-color = selected;
-          text-color = white;
           border-radius = mkLiteral "8px";
         };
 
-        "element normal.active" = {
-          text-color = white;
-        };
-
-        "element normal.urgent" = {
-          text-color = warning;
-        };
-
-        "element selected.active" = {
-          background-color = selected;
-          text-color = white;
-        };
-
-        "element selected.urgent" = {
-          background-color = warning;
-          text-color = white;
-        };
-
-        inputbar = {
-          text-color = white;
-          children = map mkLiteral [
-            "prompt"
-            "spacer"
-            "entry"
-            "case-indicator"
-          ];
-        };
-
-        prompt = {
-          text-color = dim;
-        };
 
         spacer = {
-          expand = false;
           margin = mkLiteral "0em 0.5em 0em 0em";
         };
 
-        case-indicator = {
-          text-color = dim;
-        };
       };
   };
 }
