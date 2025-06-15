@@ -100,10 +100,6 @@ in
       light = "Papirus";
     };
 
-    targets = {
-      hyprpaper.enable = false;
-      swaylock.enable = false;
-      firefox.profileNames = [ "muni" ];
-    };
+    targets.firefox.profileNames = [ "muni" ];
   };
 }
