@@ -102,11 +102,7 @@ in
           { proportion = 19. / 20.; }
         ];
 
-        # You can also customize the heights that "switch-preset-window-height" (Mod+Shift+R) toggles between.
-        # preset-window-heights { }
-
-        # windows themselves will decide their initial width.
-        default-column-width.proportion = 0.4;
+        default-column-width.proportion = 0.5;
 
         focus-ring = {
           enable = true;
