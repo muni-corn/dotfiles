@@ -25,6 +25,8 @@
       glib # for gtk theming
       muse-shell
       nautilus
+      wl-clipboard-rs
+      wl-clipboard-x11
 
       # development/programming
       alcom
