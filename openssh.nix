@@ -8,7 +8,7 @@
       PasswordAuthentication = false;
       PermitRootLogin = "no";
     };
-    startWhenNeeded = true;
+    startWhenNeeded = false;
     extraConfig = ''
       ClientAliveInterval 30
       ClientAliveCountMax 20
