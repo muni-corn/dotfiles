@@ -407,10 +407,6 @@ in
       # (r "center" "initialTitle:^(Unity.*Selector),floating:1")
 
       # # for smart gaps
-      # workspace = [
-      # "w[tv1], gapsout:0, gapsin:0"
-      # "f[1], gapsout:0, gapsin:0"
-      # ];
     };
   };
 
