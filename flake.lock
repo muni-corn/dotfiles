@@ -643,7 +643,7 @@
         "type": "github"
       }
     },
-    "muni-bot": {
+    "munibot": {
       "inputs": {
         "crane": "crane",
         "fenix": "fenix",
@@ -653,16 +653,16 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1748465923,
-        "narHash": "sha256-F27zRUa2lzukn7M0XTrJKqSZBhRiLVBTTc0ATSw9Jxo=",
+        "lastModified": 1750084208,
+        "narHash": "sha256-DPHpiv0hREv4gHZ8rLBznP178tjCxwEOjqmhL8e0JOQ=",
         "owner": "muni-corn",
-        "repo": "muni_bot",
-        "rev": "d97f60eb3f85e48949895baf84115872d30d1c02",
+        "repo": "munibot",
+        "rev": "48eb65faf473875eb7924fdf103870e59f99fb10",
         "type": "github"
       },
       "original": {
         "owner": "muni-corn",
-        "repo": "muni_bot",
+        "repo": "munibot",
         "type": "github"
       }
     },
@@ -1063,7 +1063,7 @@
       "inputs": {
         "home-manager": "home-manager",
         "iosevka-muse": "iosevka-muse",
-        "muni-bot": "muni-bot",
+        "munibot": "munibot",
         "muse-shell": "muse-shell",
         "muse-sounds": "muse-sounds",
         "muse-wallpapers": "muse-wallpapers",

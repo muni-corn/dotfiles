@@ -12,7 +12,7 @@
     defaultSopsFile = ./secrets/default.yaml;
     age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
     secrets = {
-      "muni_bot.env" = { };
+      "munibot.env" = { };
       cachix_token = { };
       cachix_signing_key = { };
       nix_builder_private_key = { };

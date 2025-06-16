@@ -129,9 +129,9 @@
       openFirewall = true;
     };
 
-    muni_bot = {
+    munibot = {
       enable = true;
-      environmentFile = config.sops.secrets."muni_bot.env".path;
+      environmentFile = config.sops.secrets."munibot.env".path;
       settings = {
         twitch = {
           initial_channels = [

@@ -76,8 +76,8 @@
     # my stuff
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
     muse-wallpapers.url = "github:muni-corn/muse-wallpapers";
-    muni-bot = {
-      url = "github:muni-corn/muni_bot";
+    munibot = {
+      url = "github:muni-corn/munibot";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     muse-shell = {
@@ -99,7 +99,7 @@
       nixpkgs,
       home-manager,
       iosevka-muse,
-      muni-bot,
+      munibot,
       muse-shell,
       muse-sounds,
       musnix,
@@ -223,7 +223,7 @@
 
         # extra software configuration modules
         nixified-ai.nixosModules.comfyui
-        muni-bot.nixosModules.default
+        munibot.nixosModules.default
 
         ./server
       ];
