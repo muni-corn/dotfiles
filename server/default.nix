@@ -26,8 +26,11 @@
     ../extra-modules/nixos/timew-sync-server.nix
   ];
 
-  # Define your hostname.
-  networking.hostName = "munibot";
+  networking = {
+    # define hostname
+    hostName = "munibot";
+    firewall.allowedTCPPorts = [ config.services.surrealdb.port ];
+  };
 
   # Set your time zone.
   time.timeZone = lib.mkForce "America/Boise";
@@ -110,13 +113,15 @@
     surrealdb = {
       enable = true;
       dbPath = "rocksdb:///var/lib/surrealdb";
+      host = "0.0.0.0";
       port = 7654;
     };
 
     taskchampion-sync-server = {
       enable = true;
-      openFirewall = true;
       allowClientIds = [ "b3063e75-5cc7-4eaa-b8dd-b365774fb0eb" ];
+      host = "0.0.0.0";
+      openFirewall = true;
     };
 
     timew-sync-server = {
