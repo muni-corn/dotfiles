@@ -110,9 +110,22 @@
 
   fonts.fontconfig.enable = true;
 
-  gtk.enable = true;
-
-  manual.html.enable = true;
+  gtk = {
+    enable = true;
+    gtk3.bookmarks =
+      with config.xdg.userDirs;
+      map (dir: "file://${dir}") [
+        documents
+        download
+        music
+        pictures
+        videos
+        "${config.home.homeDirectory}/code"
+        "${documents}/municorn"
+        "${music}/soundfonts"
+        "${music}/soundfonts/vsco"
+      ];
+  };
 
   qt.enable = true;
 
