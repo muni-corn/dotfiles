@@ -420,6 +420,7 @@ in
     # "Mod+Mouse:273".action = resizewindow null;
 
     # quit niri
-    "Mod+Shift+E".action = sh "canberra-gtk-play -i desktop-logout; niri msg action quit";
+    "Mod+Shift+E".action =
+      sh "canberra-gtk-play -i desktop-logout; niri msg action quit --skip-confirmation";
   };
 }
