@@ -36,6 +36,7 @@ in
       sox
 
       # terminal/cli stuff
+      attic-client
       dig
       fd
       fend
