@@ -10,8 +10,13 @@ in
       taskwarrior_secrets = { };
       liberdus_mrconfig = { };
       apollo_mrconfig = { };
+      pay_respects_anthropic_api_key = { };
     };
   };
+
+  programs.fish.interactiveShellInit = ''
+    set --global _PR_AI_API_KEY (cat ${config.sops.secrets.pay_respects_anthropic_api_key.path})
+  '';
 
   home.file = {
     "code/liberdus/.mrconfig".source = mkOutOfStoreSymlink config.sops.secrets.liberdus_mrconfig.path;
