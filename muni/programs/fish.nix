@@ -105,6 +105,9 @@
       set --universal tide_pwd_icon_unwritable 
       set --universal tide_status_icon 
       set --universal tide_status_icon_failure 
+
+      set sponge_purge_only_on_exit true
+      set --append sponge_regex_patterns '(?:rsync)'
     '';
 
     shellAliases = {
@@ -143,8 +146,6 @@
 
     shellInit = ''
       set fish_greeting ""
-      set sponge_purge_only_on_exit true
-      set --append sponge_regex_patterns '(?:rsync)'
     '';
   };
 }
