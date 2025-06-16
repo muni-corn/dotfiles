@@ -55,7 +55,6 @@
       };
       auto_update = false;
       autosave = "on_window_change";
-      buffer_font_family = "Iosevka Muse";
       close_on_file_delete = true;
       diagnostics.inline.enabled = true;
       format_on_save = "on";
@@ -90,8 +89,10 @@
           };
         in
         {
-          TypeScript = typescriptConfig;
+          JSX = typescriptConfig;
+          JavaScript = typescriptConfig;
           TSX = typescriptConfig;
+          TypeScript = typescriptConfig;
         };
       minimap.show = "auto";
       preview_tabs.enable_preview_from_code_navigation = true;
@@ -101,7 +102,6 @@
         diagnostics = false;
         metrics = false;
       };
-      ui_font_family = "Adwaita Sans";
       use_smartcase_search = true;
       vim.default_mode = "helix_normal";
       vim_mode = true;
