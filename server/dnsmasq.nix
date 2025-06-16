@@ -7,6 +7,7 @@
     hosts = {
       "192.168.68.70" = [
         "ai.musicaloft.com"
+        "attic.musicaloft.com"
         "cache.musicaloft.com"
         "cloud.musicaloft.com"
         "git.musicaloft.com"
