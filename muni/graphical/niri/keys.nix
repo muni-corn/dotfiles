@@ -211,29 +211,18 @@ in
     "Mod+S".action = toggle-window-floating;
     "Mod+Z".action = switch-focus-between-floating-and-tiling;
 
-    # Toggle tabbed column display mode.
-    # Windows in this column will appear as vertical tabs,
-    # rather than stacked on top of each other.
-
-    # Actions to switch layouts.
-    # Note: if you uncomment these, make sure you do NOT have
-    # a matching layout switch hotkey configured in xkb options above.
-    # Having both at once on the same hotkey will break the switching,
-    # since it will switch twice upon pressing the hotkey (once by xkb, once by niri).
-    "Mod+Alt+Space".action = switch-layout "next";
-    "Mod+Ctrl+Space".action = switch-layout "prev";
-
-    # "Mod+Print".action = screenshot-screen { write-to-disk = true; };
+    # screenshots
     "Mod+Print".action = screenshot-window { write-to-disk = true; };
+    # "Mod+Shift+Print".action = screenshot-screen { write-to-disk = true; };
     "Mod+Ctrl+Print".action = screenshot;
 
-    # Applications such as remote-desktop clients and software KVM switches may
+    # applications such as remote-desktop clients and software kvm switches may
     # request that niri stops processing the keyboard shortcuts defined here
     # so they may, for example, forward the key presses as-is to a remote machine.
-    # It's a good idea to bind an escape hatch to toggle the inhibitor,
+    # it's a good idea to bind an escape hatch to toggle the inhibitor,
     # so a buggy application can't hold your session hostage.
     #
-    # The allow-inhibiting=false property can be applied to other binds as well,
+    # the allow-inhibiting=false property can be applied to other binds as well,
     # which ensures niri always processes them, even when an inhibitor is active.
     "Mod+Grave" = {
       action = toggle-keyboard-shortcuts-inhibit;
