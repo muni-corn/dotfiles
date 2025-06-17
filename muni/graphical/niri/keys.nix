@@ -248,11 +248,7 @@ in
       action = sh "canberra-gtk-play -i system-shutdown; systemctl reboot";
       repeat = false;
     };
-    "Mod+Ctrl+Alt+S" = {
-      action = spawn "systemctl" "suspend";
-      allow-when-locked = true;
-      repeat = false;
-    };
+    "Mod+Ctrl+Alt+S".action = suspend;
 
     # move focused workspace
     "Mod+Ctrl+Alt+H".action = move-workspace-to-monitor-left;
