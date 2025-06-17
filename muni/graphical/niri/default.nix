@@ -18,31 +18,31 @@ in
     package = pkgs.niri-unstable;
     settings = {
       animations = {
-        horizontal-view-movement.spring = {
+        horizontal-view-movement.kind.spring = {
           damping-ratio = 0.8;
           epsilon = 0.001;
           stiffness = 500;
         };
-        window-close.easing = {
+        window-close.kind.easing = {
           curve = "ease-out-quad";
           duration-ms = 200;
         };
-        window-open.spring = {
+        window-open.kind.spring = {
           damping-ratio = 0.75;
           epsilon = 0.001;
           stiffness = 700;
         };
-        window-movement.spring = {
+        window-movement.kind.spring = {
           damping-ratio = 0.8;
           epsilon = 0.001;
           stiffness = 700;
         };
-        window-resize.spring = {
+        window-resize.kind.spring = {
           damping-ratio = 0.8;
           epsilon = 0.001;
           stiffness = 700;
         };
-        workspace-switch.spring = {
+        workspace-switch.kind.spring = {
           damping-ratio = 0.8;
           epsilon = 0.001;
           stiffness = 300;
@@ -52,7 +52,6 @@ in
       gestures = {
         dnd-edge-view-scroll = {
           max-speed = 3000;
-          trigger-width = 64;
         };
         hot-corners.enable = true;
       };
@@ -73,7 +72,7 @@ in
           max-scroll-amount = "25%";
         };
 
-        warp-mouse-to-focus = true;
+        warp-mouse-to-focus.enable = true;
         workspace-auto-back-and-forth = true;
       };
 
