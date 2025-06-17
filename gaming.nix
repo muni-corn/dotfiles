@@ -29,13 +29,15 @@ in
       capSysNice = true;
       args = [
         "-f"
-        "-r 75"
-        "-o 75"
+        "-b"
+        "--force-grab-cursor"
+        "-r 180"
+        "-o 40"
         "-H 1440"
         "-h 1440"
         "-w 2560"
         "-W 2560"
-        "-g"
+        "--backend sdl"
         "--expose-wayland"
       ];
     };
