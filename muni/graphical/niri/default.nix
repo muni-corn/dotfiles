@@ -83,6 +83,8 @@ in
       # Find more information on the wiki:
       # https://github.com/YaLTeR/niri/wiki/Configuration:-Layout
       layout = {
+        background-color = "transparent";
+
         # When to center a column when changing focus, options are:
         # - "never", default behavior, focusing an off-screen column will keep at the left
         #   or right edge of the screen.
@@ -245,7 +247,12 @@ in
 
       layer-rules = [
         # put wallpaper as backdrop
-        { matches = [ { namespace = "swww-daemon"; } ]; }
+        {
+          matches = [
+            { namespace = "swww-daemon"; }
+          ];
+          place-within-backdrop = true;
+        }
 
         # put shadows on all layers but bars and notifications
         {
