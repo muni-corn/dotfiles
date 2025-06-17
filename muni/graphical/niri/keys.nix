@@ -268,8 +268,8 @@ in
     # "Mod+X".action = pin "";
     # "Mod+Ctrl+S".action = toggleswallow "";
 
-    # TODO toggle groups (in niri: tabs?)
-    # "Mod+G".action = togglegroup "";
+    # toggle tabs
+    "Mod+G".action = toggle-column-tabbed-display;
 
     # shortcuts for apps
     "Mod+A".action = launch appMenu;
