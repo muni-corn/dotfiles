@@ -254,15 +254,15 @@ in
       repeat = false;
     };
 
-    # TODO move focused workspace to outputs
-    # "Mod+Shift+H".action = movecurrentworkspacetomonitor "l";
-    # "Mod+Shift+J".action = movecurrentworkspacetomonitor "d";
-    # "Mod+Shift+K".action = movecurrentworkspacetomonitor "u";
-    # "Mod+Shift+L".action = movecurrentworkspacetomonitor "r";
-    # "Mod+Shift+Left".action = movecurrentworkspacetomonitor "l";
-    # "Mod+Shift+Down".action = movecurrentworkspacetomonitor "d";
-    # "Mod+Shift+Up".action = movecurrentworkspacetomonitor "u";
-    # "Mod+Shift+Right".action = movecurrentworkspacetomonitor "r";
+    # move focused workspace
+    "Mod+Ctrl+Alt+H".action = move-workspace-to-monitor-left;
+    "Mod+Ctrl+Alt+J".action = move-workspace-to-monitor-down;
+    "Mod+Ctrl+Alt+K".action = move-workspace-to-monitor-up;
+    "Mod+Ctrl+Alt+L".action = move-workspace-to-monitor-right;
+    "Mod+Ctrl+Alt+Left".action = move-workspace-to-monitor-left;
+    "Mod+Ctrl+Alt+Down".action = move-workspace-to-monitor-down;
+    "Mod+Ctrl+Alt+Up".action = move-workspace-to-monitor-up;
+    "Mod+Ctrl+Alt+Right".action = move-workspace-to-monitor-right;
 
     # TODO special workspaces (minimize)
     # "Mod+V".action = movetoworkspacesilent "special";
