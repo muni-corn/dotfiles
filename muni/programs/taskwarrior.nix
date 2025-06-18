@@ -5,8 +5,6 @@
     ../../extra-modules/hm/timew-sync.nix
   ];
 
-  home.packages = with pkgs; [ vit ];
-
   programs = {
     timewarrior = {
       enable = true;
@@ -17,7 +15,7 @@
       enable = true;
       package = pkgs.taskwarrior3;
 
-      colorTheme = "dark-gray-blue-256";
+      colorTheme = "bubblegum-256";
 
       config = {
         # no writing without a filter
@@ -30,11 +28,11 @@
         color = {
           keyword.await = "gray7 on black";
           tag = {
-            p = "bold cyan";
+            p = "bright bold cyan";
             unpaid = "red";
           };
           uda = {
-            tip = "bold magenta";
+            tip = "bright bold magenta";
             priority = {
               HH = "bold black on magenta";
               LL = "gray7";
@@ -137,6 +135,15 @@
         uda = {
           # custom priority values
           priority.values = "HH,H,M,,L,LL";
+
+          # set default filter for taskwarrior-tui
+          taskwarrior-tui = {
+            selection = {
+              reverse = true;
+              italic = true;
+            };
+            task-report.next.filter = "status:pending";
+          };
 
           # tip uda, for recording paid tips for tasks
           tip = {

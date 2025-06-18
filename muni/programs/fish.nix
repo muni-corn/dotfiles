@@ -139,7 +139,7 @@
       tm = "task modify";
       tn = "task next";
       ts = "task start";
-      tt = "vit";
+      tt = "taskwarrior-tui";
       ty = "task sync";
       tS = "task stop";
     };
