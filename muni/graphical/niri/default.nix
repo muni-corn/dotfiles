@@ -52,6 +52,13 @@ in
       gestures = {
         dnd-edge-view-scroll = {
           max-speed = 3000;
+          trigger-width = 100;
+          delay-ms = 1000;
+        };
+        dnd-edge-workspace-switch = {
+          max-speed = 3000;
+          trigger-height = 100;
+          delay-ms = 1000;
         };
         hot-corners.enable = true;
       };
