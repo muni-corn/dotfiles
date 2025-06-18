@@ -43,6 +43,7 @@
         "command-r"
         "deepseek-r1:70b"
         "deepseek-r1:8b"
+        "devstral"
         "eramax/fusechat-7b-varm"
         "gemma3:1b"
         "gemma3:4b"
