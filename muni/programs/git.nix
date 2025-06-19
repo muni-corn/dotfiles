@@ -35,6 +35,7 @@
         gds = "git diff --staged";
         gf = "git fetch";
         gl = "git log";
+        glp = "git dlog";
         gm = "git merge";
         gma = "git merge --abort";
         gmc = "git merge --continue";
@@ -45,9 +46,11 @@
         gri = "git rebase --interactive";
         grs = "git rebase --skip";
         gs = "git status";
+        gshow = "git dshow";
         gw = "git switch";
       };
     };
+
     git =
       let
         diffrColorsList = [
