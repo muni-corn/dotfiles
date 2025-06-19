@@ -66,12 +66,15 @@
         package = pkgs.gitAndTools.gitFull;
 
         aliases = {
-          dt = "difftool";
           dlog = "log -p --ext-diff";
           dshow = "show -p --ext-diff";
         };
 
-        difftastic.enable = true;
+        difftastic = {
+          enable = true;
+          enableAsDifftool = true;
+          background = "dark";
+        };
 
         lfs.enable = true;
 
@@ -133,13 +136,9 @@
           diff = {
             colorMoved = "zebra";
             guitool = "meld";
-            tool = "difftastic";
             renamelimit = 24817;
           };
-          difftool = {
-            prompt = false;
-            difftastic.cmd = ''${pkgs.difftastic}/bin/difft "$LOCAL" "$REMOTE"'';
-          };
+          difftool.prompt = false;
           feature.manyFiles = true;
           fetch.prune = true;
           init.defaultBranch = "main";
