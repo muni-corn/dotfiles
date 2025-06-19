@@ -79,7 +79,7 @@
         let
           typescriptConfig = {
             language_servers = [
-              "typescript-language-server"
+              "vtsls"
               "biome"
             ];
             formatter.external = {
@@ -101,6 +101,7 @@
           TSX = typescriptConfig;
           TypeScript = typescriptConfig;
         };
+      lsp.vtsls.settings.vtsls.experimental.maxInlayHintLength = 30;
       minimap.show = "auto";
       preview_tabs.enable_preview_from_code_navigation = true;
       soft_wrap = "editor_width";
