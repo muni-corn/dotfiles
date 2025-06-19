@@ -89,7 +89,7 @@
                 "--fix"
                 "--formatter-enabled=true"
                 "--linter-enabled=false"
-                "--organize-imports-enabled=true"
+                "--assist-enabled=true"
                 "--stdin-file-path={buffer_path}"
               ];
             };

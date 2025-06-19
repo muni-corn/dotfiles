@@ -1,6 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs-master.url = "github:nixos/nixpkgs/master";
 
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -97,6 +98,7 @@
   outputs =
     {
       nixpkgs,
+      nixpkgs-master,
       home-manager,
       iosevka-muse,
       munibot,
@@ -121,7 +123,8 @@
       };
 
       customPackagesOverlay = final: prev: {
-        muse-shell = muse-shell.packages.${prev.system}.default;
+        muse-shell = muse-shell.packages.${final.system}.default;
+        biome = nixpkgs-master.legacyPackages.${final.system}.biome;
       };
 
       overlaysModule = {
