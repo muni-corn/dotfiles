@@ -94,6 +94,7 @@
         userEmail = "municorn@musicaloft.com";
         userName = "municorn";
 
+        # all extra config
         extraConfig = {
           advice.skippedCherryPicks = false;
           annex = {
@@ -141,6 +142,7 @@
           init.defaultBranch = "main";
           interactive.diffFilter = "${pkgs.diffr}/bin/diffr --colors ${diffrColors} --line-numbers";
           merge = {
+            conflictStyle = "diff3";
             tool = "nvimdiff";
             guitool = "meld";
           };
@@ -177,6 +179,7 @@
           };
         };
       };
+
     gitui = {
       enable = true;
       keyConfig = ''
@@ -193,6 +196,9 @@
         )
       '';
     };
+
+    # configures git, too
+    mergiraf.enable = true;
   };
 
 }
