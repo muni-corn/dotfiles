@@ -21,6 +21,7 @@
         context = "vim_mode != insert";
         bindings = {
           "space w" = "workspace::Save";
+          "space space" = "file_finder::Toggle";
         };
       }
     ];
