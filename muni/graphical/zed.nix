@@ -17,6 +17,12 @@
           "j j" = "vim::NormalBefore";
         };
       }
+      {
+        context = "vim_mode != insert";
+        bindings = {
+          "space w" = "workspace::Save";
+        };
+      }
     ];
 
     userSettings = {
