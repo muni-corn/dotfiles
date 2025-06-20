@@ -18,7 +18,7 @@
         };
       }
       {
-        context = "vim_mode != insert";
+        context = "vim_mode == helix_normal || vim_mode == normal";
         bindings = {
           "space w" = "workspace::Save";
           "space space" = "file_finder::Toggle";
