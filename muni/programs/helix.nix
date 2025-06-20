@@ -4,6 +4,7 @@
     enable = true;
     extraPackages = with pkgs; [
       kdlfmt
+      vtsls
     ];
     defaultEditor = true;
     settings = {
@@ -130,129 +131,108 @@
           command = "biome";
           args = [ "lsp-proxy" ];
         };
+        vtsls = {
+          command = "vtsls";
+          args = [ "--stdio" ];
+          config.hostInfo = "helix";
+        };
       };
-      language = [
-        {
-          name = "rust";
-          auto-pairs = {
-            "(" = '')'';
-            "{" = ''}'';
-            "[" = '']'';
-            "\"" = ''"'';
-            "`" = ''`'';
-            "<" = ''>'';
-          };
-        }
-        {
-          name = "markdown";
-          auto-format = true;
-          formatter = {
-            command = "dprint";
-            args = [
-              "fmt"
-              "--stdin"
-              "md"
+      language =
+        let
+          jsConfig = name: {
+            inherit name;
+            auto-format = true;
+            language-servers = [
+              {
+                name = "vtsls";
+                except-features = [ "format" ];
+              }
+              "biome"
             ];
           };
-          auto-pairs = {
-            "*" = "*";
-            "_" = "_";
-            "(" = ")";
-            "[" = "]";
-          };
-        }
-        {
-          name = "nix";
-          formatter.command = "nixfmt";
-          auto-format = true;
-        }
-        {
-          name = "toml";
-          auto-format = true;
-          formatter = {
-            command = "dprint";
-            args = [
-              "fmt"
-              "--stdin"
-              "toml"
-            ];
-          };
-          auto-pairs = {
-            "[" = "]";
-            "{" = "}";
-            "\"" = ''"'';
-          };
-        }
+        in
+        [
+          {
+            name = "rust";
+            auto-pairs = {
+              "(" = '')'';
+              "{" = ''}'';
+              "[" = '']'';
+              "\"" = ''"'';
+              "`" = ''`'';
+              "<" = ''>'';
+            };
+          }
+          {
+            name = "markdown";
+            auto-format = true;
+            formatter = {
+              command = "dprint";
+              args = [
+                "fmt"
+                "--stdin"
+                "md"
+              ];
+            };
+            auto-pairs = {
+              "*" = "*";
+              "_" = "_";
+              "(" = ")";
+              "[" = "]";
+            };
+          }
+          {
+            name = "nix";
+            formatter.command = "nixfmt";
+            auto-format = true;
+          }
+          {
+            name = "toml";
+            auto-format = true;
+            formatter = {
+              command = "dprint";
+              args = [
+                "fmt"
+                "--stdin"
+                "toml"
+              ];
+            };
+            auto-pairs = {
+              "[" = "]";
+              "{" = "}";
+              "\"" = ''"'';
+            };
+          }
 
-        # kdl
-        {
-          name = "kdl";
-          auto-format = true;
-          formatter = {
-            command = "kdlfmt";
-            args = [
-              "format"
-              "--stdin"
-            ];
-          };
-        }
+          # kdl
+          {
+            name = "kdl";
+            auto-format = true;
+            formatter = {
+              command = "kdlfmt";
+              args = [
+                "format"
+                "--stdin"
+              ];
+            };
+          }
 
-        # javascript and adjacent languages
-        {
-          name = "javascript";
-          auto-format = true;
-          language-servers = [
-            {
-              name = "typescript-language-server";
-              except-features = [ "format" ];
-            }
-            "biome"
-          ];
-        }
-        {
-          name = "typescript";
-          auto-format = true;
-          language-servers = [
-            {
-              name = "typescript-language-server";
-              except-features = [ "format" ];
-            }
-            "biome"
-          ];
-        }
-        {
-          name = "tsx";
-          auto-format = true;
-          language-servers = [
-            {
-              name = "typescript-language-server";
-              except-features = [ "format" ];
-            }
-            "biome"
-          ];
-        }
-        {
-          name = "jsx";
-          auto-format = true;
-          language-servers = [
-            {
-              name = "typescript-language-server";
-              except-features = [ "format" ];
-            }
-            "biome"
-          ];
-        }
-        {
-          name = "json";
-          language-servers = [
-            {
-              name = "vscode-json-language-server";
-              except-features = [ "format" ];
-            }
-            "biome"
-          ];
-        }
-      ];
+          # javascript and adjacent languages
+          (jsConfig "javascript")
+          (jsConfig "typescript")
+          (jsConfig "tsx")
+          (jsConfig "jsx")
+          {
+            name = "json";
+            language-servers = [
+              {
+                name = "vscode-json-language-server";
+                except-features = [ "format" ];
+              }
+              "biome"
+            ];
+          }
+        ];
     };
   };
 
