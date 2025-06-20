@@ -124,6 +124,7 @@
         "${documents}/municorn"
         "${music}/soundfonts"
         "${music}/soundfonts/vsco"
+        "${pictures}/Screenshots"
       ];
   };
 

@@ -32,8 +32,6 @@
 
     pass-secret-service.enable = true;
 
-    syncthing.enable = true;
-
     taskwarrior-sync = {
       enable = true;
       package = pkgs.taskwarrior3;

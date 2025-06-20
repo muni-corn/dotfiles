@@ -7,6 +7,7 @@ in
     ./dprint.nix
     ./programs
     ./sops
+    ./syncthing.nix
   ];
 
   home = {
