@@ -22,6 +22,12 @@
           introducer = false;
           addresses = [ "dynamic" ];
         };
+        munibot = {
+          id = "XCRHMGT-WJLK2S6-TIUH7K3-AQDMF3G-ROUF4C7-2PPD426-ALDCFG6-ZDAS2AX";
+          compression = "always";
+          introducer = true;
+          addresses = [ "dynamic" ];
+        };
       };
       folders =
         let
@@ -38,6 +44,7 @@
                 "breezi"
                 "cherri"
                 "sunni"
+                "munibot"
               ];
               versioning = {
                 type = "staggered";
