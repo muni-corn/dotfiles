@@ -186,6 +186,11 @@
       enable = true;
       bantime = "72h";
       bantime-increment.enable = true;
+      ignoreIP = [
+        "192.168.68.60"
+        "192.168.68.70"
+        "192.168.68.80"
+      ];
     };
 
     fwupd.enable = true;
