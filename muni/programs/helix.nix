@@ -106,38 +106,36 @@
               home-manager.expr = "${flake}.nixosConfigurations.breezi.options.home-manager.users.type.getSubOptions []";
             };
           };
-        rust-analyzer = {
-          config = {
-            cargo = {
-              autoreload = true;
-              buildScripts.enable = true;
-              features = "all";
-            };
-            check.command = "clippy";
-            diagnostics.disabled = [
-              "unresolved-proc-macro"
-              "unresolved-macro-call"
-              "macro-error"
-            ];
-            inlayHints = {
-              closureReturnTypeHints.enable = "with_block";
-              expressionAdjustmentHints = {
-                enable = "reborrow";
-                hideOutsideUnsafe = true;
-              };
-              lifetimeElisionHints.enable = "skip_trivial";
-              renderColons = false;
-              parameterHints.enable = false;
-              typeHints = {
-                enable = false;
-                hideClosureInitialization = true;
-                hideClosureParameter = true;
-                hideNamedConstructor = true;
-              };
-            };
-            rustfmt.rangeFormatting.enable = true;
-            notifications.cargoTomlNotFound = false;
+        rust-analyzer.config = {
+          cargo = {
+            autoreload = true;
+            buildScripts.enable = true;
+            features = "all";
           };
+          check.command = "clippy";
+          diagnostics.disabled = [
+            "unresolved-proc-macro"
+            "unresolved-macro-call"
+            "macro-error"
+          ];
+          inlayHints = {
+            closureReturnTypeHints.enable = "with_block";
+            expressionAdjustmentHints = {
+              enable = "reborrow";
+              hideOutsideUnsafe = true;
+            };
+            lifetimeElisionHints.enable = "skip_trivial";
+            renderColons = false;
+            parameterHints.enable = false;
+            typeHints = {
+              enable = false;
+              hideClosureInitialization = true;
+              hideClosureParameter = true;
+              hideNamedConstructor = true;
+            };
+          };
+          rustfmt.rangeFormatting.enable = true;
+          notifications.cargoTomlNotFound = false;
         };
         biome = {
           command = "biome";
