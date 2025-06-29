@@ -114,17 +114,21 @@
     enable = true;
     gtk3.bookmarks =
       with config.xdg.userDirs;
+      let
+        home = config.home.homeDirectory;
+      in
       map (dir: "file://${dir}") [
         documents
         download
         music
         pictures
         videos
-        "${config.home.homeDirectory}/code"
+        "${home}/code"
         "${documents}/municorn"
         "${music}/soundfonts"
         "${music}/soundfonts/vsco"
         "${pictures}/Screenshots"
+        "${home}/sync"
       ];
   };
 
