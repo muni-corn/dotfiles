@@ -70,6 +70,24 @@
           }
         ];
     };
+
+    plugins = {
+      inherit (pkgs.yaziPlugins)
+        bypass
+        chmod
+        git
+        mediainfo
+        mount
+        ouch
+        restore
+        rich-preview
+        rsync
+        smart-enter
+        sudo
+        time-travel
+        ;
+    };
+
     settings = {
       mgr = {
         show_hidden = true;
