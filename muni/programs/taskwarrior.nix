@@ -57,6 +57,10 @@
             read = "project:comms or +comms";
             write = "project:comms +comms";
           };
+          dotfiles = {
+            read = "project:dotfiles";
+            write = "project:dotfiles";
+          };
           liberdus = {
             read = "project:liberdus";
             write = "project:liberdus";
