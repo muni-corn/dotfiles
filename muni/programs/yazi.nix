@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   programs.yazi = {
     enable = true;
@@ -30,18 +30,45 @@
     '';
 
     keymap = {
-      mgr.prepend_keymap = [
-        {
-          on = "!";
-          run = ''shell "$SHELL" --block'';
-          desc = "Open shell here";
-        }
-        {
-          on = "<C-n>";
-          run = ''shell -- ${pkgs.dragon-drop}/bin/dragon-drop -x -T "$1"'';
-          desc = "Open dragon dialog";
-        }
-      ];
+      mgr.prepend_keymap =
+        let
+          # TODO: dedupe with gtk bookmarks
+          bookmarks = {
+            D = "~/dotfiles";
+            M = "~/Documents/municorn";
+            a = "~/Music/ardour";
+            c = "~/code";
+            d = "~/Documents";
+            m = "~/Music";
+            n = "~/notebook";
+            o = "~/Downloads";
+            p = "~/Pictures";
+            s = "~/sync";
+            v = "~/Videos";
+          };
+
+          bookmarkMaps = lib.attrsets.mapAttrsToList (key: dir: {
+            on = [
+              "g"
+              key
+            ];
+            run = "cd '${dir}'";
+            desc = "Go to ${dir}";
+          }) bookmarks;
+        in
+        bookmarkMaps
+        ++ [
+          {
+            on = "!";
+            run = ''shell "$SHELL" --block'';
+            desc = "Open shell here";
+          }
+          {
+            on = "<C-n>";
+            run = ''shell -- ${pkgs.dragon-drop}/bin/dragon-drop -x -T "$1"'';
+            desc = "Open dragon dialog";
+          }
+        ];
     };
     settings = {
       mgr = {
