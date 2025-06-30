@@ -68,6 +68,11 @@
             run = ''shell -- ${pkgs.dragon-drop}/bin/dragon-drop -x -T "$1"'';
             desc = "Open dragon dialog";
           }
+          {
+            on = "C";
+            run = "plugin ouch";
+            desc = "Compress with ouch";
+          }
         ];
     };
 
@@ -95,12 +100,37 @@
         sort_translit = true;
         linemode = "size";
       };
+      opener.extract = [
+        {
+          run = ''ouch d -y "$@"'';
+          desc = "Extract here with ouch";
+          for = "unix";
+        }
+      ];
       preview = {
         max_width = 2000;
         max_height = 1000;
         image_filter = "lanczos3";
         image_quality = 85;
       };
+      plugin.prepend_previewers =
+        let
+          ouch = mime: {
+            inherit mime;
+            run = "ouch";
+          };
+        in
+        [
+          (ouch "application/*zip")
+          (ouch "application/x-tar")
+          (ouch "application/x-bzip2")
+          (ouch "application/x-7z-compressed")
+          (ouch "application/x-rar")
+          (ouch "application/x-xz")
+          (ouch "application/x-zstd")
+          (ouch "application/xz")
+          (ouch "application/zstd")
+        ];
     };
   };
 
