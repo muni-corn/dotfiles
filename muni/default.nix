@@ -5,6 +5,7 @@ in
 {
   imports = [
     ./dprint.nix
+    ./opencommit.nix
     ./programs
     ./sops
     ./syncthing.nix
