@@ -6,6 +6,7 @@
 {
   home.packages = builtins.attrValues {
     inherit (pkgs)
+      git-absorb
       git-annex
       git-crypt
       git-filter-repo
@@ -16,7 +17,7 @@
     fish = {
       shellAbbrs = {
         g = "git";
-        gA = "git annex";
+        gA = "git absorb";
         gM = "git mergetool";
         gP = "git push";
         gPF = "git push --force-with-lease";
@@ -26,6 +27,7 @@
         gRsp = "git restore --staged --patch";
         gS = "git stash";
         ga = "git add";
+        gae = "git annex edit";
         gap = "git add -p";
         gb = "git branch";
         gc = "git commit";
