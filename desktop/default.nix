@@ -72,7 +72,6 @@
           mode = {
             width = 2560;
             height = 1440;
-            refresh = 180.;
           };
           position = {
             x = 1080;
