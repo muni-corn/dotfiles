@@ -77,6 +77,7 @@
             x = 1080;
             y = 0;
           };
+          variable-refresh-rate = true;
         };
 
         # (let niri place DP-2 automatically)
