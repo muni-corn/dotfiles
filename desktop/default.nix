@@ -81,9 +81,15 @@
 
         # (let niri place DP-2 automatically)
 
-        "HDMI-A-2".position = {
-          x = 1080;
-          y = 1440;
+        "HDMI-A-2" = {
+          mode = {
+            width = 2560;
+            height = 1440;
+          };
+          position = {
+            x = 1080;
+            y = 1440;
+          };
         };
       };
     };
