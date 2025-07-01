@@ -6,7 +6,7 @@
 }:
 {
   home = {
-    activation.setupOpencommit = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    activation.setupOpencommit = lib.hm.dag.entryAfter [ "sops-nix" "writeBoundary" ] ''
       run oco config set OCO_AI_PROVIDER=anthropic
       run oco config set OCO_TOKENS_MAX_INPUT=32768
       run oco config set OCO_TOKENS_MAX_OUTPUT=1000
