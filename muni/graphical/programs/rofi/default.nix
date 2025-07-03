@@ -8,6 +8,7 @@
   home.packages = [
     pkgs.wtype
     pkgs.rofimoji
+    pkgs.rofi-bluetooth
   ];
 
   programs.rofi = {
@@ -20,7 +21,6 @@
       stores = [ "~/.password-store/" ];
     };
     plugins = with pkgs; [
-      rofi-bluetooth
       rofi-calc
     ];
 
@@ -66,8 +66,6 @@
           border-radius = mkLiteral "16px";
         };
 
-
-
         mainbox = {
           spacing = mkLiteral "1em";
           padding = mkLiteral "32px";
@@ -77,7 +75,6 @@
           padding = mkLiteral "12px";
           border-radius = mkLiteral "8px";
         };
-
 
         spacer = {
           margin = mkLiteral "0em 0.5em 0em 0em";

@@ -231,7 +231,7 @@ in
 
     # powers off the monitors. to turn them back on, do any input like
     # moving the mouse or pressing any other key.
-    "Mod+Shift+P".action = power-off-monitors;
+    "Mod+P".action = power-off-monitors;
 
     # open terminal
     "Mod+Return" = {
@@ -276,15 +276,16 @@ in
     "Mod+B".action = launch apps.music;
     "Mod+N".action = launch scripts.quickCode;
     "Mod+W".action = launch apps.browser;
+    "Mod+Ctrl+B".action = spawn "rofi-bluetooth";
     "Mod+Ctrl+E".action = launch "rofimoji --prompt Emoji";
     "Mod+Ctrl+P".action = launch "${pkgs.pavucontrol}/bin/pavucontrol";
     "Mod+Shift+M".action = launch apps.media;
+    "Mod+Shift+P".action = spawn "rofi-pass";
 
     # shortcuts for terminal apps
     "Mod+C".action = launchInTerminal "fend";
     "Mod+E".action = launchInTerminal fileManager;
-    "Mod+P".action = launchInTerminal "btop";
-    "Mod+Ctrl+B".action = launchInTerminal "bluetoothctl";
+    "Mod+Alt+P".action = launchInTerminal "btop";
     "Mod+Shift+N".action = launchInTerminal "${fileManager} ${notebookDir}";
     "Mod+Shift+D".action = launchInTerminal "${fileManager} ${notebookDir}/journal";
 
