@@ -100,6 +100,11 @@
           JavaScript = typescriptConfig;
           TSX = typescriptConfig;
           TypeScript = typescriptConfig;
+
+          Nix.language_servers = [
+            "nixd"
+            "!nil"
+          ];
         };
       lsp.vtsls.settings.vtsls.experimental.maxInlayHintLength = 30;
       minimap.show = "auto";
