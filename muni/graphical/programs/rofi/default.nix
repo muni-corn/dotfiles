@@ -49,6 +49,7 @@
       run-shell-command = "{terminal} -e ${config.programs.fish.package}/bin/fish -i -c \"{cmd}\"";
       scroll-method = 0;
       scrollbar-width = 4;
+      show-icons = true;
       sort = true;
       sorting-method = "fzf";
       ssh-client = "ssh";
@@ -62,9 +63,9 @@
         inherit (config.lib.formats.rasi) mkLiteral;
       in
       {
-        window = {
-          border-radius = mkLiteral "16px";
-        };
+        "*".background-color = lib.mkForce (mkLiteral "transparent");
+
+        window.border-radius = mkLiteral "16px";
 
         mainbox = {
           spacing = mkLiteral "1em";
@@ -72,14 +73,16 @@
         };
 
         element = {
-          padding = mkLiteral "12px";
+          spacing = mkLiteral "1em";
           border-radius = mkLiteral "8px";
+          padding = mkLiteral "12px";
         };
 
-        spacer = {
-          margin = mkLiteral "0em 0.5em 0em 0em";
-        };
+        "element-text, element-icon".background-color = lib.mkForce (mkLiteral "transparent");
 
+        inputbar.spacing = mkLiteral "1em";
+
+        spacer.margin = mkLiteral "0em 1em 0em 1em";
       };
   };
 }
