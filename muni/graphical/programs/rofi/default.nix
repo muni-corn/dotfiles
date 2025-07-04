@@ -46,8 +46,9 @@
       hide-scrollbar = false;
       matching = "fuzzy";
       modi = "combi,drun,run,window";
+      normalize-match = true;
       run-shell-command = "{terminal} -e ${config.programs.fish.package}/bin/fish -i -c \"{cmd}\"";
-      scroll-method = 0;
+      scroll-method = 1;
       scrollbar-width = 4;
       show-icons = true;
       sort = true;
@@ -67,7 +68,7 @@
 
         window.border-radius = mkLiteral "16px";
 
-        mainbox = {
+        "mainbox, error-message" = {
           spacing = mkLiteral "1em";
           padding = mkLiteral "32px";
         };

@@ -58,7 +58,7 @@ let
   promptTimewArgs =
     action: promptText: script:
     pkgs.writeShellScript "prompt-timew-${action}" ''
-      args=$(${config.programs.rofi.finalPackage}/bin/rofi -dmenu -p '${promptText}')
+      args=$(${config.programs.rofi.finalPackage}/bin/rofi -fixed-num-lines 0 -dmenu -p '${promptText}')
       ${script} $args
     '';
 
