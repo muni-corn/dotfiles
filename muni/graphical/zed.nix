@@ -33,6 +33,7 @@
       agent = {
         default_profile = "write";
         always_allow_tool_actions = true;
+        play_sound_when_agent_done = true;
         profiles.write = {
           name = "Write";
           tools = {
@@ -59,7 +60,11 @@
         };
         default_model = {
           provider = "zed.dev";
-          model = "claude-sonnet-4-thinking-latest";
+          model = "claude-sonnet-4-thinking";
+        };
+        inline_assistant_model = {
+          provider = "zed.dev";
+          model = "claude-sonnet-4";
         };
         version = "2";
       };
