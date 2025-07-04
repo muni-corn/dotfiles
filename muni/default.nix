@@ -99,7 +99,7 @@ in
       "peaclock.conf".source = ./peaclock.conf;
       "rustfmt/rustfmt.toml".source = toml.generate "rustfmt-config" {
         condense_wildcard_suffixes = true;
-        edition = "2021";
+        edition = "2024";
         format_code_in_doc_comments = true;
         format_macro_bodies = true;
         format_macro_matchers = true;
