@@ -30,11 +30,16 @@ in
       };
 
       swww-daemon = {
-        Unit.Description = "swww daemon";
+        Unit = {
+          Description = "swww daemon";
+          PartOf = "graphical-session.target";
+          After = "graphical-session.target";
+          Requisite = "graphical-session.target";
+        };
         Service = {
           ExecStart = "${pkgs.swww}/bin/swww-daemon";
           Restart = "always";
-          RestartSec = 15;
+          RestartSec = 5;
         };
         Install.WantedBy = [ "graphical-session.target" ];
       };
@@ -42,7 +47,7 @@ in
       wallpaper-switch = {
         Unit.Description = "wallpaper switcher";
         Service = {
-          ExecStart = "${scripts.switchWallpaper}";
+          ExecStart = scripts.switchWallpaper;
           Type = "oneshot";
         };
         Install.WantedBy = [ "graphical-session.target" ];
@@ -51,10 +56,7 @@ in
 
     timers.wallpaper-switch = {
       Unit.Description = "periodic wallpaper switching";
-      Timer = {
-        OnCalendar = "hourly";
-        Persistent = true;
-      };
+      Timer.OnCalendar = "hourly";
       Install.WantedBy = [ "graphical-session.target" ];
     };
   };
