@@ -276,16 +276,16 @@ in
     "Mod+B".action = launch apps.music;
     "Mod+N".action = launch scripts.quickCode;
     "Mod+W".action = launch apps.browser;
+    "Mod+Alt+P".action = spawn "rofi-pass";
     "Mod+Ctrl+B".action = spawn "rofi-bluetooth";
     "Mod+Ctrl+E".action = launch "rofimoji --prompt Emoji";
     "Mod+Ctrl+P".action = launch "${pkgs.pavucontrol}/bin/pavucontrol";
     "Mod+Shift+M".action = launch apps.media;
-    "Mod+Shift+P".action = spawn "rofi-pass";
 
     # shortcuts for terminal apps
     "Mod+C".action = launchInTerminal "fend";
     "Mod+E".action = launchInTerminal fileManager;
-    "Mod+Alt+P".action = launchInTerminal "btop";
+    "Mod+Shift+P".action = launchInTerminal "btop";
     "Mod+Shift+N".action = launchInTerminal "${fileManager} ${notebookDir}";
     "Mod+Shift+D".action = launchInTerminal "${fileManager} ${notebookDir}/journal";
 
