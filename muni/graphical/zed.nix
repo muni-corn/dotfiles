@@ -3,7 +3,10 @@
     enable = true;
     extensions = [
       "biome"
+      "catppuccin"
       "html"
+      "mcp-server-github"
+      "mcp-server-sequential-thinking"
       "nix"
       "toml"
     ];
