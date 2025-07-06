@@ -8,6 +8,7 @@
       "mcp-server-github"
       "mcp-server-sequential-thinking"
       "nix"
+      "scss"
       "toml"
     ];
 
