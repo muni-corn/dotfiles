@@ -59,10 +59,10 @@ let
 
     # transparency
     opacity = {
-      applications = 0.75;
-      desktop = 0.75;
-      popups = 0.5;
-      terminal = 0.75;
+      applications = 0.9;
+      desktop = 0.9;
+      popups = 0.75;
+      terminal = 0.9;
     };
 
     targets = {
