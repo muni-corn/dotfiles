@@ -58,6 +58,7 @@ in
 
       # development/programming
       biome
+      claude-code
       docker-compose
       dprint
       flyctl
@@ -76,6 +77,7 @@ in
       nodejs
       python3
       tailwindcss-language-server
+      uv
       zls
 
       # other things
