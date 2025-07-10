@@ -92,7 +92,7 @@
               "${code}/*"
               "${code}/unity/muni-vrc"
             ];
-          timers.tenmin = "*-*-* *:*:00/10";
+          timers.hourly = "hourly";
         };
 
         signing = {
