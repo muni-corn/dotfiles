@@ -78,6 +78,7 @@ in
       python3
       tailwindcss-language-server
       uv
+      vscode-langservers-extracted
       zls
 
       # other things
