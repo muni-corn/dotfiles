@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -113,6 +114,7 @@
 
     surrealdb = {
       enable = true;
+      package = inputs.surrealdb.packages.x86_64-linux.default;
       dbPath = "rocksdb:///var/lib/surrealdb";
       host = "0.0.0.0";
       port = 7654;

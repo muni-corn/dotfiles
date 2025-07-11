@@ -68,6 +68,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # pinned surrealdb for munibot
+    surrealdb.url = "github:surrealdb/surrealdb/v2.3.3";
+
     # fancy wallpaper daemon
     swww = {
       url = "github:LGFae/swww";
