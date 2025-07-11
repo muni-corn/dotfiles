@@ -10,6 +10,7 @@
         name = "Sunni's Home";
       };
       scene = "!include scenes.yaml";
+      automation = "!include automations.yaml";
     };
     configWritable = true;
     extraComponents = [
