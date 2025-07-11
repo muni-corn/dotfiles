@@ -9,6 +9,7 @@
         time_zone = "America/Boise";
         name = "Sunni's Home";
       };
+      scene = "!include scenes.yaml";
     };
     configWritable = true;
     extraComponents = ["default_config" "met" "esphome" "tplink" "google_translate"];
