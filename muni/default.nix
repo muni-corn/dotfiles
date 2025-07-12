@@ -6,6 +6,7 @@ in
   imports = [
     ./dprint.nix
     ./opencommit.nix
+    ./packages
     ./programs
     ./sops
     ./syncthing.nix
@@ -29,68 +30,6 @@ in
       "$HOME/.cargo/bin"
       "$HOME/.local/bin"
       "$HOME/.npm/bin"
-    ];
-
-    packages = with pkgs; [
-      # audio and music
-      flac
-      playerctl
-      sox
-
-      # terminal/cli stuff
-      attic-client
-      dig
-      fd
-      fend
-      ffmpeg-full
-      jdupes
-      neovim-remote
-      openpomodoro-cli
-      ouch
-      pom
-      pv
-      qpdf
-      sd
-      sshfs
-      tldr
-      wget
-      zip
-
-      # development/programming
-      biome
-      claude-code
-      docker-compose
-      dprint
-      flyctl
-      gcc
-      gitui
-      lld
-      markdown-oxide
-      meld
-      mr
-      nixd
-      nixfmt-rfc-style
-      nix-prefetch-github
-      nix-prefetch
-      nodePackages.prettier
-      nodePackages.typescript-language-server
-      nodejs
-      python3
-      tailwindcss-language-server
-      uv
-      vscode-langservers-extracted
-      zls
-
-      # other things
-      fnlfmt
-      fortune
-      imagemagick
-      peaclock
-      perl # for mr
-      protonvpn-cli
-      qrencode
-      vrc-get
-      wirelesstools
     ];
   };
 

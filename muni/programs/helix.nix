@@ -3,8 +3,16 @@
   programs.helix = {
     enable = true;
     extraPackages = with pkgs; [
+      biome
       kdlfmt
+      markdown-oxide
+      nixd
+      nodePackages.typescript-language-server
+      rust-analyzer
+      tailwindcss-language-server
+      vscode-langservers-extracted
       vtsls
+      zls
     ];
     defaultEditor = true;
     settings = {
