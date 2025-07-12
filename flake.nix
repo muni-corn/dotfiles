@@ -82,6 +82,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # for formatting this configuration
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+
     # my stuff
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
     muse-wallpapers.url = "github:muni-corn/muse-wallpapers";
@@ -109,8 +112,15 @@
       systems = [ "x86_64-linux" ];
 
       imports = [
+        inputs.treefmt-nix.flakeModule
+
         ./flake-modules/overlays.nix
         ./flake-modules/nixos-configurations.nix
       ];
+
+      perSystem.treefmt = {
+        projectRootFile = "flake.nix";
+        programs.nixfmt.enable = true;
+      };
     };
 }
