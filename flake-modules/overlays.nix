@@ -12,7 +12,6 @@ let
     # custom packages overlay
     (final: prev: {
       muse-shell = inputs.muse-shell.packages.${final.system}.default;
-      biome = inputs.nixpkgs-master.legacyPackages.${final.system}.biome;
     })
   ];
 in

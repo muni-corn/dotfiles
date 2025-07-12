@@ -985,22 +985,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-master": {
-      "locked": {
-        "lastModified": 1751373175,
-        "narHash": "sha256-GcNIqyb5mGnm2qC6IhUIwPzuVwo+HdsDLWokkHQRAcA=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "e76eb1eed029b30e617d7faf336125e0821f64fa",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1751211869,
@@ -1212,7 +1196,6 @@
         "nixified-ai": "nixified-ai",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_3",
-        "nixpkgs-master": "nixpkgs-master",
         "nixpkgs-wayland": "nixpkgs-wayland",
         "nixpkgs-xr": "nixpkgs-xr",
         "nur": "nur",
