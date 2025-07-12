@@ -108,11 +108,6 @@
           in
           {
             nixpkgs.expr = ''import ${flake}.inputs.nixpkgs {}'';
-            options = {
-              # breezi probably has the most functionality and modules available, so we'll let her provide our options
-              nixos.expr = ''${flake}.nixosConfigurations.breezi.options'';
-              home-manager.expr = "${flake}.nixosConfigurations.breezi.options.home-manager.users.type.getSubOptions []";
-            };
           };
         rust-analyzer.config = {
           cargo = {
