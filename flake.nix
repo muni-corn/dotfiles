@@ -3,6 +3,11 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-master.url = "github:nixos/nixpkgs/master";
 
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
+
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -99,158 +104,13 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      nixpkgs-master,
-      home-manager,
-      iosevka-muse,
-      munibot,
-      muse-shell,
-      muse-sounds,
-      musnix,
-      niri,
-      nix-minecraft,
-      nixified-ai,
-      nixos-hardware,
-      nixpkgs-wayland,
-      nixpkgs-xr,
-      nur,
-      plymouth-theme-musicaloft-rainbow,
-      sops-nix,
-      swww,
-      ...
-    }@inputs:
-    let
-      specialArgs = {
-        inherit inputs;
-      };
+    inputs@{ flake-parts, ... }:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" ];
 
-      customPackagesOverlay = final: prev: {
-        muse-shell = muse-shell.packages.${final.system}.default;
-        biome = nixpkgs-master.legacyPackages.${final.system}.biome;
-      };
-
-      overlaysModule = {
-        nixpkgs.overlays = [
-          iosevka-muse.overlay
-          muse-sounds.overlay
-          niri.overlays.niri
-          nix-minecraft.overlay
-          nixpkgs-wayland.overlays.default
-          plymouth-theme-musicaloft-rainbow.overlay
-          swww.overlays.default
-          customPackagesOverlay
-        ];
-      };
-
-      binaryCachesModule = {
-        nix.settings = {
-          trusted-public-keys = [
-            "municorn.cachix.org-1:Ku1dLOtDrJ4K8g7z8E+4hE72sSztpPYrigcoTQHRgH4="
-            "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-            "nixpkgs-wayland.cachix.org-1:3lwxaILxMRkVhehr5StQprHdEo4IrE8sRho9R9HOLYA="
-            "ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="
-            "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-            "cache.musicaloft.com-1:PJpSmkJWpOJ+7qNZWiblTfyQhx2kc97Iu+ivqyfwwXI="
-          ];
-          substituters = [
-            "https://municorn.cachix.org"
-            "https://cache.nixos.org"
-            "https://nixpkgs-wayland.cachix.org"
-            "https://ai.cachix.org"
-            "https://nix-community.cachix.org"
-            "https://cache.musicaloft.com"
-          ];
-        };
-      };
-
-      homeManagerModule = {
-        home-manager = {
-          backupFileExtension = "backup";
-          extraSpecialArgs = specialArgs;
-          sharedModules = [ sops-nix.homeManagerModules.sops ];
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          users.muni = ./muni;
-        };
-      };
-
-      commonModules = [
-        binaryCachesModule
-        overlaysModule
-        home-manager.nixosModules.home-manager
-        homeManagerModule
-
-        ./common.nix
+      imports = [
+        ./flake-modules/overlays.nix
+        ./flake-modules/nixos-configurations.nix
       ];
-
-      commonGraphicalModules = [
-        {
-          home-manager.users.muni = ./muni/graphical;
-        }
-
-        musnix.nixosModules.musnix
-        niri.nixosModules.niri
-        nur.modules.nixos.default
-
-        ./stylix.nix
-        ./common-graphical.nix
-      ];
-
-      laptopModules =
-        commonModules
-        ++ commonGraphicalModules
-        ++ [
-          nixos-hardware.nixosModules.framework-16-7040-amd
-          ./laptop
-        ];
-
-      desktopModules =
-        commonModules
-        ++ commonGraphicalModules
-        ++ [
-          # mixed reality
-          nixpkgs-xr.nixosModules.nixpkgs-xr
-
-          # hardware
-          nixos-hardware.nixosModules.common-pc
-          nixos-hardware.nixosModules.common-cpu-amd
-          nixos-hardware.nixosModules.common-gpu-amd
-          nixos-hardware.nixosModules.common-pc-ssd
-
-          ./desktop
-        ];
-
-      munibotModules = commonModules ++ [
-        # hardware
-        nixos-hardware.nixosModules.common-cpu-amd
-        nixos-hardware.nixosModules.common-pc
-        nixos-hardware.nixosModules.common-gpu-nvidia
-
-        # extra software configuration modules
-        nixified-ai.nixosModules.comfyui
-        munibot.nixosModules.default
-
-        ./server
-      ];
-    in
-    {
-      nixosConfigurations = {
-        cherri = nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          system = "x86_64-linux";
-          modules = laptopModules;
-        };
-        breezi = nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          system = "x86_64-linux";
-          modules = desktopModules;
-        };
-        munibot = nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          system = "x86_64-linux";
-          modules = munibotModules;
-        };
-      };
     };
 }
