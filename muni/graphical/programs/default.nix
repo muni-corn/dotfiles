@@ -5,9 +5,9 @@
 }:
 {
   imports = [
-    ./kitty.nix
-    ./rofi
     ./firefox
+    ./kitty.nix
+    ./rofi.nix
   ];
 
   programs = {

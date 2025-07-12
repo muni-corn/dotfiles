@@ -12,11 +12,6 @@ let
       ${script}
     '';
 
-  scriptsDir = builtins.path {
-    name = "wm-scripts";
-    path = ./wm-scripts;
-  };
-
   mkVolumeScript =
     name: wpctlArgs:
     pkgs.writeShellScript "volume-${name}" ''
@@ -65,10 +60,9 @@ let
   kitty = lib.getExe config.programs.kitty.package;
 in
 {
-  dir = scriptsDir;
-
-  screenshot = "${scriptsDir}/hypr-screenshot.fish";
   quickCode = import ./quick-code-script.nix { inherit config pkgs; };
+
+  toggleGammastep = ./toggle_gammastep.fish;
 
   timew =
     let

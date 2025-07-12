@@ -295,7 +295,7 @@ in
 
     # other script shortcuts
     "Mod+D".action = script (scripts.openJournalFile notebookDir "%Y_%m_%d");
-    "Mod+Ctrl+R".action = spawn "${scripts.dir}/toggle_gammastep.fish";
+    "Mod+Ctrl+R".action = script scripts.toggleGammastep;
 
     # lock
     "Mod+Escape".action = spawn "loginctl" "lock-session";

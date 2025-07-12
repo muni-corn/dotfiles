@@ -9,7 +9,7 @@
     ./hypridle.nix
     ./niri
     ./programs
-    ./services
+    ./services.nix
     ./systemd.nix
     ./zed.nix
   ];
