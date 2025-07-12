@@ -18,8 +18,9 @@ creation_rules:
         - *home_desktop
         - *home_laptop
         - *home_munibot
-  - path_regex: ^twitchtrot/secrets.yaml$
+  - path_regex: ^(twitchtrot|server)/secrets.yaml$
     key_groups:
       - age:
         - *munibot
         - *home_munibot
+

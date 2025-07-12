@@ -20,9 +20,9 @@
     ./nextcloud.nix
     ./nix.nix
     ./peertube.nix
+    ./sops.nix
     ./workarounds.nix
     ../openssh.nix
-    ../sops
     ../twitchtrot
 
     ../extra-modules/nixos/timew-sync-server.nix

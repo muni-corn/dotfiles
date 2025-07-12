@@ -9,11 +9,15 @@
   ];
 
   sops = {
-    defaultSopsFile = ./secrets/default.yaml;
+    defaultSopsFile = ./secrets.yaml;
     age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
     secrets = {
-      cachix_token = { };
-      cachix_signing_key = { };
+      "munibot.env" = { };
+      nix_builder_private_key = { };
+      nix_builder_passwd = { };
+      nix_serve_secret_key = { };
+      atticd_env = { };
+      mongodb_pass = { };
     };
   };
 
