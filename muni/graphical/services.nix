@@ -32,6 +32,8 @@
 
     pass-secret-service.enable = true;
 
+    playerctld.enable = true;
+
     taskwarrior-sync = {
       enable = true;
       package = pkgs.taskwarrior3;
