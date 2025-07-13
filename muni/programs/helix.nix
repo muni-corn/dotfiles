@@ -140,6 +140,10 @@
           rustfmt.rangeFormatting.enable = true;
           notifications.cargoTomlNotFound = false;
         };
+        tailwind = {
+          command = "tailwindcss-language-server";
+          args = [ "--stdio" ];
+        };
         biome = {
           command = "biome";
           args = [ "lsp-proxy" ];
@@ -161,6 +165,7 @@
                 except-features = [ "format" ];
               }
               "biome"
+              "tailwind"
             ];
           };
         in
