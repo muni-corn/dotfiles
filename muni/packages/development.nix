@@ -8,15 +8,6 @@
     docker-compose
     flyctl
 
-    # code formatting
-    fnlfmt
-    nixfmt-rfc-style
-    nodePackages.prettier
-
-    # compilers & build tools
-    gcc
-    lld
-
     # git & version control
     gitui
     mr
