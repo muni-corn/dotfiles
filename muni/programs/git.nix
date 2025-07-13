@@ -180,6 +180,7 @@
             "git@codeberg.org:".insteadOf = "https://codeberg.org/";
             "git@github.com:".insteadOf = "https://github.com/";
             "git@gitlab.com:".insteadOf = "https://gitlab.com/";
+            "git@git.musicaloft.com:".insteadOf = "https://git.musicaloft.com/";
           };
         };
       };
