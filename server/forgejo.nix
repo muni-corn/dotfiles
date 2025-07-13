@@ -4,6 +4,8 @@
     forgejo = {
       enable = true;
       package = pkgs.forgejo;
+      user = "git";
+
       lfs = {
         enable = true;
         contentDir = "/crypt/forgejolfs";
@@ -53,4 +55,11 @@
   };
 
   networking.firewall.allowedTCPPorts = [ config.services.forgejo.settings.server.HTTP_PORT ];
+
+  users.users.git = {
+    home = config.services.forgejo.stateDir;
+    useDefaultShell = true;
+    group = config.services.forgejo.group;
+    isSystemUser = true;
+  };
 }
