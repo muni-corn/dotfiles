@@ -103,13 +103,6 @@
     };
     languages = {
       language-server = {
-        nixd.config.nixd =
-          let
-            flake = "(builtins.getFlake (builtins.toString ./.))";
-          in
-          {
-            nixpkgs.expr = ''import ${flake}.inputs.nixpkgs {}'';
-          };
         rust-analyzer.config = {
           cargo = {
             autoreload = true;
