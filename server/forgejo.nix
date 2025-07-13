@@ -14,6 +14,7 @@
           APP_SLOGAN = "Where code is magical";
         };
         repository = {
+          DEFAULT_PUSH_CREATE_PRIVATE = false;
           ENABLE_PUSH_CREATE_USER = true;
           ENABLE_PUSH_CREATE_ORG = true;
         };
