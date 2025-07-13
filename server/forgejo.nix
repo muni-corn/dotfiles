@@ -10,7 +10,7 @@
       };
       settings = {
         DEFAULT = {
-          APP_NAME = "GitLoft";
+          APP_NAME = "Musicaloft Git";
           APP_SLOGAN = "Where code is magical";
         };
         repository = {
