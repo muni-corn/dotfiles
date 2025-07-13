@@ -40,17 +40,14 @@
   };
 
   environment = {
-    defaultPackages = with pkgs; [
-      cachix
-    ];
-
     systemPackages = with pkgs; [
-      neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+      helix # default editor
 
       # for creating bootable usbs
       ntfs3g
 
       # misc
+      cachix
       clinfo
       powertop
       psmisc
