@@ -7,6 +7,7 @@
       kdlfmt
       markdown-oxide
       nixd
+      nixfmt
       nodePackages.typescript-language-server
       rust-analyzer
       tailwindcss-language-server
