@@ -32,6 +32,7 @@
           HTTP_PORT = 6448;
           DOMAIN = "git.musicaloft.com";
           COOKIE_SECURE = true;
+          ROOT_URL="https://git.musicaloft.com/";
         };
         ui = {
           SHOW_USER_EMAIL = false;
