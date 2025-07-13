@@ -28,5 +28,8 @@ let
   };
 in
 {
-  home.file.".dprint.jsonc".text = builtins.toJSON config;
+  home = {
+    file.".dprint.jsonc".text = builtins.toJSON config;
+    packages = with pkgs; [ dprint ];
+  };
 }

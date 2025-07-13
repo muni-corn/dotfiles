@@ -9,7 +9,6 @@
     flyctl
 
     # code formatting
-    dprint
     fnlfmt
     nixfmt-rfc-style
     nodePackages.prettier
