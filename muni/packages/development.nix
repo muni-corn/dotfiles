@@ -26,6 +26,7 @@
     uv
 
     # utilities
+    biome
     meld
   ];
 }
