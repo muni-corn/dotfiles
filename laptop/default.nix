@@ -11,6 +11,7 @@
     ../docker.nix
     ../firewall.nix
     ../gaming.nix
+    ../local-hosts.nix
     ../music-production.nix
     ../openssh.nix
     ../sops
@@ -38,20 +39,6 @@
 
     # for development
     firewall.allowedTCPPorts = [ 3000 ];
-
-    hosts."192.168.68.70" = [
-      "ai.musicaloft.com"
-      "attic.musicaloft.com"
-      "cache.musicaloft.com"
-      "cloud.musicaloft.com"
-      "git.musicaloft.com"
-      "hydra.musicaloft.com"
-      "munibot"
-      "musicaloft.tplinkdns.com"
-      "nixbld.musicaloft.com"
-      "ssh.muni.bot"
-      "watch.musicaloft.com"
-    ];
   };
 
   # force governor to default null to spite musnix
