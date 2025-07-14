@@ -5,6 +5,7 @@
       "attic.musicaloft.com"
       "cache.musicaloft.com"
       "cloud.musicaloft.com"
+      "comfy.musicaloft.com"
       "git.musicaloft.com"
       "hydra.musicaloft.com"
       "munibot"
