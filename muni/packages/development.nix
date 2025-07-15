@@ -9,6 +9,7 @@
     flyctl
 
     # git & version control
+    cocogitto
     gitui
     mr
     perl # for mr
