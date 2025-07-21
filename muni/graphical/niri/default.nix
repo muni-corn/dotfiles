@@ -232,7 +232,7 @@ in
           matches = [
             { app-id = "discord"; }
             { app-id = "Slack"; }
-            { app-id = "vesktop"; }
+            { app-id = "equicord"; }
             { app-id = "cinny"; }
           ];
           open-on-output = "HDMI-A-1";
