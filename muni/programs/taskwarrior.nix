@@ -118,10 +118,11 @@
 
         # custom urgency values
         urgency = {
-          user.tag = {
-            p.coefficient = 4;
-            unpaid.coefficient = -5;
-          };
+          "inherit" = 1;
+          blocking.coefficient = 0.0;
+          blocked.coefficient = 0.0;
+
+          user.tag.unpaid.coefficient = -5;
 
           uda = {
             # add half an urgency point per tip %
