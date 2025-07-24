@@ -52,6 +52,7 @@
 
     packages = with pkgs; [
       nerd-fonts.iosevka
+      roboto
       libertine
       material-design-icons
       noto-fonts-cjk-sans
