@@ -8,20 +8,19 @@
 
   programs.mr =
     let
-      fromMyCodeberg = myRepoName: {
-        checkout = "git clone git@codeberg.org:municorn/${myRepoName}.git";
+      fromMusicaloft = owner: repoName: {
+        checkout = "git clone git@git.musicaloft.com:${owner}/${repoName}.git";
       };
-      fromGitHub = myRepoName: {
-        checkout = "git clone git@github.com:muni-corn/${myRepoName}.git";
-      };
-      fromMyGitHubForkRenamed = upstreamOwner: upstreamRepoName: newName: {
+      fromMuni = repoName: fromMusicaloft "municorn" repoName;
+
+      fromGitHubForkRenamed = upstreamOwner: upstreamRepoName: newName: {
         checkout = "git clone git@github.com:muni-corn/${newName}.git";
-        post_checkout = "cd $MR_REPO && git remote add upstream git@github.com:${upstreamOwner}/${upstreamRepoName}";
+        post_checkout = "cd $MR_REPO && git remote add upstream git@github.com:${upstreamOwner}/${upstreamRepoName} && git remote add musicaloft git@git.musicaloft.com:municorn/${newName}";
         update = "git fetch --all";
       };
-      fromMyGitHubFork =
+      fromGitHubFork =
         upstreamOwner: upstreamRepoName:
-        fromMyGitHubForkRenamed upstreamOwner upstreamRepoName upstreamRepoName;
+        fromGitHubForkRenamed upstreamOwner upstreamRepoName upstreamRepoName;
 
       annex = order: {
         inherit order;
@@ -35,8 +34,8 @@
         DEFAULT.update = "git pull --rebase=true";
 
         # home-level repos
-        dotfiles = fromMyCodeberg "dotfiles";
-        notebook = fromMyCodeberg "notebook";
+        dotfiles = fromMuni "dotfiles";
+        notebook = fromMuni "notebook";
 
         # annex repos
         Documents = annex 1;
@@ -46,25 +45,25 @@
 
         # passwords uwu
         ".local/share/password-store".checkout =
-          "git clone https://codeberg.org/municorn/passwords.git password-store";
+          "git clone git@git.musicaloft.com:municorn/passwords password-store";
 
         # my projects
-        "code/muni-wallpapers" = fromGitHub "muni-wallpapers";
-        "code/munibot" = fromGitHub "munibot";
-        "code/muse-shell" = fromGitHub "muse-shell";
-        "code/muse-sounds" = fromMyCodeberg "muse-sounds";
-        "code/musicaloft-web".checkout = "git clone git@github.com:musicaloft/musicaloft-web.git";
-        "code/nix-templates" = fromGitHub "nix-templates";
-        "code/silverfox" = fromGitHub "silverfox";
-        "code/unity/muni-vrc" = fromGitHub "muni-vrc";
+        "code/muni-wallpapers" = fromMuni "muni-wallpapers";
+        "code/munibot" = fromMuni "munibot";
+        "code/muse-shell" = fromMuni "muse-shell";
+        "code/muse-sounds" = fromMuni "muse-sounds";
+        "code/musicaloft-web" = fromMusicaloft "musicaloft" "musicaloft-web";
+        "code/nix-templates" = fromMuni "nix-templates";
+        "code/silverfox" = fromMuni "silverfox";
+        "code/unity/muni-vrc" = fromMuni "muni-vrc";
 
         # forked repos
-        "code/home-manager" = fromMyGitHubFork "nix-community" "home-manager";
-        "code/niri-flake" = fromMyGitHubFork "sodiboo" "niri-flake";
-        "code/nixpkgs" = fromMyGitHubFork "NixOS" "nixpkgs";
-        "code/nixified-ai" = fromMyGitHubForkRenamed "nixified-ai" "flake" "nixified-ai";
-        "code/stylix" = fromMyGitHubFork "nix-community" "stylix";
-        "code/opencommit" = fromMyGitHubFork "di-sukharev" "opencommit";
+        "code/home-manager" = fromGitHubFork "nix-community" "home-manager";
+        "code/niri-flake" = fromGitHubFork "sodiboo" "niri-flake";
+        "code/nixpkgs" = fromGitHubFork "NixOS" "nixpkgs";
+        "code/nixified-ai" = fromGitHubForkRenamed "nixified-ai" "flake" "nixified-ai";
+        "code/stylix" = fromGitHubFork "nix-community" "stylix";
+        "code/opencommit" = fromGitHubFork "di-sukharev" "opencommit";
 
         # work repos
         "code/apollo" = {
