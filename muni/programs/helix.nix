@@ -9,6 +9,7 @@
       nixd
       nixfmt-rfc-style
       nodePackages.typescript-language-server
+      pest-ide-tools
       rust-analyzer
       tailwindcss-language-server
       vscode-langservers-extracted
