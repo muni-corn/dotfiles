@@ -9,6 +9,7 @@
     pkgs.wtype
     pkgs.rofimoji
     pkgs.rofi-bluetooth
+    pkgs.rofi-network-manager
   ];
 
   programs.rofi = {
