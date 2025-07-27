@@ -235,6 +235,8 @@ in
             { app-id = "equicord"; }
             { app-id = "cinny"; }
           ];
+
+          block-out-from = "screen-capture";
           open-on-output = "HDMI-A-1";
         }
 
