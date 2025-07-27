@@ -33,7 +33,6 @@ let
   kitty = lib.getExe config.programs.kitty.package;
   script = s: spawn (builtins.toString s);
   launch = args: sh "${args}";
-  editFile = file: sh "${kitty} hx ${file}";
   launchInTerminal = args: sh "${kitty} fish -i -c ${args}";
 in
 {
@@ -276,22 +275,20 @@ in
     "Mod+B".action = launch apps.music;
     "Mod+N".action = launch scripts.quickCode;
     "Mod+W".action = launch apps.browser;
-    "Mod+Alt+P".action = spawn "rofi-pass";
     "Mod+Ctrl+B".action = spawn "rofi-bluetooth";
     "Mod+Ctrl+E".action = launch "rofimoji --prompt Emoji";
-    "Mod+Ctrl+P".action = launch "${pkgs.pavucontrol}/bin/pavucontrol";
+    "Mod+Ctrl+N".action = spawn "rofi-network-manager";
+    "Mod+Ctrl+P".action = spawn "rofi-pass";
+    "Mod+Ctrl+V".action = launch "${pkgs.pavucontrol}/bin/pavucontrol";
     "Mod+Shift+M".action = launch apps.media;
 
     # shortcuts for terminal apps
     "Mod+C".action = launchInTerminal "fend";
     "Mod+E".action = launchInTerminal fileManager;
-    "Mod+Shift+P".action = launchInTerminal "btop";
-    "Mod+Shift+N".action = launchInTerminal "${fileManager} ${notebookDir}";
-    "Mod+Shift+D".action = launchInTerminal "${fileManager} ${notebookDir}/journal";
-
-    # shortcuts for files
     "Mod+T".action = launchInTerminal "taskwarrior-tui";
-    "Mod+Ctrl+N".action = editFile "${notebookDir}/new/$(date +%Y%m%d-%H%M%S).md";
+    "Mod+Shift+D".action = launchInTerminal "${fileManager} ${notebookDir}/journal";
+    "Mod+Shift+N".action = launchInTerminal "${fileManager} ${notebookDir}";
+    "Mod+Shift+P".action = launchInTerminal "btop";
 
     # other script shortcuts
     "Mod+D".action = script (scripts.openJournalFile notebookDir "%Y_%m_%d");
