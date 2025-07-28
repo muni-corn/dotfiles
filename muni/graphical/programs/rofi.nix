@@ -19,7 +19,7 @@
     pass = {
       enable = true;
       package = pkgs.rofi-pass-wayland;
-      stores = [ "~/.password-store/" ];
+      stores = [ "~/.local/share/password-store/" ];
     };
     plugins = with pkgs; [
       rofi-calc
