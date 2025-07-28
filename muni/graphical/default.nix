@@ -124,7 +124,9 @@
         pictures
         videos
         "${home}/code"
+        "${home}/notebook"
         "${documents}/municorn"
+        "${documents}/municorn/art"
         "${music}/soundfonts"
         "${music}/soundfonts/vsco"
         "${pictures}/Screenshots"
