@@ -153,7 +153,11 @@
 
     ollama = {
       enable = true;
-      loadModels = [ "gemma3n" ];
+      loadModels = [
+        "gemma3n"
+        "mistral"
+        "qwen3"
+      ];
     };
 
     pipewire = {
