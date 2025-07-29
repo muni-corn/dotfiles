@@ -15,6 +15,7 @@ in
       pay_respects_anthropic_api_key = { };
       fish_ai_ini = { };
       oco_api_key = { };
+      github_pat = { };
     };
   };
 
