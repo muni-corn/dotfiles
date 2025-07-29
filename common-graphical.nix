@@ -151,6 +151,11 @@
     # for mpris album art on muse-shell
     gvfs.enable = true;
 
+    ollama = {
+      enable = true;
+      loadModels = [ "gemma3n" ];
+    };
+
     pipewire = {
       enable = true;
       alsa = {
