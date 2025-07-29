@@ -63,6 +63,7 @@
         "code/nixpkgs" = fromGitHubFork "NixOS" "nixpkgs";
         "code/nixified-ai" = fromGitHubForkRenamed "nixified-ai" "flake" "nixified-ai";
         "code/stylix" = fromGitHubFork "nix-community" "stylix";
+        "code/opencode" = fromGitHubFork "sst" "opencode";
         "code/opencommit" = fromGitHubFork "di-sukharev" "opencommit";
 
         # work repos
