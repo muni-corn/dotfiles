@@ -1,8 +1,10 @@
-{ config, ... }:
+{ config, inputs, ... }:
 let
   inherit (config.lib.file) mkOutOfStoreSymlink;
 in
 {
+  imports = [ inputs.sops-nix.homeManagerModules.sops ];
+
   sops = {
     defaultSopsFile = ./secrets/default.yaml;
     age.keyFile = "${config.home.homeDirectory}/.age-key.txt";

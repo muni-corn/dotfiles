@@ -8,7 +8,6 @@ let
     home-manager = {
       backupFileExtension = "backup";
       extraSpecialArgs = specialArgs;
-      sharedModules = [ inputs.sops-nix.homeManagerModules.sops ];
       useGlobalPkgs = true;
       useUserPackages = true;
       users.muni = ../muni;
