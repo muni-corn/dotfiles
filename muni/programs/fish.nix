@@ -123,7 +123,7 @@
       e = "hx"; # for 'editor'
       h = "hx";
       n = "hx";
-      nv = "nvim";
+      o = "opencode";
       q = "exit";
       r = "ranger";
       s = "kitten ssh";
