@@ -1,9 +1,6 @@
 { pkgs, ... }:
 {
   home.packages = with pkgs; [
-    # ai tools
-    claude-code
-
     # cloud & deployment
     docker-compose
     flyctl
