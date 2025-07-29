@@ -1,0 +1,24 @@
+diff --git a/bun.lock b/bun.lock
+index 95b319e6..a8c0221e 100644
+--- a/bun.lock
++++ b/bun.lock
+@@ -34,6 +34,7 @@
+         "@clack/prompts": "0.11.0",
+         "@hono/zod-validator": "0.4.2",
+         "@modelcontextprotocol/sdk": "1.15.1",
++        "@octokit/rest": "22.0.0",
+         "@openauthjs/openauth": "0.4.3",
+         "@standard-schema/spec": "1.0.0",
+         "@zip.js/zip.js": "2.7.62",
+diff --git a/packages/opencode/package.json b/packages/opencode/package.json
+index 38192b54..a3b73796 100644
+--- a/packages/opencode/package.json
++++ b/packages/opencode/package.json
+@@ -33,6 +33,7 @@
+     "@clack/prompts": "0.11.0",
+     "@hono/zod-validator": "0.4.2",
+     "@modelcontextprotocol/sdk": "1.15.1",
++    "@octokit/rest": "22.0.0",
+     "@openauthjs/openauth": "0.4.3",
+     "@standard-schema/spec": "1.0.0",
+     "@zip.js/zip.js": "2.7.62",

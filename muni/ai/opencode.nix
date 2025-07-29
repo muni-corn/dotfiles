@@ -1,7 +1,8 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
   programs.opencode = {
     enable = true;
+    package = pkgs.callPackage ./opencode-pkg.nix { };
     settings = {
       autoshare = false;
       autoupdate = false;
