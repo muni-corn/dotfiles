@@ -9,7 +9,7 @@
       autoupdate = false;
       theme = "system";
       model = "anthropic/claude-sonnet-4";
-      small_model = "ollama/gemma3n";
+      small_model = "anthropic/claude-3-5-haiku-latest";
 
       mcp = {
         fetch = {
