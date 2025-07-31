@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
 {
+  home.packages = [ pkgs.bun ];
+
   programs.opencode = {
     enable = true;
     package = pkgs.callPackage ./opencode-pkg.nix { };
