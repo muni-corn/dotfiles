@@ -9,12 +9,13 @@
   testers,
   writableTmpDirAsHomeHook,
 }:
+
 let
   opencode-node-modules-hash = {
-    "aarch64-darwin" = "sha256-so+KiAo8C7olbJaCH1rIVxs/tq/g9l5pKPaU8D+Zm28=";
-    "aarch64-linux" = "sha256-JNf8g0z6oH2OXJLAmCSP0W4WX+GGyald5DAFOYCBNP0=";
-    "x86_64-darwin" = "sha256-jwmH4gEcyRNgeMvYz2SyWRagFkYN1O3ULEQIPPgqhwg=";
-    "x86_64-linux" = "sha256-L7RwhE9Ixu00vupyzu9k2TzdmLBGaE0QMiS+QDO+HLQ=";
+    "aarch64-darwin" = "sha256-iPMaEpepvKCb0VEUQPy4to6kwgSKnVsMbckVEYF+58E=";
+    "aarch64-linux" = "sha256-Ybf8MiiCHHEMQGqc4PGPHvcfons+sLvhO4UkWQghJ34=";
+    "x86_64-darwin" = "sha256-5ULx3Y7RmMggyMp7eGN7XFCKvoIqW7W7lHaTlgjBLWo=";
+    "x86_64-linux" = "sha256-ZtZvS0jF2YpkDeCdP2y1qX4fJVMq8BBq6EFwqvDEfdc=";
   };
   bun-target = {
     "aarch64-darwin" = "bun-darwin-arm64";
@@ -25,12 +26,12 @@ let
 in
 stdenvNoCC.mkDerivation (finalAttrs: {
   pname = "opencode";
-  version = "0.3.80";
+  version = "0.3.85";
   src = fetchFromGitHub {
     owner = "sst";
     repo = "opencode";
     tag = "v${finalAttrs.version}";
-    hash = "sha256-ao/O70ur/b9/tYXWHoHPOzXnrLKKTOeDOemD7+/gnFk=";
+    hash = "sha256-7L50P3+u4SHQtjSdFJviPaeLFnOIGP/l4BFLHKm4pNs=";
   };
 
   tui = buildGoModule {
@@ -38,7 +39,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     inherit (finalAttrs) version;
     src = "${finalAttrs.src}/packages/tui";
 
-    vendorHash = "sha256-g2IhNOIKuBf4G4PioXhFvKIWds9ZiYfiG9vnyXCaz6o=";
+    vendorHash = "sha256-+j8+TjTzd7AH9Si9tS7noTpPcG1lz9j+tmxUTrPcThw=";
 
     subPackages = [ "cmd/opencode" ];
 
@@ -62,12 +63,6 @@ stdenvNoCC.mkDerivation (finalAttrs: {
     pname = "opencode-node_modules";
     inherit (finalAttrs) version src;
 
-    patches = [
-      # Use local models.dev data instead of fetching from network during build
-      ./local-models-dev.patch
-      ./opencode-package-lock.patch
-    ];
-
     impureEnvVars = lib.fetchers.proxyImpureEnvVars ++ [
       "GIT_PROXY_COMMAND"
       "SOCKS_SERVER"
@@ -88,6 +83,7 @@ stdenvNoCC.mkDerivation (finalAttrs: {
        bun install \
          --filter=opencode \
          --force \
+         --frozen-lockfile \
          --no-progress
 
       runHook postBuild
@@ -116,9 +112,9 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   ];
 
   patches = [
-    # Use local models.dev data instead of fetching from network during build
+    # Patch `packages/opencode/src/provider/models-macro.ts` to get contents of
+    # `api.json` from the file bundled with `bun build`.
     ./local-models-dev.patch
-    ./opencode-package-lock.patch
   ];
 
   configurePhase = ''
