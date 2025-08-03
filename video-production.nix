@@ -3,6 +3,7 @@
   home-manager.users.muni.home.packages = with pkgs; [
     blender-hip
     kdePackages.kdenlive
+    losslesscut-bin
     movit
     synfigstudio
   ];
