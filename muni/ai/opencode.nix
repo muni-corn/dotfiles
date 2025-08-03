@@ -11,7 +11,7 @@
       autoupdate = false;
       theme = "system";
       model = "anthropic/claude-sonnet-4";
-      small_model = "anthropic/claude-3-5-haiku-latest";
+      small_model = "ollama/qwen3";
 
       mcp = {
         fetch = {
@@ -74,8 +74,8 @@
       provider.ollama = {
         name = "Ollama";
         npm = "@ai-sdk/openai-compatible";
-        options.baseURL = "http://localhost:11434/v1";
-        models.gemma3n = { };
+        options.baseURL = "http://192.168.68.70:11434/v1";
+        models.qwen3 = { };
       };
     };
   };
