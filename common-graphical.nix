@@ -45,6 +45,8 @@
     ];
 
     sessionVariables.NIXOS_OZONE_WL = "1";
+
+    localBinInPath = true;
   };
 
   fonts = {
