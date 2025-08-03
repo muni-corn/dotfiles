@@ -60,6 +60,16 @@
           ];
         };
 
+        searxng = {
+          enabled = true;
+          type = "local";
+          command = [
+            "uvx"
+            "mcp-searxng"
+          ];
+          environment.SEARXNG_URL = "https://search.musicaloft.com";
+        };
+
         sequential-thinking = {
           enabled = true;
           type = "local";
