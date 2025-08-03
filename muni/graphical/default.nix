@@ -44,6 +44,7 @@
       element-desktop
       equicord
       slack
+      vesktop
 
       # apps
       android-file-transfer
