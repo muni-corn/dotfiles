@@ -30,7 +30,6 @@
 
       # development/programming
       alcom
-      python3
 
       # photo
       hugin
