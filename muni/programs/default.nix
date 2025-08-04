@@ -72,9 +72,9 @@
       enableFishIntegration = true;
       defaultCommand = "fd --type f";
       changeDirWidgetCommand = "fd --type d";
-      changeDirWidgetOptions = [ "--preview 'tree -C {} | head -200'" ];
+      changeDirWidgetOptions = [ "--preview 'exa -l {}'" ];
       fileWidgetCommand = "fd --type f";
-      fileWidgetOptions = [ "--preview 'head {}'" ];
+      fileWidgetOptions = [ "--preview 'bat -P {}'" ];
     };
 
     yt-dlp.enable = true;
