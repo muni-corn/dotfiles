@@ -72,9 +72,9 @@
       enableFishIntegration = true;
       defaultCommand = "fd --type f";
       changeDirWidgetCommand = "fd --type d";
-      changeDirWidgetOptions = [ "--preview 'exa -l {}'" ];
+      changeDirWidgetOptions = [ "--preview 'eza --color=always -l {}'" ];
       fileWidgetCommand = "fd --type f";
-      fileWidgetOptions = [ "--preview 'bat -P {}'" ];
+      fileWidgetOptions = [ "--preview 'bat -f -S -P {}'" ];
     };
 
     yt-dlp.enable = true;
