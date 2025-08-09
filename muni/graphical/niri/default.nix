@@ -244,6 +244,21 @@ in
           open-on-output = "HDMI-A-1";
         }
 
+        {
+          matches = [
+            {
+              app-id = "steam";
+              title = "^notificationtoasts_\\d+_desktop$";
+            }
+          ];
+          default-floating-position = {
+            x = 8;
+            y = 8;
+            relative-to = "bottom-right";
+          };
+          open-focused = false;
+        }
+
         # TODO old hyprland window rules
         #
         # (r "float" "title:^(Firefox — Sharing Indicator)$")
