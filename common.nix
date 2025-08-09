@@ -120,10 +120,13 @@
   };
 
   # allow unfree packages to be installed
-  nixpkgs.config.allowUnfree = true;
-  nixpkgs.config.permittedInsecurePackages = [
-    "libsoup-2.74.3"
-  ];
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "libsoup-2.74.3"
+      "libxml2-2.13.8"
+    ];
+  };
 
   programs = {
     fish.enable = true;

@@ -87,7 +87,7 @@ in
       plymouth.enable = false;
       grub = {
         enable = true;
-        useImage = true;
+        useWallpaper = true;
       };
     };
   };
