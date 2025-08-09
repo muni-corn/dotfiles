@@ -73,10 +73,10 @@ in
         };
 
         # focus windows and outputs automatically when moving the mouse into them.
-        # setting max-scroll-amount to"0%" makes it work only on windows already fully on screen.
+        # setting max-scroll-amount to "0%" makes it work only on windows already fully on screen.
         focus-follows-mouse = {
           enable = true;
-          max-scroll-amount = "25%";
+          max-scroll-amount = "50%";
         };
 
         warp-mouse-to-focus.enable = true;
@@ -117,8 +117,12 @@ in
           width = 2;
           active.color = "#fffc";
           inactive.color = "#8888";
+          urgent.color = "#fa0";
         };
-        border.enable = false;
+        border = {
+          enable = false;
+          urgent.color = "#fa0";
+        };
 
         shadow = {
           enable = true;
@@ -288,7 +292,10 @@ in
         }
       ];
 
-      hotkey-overlay.skip-at-startup = true;
+      hotkey-overlay = {
+        hide-not-bound = true;
+        skip-at-startup = true;
+      };
 
       #
       # TODO hyprland config
