@@ -11,7 +11,6 @@
       autoupdate = false;
       theme = "system";
       model = "anthropic/claude-sonnet-4";
-      small_model = "ollama/qwen3";
 
       mcp = {
         fetch = {
@@ -79,13 +78,6 @@
             "@modelcontextprotocol/server-sequential-thinking"
           ];
         };
-      };
-
-      provider.ollama = {
-        name = "Ollama";
-        npm = "@ai-sdk/openai-compatible";
-        options.baseURL = "http://192.168.68.70:11434/v1";
-        models.qwen3 = { };
       };
     };
   };
