@@ -42,8 +42,15 @@
     steam = {
       enable = true;
       extest.enable = true;
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+      ];
+      extraPackages = with pkgs; [
+        gamescope
+      ];
       protontricks.enable = true;
       remotePlay.openFirewall = true;
+      gamescopeSession.enable = true;
     };
   };
 }
