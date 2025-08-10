@@ -33,7 +33,7 @@ let
   kitty = lib.getExe config.programs.kitty.package;
   script = s: spawn (builtins.toString s);
   launch = args: sh "${args}";
-  launchInTerminal = args: sh "${kitty} fish -i -c ${args}";
+  launchInTerminal = args: sh ''${kitty} fish -i -c "${args}"'';
 in
 {
   programs.niri.settings.binds = {
