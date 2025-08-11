@@ -189,7 +189,7 @@ in
             { app-id = "Pinentry"; }
             { app-id = "gcr-prompter"; }
             { app-id = "org\\.kde\\.polkit-kde-authentication-agent-1"; }
-            { app-id = "gay\\.vaskel\\.Soteria"; }
+            { app-id = "gay\\.vaskel\\.soteria"; }
           ];
 
           block-out-from = "screen-capture";
