@@ -297,7 +297,10 @@ in
         }
 
         {
-          matches = [ { namespace = "^rofi$"; } ];
+          matches = [
+            { namespace = "^rofi$"; }
+            { namespace = "^notification-center$"; }
+          ];
           geometry-corner-radius = {
             bottom-left = 16.;
             bottom-right = 16.;
