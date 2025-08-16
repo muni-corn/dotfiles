@@ -36,7 +36,6 @@
           metamask
           polkadot-js
           pronoundb
-          shinigami-eyes
           ublock-origin
           vimium
           clearurls
