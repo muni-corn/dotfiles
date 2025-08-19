@@ -58,6 +58,7 @@
         "code/unity/muni-vrc" = fromMuni "muni-vrc";
 
         # forked repos
+        "code/commitlint-rs" = fromGitHubFork "KeisukeYamashita" "commitlint-rs";
         "code/home-manager" = fromGitHubFork "nix-community" "home-manager";
         "code/niri-flake" = fromGitHubFork "sodiboo" "niri-flake";
         "code/nixpkgs" = fromGitHubFork "NixOS" "nixpkgs";
