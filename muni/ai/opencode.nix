@@ -4,8 +4,6 @@
 
   programs.opencode = {
     enable = true;
-    package = pkgs.callPackage ./opencode-pkg.nix { };
-
     settings = {
       "$schema" = "https://opencode.ai/config.json";
       autoupdate = false;
