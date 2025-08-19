@@ -38,7 +38,7 @@
       rawtherapee
 
       # messaging
-      cinny-desktop
+      cinny
       discord
       element-desktop
       equicord
