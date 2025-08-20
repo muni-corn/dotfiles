@@ -162,6 +162,7 @@
     pay-respects = {
       enable = true;
       aiIntegration = true;
+      alias = "F";
     };
 
     ssh = {

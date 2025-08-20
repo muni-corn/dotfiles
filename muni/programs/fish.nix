@@ -121,8 +121,8 @@
 
     shellAbbrs = {
       e = "hx"; # for 'editor'
+      f = "yazi"; # for 'files'
       h = "hx";
-      n = "hx";
       o = "opencode";
       q = "exit";
       r = "ranger";
@@ -142,6 +142,10 @@
       tt = "taskwarrior-tui";
       ty = "task sync";
       tS = "task stop";
+
+      # timewarrior abbrs
+      T = "timew";
+      TY = "timew || timewsync";
     };
 
     shellInit = ''
