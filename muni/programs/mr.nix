@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 {
   home.file = {
     ".mrtrust".text = ''
@@ -8,6 +9,24 @@
 
   programs.mr =
     let
+      fixupMuniRepo =
+        repoName:
+        pkgs.writeShellScript "mr-fixup-add-remotes-for-${repoName}" ''
+          cd $MR_REPO
+          git remote get-url github > /dev/null || git remote add -f github git@github.com:muni-corn/${repoName}
+          git remote get-url codeberg > /dev/null || git remote add -f codeberg git@codeberg.org:municorn/${repoName}
+        '';
+      fixupGitHubFork =
+        upstreamOwner: upstreamRepoName: newName:
+        pkgs.writeShellScript "mr-fixup-add-remotes" ''
+          cd $MR_REPO
+          git remote get-url upstream > /dev/null || git remote add -f upstream git@github.com:${upstreamOwner}/${upstreamRepoName}
+          git remote get-url codeberg > /dev/null || git remote add -f upstream git@codeberg.org:municorn/${newName}
+          git remote get-url musicaloft > /dev/null || git remote add -f musicaloft git@git.musicaloft.com:municorn/${newName}
+        '';
+    in
+    let
+
       fromMusicaloft = owner: repoName: {
         checkout = "git clone git@git.musicaloft.com:${owner}/${repoName}.git";
       };
@@ -15,12 +34,12 @@
         repoName:
         (fromMusicaloft "municorn" repoName)
         // {
-          post_checkout = "cd $MR_REPO && git remote add github git@github.com:muni-corn/${repoName} && git remote add codeberg git@codeberg.org:municorn/${repoName}";
+          fixups = builtins.toString (fixupMuniRepo repoName);
         };
 
       fromGitHubForkRenamed = upstreamOwner: upstreamRepoName: newName: {
         checkout = "git clone git@github.com:muni-corn/${newName}.git";
-        post_checkout = "cd $MR_REPO && git remote add upstream git@github.com:${upstreamOwner}/${upstreamRepoName} && git remote add musicaloft git@git.musicaloft.com:municorn/${newName}";
+        fixups = builtins.toString (fixupGitHubFork upstreamOwner upstreamRepoName newName);
         update = "git fetch --all";
       };
       fromGitHubFork =
