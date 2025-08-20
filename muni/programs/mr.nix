@@ -11,14 +11,14 @@
     let
       fixupMuniRepo =
         repoName:
-        pkgs.writeShellScript "mr-fixup-add-remotes-for-${repoName}" ''
+        pkgs.writeShellScript "mr-fixup-${repoName}" ''
           cd $MR_REPO
           git remote get-url github > /dev/null || git remote add -f github git@github.com:muni-corn/${repoName}
           git remote get-url codeberg > /dev/null || git remote add -f codeberg git@codeberg.org:municorn/${repoName}
         '';
       fixupGitHubFork =
         upstreamOwner: upstreamRepoName: newName:
-        pkgs.writeShellScript "mr-fixup-add-remotes" ''
+        pkgs.writeShellScript "mr-fixup-gh-${newName}" ''
           cd $MR_REPO
           git remote get-url upstream > /dev/null || git remote add -f upstream git@github.com:${upstreamOwner}/${upstreamRepoName}
           git remote get-url codeberg > /dev/null || git remote add -f upstream git@codeberg.org:municorn/${newName}
