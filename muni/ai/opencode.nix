@@ -62,6 +62,13 @@
           ];
         };
 
+        github = {
+          enabled = true;
+          type = "remote";
+          url = "https://api.githubcopilot.com/mcp/";
+          headers.Authorization = "Bearer {file:${config.sops.secrets.github_pat.path}}";
+        };
+
         searxng = {
           enabled = true;
           type = "local";
