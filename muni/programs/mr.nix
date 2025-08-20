@@ -11,7 +11,12 @@
       fromMusicaloft = owner: repoName: {
         checkout = "git clone git@git.musicaloft.com:${owner}/${repoName}.git";
       };
-      fromMuni = repoName: fromMusicaloft "municorn" repoName;
+      fromMuni =
+        repoName:
+        (fromMusicaloft "municorn" repoName)
+        // {
+          post_checkout = "cd $MR_REPO && git remote add github git@github.com:muni-corn/${repoName} && git remote add codeberg git@codeberg.org:municorn/${repoName}";
+        };
 
       fromGitHubForkRenamed = upstreamOwner: upstreamRepoName: newName: {
         checkout = "git clone git@github.com:muni-corn/${newName}.git";
@@ -48,6 +53,7 @@
           "git clone git@git.musicaloft.com:municorn/passwords password-store";
 
         # my projects
+        "code/cocoa" = fromMuni "cocoa";
         "code/muni-wallpapers" = fromMuni "muni-wallpapers";
         "code/munibot" = fromMuni "munibot";
         "code/muse-shell" = fromMuni "muse-shell";
