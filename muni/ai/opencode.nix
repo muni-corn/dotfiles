@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 {
-  home.packages = [ pkgs.bun ];
+  home.packages = [
+    pkgs.bun
+
+    # needed, for some reason
+    pkgs.unzip
+  ];
 
   programs.opencode = {
     enable = true;
