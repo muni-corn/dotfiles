@@ -1,24 +1,34 @@
 {
   config,
-  lib,
   pkgs,
   ...
 }:
 {
-  home = {
-    activation.setupOpencommit = lib.hm.dag.entryAfter [ "sops-nix" "writeBoundary" ] ''
-      run oco config set OCO_AI_PROVIDER=anthropic
-      run oco config set OCO_API_KEY=$(cat ${config.sops.secrets.oco_api_key.path})
-      run oco config set OCO_MODEL=claude-sonnet-4-0
+  home.packages = with pkgs; [
+    opencommit
+  ];
 
-      run oco config set OCO_DESCRIPTION=false
-      run oco config set OCO_EMOJI=false
-      run oco config set OCO_GITPUSH=false
-      run oco config set OCO_ONE_LINE_COMMIT=true
-      run oco config set OCO_TOKENS_MAX_INPUT=32768
-    '';
-    packages = with pkgs; [
-      opencommit
-    ];
+  systemd.user.services.opencommit-config = {
+    Unit = {
+      Description = "Configure opencommit settings";
+      After = [ "sops-nix.service" ];
+      Wants = [ "sops-nix.service" ];
+    };
+    Service = {
+      Type = "oneshot";
+      ExecStart = pkgs.writeShellScript "setup-opencommit" ''
+        ${pkgs.opencommit}/bin/oco config set OCO_AI_PROVIDER=anthropic
+        ${pkgs.opencommit}/bin/oco config set OCO_API_KEY=$(cat ${config.sops.secrets.oco_api_key.path})
+        ${pkgs.opencommit}/bin/oco config set OCO_MODEL=claude-sonnet-4-0
+
+        ${pkgs.opencommit}/bin/oco config set OCO_DESCRIPTION=false
+        ${pkgs.opencommit}/bin/oco config set OCO_EMOJI=false
+        ${pkgs.opencommit}/bin/oco config set OCO_GITPUSH=false
+        ${pkgs.opencommit}/bin/oco config set OCO_ONE_LINE_COMMIT=true
+        ${pkgs.opencommit}/bin/oco config set OCO_TOKENS_MAX_INPUT=32768
+      '';
+      RemainAfterExit = true;
+    };
+    Install.WantedBy = [ "default.target" ];
   };
 }
