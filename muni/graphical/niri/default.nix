@@ -446,7 +446,7 @@ in
       # (r "stayfocused" "initialTitle:^(Unity.*Selector),floating:1")
       # (r "center" "initialTitle:^(Unity.*Selector),floating:1")
 
-      # # for smart gaps
+      debug.honor-xdg-activation-with-invalid-serial = { };
     };
   };
 
