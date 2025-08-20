@@ -18,34 +18,30 @@ in
     package = pkgs.niri-unstable;
     settings = {
       animations = {
-        horizontal-view-movement.kind.spring = {
-          damping-ratio = 0.8;
-          epsilon = 0.001;
-          stiffness = 500;
+        horizontal-view-movement.kind.easing = {
+          curve = "ease-out-expo";
+          duration-ms = 300;
         };
         window-close.kind.easing = {
-          curve = "ease-out-quad";
-          duration-ms = 200;
+          curve = "ease-out-expo";
+          duration-ms = 250;
         };
         window-open.kind.spring = {
           damping-ratio = 0.75;
           epsilon = 0.001;
           stiffness = 700;
         };
-        window-movement.kind.spring = {
-          damping-ratio = 0.8;
-          epsilon = 0.001;
-          stiffness = 700;
+        window-movement.kind.easing = {
+          curve = "ease-out-expo";
+          duration-ms = 250;
         };
-        window-resize.kind.spring = {
-          damping-ratio = 0.8;
-          epsilon = 0.001;
-          stiffness = 700;
+        window-resize.kind.easing = {
+          curve = "ease-out-expo";
+          duration-ms = 250;
         };
-        workspace-switch.kind.spring = {
-          damping-ratio = 0.8;
-          epsilon = 0.001;
-          stiffness = 300;
+        workspace-switch.kind.easing = {
+          curve = "ease-out-expo";
+          duration-ms = 400;
         };
       };
 
