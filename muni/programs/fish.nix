@@ -128,6 +128,13 @@
       r = "ranger";
       s = "kitten ssh";
 
+      # nh abbrs
+      nC = "nh clean all";
+      nS = "nh search";
+      nb = "nh os boot";
+      ns = "nh os switch";
+      nt = "nh os test";
+
       # taskwarrior abbrs
       t = "task";
       ta = "task add";
