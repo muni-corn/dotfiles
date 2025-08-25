@@ -11,6 +11,8 @@
       nodePackages.typescript-language-server
       pest-ide-tools
       rust-analyzer
+      taplo
+      taplo-lsp
       tailwindcss-language-server
       vscode-langservers-extracted
       vtsls
@@ -202,14 +204,6 @@
           {
             name = "toml";
             auto-format = true;
-            formatter = {
-              command = "dprint";
-              args = [
-                "fmt"
-                "--stdin"
-                "toml"
-              ];
-            };
             auto-pairs = {
               "[" = "]";
               "{" = "}";

@@ -5,7 +5,6 @@ in
 {
   imports = [
     ./ai
-    ./dprint.nix
     ./opencommit.nix
     ./packages
     ./programs
