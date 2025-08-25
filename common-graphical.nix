@@ -5,6 +5,7 @@
 }:
 {
   imports = [
+    ./flatpak.nix
     ./greetd.nix
     ./niri.nix
   ];
@@ -139,8 +140,6 @@
 
     # for pinentry-gnome3
     dbus.packages = [ pkgs.gcr ];
-
-    flatpak.enable = true;
 
     geoclue2 = {
       enable = true;
