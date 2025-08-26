@@ -70,10 +70,10 @@
     skim = {
       enable = true;
       enableFishIntegration = true;
-      defaultCommand = "fd --type f";
+      defaultCommand = "fd --type f --type l";
       changeDirWidgetCommand = "fd --type d";
       changeDirWidgetOptions = [ "--preview 'eza --color=always -l {}'" ];
-      fileWidgetCommand = "fd --type f";
+      fileWidgetCommand = "fd --type f --type l";
       fileWidgetOptions = [ "--preview 'bat -f -S -P {}'" ];
     };
 
