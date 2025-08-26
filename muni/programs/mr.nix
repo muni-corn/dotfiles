@@ -9,6 +9,7 @@
 
   programs.mr =
     let
+      # fixups
       fixupMuniRepo =
         repoName:
         pkgs.writeShellScript "mr-fixup-${repoName}" ''
@@ -24,9 +25,8 @@
           git remote get-url codeberg > /dev/null || git remote add -f upstream git@codeberg.org:municorn/${newName}
           git remote get-url musicaloft > /dev/null || git remote add -f musicaloft git@git.musicaloft.com:municorn/${newName}
         '';
-    in
-    let
 
+      # easy repo creation utils
       fromMusicaloft = owner: repoName: {
         checkout = "git clone git@git.musicaloft.com:${owner}/${repoName}.git";
       };
@@ -37,6 +37,7 @@
           fixups = builtins.toString (fixupMuniRepo repoName);
         };
 
+      # github utils
       fromGitHubForkRenamed = upstreamOwner: upstreamRepoName: newName: {
         checkout = "git clone git@github.com:muni-corn/${newName}.git";
         fixups = builtins.toString (fixupGitHubFork upstreamOwner upstreamRepoName newName);
@@ -46,6 +47,7 @@
         upstreamOwner: upstreamRepoName:
         fromGitHubForkRenamed upstreamOwner upstreamRepoName upstreamRepoName;
 
+      # util for annex repos
       annex = order: {
         inherit order;
         update = "git annex assist";
