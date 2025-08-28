@@ -57,9 +57,8 @@
         "qwen3:0.6b"
         "qwen3:8b"
         "qwen3:14b"
+        "qwen3:30b"
         "qwen3:32b"
-        "qwen3:30b-a3b"
-        "qwen3:235b-a22b"
         "qwq" # hehe
       ];
       openFirewall = true;
