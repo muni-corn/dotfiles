@@ -224,6 +224,7 @@
       description = "municorn";
       extraGroups = [ "networkmanager" ];
       isNormalUser = true;
+      uid = 1001;
 
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpFoYAj02WzgnBokgr2ZzFKOaffOVRK5Ru7Ngh53sjr (none)"
