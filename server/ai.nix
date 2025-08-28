@@ -42,6 +42,7 @@
       loadModels = [
         "command-r"
         "deepseek-r1"
+        "deepseek-r1:32b"
         "devstral"
         "gemma3n"
         "gemma3:1b"
