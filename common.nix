@@ -204,9 +204,7 @@
     # enable touchpad support
     libinput.enable = true;
 
-    logind.extraConfig = ''
-      RuntimeDirectorySize=2G
-    '';
+    logind.settings.Login.RuntimeDirectorySize = "2G";
 
     upower.enable = true;
   };
