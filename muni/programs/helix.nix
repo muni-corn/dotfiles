@@ -5,6 +5,7 @@
     extraPackages = with pkgs; [
       biome
       kdlfmt
+      lldb_21
       markdown-oxide
       nixd
       nixfmt-rfc-style
