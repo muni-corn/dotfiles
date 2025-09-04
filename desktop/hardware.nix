@@ -35,9 +35,6 @@
           (ssd "cryptmain1" "613570b3-d525-48bb-bf87-3aadd2936ea7")
           (ssd "cryptmain2" "cc59a7e5-0dcf-4281-9b33-418131fecad4")
           (ssd "cryptmain3" "2b03c9c2-82a9-4a5c-b79c-b30dade6dc0f")
-          (ssd "cryptvault1" "a25ee387-6969-439e-8af0-3be0d5d6fef7")
-          (ssd "cryptvault2" "cc6794ec-8889-426d-8f97-2313fb58155b")
-          (ssd "cryptvault3" "4c530385-1be4-4b19-a0f3-5a2e3f3a96a3")
         ];
     };
     kernelModules = [ "kvm-amd" ];
@@ -64,21 +61,6 @@
     "/boot/efi" = {
       device = "/dev/disk/by-uuid/0584-7DD6";
       fsType = "vfat";
-    };
-
-    "/vault1" = {
-      device = "/dev/disk/by-uuid/4dc752bd-c8c4-4dea-b7e5-a86a1009fcae";
-      fsType = "ext4";
-    };
-
-    "/vault2" = {
-      device = "/dev/disk/by-uuid/100030e1-fa1a-4943-8b98-caa6d693fdac";
-      fsType = "ext4";
-    };
-
-    "/vault3" = {
-      device = "/dev/disk/by-uuid/27dd7f84-7788-4bb2-b649-ddb4d85b57f5";
-      fsType = "ext4";
     };
 
     "/home" = {

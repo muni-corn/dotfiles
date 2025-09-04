@@ -45,6 +45,8 @@
       qt6.qtwayland
     ];
 
+    # sessionVariables.NIXOS_OZONE_WL = "1";
+
     localBinInPath = true;
   };
 
