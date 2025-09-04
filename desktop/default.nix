@@ -61,7 +61,7 @@
       ];
 
       niri.settings.outputs = {
-        "HDMI-A-1" = {
+        "Acer Technologies SB220Q 0x103035FB" = {
           position = {
             x = 0;
             y = 0;
@@ -69,7 +69,7 @@
           transform.rotation = 90;
         };
 
-        "DP-1" = {
+        "ASUSTek COMPUTER INC VG27AQ3A RCLMAS002937" = {
           mode = {
             width = 2560;
             height = 1440;
@@ -83,7 +83,7 @@
 
         # (let niri place DP-2 automatically)
 
-        "HDMI-A-2" = {
+        "PNP(HAT) Kamvas 16 0xF000000F" = {
           mode = {
             width = 2560;
             height = 1440;
