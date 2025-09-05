@@ -25,7 +25,14 @@
   ];
 
   home-manager.users.muni.programs.hyprlock.settings =
-    (import ../utils.nix { inherit config lib; }).mkHyprlockSettings "eDP-1";
+    ((import ../utils.nix { inherit config lib; }).mkHyprlockSettings "eDP-1")
+    // {
+      auth = {
+        "fingerprint:enabled" = true;
+        "fingerprint:ready_message" = "Scan to unlock";
+        "fingerprint:present_message" = "Checking";
+      };
+    };
 
   musnix.soundcardPciId = "c1:00.6";
 
