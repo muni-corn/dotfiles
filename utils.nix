@@ -2,28 +2,23 @@
   config,
   lib,
 }:
-let
-  mkHyprlockMonitor = name: {
-    monitor = name;
-    path = "screenshot";
-    blur_passes = 3;
-    blur_size = 16;
-    noise = 0.05;
-    contrast = 1.0;
-    brightness = 0.5;
-  };
-in
 {
   mkHyprlockSettings =
-    monitors:
+    primaryMonitor:
     let
-      primaryMonitor = builtins.head monitors;
       sansFontName = config.stylix.fonts.sansSerif.name;
     in
     lib.mkForce {
-      general.grace = 3;
+      general.ignore_empty_input = true;
 
-      background = map mkHyprlockMonitor monitors;
+      background = {
+        path = "screenshot";
+        blur_passes = 3;
+        blur_size = 16;
+        noise = 0.05;
+        contrast = 1.0;
+        brightness = 0.5;
+      };
 
       input-field = [
         {

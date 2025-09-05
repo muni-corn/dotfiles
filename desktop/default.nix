@@ -53,13 +53,7 @@
     ];
 
     programs = {
-      hyprlock.settings = (import ../utils.nix { inherit config lib; }).mkHyprlockSettings [
-        "DP-1"
-        "DP-2"
-        "DP-3"
-        "HDMI-A-1"
-        "HDMI-A-2"
-      ];
+      hyprlock.settings = (import ../utils.nix { inherit config lib; }).mkHyprlockSettings "DP-3";
 
       niri.settings.outputs = {
         "Acer Technologies SB220Q 0x103035FB" = {
