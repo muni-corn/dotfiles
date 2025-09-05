@@ -34,19 +34,19 @@
     };
     gamescope = {
       enable = true;
-      capSysNice = true;
       args = [
         "-f"
         "-b"
-        "--force-grab-cursor"
-        "-r 180"
+        "-F fsr"
         "-o 40"
-        "-H 1440"
-        "-h 1440"
-        "-w 2560"
+
+        # our screen dimensions
         "-W 2560"
-        "--backend sdl"
-        "--expose-wayland"
+        "-H 1440"
+
+        # the game's dimensions
+        "-w 1920"
+        "-h 1080"
       ];
     };
     steam = {
