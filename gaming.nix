@@ -1,15 +1,25 @@
 { pkgs, ... }:
 {
   home-manager.users.muni.home.packages = with pkgs; [
+    # classics
     aisleriot
-    godot_4
-    #itch
     kdePackages.kmines
     kdePackages.kpat
-    prismlauncher
+
+    # mods and compat tools
     protonup-ng
     protonup-qt
     r2modman
+
+    # launchers
+    itch
+    prismlauncher
+
+    # to configure mangohud
+    mangojuice
+
+    # more for game development than gaming
+    godot_4
     unityhub
   ];
 
