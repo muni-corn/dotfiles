@@ -71,6 +71,6 @@
     # for fingerprint reader support
     fprintd.enable = true;
 
-    logind.lidSwitch = "suspend-then-hibernate";
+    logind.settings.Login.HandleLidSwitch = "suspend-then-hibernate";
   };
 }
