@@ -15,6 +15,7 @@
       "kernel.task_delayacct" = 1;
     };
 
+    kernelPackages = pkgs.linuxPackages_latest;
     kernelParams = [
       "quiet"
       "fbcon=nodefer"
