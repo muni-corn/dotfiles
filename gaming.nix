@@ -57,6 +57,7 @@
       ];
       extraPackages = with pkgs; [
         gamescope
+        mangohud
       ];
       protontricks.enable = true;
       remotePlay.openFirewall = true;
