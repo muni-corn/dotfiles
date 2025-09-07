@@ -9,8 +9,6 @@
       sansFontName = config.stylix.fonts.sansSerif.name;
     in
     lib.mkForce {
-      general.ignore_empty_input = true;
-
       background = {
         path = "screenshot";
         blur_passes = 3;
