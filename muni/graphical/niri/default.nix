@@ -237,7 +237,7 @@ in
           ];
 
           block-out-from = "screen-capture";
-          open-on-output = "HDMI-A-1";
+          open-on-output = "DP-1";
         }
 
         {
