@@ -450,10 +450,10 @@ in
   systemd.user.services.xwayland-satellite = {
     Unit = {
       Description = "xwayland satellite";
-      BindsTo = "graphical-session.target";
-      PartOf = "graphical-session.target";
-      After = "graphical-session.target";
-      Requisite = "graphical-session.target";
+      BindsTo = config.wayland.systemd.target;
+      PartOf = config.wayland.systemd.target;
+      After = config.wayland.systemd.target;
+      Requisite = config.wayland.systemd.target;
     };
     Service = {
       Type = "notify";
@@ -462,6 +462,6 @@ in
       NotifyAccess = "all";
       StandardOutput = "journal";
     };
-    Install.WantedBy = [ "graphical-session.target" ];
+    Install.WantedBy = [ config.wayland.systemd.target ];
   };
 }

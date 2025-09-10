@@ -26,22 +26,22 @@ in
           Restart = "always";
           RestartSec = 15;
         };
-        Install.WantedBy = [ "graphical-session.target" ];
+        Install.WantedBy = [ config.wayland.systemd.target ];
       };
 
       swww-daemon = {
         Unit = {
           Description = "swww daemon";
-          PartOf = "graphical-session.target";
-          After = "graphical-session.target";
-          Requisite = "graphical-session.target";
+          PartOf = config.wayland.systemd.target;
+          After = config.wayland.systemd.target;
+          Requisite = config.wayland.systemd.target;
         };
         Service = {
           ExecStart = "${pkgs.swww}/bin/swww-daemon";
           Restart = "always";
           RestartSec = 5;
         };
-        Install.WantedBy = [ "graphical-session.target" ];
+        Install.WantedBy = [ config.wayland.systemd.target ];
       };
 
       wallpaper-switch = {
@@ -50,14 +50,14 @@ in
           ExecStart = scripts.switchWallpaper;
           Type = "oneshot";
         };
-        Install.WantedBy = [ "graphical-session.target" ];
+        Install.WantedBy = [ config.wayland.systemd.target ];
       };
     };
 
     timers.wallpaper-switch = {
       Unit.Description = "periodic wallpaper switching";
       Timer.OnCalendar = "hourly";
-      Install.WantedBy = [ "graphical-session.target" ];
+      Install.WantedBy = [ config.wayland.systemd.target ];
     };
   };
 }
