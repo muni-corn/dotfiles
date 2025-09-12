@@ -10,6 +10,12 @@
           instance_name = "Musicaloft Search";
           public_instances = "https://search.musicaloft.com";
         };
+        search.formats = [
+          "csv"
+          "html"
+          "json"
+          "rss"
+        ];
         server = {
           port = 7327;
           bind_address = "0.0.0.0";
