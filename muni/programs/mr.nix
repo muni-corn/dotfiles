@@ -90,6 +90,7 @@
         "code/niri-flake" = fromGitHubFork "sodiboo" "niri-flake";
         "code/nixpkgs" = fromGitHubFork "NixOS" "nixpkgs";
         "code/nixified-ai" = fromGitHubForkRenamed "nixified-ai" "flake" "nixified-ai";
+        "code/relm4-icons" = fromGitHubForkRenamed "Relm4" "icons" "relm4-icons";
         "code/stylix" = fromGitHubFork "nix-community" "stylix";
         "code/opencode" = fromGitHubFork "sst" "opencode";
         "code/opencommit" = fromGitHubFork "di-sukharev" "opencommit";
