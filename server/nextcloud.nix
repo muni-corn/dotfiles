@@ -64,7 +64,7 @@ in
     };
     postfix = {
       enable = true;
-      hostname = "mail.musicaloft.com";
+      settings.main.myhostname = "mail.musicaloft.com";
     };
   };
 
