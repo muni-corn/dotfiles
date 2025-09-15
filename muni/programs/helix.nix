@@ -18,6 +18,13 @@
       vscode-langservers-extracted
       vtsls
       zls
+
+      (mdformat.withPlugins (
+        p: with p; [
+          mdformat-frontmatter
+          mdformat-tables
+        ]
+      ))
     ];
     defaultEditor = true;
     settings = {
@@ -183,11 +190,9 @@
             name = "markdown";
             auto-format = true;
             formatter = {
-              command = "dprint";
+              command = "mdformat";
               args = [
-                "fmt"
-                "--stdin"
-                "md"
+                "-"
               ];
             };
             auto-pairs = {
