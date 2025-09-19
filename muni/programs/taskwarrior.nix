@@ -81,6 +81,7 @@
             read = "+music";
             write = "+music";
           };
+          personal.read = "-work";
           sfw.read = "-nsfw";
           work = {
             read = "project:apollo or project:liberdus or +work";
