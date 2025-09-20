@@ -107,7 +107,7 @@ in
 
   switchWallpaper =
     let
-      wallpapersDir = inputs.muse-wallpapers.generated;
+      wallpapersDir = "${inputs.muni-wallpapers}/wallpapers";
     in
     pkgs.writeShellScript "switch-wallpaper" ''
       new_wall=$(${pkgs.fd}/bin/fd --type f . ${wallpapersDir} | shuf -n 1)
