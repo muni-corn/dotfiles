@@ -21,8 +21,12 @@
 
       (mdformat.withPlugins (
         p: with p; [
+          mdformat-admon
+          mdformat-footnote
           mdformat-frontmatter
+          mdformat-simple-breaks
           mdformat-tables
+          mdformat-wikilink
         ]
       ))
     ];
