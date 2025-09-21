@@ -12,6 +12,10 @@ let
     # custom packages overlay
     (final: prev: {
       muse-shell = inputs.muse-shell.packages.${final.system}.default;
+      opencode = prev.opencode.overrideAttrs (old: {
+        version = "0.10.4";
+        src = inputs.opencode;
+      });
     })
   ];
 in
