@@ -24,19 +24,8 @@
 
     loader = {
       efi.canTouchEfiVariables = true;
-      grub = {
-        enable = false;
-
-        enableCryptodisk = true;
-        configurationLimit = 5;
-        devices = [ "nodev" ];
-        efiSupport = true;
-        splashMode = "normal";
-      };
-      systemd-boot = {
-        enable = true;
-        editor = false;
-      };
+      limine.enable = true;
+      limine.maxGenerations = 10;
     };
   };
 
