@@ -19,10 +19,7 @@
     ./hardware.nix
   ];
 
-  boot.loader = {
-    efi.efiSysMountPoint = "/boot/efi";
-    systemd-boot.memtest86.enable = true;
-  };
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   hardware = {
     amdgpu = {
