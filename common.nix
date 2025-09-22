@@ -2,7 +2,13 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{ config, pkgs, ... }:
+{
+  config,
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 {
   boot = {
     consoleLogLevel = 0;
@@ -24,8 +30,20 @@
 
     loader = {
       efi.canTouchEfiVariables = true;
-      limine.enable = true;
-      limine.maxGenerations = 10;
+      limine = {
+        enable = true;
+        maxGenerations = 10;
+        style = {
+          wallpaperStyle = "centered";
+          wallpapers =
+            let
+              wallpapersDir = "${inputs.muni-wallpapers}/wallpapers";
+              dirEntries = builtins.readDir wallpapersDir;
+              filteredEntries = lib.filterAttrs (path: type: type == "file") dirEntries;
+            in
+            lib.mapAttrsToList (path: type: path) filteredEntries;
+        };
+      };
     };
   };
 
