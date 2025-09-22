@@ -100,6 +100,10 @@ in
       light = "Papirus";
     };
 
-    targets.firefox.profileNames = [ "muni" ];
+    targets.firefox = {
+      profileNames = [ "muni" ];
+      colorTheme.enable = true;
+      firefoxGnomeTheme.enable = true;
+    };
   };
 }

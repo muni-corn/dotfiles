@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   programs.firefox = {
     enable = true;
@@ -42,6 +42,7 @@
           # ronin-wallet
           # ponify-reharmonized
         ];
+        settings = lib.mkForce { };
       };
       settings = {
         "extensions.autoDisableScopes" = 0;
@@ -63,7 +64,6 @@
         "gfx.webrender.all" = true;
         "svg.context-properties.content.enabled" = true;
       };
-      userChrome = ./waterfall.css;
     };
   };
 }
