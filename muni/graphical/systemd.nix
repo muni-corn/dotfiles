@@ -45,7 +45,10 @@ in
       };
 
       wallpaper-switch = {
-        Unit.Description = "wallpaper switcher";
+        Unit = {
+          Description = "wallpaper switcher";
+          After = [ "swww-daemon.service" ];
+        };
         Service = {
           ExecStart = scripts.switchWallpaper;
           Type = "oneshot";
