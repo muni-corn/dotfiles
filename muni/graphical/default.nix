@@ -38,7 +38,7 @@
       rawtherapee
 
       # messaging
-      cinny
+      cinny-desktop
       (discord.override {
         withVencord = true;
       })
