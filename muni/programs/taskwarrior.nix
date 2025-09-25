@@ -139,6 +139,13 @@
         };
 
         uda = {
+          # time estimates
+          estimate = {
+            indictaor = "E";
+            label = "Time estimate";
+            type = "duration";
+          };
+
           # custom priority values
           priority.values = "HH,H,M,,L,LL";
 
