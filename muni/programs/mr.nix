@@ -77,8 +77,8 @@
         "code/cocoa" = fromMuni "cocoa";
         "code/muni-wallpapers" = fromMuni "muni-wallpapers";
         "code/munibot" = fromMuni "munibot";
-        "code/muse-shell" = fromMuni "muse-shell";
-        "code/muse-sounds" = fromMuni "muse-sounds";
+        "code/cadenza-shell" = fromMuni "cadenza-shell";
+        "code/cadenza-sounds" = fromMuni "cadenza-sounds";
         "code/musicaloft-web" = fromMusicaloft "musicaloft" "musicaloft-web";
         "code/nix-templates" = fromMuni "nix-templates";
         "code/silverfox" = fromMuni "silverfox";
