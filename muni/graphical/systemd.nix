@@ -18,11 +18,11 @@ in
 {
   systemd.user = {
     services = {
-      muse-shell = {
-        Unit.Description = "muse-shell";
+      cadenza-shell = {
+        Unit.Description = "cadenza desktop shell";
         Service = {
           Environment = "GSK_RENDERER=gl";
-          ExecStart = "${pkgs.muse-shell}/bin/muse-shell";
+          ExecStart = "${pkgs.cadenza-shell}/bin/cadenza-shell";
           Restart = "always";
           RestartSec = 15;
         };

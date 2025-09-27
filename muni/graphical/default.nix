@@ -22,7 +22,7 @@
 
       # desktop environment
       glib # for gtk theming
-      muse-shell
+      cadenza-shell
       nautilus
       wl-clipboard-rs
       wl-clipboard-x11

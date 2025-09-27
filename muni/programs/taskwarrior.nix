@@ -69,9 +69,9 @@
             read = "project:munibot";
             write = "project:munibot";
           };
-          muse-shell = {
-            read = "project:muse-shell";
-            write = "project:muse-shell";
+          cadenza = {
+            read = "project:cadenza";
+            write = "project:cadenza";
           };
           musicaloft = {
             read = "project:musicaloft";

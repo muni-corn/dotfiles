@@ -1,8 +1,8 @@
 { inputs, ... }:
 let
   overlaysList = [
+    inputs.cadenza-sounds.overlay
     inputs.iosevka-muse.overlay
-    inputs.muse-sounds.overlay
     inputs.niri.overlays.niri
     inputs.nix-minecraft.overlay
     inputs.nixpkgs-wayland.overlays.default
@@ -11,7 +11,7 @@ let
 
     # custom packages overlay
     (final: prev: {
-      muse-shell = inputs.muse-shell.packages.${final.system}.default;
+      cadenza-shell = inputs.cadenza-shell.packages.${final.system}.default;
       opencode = prev.opencode.overrideAttrs (old: {
         version = "0.10.4";
         src = inputs.opencode;

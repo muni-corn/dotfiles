@@ -32,7 +32,7 @@
       kdePackages.ksshaskpass
       libcanberra
       libcanberra-gtk3
-      muse-sounds
+      cadenza-sounds
       surrealist
       v4l-utils
       wayfire
@@ -151,7 +151,7 @@
       };
     };
 
-    # for mpris album art on muse-shell
+    # for mpris album art on cadenza-shell
     gvfs.enable = true;
 
     pipewire = {

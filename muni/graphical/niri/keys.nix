@@ -298,10 +298,10 @@ in
     "Mod+Escape".action = spawn "loginctl" "lock-session";
 
     # notifications
-    "Ctrl+Escape".action = spawn "${pkgs.muse-shell}/bin/muse-shell" "noti" "dismiss";
-    "Mod+Minus".action = spawn "${pkgs.muse-shell}/bin/muse-shell" "noti" "dismiss";
-    "Mod+Equal".action = spawn "${pkgs.muse-shell}/bin/muse-shell" "noti" "history-pop";
-    "Mod+Space".action = spawn "${pkgs.muse-shell}/bin/muse-shell" "noti" "act";
+    "Ctrl+Escape".action = spawn "${pkgs.cadenza-shell}/bin/cadenza-shell" "noti" "dismiss";
+    "Mod+Minus".action = spawn "${pkgs.cadenza-shell}/bin/cadenza-shell" "noti" "dismiss";
+    "Mod+Equal".action = spawn "${pkgs.cadenza-shell}/bin/cadenza-shell" "noti" "history-pop";
+    "Mod+Space".action = spawn "${pkgs.cadenza-shell}/bin/cadenza-shell" "noti" "act";
 
     # change wallpaper
     "Mod+Ctrl+W".action = script scripts.switchWallpaper;

@@ -96,12 +96,12 @@
       url = "github:muni-corn/munibot";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    muse-shell = {
-      url = "github:muni-corn/muse-shell";
+    cadenza-shell = {
+      url = "github:muni-corn/cadenza-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    muse-sounds = {
-      url = "git+https://codeberg.org/municorn/muse-sounds?ref=main";
+    cadenza-sounds = {
+      url = "git+https://codeberg.org/municorn/cadenza-sounds?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     muni-wallpapers = {
