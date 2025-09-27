@@ -62,7 +62,7 @@
 
     # opencode, an ai coding agent in the terminal
     opencode = {
-      url = "github:sst/opencode/v0.10.4";
+      url = "github:sst/opencode/v0.12.1";
       flake = false;
     };
 

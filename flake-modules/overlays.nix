@@ -13,7 +13,7 @@ let
     (final: prev: {
       cadenza-shell = inputs.cadenza-shell.packages.${final.system}.default;
       opencode = prev.opencode.overrideAttrs (old: {
-        version = "0.10.4";
+        version = "0.12.1";
         src = inputs.opencode;
       });
     })
