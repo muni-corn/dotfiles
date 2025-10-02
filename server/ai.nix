@@ -35,7 +35,7 @@
     ollama = {
       enable = true;
       environmentVariables = {
-        OLLAMA_CONTEXT_LENGTH = "32768";
+        OLLAMA_CONTEXT_LENGTH = "16384";
         GGML_CUDA_ENABLE_UNIFIED_MEMORY = "1";
       };
       host = "[::]";
