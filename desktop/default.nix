@@ -122,6 +122,12 @@
   ];
 
   services = {
+    # btrfs deduplication
+    beesd.filesystems.root = {
+      spec = "LABEL=root";
+      hashTableSizeMB = 128;
+    };
+
     # btrfs auto scrubbing (defaults to monthly scrubs).
     # useless without data redundancy; disabling until we're back to raid5. manual
     # scrubs will suffice for finding corrupted files, which can be replaced by
