@@ -60,12 +60,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # opencode, an ai coding agent in the terminal
-    opencode = {
-      url = "github:sst/opencode/v0.12.1";
-      flake = false;
-    };
-
     # for runtime-decrypted secrets
     sops-nix = {
       url = "github:Mic92/sops-nix";
