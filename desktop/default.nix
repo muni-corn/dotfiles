@@ -126,6 +126,10 @@
     beesd.filesystems.root = {
       spec = "LABEL=root";
       hashTableSizeMB = 128;
+      extraOptions = [
+        "--loadavg-target"
+        "32.0"
+      ];
     };
 
     # btrfs auto scrubbing (defaults to monthly scrubs).
