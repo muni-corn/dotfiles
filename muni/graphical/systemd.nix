@@ -47,13 +47,12 @@ in
       wallpaper-switch = {
         Unit = {
           Description = "wallpaper switcher";
-          After = [ "swww-daemon.service" ];
+          After = "swww-daemon.service";
         };
         Service = {
           ExecStart = scripts.switchWallpaper;
           Type = "oneshot";
         };
-        Install.WantedBy = [ config.wayland.systemd.target ];
       };
     };
 
