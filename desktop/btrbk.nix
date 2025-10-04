@@ -7,7 +7,7 @@
         onCalendar = "*:00/5";
         settings = {
           snapshot_create = "onchange";
-          snapshot_preserve_min = "48h";
+          snapshot_preserve_min = "1h";
           snapshot_preserve = "96h 7d 2w";
           preserve_hour_of_day = "5";
           volume."/home" = {
@@ -28,7 +28,7 @@
         settings = {
           archive_preserve = "12m *y";
           snapshot_create = "no";
-          target_preserve = "2h 14d 8w 12m *y";
+          target_preserve = "2h 14d 2w 12m *y";
           target_preserve_min = "4w";
           preserve_hour_of_day = "5";
 
