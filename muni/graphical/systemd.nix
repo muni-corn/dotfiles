@@ -57,9 +57,14 @@ in
     };
 
     timers.wallpaper-switch = {
-      Unit.Description = "periodic wallpaper switching";
+      Unit = {
+        Description = "periodic wallpaper switching";
+        After = "swww-daemon.service";
+        PartOf = "swww-daemon.service";
+        Requisite = "swww-daemon.service";
+      };
       Timer.OnCalendar = "hourly";
-      Install.WantedBy = [ config.wayland.systemd.target ];
+      Install.Wants = "swww-daemon.service";
     };
   };
 }
