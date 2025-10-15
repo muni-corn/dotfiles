@@ -4,7 +4,9 @@
     ardour
     audacity
     calf
+    carla
     geonkick
+    infamousPlugins
     lsp-plugins
     musescore
     sfizz
