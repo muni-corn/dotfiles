@@ -12,8 +12,10 @@
       modify_font = "cell_height 115%";
 
       # other styling
+      disable_ligatures = "cursor";
       tab_bar_style = "powerline";
       tab_powerline_style = "round";
+      cursor_trail = 3;
     };
   };
 }
