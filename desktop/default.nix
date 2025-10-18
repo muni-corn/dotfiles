@@ -15,6 +15,7 @@
     ../openssh.nix
     ../sops
     ../video-production.nix
+    ../vr.nix
     ./btrbk.nix
     ./hardware.nix
   ];
