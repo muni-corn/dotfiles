@@ -213,6 +213,17 @@
             auto-format = true;
           }
           {
+            name = "scss";
+            formatter = {
+              command = "dprint";
+              args = [
+                "fmt"
+                "--stdin"
+                "scss"
+              ];
+            };
+          }
+          {
             name = "toml";
             auto-format = true;
             auto-pairs = {
