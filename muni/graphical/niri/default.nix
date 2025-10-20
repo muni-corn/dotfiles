@@ -433,12 +433,6 @@ in
       # (r "ignorezero" "gtk-layer-shell")
       # (r "ignorezero" "notifications")
 
-      # # auth agents
-      # (r "dimaround" "class:^(Pinentry|gcr-prompter|org.kde.polkit-kde-authentication-agent-1|gay.vaskel.Soteria)$")
-      # (r "pin" "class:^(Pinentry|gcr-prompter|org.kde.polkit-kde-authentication-agent-1|gay.vaskel.Soteria)$")
-      # (r "float" "class:^(Pinentry|gcr-prompter|org.kde.polkit-kde-authentication-agent-1|gay.vaskel.Soteria)$")
-      # (r "center" "class:^(Pinentry|gcr-prompter|org.kde.polkit-kde-authentication-agent-1|gay.vaskel.Soteria)$")
-
       # # for smart gaps
       # (r "bordersize 0" "floating:0, onworkspace:w[tv1]")
       # (r "rounding 0" "floating:0, onworkspace:w[tv1]")
