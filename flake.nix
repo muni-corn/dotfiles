@@ -48,12 +48,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # latest xr packages
-    nixpkgs-xr = {
-      url = "github:nix-community/nixpkgs-xr";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # nix user repository
     nur = {
       url = "github:nix-community/NUR";

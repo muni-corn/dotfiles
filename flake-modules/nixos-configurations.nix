@@ -48,9 +48,6 @@ let
     commonModules
     ++ commonGraphicalModules
     ++ [
-      # mixed reality
-      inputs.nixpkgs-xr.nixosModules.nixpkgs-xr
-
       # hardware
       inputs.nixos-hardware.nixosModules.common-pc
       inputs.nixos-hardware.nixosModules.common-cpu-amd
