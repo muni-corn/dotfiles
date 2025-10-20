@@ -133,10 +133,7 @@
       ];
     };
 
-    # btrfs auto scrubbing (defaults to monthly scrubs).
-    # useless without data redundancy; disabling until we're back to raid5. manual
-    # scrubs will suffice for finding corrupted files, which can be replaced by
-    # backups.
+    # btrfs auto scrubbing (defaults to monthly scrubs)
     btrfs.autoScrub = {
       enable = true;
       fileSystems = [ "/" ];
