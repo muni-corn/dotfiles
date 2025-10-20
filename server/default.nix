@@ -66,18 +66,10 @@
       crypt = {
         spec = "UUID=90072e03-ea6e-414d-86cd-a36aa6a114fe";
         hashTableSizeMB = 128;
-        extraOptions = [
-          "--thread-factor"
-          "0.5"
-        ];
       };
       main = {
         spec = "UUID=0601e2c9-f445-4a4f-b656-281ae21c9b8c";
         hashTableSizeMB = 128;
-        extraOptions = [
-          "--thread-factor"
-          "0.25"
-        ];
       };
     };
 
