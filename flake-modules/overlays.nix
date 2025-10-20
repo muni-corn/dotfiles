@@ -7,7 +7,6 @@ let
     inputs.nix-minecraft.overlay
     inputs.nixpkgs-wayland.overlays.default
     inputs.plymouth-theme-musicaloft-rainbow.overlay
-    inputs.swww.overlays.default
 
     # custom packages overlay
     (final: prev: {

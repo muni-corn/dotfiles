@@ -69,12 +69,6 @@
     # pinned surrealdb for munibot
     surrealdb.url = "github:surrealdb/surrealdb/v2.3.3";
 
-    # fancy wallpaper daemon
-    swww = {
-      url = "github:LGFae/swww";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # for formatting this configuration
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
