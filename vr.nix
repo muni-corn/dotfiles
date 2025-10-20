@@ -5,56 +5,8 @@
   ...
 }:
 {
-  # For WiVRn:
-  home-manager.users.muni =
-    let
-      homeConfig = config.home-manager.users.muni;
-    in
-    {
-      xdg = {
-        enable = true;
-        configFile = {
-          "openxr/1/active_runtime.json" = {
-            force = true;
-            source = "${config.services.wivrn.package}/share/openxr/1/openxr_wivrn.json";
-          };
-          "openvr/openvrpaths.vrpath" = {
-            force = true;
-            text = ''
-              {
-                "config" :
-                [
-                  "${homeConfig.xdg.dataHome}/Steam/config"
-                ],
-                "external_drivers" : null,
-                "jsonid" : "vrpathreg",
-                "log" :
-                [
-                  "${homeConfig.xdg.dataHome}/Steam/logs"
-                ],
-                "runtime" :
-                [
-                  "${pkgs.opencomposite}/lib/opencomposite"
-                ],
-                "version" : 1
-              }
-            '';
-          };
-        };
-      };
-    };
-
   services.wivrn = {
     enable = true;
-    package = pkgs.wivrn.overrideAttrs (oldAttrs: {
-      version = "0.24";
-      src = pkgs.fetchFromGitHub {
-        owner = "wivrn";
-        repo = "wivrn";
-        rev = "v0.24";
-        hash = "sha256-0F+JHhVT/Axo+ycoh/qCL/jVncD+GrcuvYrxKE+UFGc=";
-      };
-    });
 
     # Run WiVRn as a systemd service on startup
     autoStart = true;
