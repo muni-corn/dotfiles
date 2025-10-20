@@ -211,9 +211,9 @@ in
     "Mod+Z".action = switch-focus-between-floating-and-tiling;
 
     # screenshots
-    "Mod+Print".action = screenshot-window { write-to-disk = true; };
-    # "Mod+Shift+Print".action = screenshot-screen { write-to-disk = true; };
-    "Mod+Ctrl+Print".action = screenshot;
+    # de-sugared temporary workarounds
+    "Mod+Print".action.screenshot-window.write-to-disk = true;
+    "Mod+Ctrl+Print".action.screenshot = [ ];
 
     # applications such as remote-desktop clients and software kvm switches may
     # request that niri stops processing the keyboard shortcuts defined here

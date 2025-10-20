@@ -24,7 +24,6 @@
 
   hardware = {
     amdgpu = {
-      amdvlk.enable = false;
       initrd.enable = true;
       opencl.enable = true;
       overdrive = {

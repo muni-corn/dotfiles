@@ -14,6 +14,17 @@
   };
 
   programs = {
+    difftastic = {
+      enable = true;
+      git = {
+        enable = true;
+        diffToolMode = true;
+      };
+      options = {
+        background = "dark";
+      };
+    };
+
     fish = {
       shellAbbrs = {
         g = "git";
@@ -67,17 +78,6 @@
         enable = true;
         package = pkgs.gitAndTools.gitFull;
 
-        aliases = {
-          dlog = "log -p --ext-diff";
-          dshow = "show -p --ext-diff";
-        };
-
-        difftastic = {
-          enable = true;
-          enableAsDifftool = true;
-          background = "dark";
-        };
-
         lfs.enable = true;
 
         maintenance = {
@@ -99,12 +99,14 @@
           key = "4B21310A52B15162";
           signByDefault = true;
         };
-        userEmail = "municorn@musicaloft.com";
-        userName = "municorn";
 
         # all extra config
-        extraConfig = {
+        settings = {
           advice.skippedCherryPicks = false;
+          aliases = {
+            dlog = "log -p --ext-diff";
+            dshow = "show -p --ext-diff";
+          };
           annex = {
             backend = "BLAKE2B256E";
             diskreserve = "1G";
@@ -182,6 +184,8 @@
             "git@gitlab.com:".insteadOf = "https://gitlab.com/";
             "git@git.musicaloft.com:".insteadOf = "https://git.musicaloft.com/";
           };
+          user.email = "municorn@musicaloft.com";
+          user.name = "municorn";
         };
       };
 
