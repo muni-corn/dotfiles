@@ -402,6 +402,14 @@ in
             "desktop-login"
           ];
         }
+
+        # start openrgb
+        {
+          command = [
+            "openrgb"
+            "--startminimized"
+          ];
+        }
       ];
 
       # layer rules
