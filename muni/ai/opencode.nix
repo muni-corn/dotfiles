@@ -12,7 +12,6 @@
     settings = {
       "$schema" = "https://opencode.ai/config.json";
       autoupdate = false;
-      theme = "system";
       model = "anthropic/claude-sonnet-4";
 
       mcp = {
