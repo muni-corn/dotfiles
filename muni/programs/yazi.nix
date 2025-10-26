@@ -35,7 +35,7 @@
           # TODO: dedupe with gtk bookmarks
           bookmarks = {
             D = "~/dotfiles";
-            M = "~/Documents/municorn";
+            M = "~/Documents";
             a = "~/Music/ardour";
             c = "~/code";
             d = "~/Documents";

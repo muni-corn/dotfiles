@@ -126,8 +126,7 @@
         videos
         "${home}/code"
         "${home}/notebook"
-        "${documents}/municorn"
-        "${documents}/municorn/art"
+        "${documents}/art"
         "${music}/soundfonts"
         "${music}/soundfonts/vsco"
         "${pictures}/Screenshots"
