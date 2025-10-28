@@ -36,8 +36,9 @@
       n = "~/notebook";
       o = "~/Downloads";
       p = "~/Pictures";
-      s = "~/sync";
+      s = "~/Pictures/Screenshots";
       v = "~/Videos";
+      y = "~/sync";
     };
     plugins = {
       src =
