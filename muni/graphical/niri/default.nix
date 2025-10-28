@@ -375,7 +375,7 @@ in
       environment = {
         CLUTTER_BACKEND = "wayland";
         ECORE_EVAS_ENGINE = "wayland-egl";
-        # ELECTRON_OZONE_PLATFORM_HINT = "auto";
+        ELECTRON_OZONE_PLATFORM_HINT = "auto";
         ELM_ENGINE = "wayland_egl";
         GTK_THEME = config.gtk.theme.name;
         GTK_USE_PORTAL = "1";

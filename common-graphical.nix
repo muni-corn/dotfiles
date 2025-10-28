@@ -47,6 +47,8 @@
 
     # sessionVariables.NIXOS_OZONE_WL = "1";
 
+    sessionVariables.NIXOS_OZONE_WL = "1";
+
     localBinInPath = true;
   };
 
