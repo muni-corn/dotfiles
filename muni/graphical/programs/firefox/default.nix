@@ -30,6 +30,7 @@
 
       extensions = {
         packages = with pkgs.nur.repos.rycee.firefox-addons; [
+          aw-watcher-web
           betterttv
           browserpass
           darkreader
