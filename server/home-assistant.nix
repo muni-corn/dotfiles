@@ -1,4 +1,9 @@
 {
+  networking.firewall = {
+    allowedTCPPorts = [ 4002 ];
+    allowedUDPPorts = [ 4002 ];
+  };
+
   services.home-assistant = {
     enable = true;
     openFirewall = true;
@@ -15,10 +20,11 @@
     configWritable = true;
     extraComponents = [
       "default_config"
-      "met"
       "esphome"
-      "tplink"
       "google_translate"
+      "govee_light_local"
+      "met"
+      "tplink"
     ];
   };
 }
