@@ -124,7 +124,7 @@
   services = {
     # btrfs deduplication
     beesd.filesystems.root = {
-      spec = "LABEL=root";
+      spec = "UUID=cef72996-6b5b-4b13-bc59-4dfbc77a8307";
       hashTableSizeMB = 128;
       extraOptions = [
         "--loadavg-target"
