@@ -61,7 +61,7 @@
       libertine
       material-design-icons
       noto-fonts-cjk-sans
-      noto-fonts-extra
+      noto-fonts
     ];
   };
 

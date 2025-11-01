@@ -12,7 +12,7 @@
     sfizz
     x42-gmsynth
     x42-plugins
-    zyn-fusion
+    zynaddsubfx
   ];
 
   musnix.enable = true;

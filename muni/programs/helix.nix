@@ -13,7 +13,6 @@
       pest-ide-tools
       rust-analyzer
       taplo
-      taplo-lsp
       tailwindcss-language-server
       vscode-langservers-extracted
       vtsls
