@@ -21,7 +21,6 @@ in
       cadenza-shell = {
         Unit.Description = "cadenza desktop shell";
         Service = {
-          Environment = "GSK_RENDERER=gl";
           ExecStart = "${pkgs.cadenza-shell}/bin/cadenza-shell";
           Restart = "always";
           RestartSec = 15;
