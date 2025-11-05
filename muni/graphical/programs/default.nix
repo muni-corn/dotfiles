@@ -33,6 +33,8 @@
       };
     };
 
+    freetube.enable = true;
+
     hyprlock.enable = true;
 
     imv.enable = true;
