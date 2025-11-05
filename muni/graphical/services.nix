@@ -1,19 +1,6 @@
 { pkgs, ... }:
 {
   services = {
-    activitywatch = {
-      enable = true;
-      package = pkgs.aw-server-rust;
-
-      watchers.aw-watcher-window-wayland = {
-        package = pkgs.aw-watcher-window-wayland;
-        settings = {
-          timeout = 300;
-          poll_time = 2;
-        };
-      };
-    };
-
     gammastep = {
       enable = true;
       provider = "geoclue2";

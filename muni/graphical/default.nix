@@ -6,6 +6,7 @@
 }:
 {
   imports = [
+    ./activitywatch.nix
     ./hypridle.nix
     ./niri
     ./programs
