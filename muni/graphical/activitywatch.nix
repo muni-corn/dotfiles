@@ -13,11 +13,12 @@
     };
   };
 
-  systemd.user.services.activitywatch-watcher-aw-watcher-window-wayland.Unit = {
-    After = config.wayland.systemd.target;
-    BindsTo = config.wayland.systemd.target;
-    PartOf = config.wayland.systemd.target;
-    Requisite = config.wayland.systemd.target;
+  systemd.user.services.activitywatch-watcher-aw-watcher-window-wayland = {
+    Unit = {
+      After = [ "niri.service" ];
+      Requisite = [ "niri.service" ];
+    };
+    Install.WantedBy = [ config.wayland.systemd.target ];
   };
 
 }
