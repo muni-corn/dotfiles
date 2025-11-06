@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   lib,
   pkgs,
   ...
@@ -7,6 +8,15 @@
 let
   colors = config.lib.stylix.colors;
   red = colors.red;
+
+  scripts = import ../scripts.nix {
+    inherit
+      config
+      inputs
+      lib
+      pkgs
+      ;
+  };
 in
 {
   imports = [
@@ -400,20 +410,27 @@ in
           ];
         }
 
+        # start openrgb
+        {
+          command = [
+            "openrgb"
+            "--startminimized"
+          ];
+        }
+
+        # activate wallpaper
+        {
+          command = [
+            (builtins.toString scripts.switchWallpaper)
+          ];
+        }
+
         # play startup sound
         {
           command = [
             "canberra-gtk-play"
             "-i"
             "desktop-login"
-          ];
-        }
-
-        # start openrgb
-        {
-          command = [
-            "openrgb"
-            "--startminimized"
           ];
         }
       ];
