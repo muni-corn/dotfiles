@@ -52,6 +52,7 @@ in
           ExecStart = scripts.switchWallpaper;
           Type = "oneshot";
         };
+        Install.WantedBy = [ config.wayland.systemd.target ];
       };
     };
 
