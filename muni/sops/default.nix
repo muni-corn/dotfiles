@@ -16,6 +16,7 @@ in
       fish_ai_ini = { };
       oco_api_key = { };
       github_pat = { };
+      context7_key = { };
     };
   };
 
