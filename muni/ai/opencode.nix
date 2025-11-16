@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   home.packages = [
     pkgs.bun
@@ -13,8 +13,8 @@
     settings = {
       "$schema" = "https://opencode.ai/config.json";
       autoupdate = false;
-      model = "anthropic/claude-sonnet-4";
-
+      model = "moonshotai/kimi-k2-thinking";
     };
+    rules = ./rules.md;
   };
 }
