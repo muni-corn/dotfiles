@@ -42,7 +42,7 @@
       (discord.override {
         withVencord = true;
       })
-      element-desktop
+      # element-desktop
       equicord
       slack
       vesktop
@@ -60,6 +60,9 @@
       # other things
       libnotify
       protonvpn-gui
+
+      loupe
+      kdePackages.gwenview
     ];
 
     pointerCursor = {
