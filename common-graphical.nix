@@ -45,8 +45,6 @@
       qt6.qtwayland
     ];
 
-    # sessionVariables.NIXOS_OZONE_WL = "1";
-
     sessionVariables.NIXOS_OZONE_WL = "1";
 
     localBinInPath = true;
@@ -123,6 +121,8 @@
       enable = true;
       package = pkgs.jdk;
     };
+
+    system-config-printer.enable = true;
   };
 
   security = {
@@ -138,13 +138,19 @@
   };
 
   services = {
+    # automatic timezone based on location
     automatic-timezoned.enable = true;
 
+    # setup automatic local device discovery, for e.g. printers
+    avahi.enable = true;
+
+    # bluetooth manager gui
     blueman.enable = true;
 
     # for pinentry-gnome3
     dbus.packages = [ pkgs.gcr ];
 
+    # geolocation
     geoclue2 = {
       enable = true;
       appConfig.gammastep = {
@@ -156,6 +162,7 @@
     # for mpris album art on cadenza-shell
     gvfs.enable = true;
 
+    # system audio
     pipewire = {
       enable = true;
       alsa = {
@@ -164,6 +171,15 @@
       };
       pulse.enable = true;
       jack.enable = true;
+    };
+
+    printing = {
+      enable = true;
+      drivers = with pkgs; [
+        hplip
+        cups-filters
+        ghostscript
+      ];
     };
 
     # profile sync daemon, for SSDs and browsers
