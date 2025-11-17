@@ -115,107 +115,34 @@ export class UserController {
 
 ## Comments and documentation
 
+You should delegate the `doc` agent for writing documentation after you write
+code. Be specific when requesting what you want it to document.
+
 You should NEVER generate Markdown files unprompted. Simply explain changes you
 make to the user-- no matter how large-- UNLESS the user specifically asks you
 to generate documentation for the changes.
 
-### Line comments
+**Keep comments current.** Always update comments if you change code.
+
+### Documentation style overview
+
+#### Line comments
 
 - **Use all lowercase** for inline comments explaining implementation details.
 - **Be concise.** Comments should explain *why* more than *what*.
-- **Keep comments current.** Update comments if you change code.
-
-```typescript
-// (good: explains the reasoning)
-// convert ounces to grams for consistent units
-const grams = oz * GRAMS_PER_OUNCE;
-
-// (bad: states the obvious)
-// multiply oz by GRAMS_PER_OUNCE to get grams
-const grams = oz * GRAMS_PER_OUNCE;
-```
-
-### Documentation style
-
 - **Spell out "and".** Do not use the ampersand symbol "&" as a conjunction;
   always write out "and" in documentation, comments, and Markdown files.
 - **Use sentence case** for headings and titles as demonstrated throughout this
   document.
 
-### Documentation comments
+#### Documentation comments
 
 - **Use sentence case** for documentation comments.
 - **Document public APIs** for all public functions, classes, and modules.
 - **Include examples.** Show usage when complexity warrants it.
 - **Document parameters and return values.**
 
-````rust
-/// Calculates the total price with tax for a given amount.
-///
-/// # Returns
-///
-/// The total amount in cents including tax.
-///
-/// # Example
-///
-/// ```
-/// let total = calculate_total_with_tax(1000, 0.08);
-/// assert_eq!(total, 1080);
-/// ```
-pub fn calculate_total_with_tax(
-    /// The pre-tax amount in cents.
-    amount: u64,
-
-    /// The tax rate as a decimal (e.g., 0.08 for 8%).
-    tax_rate: f64,
-) -> u64 {
-    let tax = (amount as f64 * tax_rate).round() as u64;
-    amount + tax
-}
-````
-
-### Module documentation
-
-````typescript
-/**
- * User authentication and authorization module.
- *
- * This module provides functionality for:
- * - User registration and login
- * - Password hashing and verification
- * - JWT token generation and validation
- * - Role-based access control
- *
- * @module auth
- * @example
- * ```typescript
- * import { AuthService } from './auth';
- *
- * const auth = new AuthService();
- * const token = await auth.login('user@example.com', 'password');
- * ```
- */
-````
-
-````rust
-//! # User authentication and authorization
-//!
-//! This module provides functionality for:
-//!
-//! - User registration and login
-//! - Password hashing and verification
-//! - JWT token generation and validation
-//! - Role-based access control
-//!
-//! ```rust
-//! use auth::AuthService;
-//!
-//! let auth = AuthService()::new();
-//! let token = auth.login('user@example.com', 'password').await;
-//! ```
-````
-
-### TODO comments
+#### TODO comments
 
 - **Include issue numbers** when applicable.
 - **Be specific** about what needs to be done.
@@ -227,297 +154,11 @@ pub fn calculate_total_with_tax(
 // for production use with large volumes.
 ```
 
-### Comment examples
-
-```typescript
-/** The amount of grams in an imperial ounce. */
-export const GRAMS_PER_OUNCE = 28.34952;
-
-/**
- * An interface containing information about some kind of fruit.
- */
-export interface Fruit {
-  /** What the fruit is called. */
-  name: string;
-
-  /** The caloric content of the fruit, in kcal. */
-  calories: number;
-
-  /** The weight of the fruit, in grams. */
-  weight: number;
-}
-
-/**
- * Creates a Fruit from the specified information.
- */
-export const newFruit = (name: string, kcal: number, oz: number): Fruit => {
-  // convert ounces to grams
-  const grams = oz * GRAMS_PER_OUNCE;
-
-  return {
-    // ensure the name is all lowercase
-    name: name.toLowerCase(),
-
-    // round calories to the nearest integer
-    calories: Math.round(kcal),
-
-    // the weight we store should be in grams
-    weight: grams,
-  };
-};
-```
-
-```rust
-// A constant to convert pounds to ounces.
-pub const OUNCES_PER_POUND: f32 = 16.0;
-
-/// An enum for the different species of animals we can track.
-pub enum Species {
-  /// Bark bark bark!
-  Dog,
-
-  /// Meow meow mow.
-  Cat,
-
-  /// Unicorns are magical! Neigh! <3
-  Unicorn,
-}
-
-/// A struct describing some animal.
-pub struct Animal {
-  /// The species of the animal.
-  pub species: Species,
-
-  /// A cute name for our animal.
-  pub name: AnimalKind,
-
-  /// The weight of the animal, in ounces.
-  pub weight: u32,
-}
-
-impl Animal {
-  /// Creates a new Animal record, using pounds as the provided weight.
-  pub fn new_from_lbs(species: Species, name: String, lbs: f32) -> Self {
-    // ensure the name is capitalized
-    let name = capitalize_name(name);
-
-    // convert pounds to ounces
-    let weight = (lbs * OUNCES_PER_POUND).round() as u32;
-
-    Self {
-      species,
-      name,
-      weight,
-    }
-  }
-}
-
-/// Capitalizes the first letter of the given string.
-fn capitalize_name(name: String) -> String {
-  // use the titlecase library to make this easier
-  // we import the trait so we can use call `titlecase()` on `name`
-  use titlecase::Titlecase;
-
-  // converts a string like "some silly name" into "Some Silly Name"
-  titlecase(name)
-}
-```
-
-## Git commit conventions
-
-### Structure
-
-```
-type(scope)!: description under 72 characters
-
-[optional body: explain what and why, not how]
-
-[optional footer: reference issues, breaking changes]
-```
-
-### Commit types
-
-These are the following commit types we use:
-
-- `build`: for commits that add dependencies or change the build process.
-- `chore`: for commits that don't modify the actual code.
-- `ci`: for commits that affect continuous integration or continuous deployment
-  (CI/CD).
-- `docs`: for commits that affect documents (like Markdown files) or change only
-  comments within the codebase.
-- `dx`: for commits that improve or otherwise modify developer experience (DX).
-  `dx` commits may add tools (such as language servers or CLI packages), or
-  adjust configuration files to improve linting or code formatting.
-- `feat`: for commits that add a new feature to the code relevant to end users.
-  `feat` commits will increment the MINOR version number in semantic versioning.
-  If a commit doesn't affect an end user's experience, a `build`, `ci`, or `dx`
-  commit type might be more appropriate.
-- `fix`: for commits that fix bugs or errors in the code. `fix` commits will
-  increment the PATCH version number in semantic versioning.
-- `perf`: for commits that modify the code and improve its performance or
-  optimize its logic.
-- `refactor`: for commits that modify the code, but don't add a feature or fix a
-  bug.
-- `style`: for commits that strictly modify code style or formatting, like
-  adding/removing whitespace, newlines, braces, parentheses, or semicolons.
-  `style` commits are NOT relevant to CSS or SCSS changes. CSS or SCSS changes
-  are likely better suited with a `feat` or `fix` commit type.
-- `test`: for commits that add or modify automated tests.
-
-Some conventional commit messages should also specify a scope. Scopes should
-ideally be only a single word, relate to the files modified for the commit, and
-should NOT include file extensions.
-
-The description of your commit messages should be descriptive and specific, but
-should be concise and never exceed 72 characters. Ensure the phrasing is in
-imperative form.
-
-You may add a body to your commit messages to describe the changes made in more
-detail.
-
-If the changes you're about to commit introduce a breaking change, STOP. You
-MUST ask the user for confirmation before continuing, and MUST provide a summary
-of the changes about to be committed and why they need to be committed. If the
-user approves the changes, when you commit the changes, you MUST add an
-exclamation mark (!) after the type and scope (e.g. `feat(api)!: ...`), and add
-a `BREAKING CHANGE:` footer to the commit message body explaining the breaking
-change. Such commits will increment the MAJOR version number in semantic
-versioning.
-
-**NEVER** add co-author footers to your commit messages.
-
-Here are some arbitrary examples based on hypothetical codebases:
-
-- You ran `cargo add titlecase` and added `Cargo.toml` and `Cargo.lock` to the
-  git index:
-
-  ```
-  build: add `titlecase` dependency for capitalizing names
-  ```
-
-- You modified `.gitignore` to exclude some generated files:
-
-  ```
-  chore: add `.pre-commit-config.yaml` to `.gitignore`
-
-  `.pre-commit-config.yaml` is automically generated by `git-hooks` in
-  `flake.nix`, and is a symlink that will not persist on other
-  developers' systems.
-  ```
-
-- You modified a CI configuration file to automatically test code changes when
-  they are pushed to a remote GitHub repository:
-
-  ```
-  ci: add `npm test` job to `push` hook for GitHub Actions
-  ```
-
-- You added comments to document various structs and functions in a file named
-  `src/animal/canine.rs`:
-
-  ```
-  docs(canine): add doc comments for various structs and functions
-
-  Adds documentation for:
-  - `Dog` struct
-  - `Wolf` struct
-  - `generate_random_canine` function
-  - `Dog::bark` method
-  ```
-
-- You modified a `tsconfig.json` file to add stricter linting rules:
-
-  ```
-  dx(tsconfig): enable `strictNullChecks` and `noImplicitAny`
-
-  Enables tsconfig flags that enforce better type safety and linting.
-  ```
-
-- You added some code to `src/animal/feline.rs`, `src/animal/canine.rs`, and
-  `src/animal/bird.rs` that adds a petting feature:
-
-  ```
-  feat(animal): add ability to pet animals
-
-  Now our animals can receive love!
-  ```
-
-- You fixed a bug in `src/fruit/apple.rs` where calling `bite()` on an `Apple`
-  struct would cause it to rot:
-
-  ```
-  fix(apple): don't rot immediately after biting
-
-  Fixes a bug where `Apple`s would rot too soon after biting.
-  ```
-
-- You optimized some code in `src/db/user-stats.ts` where you changed a
-  sequential `for` loop of queries into a collection of `Promise`s:
-
-  ```
-  perf(user-stats): improve processing time with concurrent `Promise.all` execution
-
-  Replaces slow sequential query execution in a `for` loop by
-  collecting all queries into a `Promise[]` first and then executing them
-  concurrently with `Promise.all`.
-  ```
-
-- You modified some code to remove `undefined` and `null` from type union
-  annotations in TypeScript files `src/bigVehicles/plane.ts` and
-  `src/bigVehicles/train.ts`:
-
-  ```
-  refactor(bigVehicles): improve type annotations for `plane.ts` and `train.ts`
-
-  Replaces `string | null` with `string` and `number | undefined` with
-  `number` to improve type safety and strictness.
-  ```
-
-- You ran `biome format --write` to format code across the entire codebase:
-
-  ```
-  style: format all code with `biome`
-  ```
-
-- You fixed some unit tests that had broken with the last refactor with a
-  `src/api/accounts.ts` module:
-
-  ```
-  test: fix automated tests for `accounts` module
-
-  Fixes unit tests that were failing after consolidating `accounts` API functions
-  ```
-
-- You remove functions that were deprecated after being renamed to other
-  functions.
-
-  ```
-  refactor!: remove deprecated functions for v1.0 release
-
-  BREAKING CHANGE: This change removes functions that were previously
-  deprecated and does not maintain backwards compatibility.
-  ```
-
-### Commit size guidelines
-
-- **Atomic commits.** Each commit should do one thing and can easily be
-  reverted.
-- **Small commits.** Prefer 10 small commits over one large commit.
-- **Testable.** Each commit should preferably leave the codebase in a working
-  state.
-- **Reviewable.** Changes should be easy to review.
-
-### Pre-commit checklist
-
-Before committing, ensure:
-
-- [ ] code follows style guidelines
-- [ ] no debug code, `console.log`, `println!` statements
-- [ ] code is formatted (`treefmt` or project-specific formatter)
-- [ ] tests pass (`npm test`, `cargo test`)
-- [ ] sensitive data is not committed
-- [ ] commit message follows conventions
-- [ ] breaking changes are marked with `!` in commit messages
+## Git commits
+
+If you are writing code, the changes you are making should be committed
+regularly. You can call the `commit` agent to take care of commits for you. It
+should be able to adhere to our own conventional commit specification.
 
 ## Testing
 
@@ -596,18 +237,20 @@ mod tests {
 
 If test coverage tools are available:
 
-- **Minimum 85% coverage** for critical paths
-- **100% coverage** for utility functions and pure functions
-- **Test error paths.** Don't just test happy paths
-- **Integration tests.** Test component interactions
-- **E2E tests.** Test critical user flows
+- **Minimum 85% coverage** for critical paths.
+- **100% coverage** for utility functions and pure functions.
+- **Test error paths.** Don't just test happy paths.
+- **Integration tests.** Test component interactions.
+- **E2E tests.** Test critical user flows.
 
 ### Mocking
 
 #### TypeScript
 
 When mocking with `vitest`, remember that **you cannot mock functions within
-modules that you are testing.**
+modules that you are testing.** You cannot use `spyOn` to mock sibling
+functions. Instead, when testing any given module, ensure you only mock
+functions imported into the module.
 
 ```typescript
 import { vi } from 'vitest';
