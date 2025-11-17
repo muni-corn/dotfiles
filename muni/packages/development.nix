@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     # cloud & deployment
     docker-compose
-    flyctl
+    # flyctl
 
     # git & version control
     cocogitto
