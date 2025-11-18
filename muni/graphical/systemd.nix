@@ -47,12 +47,12 @@ in
         Unit = {
           Description = "wallpaper switcher";
           After = "swww-daemon.service";
+          Wants = "swww-daemon.service";
         };
         Service = {
           ExecStart = scripts.switchWallpaper;
           Type = "oneshot";
         };
-        Install.WantedBy = [ config.wayland.systemd.target ];
       };
     };
 
