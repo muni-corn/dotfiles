@@ -1,8 +1,7 @@
 ---
-description: Reviews code for bugs, security, and performance.
+description: Reviews code for bugs, security vulnerabilities, and performance optimization opportunities. Great for reviewing freshly-written code.
 mode: all
 tools:
-  bash: false
   write: false
   edit: false
 ---

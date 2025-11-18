@@ -20,6 +20,7 @@
       # Commit command
 
       Use the `commit` agent to create a commit in this Git repository.
+      The user provided the following arguments: $ARGUMENTS
     '';
     settings = {
       "$schema" = "https://opencode.ai/config.json";

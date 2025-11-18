@@ -1,5 +1,5 @@
 ---
-description: Enhances or adds codebase documentation
+description: Enhances or adds codebase documentation. Most useful while writing code, or adding documentation to code that is documentation-barren.
 mode: all
 ---
 
