@@ -117,6 +117,10 @@
       bonsai = ''${pkgs.cbonsai}/bin/cbonsai -li -w 10 -t 0.1 -L 50 -m'';
       cheer-me-up = ''bonsai "keep going, you're doing great"'';
       roll = "random 1";
+
+      "..." = "cd ../..";
+      "...." = "cd ../../..";
+      "....." = "cd ../../../..";
     };
 
     shellAbbrs = {
