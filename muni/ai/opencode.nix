@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   home.packages = [
     pkgs.bun
@@ -25,7 +25,10 @@
     settings = {
       "$schema" = "https://opencode.ai/config.json";
       autoupdate = false;
-      model = "moonshotai/kimi-k2-thinking-turbo";
+      model = "moonshotai/kimi-k2-turbo";
+
+      # until the stylix theme is back
+      theme = lib.mkForce "system";
     };
     rules = ./rules.md;
   };
