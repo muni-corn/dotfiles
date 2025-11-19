@@ -1,5 +1,9 @@
 { config, pkgs, ... }:
 {
+  imports = [
+    ./aw-sync.nix
+  ];
+
   services.activitywatch = {
     enable = true;
     package = pkgs.aw-server-rust;
@@ -13,6 +17,15 @@
     };
   };
 
+  # Enable ActivityWatch sync daemon
+  # This will sync data to ~/ActivityWatchSync every 5 minutes
+  # You can then sync this directory with Syncthing/Dropbox/etc
+  services.activitywatch.sync = {
+    enable = true;
+    syncDir = "${config.home.homeDirectory}/sync/aw";
+    verbose = true; # enable debug logging
+  };
+
   systemd.user.services.activitywatch-watcher-aw-watcher-window-wayland = {
     Unit = {
       After = [ "niri.service" ];
@@ -20,5 +33,4 @@
     };
     Install.WantedBy = [ config.wayland.systemd.target ];
   };
-
 }
