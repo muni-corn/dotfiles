@@ -130,7 +130,7 @@
       o = "opencode";
       q = "exit";
       r = "ranger";
-      s = "kitten ssh";
+      s = "ssh";
 
       # nh abbrs
       nC = "nh clean all";
