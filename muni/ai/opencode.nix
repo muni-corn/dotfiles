@@ -15,6 +15,7 @@
       commit = ./agents/commit.md;
       review = ./agents/review.md;
       doc = ./agents/doc.md;
+      test = ./agents/test.md;
     };
     commands.commit = ''
       # Commit command
