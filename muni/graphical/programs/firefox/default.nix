@@ -29,6 +29,7 @@
       containersForce = true;
 
       extensions = {
+        #  https://gitlab.com/rycee/nur-expressions/blob/master/pkgs/firefox-addons/generated-firefox-addons.nix
         packages = with pkgs.nur.repos.rycee.firefox-addons; [
           aw-watcher-web
           betterttv
@@ -37,6 +38,7 @@
           metamask
           polkadot-js
           pronoundb
+          sponsorblock
           ublock-origin
           vimium
           clearurls
