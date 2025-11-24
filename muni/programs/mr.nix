@@ -86,6 +86,7 @@
 
         # forked repos
         "code/commitlint-rs" = fromGitHubFork "KeisukeYamashita" "commitlint-rs";
+        "code/devenv" = fromGitHubFork "cachix" "devenv";
         "code/home-manager" = fromGitHubFork "nix-community" "home-manager";
         "code/niri-flake" = fromGitHubFork "sodiboo" "niri-flake";
         "code/nixpkgs" = fromGitHubFork "NixOS" "nixpkgs";
