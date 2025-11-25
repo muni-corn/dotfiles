@@ -13,6 +13,7 @@
 
     agents = {
       commit = ./agents/commit.md;
+      conflict = ./agents/conflict.md;
       review = ./agents/review.md;
       doc = ./agents/doc.md;
       test = ./agents/test.md;
