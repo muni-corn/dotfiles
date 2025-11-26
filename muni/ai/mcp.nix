@@ -28,14 +28,6 @@
         args = [ "mcp-searxng" ];
         env.SEARXNG_URL = "https://search.musicaloft.com";
       };
-
-      sequential-thinking = {
-        command = "bun";
-        args = [
-          "x"
-          "@modelcontextprotocol/server-sequential-thinking"
-        ];
-      };
     };
   };
 }
