@@ -27,7 +27,23 @@
     settings = {
       "$schema" = "https://opencode.ai/config.json";
       autoupdate = false;
-      model = "moonshotai/kimi-k2-turbo";
+
+      # configure models
+      model = "anthropic/claude-haiku-4-5";
+      provider.anthropic.models = {
+        "claude-sonnet-4-5".options.thinking = {
+          type = "enabled";
+          budgetTokens = 32000;
+        };
+        "claude-haiku-4-5".options.thinking = {
+          type = "enabled";
+          budgetTokens = 32000;
+        };
+        "claude-opus-4-5".options.thinking = {
+          type = "enabled";
+          budgetTokens = 32000;
+        };
+      };
 
       # until the stylix theme is back
       theme = lib.mkForce "system";
