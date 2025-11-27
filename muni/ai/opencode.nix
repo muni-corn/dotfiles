@@ -45,7 +45,7 @@
       autoupdate = false;
 
       # configure models
-      model = "anthropic/claude-haiku-4-5";
+      model = "anthropic/claude-sonnet-4-5";
       provider.anthropic.models = {
         "claude-sonnet-4-5".options.thinking = {
           type = "enabled";
