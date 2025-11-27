@@ -53,10 +53,12 @@ impl UserService {
 ### Comment style
 
 - **Inline comments:** all lowercase, explain *why* not *what*
-- **Doc comments:** sentence case, document public APIs with params, returns, examples
+- **Doc comments:** MUST use sentence case (capitalize first word, end with period). Document public APIs with params, returns, examples
 - **TODOs:** include issue numbers, be specific
 - Spell out "and" (never use "&")
 - Use sentence case for headings
+
+**CRITICAL:** All doc comments must start with a capital letter and be written in sentence case. This is non-negotiable.
 
 ```typescript
 // convert ounces to grams for consistent units (good: explains why)
@@ -77,7 +79,18 @@ Keep comments current with code changes.
 
 ## Git commits
 
-Delegate to `commit` agent for commits. Commit regularly.
+**CRITICAL:** Delegate to `commit` agent for commits. **Commit after EVERY logical change.** Do NOT wait for user prompts to commit. Commit proactively and frequently throughout development.
+
+### When to commit
+
+- After implementing a single function or method
+- After fixing a single bug
+- After adding or updating documentation
+- After refactoring a single module
+- After each test file is created or updated
+- Before switching to a different task or file
+
+**DO NOT** batch multiple unrelated changes into one commit. If you've made 5 changes, make 5 commits.
 
 ### Commit format
 
