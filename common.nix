@@ -34,7 +34,6 @@
         enable = true;
         maxGenerations = 10;
         style = {
-          wallpaperStyle = "centered";
           wallpapers =
             let
               wallpapersDir = "${inputs.muni-wallpapers}/wallpapers";
