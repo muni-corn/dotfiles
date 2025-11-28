@@ -4,7 +4,7 @@
   ...
 }:
 let
-  theme = "${pkgs.base16-schemes}/share/themes/nord.yaml";
+  theme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
 
   commonConfig = {
     enable = true;
@@ -12,16 +12,6 @@ let
 
     # colors
     base16Scheme = theme;
-    override = {
-      base00 = "000221";
-      base01 = "16213c";
-      base02 = "374057";
-      base03 = "585f72";
-      base04 = "9a9da8";
-      base05 = "bbbcc3";
-      base06 = "dcdbde";
-      base07 = "fdfaf9";
-    };
     polarity = "dark";
 
     # background
