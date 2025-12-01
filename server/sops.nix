@@ -17,7 +17,6 @@
       nix_builder_passwd = { };
       nix_serve_secret_key = { };
       atticd_env = { };
-      mongodb_pass = { };
       searx_env = { };
     };
   };

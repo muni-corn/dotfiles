@@ -15,7 +15,6 @@
     ./home-assistant.nix
     ./hydra.nix
     ./minecraft.nix
-    ./mongodb.nix
     ./municorn.nix
     ./nextcloud.nix
     ./nix.nix
