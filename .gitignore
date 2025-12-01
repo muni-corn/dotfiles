@@ -1,3 +1,7 @@
 hardware-configuration.nix
 result
 *.orig
+
+.devenv
+.direnv
+.pre-commit-config.yaml
