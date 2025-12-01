@@ -9,7 +9,7 @@
     infamousPlugins
     lsp-plugins
     musescore
-    sfizz
+    sfizz-ui
     x42-gmsynth
     x42-plugins
     zynaddsubfx

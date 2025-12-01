@@ -1528,6 +1528,7 @@
         "nixpkgs-wayland": "nixpkgs-wayland",
         "nur": "nur",
         "plymouth-theme-musicaloft-rainbow": "plymouth-theme-musicaloft-rainbow",
+        "sfizz-ui": "sfizz-ui",
         "sops-nix": "sops-nix",
         "stylix": "stylix",
         "surrealdb": "surrealdb",
@@ -1680,6 +1681,22 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "sfizz-ui": {
+      "locked": {
+        "lastModified": 1762175587,
+        "narHash": "sha256-vOGFVQDrKtZeInxPTHPelDnpOEH7y/hrfaS5Rem77Gg=",
+        "owner": "joostn",
+        "repo": "nixpkgs",
+        "rev": "402c1ddc936525992e96b1abf4314ad0a604206e",
+        "type": "github"
+      },
+      "original": {
+        "owner": "joostn",
+        "ref": "jn-sfizzui",
+        "repo": "nixpkgs",
         "type": "github"
       }
     },
