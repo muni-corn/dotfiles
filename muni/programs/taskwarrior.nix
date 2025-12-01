@@ -45,9 +45,9 @@
 
         # contexts
         context = {
-          apollo = {
-            read = "project:apollo";
-            write = "project:apollo +work";
+          orosa = {
+            read = "project:orosa";
+            write = "project:orosa +work";
           };
           art = {
             read = "+art";
@@ -84,7 +84,7 @@
           personal.read = "-work";
           sfw.read = "-nsfw";
           work = {
-            read = "project:apollo or project:liberdus or +work";
+            read = "project:orosa or project:liberdus or +work";
             write = "+work";
           };
         };

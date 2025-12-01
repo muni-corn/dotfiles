@@ -11,7 +11,7 @@ in
     secrets = {
       taskwarrior_secrets = { };
       liberdus_mrconfig = { };
-      apollo_mrconfig = { };
+      orosa_mrconfig = { };
       pay_respects_anthropic_api_key = { };
       fish_ai_ini = { };
       oco_api_key = { };
@@ -26,7 +26,7 @@ in
 
   home.file = {
     "code/liberdus/.mrconfig".source = mkOutOfStoreSymlink config.sops.secrets.liberdus_mrconfig.path;
-    "code/apollo/.mrconfig".source = mkOutOfStoreSymlink config.sops.secrets.apollo_mrconfig.path;
+    "code/orosa/.mrconfig".source = mkOutOfStoreSymlink config.sops.secrets.orosa_mrconfig.path;
   };
 
   xdg.configFile."fish-ai.ini".source = mkOutOfStoreSymlink config.sops.secrets.fish_ai_ini.path;

@@ -2,7 +2,7 @@
 {
   home.file = {
     ".mrtrust".text = ''
-      ~/code/apollo/.mrconfig
+      ~/code/orosa/.mrconfig
       ~/code/liberdus/.mrconfig
     '';
   };
@@ -98,7 +98,7 @@
         "code/opencommit" = fromGitHubFork "di-sukharev" "opencommit";
 
         # work repos
-        "code/apollo" = {
+        "code/orosa" = {
           skip = true;
           chain = true;
         };
