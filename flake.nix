@@ -81,6 +81,10 @@
       url = "github:muni-corn/munibot";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    musicaloft-style = {
+      url = "github:musicaloft/musicaloft-style";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     cadenza-shell = {
       url = "github:muni-corn/cadenza-shell";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -97,6 +101,12 @@
       url = "git+https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # required for devenv from musicaloft-style shell
+    devenv-root = {
+      url = "file+file:///dev/null";
+      flake = false;
+    };
   };
 
   outputs =
@@ -105,18 +115,10 @@
       systems = [ "x86_64-linux" ];
 
       imports = [
-        inputs.treefmt-nix.flakeModule
+        inputs.musicaloft-style.flakeModule
 
         ./flake-modules/overlays.nix
         ./flake-modules/nixos-configurations.nix
       ];
-
-      perSystem.treefmt = {
-        projectRootFile = "flake.nix";
-        programs = {
-          nixfmt.enable = true;
-          kdlfmt.enable = true;
-        };
-      };
     };
 }
