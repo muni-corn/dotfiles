@@ -22,7 +22,7 @@
         pkgs.writeShellScript "mr-fixup-gh-${newName}" ''
           cd $MR_REPO
           git remote get-url upstream > /dev/null || git remote add -f upstream git@github.com:${upstreamOwner}/${upstreamRepoName}
-          git remote get-url codeberg > /dev/null || git remote add -f upstream git@codeberg.org:municorn/${newName}
+          git remote get-url codeberg > /dev/null || git remote add -f codeberg git@codeberg.org:municorn/${newName}
           git remote get-url musicaloft > /dev/null || git remote add -f musicaloft git@git.musicaloft.com:municorn/${newName}
         '';
 
