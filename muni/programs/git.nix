@@ -122,6 +122,7 @@
             securehashesonly = true;
             stalldetection = "500KB/3m";
             synccontent = true;
+            thin = true;
           };
           color = {
             ui = "auto";
