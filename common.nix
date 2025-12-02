@@ -33,15 +33,6 @@
       limine = {
         enable = true;
         maxGenerations = 10;
-        style = {
-          wallpapers =
-            let
-              wallpapersDir = "${inputs.muni-wallpapers}/wallpapers";
-              dirEntries = builtins.readDir wallpapersDir;
-              filteredEntries = lib.filterAttrs (path: type: type == "file") dirEntries;
-            in
-            lib.mapAttrsToList (path: type: path) filteredEntries;
-        };
       };
     };
   };
