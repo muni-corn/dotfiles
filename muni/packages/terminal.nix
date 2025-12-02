@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     # archiving & compression
+    gocryptfs
     ouch
     zip
 
