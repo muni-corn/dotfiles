@@ -36,16 +36,22 @@
           ssh_user = "btrbk";
           stream_compress = "zstd";
 
-          volume."/home" = {
-            subvolume = {
-              muni = { };
-              "muni/Documents" = { };
-              "muni/Music" = { };
-              "muni/Pictures" = { };
-              "muni/Videos" = { };
+          volume = {
+            "/" = {
+              subvolume.home = { };
+              target = "ssh://192.168.68.70/crypt/backup/breezi";
             };
-            target = "ssh://192.168.68.70/crypt/backup/breezi/muni";
-            snapshot_dir = "/snaps";
+            "/home" = {
+              subvolume = {
+                muni = { };
+                "muni/Documents" = { };
+                "muni/Music" = { };
+                "muni/Pictures" = { };
+                "muni/Videos" = { };
+              };
+              target = "ssh://192.168.68.70/crypt/backup/breezi/muni";
+              snapshot_dir = "/snaps";
+            };
           };
         };
       };
