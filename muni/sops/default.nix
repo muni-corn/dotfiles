@@ -9,14 +9,15 @@ in
     defaultSopsFile = ./secrets/default.yaml;
     age.keyFile = "${config.home.homeDirectory}/.age-key.txt";
     secrets = {
-      taskwarrior_secrets = { };
+      context7_key = { };
+      fish_ai_ini = { };
+      github_pat = { };
       liberdus_mrconfig = { };
+      nix-access-tokens = { };
+      oco_api_key = { };
       orosa_mrconfig = { };
       pay_respects_anthropic_api_key = { };
-      fish_ai_ini = { };
-      oco_api_key = { };
-      github_pat = { };
-      context7_key = { };
+      taskwarrior_secrets = { };
     };
   };
 

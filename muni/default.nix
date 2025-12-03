@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 let
   toml = pkgs.formats.toml { };
 in
@@ -33,6 +33,10 @@ in
       "$HOME/.npm/bin"
     ];
   };
+
+  nix.extraOptions = ''
+    !include ${config.sops.secrets.nix-access-tokens.path}
+  '';
 
   services.tldr-update.enable = true;
 
