@@ -12,7 +12,6 @@
           preserve_hour_of_day = "5";
           volume."/home" = {
             subvolume = {
-              muni = { };
               "muni/Documents" = { };
               "muni/Music" = { };
               "muni/Pictures" = { };
@@ -43,7 +42,6 @@
             };
             "/home" = {
               subvolume = {
-                muni = { };
                 "muni/Documents" = { };
                 "muni/Music" = { };
                 "muni/Pictures" = { };
