@@ -124,6 +124,7 @@
             synccontent = true;
             thin = true;
           };
+          checkout.defaultRemote = "origin";
           color = {
             ui = "auto";
             diff = {
