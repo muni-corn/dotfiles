@@ -189,6 +189,7 @@ in
     "Mod+Shift+R".action = switch-preset-window-height;
     "Mod+Alt+R".action = reset-window-height;
     "Mod+F".action = maximize-column;
+    "Mod+Alt+F".action.maximize-window-to-edges = [ ];
     "Mod+Shift+F".action = fullscreen-window;
     "Mod+Ctrl+F".action = expand-column-to-available-width;
     "Mod+Ctrl+C".action = center-column;
