@@ -80,8 +80,6 @@
 
     # ledger devices
     ledger.enable = true;
-
-    xpadneo.enable = true;
   };
 
   home-manager.users.muni.programs.chromium = {
