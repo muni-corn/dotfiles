@@ -55,12 +55,9 @@
         # soundbar
         "Samsung Electric Company SAMSUNG 0x00000001".enable = false;
 
-        "Acer Technologies SB220Q 0x103035FB" = {
-          position = {
-            x = 0;
-            y = 0;
-          };
-          transform.rotation = 90;
+        "Acer Technologies SB220Q 0x103035FB".position = {
+          x = 0;
+          y = 0;
         };
 
         "ASUSTek COMPUTER INC VG27AQ3A RCLMAS002937" = {
@@ -69,7 +66,7 @@
             height = 1440;
           };
           position = {
-            x = 1080;
+            x = 1920;
             y = 0;
           };
           variable-refresh-rate = true;
@@ -83,7 +80,7 @@
             height = 1440;
           };
           position = {
-            x = 1080;
+            x = 2000;
             y = 1440;
           };
           scale = 1.5;
