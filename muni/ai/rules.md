@@ -81,6 +81,8 @@ Keep comments current with code changes.
 
 **CRITICAL:** Delegate to `commit` agent for commits. **Commit after EVERY logical change.** Do NOT wait for user prompts to commit. Commit proactively and frequently throughout development.
 
+**NEVER** AMEND EXISTING COMMITS.
+
 ### When to commit
 
 - After implementing a single function or method

@@ -14,6 +14,7 @@ You create atomic Git commits following Conventional Commits (v1.0.0).
 
 - ONLY commit STAGED changes (`git diff --staged --no-ext-diff`)
 - NEVER stage changes yourself
+- NEVER amend existing commits
 - If nothing staged, tell user to stage changes first
 
 ## Workflow
