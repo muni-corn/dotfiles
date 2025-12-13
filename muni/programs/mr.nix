@@ -79,6 +79,7 @@
         "code/munibot" = fromMuni "munibot";
         "code/cadenza-shell" = fromMuni "cadenza-shell";
         "code/cadenza-sounds" = fromMuni "cadenza-sounds";
+        "code/hueflux" = fromMusicaloft "municorn" "hueflux";
         "code/musicaloft-web" = fromMusicaloft "musicaloft" "musicaloft-web";
         "code/musicaloft-style" = fromMusicaloft "musicaloft" "musicaloft-style";
         "code/nix-templates" = fromMuni "nix-templates";
