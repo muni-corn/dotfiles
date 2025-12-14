@@ -52,6 +52,11 @@
     steam = {
       enable = true;
       extest.enable = true;
+      localNetworkGameTransfers.openFirewall = true;
+      protontricks.enable = true;
+      remotePlay.openFirewall = true;
+      gamescopeSession.enable = true;
+
       extraCompatPackages = with pkgs; [
         proton-ge-bin
       ];
@@ -59,9 +64,6 @@
         gamescope
         mangohud
       ];
-      protontricks.enable = true;
-      remotePlay.openFirewall = true;
-      gamescopeSession.enable = true;
     };
   };
 }
