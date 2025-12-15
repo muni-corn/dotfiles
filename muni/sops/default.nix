@@ -15,6 +15,7 @@ in
       liberdus_mrconfig = { };
       nix-access-tokens = { };
       oco_api_key = { };
+      orosa_github_pat = { };
       orosa_mrconfig = { };
       pay_respects_anthropic_api_key = { };
       taskwarrior_secrets = { };
