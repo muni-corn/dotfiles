@@ -1,5 +1,9 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 {
+  environment.systemPackages = [
+    pkgs.alsa-utils
+    config.services.wyoming.satellite.package
+  ];
   services.wyoming = {
     faster-whisper.servers.${config.networking.hostName} = {
       enable = true;
@@ -14,10 +18,6 @@
           path = ./oww-models;
           name = "openwakeword-models";
         })
-      ];
-      preloadModels = [
-        "hey_mava"
-        "hey_munibot"
       ];
     };
 
