@@ -383,22 +383,6 @@ in
       # special_scale_factor = 0.9;
 
       environment = {
-        CLUTTER_BACKEND = "wayland";
-        ECORE_EVAS_ENGINE = "wayland-egl";
-        ELECTRON_OZONE_PLATFORM_HINT = "auto";
-        ELM_ENGINE = "wayland_egl";
-        GTK_THEME = config.gtk.theme.name;
-        GTK_USE_PORTAL = "1";
-        MOZ_ENABLE_WAYLAND = "1";
-        NO_AT_BRIDGE = "1";
-        XDG_SESSION_TYPE = "wayland";
-        _JAVA_AWT_WM_NONREPARENTING = "1";
-        QT_QPA_PLATFORM = "wayland-egl";
-        QT_WAYLAND_DISABLE_WINDOWDECORATION = "1";
-        SDL_VIDEODRIVER = "wayland,x11,windows";
-
-        # for xwayland-satellite
-        DISPLAY = ":0";
       };
 
       spawn-at-startup = [
