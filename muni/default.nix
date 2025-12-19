@@ -73,5 +73,22 @@ in
          (#set! injection.include-children))
       '';
     };
+    mimeApps.defaultApplications = {
+      "text/plain" = "Helix.desktop";
+    };
+
+    portal = {
+      enable = true;
+      xdgOpenUsePortal = true;
+
+      config.common.default = [
+        "gnome"
+        "gtk"
+      ];
+      extraPortals = with pkgs; [
+        xdg-desktop-portal-gnome
+        xdg-desktop-portal-gtk
+      ];
+    };
   };
 }

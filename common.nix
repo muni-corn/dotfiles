@@ -38,6 +38,12 @@
   };
 
   environment = {
+    # required for home-manager xdg portal integration
+    pathsToLink = [
+      "/share/xdg-desktop-portal"
+      "/share/applications"
+    ];
+
     systemPackages = with pkgs; [
       helix # default editor
 
