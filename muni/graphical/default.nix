@@ -38,11 +38,10 @@
       rawtherapee
 
       # messaging
-      # cinny-desktop
       (discord.override {
         withVencord = true;
       })
-      # element-desktop
+      element-desktop
       equicord
       slack
       vesktop
