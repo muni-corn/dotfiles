@@ -297,18 +297,17 @@
         ]
       },
       "locked": {
-        "lastModified": 1758954214,
-        "narHash": "sha256-QSui7imloMCXn7n4h2fzjqvjWrOK7n6VGm32BWJOXrQ=",
-        "ref": "main",
-        "rev": "98d977a6858a015383194e3318f472bd12fc036a",
-        "revCount": 35,
-        "type": "git",
-        "url": "https://codeberg.org/municorn/cadenza-sounds"
+        "lastModified": 1766166303,
+        "narHash": "sha256-5Jf8o3UxCjOwad85m+gmhgb/m/8lRyZy7Qd8okU6Tos=",
+        "owner": "muni-corn",
+        "repo": "cadenza-sounds",
+        "rev": "2ad906da978815df0601d84a7d95f2397c4fc8c7",
+        "type": "github"
       },
       "original": {
-        "ref": "main",
-        "type": "git",
-        "url": "https://codeberg.org/municorn/cadenza-sounds"
+        "owner": "muni-corn",
+        "repo": "cadenza-sounds",
+        "type": "github"
       }
     },
     "crane": {

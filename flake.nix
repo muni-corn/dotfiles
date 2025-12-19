@@ -90,7 +90,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     cadenza-sounds = {
-      url = "git+https://codeberg.org/municorn/cadenza-sounds?ref=main";
+      url = "github:muni-corn/cadenza-sounds";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     muni-wallpapers = {
