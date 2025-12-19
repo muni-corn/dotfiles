@@ -83,6 +83,9 @@
       ];
     };
     steam = {
+      package = pkgs.steam.override {
+        extraEnv.TZDIR = "/usr/share/zoneinfo";
+      };
       enable = true;
       extest.enable = true;
       localNetworkGameTransfers.openFirewall = true;
