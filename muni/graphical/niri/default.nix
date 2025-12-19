@@ -463,6 +463,7 @@ in
       PartOf = config.wayland.systemd.target;
       After = config.wayland.systemd.target;
       Requisite = config.wayland.systemd.target;
+      Before = "xdg-desktop-portal.service";
     };
     Service = {
       Type = "notify";
