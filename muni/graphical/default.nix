@@ -106,7 +106,7 @@
         color-scheme = lib.mkForce "prefer-dark";
       };
       "org/gnome/desktop/sound" = {
-        theme-name = "musicaloft";
+        theme-name = "cadenza";
         event-sounds = true;
         input-feedback-sounds = true;
       };
@@ -144,7 +144,7 @@
 
   xdg.dataFile."sounds/__custom/index.theme".text = ''
     [Sound Theme]
-    Inherits=musicaloft
+    Inherits=cadenza
   '';
 }
 # vim: ts=2 sw=2 expandtab
