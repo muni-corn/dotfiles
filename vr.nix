@@ -7,6 +7,18 @@
 {
   services.wivrn = {
     enable = true;
+    package = pkgs.wivrn.overrideAttrs (oldAttrs: {
+      version = "25.12";
+      src = oldAttrs.src.override {
+        hash = "sha256-gadfW3/PXi9SEztaHbi4U29Vj7ik/ia8BVDTy8P5aJE=";
+      };
+      monado = oldAttrs.monado.overrideAttrs (oldAttrs: {
+        src = oldAttrs.src.override {
+          rev = "20e0dacbdd2de863923790326beec76e848b056a";
+          hash = "sha256-wiXdMgp3bKW17KqLnSn6HHhz7xbQtjp4c3aU7qp+2BE=";
+        };
+      });
+    });
 
     # Run WiVRn as a systemd service on startup
     autoStart = true;
