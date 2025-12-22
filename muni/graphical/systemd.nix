@@ -62,9 +62,9 @@ in
         After = "swww-daemon.service";
         PartOf = "swww-daemon.service";
         Requisite = "swww-daemon.service";
+        Wants = "swww-daemon.service";
       };
       Timer.OnCalendar = "hourly";
-      Install.Wants = "swww-daemon.service";
     };
   };
 }

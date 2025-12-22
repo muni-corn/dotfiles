@@ -12,6 +12,7 @@
       nodePackages.typescript-language-server
       pest-ide-tools
       rust-analyzer
+      sqruff
       taplo
       tailwindcss-language-server
       vscode-langservers-extracted
@@ -219,6 +220,15 @@
                 "fmt"
                 "--stdin"
                 "scss"
+              ];
+            };
+          }
+          {
+            name = "sql";
+            formatter = {
+              command = "sqruff";
+              args = [
+                "fix"
               ];
             };
           }
