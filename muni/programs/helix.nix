@@ -150,6 +150,13 @@
           rustfmt.rangeFormatting.enable = true;
           notifications.cargoTomlNotFound = false;
         };
+        sqruff = {
+          command = "sqruff";
+          args = [
+            "lsp"
+            "--parsing-errors"
+          ];
+        };
         tailwind = {
           command = "tailwindcss-language-server";
           args = [ "--stdio" ];
@@ -225,12 +232,15 @@
           }
           {
             name = "sql";
+            auto-format = true;
             formatter = {
               command = "sqruff";
               args = [
                 "fix"
+                "-"
               ];
             };
+            language-servers = [ "sqruff" ];
           }
           {
             name = "toml";
