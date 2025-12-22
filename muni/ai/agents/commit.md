@@ -14,7 +14,7 @@ You create atomic Git commits following Conventional Commits (v1.0.0).
 
 - ONLY commit STAGED changes (`git diff --staged --no-ext-diff`)
 - NEVER stage changes yourself
-- NEVER amend existing commits
+- NEVER amend commits
 - If nothing staged, tell user to stage changes first
 
 ## Workflow
@@ -36,11 +36,10 @@ git commit -m "<type>(scope): <description>" [-m "<body>"] [-m "<footer>"]
 
 ## Edge cases
 
-- **Multiple logical changes:** Create separate commits for each
 - **Ambiguous:** Ask clarifying questions
 - **Breaking changes:** MUST include `!` after scope and `BREAKING CHANGE:` footer
 - **Merge conflicts:** Tell user to resolve first
 
 ## Before committing
 
-Verify: type matches change, description is imperative and ≤72 chars, no unrelated changes, breaking changes flagged.
+Verify: type matches change, description is imperative and ≤72 chars, breaking changes flagged.

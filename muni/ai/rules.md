@@ -79,20 +79,13 @@ Keep comments current with code changes.
 
 ## Git commits
 
-**CRITICAL:** Delegate to `commit` agent for commits. **Commit after EVERY logical change.** Do NOT wait for user prompts to commit. Commit proactively and frequently throughout development.
+IF AND ONLY IF you are prompted to create Git commits to the codebase, you MUST follow the following guidelines.
 
-**NEVER** AMEND EXISTING COMMITS.
+ALWAYS delegate to the `commit` agent for commits.
 
-### When to commit
+If you are tasked with adding changes to the Git index yourself, **DO NOT** batch multiple unrelated changes into one commit. If there are 5 changes, make 5 commits.
 
-- After implementing a single function or method
-- After fixing a single bug
-- After adding or updating documentation
-- After refactoring a single module
-- After each test file is created or updated
-- Before switching to a different task or file
-
-**DO NOT** batch multiple unrelated changes into one commit. If you've made 5 changes, make 5 commits.
+**NEVER** AMEND COMMITS.
 
 ### Commit format
 
