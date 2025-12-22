@@ -221,6 +221,7 @@
           }
           {
             name = "scss";
+            auto-format = true;
             formatter = {
               command = "dprint";
               args = [
