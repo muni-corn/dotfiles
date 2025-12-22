@@ -87,6 +87,10 @@ If you are tasked with adding changes to the Git index yourself, **DO NOT** batc
 
 **NEVER** AMEND COMMITS.
 
+If a pre-commit hook fails, the commit will be rejected and must be retried after issues are fixed.
+
+Formatter hooks (like `treefmt`) may format files and then reject the commit if changes were made. If this happens, re-add the formatted portions of the changed files, and then attempt the commit again.
+
 ### Commit format
 
 ```
