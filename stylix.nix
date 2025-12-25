@@ -4,18 +4,15 @@
   ...
 }:
 let
-  theme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-
   commonConfig = {
     enable = true;
     autoEnable = true;
 
     # colors
-    base16Scheme = theme;
     polarity = "dark";
 
     # background
-    image = ./rainbow_bridge.png;
+    image = ./you_and_me.jpg;
 
     # cursor
     cursor = {
