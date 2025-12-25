@@ -72,8 +72,8 @@
     # for formatting this configuration
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
-    # til nixpkgs merges this gosh dang sfizz-ui
-    sfizz-ui.url = "github:joostn/nixpkgs/jn-sfizzui";
+    # til sfizz-ui makes it way to gosh dang nixpkgs-unstable
+    sfizz-ui.url = "github:NixOS/nixpkgs/f264a85";
 
     # my stuff
     iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
