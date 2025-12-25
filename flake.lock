@@ -21,17 +21,17 @@
     "base16-fish": {
       "flake": false,
       "locked": {
-        "lastModified": 1765809053,
-        "narHash": "sha256-XCUQLoLfBJ8saWms2HCIj4NEN+xNsWBlU1NrEPcQG4s=",
+        "lastModified": 1754405784,
+        "narHash": "sha256-l9xHIy+85FN+bEo6yquq2IjD1rSg9fjfjpyGP1W8YXo=",
         "owner": "tomyun",
         "repo": "base16-fish",
-        "rev": "86cbea4dca62e08fb7fd83a70e96472f92574782",
+        "rev": "23ae20a0093dca0d7b39d76ba2401af0ccf9c561",
         "type": "github"
       },
       "original": {
         "owner": "tomyun",
         "repo": "base16-fish",
-        "rev": "86cbea4dca62e08fb7fd83a70e96472f92574782",
+        "rev": "23ae20a0093dca0d7b39d76ba2401af0ccf9c561",
         "type": "github"
       }
     },
@@ -276,11 +276,11 @@
         "treefmt-nix": "treefmt-nix_2"
       },
       "locked": {
-        "lastModified": 1764896016,
-        "narHash": "sha256-Z37Rn0RDlAyYkvDQsIcL8clSKrs6AsoNpcjmxW/JyJk=",
+        "lastModified": 1766614373,
+        "narHash": "sha256-7U6dzbBBnTyGKOeZZNDWXBZYqGHhOpKWBQhL9Gjfpqw=",
         "owner": "muni-corn",
         "repo": "cadenza-shell",
-        "rev": "1ac7bb0ffbbc9a705547fcfd40bcf246da836baa",
+        "rev": "94091a923899e294d2c681fcb1d799008b207b93",
         "type": "github"
       },
       "original": {
@@ -2754,16 +2754,16 @@
     },
     "sfizz-ui": {
       "locked": {
-        "lastModified": 1764398893,
-        "narHash": "sha256-vOGFVQDrKtZeInxPTHPelDnpOEH7y/hrfaS5Rem77Gg=",
-        "owner": "joostn",
+        "lastModified": 1765794318,
+        "narHash": "sha256-jq0fts8n1WePrhDR47lkeCF08sv4r21iyo/TIeVIDCM=",
+        "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ddae7129fd5bc4bb967402a867a25ac3cb2f9d3c",
+        "rev": "f264a85111c8abe8701f442d09a93b92934b0dde",
         "type": "github"
       },
       "original": {
-        "owner": "joostn",
-        "ref": "jn-sfizzui",
+        "owner": "NixOS",
+        "ref": "f264a85",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -2809,12 +2809,13 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1765897595,
-        "narHash": "sha256-NgTRxiEC5y96zrhdBygnY+mSzk5FWMML39PcRGVJmxg=",
-        "owner": "danth",
-        "repo": "stylix",
-        "rev": "e6829552d4bb659ebab00f08c61d8c62754763f3",
-        "type": "github"
+        "lastModified": 1765145121,
+        "narHash": "sha256-EWReleJlFmI6c03Cy/Xoql1iZ7gHeVM8X+G2bYw6EWA=",
+        "ref": "refs/heads/matugen",
+        "rev": "7f0b3453c0bd73bc3cfed1f2141aa0a3ba6850b0",
+        "revCount": 1311,
+        "type": "git",
+        "url": "file:///home/muni/code/stylix"
       },
       "original": {
         "owner": "danth",
