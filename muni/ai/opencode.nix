@@ -60,9 +60,6 @@
           budgetTokens = 32000;
         };
       };
-
-      # until the stylix theme is back
-      theme = lib.mkForce "system";
     };
     rules = ./rules.md;
   };
