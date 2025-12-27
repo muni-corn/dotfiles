@@ -29,7 +29,9 @@ in
           Environment = "RUST_LOG=info";
           ExecStart = "${pkgs.cadenza-shell}/bin/cadenza-shell";
           Restart = "always";
-          RestartSec = 15;
+          RestartSec = 1;
+          RestartSteps = 1;
+          RestartMaxDelaySec = 15;
         };
         Install.WantedBy = [ config.wayland.systemd.target ];
       };
