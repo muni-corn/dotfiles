@@ -21,6 +21,7 @@ in
       cadenza-shell = {
         Unit.Description = "cadenza desktop shell";
         Service = {
+          Environment = "RUST_LOG=info";
           ExecStart = "${pkgs.cadenza-shell}/bin/cadenza-shell";
           Restart = "always";
           RestartSec = 15;
