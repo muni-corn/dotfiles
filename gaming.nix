@@ -37,6 +37,8 @@
       aisleriot
       kdePackages.kmines
       kdePackages.kpat
+      chess-tui
+      stockfish
 
       # mods and compat tools
       protonup-ng
