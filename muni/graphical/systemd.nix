@@ -19,7 +19,12 @@ in
   systemd.user = {
     services = {
       cadenza-shell = {
-        Unit.Description = "cadenza desktop shell";
+        Unit = {
+          Description = "cadenza desktop shell";
+          PartOf = config.wayland.systemd.target;
+          After = config.wayland.systemd.target;
+          Requisite = config.wayland.systemd.target;
+        };
         Service = {
           Environment = "RUST_LOG=info";
           ExecStart = "${pkgs.cadenza-shell}/bin/cadenza-shell";
