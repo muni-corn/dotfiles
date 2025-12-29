@@ -46,5 +46,7 @@
         Client.UserID = 0;
       };
     };
+
+    wpaperd.enable = true;
   };
 }

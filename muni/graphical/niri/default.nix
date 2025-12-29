@@ -285,14 +285,6 @@ in
       ];
 
       layer-rules = [
-        # put wallpaper as backdrop
-        {
-          matches = [
-            { namespace = "swww-daemon"; }
-          ];
-          place-within-backdrop = true;
-        }
-
         # put shadows on all layers but bars and notifications
         {
           excludes = [
@@ -402,13 +394,6 @@ in
           ];
         }
 
-        # activate wallpaper
-        {
-          command = [
-            (builtins.toString scripts.switchWallpaper)
-          ];
-        }
-
         # play startup sound
         {
           command = [
@@ -421,11 +406,6 @@ in
 
       # layer rules
       #
-      # (r "animation fade" "hyprpicker")
-      # (r "animation fade" "selection")
-      # (r "animation fade" "swww-daemon")
-      # (r "animation slide top" "bar")
-      # (r "animation slide top" "notifications")
       # (r "blur" "bar")
       # (r "blur" "menu")
       # (r "blur" "notifications")
