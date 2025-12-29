@@ -3,8 +3,10 @@
   pkgs,
   ...
 }:
-let
-  commonConfig = {
+{
+  imports = [ inputs.stylix.nixosModules.stylix ];
+
+  stylix = {
     enable = true;
     autoEnable = true;
 
@@ -52,6 +54,7 @@ let
       terminal = 0.9;
     };
 
+    # individual targets
     targets = {
       console.enable = true;
 
@@ -62,15 +65,7 @@ let
           signColumn = true;
         };
       };
-    };
-  };
-in
-{
-  imports = [ inputs.stylix.nixosModules.stylix ];
 
-  stylix = commonConfig // {
-    # individual targets
-    targets = {
       plymouth.enable = false;
       grub = {
         enable = true;
