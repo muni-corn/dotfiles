@@ -38,9 +38,6 @@
       rawtherapee
 
       # messaging
-      (discord.override {
-        withVencord = true;
-      })
       element-desktop
       equicord
       slack

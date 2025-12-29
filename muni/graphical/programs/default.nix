@@ -55,6 +55,14 @@
       };
     };
 
+    nixcord = {
+      enable = true;
+      discord = {
+        vencord.enable = false;
+        equicord.enable = true;
+      };
+    };
+
     obs-studio = {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [

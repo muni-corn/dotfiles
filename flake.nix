@@ -33,6 +33,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # declarative Discord config (for stylix theming)
+    nixcord = {
+      url = "github:kaylorben/nixcord";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # ai
     nixified-ai = {
       url = "github:BatteredBunny/nixifed-ai/bump-comfyui";

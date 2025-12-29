@@ -11,6 +11,8 @@ let
       useGlobalPkgs = true;
       useUserPackages = true;
       users.muni = ../muni;
+
+      sharedModules = [ inputs.nixcord.homeModules.nixcord ];
     };
   };
 
