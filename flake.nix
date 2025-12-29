@@ -62,7 +62,7 @@
 
     # for system themes and styling
     stylix = {
-      url = "github:danth/stylix";
+      url = "github:muni-corn/stylix/matugen";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
