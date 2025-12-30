@@ -58,14 +58,6 @@
     targets = {
       console.enable = true;
 
-      neovim = {
-        enable = true;
-        transparentBackground = {
-          main = true;
-          signColumn = true;
-        };
-      };
-
       plymouth.enable = false;
       grub = {
         enable = true;
