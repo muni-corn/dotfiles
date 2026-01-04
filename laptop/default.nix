@@ -22,44 +22,17 @@
 
   environment.defaultPackages = with pkgs; [
     blender
-    wluma
   ];
 
-  home-manager.users.muni = {
-    programs.hyprlock.settings =
-      ((import ../utils.nix { inherit config lib; }).mkHyprlockSettings "eDP-1")
-      // {
-        auth = {
-          "fingerprint:enabled" = true;
-          "fingerprint:ready_message" = "Scan to unlock";
-          "fingerprint:present_message" = "Checking";
-        };
-      };
-
-    services.wluma = {
-      enable = true;
-      settings = {
-        als.iio = {
-          path = "/sys/bus/iio/devices";
-          thresholds = {
-            "0" = "night";
-            "20" = "dark";
-            "80" = "dim";
-            "250" = "normal";
-            "500" = "bright";
-            "800" = "outdoors";
-          };
-        };
-        output.backlight = [
-          {
-            name = "eDP-1";
-            path = "/sys/class/backlight/amdgpu_bl1";
-            capturer = "wayland";
-          }
-        ];
+  home-manager.users.muni.programs.hyprlock.settings =
+    ((import ../utils.nix { inherit config lib; }).mkHyprlockSettings "eDP-1")
+    // {
+      auth = {
+        "fingerprint:enabled" = true;
+        "fingerprint:ready_message" = "Scan to unlock";
+        "fingerprint:present_message" = "Checking";
       };
     };
-  };
 
   musnix.soundcardPciId = "c1:00.6";
 
