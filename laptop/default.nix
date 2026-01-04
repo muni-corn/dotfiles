@@ -22,6 +22,7 @@
 
   environment.defaultPackages = with pkgs; [
     blender
+    dmidecode
   ];
 
   home-manager.users.muni.programs.hyprlock.settings =
