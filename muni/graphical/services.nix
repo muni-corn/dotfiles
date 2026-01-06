@@ -45,6 +45,7 @@
         Server.BaseURL = "http://192.168.68.70:8463";
         Client.UserID = 0;
       };
+      periodicSync.enable = true;
     };
 
     wpaperd.enable = true;

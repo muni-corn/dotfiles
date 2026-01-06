@@ -42,6 +42,17 @@ in
       '';
       type = types.submodule settingsSubmodule;
     };
+    periodicSync = {
+      enable = mkEnableOption "syncing timewarrior data periodically";
+      interval = mkOption {
+        type = types.str;
+        default = "*:0/5";
+        description = ''
+          How often to sync timewarrior data (systemd calendar format).
+          Default is every 5 minutes.
+        '';
+      };
+    };
   };
 
   config =
@@ -52,6 +63,25 @@ in
       home = {
         packages = [ cfg.package ];
         file.".timewsync/timewsync.conf".source = settingsFormat.generate "timewsync.conf" cfg.settings;
+      };
+
+      systemd.user = lib.mkIf cfg.periodicSync.enable {
+        services.timewarrior-sync = {
+          Unit.Description = "Sync timewarrior data";
+          Service = {
+            Type = "oneshot";
+            ExecStart = "${pkgs.bash}/bin/bash -c '${config.programs.timewarrior.package}/bin/timew || ${cfg.package}/bin/timewsync'";
+          };
+        };
+
+        timers.timewarrior-sync = {
+          Unit.Description = "Periodic timewarrior sync";
+          Timer = {
+            OnCalendar = cfg.periodicSync.interval;
+            Persistent = true;
+          };
+          Install.WantedBy = [ "timers.target" ];
+        };
       };
     };
 }
