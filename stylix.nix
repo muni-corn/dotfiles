@@ -11,10 +11,10 @@
     autoEnable = true;
 
     # colors
-    polarity = "dark";
+    colorGeneration.polarity = "dark";
 
     # background
-    image = ./you_and_me.jpg;
+    image = "${inputs.muni-wallpapers}/wallpapers/arctic_timberwolf_by_smoothwild.jpg";
 
     # cursor
     cursor = {
