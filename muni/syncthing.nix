@@ -69,28 +69,28 @@
           };
           phone-dcim = defaultsAnd {
             id = "4wpzo-s9jjq";
+            label = "Phone DCIM";
             path = "~/sync/phone/dcim";
-            type = "sendreceive";
           };
           phone-downloads = defaultsAnd {
             id = "8n3tu-lylqn";
+            label = "Phone Downloads";
             path = "~/sync/phone/downloads";
-            type = "sendreceive";
           };
           phone-pictures = defaultsAnd {
             id = "oo6tx-1ssbb";
+            label = "Phone Pictures";
             path = "~/sync/phone/pictures";
-            type = "sendreceive";
           };
           phone-videos = defaultsAnd {
             id = "15epw-vdxal";
+            label = "Phone Videos";
             path = "~/sync/phone/videos";
-            type = "sendreceive";
           };
           notebook = defaultsAnd {
             id = "y2p3r-jq6t2";
+            label = "Notebook";
             path = "~/notebook";
-            type = "sendreceive";
           };
         };
       options = {
