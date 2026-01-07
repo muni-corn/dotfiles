@@ -113,25 +113,33 @@
 
   gtk = {
     enable = true;
-    gtk3.bookmarks =
-      with config.xdg.userDirs;
-      let
-        home = config.home.homeDirectory;
-      in
-      map (dir: "file://${dir}") [
-        documents
-        download
-        music
-        pictures
-        videos
-        "${home}/code"
-        "${home}/notebook"
-        "${documents}/art"
-        "${music}/soundfonts"
-        "${music}/soundfonts/vsco"
-        "${pictures}/Screenshots"
-        "${home}/sync"
-      ];
+    gtk2.extraConfig = ''
+      gtk-sound-theme-name = cadenza
+    '';
+    gtk3 = {
+      bookmarks =
+        with config.xdg.userDirs;
+        let
+          home = config.home.homeDirectory;
+        in
+        map (dir: "file://${dir}") [
+          documents
+          download
+          music
+          pictures
+          videos
+          "${home}/code"
+          "${home}/notebook"
+          "${documents}/art"
+          "${music}/soundfonts"
+          "${music}/soundfonts/vsco"
+          "${pictures}/Screenshots"
+          "${home}/sync"
+        ];
+
+      extraConfig.gtk-sound-theme-name = "cadenza";
+    };
+    gtk4.extraConfig.gtk-sound-theme-name = "cadenza";
   };
 
   qt.enable = true;
