@@ -61,18 +61,9 @@
     };
   };
 
-  home-manager.users.muni.stylix = {
-    iconTheme = {
-      enable = true;
-      package = pkgs.papirus-icon-theme;
-      dark = "Papirus-Dark";
-      light = "Papirus";
-    };
-
-    targets.firefox = {
-      profileNames = [ "muni" ];
-      colorTheme.enable = true;
-      firefoxGnomeTheme.enable = true;
-    };
+  home-manager.users.muni.stylix.targets.firefox = {
+    profileNames = [ "muni" ];
+    colorTheme.enable = true;
+    firefoxGnomeTheme.enable = true;
   };
 }

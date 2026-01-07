@@ -97,7 +97,6 @@
     settings = {
       "org/gnome/desktop/interface" = {
         gtk-theme = config.gtk.theme.name;
-        icon-theme = config.gtk.iconTheme.name;
         cursor-theme = config.home.pointerCursor.name;
         color-scheme = lib.mkForce "prefer-dark";
       };
