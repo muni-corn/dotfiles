@@ -66,6 +66,11 @@
             id = "gm273-tnkp7";
             label = "Ardour";
             path = "~/.config/ardour8";
+            devices = [
+              "breezi"
+              "cherri"
+              "munibot"
+            ];
           };
           aw = defaultsAnd {
             id = "lgxkw-p2cxp";
@@ -76,6 +81,11 @@
             id = "n3mnr-h33kx";
             label = "Krita";
             path = "~/.local/share/krita";
+            devices = [
+              "breezi"
+              "cherri"
+              "munibot"
+            ];
           };
           other = defaultsAnd {
             id = "15epw-vdxal";
