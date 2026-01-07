@@ -15,8 +15,6 @@
       enable = true;
       package = pkgs.taskwarrior3;
 
-      colorTheme = "bubblegum-256";
-
       config = {
         # no writing without a filter
         allow.empty.filter = false;
@@ -27,14 +25,11 @@
         # color overrides
         color = {
           keyword.await = "gray7 on black";
-          tag = {
-            p = "bright bold cyan";
-            unpaid = "red";
-          };
+          tag.unpaid = "red";
           uda = {
             tip = "bright bold magenta";
             priority = {
-              HH = "bold black on magenta";
+              HH = "bold";
               LL = "gray7";
             };
           };
