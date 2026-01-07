@@ -62,6 +62,21 @@
             // overrides;
         in
         {
+          ardour = defaultsAnd {
+            id = "gm273-tnkp7";
+            label = "Ardour";
+            path = "~/.config/ardour8";
+          };
+          aw = defaultsAnd {
+            id = "lgxkw-p2cxp";
+            label = "ActivityWatch";
+            path = "~/sync/aw";
+          };
+          krita = defaultsAnd {
+            id = "n3mnr-h33kx";
+            label = "Krita";
+            path = "~/.local/share/krita";
+          };
           other = defaultsAnd {
             id = "15epw-vdxal";
             label = "Other";
