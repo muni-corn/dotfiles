@@ -36,13 +36,8 @@
       };
 
       monospace = {
-        package = pkgs.iosevka-muse.normal;
-        name = "Iosevka Muse";
-      };
-
-      emoji = {
-        package = pkgs.noto-fonts-color-emoji;
-        name = "Noto Color Emoji";
+        package = pkgs.adwaita-fonts;
+        name = "Adwaita Mono";
       };
     };
 

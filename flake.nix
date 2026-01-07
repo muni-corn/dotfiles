@@ -82,7 +82,6 @@
     sfizz-ui.url = "github:NixOS/nixpkgs/f264a85";
 
     # my stuff
-    iosevka-muse.url = "git+https://codeberg.org/municorn/iosevka-muse?ref=main";
     munibot = {
       url = "github:muni-corn/munibot";
       inputs.nixpkgs.follows = "nixpkgs";
