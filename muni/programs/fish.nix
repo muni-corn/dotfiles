@@ -157,6 +157,7 @@
       # timewarrior abbrs
       T = "timew";
       TY = "timew || timewsync";
+      TS = "timew summary :ids";
 
       # change directory to git root with zoxide
       zr = "z (git rev-parse --show-toplevel)";
