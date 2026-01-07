@@ -27,6 +27,7 @@
 
   environment = {
     defaultPackages = with pkgs; [
+      android-tools
       gnome-bluetooth
       kodi
       kdePackages.ksshaskpass
@@ -107,8 +108,6 @@
   };
 
   programs = {
-    adb.enable = true;
-
     evolution = {
       enable = true;
       plugins = [ pkgs.evolution-ews ];
