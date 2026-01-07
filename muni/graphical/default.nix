@@ -95,11 +95,6 @@
   dconf = {
     enable = true;
     settings = {
-      "org/gnome/desktop/interface" = {
-        gtk-theme = config.gtk.theme.name;
-        cursor-theme = config.home.pointerCursor.name;
-        color-scheme = lib.mkForce "prefer-dark";
-      };
       "org/gnome/desktop/sound" = {
         theme-name = "cadenza";
         event-sounds = true;
