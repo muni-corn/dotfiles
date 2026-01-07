@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   home-manager.users.muni.home.packages = with pkgs; [
-    blender-hip
+    blender
     kdePackages.kdenlive
     losslesscut-bin
     movit
