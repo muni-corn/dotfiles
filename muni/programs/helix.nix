@@ -6,6 +6,7 @@
       biome
       kdlfmt
       lldb_21
+      ltex-ls-plus
       markdown-oxide
       nixd
       nixfmt-rfc-style
@@ -117,8 +118,36 @@
         };
       };
     };
+
     languages = {
+      # language server configurations
       language-server = {
+        # ls's not bundled with helix
+        ltex-ls = {
+          command = "ltex-ls-plus";
+        };
+        sqruff = {
+          command = "sqruff";
+          args = [
+            "lsp"
+            "--parsing-errors"
+          ];
+        };
+        tailwind = {
+          command = "tailwindcss-language-server";
+          args = [ "--stdio" ];
+        };
+        biome = {
+          command = "biome";
+          args = [ "lsp-proxy" ];
+        };
+        vtsls = {
+          command = "vtsls";
+          args = [ "--stdio" ];
+          config.hostInfo = "helix";
+        };
+
+        # configure rust-analyzer
         rust-analyzer.config = {
           cargo = {
             autoreload = true;
@@ -150,27 +179,9 @@
           rustfmt.rangeFormatting.enable = true;
           notifications.cargoTomlNotFound = false;
         };
-        sqruff = {
-          command = "sqruff";
-          args = [
-            "lsp"
-            "--parsing-errors"
-          ];
-        };
-        tailwind = {
-          command = "tailwindcss-language-server";
-          args = [ "--stdio" ];
-        };
-        biome = {
-          command = "biome";
-          args = [ "lsp-proxy" ];
-        };
-        vtsls = {
-          command = "vtsls";
-          args = [ "--stdio" ];
-          config.hostInfo = "helix";
-        };
       };
+
+      # configurations for languages
       language =
         let
           jsConfig = name: {
@@ -207,6 +218,10 @@
                 "-"
               ];
             };
+            language-servers = [
+              "ltex-ls-plus"
+              "markdown-oxide"
+            ];
             auto-pairs = {
               "*" = "*";
               "_" = "_";
