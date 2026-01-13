@@ -9,7 +9,7 @@
       ltex-ls-plus
       markdown-oxide
       nixd
-      nixfmt-rfc-style
+      nixfmt
       nodePackages.typescript-language-server
       pest-ide-tools
       rust-analyzer
