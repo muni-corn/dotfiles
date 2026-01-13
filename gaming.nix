@@ -53,7 +53,6 @@
       mangojuice
 
       # more for game development than gaming
-      godot_4
       unityhub
       plasticscm
     ];
