@@ -31,6 +31,10 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/4c0890f1-3b9b-42b9-9e0c-ddabed974162";
     fsType = "btrfs";
+    options = [
+      "autodefrag"
+      "compress=zstd"
+    ];
     encrypted = {
       enable = true;
       blkDev = "/dev/disk/by-uuid/8cd34ae8-2895-4570-9b11-76a08b3b094a";
