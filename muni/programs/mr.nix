@@ -34,13 +34,13 @@
         repoName:
         (fromMusicaloft "municorn" repoName)
         // {
-          fixups = builtins.toString (fixupMuniRepo repoName);
+          fixups = toString (fixupMuniRepo repoName);
         };
 
       # github utils
       fromGitHubForkRenamed = upstreamOwner: upstreamRepoName: newName: {
         checkout = "git clone git@github.com:muni-corn/${newName}.git";
-        fixups = builtins.toString (fixupGitHubFork upstreamOwner upstreamRepoName newName);
+        fixups = toString (fixupGitHubFork upstreamOwner upstreamRepoName newName);
         update = "git fetch --all";
       };
       fromGitHubFork =
