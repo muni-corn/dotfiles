@@ -74,14 +74,14 @@
           "git clone git@git.musicaloft.com:municorn/passwords password-store";
 
         # my projects
-        "code/cocoa" = fromMuni "cocoa";
-        "code/muni-wallpapers" = fromMuni "muni-wallpapers";
-        "code/munibot" = fromMuni "munibot";
         "code/cadenza-shell" = fromMuni "cadenza-shell";
         "code/cadenza-sounds" = fromMuni "cadenza-sounds";
+        "code/cocoa" = fromMuni "cocoa";
         "code/hueflux" = fromMusicaloft "municorn" "hueflux";
-        "code/musicaloft-web" = fromMusicaloft "musicaloft" "musicaloft-web";
+        "code/muni-wallpapers" = fromMuni "muni-wallpapers";
+        "code/munibot" = fromMuni "munibot";
         "code/musicaloft-style" = fromMusicaloft "musicaloft" "musicaloft-style";
+        "code/musicaloft-web" = fromMusicaloft "musicaloft" "musicaloft-web";
         "code/nix-templates" = fromMuni "nix-templates";
         "code/silverfox" = fromMuni "silverfox";
         "code/unity/muni-vrc" = fromMuni "muni-vrc";
