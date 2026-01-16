@@ -46,6 +46,7 @@
       helix # default editor
 
       # for creating bootable usbs
+      bootiso
       ntfs3g
 
       # misc
