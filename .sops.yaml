@@ -2,7 +2,7 @@ keys:
   - &desktop age1yyg7h7qytsqcfdj2nn66a8gkdgf74yuqv8wxvuhkffrmdmu8jcwqw5c25r
   - &munibot age174f925fc3nwr7ar4s86zvu44aufhm5lsw064vnhktkh8use79a8sevsn23
   - &laptop age1uyvl4uakcgjnllw8sqr5c5dzldah2jaxz9tneljjrngcvtmjvsvq03ryg7
-  - &home_laptop age1rrt2jcn6csppu2xjfmzfcy2r922cenvn8gygkrct25mxwelhcpeqzrrj2j
+  - &home_laptop age1supnczzwnu968cp5gglx9sd7mpp9ekg4mfstpx0le2aam0xa8ewsdvzwph
   - &home_desktop age15uj6pjpu9ma36qg4gzp5guhp68qh9lashjahx39vyry8nsl9np7sz4vcfl
   - &home_munibot age1rvzveql3utzaq6ve2gt09dezarqrs9nkrj3whmps8xdn85r5v9sstjgfzy
 creation_rules:
