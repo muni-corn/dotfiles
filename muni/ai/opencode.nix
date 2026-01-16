@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ config, pkgs, ... }:
 {
   home.packages = [
     pkgs.bun
@@ -46,18 +46,21 @@
 
       # configure models
       model = "anthropic/claude-sonnet-4-5";
-      provider.anthropic.models = {
-        "claude-sonnet-4-5".options.thinking = {
-          type = "enabled";
-          budgetTokens = 32000;
-        };
-        "claude-haiku-4-5".options.thinking = {
-          type = "enabled";
-          budgetTokens = 32000;
-        };
-        "claude-opus-4-5".options.thinking = {
-          type = "enabled";
-          budgetTokens = 32000;
+      provider.anthropic = {
+        options.apiKey = "{file:${config.sops.secrets.opencode_anthropic_api_key.path}}";
+        models = {
+          "claude-sonnet-4-5".options.thinking = {
+            type = "enabled";
+            budgetTokens = 32000;
+          };
+          "claude-haiku-4-5".options.thinking = {
+            type = "enabled";
+            budgetTokens = 32000;
+          };
+          "claude-opus-4-5".options.thinking = {
+            type = "enabled";
+            budgetTokens = 32000;
+          };
         };
       };
     };
