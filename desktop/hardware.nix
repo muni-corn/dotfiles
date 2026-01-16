@@ -48,7 +48,10 @@
     "/" = {
       device = "/dev/disk/by-uuid/cef72996-6b5b-4b13-bc59-4dfbc77a8307";
       fsType = "btrfs";
-      options = [ "compress=zstd" ];
+      options = [
+        "autodefrag"
+        "compress=zstd"
+      ];
     };
 
     "/boot" = {
@@ -65,6 +68,7 @@
       device = "/dev/disk/by-uuid/cef72996-6b5b-4b13-bc59-4dfbc77a8307";
       fsType = "btrfs";
       options = [
+        "autodefrag"
         "compress=zstd"
         "subvol=home"
       ];
@@ -74,6 +78,7 @@
       device = "/dev/disk/by-uuid/cef72996-6b5b-4b13-bc59-4dfbc77a8307";
       fsType = "btrfs";
       options = [
+        "autodefrag"
         "compress=zstd"
         "noatime"
         "subvol=nix"
