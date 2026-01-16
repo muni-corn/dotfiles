@@ -31,10 +31,12 @@
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/4c0890f1-3b9b-42b9-9e0c-ddabed974162";
     fsType = "btrfs";
+    encrypted = {
+      enable = true;
+      blkDev = "/dev/disk/by-uuid/8cd34ae8-2895-4570-9b11-76a08b3b094a";
+      label = "cryptmain";
+    };
   };
-
-  boot.initrd.luks.devices."cryptmain".device =
-    "/dev/disk/by-uuid/8cd34ae8-2895-4570-9b11-76a08b3b094a";
 
   fileSystems."/boot" = {
     device = "/dev/disk/by-uuid/85db9d0e-5cd9-421d-b8f8-de344ee81bc5";
