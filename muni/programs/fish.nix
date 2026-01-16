@@ -131,6 +131,7 @@
       q = "exit";
       r = "ranger";
       s = "ssh";
+      x = "trashy";
 
       # nh abbrs
       nC = "nh clean all";

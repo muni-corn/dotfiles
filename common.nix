@@ -54,6 +54,7 @@
       powertop
       psmisc
       rsync
+      trashy
       vulkan-tools
       wget
 
