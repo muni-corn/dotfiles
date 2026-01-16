@@ -55,6 +55,7 @@
       powertop
       psmisc
       rsync
+      ssh-to-age
       trashy
       vulkan-tools
       wget
