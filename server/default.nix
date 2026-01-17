@@ -88,6 +88,15 @@
             "target"
           ];
         }
+        {
+          key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJz8f3He8S7Ej/L75dmf3SuwpJGXYuDPvuwenbdMoaV0 btrbk@cherri";
+          roles = [
+            "source"
+            "info"
+            "delete"
+            "target"
+          ];
+        }
       ];
       instances = {
         snapshots = {
