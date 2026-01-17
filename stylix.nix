@@ -41,6 +41,14 @@
       };
     };
 
+    # icons
+    icons = {
+      enable = true;
+      package = pkgs.morewaita-icon-theme;
+      light = "Morewaita";
+      dark = "Morewaita";
+    };
+
     # transparency
     opacity = {
       applications = 0.9;
