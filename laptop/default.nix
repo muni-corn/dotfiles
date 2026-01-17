@@ -52,6 +52,16 @@
   security.pam.services.hyprlock.fprintAuth = true;
 
   services = {
+    # btrfs deduplication
+    beesd.filesystems.main = {
+      spec = "UUID=4c0890f1-3b9b-42b9-9e0c-ddabed974162";
+      hashTableSizeMB = 128;
+      extraOptions = [
+        "--loadavg-target"
+        "12.0"
+      ];
+    };
+
     # enable fstrim for btrfs
     fstrim.enable = true;
 
