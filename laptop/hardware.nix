@@ -28,32 +28,34 @@
     extraModulePackages = [ ];
   };
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/4c0890f1-3b9b-42b9-9e0c-ddabed974162";
-    fsType = "btrfs";
-    options = [
-      "autodefrag"
-      "compress=zstd"
-    ];
-    encrypted = {
-      enable = true;
-      blkDev = "/dev/disk/by-uuid/8cd34ae8-2895-4570-9b11-76a08b3b094a";
-      label = "cryptmain";
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-uuid/4c0890f1-3b9b-42b9-9e0c-ddabed974162";
+      fsType = "btrfs";
+      options = [
+        "autodefrag"
+        "compress=zstd"
+      ];
+      encrypted = {
+        enable = true;
+        blkDev = "/dev/disk/by-uuid/8cd34ae8-2895-4570-9b11-76a08b3b094a";
+        label = "cryptmain";
+      };
     };
-  };
 
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/85db9d0e-5cd9-421d-b8f8-de344ee81bc5";
-    fsType = "ext4";
-  };
+    "/boot" = {
+      device = "/dev/disk/by-uuid/85db9d0e-5cd9-421d-b8f8-de344ee81bc5";
+      fsType = "ext4";
+    };
 
-  fileSystems."/boot/efi" = {
-    device = "/dev/disk/by-uuid/4684-F4B2";
-    fsType = "vfat";
-    options = [
-      "fmask=0022"
-      "dmask=0022"
-    ];
+    "/boot/efi" = {
+      device = "/dev/disk/by-uuid/4684-F4B2";
+      fsType = "vfat";
+      options = [
+        "fmask=0022"
+        "dmask=0022"
+      ];
+    };
   };
 
   swapDevices = [ { device = "/dev/disk/by-uuid/4c0de7c7-61e8-4b10-ae4a-2205d161d6d5"; } ];
