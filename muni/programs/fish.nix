@@ -24,6 +24,11 @@
     functions = {
       nohup = ''command nohup $argv </dev/null >/dev/null 2>&1 & disown'';
 
+      vault = {
+        description = "manage encrypted folders with pass and gocryptfs";
+        body = builtins.readFile ./vault.fish;
+      };
+
       qr = {
         description = "displays a QR code of the given contents";
         body = ''
@@ -70,6 +75,7 @@
       r = "ranger";
       s = "ssh";
       x = "trashy";
+      v = "vault";
 
       # nh abbrs
       nC = "nh clean all";
