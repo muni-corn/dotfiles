@@ -107,7 +107,10 @@
             snapshot_preserve = "48h";
             preserve_hour_of_day = "5";
             volume."/" = {
-              subvolume.home = { };
+              subvolume = {
+                home = { };
+                var = { };
+              };
               snapshot_dir = "/snaps";
             };
           };
