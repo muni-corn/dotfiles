@@ -22,12 +22,12 @@
   programs.fish = {
     enable = true;
     functions = {
-      nohup = ''command nohup $argv </dev/null >/dev/null 2>&1 & disown'';
-
-      vault = {
-        description = "manage encrypted folders with pass and gocryptfs";
-        body = builtins.readFile ./vault.fish;
+      add-dates = {
+        description = "add date prefixes to the given files";
+        body = builtins.readFile ./add-dates.fish;
       };
+
+      nohup = ''command nohup $argv </dev/null >/dev/null 2>&1 & disown'';
 
       qr = {
         description = "displays a QR code of the given contents";
@@ -36,6 +36,11 @@
           qrencode $argv -o $file
           imv $file
         '';
+      };
+
+      vault = {
+        description = "manage encrypted folders with pass and gocryptfs";
+        body = builtins.readFile ./vault.fish;
       };
     };
 
