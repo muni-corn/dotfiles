@@ -1,7 +1,9 @@
-{ ... }:
+{ config, ... }:
 {
   services.syncthing = {
     enable = true;
+    overrideDevices = true;
+    overrideFolders = true;
     settings = {
       devices = {
         breezi = {
@@ -48,10 +50,10 @@
               ];
               versioning = {
                 type = "staggered";
-                cleanupIntervalS = 86400;
+                fsPath = "${config.home.homeDirectory}/sync/backup";
                 params = {
-                  cleanoutDays = 7;
-                  maxAge = 2419200; # four weeks
+                  cleanInterval = 3600;
+                  maxAge = 5184000; # 60 days
                 };
               };
               minDiskFree = {
