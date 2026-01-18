@@ -68,7 +68,7 @@ in
             DynamicUser = false;
             ExecStart = ''
               ${lib.getExe cfg.package} start \
-                -port ${builtins.toString cfg.port} \
+                -port ${toString cfg.port} \
                 -keys-location "${cfg.dataDir}/authorized_keys/" \
                 -sqlite-db "${cfg.dataDir}/sqlite.db"
             '';
