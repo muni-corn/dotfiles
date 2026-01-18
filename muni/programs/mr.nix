@@ -3,7 +3,6 @@
   home.file = {
     ".mrtrust".text = ''
       ~/code/orosa/.mrconfig
-      ~/code/liberdus/.mrconfig
     '';
   };
 
@@ -102,10 +101,6 @@
 
         # work repos
         "code/orosa" = {
-          skip = true;
-          chain = true;
-        };
-        "code/liberdus" = {
           skip = true;
           chain = true;
         };

@@ -56,10 +56,6 @@
             read = "project:dotfiles";
             write = "project:dotfiles";
           };
-          liberdus = {
-            read = "project:liberdus";
-            write = "project:liberdus";
-          };
           munibot = {
             read = "project:munibot";
             write = "project:munibot";
@@ -79,7 +75,7 @@
           personal.read = "-work";
           sfw.read = "-nsfw";
           work = {
-            read = "project:orosa or project:liberdus or +work";
+            read = "project:orosa or +work";
             write = "+work";
           };
         };
