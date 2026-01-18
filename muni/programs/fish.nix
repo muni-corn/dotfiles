@@ -80,7 +80,7 @@
       r = "ranger";
       s = "ssh";
       v = "vault";
-      x = "trashy";
+      x = "trash";
 
       # nh abbrs
       nC = "nh clean all";
