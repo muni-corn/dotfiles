@@ -90,5 +90,8 @@ in
         xdg-desktop-portal-gtk
       ];
     };
+
+    # let nix manage user-dirs.dirs
+    userDirs.enable = true;
   };
 }
