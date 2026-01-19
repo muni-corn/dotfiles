@@ -18,6 +18,7 @@
       tailwindcss-language-server
       vscode-langservers-extracted
       vtsls
+      wgsl-analyzer
       zls
 
       (mdformat.withPlugins (
