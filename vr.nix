@@ -40,7 +40,7 @@
       enable = true;
       json = {
         application = [
-          pkgs.wlx-overlay-s
+          pkgs.wayvr
         ];
         bitrate = 150000000;
         encoders = [
