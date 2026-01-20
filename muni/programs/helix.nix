@@ -209,6 +209,7 @@
               "`" = ''`'';
               "<" = ''>'';
             };
+            formatter.command = "rustfmt";
           }
           {
             name = "markdown";
