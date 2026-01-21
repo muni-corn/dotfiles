@@ -27,7 +27,7 @@
         body = builtins.readFile ./add-dates.fish;
       };
 
-      nohup = ''command nohup $argv </dev/null >/dev/null 2>&1 & disown'';
+      nohup = "command nohup $argv </dev/null >/dev/null 2>&1 & disown";
 
       qr = {
         description = "displays a QR code of the given contents";
@@ -62,7 +62,7 @@
       scanqr = ''geo=(slurp) grim -g "$geo" - | ${pkgs.zbar}/bin/zbarimg --quiet --raw PNG:- 2> /dev/null | tr -d "\n"'';
       todo = "task next";
       yt = "ytfzf --thumb-viewer=imv -t";
-      bonsai = ''${pkgs.cbonsai}/bin/cbonsai -li -w 10 -t 0.1 -L 50 -m'';
+      bonsai = "${pkgs.cbonsai}/bin/cbonsai -li -w 10 -t 0.1 -L 50 -m";
       cheer-me-up = ''bonsai "keep going, you're doing great"'';
       roll = "random 1";
 
