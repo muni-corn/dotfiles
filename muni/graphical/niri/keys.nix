@@ -277,7 +277,7 @@ in
     "Mod+N".action = launch scripts.quickCode;
     "Mod+W".action = launch apps.browser;
     "Mod+Ctrl+B".action = spawn "rofi-bluetooth";
-    "Mod+Ctrl+E".action = launch "rofimoji --prompt Emoji";
+    "Mod+Ctrl+E".action = launch "rofimoji --prompt Emoji --action clipboard --skin-tone neutral";
     "Mod+Ctrl+N".action = spawn "rofi-network-manager";
     "Mod+Ctrl+P".action = spawn "rofi-pass";
     "Mod+Ctrl+V".action = launch "${pkgs.pavucontrol}/bin/pavucontrol";
