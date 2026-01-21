@@ -78,7 +78,7 @@
       o = "opencode";
       q = "exit";
       r = "ranger";
-      s = "ssh";
+      s = "kitten ssh";
       v = "vault";
       x = "trash";
 
