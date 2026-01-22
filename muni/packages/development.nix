@@ -6,6 +6,7 @@
     # flyctl
 
     # git & version control
+    gh
     gitui
     mr
     perl # for mr
