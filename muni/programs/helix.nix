@@ -202,15 +202,17 @@
           {
             name = "rust";
             auto-pairs = {
-              "(" = '')'';
-              "{" = ''}'';
-              "[" = '']'';
+              "(" = ")";
+              "{" = "}";
+              "[" = "]";
               "\"" = ''"'';
-              "`" = ''`'';
-              "<" = ''>'';
+              "`" = "`";
+              "<" = ">";
             };
             formatter.command = "rustfmt";
           }
+
+          # markdown
           {
             name = "markdown";
             auto-format = true;
@@ -231,11 +233,15 @@
               "[" = "]";
             };
           }
+
+          # nix
           {
             name = "nix";
             formatter.command = "nixfmt";
             auto-format = true;
           }
+
+          # scss
           {
             name = "scss";
             auto-format = true;
@@ -248,6 +254,8 @@
               ];
             };
           }
+
+          # sql
           {
             name = "sql";
             auto-format = true;
