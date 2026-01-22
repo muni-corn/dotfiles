@@ -69,8 +69,10 @@
         Videos = annex 15;
 
         # passwords uwu
-        ".local/share/password-store".checkout =
-          "git clone git@git.musicaloft.com:municorn/passwords password-store";
+        ".local/share/password-store" = {
+          checkout = "git clone git@git.musicaloft.com:municorn/passwords password-store";
+          update = "git pull --rebase=true && git push";
+        };
 
         # my projects
         "code/cadenza-shell" = fromMuni "cadenza-shell";
