@@ -28,6 +28,11 @@
         args = [ "mcp-searxng" ];
         env.SEARXNG_URL = "https://search.musicaloft.com";
       };
+
+      exa = {
+        url = "https://mcp.exa.ai/mcp";
+        headers.Authorization = "Bearer {file:${config.sops.secrets.exa_ai_key.path}}";
+      };
     };
   };
 }

@@ -10,6 +10,7 @@ in
     age.keyFile = "${config.home.homeDirectory}/.age-key.txt";
     secrets = {
       context7_key = { };
+      exa_ai_key = { };
       fish_ai_ini = { };
       github_pat = { };
       nix-access-tokens = { };
