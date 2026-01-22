@@ -291,6 +291,13 @@
             };
           }
 
+          # wgsl
+          {
+            name = "wgsl";
+            auto-format = true;
+            formatter.command = "wgslfmt";
+          }
+
           # javascript and adjacent languages
           (jsConfig "javascript")
           (jsConfig "typescript")
