@@ -26,6 +26,8 @@
     };
 
     fish = {
+      shellAliases.gpa = "echo 'assuming you meant `gap` :3'; git add --patch";
+
       shellAbbrs = {
         g = "git";
         gA = "git absorb";
@@ -39,7 +41,7 @@
         gS = "git stash";
         ga = "git add";
         gae = "git annex edit";
-        gap = "git add -p";
+        gap = "git add --patch";
         gb = "git branch";
         gc = "git commit";
         gca = "git commit --amend";
