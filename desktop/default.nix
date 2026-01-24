@@ -95,7 +95,7 @@
     };
   };
 
-  musnix.soundcardPciId = "0e:00.4";
+  musnix.soundcardPciId = "13:00.1";
 
   networking = {
     hostName = "breezi";
