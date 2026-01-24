@@ -6,6 +6,8 @@
 {
   imports = [
     ./firefox
+    ./obsidian
+
     ./kitty.nix
     ./rofi.nix
   ];
