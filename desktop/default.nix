@@ -88,7 +88,11 @@
       };
     };
 
-    services.easyeffects.enable = true;
+    services.easyeffects = {
+      enable = true;
+      extraPresets.mic_boost = builtins.fromJSON (builtins.readFile ./mic_boost.json);
+      preset = "mic_boost";
+    };
   };
 
   musnix.soundcardPciId = "0e:00.4";
@@ -103,9 +107,8 @@
 
   nixpkgs.config.rocmSupport = true;
 
-  # for easyeffects
   programs = {
-    dconf.enable = true;
+    dconf.enable = true; # for easyeffects
     corectrl.enable = true;
   };
 
