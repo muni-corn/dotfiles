@@ -57,6 +57,9 @@ in
 
     # create Steam recordings folder as a subvolume so it is not included in btrbk backups
     "v ${config.xdg.userDirs.videos}/Recordings/steam - - - - -"
+
+    # create a subvolume for the code directory
+    "v ${config.home.homeDirectory}/code - - - - -"
   ];
 
   xdg = {
