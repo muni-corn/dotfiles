@@ -39,12 +39,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # ai
-    nixified-ai = {
-      url = "github:BatteredBunny/nixifed-ai/bump-comfyui";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # extra hardware configuration
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 

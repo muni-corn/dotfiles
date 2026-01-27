@@ -20,18 +20,6 @@
       };
     };
 
-    comfyui = {
-      enable = true;
-      package = inputs.nixified-ai.packages.x86_64-linux.comfyui-nvidia;
-      host = "0.0.0.0";
-      openFirewall = true;
-      # models = builtins.attrValues pkgs.nixified-ai.models;
-      customNodes = with pkgs.comfyuiPackages; [
-        comfyui-gguf
-        # comfyui-impact-pack
-      ];
-    };
-
     ollama = {
       enable = true;
       environmentVariables = {

@@ -66,7 +66,6 @@ let
     inputs.nixos-hardware.nixosModules.common-gpu-nvidia
 
     # extra software configuration modules
-    inputs.nixified-ai.nixosModules.comfyui
     inputs.munibot.nixosModules.default
 
     ../server

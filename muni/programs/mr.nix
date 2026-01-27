@@ -93,7 +93,6 @@
         "code/home-manager" = fromGitHubFork "nix-community" "home-manager";
         "code/niri-flake" = fromGitHubFork "sodiboo" "niri-flake";
         "code/nixpkgs" = fromGitHubFork "NixOS" "nixpkgs";
-        "code/nixified-ai" = fromGitHubForkRenamed "nixified-ai" "flake" "nixified-ai";
         "code/relm4" = fromGitHubFork "Relm4" "relm4";
         "code/relm4-icons" = fromGitHubForkRenamed "Relm4" "icons" "relm4-icons";
         "code/stylix" = fromGitHubFork "nix-community" "stylix";
