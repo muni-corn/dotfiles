@@ -11,9 +11,8 @@
     mr
     perl # for mr
 
-    # languages & runtimes
+    # runtimes
     nodejs
-    python3
 
     # nix tools
     attic-client
