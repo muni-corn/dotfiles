@@ -1,6 +1,7 @@
 { config, pkgs, ... }:
 {
   imports = [
+    ./bugwarrior.nix
     ./fish.nix
     ./git.nix
     ./helix.nix
