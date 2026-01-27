@@ -72,9 +72,6 @@
     # for formatting this configuration
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
-    # til sfizz-ui makes it way to gosh dang nixpkgs-unstable
-    sfizz-ui.url = "github:NixOS/nixpkgs/f264a85";
-
     # my stuff
     munibot = {
       url = "github:muni-corn/munibot";

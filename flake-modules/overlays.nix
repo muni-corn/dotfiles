@@ -10,7 +10,6 @@ let
     # custom packages overlay
     (final: prev: {
       cadenza-shell = inputs.cadenza-shell.packages.${final.system}.default;
-      sfizz-ui = inputs.sfizz-ui.legacyPackages.${final.system}.sfizz-ui;
     })
   ];
 in
