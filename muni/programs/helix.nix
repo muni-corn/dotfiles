@@ -21,17 +21,17 @@
       wgsl-analyzer
       zls
 
-      (mdformat.withPlugins (
-        p: with p; [
-          mdformat-admon
-          mdformat-footnote
-          mdformat-frontmatter
-          mdformat-myst
-          mdformat-simple-breaks
-          mdformat-tables
-          mdformat-wikilink
-        ]
-      ))
+      # (mdformat.withPlugins (
+      #   p: with p; [
+      #     mdformat-admon
+      #     mdformat-footnote
+      #     mdformat-frontmatter
+      #     mdformat-myst
+      #     mdformat-simple-breaks
+      #     mdformat-tables
+      #     mdformat-wikilink
+      #   ]
+      # ))
     ];
     defaultEditor = true;
     settings = {
