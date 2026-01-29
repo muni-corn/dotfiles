@@ -1,20 +1,26 @@
-{ inputs, self, ... }:
+{
+  inputs,
+  self,
+  ...
+}:
 let
   specialArgs = {
     inherit inputs;
   };
 
-  homeManagerModule = {
-    home-manager = {
-      backupFileExtension = "backup";
-      extraSpecialArgs = specialArgs;
-      useGlobalPkgs = true;
-      useUserPackages = true;
-      users.muni = ../muni;
+  homeManagerModule =
+    { lib, pkgs, ... }:
+    {
+      home-manager = {
+        backupCommand = "${lib.getExe pkgs.trashy}";
+        extraSpecialArgs = specialArgs;
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        users.muni = ../muni;
 
-      sharedModules = [ inputs.nixcord.homeModules.nixcord ];
+        sharedModules = [ inputs.nixcord.homeModules.nixcord ];
+      };
     };
-  };
 
   commonModules = [
     self.nixosModules.overlays
