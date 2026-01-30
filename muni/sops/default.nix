@@ -6,9 +6,10 @@ in
   imports = [ inputs.sops-nix.homeManagerModules.sops ];
 
   sops = {
+    age.keyFile = "${config.xdg.configHome}/sops/age/keys.txt";
     defaultSopsFile = ./secrets/default.yaml;
-    age.keyFile = "${config.home.homeDirectory}/.age-key.txt";
     secrets = {
+      bugwarrior-toml = { };
       context7_key = { };
       exa_ai_key = { };
       fish_ai_ini = { };

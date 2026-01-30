@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   home = {
     # add bugwarrior to pull issues from jira
@@ -57,4 +57,7 @@
       label = "Jira Parent";
     };
   };
+
+  xdg.configFile."bugwarrior/bugwarrior.toml".source =
+    config.lib.file.mkOutOfStoreSymlink config.sops.secrets.bugwarrior-toml.path;
 }
