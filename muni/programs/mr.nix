@@ -49,8 +49,8 @@
       # util for annex repos
       annex = order: {
         inherit order;
-        update = "git annex assist";
-        push = "git annex push";
+        update = ''systemd-inhibit --what sleep --who mr --why "git-annex is syncing $MR_REPO" git annex assist'';
+        push = ''systemd-inhibit --what sleep --who mr --why "git-annex is pushing $MR_REPO" git annex push'';
       };
     in
     {
