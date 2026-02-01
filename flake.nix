@@ -97,6 +97,10 @@
       url = "git+https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow?ref=main";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    trashy = {
+      url = "github:muni-corn/trashy";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # required for devenv from musicaloft-style shell
     devenv-root = {
