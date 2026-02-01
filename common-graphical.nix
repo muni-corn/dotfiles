@@ -127,6 +127,8 @@
     # bluetooth manager gui
     blueman.enable = true;
 
+    cloudflare-warp.enable = true;
+
     # for pinentry-gnome3
     dbus.packages = [ pkgs.gcr ];
 
