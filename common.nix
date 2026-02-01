@@ -56,7 +56,7 @@
       psmisc
       rsync
       ssh-to-age
-      trashy
+      trash-cli
       vulkan-tools
       wget
 
