@@ -12,6 +12,8 @@
     ./rofi.nix
   ];
 
+  home.packages = [ pkgs.digikam ];
+
   programs = {
     browserpass = {
       enable = true;
