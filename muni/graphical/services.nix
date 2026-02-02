@@ -9,8 +9,8 @@
         night = 2500;
       };
 
-      dawnTime = "05:00-06:00";
-      duskTime = "20:00-21:00";
+      dawnTime = "06:30-07:00";
+      duskTime = "20:30-22:00";
 
       settings.general.adjustment-method = "wayland";
     };
