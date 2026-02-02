@@ -2,6 +2,7 @@
 {
   imports = [
     ./bugwarrior.nix
+    ./fastfetch.nix
     ./fish.nix
     ./git.nix
     ./helix.nix
