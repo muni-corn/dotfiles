@@ -27,6 +27,8 @@ let
           };
         }
       );
+
+      videoduplicatefinder = final.callPackage ../pkgs/videoduplicatefinder { };
     })
   ];
 in

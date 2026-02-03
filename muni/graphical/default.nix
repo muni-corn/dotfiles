@@ -37,6 +37,9 @@
       krita
       rawtherapee
 
+      # video utilities
+      videoduplicatefinder
+
       # messaging
       element-desktop
       equicord
