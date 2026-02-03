@@ -1,23 +1,13 @@
-{
-  config,
-  inputs,
-  pkgs,
-  ...
-}:
+{ config, ... }:
 {
   services = {
     caddy = {
       enable = true;
       email = "caddy@musicaloft.com";
 
-      virtualHosts = {
-        "comfy.musicaloft.com".extraConfig = ''
-          reverse_proxy 127.0.0.1:${builtins.toString config.services.comfyui.port}
-        '';
-        "ai.musicaloft.com".extraConfig = ''
-          reverse_proxy 127.0.0.1:${builtins.toString config.services.open-webui.port}
-        '';
-      };
+      virtualHosts."ai.musicaloft.com".extraConfig = ''
+        reverse_proxy 127.0.0.1:${toString config.services.open-webui.port}
+      '';
     };
 
     ollama = {
