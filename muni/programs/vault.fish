@@ -33,6 +33,7 @@ switch $cmd
         end
 
         # create vault
+        mkdir -p "$HOME/$dir.vault"
         gocryptfs -init "$HOME/$dir.vault" -extpass "pass vaults/$pass_dir"
 
     case u unlock
