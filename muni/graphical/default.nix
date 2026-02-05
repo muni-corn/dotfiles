@@ -30,6 +30,7 @@
 
       # development/programming
       alcom
+      mongodb-compass
 
       # photo
       hugin
