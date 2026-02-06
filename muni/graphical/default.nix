@@ -35,10 +35,13 @@
       # photo
       hugin
       inkscape
+      kdePackages.gwenview
       krita
+      loupe
       rawtherapee
 
       # video utilities
+      celluloid
       videoduplicatefinder
 
       # messaging
@@ -60,9 +63,6 @@
       # other things
       libnotify
       protonvpn-gui
-
-      loupe
-      kdePackages.gwenview
     ];
 
     pointerCursor = {
