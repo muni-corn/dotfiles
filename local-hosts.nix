@@ -7,6 +7,7 @@
       "cloud.musicaloft.com"
       "comfy.musicaloft.com"
       "git.musicaloft.com"
+      "hass.municorn.me"
       "hydra.musicaloft.com"
       "munibot"
       "musicaloft.tplinkdns.com"
