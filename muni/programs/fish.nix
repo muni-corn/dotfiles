@@ -83,9 +83,10 @@
       x = "trash";
 
       # nh abbrs
+      nB = "nh os boot";
       nC = "nh clean all";
       nS = "nh search";
-      nb = "nh os boot";
+      nb = "nh os build";
       ns = "nh os switch";
       nt = "nh os test";
 
@@ -106,8 +107,9 @@
 
       # timewarrior abbrs
       T = "timew";
-      TY = "timew || timewsync";
       TS = "timew summary :ids";
+      TM = "timew modify";
+      TY = "timew || timewsync";
 
       # change directory to git root with zoxide
       zr = "z (git rev-parse --show-toplevel)";
