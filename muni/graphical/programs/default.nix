@@ -12,7 +12,10 @@
     ./rofi.nix
   ];
 
-  home.packages = [ pkgs.digikam ];
+  home.packages = with pkgs; [
+    digikam
+    revolt-desktop
+  ];
 
   programs = {
     browserpass = {
