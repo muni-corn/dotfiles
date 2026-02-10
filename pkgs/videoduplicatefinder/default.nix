@@ -16,7 +16,9 @@
   makeWrapper,
   openssl,
   rsync,
-  xorg,
+  libsm,
+  libice,
+  libxi,
   zlib,
 }:
 stdenv.mkDerivation rec {
@@ -52,9 +54,9 @@ stdenv.mkDerivation rec {
     lttng-ust
     openssl
     stdenv.cc.cc.lib
-    xorg.libSM
-    xorg.libICE
-    xorg.libXi
+    libsm
+    libice
+    libxi
     zlib
   ];
 
