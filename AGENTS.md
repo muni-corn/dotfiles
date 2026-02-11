@@ -1,8 +1,7 @@
 # NixOS dotfiles repository
 
-This is a NixOS system configuration repository using flakes and home-manager.
-It manages three systems: `cherri` (laptop), `breezi` (desktop), and `munibot`
-(server).
+This is a NixOS system configuration repository using flakes and home-manager. It manages three
+systems: `cherri` (laptop), `breezi` (desktop), and `munibot` (server).
 
 ## Common commands
 
@@ -71,35 +70,31 @@ The repository uses a modular architecture with clear separation of concerns:
 
 - **`flake.nix`**: Entry point defining all system configurations and inputs
 - **`flake-modules/`**: Modular flake configuration
-  - `nixos-configurations.nix`: Defines the three system configurations with
-    their module composition
+  - `nixos-configurations.nix`: Defines the three system configurations with their module
+    composition
   - `overlays.nix`: Custom package overlays applied to all systems
   - `binary-caches.nix`: Binary cache configuration
-- **`common.nix`**: Base NixOS configuration shared across all systems (boot,
-  nix settings, base packages)
-- **`common-graphical.nix`**: Shared graphical environment configuration
-  (pipewire, bluetooth, printing, etc.)
+- **`common.nix`**: Base NixOS configuration shared across all systems (boot, nix settings, base
+  packages)
+- **`common-graphical.nix`**: Shared graphical environment configuration (pipewire, bluetooth,
+  printing, etc.)
 - **`muni/`**: Home-manager user configuration (programs, packages, dotfiles)
-- **`desktop/`, `laptop/`, `server/`**: Host-specific configurations and
-  hardware settings
+- **`desktop/`, `laptop/`, `server/`**: Host-specific configurations and hardware settings
 - **`pkgs/`**: Custom package definitions
-- **Module files** (e.g., `gaming.nix`, `music-production.nix`, `docker.nix`):
-  Feature-specific configurations imported by hosts as needed
+- **Module files** (e.g., `gaming.nix`, `music-production.nix`, `docker.nix`): Feature-specific
+  configurations imported by hosts as needed
 
 ### System configurations
 
-Each system has a different module composition defined in
-`flake-modules/nixos-configurations.nix`:
+Each system has a different module composition defined in `flake-modules/nixos-configurations.nix`:
 
-- **cherri (laptop)**: `commonModules` + `commonGraphicalModules` +
-  `laptopModules`
+- **cherri (laptop)**: `commonModules` + `commonGraphicalModules` + `laptopModules`
 
   - Framework 16 AMD hardware
   - Full graphical environment with Niri compositor
   - Audio production, gaming, art tools
 
-- **breezi (desktop)**: `commonModules` + `commonGraphicalModules` +
-  `desktopModules`
+- **breezi (desktop)**: `commonModules` + `commonGraphicalModules` + `desktopModules`
 
   - AMD CPU + GPU
   - Full graphical environment
@@ -117,13 +112,11 @@ Home-manager is integrated at the NixOS level (not standalone):
 
 - User configuration root: `muni/default.nix`
 - Graphical additions: `muni/graphical/` (imported only for desktop/laptop)
-- Program-specific configs: `muni/programs/` (Fish, Git, Helix, Taskwarrior,
-  etc.)
+- Program-specific configs: `muni/programs/` (Fish, Git, Helix, Taskwarrior, etc.)
 - Custom packages: `muni/packages/`
 - AI tooling: `muni/ai/` (OpenCode configuration and agent definitions)
 
-The integration is defined in `flake-modules/nixos-configurations.nix` via the
-`homeManagerModule`.
+The integration is defined in `flake-modules/nixos-configurations.nix` via the `homeManagerModule`.
 
 ### Theming with Stylix
 
@@ -140,11 +133,9 @@ The entire system uses Stylix for unified theming across applications:
 Custom packages are defined in two ways:
 
 1. **Package definitions** in `pkgs/` (e.g., `videoduplicatefinder/`)
-1. **Overlay modifications** in `flake-modules/overlays.nix` (e.g., patching
-   `trashy` version)
+2. **Overlay modifications** in `flake-modules/overlays.nix` (e.g., patching `trashy` version)
 
-Overlays are applied both to the system (`nixpkgs.overlays`) and to per-system
-package sets.
+Overlays are applied both to the system (`nixpkgs.overlays`) and to per-system package sets.
 
 ### Pre-commit hooks
 
@@ -152,8 +143,8 @@ The repository uses pre-commit hooks (symlinked from nix store):
 
 - **treefmt**: Automatically formats Nix files and other code
 - Runs on every commit
-- If formatting changes files, the commit is rejected and must be retried after
-  re-staging formatted files
+- If formatting changes files, the commit is rejected and must be retried after re-staging formatted
+  files
 
 ### Development environment
 
@@ -206,5 +197,5 @@ Key flake inputs and their purposes:
 - **sops-nix**: Secrets management
 - **musnix**: Real-time audio configuration
 - **treefmt-nix**: Code formatting
-- **Custom projects**: munibot, cadenza-shell, trashy,
-  plymouth-theme-musicaloft-rainbow, muni-wallpapers
+- **Custom projects**: munibot, cadenza-shell, trashy, plymouth-theme-musicaloft-rainbow,
+  muni-wallpapers

@@ -9,7 +9,8 @@ Always use context7 for up-to-date library documentation and examples.
 - **Modularity:** Small, focused modules with single responsibilities
 - **Layering:** Separate presentation, business logic, and data access
 - **Consistency:** Follow existing codebase patterns
-- **File organization:** One primary export per file, colocate related code, max 3-4 directory levels
+- **File organization:** One primary export per file, colocate related code, max 3-4 directory
+  levels
 - **File size:** Keep under 500 lines
 
 ## Naming conventions
@@ -53,12 +54,14 @@ impl UserService {
 ### Comment style
 
 - **Inline comments:** all lowercase, explain *why* not *what*
-- **Doc comments:** MUST use sentence case (capitalize first word, end with period). Document public APIs with params, returns, examples
+- **Doc comments:** MUST use sentence case (capitalize first word, end with period). Document public
+  APIs with params, returns, examples
 - **TODOs:** include issue numbers, be specific
 - Spell out "and" (never use "&")
 - Use sentence case for headings
 
-**CRITICAL:** All doc comments must start with a capital letter and be written in sentence case. This is non-negotiable.
+**CRITICAL:** All doc comments must start with a capital letter and be written in sentence case.
+This is non-negotiable.
 
 ```typescript
 // convert ounces to grams for consistent units (good: explains why)
@@ -79,17 +82,21 @@ Keep comments current with code changes.
 
 ## Git commits
 
-IF AND ONLY IF you are prompted to create Git commits to the codebase, you MUST follow the following guidelines.
+IF AND ONLY IF you are prompted to create Git commits to the codebase, you MUST follow the following
+guidelines.
 
 ALWAYS delegate to the `commit` agent for commits.
 
-If you are tasked with adding changes to the Git index yourself, **DO NOT** batch multiple unrelated changes into one commit. If there are 5 changes, make 5 commits.
+If you are tasked with adding changes to the Git index yourself, **DO NOT** batch multiple unrelated
+changes into one commit. If there are 5 changes, make 5 commits.
 
 **NEVER** AMEND COMMITS.
 
 If a pre-commit hook fails, the commit will be rejected and must be retried after issues are fixed.
 
-Formatter hooks (like `treefmt`) may format files and then reject the commit if changes were made. If this happens, re-add the formatted portions of the changed files, and then attempt the commit again.
+Formatter hooks (like `treefmt`) may format files and then reject the commit if changes were made.
+If this happens, re-add the formatted portions of the changed files, and then attempt the commit
+again.
 
 ### Commit format
 
@@ -103,19 +110,19 @@ type(scope)!: description under 72 characters
 
 ### Commit types
 
-| Type | Use for |
-|------|---------|
-| `build` | Build process changes |
-| `chore` | Non-code changes (dependencies) |
-| `ci` | CI/CD changes |
-| `docs` | Documentation/comments only |
-| `dx` | Developer experience (tooling, config) |
-| `feat` | New user-facing features (MINOR version) |
-| `fix` | Bug fixes (PATCH version) |
-| `perf` | Performance improvements |
-| `refactor` | Code changes without feature/fix |
-| `style` | Formatting only (not CSS) |
-| `test` | Test changes |
+| Type       | Use for                                  |
+| ---------- | ---------------------------------------- |
+| `build`    | Build process changes                    |
+| `chore`    | Non-code changes (dependencies)          |
+| `ci`       | CI/CD changes                            |
+| `docs`     | Documentation/comments only              |
+| `dx`       | Developer experience (tooling, config)   |
+| `feat`     | New user-facing features (MINOR version) |
+| `fix`      | Bug fixes (PATCH version)                |
+| `perf`     | Performance improvements                 |
+| `refactor` | Code changes without feature/fix         |
+| `style`    | Formatting only (not CSS)                |
+| `test`     | Test changes                             |
 
 ### Scope rules
 
@@ -229,7 +236,8 @@ Selection criteria: actively maintained, popular, well-documented, lightweight, 
 
 ### Rust
 
-- Choose appropriate ownership: `String` (takes ownership), `&str` (borrows), `&mut String` (mutable borrow)
+- Choose appropriate ownership: `String` (takes ownership), `&str` (borrows), `&mut String` (mutable
+  borrow)
 - Prefer borrowing over ownership transfer when possible
 
 ### TypeScript
