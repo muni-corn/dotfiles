@@ -25,7 +25,6 @@
           mdformat-admon
           mdformat-footnote
           mdformat-frontmatter
-          mdformat-myst
           mdformat-simple-breaks
           mdformat-tables
           mdformat-wikilink
