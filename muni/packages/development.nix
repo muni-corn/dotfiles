@@ -24,6 +24,7 @@
 
     # utilities
     biome
+    devenv
     meld
   ];
 }
