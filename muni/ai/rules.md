@@ -9,8 +9,8 @@ Always use context7 for up-to-date library documentation and examples.
 - **Modularity:** Small, focused modules with single responsibilities
 - **Layering:** Separate presentation, business logic, and data access
 - **Consistency:** Follow existing codebase patterns
-- **File organization:** One primary export per file, colocate related code, max 3-4 directory
-  levels
+- **File organization:** One primary export per file, colocate related code, max
+  3-4 directory levels
 - **File size:** Keep under 500 lines
 
 ## Naming conventions
@@ -18,11 +18,13 @@ Always use context7 for up-to-date library documentation and examples.
 - Variables/functions: descriptive names indicating purpose
 - Types/classes: `PascalCase`
 - Constants: `UPPER_SNAKE_CASE`
-- Files: Follow project convention, or `snake_case.rs` (Rust), `kebab-case.ts` (TypeScript)
+- Files: Follow project convention, or `snake_case.rs` (Rust), `kebab-case.ts`
+  (TypeScript)
 
 ## Code structure
 
-Order: imports → constants → types → implementation (public methods first, private after)
+Order: imports → constants → types → implementation (public methods first,
+private after)
 
 ```rust
 use std::collections::HashMap;
@@ -54,14 +56,14 @@ impl UserService {
 ### Comment style
 
 - **Inline comments:** all lowercase, explain *why* not *what*
-- **Doc comments:** MUST use sentence case (capitalize first word, end with period). Document public
-  APIs with params, returns, examples
+- **Doc comments:** MUST use sentence case (capitalize first word, end with
+  period). Document public APIs with params, returns, examples
 - **TODOs:** include issue numbers, be specific
 - Spell out "and" (never use "&")
 - Use sentence case for headings
 
-**CRITICAL:** All doc comments must start with a capital letter and be written in sentence case.
-This is non-negotiable.
+**CRITICAL:** All doc comments must start with a capital letter and be written
+in sentence case. This is non-negotiable.
 
 ```typescript
 // convert ounces to grams for consistent units (good: explains why)
@@ -82,21 +84,23 @@ Keep comments current with code changes.
 
 ## Git commits
 
-IF AND ONLY IF you are prompted to create Git commits to the codebase, you MUST follow the following
-guidelines.
+IF AND ONLY IF you are prompted to create Git commits to the codebase, you MUST
+follow the following guidelines.
 
 ALWAYS delegate to the `commit` agent for commits.
 
-If you are tasked with adding changes to the Git index yourself, **DO NOT** batch multiple unrelated
-changes into one commit. If there are 5 changes, make 5 commits.
+If you are tasked with adding changes to the Git index yourself, **DO NOT**
+batch multiple unrelated changes into one commit. If there are 5 changes, make 5
+commits.
 
 **NEVER** AMEND COMMITS.
 
-If a pre-commit hook fails, the commit will be rejected and must be retried after issues are fixed.
+If a pre-commit hook fails, the commit will be rejected and must be retried
+after issues are fixed.
 
-Formatter hooks (like `treefmt`) may format files and then reject the commit if changes were made.
-If this happens, re-add the formatted portions of the changed files, and then attempt the commit
-again.
+Formatter hooks (like `treefmt`) may format files and then reject the commit if
+changes were made. If this happens, re-add the formatted portions of the changed
+files, and then attempt the commit again.
 
 ### Commit format
 
@@ -134,7 +138,8 @@ type(scope)!: description under 72 characters
 
 ### Breaking changes
 
-Add `!` after scope and `BREAKING CHANGE:` footer. Ask user for confirmation first.
+Add `!` after scope and `BREAKING CHANGE:` footer. Ask user for confirmation
+first.
 
 ### Examples
 
@@ -181,7 +186,8 @@ Only encourage test suites if none exist. Never build one unprompted.
 
 ### Mocking (vitest)
 
-Cannot mock functions within the module being tested. Only mock external dependencies.
+Cannot mock functions within the module being tested. Only mock external
+dependencies.
 
 ## Error handling
 
@@ -200,8 +206,10 @@ Cannot mock functions within the module being tested. Only mock external depende
 
 ### Patterns
 
-- TypeScript: Use `neverthrow` for Result types, custom `AppError` classes, `zod` for validation
-- Rust: Use `thiserror` for error types, `anyhow` for application errors, `validator` crate
+- TypeScript: Use `neverthrow` for Result types, custom `AppError` classes,
+  `zod` for validation
+- Rust: Use `thiserror` for error types, `anyhow` for application errors,
+  `validator` crate
 
 ## Security
 
@@ -230,14 +238,15 @@ npm install [--save-dev] package-name
 cargo add [--dev|--build] crate-name
 ```
 
-Selection criteria: actively maintained, popular, well-documented, lightweight, secure.
+Selection criteria: actively maintained, popular, well-documented, lightweight,
+secure.
 
 ## Language-specific notes
 
 ### Rust
 
-- Choose appropriate ownership: `String` (takes ownership), `&str` (borrows), `&mut String` (mutable
-  borrow)
+- Choose appropriate ownership: `String` (takes ownership), `&str` (borrows),
+  `&mut String` (mutable borrow)
 - Prefer borrowing over ownership transfer when possible
 
 ### TypeScript
