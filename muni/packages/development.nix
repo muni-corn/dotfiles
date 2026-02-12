@@ -25,6 +25,7 @@
     # utilities
     biome
     devenv
+    license-cli
     meld
   ];
 }
