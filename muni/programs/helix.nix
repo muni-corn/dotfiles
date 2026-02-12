@@ -26,7 +26,7 @@
           mdformat-footnote
           mdformat-frontmatter
           mdformat-simple-breaks
-          mdformat-tables
+          mdformat-gfm
           mdformat-wikilink
         ]
       ))
