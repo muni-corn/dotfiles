@@ -1961,11 +1961,11 @@
         "treefmt-nix": "treefmt-nix_6"
       },
       "locked": {
-        "lastModified": 1770786979,
-        "narHash": "sha256-/yTMVVuJ8FBx+k1igCHaHwwo7tyWcrN4DCCviLUdSEc=",
+        "lastModified": 1770910958,
+        "narHash": "sha256-gcywkR7w7JdyAxSJ/wTt/5wa7TbpL27y8kBqpjgzPTI=",
         "owner": "musicaloft",
         "repo": "musicaloft-style",
-        "rev": "041974ec83dc3dc39d5d9bc675dc43d0970d3ef2",
+        "rev": "32195ade76f99cd53acd0d074813f02d78848f55",
         "type": "github"
       },
       "original": {
