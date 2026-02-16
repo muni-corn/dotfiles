@@ -13,7 +13,7 @@ in
       context7_key = { };
       exa_ai_key = { };
       fish_ai_ini = { };
-      github_pat = { };
+      mcp_github_pat = { };
       nix-access-tokens = { };
       oco_api_key = { };
       opencode_anthropic_api_key = { };

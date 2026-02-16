@@ -20,7 +20,7 @@
 
       github = {
         url = "https://api.githubcopilot.com/mcp/";
-        headers.Authorization = "Bearer {file:${config.sops.secrets.github_pat.path}}";
+        headers.Authorization = "Bearer {file:${config.sops.secrets.mcp_github_pat.path}}";
       };
 
       searxng = {
