@@ -52,6 +52,7 @@
       # misc
       cachix
       clinfo
+      dmidecode
       powertop
       psmisc
       rsync
