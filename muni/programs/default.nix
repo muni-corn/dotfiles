@@ -14,8 +14,12 @@
   ];
 
   home.packages = with pkgs; [
-    taskwarrior-tui
     dragon-drop
+    taskwarrior-tui
+
+    # plain-text accounting
+    hledger
+    hledger-fmt
   ];
 
   programs = {
