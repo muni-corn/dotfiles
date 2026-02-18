@@ -37,26 +37,18 @@
     settings = {
       "$schema" = "https://opencode.ai/config.json";
       autoupdate = false;
+      default_agent = "plan";
 
       # configure models
-      model = "anthropic/claude-sonnet-4-5";
-      provider.anthropic = {
-        options.apiKey = "{file:${config.sops.secrets.opencode_anthropic_api_key.path}}";
-        models = {
-          "claude-sonnet-4-5".options.thinking = {
-            type = "enabled";
-            budgetTokens = 32000;
-          };
-          "claude-haiku-4-5".options.thinking = {
-            type = "enabled";
-            budgetTokens = 32000;
-          };
-          "claude-opus-4-5".options.thinking = {
-            type = "enabled";
-            budgetTokens = 32000;
-          };
-        };
+      model = "opencode/claude-sonnet-4-6";
+      small_model = "opencode/claude-haiku-4-5";
+      agent = {
+        review.model = "opencode/gemini-3-pro";
+        plan.model = "opencode/gpt-5.2-codex";
       };
+
+      # configure api keys
+      provider.anthropic.options.apiKey = "{file:${config.sops.secrets.opencode_anthropic_api_key.path}}";
     };
     rules = ./rules.md;
   };

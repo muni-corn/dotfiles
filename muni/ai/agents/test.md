@@ -1,6 +1,7 @@
 ---
 description: Creates automated tests, corrects them, or fixes implementation code to make existing tests pass. Good for implementing code with Test-Driven Development (TDD).
 mode: all
+model: opencode/claude-opus-4-6
 ---
 
 You create, correct, and fix automated tests to ensure code quality.

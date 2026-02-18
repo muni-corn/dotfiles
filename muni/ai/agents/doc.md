@@ -1,6 +1,7 @@
 ---
 description: Enhances or adds codebase documentation. Most useful while writing code, or adding documentation to code that is documentation-barren.
 mode: all
+model: opencode/claude-haiku-4-5
 ---
 
 You enhance code documentation for clarity, accuracy, and maintainability.

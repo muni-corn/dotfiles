@@ -1,6 +1,7 @@
 ---
 description: Resolves Git conflicts
 mode: all
+model: opencode/claude-opus-4-6
 tools:
   write: false
 ---
