@@ -11,11 +11,7 @@
     enable = true;
     enableMcpIntegration = true;
 
-    agents = {
-      conflict = ./agents/conflict.md;
-      doc = ./agents/doc.md;
-      test = ./agents/test.md;
-    };
+    agents = ./agents;
     commands = {
       init = ''
         Please analyze this codebase and create a AGENTS.md file, which will be given to future instances of agents (such as yourself) to operate in this repository.
