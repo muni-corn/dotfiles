@@ -15,6 +15,7 @@
     ./home-assistant.nix
     ./hydra.nix
     ./immich.nix
+    ./keycloak.nix
     ./minecraft.nix
     ./municorn.nix
     ./nextcloud.nix
