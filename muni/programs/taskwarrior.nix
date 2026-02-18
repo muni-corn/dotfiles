@@ -73,7 +73,6 @@
             write = "+music";
           };
           personal.read = "-work";
-          sfw.read = "-nsfw";
           work = {
             read = "project:orosa or +work";
             write = "+work";
