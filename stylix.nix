@@ -14,7 +14,7 @@
     colorGeneration.polarity = "dark";
 
     # background
-    image = "${inputs.muni-wallpapers}/wallpapers/arctic_timberwolf_by_smoothwild.jpg";
+    image = ./nighttime_sailing__by_smoothwild.png;
 
     # cursor
     cursor = {
