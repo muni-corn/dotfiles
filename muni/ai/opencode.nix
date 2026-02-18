@@ -12,16 +12,11 @@
     enableMcpIntegration = true;
 
     agents = {
-      commit = ./agents/commit.md;
       conflict = ./agents/conflict.md;
       doc = ./agents/doc.md;
       test = ./agents/test.md;
     };
     commands = {
-      commit = ''
-        Use the `commit` agent to create a commit in this Git repository.
-        The user provided the following arguments: $ARGUMENTS
-      '';
       init = ''
         Please analyze this codebase and create a AGENTS.md file, which will be given to future instances of agents (such as yourself) to operate in this repository.
 
