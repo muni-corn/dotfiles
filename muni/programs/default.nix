@@ -20,6 +20,7 @@
     # plain-text accounting
     hledger
     hledger-fmt
+    ledger-autosync
     puffin
   ];
 
