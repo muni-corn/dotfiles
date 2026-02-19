@@ -44,7 +44,7 @@
       upscayl
 
       # emulators and "emulators"
-      wineWowPackages.waylandFull
+      wineWow64Packages.waylandFull
       winetricks
     ];
 
