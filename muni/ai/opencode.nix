@@ -44,7 +44,10 @@
       };
 
       # configure api keys
-      provider.anthropic.options.apiKey = "{file:${config.sops.secrets.opencode_anthropic_api_key.path}}";
+      provider = {
+        anthropic.options.apiKey = "{file:${config.sops.secrets.opencode_anthropic_api_key.path}}";
+        opencode.options.apiKey = "{file:${config.sops.secrets.opencode_zen_api_key.path}}";
+      };
     };
     rules = ./rules.md;
   };

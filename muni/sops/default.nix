@@ -17,6 +17,7 @@ in
       nix-access-tokens = { };
       oco_api_key = { };
       opencode_anthropic_api_key = { };
+      opencode_zen_api_key = { };
       orosa_github_pat = { };
       orosa_mrconfig = { };
       pay_respects_anthropic_api_key = { };
