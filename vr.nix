@@ -9,14 +9,14 @@
   services.wivrn = {
     enable = true;
     package = pkgs.wivrn.overrideAttrs (oldAttrs: {
-      version = "26.2";
+      version = "26.2.2";
       src = oldAttrs.src.override {
-        hash = "sha256-wVFC8VDtALHI6e0655Ytc4gNOPnJP65XWNzlhzH2eoc=";
+        hash = "sha256-DC+oHQLH9GlN/iDdk8XdPp1wENU5ZuZ+CC0x/wOlyYM=";
       };
       monado = oldAttrs.monado.overrideAttrs (oldAttrs: {
         src = oldAttrs.src.override {
-          rev = "9dcc3e1de2f7449d9757f5db332c867b4d794fb3"; # get from build failure
-          hash = "sha256-ueg/GDnKP4nRVepdNE3sgK8sYckZc0aaC0CQc3tuxik=";
+          rev = "723652b545a79609f9f04cb89fcbf807d9d6451a"; # get from build failure
+          hash = "sha256-wGqvTI/X22apc8XCN3GCGQClHfBW5xk73mZnwWvHtyI=";
         };
       });
     });
