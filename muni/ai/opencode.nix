@@ -45,7 +45,10 @@
 
       # configure api keys
       provider = {
-        anthropic.options.apiKey = "{file:${config.sops.secrets.opencode_anthropic_api_key.path}}";
+        anthropic.options = {
+          apiKey = "{file:${config.sops.secrets.opencode_anthropic_api_key.path}}";
+          thinking = "adaptive";
+        };
         opencode.options.apiKey = "{file:${config.sops.secrets.opencode_zen_api_key.path}}";
       };
     };
