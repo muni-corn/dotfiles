@@ -40,7 +40,7 @@
       small_model = "opencode/claude-haiku-4-5";
       agent = {
         review.model = "opencode/gemini-3-pro";
-        plan.model = "opencode/gpt-5.2-codex";
+        plan.model = "opencode/claude-opus-4-6";
       };
 
       # configure api keys
