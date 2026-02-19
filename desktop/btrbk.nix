@@ -16,6 +16,7 @@
               "muni/Music" = { };
               "muni/Pictures" = { };
               "muni/Videos" = { };
+              "muni/annex" = { };
               "muni/code" = { };
             };
             snapshot_dir = "/snaps";
@@ -46,6 +47,8 @@
                 "muni/Music" = { };
                 "muni/Pictures" = { };
                 "muni/Videos" = { };
+                "muni/annex" = { };
+                "muni/code" = { };
               };
               target = "ssh://192.168.68.70/crypt/backup/breezi/muni";
               snapshot_dir = "/snaps";

@@ -21,6 +21,7 @@
                 "muni/Music" = { };
                 "muni/Pictures" = { };
                 "muni/Videos" = { };
+                "muni/annex" = { };
                 "muni/code" = { };
               };
               snapshot_dir = "/snaps";
@@ -52,6 +53,7 @@
                 "muni/Music" = { };
                 "muni/Pictures" = { };
                 "muni/Videos" = { };
+                "muni/annex" = { };
                 "muni/code" = { };
               };
               target = "ssh://munibot/crypt/backup/cherri/muni";
