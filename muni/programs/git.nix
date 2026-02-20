@@ -50,7 +50,7 @@
         gds = "git diff --staged";
         gf = "git fetch";
         gl = "git log";
-        glp = "git dlog";
+        glp = "git log -p";
         gm = "git merge";
         gma = "git merge --abort";
         gmc = "git merge --continue";
@@ -61,7 +61,7 @@
         gri = "git rebase --interactive";
         grs = "git rebase --skip";
         gs = "git status";
-        gshow = "git dshow";
+        gsh = "git show -p";
         gw = "git switch";
       };
     };
