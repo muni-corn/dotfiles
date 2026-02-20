@@ -2,12 +2,28 @@
 {
   home = {
     # add bugwarrior to pull issues from jira
-    packages = with pkgs; [
-      (python3.buildEnv.override {
-        extraLibs = with pkgs.python3Packages; [ bugwarrior ] ++ bugwarrior.optional-dependencies.jira;
-        ignoreCollisions = true;
-      })
-    ];
+    packages =
+      let
+        # fix the taskw library used by bugwarrior to use taskwarrior 3.
+        # taskw uses the `task` executable. but it is packaged in nixpkgs such that taskwarrior2's `task` is bundled with it.
+        # this overrides the executable bundled with taskw so that it is our configured taskwarrior package.
+        bugwarrior = pkgs.python3Packages.bugwarrior.override {
+          taskw =
+            (pkgs.python3Packages.taskw.override {
+              taskwarrior2 = config.programs.taskwarrior.package;
+            }).overrideAttrs
+              (_: {
+                doCheck = false;
+                doInstallCheck = false;
+              });
+        };
+      in
+      [
+        (pkgs.python3.buildEnv.override {
+          extraLibs = [ bugwarrior ] ++ bugwarrior.optional-dependencies.jira;
+          ignoreCollisions = true;
+        })
+      ];
   };
 
   programs.taskwarrior.config.uda = {
