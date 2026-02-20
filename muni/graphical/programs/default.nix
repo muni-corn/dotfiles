@@ -14,6 +14,7 @@
 
   home.packages = with pkgs; [
     digikam
+    opencode-desktop
     revolt-desktop
   ];
 
