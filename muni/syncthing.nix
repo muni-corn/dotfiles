@@ -45,8 +45,8 @@
               devices = [
                 "breezi"
                 "cherri"
-                "sunni"
                 "munibot"
+                "sunni"
               ];
               versioning = {
                 type = "staggered";
@@ -93,6 +93,18 @@
             id = "15epw-vdxal";
             label = "Other";
             path = "~/sync/other";
+          };
+          opencode = defaultsAnd {
+            id = "opencode";
+            label = "opencode";
+            path = "~/.local/share/opencode";
+
+            # only sync opencode with non-mobile devices
+            devices = [
+              "breezi"
+              "cherri"
+              "munibot"
+            ];
           };
           phone-dcim = defaultsAnd {
             id = "4wpzo-s9jjq";
