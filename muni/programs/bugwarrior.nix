@@ -1,29 +1,30 @@
 { config, pkgs, ... }:
+let
+  # fix the taskw library used by bugwarrior to use taskwarrior 3.
+  # taskw uses the `task` executable. but it is packaged in nixpkgs such that taskwarrior2's `task` is bundled with it.
+  # this overrides the executable bundled with taskw so that it is our configured taskwarrior package.
+  bugwarrior = pkgs.python3Packages.bugwarrior.override {
+    taskw =
+      (pkgs.python3Packages.taskw.override {
+        taskwarrior2 = config.programs.taskwarrior.package;
+      }).overrideAttrs
+        (_: {
+          doCheck = false;
+          doInstallCheck = false;
+        });
+  };
+
+  python-env = pkgs.python3.buildEnv.override {
+    extraLibs = [ bugwarrior ] ++ bugwarrior.optional-dependencies.jira;
+    ignoreCollisions = true;
+  };
+in
 {
   home = {
     # add bugwarrior to pull issues from jira
-    packages =
-      let
-        # fix the taskw library used by bugwarrior to use taskwarrior 3.
-        # taskw uses the `task` executable. but it is packaged in nixpkgs such that taskwarrior2's `task` is bundled with it.
-        # this overrides the executable bundled with taskw so that it is our configured taskwarrior package.
-        bugwarrior = pkgs.python3Packages.bugwarrior.override {
-          taskw =
-            (pkgs.python3Packages.taskw.override {
-              taskwarrior2 = config.programs.taskwarrior.package;
-            }).overrideAttrs
-              (_: {
-                doCheck = false;
-                doInstallCheck = false;
-              });
-        };
-      in
-      [
-        (pkgs.python3.buildEnv.override {
-          extraLibs = [ bugwarrior ] ++ bugwarrior.optional-dependencies.jira;
-          ignoreCollisions = true;
-        })
-      ];
+    packages = [
+      python-env
+    ];
   };
 
   programs.taskwarrior.config.uda = {
@@ -76,4 +77,23 @@
 
   xdg.configFile."bugwarrior/bugwarrior.toml".source =
     config.lib.file.mkOutOfStoreSymlink config.sops.secrets.bugwarrior-toml.path;
+
+  systemd.user = {
+    services.bugwarrior-pull = {
+      Unit.Description = "bugwarrior pull";
+      Service = {
+        Type = "oneshot";
+        ExecStart = "${python-env}/bin/bugwarrior pull";
+      };
+    };
+
+    timers.bugwarrior-pull = {
+      Unit.Description = "Periodical pulling from bugwarrior sources";
+      Timer = {
+        OnCalendar = "*:0/15"; # sync every 15 minutes
+        Unit = "bugwarrior-pull.service";
+      };
+      Install.WantedBy = [ "timers.target" ];
+    };
+  };
 }
