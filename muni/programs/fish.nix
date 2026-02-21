@@ -82,6 +82,11 @@
       v = "vault";
       x = "trash";
 
+      # hledger abbrs
+      hl = "hledger";
+      hlp = "hledger print";
+      hli = "hledger import";
+
       # nh abbrs
       nB = "nh os boot";
       nC = "nh clean all";
