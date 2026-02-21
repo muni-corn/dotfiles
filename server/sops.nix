@@ -18,6 +18,7 @@
       nix_serve_secret_key = { };
       atticd_env = { };
       searx_env = { };
+      keycloak_database_password = { };
     };
   };
 
