@@ -210,6 +210,19 @@
             formatter.command = "rustfmt";
           }
 
+          # hledger
+          {
+            name = "hledger";
+            scope = "source.hledger";
+            file-types = [
+              { glob = "*.hledger"; }
+              { glob = "*.j"; }
+              { glob = "*.journal"; }
+              { glob = "*.rules"; }
+            ];
+            grammar = "ledger";
+          }
+
           # markdown
           {
             name = "markdown";
