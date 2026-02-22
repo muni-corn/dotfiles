@@ -14,7 +14,7 @@
   ];
 
   home.packages = with pkgs; [
-    dragon-drop
+    entr
     taskwarrior-tui
 
     # plain-text accounting

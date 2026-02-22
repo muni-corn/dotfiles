@@ -14,6 +14,7 @@
 
   home.packages = with pkgs; [
     digikam
+    dragon-drop
     opencode-desktop
     revolt-desktop
   ];
