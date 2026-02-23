@@ -49,6 +49,7 @@
         gd = "git diff";
         gds = "git diff --staged";
         gf = "git fetch";
+        gfa = "git fetch --all";
         gl = "git log";
         glp = "git log -p";
         gm = "git merge";
