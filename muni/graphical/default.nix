@@ -62,6 +62,7 @@
 
       # other things
       libnotify
+      kdePackages.kalgebra
       protonvpn-gui
     ];
 
