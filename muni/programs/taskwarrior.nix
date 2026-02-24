@@ -5,6 +5,8 @@
     ../../extra-modules/hm/timew-sync.nix
   ];
 
+  home.packages = [ pkgs.taskwarrior-tui ];
+
   programs = {
     timewarrior = {
       enable = true;

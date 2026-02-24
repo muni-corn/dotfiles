@@ -3,6 +3,7 @@
   imports = [
     ./bugwarrior.nix
     ./fastfetch.nix
+    ./finance.nix
     ./fish.nix
     ./git.nix
     ./helix.nix
@@ -11,17 +12,6 @@
     ./taskwarrior.nix
     ./yazi.nix
     ./zellij.nix
-  ];
-
-  home.packages = with pkgs; [
-    entr
-    taskwarrior-tui
-
-    # plain-text accounting
-    hledger
-    hledger-fmt
-    ledger-autosync
-    puffin
   ];
 
   programs = {
