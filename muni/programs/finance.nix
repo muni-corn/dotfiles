@@ -12,5 +12,8 @@
 
     # pdf to csv
     tabula-java
+
+    # xlsx to csv
+    xlsx2csv
   ];
 }
