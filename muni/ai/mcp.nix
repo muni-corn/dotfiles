@@ -8,6 +8,8 @@
   programs.mcp = {
     enable = true;
     servers = {
+      atlassian.url = "https://mcp.atlassian.com/v1/mcp";
+
       fetch = {
         command = "uvx";
         args = [ "mcp-server-fetch" ];
