@@ -4,14 +4,13 @@
   ...
 }:
 {
-  home.packages = builtins.attrValues {
-    inherit (pkgs)
-      git-absorb
-      git-annex
-      git-crypt
-      git-filter-repo
-      ;
-  };
+  home.packages = with pkgs; [
+    git-absorb
+    git-annex
+    git-crypt
+    git-filter-repo
+    git-wt
+  ];
 
   programs = {
     difftastic = {
