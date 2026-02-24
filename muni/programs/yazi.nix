@@ -39,6 +39,7 @@
             a = "~/Music/ardour";
             c = "~/code";
             d = "~/Documents";
+            l = "~/notebook/ledger";
             m = "~/Music";
             n = "~/notebook";
             o = "~/Downloads";
