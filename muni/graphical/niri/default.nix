@@ -243,16 +243,10 @@ in
             { app-id = "Slack"; }
             { app-id = "equicord"; }
             { app-id = "cinny"; }
-          ];
-
-          block-out-from = "screen-capture";
-          open-on-output = "HDMI-A-1";
-        }
-        {
-          matches = [
             { app-id = "discord"; }
           ];
 
+          block-out-from = "screen-capture";
           open-on-output = "HDMI-A-1";
         }
 
