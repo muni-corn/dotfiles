@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   ...
@@ -8,15 +7,6 @@
 let
   colors = config.lib.stylix.colors;
   red = colors.red;
-
-  scripts = import ../scripts.nix {
-    inherit
-      config
-      inputs
-      lib
-      pkgs
-      ;
-  };
 in
 {
   imports = [

@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   ...
@@ -23,7 +22,6 @@ let
   scripts = import ../scripts.nix {
     inherit
       config
-      inputs
       lib
       pkgs
       ;
@@ -303,9 +301,6 @@ in
     "Mod+Minus".action = spawn "${pkgs.cadenza-shell}/bin/cadenza-shell" "noti" "dismiss";
     "Mod+Equal".action = spawn "${pkgs.cadenza-shell}/bin/cadenza-shell" "noti" "history-pop";
     "Mod+Space".action = spawn "${pkgs.cadenza-shell}/bin/cadenza-shell" "noti" "act";
-
-    # change wallpaper
-    "Mod+Ctrl+W".action = script scripts.switchWallpaper;
 
     # TODO: discord push-to-talk
     # "Print".action = pass "^(discord)$";

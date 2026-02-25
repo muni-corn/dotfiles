@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
 }:
@@ -104,15 +103,6 @@ in
     up = mkBrightnessScript "up" "-A 2";
     down = mkBrightnessScript "down" "-U 2";
   };
-
-  switchWallpaper =
-    let
-      wallpapersDir = "${inputs.muni-wallpapers}/wallpapers";
-    in
-    pkgs.writeShellScript "switch-wallpaper" ''
-      new_wall=$(${pkgs.fd}/bin/fd --type f . ${wallpapersDir} | shuf -n 1)
-      ${pkgs.swww}/bin/swww img $new_wall
-    '';
 
   openJournalFile =
     notebookDir: dateStr:
