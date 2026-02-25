@@ -29,7 +29,7 @@ let
 
   sh = spawn "sh" "-c";
   kitty = lib.getExe config.programs.kitty.package;
-  script = s: spawn (builtins.toString s);
+  script = s: spawn (toString s);
   launch = args: sh "${args}";
   launchInTerminal = args: sh ''${kitty} fish -i -c "${args}"'';
 in
