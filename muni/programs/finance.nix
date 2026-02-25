@@ -2,6 +2,7 @@
 {
 
   home.packages = with pkgs; [
+    bc
     entr
 
     # plain-text accounting
