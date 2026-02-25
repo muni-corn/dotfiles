@@ -94,7 +94,7 @@
       flake = false;
     };
     plymouth-theme-musicaloft-rainbow = {
-      url = "git+https://codeberg.org/municorn/plymouth-theme-musicaloft-rainbow?ref=main";
+      url = "github:muni-corn/plymouth-theme-musicaloft-rainbow";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     trashy = {
