@@ -8,6 +8,8 @@
   ...
 }:
 {
+  imports = [ ./workarounds.nix ];
+
   boot = {
     consoleLogLevel = 0;
 
