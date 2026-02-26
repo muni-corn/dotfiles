@@ -53,5 +53,7 @@
       };
     };
     rules = ./rules.md;
+
+    web.enable = true;
   };
 }
