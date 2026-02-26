@@ -11,6 +11,7 @@
       nixfmt
       nodePackages.typescript-language-server
       oxlint
+      oxfmt
       pest-ide-tools
       rust-analyzer
       sqruff
@@ -149,6 +150,13 @@
             fixKind = "safe_fix_or_suggestion";
           };
         };
+        oxfmt = {
+          command = "oxlint";
+          args = [ "--lsp" ];
+          required-root-patterns = [
+            ".oxfmtrc.json"
+          ];
+        };
         vtsls = {
           command = "vtsls";
           args = [ "--stdio" ];
@@ -197,6 +205,7 @@
             auto-format = true;
             language-servers = [
               "oxlint"
+              "oxfmt"
               {
                 name = "vtsls";
                 except-features = [ "format" ];
@@ -331,6 +340,7 @@
                 except-features = [ "format" ];
               }
               "oxlint"
+              "oxfmt"
             ];
           }
         ];
