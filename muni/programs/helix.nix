@@ -3,7 +3,6 @@
   programs.helix = {
     enable = true;
     extraPackages = with pkgs; [
-      biome
       kdlfmt
       lldb_21
       ltex-ls-plus
@@ -11,11 +10,13 @@
       nixd
       nixfmt
       nodePackages.typescript-language-server
+      oxlint
       pest-ide-tools
       rust-analyzer
       sqruff
       taplo
       tailwindcss-language-server
+      tsgolint
       vscode-langservers-extracted
       vtsls
       wgsl-analyzer
@@ -136,9 +137,17 @@
           command = "tailwindcss-language-server";
           args = [ "--stdio" ];
         };
-        biome = {
-          command = "biome";
-          args = [ "lsp-proxy" ];
+        oxlint = {
+          command = "oxlint";
+          args = [ "--lsp" ];
+          required-root-patterns = [
+            ".oxlintrc.json"
+            "oxlint.config.ts"
+          ];
+          config = {
+            typeAware = true;
+            fixKind = "safe_fix_or_suggestion";
+          };
         };
         vtsls = {
           command = "vtsls";
@@ -187,11 +196,11 @@
             inherit name;
             auto-format = true;
             language-servers = [
+              "oxlint"
               {
                 name = "vtsls";
                 except-features = [ "format" ];
               }
-              "biome"
               "tailwind"
             ];
           };
@@ -321,7 +330,7 @@
                 name = "vscode-json-language-server";
                 except-features = [ "format" ];
               }
-              "biome"
+              "oxlint"
             ];
           }
         ];
