@@ -204,7 +204,6 @@
             inherit name;
             auto-format = true;
             language-servers = [
-              "oxlint"
               "oxfmt"
               {
                 name = "vtsls";
