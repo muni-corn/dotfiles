@@ -147,7 +147,7 @@
           ];
           config = {
             typeAware = true;
-            fixKind = "safe_fix_or_suggestion";
+            fixKind = "safe_fix";
           };
         };
         oxfmt = {
