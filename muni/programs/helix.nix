@@ -205,6 +205,7 @@
             auto-format = true;
             language-servers = [
               "oxfmt"
+              "oxlint"
               {
                 name = "vtsls";
                 except-features = [ "format" ];
