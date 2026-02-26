@@ -339,8 +339,6 @@
                 name = "vscode-json-language-server";
                 except-features = [ "format" ];
               }
-              "oxlint"
-              "oxfmt"
             ];
           }
         ];
