@@ -124,9 +124,6 @@
       # language server configurations
       language-server = {
         # ls's not bundled with helix
-        ltex-ls = {
-          command = "ltex-ls-plus";
-        };
         sqruff = {
           command = "sqruff";
           args = [
