@@ -148,7 +148,7 @@
           };
         };
         oxfmt = {
-          command = "oxlint";
+          command = "oxfmt";
           args = [ "--lsp" ];
           required-root-patterns = [
             ".oxfmtrc.json"
