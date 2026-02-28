@@ -1,8 +1,9 @@
-# Musicaloft development guidelines
+# Musicaloft development agent guidelines
 
-## context7
+## Tools
 
-Always use context7 for up-to-date library documentation and examples.
+- Always use context7 for up-to-date library documentation and examples.
+- Use exa web search for comprehensive research
 
 ## Project structure
 
@@ -18,8 +19,9 @@ Always use context7 for up-to-date library documentation and examples.
 - Variables/functions: descriptive names indicating purpose
 - Types/classes: `PascalCase`
 - Constants: `UPPER_SNAKE_CASE`
-- Files: Follow project convention, or `snake_case.rs` (Rust), `kebab-case.ts`
-  (TypeScript)
+- Files: Follow project convention, or:
+  - Rust: `snake_case.rs`
+  - JavaScript, TypeScript, Markdown: `kebab-case.ts`
 
 ## Code structure
 
@@ -50,7 +52,7 @@ impl UserService {
 
 ## Comments and documentation
 
-- Delegate to `doc` agent for documentation
+- Delegate to `@doc` agent for documentation
 - NEVER generate Markdown files unprompted
 
 ### Comment style
@@ -216,9 +218,6 @@ dependencies.
 - Never commit secrets (use env vars or secret management)
 - Validate and sanitize all inputs
 - Use parameterized queries
-- Implement rate limiting
-- Use `argon2`/`bcrypt` for passwords
-- Audit dependencies regularly (`npm audit`, `cargo audit`)
 - Pin versions, use lock files
 
 ## Performance
@@ -238,8 +237,13 @@ npm install [--save-dev] package-name
 cargo add [--dev|--build] crate-name
 ```
 
-Selection criteria: actively maintained, popular, well-documented, lightweight,
-secure.
+Selection criteria:
+
+- Actively maintained
+- Popular
+- Well-documented
+- Lightweight
+- Secure
 
 ## Language-specific notes
 
