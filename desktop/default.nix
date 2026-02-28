@@ -88,10 +88,20 @@
       };
     };
 
-    services.easyeffects = {
-      enable = true;
-      extraPresets.mic_boost = builtins.fromJSON (builtins.readFile ./mic_boost.json);
-      preset = "mic_boost";
+    services = {
+      easyeffects = {
+        enable = true;
+        extraPresets.mic_boost = builtins.fromJSON (builtins.readFile ./mic_boost.json);
+        preset = "mic_boost";
+      };
+
+      # desktop sleeps after 24h of inactivity
+      hypridle.settings.listener = [
+        {
+          timeout = 86400;
+          on-timeout = "systemctl suspend";
+        }
+      ];
     };
   };
 

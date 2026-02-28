@@ -22,16 +22,26 @@
 
   environment.defaultPackages = with pkgs; [ blender ];
 
-  home-manager.users.muni.programs = {
-    hyprlock.settings = ((import ../utils.nix { inherit config lib; }).mkHyprlockSettings "eDP-1") // {
-      auth = {
-        "fingerprint:enabled" = true;
-        "fingerprint:ready_message" = "Scan to unlock";
-        "fingerprint:present_message" = "Checking";
+  home-manager.users.muni = {
+    programs = {
+      hyprlock.settings = ((import ../utils.nix { inherit config lib; }).mkHyprlockSettings "eDP-1") // {
+        auth = {
+          "fingerprint:enabled" = true;
+          "fingerprint:ready_message" = "Scan to unlock";
+          "fingerprint:present_message" = "Checking";
+        };
       };
+
+      niri.settings.outputs."PNP(HAT) Kamvas 16 0xF000000F".scale = 1.5;
     };
 
-    niri.settings.outputs."PNP(HAT) Kamvas 16 0xF000000F".scale = 1.5;
+    # laptop sleeps after 30min of inactivity
+    services.hypridle.settings.listener = [
+      {
+        timeout = 1800;
+        on-timeout = "systemctl suspend";
+      }
+    ];
   };
 
   musnix.soundcardPciId = "c1:00.6";
