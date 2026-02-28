@@ -210,6 +210,18 @@
               "tailwind"
             ];
           };
+
+          jsonConfig = name: {
+            inherit name;
+            language-servers = [
+              "oxfmt"
+              "oxlint"
+              {
+                name = "vscode-json-language-server";
+                except-features = [ "format" ];
+              }
+            ];
+          };
         in
         [
           {
@@ -329,17 +341,9 @@
           (jsConfig "typescript")
           (jsConfig "tsx")
           (jsConfig "jsx")
-          {
-            name = "json";
-            language-servers = [
-              "oxfmt"
-              "oxlint"
-              {
-                name = "vscode-json-language-server";
-                except-features = [ "format" ];
-              }
-            ];
-          }
+          (jsonConfig "json")
+          (jsonConfig "json-ld")
+          (jsonConfig "jsonc")
         ];
     };
   };
