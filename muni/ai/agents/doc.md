@@ -30,7 +30,7 @@ maintainability.
 - Use proper docstring format for the language (JSDoc, Sphinx, rustdoc, etc.)
 - Document params, returns, exceptions, edge cases
 - Include examples when helpful
-- Focus on *why* and *how*, not just *what*
+- Focus on _why_ and _how_, not just _what_
 - Use active voice, present tense
 - Avoid redundant info inferable from code
 

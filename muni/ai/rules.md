@@ -57,7 +57,7 @@ impl UserService {
 
 ### Comment style
 
-- **Inline comments:** all lowercase, explain *why* not *what*
+- **Inline comments:** all lowercase, explain _why_ not _what_
 - **Doc comments:** MUST use sentence case (capitalize first word, end with
   period). Document public APIs with params, returns, examples
 - **TODOs:** include issue numbers, be specific

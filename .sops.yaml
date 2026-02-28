@@ -9,18 +9,17 @@ creation_rules:
   - path_regex: ^sops/secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:
       - age:
-        - *desktop
-        - *munibot
-        - *laptop
+          - *desktop
+          - *munibot
+          - *laptop
   - path_regex: ^muni/sops/secrets/[^/]+\.(yaml|json|env|ini)$
     key_groups:
       - age:
-        - *home_desktop
-        - *home_laptop
-        - *home_munibot
+          - *home_desktop
+          - *home_laptop
+          - *home_munibot
   - path_regex: ^(twitchtrot|server)/secrets.yaml$
     key_groups:
       - age:
-        - *munibot
-        - *home_munibot
-
+          - *munibot
+          - *home_munibot

@@ -93,20 +93,17 @@ Each system has a different module composition defined in
 
 - **cherri (laptop)**: `commonModules` + `commonGraphicalModules` +
   `laptopModules`
-
   - Framework 16 AMD hardware
   - Full graphical environment with Niri compositor
   - Audio production, gaming, art tools
 
 - **breezi (desktop)**: `commonModules` + `commonGraphicalModules` +
   `desktopModules`
-
   - AMD CPU + GPU
   - Full graphical environment
   - Gaming, VR, audio/video production
 
 - **munibot (server)**: `commonModules` + `munibotModules`
-
   - No graphical environment
   - Runs various services (Home Assistant, Forgejo, Nextcloud, Minecraft, etc.)
   - Includes munibot Discord bot
