@@ -297,13 +297,6 @@
           {
             name = "sql";
             auto-format = true;
-            formatter = {
-              command = "sqruff";
-              args = [
-                "fix"
-                "-"
-              ];
-            };
             language-servers = [ "sqruff" ];
           }
           {
