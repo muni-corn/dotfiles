@@ -249,14 +249,42 @@ Selection criteria:
 
 ### Rust
 
-- Choose appropriate ownership: `String` (takes ownership), `&str` (borrows),
-  `&mut String` (mutable borrow)
-- Prefer borrowing over ownership transfer when possible
+Use the modern module file structure: a module named `foo` should be declared in
+`foo.rs` alongside its submodule directory `foo/`
+
+```
+src/
+  main.rs
+  foo.rs        ← module declaration and top-level items
+  foo/
+    bar.rs      ← submodule
+    baz.rs      ← submodule
+```
 
 ### TypeScript
 
 - Never use `any`; use proper types or `unknown`
 - Use `async`/`await` over callbacks
+
+## Nix development environments
+
+When working in a repository that contains a `flake.nix`, use `nix develop` to
+run commands within the development environment:
+
+```bash
+nix develop --command <command> <args>
+```
+
+If the flake uses `devenv` (i.e., `devenv.nix` or `devenv.yaml` is present, or
+`devenv` appears as a flake input), add `--no-pure-eval`:
+
+```bash
+nix develop --no-pure-eval --command <command> <args>
+```
+
+This ensures commands run with the correct tools, environment variables, and
+shell hooks defined by the flake. You can also use this to test changes made to
+the flake's development environment itself.
 
 ## When in doubt
 
