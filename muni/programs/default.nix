@@ -14,6 +14,8 @@
     ./zellij.nix
   ];
 
+  home.packages = [ pkgs.graph-cli ];
+
   programs = {
     # let home-manager install and manage itself
     home-manager.enable = true;
