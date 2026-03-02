@@ -1,8 +1,6 @@
 let
-  overlay = final: prev: {
-    lager = prev.lager.override { boost = final.boost188; };
-  };
+  fixesOverlay = final: prev: { };
 in
 {
-  nixpkgs.overlays = [ overlay ];
+  nixpkgs.overlays = [ fixesOverlay ];
 }
