@@ -283,14 +283,10 @@
           {
             name = "scss";
             auto-format = true;
-            formatter = {
-              command = "dprint";
-              args = [
-                "fmt"
-                "--stdin"
-                "scss"
-              ];
-            };
+            language-servers = [
+              "oxfmt"
+              "tailwind"
+            ];
           }
 
           # sql
