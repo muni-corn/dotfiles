@@ -35,6 +35,11 @@
         url = "https://mcp.exa.ai/mcp";
         headers.Authorization = "Bearer {file:${config.sops.secrets.exa_ai_key.path}}";
       };
+
+      firefox = {
+        command = "npx";
+        args = [ "@padenot/firefox-devtools-mcp" ];
+      };
     };
   };
 }
