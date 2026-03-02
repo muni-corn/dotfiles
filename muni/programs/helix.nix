@@ -126,14 +126,18 @@
         };
         oxlint = {
           command = "oxlint";
-          args = [ "--lsp" ];
+          args = [
+            "--lsp"
+          ];
           required-root-patterns = [
             ".oxlintrc.json"
             "oxlint.config.ts"
           ];
           config = {
             typeAware = true;
+            typeCheck = true;
             fixKind = "safe_fix";
+            unusedDisableDirectives = "warn";
           };
         };
         oxfmt = {
