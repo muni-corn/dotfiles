@@ -21,17 +21,6 @@
       vscode-langservers-extracted
       vtsls
       wgsl-analyzer
-
-      (mdformat.withPlugins (
-        p: with p; [
-          mdformat-admon
-          mdformat-footnote
-          mdformat-frontmatter
-          mdformat-simple-breaks
-          mdformat-gfm
-          mdformat-wikilink
-        ]
-      ))
     ];
     defaultEditor = true;
     settings = {
@@ -254,13 +243,8 @@
           {
             name = "markdown";
             auto-format = true;
-            formatter = {
-              command = "mdformat";
-              args = [
-                "-"
-              ];
-            };
             language-servers = [
+              "oxfmt"
               "ltex-ls-plus"
               "markdown-oxide"
             ];
