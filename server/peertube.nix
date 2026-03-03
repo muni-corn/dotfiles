@@ -6,7 +6,7 @@
       dataDirs = [ "/crypt/peertube" ];
       enableWebHttps = true;
       localDomain = "watch.musicaloft.com";
-      listenWeb = 8823;
+      listenWeb = 443;
       listenHttp = 8823;
       secrets.secretsFile = config.sops.secrets.peertube_secrets_file.path;
 
@@ -42,7 +42,7 @@
 
       virtualHosts.${config.services.peertube.localDomain} = {
         extraConfig = ''
-          reverse_proxy 127.0.0.1:${builtins.toString config.services.peertube.listenWeb}
+          reverse_proxy 127.0.0.1:${toString config.services.peertube.listenHttp}
           header Host watch.musicaloft.com
         '';
       };
