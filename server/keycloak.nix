@@ -17,8 +17,8 @@
       database.passwordFile = config.sops.secrets.keycloak_database_password.path;
       settings = {
         hostname = "id.musicaloft.com";
-        http-port = 10080;
-        https-port = 10443;
+        http-port = 9080;
+        https-port = 9443;
 
         # caddy terminates tls and forwards requests over http, so tell
         # keycloak to trust forwarded headers and allow plain http
