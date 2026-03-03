@@ -10,13 +10,21 @@
       ${config.programs.fish.package}/bin/fish -i -c "tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time=No --lean_prompt_height='One line' --prompt_spacing=Compact --icons='Few icons' --transient=Yes"
     '';
 
-    packages = with pkgs.fishPlugins; [
-      done
-      foreign-env
-      plugin-git
-      sponge
-      tide
-    ];
+    packages =
+      with pkgs.fishPlugins;
+      [
+        done
+        foreign-env
+        plugin-git
+        sponge
+        tide
+      ]
+      ++ (with pkgs; [
+        # for qr scanning
+        slurp
+        grim
+        zbar
+      ]);
   };
 
   programs.fish = {
