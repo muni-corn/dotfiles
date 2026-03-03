@@ -19,6 +19,11 @@
         hostname = "id.musicaloft.com";
         http-port = 10080;
         https-port = 10443;
+
+        # caddy terminates tls and forwards requests over http, so tell
+        # keycloak to trust forwarded headers and allow plain http
+        proxy-headers = "xforwarded";
+        http-enabled = true;
       };
     };
   };
