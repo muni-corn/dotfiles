@@ -15,6 +15,7 @@
   home.packages = with pkgs; [
     digikam
     dragon-drop
+    geogebra6
     opencode-desktop
     revolt-desktop
   ];
