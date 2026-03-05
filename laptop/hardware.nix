@@ -60,9 +60,20 @@
 
   swapDevices = [ { device = "/dev/disk/by-uuid/4c0de7c7-61e8-4b10-ae4a-2205d161d6d5"; } ];
 
+  powerManagement.powertop.postStart = ''
+    # retrigger keyboard udev rules to disable autosuspend
+    ${lib.getExe' config.systemd.package "udevadm"} trigger -c bind -s usb -a idVendor=32ac -a idProduct=0012
+
+    # retrigger macropad udev rules to disable autosuspend
+    ${lib.getExe' config.systemd.package "udevadm"} trigger -c bind -s usb -a idVendor=32ac -a idProduct=0013
+  '';
+
   services.udev.extraRules = ''
-    # Audio Expansion Card
-    ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="32ac", ATTR{idProduct}=="0010", ATTR{power/autosuspend}="10", ATTR{power/control}="auto"
+    # disable USB auto suspend for framework keyboard
+    ACTION=="bind", SUBSYSTEM=="usb", ATTR{idVendor}=="32ac", ATTR{idProduct}=="0012", TEST=="power/control", ATTR{power/control}="on"
+
+    # disable USB auto suspend for framework macropad
+    ACTION=="bind", SUBSYSTEM=="usb", ATTR{idVendor}=="32ac", ATTR{idProduct}=="0013", TEST=="power/control", ATTR{power/control}="on"
   '';
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking

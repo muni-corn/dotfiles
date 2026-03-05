@@ -55,7 +55,12 @@
   };
 
   # force governor to default null to spite musnix
-  powerManagement.cpuFreqGovernor = lib.mkForce null;
+  powerManagement = {
+    cpuFreqGovernor = lib.mkForce null;
+
+    # auto-tunes with powertop on startup. see hardware.nix for disabling autosuspend on keyboard and macropad for Framework 16
+    powertop.enable = true;
+  };
 
   # enable fingerprint for hyprlock
   security.pam.services.hyprlock.fprintAuth = true;
