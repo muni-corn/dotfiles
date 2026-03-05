@@ -99,8 +99,8 @@
 
         # set which columns show for the `next` report
         report.next = {
-          columns = "id,start.age,entry.age,depends,priority,estimate,project,tags,recur,scheduled.relative,due.relative,until.relative,description,urgency";
-          labels = "id,active,age,deps,p,est,project,tag,recur,scheduled,due,until,description,urg";
+          columns = "id,priority,due.relative,description,entry.age,estimate,project,tags,scheduled.relative,until.relative,urgency";
+          labels = "id,p,due,description,age,est,project,tags,avail,until,urg";
         };
 
         # give space for terminal prompts
