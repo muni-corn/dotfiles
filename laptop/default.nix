@@ -83,5 +83,12 @@
     fprintd.enable = true;
 
     logind.settings.Login.HandleLidSwitch = "suspend-then-hibernate";
+
+    power-profiles-daemon.enable = false;
+
+    tlp = {
+      enable = true;
+      pd.enable = true;
+    };
   };
 }
