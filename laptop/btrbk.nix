@@ -17,6 +17,7 @@
             };
             "/home" = {
               subvolume = {
+                "muni/Downloads" = { };
                 "muni/Documents" = { };
                 "muni/Music" = { };
                 "muni/Pictures" = { };
@@ -49,6 +50,7 @@
             };
             "/home" = {
               subvolume = {
+                "muni/Downloads" = { };
                 "muni/Documents" = { };
                 "muni/Music" = { };
                 "muni/Pictures" = { };
