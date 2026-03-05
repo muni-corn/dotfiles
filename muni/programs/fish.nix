@@ -92,8 +92,10 @@
 
       # hledger abbrs
       hl = "hledger";
-      hlp = "hledger print";
+      hlb = "hledger balance";
       hli = "hledger import";
+      hlp = "hledger print";
+      hlr = "hledger register";
 
       # nh abbrs
       nB = "nh os boot";
