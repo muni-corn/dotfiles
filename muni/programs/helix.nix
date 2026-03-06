@@ -238,7 +238,6 @@
               { glob = "*.hledger"; }
               { glob = "*.j"; }
               { glob = "*.journal"; }
-              { glob = "*.rules"; }
             ];
             auto-format = true;
             formatter = {
@@ -249,6 +248,15 @@
                 "--exit-zero-on-changes"
               ];
             };
+          }
+          {
+            name = "hlrules";
+            scope = "source.ledger";
+            file-types = [
+              { glob = "*.rules"; }
+            ];
+            auto-format = false;
+            grammar = "ledger";
           }
 
           # markdown
