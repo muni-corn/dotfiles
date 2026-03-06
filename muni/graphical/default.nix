@@ -34,7 +34,6 @@
 
       # photo
       hugin
-      inkscape
       kdePackages.gwenview
       krita
       loupe
