@@ -3,6 +3,7 @@
   programs.helix = {
     enable = true;
     extraPackages = with pkgs; [
+      hledger-fmt
       kdlfmt
       lldb_21
       ltex-ls-plus
@@ -10,13 +11,13 @@
       nixd
       nixfmt
       nodePackages.typescript-language-server
-      oxlint
       oxfmt
+      oxlint
       pest-ide-tools
       rust-analyzer
       sqruff
-      taplo
       tailwindcss-language-server
+      taplo
       tsgolint
       vscode-langservers-extracted
       vtsls
@@ -232,15 +233,21 @@
 
           # hledger
           {
-            name = "hledger";
-            scope = "source.hledger";
+            name = "ledger";
             file-types = [
               { glob = "*.hledger"; }
               { glob = "*.j"; }
               { glob = "*.journal"; }
               { glob = "*.rules"; }
             ];
-            grammar = "ledger";
+            formatter = {
+              command = "hledger-fmt";
+              args = [
+                "-"
+                "--no-diff"
+                "--exit-zero-on-changes"
+              ];
+            };
           }
 
           # markdown
