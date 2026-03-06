@@ -41,7 +41,6 @@
       # photo
       gmic
       gmic-qt
-      upscayl
 
       # emulators and "emulators"
       wineWow64Packages.waylandFull

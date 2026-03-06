@@ -39,6 +39,7 @@
       krita
       loupe
       rawtherapee
+      upscayl
 
       # video utilities
       celluloid
