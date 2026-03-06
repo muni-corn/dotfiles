@@ -14,7 +14,7 @@
     colorGeneration.polarity = "dark";
 
     # background
-    image = ./nighttime_sailing__by_smoothwild.png;
+    image = ./everen__by_me__ai_enhanced.png;
 
     # cursor
     cursor = {
