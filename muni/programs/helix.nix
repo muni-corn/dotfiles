@@ -240,6 +240,7 @@
               { glob = "*.journal"; }
               { glob = "*.rules"; }
             ];
+            auto-format = true;
             formatter = {
               command = "hledger-fmt";
               args = [
