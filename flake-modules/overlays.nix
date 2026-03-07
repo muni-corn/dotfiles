@@ -10,6 +10,7 @@ let
     # custom packages overlay
     (final: prev: {
       cadenza-shell = inputs.cadenza-shell.packages.${final.system}.default;
+      pinentry-cadenza = inputs.pinentry-cadenza.packages.${final.system}.default;
       trashy = prev.trashy.overrideAttrs (
         oldAttrs:
         let

@@ -129,9 +129,6 @@
 
     cloudflare-warp.enable = true;
 
-    # for pinentry-gnome3
-    dbus.packages = [ pkgs.gcr ];
-
     # geolocation
     geoclue2 = {
       enable = true;

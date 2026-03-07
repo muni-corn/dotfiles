@@ -93,6 +93,10 @@
       url = "github:muni-corn/muni-wallpapers";
       flake = false;
     };
+    pinentry-cadenza = {
+      url = "git+https://git.musicaloft.com/municorn/pinentry-cadenza";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     plymouth-theme-musicaloft-rainbow = {
       url = "github:muni-corn/plymouth-theme-musicaloft-rainbow";
       inputs.nixpkgs.follows = "nixpkgs";
