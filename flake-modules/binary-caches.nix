@@ -7,6 +7,7 @@
       "ai.cachix.org-1:N9dzRK+alWwoKXQlnn0H6aUx0lU/mspIoz8hMvGvbbc="
       "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
       "cache.musicaloft.com-1:PJpSmkJWpOJ+7qNZWiblTfyQhx2kc97Iu+ivqyfwwXI="
+      "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
     ];
     substituters = [
       "https://municorn.cachix.org"
@@ -15,6 +16,7 @@
       "https://ai.cachix.org"
       "https://nix-community.cachix.org"
       "https://cache.musicaloft.com"
+      "https://nix-community.cachix.org"
     ];
   };
 }
