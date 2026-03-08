@@ -8,6 +8,7 @@
     # plain-text accounting
     hledger
     hledger-fmt
+    rustledger
     ledger-autosync
     puffin
 

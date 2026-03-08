@@ -54,6 +54,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # rustledger
+    rustledger = {
+      url = "github:rustledger/rustledger";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # for runtime-decrypted secrets
     sops-nix = {
       url = "github:Mic92/sops-nix";

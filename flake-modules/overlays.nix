@@ -10,7 +10,13 @@ let
     # custom packages overlay
     (final: prev: {
       cadenza-shell = inputs.cadenza-shell.packages.${final.system}.default;
+
       pinentry-cadenza = inputs.pinentry-cadenza.packages.${final.system}.default;
+
+      rustledger = inputs.rustledger.packages.${final.system}.default.overrideAttrs (old: {
+        doCheck = false;
+      });
+
       trashy = prev.trashy.overrideAttrs (
         oldAttrs:
         let
@@ -43,7 +49,5 @@ in
       };
     };
 
-  flake.nixosModules.overlays = {
-    nixpkgs.overlays = overlaysList;
-  };
+  flake.nixosModules.overlays.nixpkgs.overlays = overlaysList;
 }

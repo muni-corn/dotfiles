@@ -14,6 +14,7 @@
       oxfmt
       oxlint
       pest-ide-tools
+      rustledger
       rust-analyzer
       sqruff
       tailwindcss-language-server
@@ -114,6 +115,7 @@
       # language server configurations
       language-server = {
         # ls's not bundled with helix
+        rledger-lsp.command = "rledger-lsp";
         sqruff = {
           command = "sqruff";
           args = [
@@ -281,6 +283,13 @@
             name = "nix";
             formatter.command = "nixfmt";
             auto-format = true;
+          }
+
+          # rustledger
+          {
+            name = "beancount";
+            auto-format = true;
+            language-servers = [ "rledger-lsp" ];
           }
 
           # scss
