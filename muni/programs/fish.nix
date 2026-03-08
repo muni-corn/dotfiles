@@ -88,7 +88,7 @@
       r = "ranger";
       s = "kitten ssh";
       v = "vault";
-      x = "trash";
+      x = "trash put";
 
       # hledger abbrs
       hl = "hledger";
