@@ -2,8 +2,10 @@
 
 ## Tools
 
-- Always use context7 for up-to-date library documentation and examples.
-- Use exa web search for comprehensive research
+- Use context7 for up-to-date library documentation and examples.
+- Use exa web search for comprehensive research.
+- Use `fd` instead of `find`.
+- Use `rg` instead of `grep`.
 
 ## Project structure
 
