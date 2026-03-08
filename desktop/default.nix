@@ -114,8 +114,6 @@
     firewall.allowedTCPPorts = [ 3000 ];
   };
 
-  nixpkgs.config.rocmSupport = true;
-
   programs = {
     dconf.enable = true; # for easyeffects
     corectrl.enable = true;
