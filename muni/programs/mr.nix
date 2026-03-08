@@ -85,6 +85,7 @@
         "code/munibot" = fromMuni "munibot";
         "code/musicaloft-style" = fromMusicaloft "musicaloft" "musicaloft-style";
         "code/musicaloft-web" = fromMusicaloft "musicaloft" "musicaloft-web";
+        "code/pinentry-cadenza" = fromMuni "pinentry-cadenza";
         "code/nix-templates" = fromMuni "nix-templates";
         "code/silverfox" = fromMuni "silverfox";
         "code/unity/muni-vrc" = fromMuni "muni-vrc";
