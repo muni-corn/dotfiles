@@ -77,15 +77,13 @@
         };
 
         # my projects
-        "code/cadenza-shell" = fromMuni "cadenza-shell";
-        "code/cadenza-sounds" = fromMuni "cadenza-sounds";
+        "code/cadenza" = fromMuni "cadenza";
         "code/cocoa" = fromMuni "cocoa";
         "code/hueflux" = fromMusicaloft "municorn" "hueflux";
         "code/muni-wallpapers" = fromMuni "muni-wallpapers";
         "code/munibot" = fromMuni "munibot";
         "code/musicaloft-style" = fromMusicaloft "musicaloft" "musicaloft-style";
         "code/musicaloft-web" = fromMusicaloft "musicaloft" "musicaloft-web";
-        "code/pinentry-cadenza" = fromMuni "pinentry-cadenza";
         "code/nix-templates" = fromMuni "nix-templates";
         "code/silverfox" = fromMuni "silverfox";
         "code/unity/muni-vrc" = fromMuni "muni-vrc";
