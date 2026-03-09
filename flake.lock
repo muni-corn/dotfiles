@@ -4862,11 +4862,11 @@
         "tinted-zed": "tinted-zed"
       },
       "locked": {
-        "lastModified": 1772933847,
-        "narHash": "sha256-eExkg9VxCyNgrWCB+fSyt2v/XrQ78Sqz2ahf8bEow9w=",
+        "lastModified": 1773015389,
+        "narHash": "sha256-HTlGATCmqFX0ZOnbF7Z5tB1WB9lTIelNMK7Cbtc7F4M=",
         "owner": "muni-corn",
         "repo": "stylix",
-        "rev": "7b633d7d4ee94118d88deba801d403dc378c64df",
+        "rev": "9ad9e704a74961e09802657048f797bc1533bd23",
         "type": "github"
       },
       "original": {
