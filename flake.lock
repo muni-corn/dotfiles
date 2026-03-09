@@ -506,11 +506,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1766166303,
-        "narHash": "sha256-5Jf8o3UxCjOwad85m+gmhgb/m/8lRyZy7Qd8okU6Tos=",
+        "lastModified": 1773030369,
+        "narHash": "sha256-4T7rQQAiACn1ZUIqwbUzzLc8zAJIZmCkCfPrq5Ouv3g=",
         "owner": "muni-corn",
         "repo": "cadenza-sounds",
-        "rev": "2ad906da978815df0601d84a7d95f2397c4fc8c7",
+        "rev": "e5c2131681396990992e9b382483670623817dfc",
         "type": "github"
       },
       "original": {
