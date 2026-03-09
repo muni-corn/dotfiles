@@ -19,9 +19,7 @@
         enable = true;
         diffToolMode = true;
       };
-      options = {
-        background = "dark";
-      };
+      options.background = "dark";
     };
 
     fish = {
