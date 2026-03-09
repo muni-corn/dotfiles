@@ -19,7 +19,11 @@
         enable = true;
         diffToolMode = true;
       };
-      options.background = "dark";
+      options = {
+        context = 5;
+        display = "side-by-side-show-both";
+        background = "dark";
+      };
     };
 
     fish = {
@@ -75,10 +79,10 @@
     git =
       let
         diffrColorsList = [
-          "added:foreground:green"
-          "removed:foreground:red"
-          "refine-added:foreground:green:background:8:bold"
-          "refine-removed:foreground:red:background:8:bold"
+          "added:foreground:12"
+          "removed:foreground:9"
+          "refine-added:foreground:12:background:8:bold"
+          "refine-removed:foreground:9:background:8:bold"
         ];
         diffrColors = builtins.concatStringsSep " --colors " diffrColorsList;
       in
