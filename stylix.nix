@@ -6,6 +6,9 @@
 {
   imports = [ inputs.stylix.nixosModules.stylix ];
 
+  # for toying with matugen
+  environment.systemPackages = [ pkgs.matugen ];
+
   stylix = {
     enable = true;
     autoEnable = true;
