@@ -102,6 +102,23 @@
       hlp = "hledger print";
       hlr = "hledger register";
 
+      # rledger abbrs
+      rl = "rledger";
+      rlB = "rledger report balsheet";
+      rlC = "rledger report commodities";
+      rla = "rledger report accounts";
+      rlb = "rledger report balances";
+      rlc = "rledger check";
+      rld = "rledger doctor";
+      rlf = "rledger format";
+      rlh = "rledger report holdings";
+      rli = "rledger report income";
+      rln = "rledger report networth";
+      rlp = "rledger price";
+      rlq = "rledger query";
+      rlr = "rledger report journal";
+      rls = "rledger report stats";
+
       # nh abbrs
       nB = "nh os boot";
       nC = "nh clean all";
