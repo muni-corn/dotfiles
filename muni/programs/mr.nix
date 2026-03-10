@@ -98,7 +98,6 @@
         "code/relm4-icons" = fromGitHubForkRenamed "Relm4" "icons" "relm4-icons";
         "code/rustledger" = fromGitHubFork "rustledger" "rustledger";
         "code/stylix" = fromGitHubFork "nix-community" "stylix";
-        "code/trashy" = fromGitHubFork "oberblastmeister" "trashy";
         "code/opencode" = fromGitHubFork "anomalyco" "opencode";
         "code/opencommit" = fromGitHubFork "di-sukharev" "opencommit";
 

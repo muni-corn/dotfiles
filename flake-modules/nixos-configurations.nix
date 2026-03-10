@@ -12,7 +12,7 @@ let
     { lib, pkgs, ... }:
     {
       home-manager = {
-        backupCommand = "${lib.getExe pkgs.trashy}";
+        backupCommand = lib.getExe' pkgs.trash-cli "trash put";
         extraSpecialArgs = specialArgs;
         useGlobalPkgs = true;
         useUserPackages = true;
