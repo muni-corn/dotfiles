@@ -4807,11 +4807,11 @@
         "treefmt-nix": "treefmt-nix_13"
       },
       "locked": {
-        "lastModified": 1772876944,
-        "narHash": "sha256-b+srCb9wSQp3iGittgxr8mA6rc0G1pnvO/dYZsZUZdw=",
+        "lastModified": 1773014355,
+        "narHash": "sha256-7k3Vz/+6J5e30c0h/PGzOoKE6lSFMRv577k2EkUmvb4=",
         "owner": "rustledger",
         "repo": "rustledger",
-        "rev": "3c16ed7fa34ac22da6567d40c45970821ebb81a7",
+        "rev": "7775335df2a92f78371f7b22999465a3ccaaa478",
         "type": "github"
       },
       "original": {
