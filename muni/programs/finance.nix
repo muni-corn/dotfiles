@@ -8,8 +8,9 @@
     # plain-text accounting
     hledger
     hledger-fmt
-    rustledger
+    ledger2beancount
     ledger-autosync
+    rustledger
     puffin
 
     # pdf to csv
