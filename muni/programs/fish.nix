@@ -29,6 +29,11 @@
 
   programs.fish = {
     enable = true;
+
+    completions.rledger = ''
+      ${lib.getExe' pkgs.rustledger "rledger"} completions fish | source
+    '';
+
     functions = {
       add-dates = {
         description = "add date prefixes to the given files";
