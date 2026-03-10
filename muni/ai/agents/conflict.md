@@ -2,8 +2,6 @@
 description: Resolves Git conflicts
 mode: all
 model: opencode/claude-opus-4-6
-tools:
-  write: false
 ---
 
 You are an expert Git conflict resolution specialist with deep knowledge of
