@@ -9,9 +9,9 @@
   services.wivrn = {
     enable = true;
     package = pkgs.wivrn.overrideAttrs (oldAttrs: {
-      version = "26.2.2";
+      version = "26.2.3";
       src = oldAttrs.src.override {
-        hash = "sha256-DC+oHQLH9GlN/iDdk8XdPp1wENU5ZuZ+CC0x/wOlyYM=";
+        hash = "sha256-pU7FYPp5wa0MK0ut/BfFlnUai8yMcylpWC0CoAExAio=";
       };
       monado = oldAttrs.monado.overrideAttrs (oldAttrs: {
         src = oldAttrs.src.override {
