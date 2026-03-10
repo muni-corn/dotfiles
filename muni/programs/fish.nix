@@ -88,7 +88,6 @@
       e = "hx"; # for 'editor'
       f = "yazi"; # for 'files'
       h = "hx";
-      o = "opencode";
       q = "exit";
       r = "ranger";
       s = "kitten ssh";
@@ -101,6 +100,18 @@
       hli = "hledger import";
       hlp = "hledger print";
       hlr = "hledger register";
+
+      # nh abbrs
+      nB = "nh os boot";
+      nC = "nh clean all";
+      nS = "nh search";
+      nb = "nh os build";
+      ns = "nh os switch";
+      nt = "nh os test";
+
+      # opencode abbrs
+      o = "opencode";
+      oc = "opencode --continue";
 
       # rledger abbrs
       rl = "rledger";
@@ -119,13 +130,11 @@
       rlr = "rledger report journal";
       rls = "rledger report stats";
 
-      # nh abbrs
-      nB = "nh os boot";
-      nC = "nh clean all";
-      nS = "nh search";
-      nb = "nh os build";
-      ns = "nh os switch";
-      nt = "nh os test";
+      # timewarrior abbrs
+      T = "timew";
+      TS = "timew summary :ids";
+      TM = "timew modify";
+      TY = "timew || timewsync";
 
       # taskwarrior abbrs
       t = "task";
@@ -141,12 +150,6 @@
       tt = "taskwarrior-tui";
       ty = "task sync";
       tS = "task stop";
-
-      # timewarrior abbrs
-      T = "timew";
-      TS = "timew summary :ids";
-      TM = "timew modify";
-      TY = "timew || timewsync";
 
       # change directory to git root with zoxide
       zr = "z (git rev-parse --show-toplevel)";
