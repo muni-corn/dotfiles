@@ -92,6 +92,7 @@
         "code/commitlint-rs" = fromGitHubFork "KeisukeYamashita" "commitlint-rs";
         "code/devenv" = fromGitHubFork "cachix" "devenv";
         "code/home-manager" = fromGitHubFork "nix-community" "home-manager";
+        "code/matugen" = fromGitHubFork "InioX" "matugen";
         "code/niri-flake" = fromGitHubFork "sodiboo" "niri-flake";
         "code/nixpkgs" = fromGitHubFork "NixOS" "nixpkgs";
         "code/relm4" = fromGitHubFork "Relm4" "relm4";
