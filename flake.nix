@@ -15,6 +15,12 @@
     # geonkick 2
     # geonkick-nixpkgs.url = "github:nixos/nixpkgs/1af754ac1e481efa5284df47d6e13be09f69bc53";
 
+    # a fork of Material You theming
+    matugen = {
+      url = "github:muni-corn/matugen/new-base16-backend";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # realtime audio
     musnix = {
       url = "github:musnix/musnix";
@@ -69,7 +75,10 @@
     # for system themes and styling
     stylix = {
       url = "github:muni-corn/stylix/matugen";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        matugen.follows = "matugen";
+      };
     };
 
     # pinned surrealdb for munibot
