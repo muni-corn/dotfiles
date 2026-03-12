@@ -220,8 +220,10 @@
       '';
     };
 
-    # configures git, too
-    mergiraf.enable = true;
+    mergiraf = {
+      enable = true;
+      enableGitIntegration = true;
+    };
   };
 
 }
