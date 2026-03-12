@@ -17,7 +17,7 @@
     colorGeneration.polarity = "dark";
 
     # background
-    image = ./everen__by_me__ai_enhanced.png;
+    image = ./musicia__by_saphymoon.jpg;
 
     # cursor
     cursor = {
