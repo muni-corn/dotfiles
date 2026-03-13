@@ -20,15 +20,13 @@ let
   };
 in
 {
-  home = {
-    # add bugwarrior to pull issues from jira
-    packages = [
-      python-env
-    ];
-  };
+  home.packages = [
+    # add bugwarrior env to pull issues from jira
+    python-env
+  ];
 
+  # jira service uda from bugwarrior
   programs.taskwarrior.config.uda = {
-    # jira uda
     jiraissuetype = {
       type = "string";
       label = "Issue Type";
