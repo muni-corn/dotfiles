@@ -82,7 +82,7 @@
         "code/hueflux" = fromMusicaloft "municorn" "hueflux";
         "code/muni-wallpapers" = fromMuni "muni-wallpapers";
         "code/munibot" = fromMuni "munibot";
-        "code/musicaloft-style" = fromMusicaloft "musicaloft" "musicaloft-style";
+        "code/musicaloft-shell" = fromMusicaloft "musicaloft" "musicaloft-shell";
         "code/musicaloft-web" = fromMusicaloft "musicaloft" "musicaloft-web";
         "code/nix-templates" = fromMuni "nix-templates";
         "code/silverfox" = fromMuni "silverfox";
