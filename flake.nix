@@ -2,6 +2,11 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
+    devenv = {
+      url = "github:cachix/devenv";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
       inputs.nixpkgs-lib.follows = "nixpkgs";
@@ -92,9 +97,9 @@
       url = "github:muni-corn/munibot";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    musicaloft-style = {
-      url = "github:musicaloft/musicaloft-style";
-      inputs.nixpkgs.follows = "nixpkgs";
+    musicaloft-shell = {
+      url = "github:musicaloft/musicaloft-shell/devenv";
+      flake = false;
     };
     cadenza-shell = {
       url = "github:muni-corn/cadenza-shell";
@@ -117,7 +122,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # required for devenv from musicaloft-style shell
+    # required for devenv from musicaloft-shell
     devenv-root = {
       url = "file+file:///dev/null";
       flake = false;
@@ -130,10 +135,14 @@
       systems = [ "x86_64-linux" ];
 
       imports = [
-        inputs.musicaloft-style.flakeModule
+        inputs.devenv.flakeModule
 
         ./flake-modules/overlays.nix
         ./flake-modules/nixos-configurations.nix
+      ];
+
+      perSystem.devenv.shells.default.imports = [
+        "${inputs.musicaloft-shell}/devenv.nix"
       ];
     };
 }
