@@ -23,6 +23,7 @@
       vscode-langservers-extracted
       vtsls
       wgsl-analyzer
+      yaml-language-server
     ];
     defaultEditor = true;
     settings = {
