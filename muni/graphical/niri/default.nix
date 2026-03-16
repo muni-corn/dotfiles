@@ -7,11 +7,10 @@
 let
   colors = config.lib.stylix.colors;
   red = colors.red;
+  transparent = "#00000000";
 in
 {
-  imports = [
-    ./keys.nix
-  ];
+  imports = [ ./keys.nix ];
 
   programs.niri = {
     # enable = true;
@@ -108,15 +107,12 @@ in
 
         default-column-width.proportion = 0.5;
 
-        focus-ring = {
+        focus-ring.enable = false;
+        border = {
           enable = true;
           width = 2;
-          active.color = "#fffc";
-          inactive.color = "#8888";
-          urgent.color = "#fa0";
-        };
-        border = {
-          enable = false;
+          active.color = colors.withHashtag.base06;
+          inactive.color = transparent;
           urgent.color = "#fa0";
         };
 
@@ -207,23 +203,19 @@ in
             enable = true;
             width = 2;
             active.color = red;
-            inactive.gradient = {
-              from = "#0004";
-              to = red;
-            };
+            inactive.color = "${red}c0";
           };
-          focus-ring.enable = false;
           shadow = {
             softness = 32;
             offset = {
               x = 0;
               y = 0;
             };
-            color = "${red}80";
+            color = "${red}c0";
           };
           tab-indicator = {
             active.color = red;
-            inactive.color = "${red}80";
+            inactive.color = "${red}c0";
           };
         }
 
@@ -301,64 +293,6 @@ in
       hotkey-overlay = {
         hide-not-bound = true;
         skip-at-startup = true;
-      };
-
-      #
-      # TODO hyprland config
-      #
-
-      # decoration
-      #
-      # dim_around = 0.5;
-      # dim_special = 0.5;
-
-      # blur (not yet in niri)
-      #
-      # passes = 3;
-      # size = 12;
-      # noise = 0.025;
-      # contrast = 0.5;
-      # brightness = 1.0;
-      # popups = true;
-      # popups_ignorealpha = 0.5;
-      # input_methods = true;
-      # input_methods_ignorealpha = 0.5;
-
-      # input
-      #
-      # focus_on_close = 1;
-
-      # cursor
-      #
-      # no_warps = false;
-      # warp_on_change_workspace = true;
-
-      # # misc
-      #
-      # allow_session_lock_restore = true;
-      # enable_swallow = true;
-      # focus_on_activate = true;
-      # force_default_wallpaper = 0;
-      # key_press_enables_dpms = false;
-      # mouse_move_enables_dpms = true;
-      # new_window_takes_over_fullscreen = 2;
-      # swallow_regex = "^kitty$";
-      # vfr = true;
-      # vrr = 0;
-
-      # xwayland.force_zero_scaling = true;
-
-      # # binds
-      #
-      # movefocus_cycles_fullscreen = false;
-
-      # dwindle
-      #
-      # preserve_split = true;
-      # pseudotile = true;
-      # special_scale_factor = 0.9;
-
-      environment = {
       };
 
       spawn-at-startup = [
