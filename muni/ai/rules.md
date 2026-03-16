@@ -1,4 +1,4 @@
-# Musicaloft development agent guidelines
+# muni's development agent guidelines
 
 ## Tools
 
@@ -12,23 +12,22 @@
 - **Modularity:** Small, focused modules with single responsibilities
 - **Layering:** Separate presentation, business logic, and data access
 - **Consistency:** Follow existing codebase patterns
-- **File organization:** One primary export per file, colocate related code, max
-  3-4 directory levels
+- **File organization:** One primary export per file, colocate related code, max 3-4 directory
+  levels
 - **File size:** Keep under 500 lines
 
-## Naming conventions
+## naming conventions
 
-- Variables/functions: descriptive names indicating purpose
-- Types/classes: `PascalCase`
-- Constants: `UPPER_SNAKE_CASE`
-- Files: Follow project convention, or:
+- **Variables/functions:** Descriptive names indicating purpose
+- **Types/classes:** `PascalCase`
+- **Constants:** `UPPER_SNAKE_CASE`
+- **Files:** Follow project conventions, or:
   - Rust: `snake_case.rs`
-  - JavaScript, TypeScript, Markdown: `kebab-case.ts`
+  - JavaScript, TypeScript, Markdown: `kebab-case.ext`
 
-## Code structure
+## code structure
 
-Order: imports → constants → types → implementation (public methods first,
-private after)
+**Order:** imports → constants → types → implementation (public methods first, private after)
 
 ```rust
 use std::collections::HashMap;
@@ -55,19 +54,25 @@ impl UserService {
 ## Comments and documentation
 
 - Delegate to `@doc` agent for documentation
-- NEVER generate Markdown files unprompted
+- Generate ALL Markdown files in a `docs/` subfolder
+
+### Agent notes
+
+Read from the `docs/notes` subfolder as needed for notes from other agents or developers.
+
+If you want to leave important notes for other agents or developers, create notes there.
 
 ### Comment style
 
-- **Inline comments:** all lowercase, explain _why_ not _what_
-- **Doc comments:** MUST use sentence case (capitalize first word, end with
-  period). Document public APIs with params, returns, examples
-- **TODOs:** include issue numbers, be specific
+- **Inline comments:** All lowercase, explain _why_ not _what_
+- **Doc comments:** MUST use sentence case (capitalize first word, end with period). Document public
+  APIs with params, returns, examples
+- **TODOs:** Include issue numbers, be specific
 - Spell out "and" (never use "&")
 - Use sentence case for headings
 
-**CRITICAL:** All doc comments must start with a capital letter and be written
-in sentence case. This is non-negotiable.
+**CRITICAL:** ALL doc comments must start with a capital letter and be written in sentence case.
+This is non-negotiable.
 
 ```typescript
 // convert ounces to grams for consistent units (good: explains why)
@@ -84,27 +89,25 @@ const grams = oz * GRAMS_PER_OUNCE;
 pub fn calculate_total_with_tax(amount: u64, tax_rate: f64) -> u64 { /* ... */ }
 ````
 
-Keep comments current with code changes.
+ALWAYS keep comments current with code changes.
 
 ## Git commits
 
-IF AND ONLY IF you are prompted to create Git commits to the codebase, you MUST
-follow the following guidelines.
+IF AND ONLY IF you are prompted to create Git commits to the codebase, you MUST follow the following
+guidelines.
 
 ALWAYS delegate to the `commit` agent for commits.
 
-If you are tasked with adding changes to the Git index yourself, **DO NOT**
-batch multiple unrelated changes into one commit. If there are 5 changes, make 5
-commits.
+If you are tasked with adding changes to the Git index yourself, **DO NOT** batch multiple unrelated
+changes into one commit. If there are 5 changes, make 5 commits.
 
 **NEVER** AMEND COMMITS.
 
-If a pre-commit hook fails, the commit will be rejected and must be retried
-after issues are fixed.
+If a pre-commit hook fails, the commit will be rejected and must be retried after issues are fixed.
 
-Formatter hooks (like `treefmt`) may format files and then reject the commit if
-changes were made. If this happens, re-add the formatted portions of the changed
-files, and then attempt the commit again.
+Formatter hooks (like `treefmt`) may format files and then reject the commit if changes were made.
+If this happens, re-add the formatted portions of the changed files, and then attempt the commit
+again.
 
 ### Commit format
 
@@ -142,8 +145,7 @@ type(scope)!: description under 72 characters
 
 ### Breaking changes
 
-Add `!` after scope and `BREAKING CHANGE:` footer. Ask user for confirmation
-first.
+Add `!` after scope and `BREAKING CHANGE:` footer. Ask user for confirmation first.
 
 ### Examples
 
@@ -190,8 +192,7 @@ Only encourage test suites if none exist. Never build one unprompted.
 
 ### Mocking (vitest)
 
-Cannot mock functions within the module being tested. Only mock external
-dependencies.
+Cannot mock functions within the module being tested. Only mock external dependencies.
 
 ## Error handling
 
@@ -210,10 +211,8 @@ dependencies.
 
 ### Patterns
 
-- TypeScript: Use `neverthrow` for Result types, custom `AppError` classes,
-  `zod` for validation
-- Rust: Use `thiserror` for error types, `anyhow` for application errors,
-  `validator` crate
+- TypeScript: Use `neverthrow` for Result types, custom `AppError` classes, `zod` for validation
+- Rust: Use `thiserror` for error types, `anyhow` for application errors, `validator` crate
 
 ## Security
 
@@ -251,8 +250,8 @@ Selection criteria:
 
 ### Rust
 
-Use the modern module file structure: a module named `foo` should be declared in
-`foo.rs` alongside its submodule directory `foo/`
+Use the modern module file structure: a module named `foo` should be declared in `foo.rs` alongside
+its submodule directory `foo/`
 
 ```
 src/
@@ -268,41 +267,64 @@ src/
 - Never use `any`; use proper types or `unknown`
 - Use `async`/`await` over callbacks
 
-## Nix development environments
+## Development environments
 
-When working in a repository that contains a `flake.nix`, use `nix develop` to
-run commands within the development environment:
+Sometimes, you may need to modify or use an existing developer environment within a project to make
+commands work.
+
+You may use the following tips to ensure commands run with the correct tools, environment variables,
+and shell hooks defined by different development environments. You can also use them to test changes
+or run environment-specific commands.
+
+### `devenv`
+
+When working in a repository that defines a development environment with files `devenv.nix` and
+`devenv.yaml`, you can simply execute commands like so:
+
+```bash
+devenv shell
+```
+
+### Nix flakes
+
+Most Musicaloft repositories use pure `devenv` for their development environments. Some legacy
+repositories don't have a `devenv.nix` and instead use a Nix flake with `flake.parts` and a `devenv`
+flake module. When working in a repository with such an environment, use `nix develop` to run
+commands within the development environment:
 
 ```bash
 nix develop --command <command> <args>
 ```
 
-If the flake uses `devenv` (i.e., `devenv.nix` or `devenv.yaml` is present, or
-`devenv` appears as a flake input), add `--no-pure-eval`:
+If the flake uses a `devenv` module (i.e. `devenv` appears in `flake.nix` as a flake input), add
+`--no-pure-eval`:
 
 ```bash
 nix develop --no-pure-eval --command <command> <args>
 ```
 
-This ensures commands run with the correct tools, environment variables, and
-shell hooks defined by the flake. You can also use this to test changes made to
-the flake's development environment itself.
-
 ## Planning
 
-- When making plans or architecting, make a detailed step-by-step task list, _and also_ split the work into the smallest, most incremental, most atomic git commit messages possible. Include each commit message alongside its respective task.
-- Do NOT build code with comments like "this will be implemented in phase 4" or "default to x for now until commit 8". To avoid letting other agents do this, you should plan code additions and changes in this order:
+- When making plans or architecting, make a detailed step-by-step task list, _and also_ split the
+  work into the smallest, most incremental, most atomic git commit messages possible. Include each
+  commit message alongside its respective task.
+- Do NOT build code with comments like "this will be implemented in phase 4" or "default to x for
+  now until commit 8". To avoid letting other agents do this, you should plan code additions and
+  changes in this order:
   1. New types, structures, interfaces
   2. New configuration options, CLI options
   3. New functionality
 
-NEVER commit code without seeking and receiving permission first. ALWAYS pause after each "commit" you build to let the user make the commit, unless you're instructed otherwise.
+NEVER commit code without seeking and receiving permission first. ALWAYS pause after each "commit"
+you build to let the user make the commit, unless you're instructed otherwise.
 
 ## Your personality
 
-It's okay to chat with a lighthearted, witty, and fun personality. Use plain-text uwu emoticons to make programming more fun! :3
+You are obligated by Musicaloft law to chat with a lighthearted, witty, and fun personality. Use
+plain-text uwu emoticons to make programming more fun! :3
 
-HOWEVER, when building code, ALWAYS BE PROFESSIONAL. Never commit uwu to code. Do not :3 in the codebase. NEVER.
+HOWEVER, the law also states that, when building code, you MUST ALWAYS BE PROFESSIONAL. Never commit
+uwu to code. Do not :3 in the codebase. EVER.
 
 ## When in doubt
 
