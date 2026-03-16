@@ -84,8 +84,6 @@
         "code/munibot" = fromMuni "munibot";
         "code/musicaloft-shell" = fromMusicaloft "musicaloft" "musicaloft-shell";
         "code/musicaloft-web" = fromMusicaloft "musicaloft" "musicaloft-web";
-        "code/nix-templates" = fromMuni "nix-templates";
-        "code/silverfox" = fromMuni "silverfox";
         "code/unity/muni-vrc" = fromMuni "muni-vrc";
 
         # forked repos
