@@ -601,11 +601,11 @@
         "treefmt-nix": "treefmt-nix_4"
       },
       "locked": {
-        "lastModified": 1773435208,
-        "narHash": "sha256-RiNeLne+uffPFcIbv+H+JYFrEJdU9vpCvlzk8R5HEhc=",
+        "lastModified": 1773632123,
+        "narHash": "sha256-BeRTEbjxNqCbpAdEjH8K8PMkGLQuJWsnbQ9KCTNJzg4=",
         "owner": "muni-corn",
         "repo": "cadenza-shell",
-        "rev": "3d4c80cda143ec839b218a327d31af68b663d3ef",
+        "rev": "b0896e8011b8b462243c6320cdbbb5c5b77ae153",
         "type": "github"
       },
       "original": {
@@ -1005,18 +1005,6 @@
       }
     },
     "devenv-root_6": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-d6xi4mKdjkX2JFicDIv5niSzpyI0m/Hnm8GGAIU04kY=",
-        "type": "file",
-        "url": "file:///dev/null"
-      },
-      "original": {
-        "type": "file",
-        "url": "file:///dev/null"
-      }
-    },
-    "devenv-root_7": {
       "flake": false,
       "locked": {
         "narHash": "sha256-d6xi4mKdjkX2JFicDIv5niSzpyI0m/Hnm8GGAIU04kY=",
@@ -3734,11 +3722,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773597207,
-        "narHash": "sha256-ZHoQqj+prlvfMItkQ/xTZbPguEcRlNPyRzh2j/51z8E=",
+        "lastModified": 1773608492,
+        "narHash": "sha256-QZteyExJYSQzgxqdsesDPbQgjctGG7iKV/6ooyQPITk=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "585a161ea6d1ec78e0daee9f1b40f8539d53d4a3",
+        "rev": "9a40ec3b78fc688d0908485887d355caa5666d18",
         "type": "github"
       },
       "original": {
@@ -3852,7 +3840,7 @@
     "munibot": {
       "inputs": {
         "devenv": "devenv_4",
-        "devenv-root": "devenv-root_4",
+        "devenv-root": "devenv-root_3",
         "flake-parts": "flake-parts_14",
         "git-hooks-nix": "git-hooks-nix_2",
         "mk-shell-bin": "mk-shell-bin_2",
@@ -3882,11 +3870,11 @@
     "musicaloft-shell": {
       "flake": false,
       "locked": {
-        "lastModified": 1773605849,
-        "narHash": "sha256-M7ADG5siEqhyGvaOluJBX79fluAysqELGTXP3k3Ij/0=",
+        "lastModified": 1773636639,
+        "narHash": "sha256-7paDxf0fuc6JuP5z8ozzNS/+tZUH97xKR37ubZLymso=",
         "owner": "musicaloft",
         "repo": "musicaloft-shell",
-        "rev": "9bf1376e2a48d78cda5ae9611d01b246751f4ca1",
+        "rev": "739073330fcf5dcca769d0eaa099c9bc7d66f590",
         "type": "github"
       },
       "original": {
@@ -3927,7 +3915,7 @@
     "musicaloft-style_2": {
       "inputs": {
         "devenv": "devenv_5",
-        "devenv-root": "devenv-root_5",
+        "devenv-root": "devenv-root_4",
         "flake-parts": "flake-parts_16",
         "git-hooks-nix": "git-hooks-nix_3",
         "nixpkgs": [
@@ -3953,7 +3941,7 @@
     "musicaloft-style_3": {
       "inputs": {
         "devenv": "devenv_7",
-        "devenv-root": "devenv-root_7",
+        "devenv-root": "devenv-root_6",
         "flake-parts": "flake-parts_24",
         "git-hooks-nix": "git-hooks-nix_4",
         "mk-shell-bin": "mk-shell-bin_3",
@@ -4010,11 +3998,11 @@
         "xwayland-satellite-unstable": "xwayland-satellite-unstable"
       },
       "locked": {
-        "lastModified": 1773577199,
-        "narHash": "sha256-Z77lGBRlueA+igtScByJ0soMRnEy5T/XG9w661OCPaw=",
+        "lastModified": 1773625790,
+        "narHash": "sha256-lbdP/l8p/h003/ZtvfCOPGjuAZwC72omd4NTA8u11UU=",
         "owner": "sodiboo",
         "repo": "niri-flake",
-        "rev": "afc45f69929e5b5ab23d903b24532cfe718de6be",
+        "rev": "9794fb620fd3099ffc9e5445f85a325c9e8f349c",
         "type": "github"
       },
       "original": {
@@ -4893,11 +4881,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773581508,
-        "narHash": "sha256-1LQZoxQBVALkgnvluZuFfodk1vmg0VjcIlcfPhr9KhM=",
+        "lastModified": 1773632739,
+        "narHash": "sha256-l0WKPEbYv3vep+kcQKB4PtP+8xDbyNIjDvlSC8KZLvg=",
         "owner": "nix-community",
         "repo": "nixpkgs-wayland",
-        "rev": "8fd907e9147e226c536ef665f0e191811cb96e8d",
+        "rev": "536414c97c97fcc9a9e8137ffcd58ff7aaab77c2",
         "type": "github"
       },
       "original": {
@@ -4908,11 +4896,11 @@
     },
     "nixpkgs_10": {
       "locked": {
-        "lastModified": 1773389992,
-        "narHash": "sha256-wvfdLLWJ2I9oEpDd9PfMA8osfIZicoQ5MT1jIwNs9Tk=",
+        "lastModified": 1773520392,
+        "narHash": "sha256-Ra3l8zI7AYwaCxXcU4An8jAC1hhz/TEleXboJhWaBwY=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "c06b4ae3d6599a672a6210b7021d699c351eebda",
+        "rev": "f59e980846fe86cd831899cd032fdbd1d6054086",
         "type": "github"
       },
       "original": {
@@ -5138,11 +5126,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773604450,
-        "narHash": "sha256-V2Kwj4xBdlaZ0io4ap9rt2FvA5KbQE6zEClW7AMQQqw=",
+        "lastModified": 1773636563,
+        "narHash": "sha256-iau+/Djt2+hb6tRataE+HIlnlfudCAP/0deNqs1NhvY=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "834aaeaec1b4f289fd53a6c692fe80a0590830ae",
+        "rev": "4679826af20631e7dfde79e53094791bdf416f00",
         "type": "github"
       },
       "original": {
@@ -5180,7 +5168,7 @@
       "inputs": {
         "crate2nix": "crate2nix_4",
         "devenv": "devenv_6",
-        "devenv-root": "devenv-root_6",
+        "devenv-root": "devenv-root_5",
         "flake-parts": "flake-parts_22",
         "musicaloft-style": "musicaloft-style_3",
         "nixpkgs": [
@@ -5481,7 +5469,6 @@
         "cadenza-shell": "cadenza-shell",
         "cadenza-sounds": "cadenza-sounds",
         "devenv": "devenv_3",
-        "devenv-root": "devenv-root_3",
         "flake-parts": "flake-parts_12",
         "home-manager": "home-manager",
         "matugen": "matugen",
@@ -6242,11 +6229,11 @@
     "xwayland-satellite-unstable": {
       "flake": false,
       "locked": {
-        "lastModified": 1773499041,
-        "narHash": "sha256-XZ4/tVdLeAYDgKe4JD4C7yYUKydMxwt8c2j6APFWcIc=",
+        "lastModified": 1773622265,
+        "narHash": "sha256-wToKwH7IgWdGLMSIWksEDs4eumR6UbbsuPQ42r0oTXQ=",
         "owner": "Supreeeme",
         "repo": "xwayland-satellite",
-        "rev": "309d8e2a29953f7465dc14c939e2afe4682c0aa9",
+        "rev": "a879e5e0896a326adc79c474bf457b8b99011027",
         "type": "github"
       },
       "original": {
