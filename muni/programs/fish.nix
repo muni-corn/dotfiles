@@ -97,6 +97,20 @@
       v = "vault";
       x = "trash-put";
 
+      # devenv abbrs
+      dS = "devenv shell";
+      dT = "devenv tasks";
+      dU = "devenv update";
+      db = "devenv build";
+      dc = "devenv container";
+      di = "devenv init";
+      dia = "devenv inputs add";
+      dp = "devenv processes";
+      dr = "devenv repl";
+      ds = "devenv search";
+      dt = "devenv test";
+      du = "devenv up";
+
       # hledger abbrs
       hl = "hledger";
       hlb = "hledger balance";
