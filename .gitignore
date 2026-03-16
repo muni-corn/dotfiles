@@ -4,4 +4,8 @@ result
 
 .devenv
 .direnv
+
+# generated files
 .pre-commit-config.yaml
+.commitlintrc.yaml
+.oxfmtrc.json

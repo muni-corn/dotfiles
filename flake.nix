@@ -121,12 +121,6 @@
       url = "github:muni-corn/plymouth-theme-musicaloft-rainbow";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # required for devenv from musicaloft-shell
-    devenv-root = {
-      url = "file+file:///dev/null";
-      flake = false;
-    };
   };
 
   outputs =
