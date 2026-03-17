@@ -17,24 +17,6 @@ let
         doCheck = false;
       });
 
-      trashy = prev.trashy.overrideAttrs (
-        oldAttrs:
-        let
-          version = "2.1.0";
-          src = inputs.trashy;
-        in
-        {
-          inherit version src;
-
-          cargoHash = final.lib.fakeHash;
-
-          cargoDeps = final.rustPlatform.fetchCargoVendor {
-            inherit src;
-            hash = "sha256-IQIJ77lnlhklgI3hsXg5ibp+xfxsyZufkjDfHbQWE9A=";
-          };
-        }
-      );
-
       videoduplicatefinder = final.callPackage ../pkgs/videoduplicatefinder { };
     })
   ];
