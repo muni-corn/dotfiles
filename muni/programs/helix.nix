@@ -295,6 +295,12 @@
             ];
           }
 
+          # python
+          {
+            name = "python";
+            auto-format = true;
+          }
+
           # rustledger
           {
             name = "beancount";
