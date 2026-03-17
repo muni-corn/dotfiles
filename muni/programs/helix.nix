@@ -116,6 +116,11 @@
       # language server configurations
       language-server = {
         # ls's not bundled with helix
+        devenv = {
+          command = "devenv";
+          args = [ "lsp" ];
+          required-root-patterns = [ "devenv.nix" ];
+        };
         rledger-lsp.command = "rledger-lsp";
         sqruff = {
           command = "sqruff";
@@ -284,6 +289,10 @@
             name = "nix";
             formatter.command = "nixfmt";
             auto-format = true;
+            language-servers = [
+              "nixd"
+              "devenv"
+            ];
           }
 
           # rustledger
