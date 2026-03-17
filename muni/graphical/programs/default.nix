@@ -18,6 +18,7 @@
     geogebra6
     opencode-desktop
     revolt-desktop
+    vial
   ];
 
   programs = {
