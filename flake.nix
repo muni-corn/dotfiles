@@ -65,6 +65,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # rustfava
+    rustfava = {
+      url = "github:rustledger/rustfava";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # rustledger
     rustledger = {
       url = "github:rustledger/rustledger";

@@ -10,7 +10,7 @@
     hledger-fmt
     ledger2beancount
     ledger-autosync
-    rustledger
+    rustfava
     puffin
 
     # pdf to csv

@@ -13,6 +13,8 @@ let
 
       pinentry-cadenza = inputs.pinentry-cadenza.packages.${final.system}.default;
 
+      rustfava = inputs.rustfava.packages.${final.system}.desktop;
+
       rustledger = inputs.rustledger.packages.${final.system}.default.overrideAttrs (old: {
         doCheck = false;
       });
