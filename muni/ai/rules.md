@@ -53,10 +53,9 @@ impl UserService {
 
 ## Comments and documentation
 
-- Delegate to `@doc` agent for documentation
-- Generate ALL Markdown files in a `docs/` subfolder
+Generate ALL Markdown files in a `docs/` subfolder.
 
-### Agent notes
+### The `docs/notes` subfolder
 
 Read from the `docs/notes` subfolder as needed for notes from other agents or developers.
 
