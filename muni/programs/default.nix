@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./bugwarrior.nix
@@ -14,7 +19,10 @@
     ./zellij.nix
   ];
 
-  home.packages = [ pkgs.graph-cli ];
+  home.packages = [
+    pkgs.graph-cli
+    (lib.lowPrio pkgs.muni-scripts)
+  ];
 
   programs = {
     # let home-manager install and manage itself
@@ -84,4 +92,8 @@
       enableFishIntegration = true;
     };
   };
+
+  # install `timesheet` script extension for timew
+  xdg.configFile."timewarrior/extensions/timesheet.py".source =
+    lib.getExe' pkgs.muni-scripts "timesheet";
 }

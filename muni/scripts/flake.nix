@@ -1,5 +1,5 @@
 {
-  description = "A Python project";
+  description = "A collection of random scripts";
 
   inputs = {
     nixpkgs.url = "github:cachix/devenv-nixpkgs/rolling";
@@ -14,8 +14,8 @@
       inputs.nixpkgs-lib.follows = "nixpkgs";
     };
 
-    musicaloft-style = {
-      url = "github:musicaloft/musicaloft-style";
+    musicaloft-shell = {
+      url = "github:musicaloft/musicaloft-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -57,7 +57,7 @@
 
       imports = [
         # sets up code formatting and linting
-        inputs.musicaloft-style.flakeModule
+        inputs.devenv.flakeModule
       ];
 
       perSystem =

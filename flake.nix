@@ -115,6 +115,14 @@
       url = "github:muni-corn/cadenza-sounds";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    muni-scripts = {
+      url = "path:./muni/scripts";
+      inputs = {
+        devenv.follows = "devenv";
+        nixpkgs.follows = "nixpkgs";
+        musicaloft-shell.follows = "musicaloft-shell";
+      };
+    };
     muni-wallpapers = {
       url = "github:muni-corn/muni-wallpapers";
       flake = false;
