@@ -88,8 +88,9 @@ in
     timers.bugwarrior-pull = {
       Unit.Description = "Periodical pulling from bugwarrior sources";
       Timer = {
-        OnCalendar = "*:0/15"; # sync every 15 minutes
+        OnCalendar = "daily";
         Unit = "bugwarrior-pull.service";
+        Persistent = true;
       };
       Install.WantedBy = [ "timers.target" ];
     };
