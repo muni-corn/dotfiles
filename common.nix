@@ -55,6 +55,7 @@
       cachix
       clinfo
       dmidecode
+      lsof
       powertop
       psmisc
       rsync
