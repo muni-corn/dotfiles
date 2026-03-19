@@ -8,6 +8,7 @@
       lldb_21
       ltex-ls-plus
       markdown-oxide
+      mpls
       nixd
       nixfmt
       nodePackages.typescript-language-server
@@ -104,6 +105,7 @@
           space.space = "file_picker";
           space.w = ":w";
           space.q = ":q";
+          C-m = ":lsp-workspace-command open-preview";
         };
         insert = {
           f.j = "normal_mode";
@@ -120,6 +122,16 @@
           command = "devenv";
           args = [ "lsp" ];
           required-root-patterns = [ "devenv.nix" ];
+        };
+        mpls = {
+          command = "mpls";
+          args = [
+            "--theme"
+            "dark"
+            "--enable-emoji"
+            "--enable-wikilinks"
+            "--tabs"
+          ];
         };
         rledger-lsp.command = "rledger-lsp";
         sqruff = {
@@ -275,6 +287,7 @@
               "oxfmt"
               "ltex-ls-plus"
               "markdown-oxide"
+              "mpls"
             ];
             auto-pairs = {
               "*" = "*";
