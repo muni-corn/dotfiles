@@ -34,7 +34,7 @@
         completion-timeout = 50;
         completion-trigger-len = 1;
         cursorline = true;
-        end-of-line-diagnostics = "hint";
+        end-of-line-diagnostics = "warning";
         jump-label-alphabet = "fjdkslaghtyrueiwoqpbnvmcxz";
         line-number = "relative";
 
@@ -50,10 +50,7 @@
           character = "┆";
         };
 
-        inline-diagnostics = {
-          cursor-line = "hint";
-          other-lines = "disable";
-        };
+        inline-diagnostics.cursor-line = "hint";
 
         lsp = {
           display-messages = true;
