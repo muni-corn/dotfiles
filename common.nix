@@ -215,6 +215,11 @@
 
     logind.settings.Login.RuntimeDirectorySize = "2G";
 
+    ollama = {
+      enable = true;
+      package = pkgs.ollama-vulkan;
+    };
+
     upower.enable = true;
   };
 
