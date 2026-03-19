@@ -128,6 +128,7 @@
             "--enable-emoji"
             "--enable-wikilinks"
             "--tabs"
+            "--no-auto"
           ];
         };
         rledger-lsp.command = "rledger-lsp";
