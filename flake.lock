@@ -3745,11 +3745,11 @@
     "musicaloft-shell_2": {
       "flake": false,
       "locked": {
-        "lastModified": 1773759016,
-        "narHash": "sha256-4DqNaDTME5YqKi5ptLckMC3/5yoW9NEicAK93tHSrvQ=",
+        "lastModified": 1773925126,
+        "narHash": "sha256-BPlkr/5w3IAXhkvobKyJeGkCIXcsyHKHusApmf8lLz0=",
         "owner": "musicaloft",
         "repo": "musicaloft-shell",
-        "rev": "4135b19dcc660493bfce95508622678d760147a1",
+        "rev": "9776bc4c9334f9a0a9908ee68a52c8bee300d2ac",
         "type": "github"
       },
       "original": {
@@ -4830,11 +4830,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773916145,
-        "narHash": "sha256-mpyGbs7cIgPXJzwojlOSXK19/7BJIXwjn4qK3UjeaoY=",
+        "lastModified": 1773924184,
+        "narHash": "sha256-bdAYmI+Q38bRXbt8E+4E/1ZBvJC3higFIym338lc5eU=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "26cd386170669ed6a79f44d1b618db6c79bd7b69",
+        "rev": "98287be8f5ec0ca541a7b45dcddab5872f4c8f07",
         "type": "github"
       },
       "original": {
@@ -4881,11 +4881,11 @@
         "treefmt-nix": "treefmt-nix_8"
       },
       "locked": {
-        "lastModified": 1773922429,
-        "narHash": "sha256-VVS3jQmDreRiDjeaWonY0Z9ejmhkNf66odE4laUyf5c=",
+        "lastModified": 1773925062,
+        "narHash": "sha256-/0TXmyXqU267C6mjSPcE3GQp9e/neYP8pfV3U2UgQ8c=",
         "ref": "refs/heads/main",
-        "rev": "e889abb9c1d4af7df5434c3ebc0eef475389ac40",
-        "revCount": 40,
+        "rev": "896d5b33b146f786c97a450c47f707d7562a6916",
+        "revCount": 43,
         "type": "git",
         "url": "https://git.musicaloft.com/municorn/pinentry-cadenza"
       },
