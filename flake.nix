@@ -99,6 +99,10 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
     # my stuff
+    cocoa = {
+      url = "github:muni-corn/cocoa";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     munibot = {
       url = "github:muni-corn/munibot";
       inputs.nixpkgs.follows = "nixpkgs";

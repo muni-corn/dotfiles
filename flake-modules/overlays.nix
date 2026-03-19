@@ -9,6 +9,8 @@ let
 
     # custom packages overlay
     (final: prev: {
+      cocoa = inputs.cocoa.packages.${final.system}.default;
+
       cadenza-shell = inputs.cadenza-shell.packages.${final.system}.default;
 
       pinentry-cadenza = inputs.pinentry-cadenza.packages.${final.system}.default;
