@@ -23,6 +23,15 @@
         "sd_mod"
       ];
       kernelModules = [ ];
+
+      luks = {
+        fido2Support = false;
+        devices.cryptmain = {
+          device = "/dev/disk/by-uuid/8cd34ae8-2895-4570-9b11-76a08b3b094a";
+          crypttabExtraOpts = [ "fido2-device=auto" ];
+        };
+      };
+      systemd.enable = true;
     };
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
