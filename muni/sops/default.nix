@@ -10,6 +10,7 @@ in
     defaultSopsFile = ./secrets/default.yaml;
     secrets = {
       bugwarrior-toml = { };
+      cocoa_anthropic_key = { };
       context7_key = { };
       exa_ai_key = { };
       fish_ai_ini = { };

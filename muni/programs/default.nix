@@ -7,6 +7,7 @@
 {
   imports = [
     ./bugwarrior.nix
+    ./cocoa.nix
     ./fastfetch.nix
     ./finance.nix
     ./fish.nix
