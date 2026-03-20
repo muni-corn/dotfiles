@@ -3,11 +3,11 @@
     "devenv": {
       "locked": {
         "dir": "src/modules",
-        "lastModified": 1774026256,
-        "narHash": "sha256-VMHbGkbqBxb+N7V2cK2mwi0qWcN7g4LqtM1caktGTQY=",
+        "lastModified": 1774032164,
+        "narHash": "sha256-BezaRVvyH4laM3DVa0jloexcT2VrsKBNfLlgfVCsk7w=",
         "owner": "cachix",
         "repo": "devenv",
-        "rev": "8d4cff892cd320f1c835aa126ab301738a1c3971",
+        "rev": "9c72123abd77869f5c3b0fa279345249f2eb7ae8",
         "type": "github"
       },
       "original": {
@@ -79,16 +79,15 @@
     "musicaloft-shell": {
       "flake": false,
       "locked": {
-        "lastModified": 1773925126,
-        "narHash": "sha256-BPlkr/5w3IAXhkvobKyJeGkCIXcsyHKHusApmf8lLz0=",
+        "lastModified": 1773925230,
+        "narHash": "sha256-bu/4VOpYE3O9slObiY8YB/Mf9pIpcKZBuvOj2CjX57U=",
         "owner": "musicaloft",
         "repo": "musicaloft-shell",
-        "rev": "9776bc4c9334f9a0a9908ee68a52c8bee300d2ac",
+        "rev": "14ef00f4c1589d057a38844feacd614786caed24",
         "type": "github"
       },
       "original": {
         "owner": "musicaloft",
-        "ref": "devenv",
         "repo": "musicaloft-shell",
         "type": "github"
       }
