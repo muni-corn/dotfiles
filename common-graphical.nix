@@ -34,7 +34,6 @@
       libcanberra
       libcanberra-gtk3
       cadenza-sounds
-      surrealist
       v4l-utils
       wayfire
 
