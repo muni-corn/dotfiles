@@ -6,6 +6,9 @@
   ...
 }:
 {
+  # for wayvr compatibility mode
+  environment.systemPackages = [ pkgs.cage ];
+
   services.wivrn = {
     enable = true;
     package = pkgs.wivrn.overrideAttrs (oldAttrs: {
