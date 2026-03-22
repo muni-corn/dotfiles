@@ -61,6 +61,7 @@
         # home-level repos
         dotfiles = fromMuni "dotfiles";
         notebook = fromMuni "notebook";
+        "notebook/ledger" = fromMuni "ledger";
 
         # annex repos
         "annex/photo_albums" = annex 18;
