@@ -52,6 +52,18 @@
     # fish integration enabled by default
     nix-index.enable = true;
 
+    nushell = {
+      enable = true;
+      plugins = with pkgs.nushellPlugins; [
+        formats
+        gstat
+        query
+        semver
+        skim
+      ];
+      shellAliases = config.programs.fish.shellAliases // config.programs.fish.shellAbbrs;
+    };
+
     password-store = {
       enable = true;
       package = pkgs.pass.withExtensions (exts: [
