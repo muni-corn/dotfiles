@@ -51,8 +51,8 @@
             write = "+art";
           };
           comms = {
-            read = "project:comms or +comms";
-            write = "project:comms +comms";
+            read = "project:comms or +comm";
+            write = "project:comms +comm";
           };
           dotfiles = {
             read = "project:dotfiles";
