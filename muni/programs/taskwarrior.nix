@@ -54,6 +54,10 @@
             read = "project:comms or +comm";
             write = "project:comms +comm";
           };
+          cocoa = {
+            read = "project:cocoa";
+            write = "project:cocoa";
+          };
           dotfiles = {
             read = "project:dotfiles";
             write = "project:dotfiles";
