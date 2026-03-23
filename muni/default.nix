@@ -93,6 +93,9 @@ in
     };
 
     # let nix manage user-dirs.dirs
-    userDirs.enable = true;
+    userDirs = {
+      enable = true;
+      setSessionVariables = true;
+    };
   };
 }
