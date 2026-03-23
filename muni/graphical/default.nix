@@ -81,7 +81,7 @@
       BAT_THEME = "base16";
       BROWSER = "firefox";
       LC_COLLATE = "C";
-      LEDGER_FILE = "$HOME/notebook/ledger/main.hledger";
+      LEDGER_FILE = "$HOME/notebook/ledger/main.beancount";
       MOZ_DBUS_REMOTE = 1;
       SUDO_ASKPASS = "ksshaskpass";
       WINEPREFIX = "$HOME/.wine/";
