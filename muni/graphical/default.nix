@@ -150,9 +150,31 @@
 
   systemd.user.startServices = "sd-switch";
 
-  xdg.dataFile."sounds/__custom/index.theme".text = ''
-    [Sound Theme]
-    Inherits=cadenza
-  '';
+  xdg = {
+    # manual full override for mongodb compass so it can handle secrets
+    desktopEntries.mongodb-compass = {
+      name = "MongoDB Compass";
+      comment = "The MongoDB GUI";
+      genericName = "MongoDB Compass";
+      exec = "mongodb-compass %U";
+      icon = "mongodb-compass";
+      type = "Application";
+      startupNotify = true;
+      categories = [
+        "GNOME"
+        "GTK"
+        "Utility"
+      ];
+      mimeType = [
+        "x-scheme-handler/mongodb"
+        "x-scheme-handler/mongodb+srv"
+      ];
+
+    };
+
+    dataFile."sounds/__custom/index.theme".text = ''
+      [Sound Theme]
+      Inherits=cadenza
+    '';
+  };
 }
-# vim: ts=2 sw=2 expandtab
