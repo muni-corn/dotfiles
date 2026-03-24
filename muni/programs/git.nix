@@ -65,6 +65,7 @@
         gs = "git status";
         gsh = "git show -p";
         gw = "git switch";
+        gwt = "git wt";
       };
     };
 
