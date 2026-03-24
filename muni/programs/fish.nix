@@ -69,6 +69,8 @@
 
       set sponge_purge_only_on_exit true
       set --append sponge_regex_patterns '(?:rsync)'
+
+      git-wt --init fish | source
     '';
 
     shellAliases = {
