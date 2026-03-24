@@ -72,8 +72,8 @@
         exts.pass-update
       ]);
       settings = {
-        PASSWORD_STORE_DIR = "${config.home.homeDirectory}/.local/share/password-store";
-        PASSWORD_STORE_KEY = "4B21310A52B15162";
+        PASSWORD_STORE_DIR = "${config.xdg.dataHome}/password-store";
+        PASSWORD_STORE_KEY = "B5D45975B0D78913";
         PASSWORD_STORE_CLIP_TIME = "15";
         PASSWORD_STORE_GENERATED_LENGTH = "32";
       };
