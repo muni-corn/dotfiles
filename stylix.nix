@@ -21,8 +21,8 @@
 
     # cursor
     cursor = {
-      package = pkgs.bibata-cursors;
-      name = "Bibata-Modern-Classic";
+      package = pkgs.volantes-cursors;
+      name = "volantes_cursors";
       size = 24;
     };
 
