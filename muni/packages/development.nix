@@ -3,7 +3,10 @@
   home.packages = with pkgs; [
     # cloud & deployment
     docker-compose
-    # flyctl
+
+    # development environments
+    devenv
+    secretspec
 
     # git & version control
     gh
@@ -23,7 +26,6 @@
     uv
 
     # utilities
-    devenv
     license-cli
     meld
   ];
