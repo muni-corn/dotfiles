@@ -97,7 +97,7 @@ in
     timers.bugwarrior-pull = {
       Unit.Description = "Periodical pulling from bugwarrior sources";
       Timer = {
-        OnCalendar = "daily";
+        OnCalendar = "hourly";
         Unit = "bugwarrior-pull.service";
         Persistent = true;
       };
