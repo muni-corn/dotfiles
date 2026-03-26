@@ -132,7 +132,7 @@
       flake = false;
     };
     pinentry-cadenza = {
-      url = "git+https://git.musicaloft.com/municorn/pinentry-cadenza";
+      url = "github:muni-corn/pinentry-cadenza";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     plymouth-theme-musicaloft-rainbow = {
