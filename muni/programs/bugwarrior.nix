@@ -25,52 +25,61 @@ in
     python-env
   ];
 
-  # jira service uda from bugwarrior
+  # add uda to taskwarrior
   programs.taskwarrior.config.uda = {
-    jiraissuetype = {
-      type = "string";
-      label = "Issue Type";
-    };
-    jirasummary = {
-      type = "string";
-      label = "Jira Summary";
-    };
-    jiraurl = {
-      type = "string";
-      label = "Jira URL";
-    };
-    jiradescription = {
-      type = "string";
-      label = "Jira Description";
-    };
-    jiraid = {
-      type = "string";
-      label = "Jira Issue ID";
-    };
-    jiraestimate = {
-      type = "numeric";
-      label = "Estimate";
-    };
-    jirafixversion = {
-      type = "string";
-      label = "Fix Version";
-    };
-    jiracreatedts = {
-      type = "date";
-      label = "Created At";
-    };
-    jirastatus = {
-      type = "string";
-      label = "Jira Status";
-    };
-    jirasubtasks = {
-      type = "string";
-      label = "Jira Subtasks";
-    };
-    jiraparent = {
-      type = "string";
-      label = "Jira Parent";
-    };
+    # github uda
+    githubtitle.type = "string";
+    githubtitle.label = "Github Title";
+    githubbody.type = "string";
+    githubbody.label = "Github Body";
+    githubcreatedon.type = "date";
+    githubcreatedon.label = "Github Created";
+    githubupdatedat.type = "date";
+    githubupdatedat.label = "Github Updated";
+    githubclosedon.type = "date";
+    githubclosedon.label = "GitHub Closed";
+    githubmilestone.type = "string";
+    githubmilestone.label = "Github Milestone";
+    githubrepo.type = "string";
+    githubrepo.label = "Github Repo Slug";
+    githuburl.type = "string";
+    githuburl.label = "Github URL";
+    githubtype.type = "string";
+    githubtype.label = "Github Type";
+    githubnumber.type = "numeric";
+    githubnumber.label = "Github Issue/PR #";
+    githubuser.type = "string";
+    githubuser.label = "Github User";
+    githubnamespace.type = "string";
+    githubnamespace.label = "Github Namespace";
+    githubstate.type = "string";
+    githubstate.label = "GitHub State";
+    githubdraft.type = "numeric";
+    githubdraft.label = "GitHub Draft";
+
+    # jira uda
+    jiraissuetype.type = "string";
+    jiraissuetype.label = "Issue Type";
+    jirasummary.type = "string";
+    jirasummary.label = "Jira Summary";
+    jiraurl.type = "string";
+    jiraurl.label = "Jira URL";
+    jiradescription.type = "string";
+    jiradescription.label = "Jira Description";
+    jiraid.type = "string";
+    jiraid.label = "Jira Issue ID";
+    jiraestimate.type = "numeric";
+    jiraestimate.label = "Estimate";
+    jirafixversion.type = "string";
+    jirafixversion.label = "Fix Version";
+    jiracreatedts.type = "date";
+    jiracreatedts.label = "Created At";
+    jirastatus.type = "string";
+    jirastatus.label = "Jira Status";
+    jirasubtasks.type = "string";
+    jirasubtasks.label = "Jira Subtasks";
+    jiraparent.type = "string";
+    jiraparent.label = "Jira Parent";
   };
 
   xdg.configFile."bugwarrior/bugwarrior.toml".source =
