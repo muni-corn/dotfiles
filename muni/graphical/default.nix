@@ -156,7 +156,7 @@
       name = "MongoDB Compass";
       comment = "The MongoDB GUI";
       genericName = "MongoDB Compass";
-      exec = "mongodb-compass %U";
+      exec = "mongodb-compass --password-store=\"gnome-libsecret\" --ignore-additional-command-line-flags %U";
       icon = "mongodb-compass";
       type = "Application";
       startupNotify = true;
