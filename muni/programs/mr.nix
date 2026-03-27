@@ -90,6 +90,7 @@
         # forked repos
         "code/commitlint-rs" = fromGitHubFork "KeisukeYamashita" "commitlint-rs";
         "code/devenv" = fromGitHubFork "cachix" "devenv";
+        "code/difftastic" = fromGitHubFork "Wilfred" "difftastic";
         "code/home-manager" = fromGitHubFork "nix-community" "home-manager";
         "code/matugen" = fromGitHubFork "InioX" "matugen";
         "code/niri-flake" = fromGitHubFork "sodiboo" "niri-flake";
