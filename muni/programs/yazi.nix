@@ -110,8 +110,8 @@
         }
       ];
       preview = {
-        max_width = 2000;
-        max_height = 1000;
+        max_width = 8000;
+        max_height = 8000;
         image_filter = "lanczos3";
         image_quality = 85;
       };
