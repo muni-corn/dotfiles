@@ -4,6 +4,7 @@ result
 
 .devenv
 .direnv
+devenv.local.*
 
 # generated files
 .pre-commit-config.yaml
