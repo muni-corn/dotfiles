@@ -63,7 +63,7 @@
       # other things
       libnotify
       kdePackages.kalgebra
-      protonvpn-gui
+      proton-vpn
     ];
 
     pointerCursor = {
