@@ -1,24 +1,17 @@
 {
-  home.sessionVariables.ZELLIJ_AUTO_EXIT = "true";
+  programs.zellij = {
+    enable = true;
 
-  programs = {
-    # start with zellij if accessed by ssh
-    fish.interactiveShellInit = ''
-      if set -q SSH_TTY
-        eval (zellij setup --generate-auto-start fish | string collect)
-      end
-    '';
-    zellij = {
-      enable = true;
-      enableFishIntegration = false;
+    exitShellOnExit = true;
+    attachExistingSession = true;
 
-      # only valid if integration is enabled :c so sessionVariables must be set manually instead
-      # exitShellOnExit = true;
+    extraConfig = builtins.readFile ./zellij.kdl;
 
-      # this causes problems with the ssh auto start
-      # attachExistingSession = true;
+    settings = {
+      pane_frames = false;
+      scroll_buffer_size = 10000;
+      default_mode = "locked";
+      serialize_pane_viewport = true;
     };
   };
-
-  xdg.configFile."zellij/config.kdl".source = ./zellij.kdl;
 }
