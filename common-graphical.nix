@@ -126,8 +126,6 @@
     # bluetooth manager gui
     blueman.enable = true;
 
-    cloudflare-warp.enable = true;
-
     # geolocation
     geoclue2 = {
       enable = true;
