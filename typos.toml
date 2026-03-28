@@ -10,3 +10,4 @@ extend-ignore-re = [
 
 [default.extend-words]
 "relm" = "relm"
+"hass" = "hass"
