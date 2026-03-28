@@ -3,6 +3,8 @@
   programs.zellij = {
     enable = true;
 
+    # shell support has to be explicitly enabled
+    enableFishIntegration = true;
     exitShellOnExit = true;
     attachExistingSession = true;
 
