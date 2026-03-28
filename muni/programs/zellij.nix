@@ -14,6 +14,7 @@
       scroll_buffer_size = 10000;
       default_mode = "locked";
       serialize_pane_viewport = true;
+      show_startup_tips = false;
     };
   };
 }
