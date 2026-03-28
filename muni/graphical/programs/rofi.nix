@@ -47,14 +47,14 @@
       matching = "fuzzy";
       modi = "combi,drun,run,window";
       normalize-match = true;
-      run-shell-command = "{terminal} -e ${config.programs.fish.package}/bin/fish -i -c \"{cmd}\"";
+      run-shell-command = "{terminal} {cmd}";
       scroll-method = 1;
       scrollbar-width = 4;
       show-icons = true;
       sort = true;
       sorting-method = "fzf";
       ssh-client = "ssh";
-      ssh-command = "{terminal} -e ${config.programs.fish.package}/bin/fish -i -c \"{ssh-client} {host}\"";
+      ssh-command = "{terminal} {ssh-client} {host}";
       terminal = "kitty";
       window-format = "{t}";
     };
