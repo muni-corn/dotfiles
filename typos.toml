@@ -1,0 +1,12 @@
+[files]
+extend-exclude = ["**secrets**", "muni/programs/git.nix"]
+
+[default]
+# ignore hex codes and ssh keys
+extend-ignore-re = [
+  "[0-9A-Fa-f]{6,8}",
+  'ssh-[a-z0-9]+\s+[A-Za-z0-9+/=]+\s[^\s]+',
+]
+
+[default.extend-words]
+"relm" = "relm"
