@@ -1,11 +1,10 @@
+{ config, ... }:
 {
   programs.zellij = {
     enable = true;
 
     exitShellOnExit = true;
     attachExistingSession = true;
-
-    extraConfig = builtins.readFile ./zellij.kdl;
 
     settings = {
       pane_frames = false;
