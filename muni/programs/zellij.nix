@@ -6,7 +6,6 @@
     # shell support has to be explicitly enabled
     enableFishIntegration = true;
     exitShellOnExit = true;
-    attachExistingSession = true;
 
     settings = {
       theme_dir = "${config.xdg.configHome}/zellij/themes/";
