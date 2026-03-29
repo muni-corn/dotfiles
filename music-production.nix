@@ -1,6 +1,7 @@
 { pkgs, ... }:
 {
   home-manager.users.muni.home.packages = with pkgs; [
+    airwindows
     ardour
     audacity
     calf
