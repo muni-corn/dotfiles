@@ -67,7 +67,7 @@
           ardour = defaultsAnd {
             id = "gm273-tnkp7";
             label = "Ardour";
-            path = "~/.config/ardour8";
+            path = "~/.config/ardour9";
             devices = [
               "breezi"
               "cherri"
