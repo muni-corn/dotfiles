@@ -105,7 +105,7 @@
           C-m = ":lsp-workspace-command open-preview";
         };
         insert = {
-          f.j = "normal_mode";
+          j.f = "normal_mode";
           j.j = "normal_mode";
         };
       };
