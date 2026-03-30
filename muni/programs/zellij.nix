@@ -27,7 +27,7 @@ in
         (bind [ "Alt j" ] [ { MoveFocus = "down"; } ])
         (bind [ "Alt k" ] [ { MoveFocus = "up"; } ])
         (bind [ "Alt l" ] [ { MoveFocusOrTab = "right"; } ])
-        (bind [ "Alt n" ] [ { NewPane = { }; } ])
+        (bind [ "Alt Space" ] [ { NewPane = { }; } ])
         (bind [ "Alt t" ] [ { NewTab = { }; } ])
       ];
     };
