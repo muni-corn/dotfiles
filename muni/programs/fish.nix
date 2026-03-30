@@ -7,7 +7,7 @@
 {
   home = {
     activation.installTide = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      ${config.programs.fish.package}/bin/fish -i -c "tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time=No --lean_prompt_height='One line' --prompt_spacing=Compact --icons='Few icons' --transient=Yes"
+      ${config.programs.fish.package}/bin/fish -c "tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time=No --lean_prompt_height='One line' --prompt_spacing=Compact --icons='Few icons' --transient=Yes"
     '';
 
     packages =
