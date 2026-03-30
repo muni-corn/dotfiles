@@ -24,8 +24,8 @@ in
 
       keybinds.locked._children = [
         (bind [ "Alt h" ] [ { MoveFocusOrTab = "left"; } ])
-        (bind [ "Alt j" ] [ { MoveFocusOrTab = "down"; } ])
-        (bind [ "Alt k" ] [ { MoveFocusOrTab = "up"; } ])
+        (bind [ "Alt j" ] [ { MoveFocus = "down"; } ])
+        (bind [ "Alt k" ] [ { MoveFocus = "up"; } ])
         (bind [ "Alt l" ] [ { MoveFocusOrTab = "right"; } ])
         (bind [ "Alt n" ] [ { NewPane = { }; } ])
         (bind [ "Alt t" ] [ { NewTab = { }; } ])
