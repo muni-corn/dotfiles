@@ -1,0 +1,38 @@
+inputs:
+  cocoa:
+    url: github:muni-corn/cocoa
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  git-hooks:
+    url: github:cachix/git-hooks.nix
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  musicaloft-shell:
+    url: github:musicaloft/musicaloft-shell
+    flake: false
+  nixpkgs:
+    url: github:cachix/devenv-nixpkgs/rolling
+  pyproject-build-systems:
+    url: github:pyproject-nix/build-system-pkgs
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  pyproject-nix:
+    url: github:pyproject-nix/pyproject.nix
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  treefmt-nix:
+    url: github:numtide/treefmt-nix
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  uv2nix:
+    url: github:pyproject-nix/uv2nix
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+imports:
+  - musicaloft-shell
