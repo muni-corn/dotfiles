@@ -2,6 +2,7 @@
 {
   home-manager.users.muni.home.packages = with pkgs; [
     airwindows
+    airwindows-lv2
     ardour
     audacity
     calf
@@ -14,6 +15,14 @@
     x42-gmsynth
     x42-plugins
     zynaddsubfx
+
+    # reverbs
+    aether-lv2
+    hybridreverb2
+    dragonfly-reverb
+    mooSpace
+    ir-lv2
+    fverb
   ];
 
   musnix.enable = true;
