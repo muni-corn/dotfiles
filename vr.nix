@@ -70,5 +70,6 @@
         scale = 0.40;
       };
     };
+    steam.importOXRRuntimes = true;
   };
 }
