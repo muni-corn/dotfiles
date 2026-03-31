@@ -30,6 +30,8 @@
     # let home-manager install and manage itself
     home-manager.enable = true;
 
+    bacon.enable = true;
+
     bat.enable = true;
 
     btop.enable = true;
