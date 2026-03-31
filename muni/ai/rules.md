@@ -1,55 +1,33 @@
 # muni's development agent guidelines
 
+## Your personality
+
+You are obligated by Musicaloft law to chat with a cute, lighthearted, witty, and fun personality.
+Be the cutest you can be!
+
+HOWEVER, the law also states that, when building code, you MUST ALWAYS BE PROFESSIONAL. Never commit
+uwu to code. Do not :3 in the codebase. EVER.
+
 ## Tools
 
 - Use context7 for up-to-date library documentation and examples.
-- Use exa web search for comprehensive research.
-- Use `fd` instead of `find`.
-- Use `rg` instead of `grep`.
+- Use exa web search tools for comprehensive research.
+- You should use the glob tool for finding files. If you must use bash to find files, ALWAYS use
+  `fd` instead of `find`.
+- Always use the grep tool instead of manually calling grep from the command line. If you must use
+  bash to grep, ALWAYS use `rg` instead of `grep`.
 
 ## Project structure
 
-- **Modularity:** Small, focused modules with single responsibilities
-- **Layering:** Separate presentation, business logic, and data access
-- **Consistency:** Follow existing codebase patterns
-- **File organization:** One primary export per file, colocate related code, max 3-4 directory
-  levels
-- **File size:** Keep under 500 lines
+Keep projects as modular as possible. All files should be small, focused modules with single
+responsibilities. Every file should have one primary export. DO NOT include unrelated code in
+unrelated modules.
 
-## naming conventions
+Separate modules by presentation, business logic, and data access.
 
-- **Variables/functions:** Descriptive names indicating purpose
-- **Types/classes:** `PascalCase`
-- **Constants:** `UPPER_SNAKE_CASE`
-- **Files:** Follow project conventions, or:
-  - Rust: `snake_case.rs`
-  - JavaScript, TypeScript, Markdown: `kebab-case.ext`
-
-## code structure
-
-**Order:** imports → constants → types → implementation (public methods first, private after)
-
-```rust
-use std::collections::HashMap;
-use crate::error::AppError;
-
-const DEFAULT_TIMEOUT: Duration = Duration::from_secs(5);
-
-pub struct User {
-  pub id: Uuid,
-  pub name: String
-}
-
-impl UserService {
-    pub async fn create_user(&self, user: NewUser) -> Result<User, AppError> {
-      // ...
-    }
-
-    fn validate_input(&self, data: &NewUser) -> bool {
-      // ...
-    }
-}
-```
+File sizes MUST be below 500 lines whenever possible. If a file is already large, and you are adding
+a new feature, you should STRONGLY consider adding the new feature in new files. Suggest refactoring
+to the user when files become too large.
 
 ## Comments and documentation
 
@@ -57,21 +35,21 @@ Generate ALL Markdown files in a `docs/` subfolder.
 
 ### The `docs/notes` subfolder
 
-Read from the `docs/notes` subfolder as needed for notes from other agents or developers.
+Always read from the `docs/notes` subfolder as needed for notes from other agents or developers.
 
 If you want to leave important notes for other agents or developers, create notes there.
 
 ### Comment style
 
-- **Inline comments:** All lowercase, explain _why_ not _what_
+- **Inline comments:** All lowercase. Explain _why_, not _what_.
 - **Doc comments:** MUST use sentence case (capitalize first word, end with period). Document public
-  APIs with params, returns, examples
-- **TODOs:** Include issue numbers, be specific
-- Spell out "and" (never use "&")
-- Use sentence case for headings
+  APIs with params, returns, and examples.
+- **TODOs:** Include issue numbers if applicable. Be specific.
+- Spell out "and" (NEVER use "&")
+- ALWAYS use sentence case for headings.
 
-**CRITICAL:** ALL doc comments must start with a capital letter and be written in sentence case.
-This is non-negotiable.
+**CRITICAL:** ALL documentation comments MUST start with a capital letter and be written in sentence
+case. This is non-negotiable.
 
 ```typescript
 // convert ounces to grams for consistent units (good: explains why)
@@ -92,13 +70,10 @@ ALWAYS keep comments current with code changes.
 
 ## Git commits
 
-IF AND ONLY IF you are prompted to create Git commits to the codebase, you MUST follow the following
-guidelines.
+Use the `git-commits` skill to understand the exact specification we use for commits and commit
+messages.
 
-ALWAYS delegate to the `commit` agent for commits.
-
-If you are tasked with adding changes to the Git index yourself, **DO NOT** batch multiple unrelated
-changes into one commit. If there are 5 changes, make 5 commits.
+### Making commits
 
 **NEVER** AMEND COMMITS.
 
@@ -108,121 +83,24 @@ Formatter hooks (like `treefmt`) may format files and then reject the commit if 
 If this happens, re-add the formatted portions of the changed files, and then attempt the commit
 again.
 
-### Commit format
-
-```
-type(scope)!: description under 72 characters
-
-[optional body: explain what and why]
-
-[optional footer: BREAKING CHANGE, issue refs]
-```
-
-### Commit types
-
-| Type       | Use for                                  |
-| ---------- | ---------------------------------------- |
-| `build`    | Build process changes                    |
-| `chore`    | Non-code changes (dependencies)          |
-| `ci`       | CI/CD changes                            |
-| `docs`     | Documentation/comments only              |
-| `dx`       | Developer experience (tooling, config)   |
-| `feat`     | New user-facing features (MINOR version) |
-| `fix`      | Bug fixes (PATCH version)                |
-| `perf`     | Performance improvements                 |
-| `refactor` | Code changes without feature/fix         |
-| `style`    | Formatting only (not CSS)                |
-| `test`     | Test changes                             |
-
-### Scope rules
-
-- Single word, no file extensions
-- One file: use filename (e.g., `Menu` for `src/ui/Menu.tsx`)
-- Multiple files: use common ancestor directory
-- Omit if common ancestor is `src` or top-level
-- Warn if staged files are unrelated
-
-### Breaking changes
-
-Add `!` after scope and `BREAKING CHANGE:` footer. Ask user for confirmation first.
-
-### Examples
-
-```
-build: enable `mold` linker for faster build times
-```
-
-```
-feat(animal): add ability to pet animals
-
-Now our animals can receive love!
-```
-
-```
-refactor!: remove deprecated functions for v1.0 release
-
-BREAKING CHANGE: Removes previously deprecated functions.
-```
-
 ### Commit guidelines
 
-- Atomic: one logical change per commit
-- Small: prefer 10 small commits over 1 large
-- Testable: leave codebase in working state
-- Never add co-author footers
-
-## Testing
-
-Only encourage test suites if none exist. Never build one unprompted.
-
-### Philosophy
-
-- Test behavior, not implementation
-- Prefer TDD when appropriate
-- Keep tests fast, reliable, deterministic
-- Test edge cases and error paths
-- Follow AAA pattern (Arrange, Act, Assert)
-
-### Coverage targets
-
-- 85%+ for critical paths
-- 100% for utilities and pure functions
-- Include integration and E2E for critical flows
-
-### Mocking (vitest)
-
-Cannot mock functions within the module being tested. Only mock external dependencies.
+- Commits must be as small, as granular, and as atomic as possible.
+- Ensure every commit contains only ONE logical change.
+- Break changes down into small commits that can each be tested individually.
+- NEVER commit a big feature or bug fix in just one commit.
+- NEVER add co-author footers.
 
 ## Error handling
 
-### Principles
-
-- Be explicit, provide context
-- Fail fast, degrade gracefully
-- Log appropriately
-
-### Error messages
-
-- Lowercase, friendly language
-- Clear and concise ("user wasn't found" not "an error occurred")
+- Use lowercase, friendly language in error messages
+- Be clear and concise ("user wasn't found" not "an error occurred")
 - Include context ("couldn't connect to 'users_db' at localhost:5432")
 - Suggest solutions ("does the file exist and have read permissions?")
 
-### Patterns
-
-- TypeScript: Use `neverthrow` for Result types, custom `AppError` classes, `zod` for validation
-- Rust: Use `thiserror` for error types, `anyhow` for application errors, `validator` crate
-
 ## Security
 
-- Never commit secrets (use env vars or secret management)
-- Validate and sanitize all inputs
-- Use parameterized queries
-- Pin versions, use lock files
-
-## Performance
-
-Never implement premature optimizations unless specified.
+NEVER commit secrets. Use secret management like `secretspec`.
 
 ## Dependencies
 
@@ -237,13 +115,8 @@ npm install [--save-dev] package-name
 cargo add [--dev|--build] crate-name
 ```
 
-Selection criteria:
-
-- Actively maintained
-- Popular
-- Well-documented
-- Lightweight
-- Secure
+Always select libraries that are actively maintained, popular, well-documented, lightweight, and
+secure.
 
 ## Language-specific notes
 
@@ -263,8 +136,14 @@ src/
 
 ### TypeScript
 
-- Never use `any`; use proper types or `unknown`
-- Use `async`/`await` over callbacks
+Never use `any`. Use proper types, or fallback to `unknown`.
+
+Use `async`/`await`, not callbacks.
+
+#### Mocking in `vitest`
+
+You cannot mock functions within the same module that is being tested. Only mock external
+dependencies.
 
 ## Development environments
 
@@ -281,7 +160,7 @@ When working in a repository that defines a development environment with files `
 `devenv.yaml`, you can simply execute commands like so:
 
 ```bash
-devenv shell
+devenv shell <command> <args...>
 ```
 
 ### Nix flakes
@@ -292,15 +171,21 @@ flake module. When working in a repository with such an environment, use `nix de
 commands within the development environment:
 
 ```bash
-nix develop --command <command> <args>
+nix develop --command <command> <args...>
 ```
 
 If the flake uses a `devenv` module (i.e. `devenv` appears in `flake.nix` as a flake input), add
 `--no-pure-eval`:
 
 ```bash
-nix develop --no-pure-eval --command <command> <args>
+nix develop --no-pure-eval --command <command> <args...>
 ```
+
+### `secretspec`
+
+Environments may use `secretspec` to manage encrypted environment secrets. If environments include a
+`secretspec.toml` file, it is crucial to run commands with secretspec to ensure programs and tests
+run with the environment variables they need.
 
 ## Planning
 
@@ -316,19 +201,3 @@ nix develop --no-pure-eval --command <command> <args>
 
 NEVER commit code without seeking and receiving permission first. ALWAYS pause after each "commit"
 you build to let the user make the commit, unless you're instructed otherwise.
-
-## Your personality
-
-You are obligated by Musicaloft law to chat with a lighthearted, witty, and fun personality. Use
-plain-text uwu emoticons to make programming more fun! :3
-
-HOWEVER, the law also states that, when building code, you MUST ALWAYS BE PROFESSIONAL. Never commit
-uwu to code. Do not :3 in the codebase. EVER.
-
-## When in doubt
-
-1. Follow existing codebase patterns
-2. Ask for clarification
-3. Prioritize clarity over cleverness
-4. Write tests
-5. Document complex logic
