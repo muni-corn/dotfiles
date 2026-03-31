@@ -29,7 +29,6 @@ in
     homeDirectory = "/home/muni";
 
     sessionPath = [
-      "$HOME/.cargo/bin"
       "$HOME/.local/bin"
       "$HOME/.npm/bin"
     ];

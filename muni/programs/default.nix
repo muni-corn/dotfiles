@@ -34,6 +34,8 @@
 
     btop.enable = true;
 
+    cargo.enable = true;
+
     direnv = {
       enable = true;
       nix-direnv.enable = true;
