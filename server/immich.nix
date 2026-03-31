@@ -20,9 +20,6 @@
       # networking
       host = "0.0.0.0";
       openFirewall = true;
-
-      # disabled to use the new VectorChord instead
-      database.enableVectors = false;
     };
   };
 
