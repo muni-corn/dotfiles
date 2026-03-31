@@ -24,6 +24,8 @@
     # Run WiVRn as a systemd service on startup
     autoStart = true;
 
+    highPriority = true;
+
     monadoEnvironment = {
       XRT_COMPOSITOR_COMPUTE = "1";
       U_PACING_COMP_MIN_TIME_MS = "5";
