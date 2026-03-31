@@ -12,6 +12,9 @@
     enableMcpIntegration = true;
 
     agents = ./agents;
+    rules = ./rules.md;
+    skills = ./skills;
+
     settings = {
       "$schema" = "https://opencode.ai/config.json";
       autoupdate = false;
@@ -34,8 +37,5 @@
         opencode.options.apiKey = "{file:${config.sops.secrets.opencode_zen_api_key.path}}";
       };
     };
-    rules = ./rules.md;
-
-    web.enable = true;
   };
 }
