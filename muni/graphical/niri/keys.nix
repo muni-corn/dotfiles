@@ -237,6 +237,14 @@ in
       repeat = false;
     };
 
+    # open backup "emergency" terminal.
+    # sometimes fish or zellij will crash, closing kitty immediately.
+    # this provides bash as an alternative, which also isn't set up with zellij.
+    "Mod+Alt+Return" = {
+      action = launchInTerminal "bash";
+      repeat = false;
+    };
+
     # power controls
     "Mod+Ctrl+Alt+O" = {
       action = sh "canberra-gtk-play -i system-shutdown; systemctl poweroff";
