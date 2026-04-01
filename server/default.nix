@@ -136,6 +136,12 @@
       };
     };
 
+    mysql = {
+      enable = true;
+      package = pkgs.mariadb;
+      ensureDatabases = [ "munibot" ];
+    };
+
     surrealdb = {
       enable = true;
       package = inputs.surrealdb.packages.x86_64-linux.default;
