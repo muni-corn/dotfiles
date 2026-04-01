@@ -4603,11 +4603,11 @@
         "treefmt-nix": "treefmt-nix_8"
       },
       "locked": {
-        "lastModified": 1775062554,
-        "narHash": "sha256-R8bG/gLDcse+/WOyu7RWxI6ysBKx/L0Di1lvEEJmL08=",
+        "lastModified": 1775074575,
+        "narHash": "sha256-tyE33xlFAd/tmRr2RRUMxgooOX6o9RKRA40RiO7+LJc=",
         "owner": "muni-corn",
         "repo": "munibot",
-        "rev": "8824d363af2dc9259dcbd079d9fbbb1598e6fb27",
+        "rev": "d99890acb97cd33e38c427c16e1f0df9920d4538",
         "type": "github"
       },
       "original": {
@@ -5953,11 +5953,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1775062178,
-        "narHash": "sha256-57DuPRbRfjA92Jnf5HWmeKMymRD/njliMgo+sfhBUsY=",
+        "lastModified": 1775064231,
+        "narHash": "sha256-hrL2H8nUQg5U36+HgSMjU1+HzDWsyTPMrx4AENKMCHo=",
         "owner": "nix-community",
         "repo": "NUR",
-        "rev": "7f79b59e27e6d4342fb33677f3b963aa62d8fdb7",
+        "rev": "2545de7b9a4bf5a6ab5e521626c24e1d09d9e4d4",
         "type": "github"
       },
       "original": {
@@ -6882,11 +6882,11 @@
         "treefmt-nix": "treefmt-nix_11"
       },
       "locked": {
-        "lastModified": 1775059839,
-        "narHash": "sha256-Qpvn+sOs4dgJnER7mO85n9rJQS+/X6TQ8rP5x8gO8EY=",
+        "lastModified": 1775062890,
+        "narHash": "sha256-eBCVe+29FN1GrUCfC0DGDOoWkeyjJ9pHCEW5FPcg0PQ=",
         "owner": "rustledger",
         "repo": "rustledger",
-        "rev": "9e4922ca3434ff25d76acfede8ee288143cbdd51",
+        "rev": "c667c26f6e435a13ebf3081aed0a0866aba10ef4",
         "type": "github"
       },
       "original": {
