@@ -4,6 +4,7 @@
     ffmpeg-full
     imagemagick
     qpdf
+    ueberzugpp
     video-trimmer
   ];
 }
