@@ -1,4 +1,4 @@
-{ config, lib, ... }:
+{ config, ... }:
 let
   bind = keys: actions: {
     bind = {
@@ -22,14 +22,21 @@ in
       serialize_pane_viewport = true;
       show_startup_tips = false;
 
-      keybinds.locked._children = [
-        (bind [ "Alt h" ] [ { MoveFocusOrTab = "left"; } ])
-        (bind [ "Alt j" ] [ { MoveFocus = "down"; } ])
-        (bind [ "Alt k" ] [ { MoveFocus = "up"; } ])
-        (bind [ "Alt l" ] [ { MoveFocusOrTab = "right"; } ])
-        (bind [ "Alt Space" ] [ { NewPane = { }; } ])
-        (bind [ "Alt t" ] [ { NewTab = { }; } ])
-      ];
+      keybinds = {
+        normal._children = [
+          { unbind = "Ctrl g"; }
+          (bind [ "Ctrl f" ] [ { SwitchToMode = "locked"; } ])
+        ];
+
+        locked._children = [
+          (bind [ "Alt h" ] [ { MoveFocusOrTab = "left"; } ])
+          (bind [ "Alt j" ] [ { MoveFocus = "down"; } ])
+          (bind [ "Alt k" ] [ { MoveFocus = "up"; } ])
+          (bind [ "Alt l" ] [ { MoveFocusOrTab = "right"; } ])
+          (bind [ "Alt Space" ] [ { NewPane = { }; } ])
+          (bind [ "Alt t" ] [ { NewTab = { }; } ])
+        ];
+      };
     };
   };
 }
