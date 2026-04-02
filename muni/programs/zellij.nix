@@ -6,6 +6,10 @@ let
       _children = actions;
     };
   };
+
+  unbind = keys: {
+    unbind = keys;
+  };
 in
 {
   programs.zellij = {
@@ -27,8 +31,11 @@ in
           (bind [ "Alt j" ] [ { MoveFocus = "down"; } ])
           (bind [ "Alt k" ] [ { MoveFocus = "up"; } ])
           (bind [ "Alt l" ] [ { MoveFocusOrTab = "right"; } ])
-          (bind [ "Alt Space" ] [ { NewPane = { }; } ])
           (bind [ "Alt t" ] [ { NewTab = { }; } ])
+          (bind [ "Alt f" ] [ { ToggleFloatingPanes = { }; } ])
+
+          (unbind "Alt n")
+          (bind [ "Alt Space" ] [ { NewPane = { }; } ])
         ];
 
         locked._children = [
@@ -39,7 +46,7 @@ in
           (bind [ "Alt Space" ] [ { NewPane = { }; } ])
           (bind [ "Alt t" ] [ { NewTab = { }; } ])
 
-          { unbind = "Ctrl g"; }
+          (unbind "Ctrl g")
           (bind [ "Ctrl Alt g" ] [ { SwitchToMode = "normal"; } ])
         ];
       };
