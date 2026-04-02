@@ -18,14 +18,17 @@ in
     settings = {
       theme_dir = "${config.xdg.configHome}/zellij/themes/";
       scroll_buffer_size = 10000;
-      default_mode = "locked";
       serialize_pane_viewport = true;
       show_startup_tips = false;
 
       keybinds = {
         normal._children = [
-          { unbind = "Ctrl g"; }
-          (bind [ "Ctrl f" ] [ { SwitchToMode = "locked"; } ])
+          (bind [ "Alt h" ] [ { MoveFocusOrTab = "left"; } ])
+          (bind [ "Alt j" ] [ { MoveFocus = "down"; } ])
+          (bind [ "Alt k" ] [ { MoveFocus = "up"; } ])
+          (bind [ "Alt l" ] [ { MoveFocusOrTab = "right"; } ])
+          (bind [ "Alt Space" ] [ { NewPane = { }; } ])
+          (bind [ "Alt t" ] [ { NewTab = { }; } ])
         ];
 
         locked._children = [
@@ -35,6 +38,9 @@ in
           (bind [ "Alt l" ] [ { MoveFocusOrTab = "right"; } ])
           (bind [ "Alt Space" ] [ { NewPane = { }; } ])
           (bind [ "Alt t" ] [ { NewTab = { }; } ])
+
+          { unbind = "Ctrl g"; }
+          (bind [ "Ctrl f" ] [ { SwitchToMode = "normal"; } ])
         ];
       };
     };
