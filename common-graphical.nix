@@ -5,6 +5,7 @@
 }:
 {
   imports = [
+    ./extra-modules/nixos/xdg-sound-theme.nix
     ./flatpak.nix
     ./greetd.nix
     ./niri.nix
@@ -33,7 +34,6 @@
       kdePackages.ksshaskpass
       libcanberra
       libcanberra-gtk3
-      cadenza-sounds
       v4l-utils
       wayfire
 
@@ -168,10 +168,6 @@
     xserver.xkb.layout = "us";
   };
 
-  systemd.packages = [
-    pkgs.libcanberra
-  ];
-
   users.users.muni = {
     isNormalUser = true;
     description = "municorn";
@@ -197,7 +193,13 @@
       enable = true;
       xdgOpenUsePortal = true;
     };
-    sounds.enable = true;
+    sounds = {
+      theme = {
+        name = "cadenza";
+        package = pkgs.cadenza-sounds;
+      };
+      canberra-boot.enable = true;
+    };
     terminal-exec = {
       enable = true;
       settings.default = [
