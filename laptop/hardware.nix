@@ -27,6 +27,7 @@
       luks = {
         fido2Support = false;
         devices.cryptmain = {
+          bypassWorkqueues = true;
           device = "/dev/disk/by-uuid/8cd34ae8-2895-4570-9b11-76a08b3b094a";
           crypttabExtraOpts = [ "fido2-device=auto" ];
         };
