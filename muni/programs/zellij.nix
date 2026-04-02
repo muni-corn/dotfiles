@@ -40,7 +40,7 @@ in
           (bind [ "Alt t" ] [ { NewTab = { }; } ])
 
           { unbind = "Ctrl g"; }
-          (bind [ "Ctrl f" ] [ { SwitchToMode = "normal"; } ])
+          (bind [ "Ctrl Alt g" ] [ { SwitchToMode = "normal"; } ])
         ];
       };
     };
