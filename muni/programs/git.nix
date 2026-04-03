@@ -92,6 +92,7 @@
         package = pkgs.gitFull;
 
         ignores = [
+          ".env"
           "*~"
           "*.orig"
           ".devenv/"
