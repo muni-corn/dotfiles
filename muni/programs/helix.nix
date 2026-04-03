@@ -11,7 +11,7 @@
       mpls
       nixd
       nixfmt
-      nodePackages.typescript-language-server
+      typescript-language-server
       oxfmt
       oxlint
       pest-ide-tools
