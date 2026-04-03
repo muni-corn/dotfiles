@@ -27,7 +27,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://github.com/0x90d/videoduplicatefinder/releases/download/${version}/App-linux-x64.tar.gz";
-    sha256 = "sha256-LAypReg7GQ/ZOL33F9+0a4B9cNWm/8aUNoPrH3mMKGY=";
+    sha256 = "sha256-5T/K8muv9aoOYzhJOoyRD3luunuy09L0PbOM9R76cvY=";
   };
 
   sourceRoot = "outputFolder";
