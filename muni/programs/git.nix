@@ -96,6 +96,7 @@
           "*.orig"
           ".devenv/"
           ".direnv/"
+          "devenv.local.*"
         ];
 
         lfs.enable = true;
