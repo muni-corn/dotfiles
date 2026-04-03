@@ -46,7 +46,7 @@
     eza = {
       enable = true;
       git = true;
-      icons = "auto";
+      icons = true;
     };
 
     gpg.enable = true;
