@@ -91,6 +91,13 @@
         enable = true;
         package = pkgs.gitFull;
 
+        ignores = [
+          "*~"
+          "*.orig"
+          ".devenv/"
+          ".direnv/"
+        ];
+
         lfs.enable = true;
 
         maintenance = {
