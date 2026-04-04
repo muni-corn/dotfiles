@@ -25,6 +25,7 @@
       vtsls
       wgsl-analyzer
       yaml-language-server
+      yamlfmt
     ];
     defaultEditor = true;
     settings = {
@@ -361,6 +362,16 @@
             name = "wgsl";
             auto-format = true;
             formatter.command = "wgslfmt";
+          }
+
+          # yaml
+          {
+            name = "yaml";
+            auto-format = true;
+            formatter = {
+              command = "yamlfmt";
+              args = [ "-in" ];
+            };
           }
 
           # javascript and adjacent languages
