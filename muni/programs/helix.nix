@@ -368,10 +368,10 @@
           {
             name = "yaml";
             auto-format = true;
-            formatter = {
-              command = "yamlfmt";
-              args = [ "-in" ];
-            };
+            language-servers = [
+              "oxfmt"
+              "yaml-language-server"
+            ];
           }
 
           # javascript and adjacent languages
