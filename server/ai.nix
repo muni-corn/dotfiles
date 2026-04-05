@@ -22,8 +22,6 @@
         "gemma4:e4b"
         "gemma4:26b"
         "gemma4:31b"
-        "llama3.1"
-        "llama3.2"
       ];
       openFirewall = true;
     };
