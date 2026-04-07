@@ -113,7 +113,9 @@ in
       systemd.services = {
         canberra-system-bootup = {
           description = "Play Bootup Sound";
-          wantedBy = [ "sound.target" ];
+          # sound.target is passive and not pulled into the boot sequence by default,
+          # so we use multi-user.target to ensure this actually runs on boot.
+          wantedBy = [ "multi-user.target" ];
           after = [ "alsa-restore.service" ];
           before = [ "shutdown.target" ];
           conflicts = [ "shutdown.target" ];
