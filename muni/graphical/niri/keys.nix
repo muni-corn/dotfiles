@@ -32,6 +32,7 @@ let
   script = s: spawn (toString s);
   launch = args: sh "${args}";
   launchInTerminal = args: sh "${kitty} ${args}";
+  quickAccessTerminal = args: sh "kitten quick-access-terminal ${args}";
 in
 {
   programs.niri.settings.binds = {
@@ -290,9 +291,9 @@ in
     "Mod+Shift+M".action = launch apps.media;
 
     # shortcuts for terminal apps
-    "Mod+C".action = launchInTerminal "fend";
+    "Mod+C".action = quickAccessTerminal "fend";
     "Mod+E".action = launchInTerminal fileManager;
-    "Mod+T".action = launchInTerminal "taskwarrior-tui";
+    "Mod+T".action = quickAccessTerminal "taskwarrior-tui";
     "Mod+Shift+D".action = launchInTerminal "${fileManager} ${notebookDir}/journal";
     "Mod+Shift+N".action = launchInTerminal "${fileManager} ${notebookDir}";
     "Mod+Shift+P".action = launchInTerminal "btop";
