@@ -95,7 +95,7 @@
       h = "hx";
       q = "exit";
       r = "ranger";
-      s = "ssh -t";
+      s = "kitten ssh";
       v = "vault";
       x = "trash-put";
 
