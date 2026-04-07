@@ -13,7 +13,6 @@
     packages =
       with pkgs.fishPlugins;
       [
-        done
         foreign-env
         plugin-git
         sponge
