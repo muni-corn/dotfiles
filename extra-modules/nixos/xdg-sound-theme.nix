@@ -120,6 +120,8 @@ in
           before = [ "shutdown.target" ];
           conflicts = [ "shutdown.target" ];
           unitConfig.DefaultDependencies = false;
+          # prevent nixos-rebuild switch/test from re-running the boot sound.
+          restartIfChanged = false;
           serviceConfig = commonServiceConfig // {
             ExecStart = "${canberraBootBin} system-bootup";
           };
@@ -133,6 +135,9 @@ in
           ];
           before = [ "shutdown.target" ];
           unitConfig.DefaultDependencies = false;
+          # prevent nixos-rebuild from interfering with shutdown sound services.
+          restartIfChanged = false;
+          stopIfChanged = false;
           serviceConfig = commonServiceConfig // {
             ExecStart = "${canberraBootBin} system-shutdown";
           };
@@ -146,6 +151,9 @@ in
           ];
           before = [ "shutdown.target" ];
           unitConfig.DefaultDependencies = false;
+          # prevent nixos-rebuild from interfering with shutdown sound services.
+          restartIfChanged = false;
+          stopIfChanged = false;
           serviceConfig = commonServiceConfig // {
             ExecStart = "${canberraBootBin} system-shutdown-reboot";
           };
