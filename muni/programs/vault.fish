@@ -84,6 +84,6 @@ switch $cmd
 
     case '*'
         echo "unknown command: $cmd"
-        echo "usage: vault {new|unlock|lock} <path>"
+        echo "usage: vault {n[ew]|u[nlock]|l[ock]} <path>"
         return 1
 end
