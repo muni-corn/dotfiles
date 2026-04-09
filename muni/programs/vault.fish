@@ -37,6 +37,9 @@ switch $cmd
         gocryptfs -init "$HOME/$dir.vault" -extpass "pass vaults/$pass_dir"
 
     case u unlock
+        # unlock with git-annex files first, if applicable
+        git annex info -F >/dev/null 2>/dev/null && git annex unlock $path 2>/dev/null
+
         # get paths (strip .vault, add .unlocked)
         set -l vault_path $abs_path
         set -l base_path (string replace -r '\.vault$' '' $abs_path)
