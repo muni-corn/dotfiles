@@ -109,14 +109,24 @@
 
   nix = {
     package = pkgs.nixVersions.latest;
+
     # enables flakes
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
+
+    gc = {
+      automatic = true;
+      dates = "weekly";
+      options = "--delete-older-than 14d";
+      persistent = true;
+    };
+
     optimise = {
       automatic = true;
-      dates = [ "weekly" ];
+      persistent = true;
     };
+
     settings = {
       auto-optimise-store = true;
       allowed-users = [ "muni" ];
@@ -156,11 +166,6 @@
 
     nh = {
       enable = true;
-      clean = {
-        enable = true;
-        dates = "monthly";
-        extraArgs = "--keep 5 --keep-since 30d";
-      };
       flake = "/home/muni/dotfiles";
     };
 
