@@ -52,19 +52,23 @@ switch $cmd
         gocryptfs $vault_path $unlocked_path -extpass "pass vaults/$pass_dir"
 
     case l lock
-        # determine unlocked path
+        # determine unlocked path and the vault path
         set -l unlocked_path
-
+        set -l vault_path
         if string match -q "*.vault" $abs_path
             # strip .vault, add .unlocked
             set -l base_path (string replace -r '\.vault$' '' $abs_path)
             set unlocked_path "$base_path.unlocked"
+            set vault_path $abs_path
         else if string match -q "*.unlocked" $abs_path
             # already .unlocked
+            set -l base_path (string replace -r '\.unlocked$' '' $abs_path)
             set unlocked_path $abs_path
+            set vault_path "$base_path.vault"
         else
-            # no extension, add .unlocked
+            # no extension, add .unlocked and .vault
             set unlocked_path "$abs_path.unlocked"
+            set vault_path "$abs_path.vault"
         end
 
         # unmount
@@ -74,6 +78,9 @@ switch $cmd
         if test -d $unlocked_path
             rmdir -v $unlocked_path 2>/dev/null || echo "warning: unlocked directory wasn't empty after unmount; not removing"
         end
+
+        # finally, lock the git-annex files again
+        git annex info -F >/dev/null 2>/dev/null && git annex lock $vault_path 2>/dev/null
 
     case '*'
         echo "unknown command: $cmd"
