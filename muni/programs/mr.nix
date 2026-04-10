@@ -81,6 +81,7 @@
         "code/cadenza" = fromMuni "cadenza";
         "code/cocoa" = fromMuni "cocoa";
         "code/hueflux" = fromMusicaloft "municorn" "hueflux";
+        "code/muni-tuber" = fromMuni "muni-tuber";
         "code/muni-wallpapers" = fromMuni "muni-wallpapers";
         "code/munibot" = fromMuni "munibot";
         "code/musicaloft-shell" = fromMusicaloft "musicaloft" "musicaloft-shell";
