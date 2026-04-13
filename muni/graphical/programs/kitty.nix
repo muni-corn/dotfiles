@@ -19,7 +19,7 @@
       # experience settings
       copy_on_select = true;
       momentum_scroll = 0.98;
-      notify_on_cmd_finish = "unfocused 15 notify-bell";
+      notify_on_cmd_finish = "unfocused 15 notify";
       strip_trailing_spaces = "always";
 
       # give rows some space to breathe
