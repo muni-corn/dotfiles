@@ -40,9 +40,8 @@
       rawtherapee
       upscayl
 
-      # video utilities
+      # video
       celluloid
-      videoduplicatefinder
 
       # messaging
       element-desktop

@@ -22,8 +22,6 @@ let
       });
 
       muni-scripts = inputs.muni-scripts.packages.${final.system}.default;
-
-      videoduplicatefinder = final.callPackage ../pkgs/videoduplicatefinder { };
     })
   ];
 in
