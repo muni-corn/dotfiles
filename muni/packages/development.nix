@@ -28,5 +28,8 @@
     # utilities
     license-cli
     meld
+
+    # project management
+    jira-cli-go
   ];
 }
