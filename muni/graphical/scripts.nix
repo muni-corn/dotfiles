@@ -112,6 +112,6 @@ in
     pkgs.writeShellScript "open-journal-file-${dateStr}" ''
       parent_dir=$(dirname ${filePath})
       mkdir -p $parent_dir
-      ${kitty} hx ${filePath}
+      ${kitty} -d ${notebookDir} devenv shell hx ${filePath}
     '';
 }
