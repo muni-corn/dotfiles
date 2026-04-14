@@ -25,7 +25,7 @@
 
       settings = {
         listen.hostname = "0.0.0.0";
-        instance.hostname = "Musicaloft Video";
+        instance.hostname = "Musicaloft Watch";
         storage = {
           tmp = "/var/tmp/peertube/";
           logs = "/var/lib/peertube/logs/";
