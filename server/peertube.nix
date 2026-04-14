@@ -9,6 +9,7 @@
       listenWeb = 443;
       listenHttp = 8823;
       secrets.secretsFile = config.sops.secrets.peertube_secrets_file.path;
+      serviceEnvironmentFile = config.sops.secrets.peertube_initial_root_pass.path;
 
       database = {
         createLocally = true;
@@ -26,6 +27,7 @@
       settings = {
         listen.hostname = "0.0.0.0";
         instance.hostname = "Musicaloft Watch";
+
         storage = {
           tmp = "/var/tmp/peertube/";
           logs = "/var/lib/peertube/logs/";
