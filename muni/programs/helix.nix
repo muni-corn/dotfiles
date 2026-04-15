@@ -25,7 +25,6 @@
       vtsls
       wgsl-analyzer
       yaml-language-server
-      yamlfmt
     ];
     defaultEditor = true;
     settings = {
