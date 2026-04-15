@@ -12,6 +12,8 @@ let
   };
 in
 {
+  home.sessionVariables.ZELLIJ_AUTO_EXIT = "true";
+
   programs = {
     fish.interactiveShellInit = ''
       if set -q SSH_TTY
