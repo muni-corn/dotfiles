@@ -36,7 +36,6 @@
       libcanberra
       libcanberra-gtk3
       v4l-utils
-      wayfire
 
       # needed for xdg-open and such
       xdg-utils
