@@ -56,6 +56,7 @@
       clinfo
       dmidecode
       lsof
+      keychron-udev-rules
       powertop
       psmisc
       rsync
