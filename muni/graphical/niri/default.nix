@@ -153,10 +153,11 @@ in
             }
           ];
           open-floating = true;
+          default-column-width.fixed = 480;
+          default-window-height.fixed = 270;
 
           # TODO: rules from hyprland
           # float
-          # size 480 270
           # move 100%-480 32
           # idleinhibit always
           # keepaspectratio
