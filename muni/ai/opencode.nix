@@ -24,8 +24,14 @@
       model = "opencode/claude-sonnet-4-6";
       small_model = "opencode/claude-haiku-4-5";
       agent = {
+        plan = {
+          model = "opencode/claude-opus-4-6";
+          permission = {
+            edit."docs/plans/*" = "allow";
+            write."docs/plans/*" = "allow";
+          };
+        };
         review.model = "opencode/gemini-3-pro";
-        plan.model = "opencode/claude-opus-4-6";
       };
 
       # configure api keys
