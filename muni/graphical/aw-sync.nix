@@ -91,7 +91,7 @@ in
 
         # Build the aw-sync command with options
         ExecStart = pkgs.writeShellScript "aw-sync-start" ''
-          ${cfg.package}/bin/aw-sync \
+          ${lib.getExe cfg.package} \
             ${optionalString (cfg.syncDir != "~/ActivityWatchSync") "--sync-dir ${cfg.syncDir}"} \
             ${optionalString (cfg.host != "127.0.0.1") "--host ${cfg.host}"} \
             ${optionalString (cfg.port != null) "--port ${toString cfg.port}"} \

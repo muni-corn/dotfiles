@@ -27,7 +27,7 @@
     cycle = true;
     font = lib.mkForce "sans 12";
     location = "center";
-    terminal = "${config.programs.kitty.package}/bin/kitty";
+    terminal = lib.getExe config.programs.kitty.package;
     yoffset = 32;
     extraConfig = {
       auto-select = false;

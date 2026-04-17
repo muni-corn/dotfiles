@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   # fix the taskw library used by bugwarrior to use taskwarrior 3.
   # taskw uses the `task` executable. but it is packaged in nixpkgs such that taskwarrior2's `task` is bundled with it.
@@ -90,7 +95,7 @@ in
       Unit.Description = "bugwarrior pull";
       Service = {
         Type = "oneshot";
-        ExecStart = "${python-env}/bin/bugwarrior pull";
+        ExecStart = "${lib.getExe' python-env "bugwarrior"} pull";
       };
     };
 

@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
@@ -9,7 +10,7 @@
     NNN_OPENER = pkgs.writeTextFile {
       name = "nuke";
       text = ''
-        #!${config.programs.fish.package}/bin/fish
+        #!${lib.getExe config.programs.fish.package}
 
         ${builtins.readFile ./nuke.fish}
       '';

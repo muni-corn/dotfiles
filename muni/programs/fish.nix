@@ -7,7 +7,7 @@
 {
   home = {
     activation.installTide = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      ${config.programs.fish.package}/bin/fish -c "tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time=No --lean_prompt_height='One line' --prompt_spacing=Compact --icons='Few icons' --transient=Yes"
+      ${lib.getExe config.programs.fish.package} -c "tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time=No --lean_prompt_height='One line' --prompt_spacing=Compact --icons='Few icons' --transient=Yes"
     '';
 
     packages =
@@ -73,10 +73,10 @@
     '';
 
     shellAliases = {
-      scanqr = ''geo=(slurp) grim -g "$geo" - | ${pkgs.zbar}/bin/zbarimg --quiet --raw PNG:- 2> /dev/null | tr -d "\n"'';
+      scanqr = ''geo=(slurp) grim -g "$geo" - | ${lib.getExe pkgs.zbar} --quiet --raw PNG:- 2> /dev/null | tr -d "\n"'';
       todo = "task next";
       yt = "ytfzf --thumb-viewer=imv -t";
-      bonsai = "${pkgs.cbonsai}/bin/cbonsai -li -w 10 -t 0.1 -L 50 -m";
+      bonsai = "${lib.getExe pkgs.cbonsai} -li -w 10 -t 0.1 -L 50 -m";
       cheer-me-up = ''bonsai "keep going, you're doing great"'';
       roll = "random 1";
 

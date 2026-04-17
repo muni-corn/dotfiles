@@ -7,7 +7,7 @@ let
   writeFishScript =
     name: script:
     pkgs.writeScript name ''
-      #!${config.programs.fish.package}/bin/fish
+      #!${lib.getExe config.programs.fish.package}
       ${script}
     '';
 
@@ -20,7 +20,7 @@ let
   mkBrightnessScript =
     name: brilloFlags:
     pkgs.writeShellScript "brightness-${name}" ''
-      ${pkgs.brillo}/bin/brillo -q ${brilloFlags}
+      ${lib.getExe pkgs.brillo} -q ${brilloFlags}
     '';
 
   journalFilePath =
@@ -52,14 +52,14 @@ let
   promptTimewArgs =
     action: promptText: script:
     pkgs.writeShellScript "prompt-timew-${action}" ''
-      args=$(${config.programs.rofi.finalPackage}/bin/rofi -fixed-num-lines 0 -dmenu -p '${promptText}')
+      args=$(${lib.getExe config.programs.rofi.finalPackage} -fixed-num-lines 0 -dmenu -p '${promptText}')
       ${script} $args
     '';
 
   kitty = lib.getExe config.programs.kitty.package;
 in
 {
-  quickCode = import ./quick-code-script.nix { inherit config pkgs; };
+  quickCode = import ./quick-code-script.nix { inherit config lib pkgs; };
 
   toggleGammastep = ./toggle_gammastep.fish;
 

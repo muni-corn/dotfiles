@@ -7,12 +7,13 @@
 */
 {
   config,
+  lib,
   pkgs,
 }:
 let
-  z = "${config.programs.zoxide.package}/bin/zoxide";
-  rofi = "${config.programs.rofi.finalPackage}/bin/rofi";
-  fish = "${config.programs.fish.package}/bin/fish";
+  z = lib.getExe config.programs.zoxide.package;
+  rofi = lib.getExe config.programs.rofi.finalPackage;
+  fish = lib.getExe config.programs.fish.package;
 in
 pkgs.writeScript "quick-code-script" ''
   #!${fish}
@@ -22,5 +23,5 @@ pkgs.writeScript "quick-code-script" ''
   ${z} add $dir
 
   # can't use -1 flag here; kitty cannot open in the specified directory if used
-  ${pkgs.kitty}/bin/kitty -d $dir -e ${fish} -i
+  ${lib.getExe config.programs.kitty.package} -d $dir -e ${fish} -i
 ''

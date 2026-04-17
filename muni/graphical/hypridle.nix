@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 {
   # base hypridle settings; lock screen after 10 minutes of inactivity. per-device sleep schedules are set in desktop/default.nix and laptop/default.nix
   services.hypridle =
     let
-      lockWarning = "${pkgs.libnotify}/bin/notify-send -a 'System' -e -u low -t 29500 'Are you still there?' 'Your system will lock itself soon.'";
+      lockWarning = "${lib.getExe pkgs.libnotify} -a 'System' -e -u low -t 29500 'Are you still there?' 'Your system will lock itself soon.'";
       lock = "loginctl lock-session";
       powerOff = "niri msg action power-off-monitors";
       powerOn = "niri msg action power-on-monitors";

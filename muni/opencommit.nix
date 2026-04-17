@@ -1,4 +1,5 @@
 {
+  lib,
   config,
   pkgs,
   ...
@@ -18,15 +19,15 @@
     Service = {
       Type = "oneshot";
       ExecStart = pkgs.writeShellScript "setup-opencommit" ''
-        ${pkgs.opencommit}/bin/oco config set OCO_AI_PROVIDER=anthropic
-        ${pkgs.opencommit}/bin/oco config set OCO_API_KEY=$(${pkgs.coreutils}/bin/cat ${config.sops.secrets.oco_api_key.path})
-        ${pkgs.opencommit}/bin/oco config set OCO_MODEL=claude-sonnet-4-0
+        ${lib.getExe pkgs.opencommit} config set OCO_AI_PROVIDER=anthropic
+        ${lib.getExe pkgs.opencommit} config set OCO_API_KEY=$(${lib.getExe' pkgs.coreutils "cat"} ${config.sops.secrets.oco_api_key.path})
+        ${lib.getExe pkgs.opencommit} config set OCO_MODEL=claude-sonnet-4-0
 
-        ${pkgs.opencommit}/bin/oco config set OCO_DESCRIPTION=false
-        ${pkgs.opencommit}/bin/oco config set OCO_EMOJI=false
-        ${pkgs.opencommit}/bin/oco config set OCO_GITPUSH=false
-        ${pkgs.opencommit}/bin/oco config set OCO_ONE_LINE_COMMIT=true
-        ${pkgs.opencommit}/bin/oco config set OCO_TOKENS_MAX_INPUT=32768
+        ${lib.getExe pkgs.opencommit} config set OCO_DESCRIPTION=false
+        ${lib.getExe pkgs.opencommit} config set OCO_EMOJI=false
+        ${lib.getExe pkgs.opencommit} config set OCO_GITPUSH=false
+        ${lib.getExe pkgs.opencommit} config set OCO_ONE_LINE_COMMIT=true
+        ${lib.getExe pkgs.opencommit} config set OCO_TOKENS_MAX_INPUT=32768
       '';
       RemainAfterExit = true;
     };

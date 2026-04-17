@@ -67,7 +67,7 @@
           }
           {
             on = "<C-n>";
-            run = ''shell -- ${pkgs.dragon-drop}/bin/dragon-drop -x -T "$1"'';
+            run = ''shell -- ${lib.getExe pkgs.dragon-drop} -x -T "$1"'';
             desc = "Open dragon dialog";
           }
           {

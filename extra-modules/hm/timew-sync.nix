@@ -70,7 +70,7 @@ in
           Unit.Description = "Sync timewarrior data";
           Service = {
             Type = "oneshot";
-            ExecStart = "${pkgs.bash}/bin/bash -c '${config.programs.timewarrior.package}/bin/timew || ${cfg.package}/bin/timewsync'";
+            ExecStart = "${lib.getExe pkgs.bash} -c '${lib.getExe config.programs.timewarrior.package} || ${lib.getExe cfg.package}'";
           };
         };
 

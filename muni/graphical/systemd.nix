@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
@@ -13,7 +14,7 @@
     };
     Service = {
       Environment = "RUST_LOG=info";
-      ExecStart = "${pkgs.cadenza-shell}/bin/cadenza-shell";
+      ExecStart = lib.getExe pkgs.cadenza-shell;
       Restart = "always";
       RestartSec = 1;
       RestartSteps = 1;

@@ -11,13 +11,13 @@ let
   fileManager = "yazi";
 
   apps = {
-    browser = "${config.programs.firefox.package}/bin/firefox";
-    music = "${pkgs.spotify}/bin/spotify";
-    email = "${pkgs.evolution}/bin/evolution";
-    media = "${config.programs.kodi.package}/bin/kodi --windowing=x11";
+    browser = lib.getExe config.programs.firefox.package;
+    music = lib.getExe pkgs.spotify;
+    email = lib.getExe pkgs.evolution;
+    media = "${lib.getExe config.programs.kodi.package} --windowing=x11";
   };
 
-  appMenu = ''${config.programs.rofi.finalPackage}/bin/rofi -p "Run what?" -show drun'';
+  appMenu = ''${lib.getExe config.programs.rofi.finalPackage} -p "Run what?" -show drun'';
 
   scripts = import ../scripts.nix {
     inherit
@@ -287,7 +287,7 @@ in
     "Mod+Ctrl+E".action = launch "rofimoji --prompt Emoji --skin-tone neutral";
     "Mod+Ctrl+N".action = spawn "rofi-network-manager";
     "Mod+Ctrl+P".action = spawn "rofi-pass";
-    "Mod+Ctrl+V".action = launch "${pkgs.pavucontrol}/bin/pavucontrol";
+    "Mod+Ctrl+V".action = launch (lib.getExe pkgs.pavucontrol);
     "Mod+Shift+M".action = launch apps.media;
 
     # shortcuts for terminal apps
@@ -306,10 +306,10 @@ in
     "Mod+Escape".action = spawn "loginctl" "lock-session";
 
     # notifications
-    "Ctrl+Escape".action = spawn "${pkgs.cadenza-shell}/bin/cadenza-shell" "noti" "dismiss";
-    "Mod+Minus".action = spawn "${pkgs.cadenza-shell}/bin/cadenza-shell" "noti" "dismiss";
-    "Mod+Equal".action = spawn "${pkgs.cadenza-shell}/bin/cadenza-shell" "noti" "history-pop";
-    "Mod+Space".action = spawn "${pkgs.cadenza-shell}/bin/cadenza-shell" "noti" "act";
+    "Ctrl+Escape".action = spawn (lib.getExe pkgs.cadenza-shell) "noti" "dismiss";
+    "Mod+Minus".action = spawn (lib.getExe pkgs.cadenza-shell) "noti" "dismiss";
+    "Mod+Equal".action = spawn (lib.getExe pkgs.cadenza-shell) "noti" "history-pop";
+    "Mod+Space".action = spawn (lib.getExe pkgs.cadenza-shell) "noti" "act";
 
     # TODO: discord push-to-talk
     # "Print".action = pass "^(discord)$";

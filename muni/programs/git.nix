@@ -1,5 +1,6 @@
 {
   config,
+  lib,
   pkgs,
   ...
 }:
@@ -159,7 +160,7 @@
           commit.verbose = true;
           core = {
             autocrlf = "input";
-            pager = "${pkgs.diffr}/bin/diffr --colors ${diffrColors} --line-numbers | less -R";
+            pager = "${lib.getExe pkgs.diffr} --colors ${diffrColors} --line-numbers | less -R";
           };
           diff = {
             colorMoved = "zebra";
@@ -170,7 +171,7 @@
           feature.manyFiles = true;
           fetch.prune = true;
           init.defaultBranch = "main";
-          interactive.diffFilter = "${pkgs.diffr}/bin/diffr --colors ${diffrColors} --line-numbers";
+          interactive.diffFilter = "${lib.getExe pkgs.diffr} --colors ${diffrColors} --line-numbers";
           merge = {
             conflictStyle = "diff3";
             tool = "nvimdiff";
