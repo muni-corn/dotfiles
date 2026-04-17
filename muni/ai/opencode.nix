@@ -12,7 +12,7 @@
     enableMcpIntegration = true;
 
     agents = ./agents;
-    rules = ./rules.md;
+    context = ./context.md;
     skills = ./skills;
 
     settings = {
