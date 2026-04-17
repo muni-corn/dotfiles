@@ -20,7 +20,7 @@ let
   mkBrightnessScript =
     name: brilloFlags:
     pkgs.writeShellScript "brightness-${name}" ''
-      ${lib.getExe pkgs.brillo} -q ${brilloFlags}
+      ${lib.getExe pkgs.brillo} ${brilloFlags}
     '';
 
   journalFilePath =
