@@ -244,7 +244,6 @@
               "`" = "`";
               "<" = ">";
             };
-            formatter.command = "rustfmt";
           }
 
           # hledger
