@@ -172,23 +172,34 @@
 
         # configure rust-analyzer
         rust-analyzer.config = {
+          assist = {
+            emitMustUse = true;
+            preferSelf = true;
+          };
           cargo = {
+            allTargets = true;
             autoreload = true;
             buildScripts.enable = true;
             features = "all";
           };
           check.command = "clippy";
-          diagnostics.disabled = [
-            "unresolved-proc-macro"
-            "unresolved-macro-call"
-            "macro-error"
-          ];
+          completion = {
+            fullFunctionSignatures.enable = true;
+            privateEditable.enable = true;
+            termSearch.enable = true;
+          };
+          diagnostics.experimental = true;
+          gotoImplementations.filterAdjacentDerives = true;
+          hover.actions.references.enable = true;
+          imports = {
+            granularity = {
+              enforce = true;
+              group = "module";
+            };
+            prefix = "self";
+          };
           inlayHints = {
             closureReturnTypeHints.enable = "with_block";
-            expressionAdjustmentHints = {
-              enable = "reborrow";
-              hideOutsideUnsafe = true;
-            };
             lifetimeElisionHints.enable = "skip_trivial";
             renderColons = false;
             parameterHints.enable = false;
@@ -200,7 +211,6 @@
             };
           };
           rustfmt.rangeFormatting.enable = true;
-          notifications.cargoTomlNotFound = false;
         };
       };
 
