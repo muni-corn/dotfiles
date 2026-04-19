@@ -56,8 +56,9 @@
       obsidian
 
       # keyboard config
-      via
       qmk
+      via
+      zmk-studio
 
       # other things
       libnotify
