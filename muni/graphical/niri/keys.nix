@@ -290,6 +290,13 @@ in
     "Mod+Ctrl+V".action = launch (lib.getExe pkgs.pavucontrol);
     "Mod+Shift+M".action = launch apps.media;
 
+    # alternative f-row actions
+    XF86LaunchA = {
+      action = toggle-overview;
+      repeat = false;
+    };
+    XF86Search.action = launch appMenu;
+
     # shortcuts for terminal apps
     "Mod+C".action = quickAccessTerminal "fend";
     "Mod+E".action = launchInTerminal fileManager;
