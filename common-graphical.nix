@@ -90,11 +90,6 @@
   };
 
   programs = {
-    evolution = {
-      enable = true;
-      plugins = [ pkgs.evolution-ews ];
-    };
-
     # probably needed for minecraft
     java = {
       enable = true;
