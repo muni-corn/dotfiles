@@ -98,6 +98,9 @@
       v = "vault";
       x = "trash-put";
 
+      # bugwarrior
+      bp = "bugwarrior pull";
+
       # devenv abbrs
       dS = "devenv shell";
       dT = "devenv tasks";
