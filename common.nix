@@ -11,10 +11,6 @@
   imports = [ ./workarounds.nix ];
 
   boot = {
-    consoleLogLevel = 0;
-
-    initrd.verbose = false;
-
     kernel.sysctl = {
       "fs.inotify.max_user_watches" = 524288;
       "kernel.sysrq" = "0xf0";
@@ -22,11 +18,6 @@
     };
 
     kernelPackages = pkgs.linuxPackages_latest;
-    kernelParams = [
-      "quiet"
-      "fbcon=nodefer"
-      "udev.log_level=3"
-    ];
 
     loader = {
       efi.canTouchEfiVariables = true;
