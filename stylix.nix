@@ -61,15 +61,7 @@
     };
 
     # individual targets
-    targets = {
-      console.enable = true;
-
-      plymouth.enable = false;
-      grub = {
-        enable = true;
-        useWallpaper = true;
-      };
-    };
+    targets.console.enable = true;
   };
 
   home-manager.users.muni.stylix.targets.firefox = {

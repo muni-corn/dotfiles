@@ -132,10 +132,6 @@
       url = "github:muni-corn/pinentry-cadenza";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    plymouth-theme-musicaloft-rainbow = {
-      url = "github:muni-corn/plymouth-theme-musicaloft-rainbow";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs =

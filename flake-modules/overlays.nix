@@ -5,7 +5,6 @@ let
     inputs.niri.overlays.niri
     inputs.nix-minecraft.overlay
     inputs.nixpkgs-wayland.overlays.default
-    inputs.plymouth-theme-musicaloft-rainbow.overlay
 
     # custom packages overlay
     (final: prev: {
