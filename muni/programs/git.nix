@@ -92,6 +92,10 @@
         enable = true;
         package = pkgs.gitFull;
 
+        attributes = [
+          "*.mid binary"
+        ];
+
         ignores = [
           ".env"
           "*~"
