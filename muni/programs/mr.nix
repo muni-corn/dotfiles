@@ -89,7 +89,6 @@
         "code/unity/muni-vrc" = fromMuni "muni-vrc";
 
         # forked repos
-        "code/commitlint-rs" = fromGitHubFork "KeisukeYamashita" "commitlint-rs";
         "code/devenv" = fromGitHubFork "cachix" "devenv";
         "code/difftastic" = fromGitHubFork "Wilfred" "difftastic";
         "code/home-manager" = fromGitHubFork "nix-community" "home-manager";
@@ -101,7 +100,6 @@
         "code/rustledger" = fromGitHubFork "rustledger" "rustledger";
         "code/stylix" = fromGitHubFork "nix-community" "stylix";
         "code/opencode" = fromGitHubFork "anomalyco" "opencode";
-        "code/opencommit" = fromGitHubFork "di-sukharev" "opencommit";
 
         # work repos
         "code/orosa" = {
