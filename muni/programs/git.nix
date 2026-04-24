@@ -103,6 +103,7 @@
           ".devenv/"
           ".direnv/"
           "devenv.local.*"
+          ".Trash*"
         ];
 
         lfs.enable = true;
