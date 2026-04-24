@@ -92,8 +92,17 @@
         enable = true;
         package = pkgs.gitFull;
 
-        attributes = [
+        # put our configured attributes after the attributes configured after other programs (like mergiraf). this lets us override behaviors for certain files. for example, the current home-manager module for mergiraf enables the mergiraf merge driver for all files, including binary files. explicitly adding the `binary` attribute to files following this rule disables the merge driver and makes it so programs like `git-annex` can merge binary files correctly instead of giving up immediately due to the mergiraf configuration.
+        attributes = lib.mkAfter [
+          "*.flac binary"
+          "*.jpg binary"
+          "*.kra binary"
           "*.mid binary"
+          "*.mp3 binary"
+          "*.pdf binary"
+          "*.peak binary"
+          "*.png binary"
+          "*.wav binary"
         ];
 
         ignores = [
