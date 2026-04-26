@@ -29,10 +29,6 @@
       enable = true;
       binfmt = true;
     };
-    alvr = {
-      enable = true;
-      openFirewall = true;
-    };
     gamescope = {
       enable = true;
       args = [

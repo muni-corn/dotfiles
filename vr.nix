@@ -6,6 +6,11 @@
   # for wayvr compatibility mode
   environment.systemPackages = [ pkgs.cage ];
 
+  programs.alvr = {
+    enable = true;
+    openFirewall = true;
+  };
+
   services.wivrn = {
     enable = true;
     package = pkgs.wivrn.overrideAttrs (oldAttrs: {
