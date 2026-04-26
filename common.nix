@@ -19,6 +19,15 @@
 
     kernelPackages = pkgs.linuxPackages_latest;
 
+    # enable experimental rust support in the kernel
+    kernelPatches = [
+      {
+        name = "Rust support";
+        patch = null;
+        features.rust = true;
+      }
+    ];
+
     loader = {
       efi.canTouchEfiVariables = true;
       limine = {
