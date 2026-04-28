@@ -1,11 +1,7 @@
 { config, pkgs, ... }:
-let
-  toml = pkgs.formats.toml { };
-in
 {
   imports = [
     ./ai
-    ./files.nix
     ./opencommit.nix
     ./packages
     ./programs
