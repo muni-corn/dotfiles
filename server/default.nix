@@ -10,7 +10,6 @@
     ./adguard.nix
     ./ai.nix
     ./attic.nix
-    ./dnsmasq.nix
     ./forgejo.nix
     ./hardware.nix
     ./home-assistant.nix
