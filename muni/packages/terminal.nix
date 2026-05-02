@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
     # archiving & compression
     gocryptfs
-    ouch
+    ouch-rar
     zip
 
     # file operations
