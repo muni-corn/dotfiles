@@ -50,6 +50,10 @@
             read = "+art";
             write = "+art";
           };
+          cadenza = {
+            read = "project:cadenza";
+            write = "project:cadenza";
+          };
           comms = {
             read = "project:comms or +comm";
             write = "project:comms +comm";
@@ -66,9 +70,9 @@
             read = "project:munibot";
             write = "project:munibot";
           };
-          cadenza = {
-            read = "project:cadenza";
-            write = "project:cadenza";
+          muni-vrc = {
+            read = "project:muni-vrc";
+            write = "project:muni-vrc";
           };
           musicaloft = {
             read = "project:musicaloft";
