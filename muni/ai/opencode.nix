@@ -47,16 +47,6 @@
     web = {
       enable = true;
       environmentFile = config.sops.secrets.opencode_web_pass.path;
-      extraArgs = [
-        "--hostname"
-        "0.0.0.0"
-        "--port"
-        "4096"
-        "--mdns"
-        "--print-logs"
-        "--log-level"
-        "INFO"
-      ];
     };
   };
 }
