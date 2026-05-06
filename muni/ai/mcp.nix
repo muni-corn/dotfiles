@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   home.packages = with pkgs; [
     # playwright-mcp
@@ -18,6 +23,11 @@
       context7 = {
         url = "https://mcp.context7.com/mcp";
         headers.CONTEXT7_API_KEY = "{file:${config.sops.secrets.context7_key.path}}";
+      };
+
+      devenv = {
+        command = lib.getExe pkgs.devenv;
+        args = [ "mcp" ];
       };
 
       github = {
