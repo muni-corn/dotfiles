@@ -36,6 +36,9 @@
         "-f"
         "-b"
         "-F fsr"
+
+        # frame rates
+        "-r 180"
         "-o 40"
 
         # our screen dimensions
