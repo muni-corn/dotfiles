@@ -48,8 +48,6 @@
         # the game's dimensions
         "-w 1920"
         "-h 1080"
-
-        "--expose-wayland"
       ];
       env.PROTON_FSR4_UPGRADE = "1";
     };
