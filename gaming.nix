@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   home-manager.users.muni.home.packages = with pkgs; [
     # classics
@@ -32,6 +32,7 @@
     gamescope = {
       enable = true;
       args = [
+        "-e"
         "-f"
         "-b"
         "-F fsr"
@@ -44,7 +45,10 @@
         # the game's dimensions
         "-w 1920"
         "-h 1080"
+
+        "--expose-wayland"
       ];
+      env.PROTON_FSR4_UPGRADE = "1";
     };
     steam = {
       package = pkgs.steam.override {
@@ -55,15 +59,13 @@
       localNetworkGameTransfers.openFirewall = true;
       protontricks.enable = true;
       remotePlay.openFirewall = true;
-      gamescopeSession.enable = true;
+      gamescopeSession = {
+        enable = true;
+        inherit (config.programs.gamescope) args env;
+      };
 
-      extraCompatPackages = with pkgs; [
-        proton-ge-bin
-      ];
-      extraPackages = with pkgs; [
-        gamescope
-        mangohud
-      ];
+      extraCompatPackages = [ pkgs.proton-ge-bin ];
+      extraPackages = [ pkgs.mangohud ];
     };
   };
 }
