@@ -69,7 +69,11 @@
       set sponge_purge_only_on_exit true
       set --append sponge_regex_patterns '(?:rsync)'
 
+      # add `git wt` completions
       git-wt --init fish | source
+
+      # initialize devenv hooks to automatically activate development environments without .envrc
+      ${lib.getExe pkgs.devenv} hook fish | source
     '';
 
     shellAliases = {
