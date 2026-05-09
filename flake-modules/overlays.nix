@@ -2,6 +2,7 @@
 let
   overlaysList = [
     inputs.cadenza-sounds.overlay
+    inputs.devenv.overlays.default
     inputs.niri.overlays.niri
     inputs.nix-minecraft.overlay
     inputs.nixpkgs-wayland.overlays.default
