@@ -149,6 +149,7 @@
             diskreserve = "1G";
             genmetadata = "importfeed";
             gitaddtoannex = true;
+            initgroups = "client";
             jobs = 8;
             maxextensionlength = 5;
             mincopies = 2;
