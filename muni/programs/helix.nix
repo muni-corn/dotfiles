@@ -16,7 +16,6 @@
       oxlint
       pest-ide-tools
       rustledger
-      rust-analyzer
       sqruff
       tailwindcss-language-server
       taplo
