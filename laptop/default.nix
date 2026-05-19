@@ -38,8 +38,6 @@
           "fingerprint:present_message" = "Checking";
         };
       };
-
-      niri.settings.outputs."PNP(HAT) Kamvas 16 0xF000000F".scale = 1.5;
     };
 
     # laptop sleeps after 30min of inactivity
