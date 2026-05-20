@@ -60,7 +60,10 @@
     # bluetooth
     bluetooth = {
       enable = true;
-      settings.General.Experimental = true;
+      settings = {
+        General.Experimental = true;
+        Policy.AutoEnable = true;
+      };
     };
 
     # enable brillo
