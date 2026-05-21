@@ -28,6 +28,8 @@
     # utilities
     license-cli
     meld
+    strace
+    strace-analyzer
 
     # project management
     jira-cli-go
