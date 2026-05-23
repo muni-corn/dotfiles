@@ -16,13 +16,12 @@
     peaclock
     pom
 
-    # system utilities
-    pv
-    tldr
-
-    # utilities & calculators
+    # utilities
     fend
     fortune
+    llmfit
+    pv
     qrencode
+    tldr
   ];
 }
