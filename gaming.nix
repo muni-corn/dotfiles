@@ -31,8 +31,9 @@
     };
     gamescope = {
       enable = true;
+      capSysNice = true;
+      env.PROTON_FSR4_UPGRADE = "1";
       args = [
-        "-e"
         "-f"
         "-b"
         "-F fsr"
@@ -49,7 +50,6 @@
         "-w 1920"
         "-h 1080"
       ];
-      env.PROTON_FSR4_UPGRADE = "1";
     };
     steam = {
       package = pkgs.steam.override {
