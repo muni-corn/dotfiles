@@ -84,9 +84,6 @@
       cheer-me-up = ''bonsai "keep going, you're doing great"'';
       roll = "random 1";
 
-      # disallow 'rm'
-      rm = "echo 'rm is not allowed; use `trash-put` instead to prevent permanent deletion! OuO'; false";
-
       "..." = "cd ../..";
       "...." = "cd ../../..";
       "....." = "cd ../../../..";
