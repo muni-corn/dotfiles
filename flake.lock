@@ -3698,11 +3698,11 @@
         "treefmt-nix": "treefmt-nix_8"
       },
       "locked": {
-        "lastModified": 1779764631,
-        "narHash": "sha256-eJMlqhuCS6uCtlhtQ512uQpSqOm0dCT/3GkjTfKgrTE=",
+        "lastModified": 1779768911,
+        "narHash": "sha256-htp5eBCTV5FxHUo7pVAhGFm+7B2svHzya4M+aBdsL+Q=",
         "owner": "muni-corn",
         "repo": "munibot",
-        "rev": "49fcd99e2d8e597269dfcd3c655665ea811d0508",
+        "rev": "8e069eba7a92f21f8f614e500944cb9e25eb39fd",
         "type": "github"
       },
       "original": {
