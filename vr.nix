@@ -37,37 +37,23 @@
     config = {
       enable = true;
       json = {
-        application = [
-          pkgs.wayvr
-        ];
+        application = [ pkgs.wayvr ];
         bitrate = 150000000;
         encoders = [
           {
-            codec = "av1";
-            encoder = "vaapi";
-            height = 0.25;
-            offset_x = 0.0;
-            offset_y = 0.75;
-            width = 0.5;
+            encoder = "vulkan";
+            codec = "h265";
           }
           {
-            codec = "av1";
-            encoder = "vaapi";
-            height = 0.75;
-            offset_x = 0.0;
-            offset_y = 0.0;
-            width = 0.5;
-          }
-          {
-            codec = "h264";
             encoder = "x264";
-            height = 1.0;
-            offset_x = 0.5;
-            offset_y = 0.0;
-            width = 0.5;
+            codec = "h264";
+          }
+          {
+            encoder = "vulkan";
+            codec = "h265";
           }
         ];
-        scale = 0.40;
+        scale = 0.55;
       };
     };
   };
