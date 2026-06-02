@@ -60,8 +60,8 @@
       terminal = 0.9;
     };
 
-    # individual targets
-    targets.console.enable = true;
+    # temporarily disabled due to breakage with `services.kmscon.extraConfig` being removed
+    targets.kmscon.enable = false;
   };
 
   home-manager.users.muni.stylix.targets.firefox = {
