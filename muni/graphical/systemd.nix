@@ -13,7 +13,7 @@
       Requisite = config.wayland.systemd.target;
     };
     Service = {
-      Environment = "RUST_LOG=info";
+      Environment = "RUST_BACKTRACE=1";
       ExecStart = lib.getExe pkgs.cadenza-shell;
       Restart = "always";
       RestartSec = 1;
