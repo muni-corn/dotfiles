@@ -103,6 +103,8 @@
           "*.peak binary"
           "*.png binary"
           "*.wav binary"
+          "*.ogg binary"
+          "*.oga binary"
         ];
 
         ignores = [
