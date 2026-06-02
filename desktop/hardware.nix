@@ -35,7 +35,6 @@
         builtins.listToAttrs [
           (ssd "cryptmain1" "613570b3-d525-48bb-bf87-3aadd2936ea7")
           (ssd "cryptmain2" "cc59a7e5-0dcf-4281-9b33-418131fecad4")
-          (ssd "cryptmain3" "2b03c9c2-82a9-4a5c-b79c-b30dade6dc0f")
         ];
     };
     kernelModules = [ "kvm-amd" ];
