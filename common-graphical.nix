@@ -47,6 +47,7 @@
     enableDefaultPackages = true;
 
     packages = with pkgs; [
+      google-fonts
       nerd-fonts.iosevka
       roboto
       libertine
