@@ -31,7 +31,10 @@
     };
     gamescope = {
       enable = true;
-      capSysNice = true;
+
+      # broken: https://github.com/NixOS/nixpkgs/issues/523200
+      # capSysNice = true;
+
       env.PROTON_FSR4_UPGRADE = "1";
       args = [
         "-f"
