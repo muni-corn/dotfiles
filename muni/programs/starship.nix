@@ -1,7 +1,7 @@
 {
   programs.starship = {
     enable = true;
-    # enableTransience = true;
+    enableTransience = true;
     settings = {
       format = "$directory$character";
       right_format = "$status$shell$all$jobs";
