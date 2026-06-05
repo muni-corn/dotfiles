@@ -1,22 +1,12 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
+{ lib, pkgs, ... }:
 {
   home = {
-    activation.installTide = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-      ${lib.getExe config.programs.fish.package} -c "tide configure --auto --style=Lean --prompt_colors='16 colors' --show_time=No --lean_prompt_height='One line' --prompt_spacing=Compact --icons='Few icons' --transient=Yes"
-    '';
-
     packages =
       with pkgs.fishPlugins;
       [
         foreign-env
         plugin-git
         sponge
-        tide
       ]
       ++ (with pkgs; [
         # for qr scanning

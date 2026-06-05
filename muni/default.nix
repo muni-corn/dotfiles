@@ -28,6 +28,8 @@
       "$HOME/.local/bin"
       "$HOME/.npm/bin"
     ];
+
+    sessionVariables.STARSHIP_LOG = "error";
   };
 
   nix.extraOptions = ''
