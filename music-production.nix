@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   home-manager.users.muni.home.packages = with pkgs; [
-    airwindows
     airwindows-lv2
     ardour
     audacity
