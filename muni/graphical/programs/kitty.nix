@@ -16,6 +16,9 @@
     };
 
     settings = {
+      # workaround for recursive config watching
+      auto_reload_config = -1;
+
       # experience settings
       copy_on_select = true;
       momentum_scroll = 0.98;
