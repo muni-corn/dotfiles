@@ -54,7 +54,10 @@
       memory_usage.symbol = "󰍛 ";
       meson.symbol = "󰔷 ";
       nim.symbol = "󰆥 ";
-      nix_shell.symbol = " ";
+      nix_shell = {
+        format = "via [$symbol]($style) ";
+        symbol = " ";
+      };
       nodejs.symbol = " ";
       ocaml.symbol = " ";
       os.symbols = {
