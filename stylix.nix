@@ -60,8 +60,12 @@
       terminal = 0.9;
     };
 
-    # temporarily disabled due to breakage with `services.kmscon.extraConfig` being removed
-    targets.kmscon.enable = false;
+    targets = {
+      # temporarily disabled due to breakage with `services.kmscon.extraConfig` being removed
+      kmscon.enable = false;
+
+      plymouth.enable = false;
+    };
   };
 
   home-manager.users.muni.stylix.targets.firefox = {

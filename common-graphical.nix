@@ -17,6 +17,14 @@
       inherit (config.boot.kernelPackages) v4l2loopback;
     };
     kernelModules = [ "v4l2loopback" ];
+    plymouth = {
+      enable = true;
+      font = "${pkgs.inter}/share/fonts/truetype/Inter.ttc";
+      theme = "musicaloft-rainbow";
+      themePackages = [
+        pkgs.plymouth-theme-musicaloft-rainbow
+      ];
+    };
   };
 
   environment = {
