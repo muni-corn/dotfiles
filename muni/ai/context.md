@@ -150,10 +150,6 @@ dependencies.
 Sometimes, you may need to modify or use an existing developer environment within a project to make
 commands work.
 
-You may use the following tips to ensure commands run with the correct tools, environment variables,
-and shell hooks defined by different development environments. You can also use them to test changes
-or run environment-specific commands.
-
 ### `devenv`
 
 When working in a repository that defines a development environment with files `devenv.nix` and
@@ -184,8 +180,17 @@ nix develop --no-pure-eval --command <command> <args...>
 ### `secretspec`
 
 Environments may use `secretspec` to manage encrypted environment secrets. If environments include a
-`secretspec.toml` file, it is crucial to run commands with secretspec to ensure programs and tests
-run with the environment variables they need.
+`secretspec.toml` file, it may be crucial to run commands with `secretspec run` to ensure programs
+or tests run with the environment variables they need.
+
+Most importantly, `secretspec` may require you to provide a reason for accessing secrets. Use the
+`SECRETSPEC_REASON` environment variable to state _why_ you need access to secrets when running a
+command. For example:
+
+```bash
+# using `devenv shell` might require secrets access
+SECRETSPEC_REASON="running tests" devenv shell cargo nextest run
+```
 
 ## Planning
 
