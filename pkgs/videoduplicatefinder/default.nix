@@ -23,14 +23,14 @@
 }:
 stdenv.mkDerivation rec {
   pname = "videoduplicatefinder";
-  version = "3.0.x";
+  version = "4.0.x";
 
   src = fetchurl {
-    url = "https://github.com/0x90d/videoduplicatefinder/releases/download/${version}/App-linux-x64.tar.gz";
-    sha256 = "sha256-5T/K8muv9aoOYzhJOoyRD3luunuy09L0PbOM9R76cvY=";
+    url = "https://github.com/0x90d/videoduplicatefinder/releases/download/${version}/GUI-linux-x64.tar.gz";
+    sha256 = "sha256-hfC4lLsWlb8li5+wyI3aso+TunBGZ2kKncq6/n7JJNk=";
   };
 
-  sourceRoot = "outputFolder";
+  sourceRoot = "outputGUI";
 
   nativeBuildInputs = [
     autoPatchelfHook
