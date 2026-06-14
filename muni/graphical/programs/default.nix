@@ -1,5 +1,6 @@
 {
   config,
+  inputs,
   pkgs,
   ...
 }:
@@ -87,8 +88,14 @@
     nixcord = {
       enable = true;
       discord = {
+        package =
+          (import inputs.luckshiba-nixpkgs {
+            config.allowUnfree = true;
+            system = pkgs.stdenv.hostPlatform.system;
+          }).discord;
+
         vencord.enable = false;
-        equicord.enable = true;
+        equicord.enable = false;
       };
     };
 

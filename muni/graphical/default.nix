@@ -45,7 +45,6 @@
 
       # messaging
       element-desktop
-      equicord
       slack
       vesktop
 
