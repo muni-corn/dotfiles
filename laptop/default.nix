@@ -19,8 +19,7 @@
   ];
 
   boot.loader = {
-    # TODO: unify the /boot and /boot/efi partitions into one vfat filesystem
-    efi.efiSysMountPoint = "/boot/efi";
+    efi.efiSysMountPoint = "/boot";
 
     # limine is currently unable to boot images on my laptop, so switch to systemd-boot for now
     limine.enable = lib.mkForce false;

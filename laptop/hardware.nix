@@ -28,7 +28,6 @@
         fido2Support = false;
         devices.cryptmain = {
           bypassWorkqueues = true;
-          device = "/dev/disk/by-uuid/8cd34ae8-2895-4570-9b11-76a08b3b094a";
           crypttabExtraOpts = [ "fido2-device=auto" ];
         };
       };
@@ -40,7 +39,7 @@
 
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/4c0890f1-3b9b-42b9-9e0c-ddabed974162";
+      label = "main";
       fsType = "btrfs";
       options = [
         "autodefrag"
@@ -48,18 +47,13 @@
       ];
       encrypted = {
         enable = true;
-        blkDev = "/dev/disk/by-uuid/8cd34ae8-2895-4570-9b11-76a08b3b094a";
+        blkDev = "/dev/disk/by-uuid/856fc622-5024-4e10-ab98-1e34870d025b";
         label = "cryptmain";
       };
     };
 
     "/boot" = {
-      device = "/dev/disk/by-uuid/85db9d0e-5cd9-421d-b8f8-de344ee81bc5";
-      fsType = "ext4";
-    };
-
-    "/boot/efi" = {
-      device = "/dev/disk/by-uuid/4684-F4B2";
+      label = "boot";
       fsType = "vfat";
       options = [
         "fmask=0077"
@@ -68,7 +62,16 @@
     };
   };
 
-  swapDevices = [ { device = "/dev/disk/by-uuid/4c0de7c7-61e8-4b10-ae4a-2205d161d6d5"; } ];
+  swapDevices = [
+    {
+      label = "swap";
+      encrypted = {
+        enable = true;
+        blkDev = "/dev/disk/by-uuid/2da3f38b-ab4f-46b7-9941-2631dcbd81f3";
+        label = "cryptswap";
+      };
+    }
+  ];
 
   powerManagement.powertop.postStart = ''
     # retrigger keyboard udev rules to disable autosuspend
