@@ -1,8 +1,7 @@
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
-
-    luckshiba-nixpkgs.url = "github:LuckShiba/nixpkgs/discord-vk";
+    nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
 
     devenv = {
       url = "github:cachix/devenv";

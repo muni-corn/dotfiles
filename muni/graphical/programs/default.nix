@@ -89,7 +89,7 @@
       enable = true;
       discord = {
         package =
-          (import inputs.luckshiba-nixpkgs {
+          (import inputs.nixpkgs-small {
             config.allowUnfree = true;
             system = pkgs.stdenv.hostPlatform.system;
           }).discord;

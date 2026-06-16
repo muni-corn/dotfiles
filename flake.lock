@@ -3256,22 +3256,6 @@
         "type": "github"
       }
     },
-    "luckshiba-nixpkgs": {
-      "locked": {
-        "lastModified": 1781205785,
-        "narHash": "sha256-ZsqGzg2hD8e40wwc1kgJGt2qgI8dsp7uDR9OiTGGPbc=",
-        "owner": "LuckShiba",
-        "repo": "nixpkgs",
-        "rev": "36e2217e8c30e59f1708e44df9bf00c31565e476",
-        "type": "github"
-      },
-      "original": {
-        "owner": "LuckShiba",
-        "ref": "discord-vk",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "matugen": {
       "inputs": {
         "nixpkgs": [
@@ -4189,6 +4173,22 @@
         "type": "github"
       }
     },
+    "nixpkgs-small": {
+      "locked": {
+        "lastModified": 1781612504,
+        "narHash": "sha256-pq85N+/bJcjWdNdpgedfVuqtooZpOgTjSiQC7TwZGV0=",
+        "owner": "nixos",
+        "repo": "nixpkgs",
+        "rev": "c190319055bb5c31acfd7bb8356ce9ab05cb2b36",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nixos",
+        "ref": "nixos-unstable-small",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs-stable": {
       "locked": {
         "lastModified": 1780952837,
@@ -4899,7 +4899,6 @@
         "devenv": "devenv_3",
         "flake-parts": "flake-parts_12",
         "home-manager": "home-manager_2",
-        "luckshiba-nixpkgs": "luckshiba-nixpkgs",
         "matugen": "matugen",
         "muni-scripts": "muni-scripts",
         "muni-wallpapers": "muni-wallpapers",
@@ -4911,6 +4910,7 @@
         "nixcord": "nixcord",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_13",
+        "nixpkgs-small": "nixpkgs-small",
         "nixpkgs-wayland": "nixpkgs-wayland",
         "nur": "nur",
         "pinentry-cadenza": "pinentry-cadenza",
