@@ -85,20 +85,6 @@
       };
     };
 
-    nixcord = {
-      enable = true;
-      discord = {
-        package =
-          (import inputs.nixpkgs-small {
-            config.allowUnfree = true;
-            system = pkgs.stdenv.hostPlatform.system;
-          }).discord;
-
-        vencord.enable = false;
-        equicord.enable = false;
-      };
-    };
-
     obs-studio = {
       enable = true;
       plugins = with pkgs.obs-studio-plugins; [

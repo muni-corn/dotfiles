@@ -1,6 +1,7 @@
 {
   config,
   lib,
+  inputs,
   pkgs,
   ...
 }:
@@ -45,6 +46,10 @@
       videoduplicatefinder
 
       # messaging
+      (import inputs.nixpkgs-small {
+        config.allowUnfree = true;
+        system = pkgs.stdenv.hostPlatform.system;
+      }).discord
       element-desktop
       slack
       vesktop

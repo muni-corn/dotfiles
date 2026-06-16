@@ -45,12 +45,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # declarative Discord config (for stylix theming)
-    nixcord = {
-      url = "github:FlameFlag/nixcord";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # extra hardware configuration
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
