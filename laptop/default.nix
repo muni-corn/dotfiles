@@ -16,6 +16,7 @@
     ../sops
     ./btrbk.nix
     ./hardware.nix
+    ./specialisations.nix
   ];
 
   boot.loader = {
