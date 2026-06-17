@@ -310,7 +310,10 @@ in
     "Mod+Ctrl+R".action = script scripts.toggleGammastep;
 
     # lock
-    "Mod+Escape".action = spawn "loginctl" "lock-session";
+    "Mod+Escape" = {
+      action = spawn "loginctl" "lock-session";
+      allow-when-locked = true;
+    };
 
     # notifications
     "Ctrl+Escape".action = spawn (lib.getExe pkgs.cadenza-shell) "noti" "dismiss";
