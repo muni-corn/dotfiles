@@ -48,12 +48,6 @@
     # extra hardware configuration
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
-    # latest wayland packages
-    nixpkgs-wayland = {
-      url = "github:nix-community/nixpkgs-wayland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     # nix user repository (only used for firefox plugins)
     nur = {
       url = "github:nix-community/NUR";
