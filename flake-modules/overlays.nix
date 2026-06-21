@@ -15,6 +15,8 @@ let
 
       pinentry-cadenza = inputs.pinentry-cadenza.packages.${final.system}.default;
 
+      regreet = inputs.nixpkgs-small.legacyPackages.${final.system}.regreet;
+
       rustfava = inputs.rustfava.packages.${final.system}.desktop;
 
       rustledger = inputs.rustledger.packages.${final.system}.default.overrideAttrs (old: {
