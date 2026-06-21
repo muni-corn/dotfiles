@@ -6,15 +6,12 @@
 {
   imports = [ inputs.stylix.nixosModules.stylix ];
 
-  # for toying with matugen
-  environment.systemPackages = [ pkgs.matugen ];
-
   stylix = {
     enable = true;
     autoEnable = true;
 
     # colors
-    colorGeneration.polarity = "dark";
+    polarity = "dark";
 
     # background
     image = ./musicia__by_saphymoon.jpg;
