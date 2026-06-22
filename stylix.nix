@@ -14,7 +14,7 @@
     polarity = "dark";
 
     # background
-    image = ./musicia__by_saphymoon.jpg;
+    image = ./2024_11_19__you_and_me__by_brittney_ackerman.png;
 
     # cursor
     cursor = {
