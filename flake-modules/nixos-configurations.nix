@@ -8,17 +8,16 @@ let
     inherit inputs;
   };
 
-  homeManagerModule =
-    { lib, pkgs, ... }:
-    {
-      home-manager = {
-        backupCommand = lib.getExe' pkgs.trash-cli "trash-put";
-        extraSpecialArgs = specialArgs;
-        useGlobalPkgs = true;
-        useUserPackages = true;
-        users.muni = ../muni;
-      };
+  homeManagerModule = {
+    home-manager = {
+      backupFileExtension = "backup";
+      extraSpecialArgs = specialArgs;
+      overwriteBackup = true;
+      useGlobalPkgs = true;
+      useUserPackages = true;
+      users.muni = ../muni;
     };
+  };
 
   commonModules = [
     self.nixosModules.overlays
