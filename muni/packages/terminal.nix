@@ -19,6 +19,7 @@
     # utilities
     fend
     fortune
+    internetarchive
     llmfit
     pv
     qrencode
