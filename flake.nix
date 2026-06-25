@@ -65,7 +65,7 @@
 
     # for system themes and styling
     stylix = {
-      url = "github:make-42/stylix/step-1-tinty";
+      url = "github:nix-community/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
