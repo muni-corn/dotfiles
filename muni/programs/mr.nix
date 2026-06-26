@@ -78,6 +78,7 @@
         };
 
         # my projects
+        "code/arpeggio" = fromMuni "arpeggio";
         "code/cadenza" = fromMuni "cadenza";
         "code/cocoa" = fromMuni "cocoa";
         "code/hueflux" = fromMusicaloft "municorn" "hueflux";
