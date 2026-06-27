@@ -48,7 +48,7 @@
     ];
 
     programs = {
-      hyprlock.settings = (import ../utils.nix { inherit config lib; }).mkHyprlockSettings "DP-3";
+      hyprlock.settings = (import ../utils.nix { inherit config lib; }).mkHyprlockSettings "DP-2";
 
       niri.settings.outputs = {
         # soundbar
@@ -71,7 +71,7 @@
           variable-refresh-rate = true;
         };
 
-        # (let niri place DP-2 automatically)
+        # (let niri place DP-1 automatically)
 
         "PNP(HAT) Kamvas 16 0xF000000F" = {
           mode = {
