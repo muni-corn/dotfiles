@@ -25,7 +25,7 @@
       small_model = "opencode/claude-haiku-4-5";
       agent = {
         plan = {
-          model = "opencode/claude-opus-4-6";
+          model = "opencode/claude-opus-4-8";
           permission = {
             edit."docs/plans/*" = "allow";
             write."docs/plans/*" = "allow";
