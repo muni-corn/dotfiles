@@ -1,5 +1,7 @@
 {
+  config,
   inputs,
+  lib,
   pkgs,
   ...
 }:
@@ -11,7 +13,15 @@
     autoEnable = true;
 
     # colors
-    polarity = "dark";
+    base16Scheme =
+      let
+        arpeggio = lib.getExe inputs.arpeggio.packages.${pkgs.stdenv.hostPlatform.system}.default;
+        arpeggioPalette = pkgs.runCommand "arpeggio-palette" { } ''
+          mkdir $out
+          ${arpeggio} ${config.stylix.image} > $out/palette.yaml
+        '';
+      in
+      "${arpeggioPalette}/palette.yaml";
 
     # background
     image = ./2024_11_19__you_and_me__by_brittney_ackerman.png;
