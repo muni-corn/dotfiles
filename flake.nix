@@ -76,6 +76,10 @@
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
     # my stuff
+    arpeggio = {
+      url = "github:muni-corn/arpeggio";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     cocoa = {
       url = "github:muni-corn/cocoa";
       inputs.nixpkgs.follows = "nixpkgs";
