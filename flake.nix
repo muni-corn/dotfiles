@@ -108,10 +108,6 @@
         musicaloft-shell.follows = "musicaloft-shell";
       };
     };
-    muni-wallpapers = {
-      url = "github:muni-corn/muni-wallpapers";
-      flake = false;
-    };
     pinentry-cadenza = {
       url = "github:muni-corn/pinentry-cadenza";
       inputs.nixpkgs.follows = "nixpkgs";
