@@ -27,7 +27,7 @@ stdenv.mkDerivation rec {
 
   src = fetchurl {
     url = "https://github.com/0x90d/videoduplicatefinder/releases/download/${version}/GUI-linux-x64.tar.gz";
-    sha256 = "sha256-hfC4lLsWlb8li5+wyI3aso+TunBGZ2kKncq6/n7JJNk=";
+    sha256 = "sha256-en/wiwALyCRVXm00xd/e5v5JwE+wHVHX6vUMeGWQy+Y=";
   };
 
   sourceRoot = "outputGUI";
