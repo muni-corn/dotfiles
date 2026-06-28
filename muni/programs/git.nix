@@ -81,9 +81,9 @@
     git =
       let
         diffrColorsList = [
-          "added:foreground:12"
-          "removed:foreground:9"
-          "refine-added:foreground:12:background:8:bold"
+          "added:foreground:2"
+          "removed:foreground:1"
+          "refine-added:foreground:10:background:8:bold"
           "refine-removed:foreground:9:background:8:bold"
         ];
         diffrColors = builtins.concatStringsSep " --colors " diffrColorsList;
