@@ -31,7 +31,6 @@
     defaultPackages = with pkgs; [
       android-tools
       gnome-bluetooth
-      kodi
       kdePackages.ksshaskpass
       libcanberra
       libcanberra-gtk3

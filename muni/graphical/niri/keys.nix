@@ -14,7 +14,6 @@ let
     browser = lib.getExe config.programs.firefox.package;
     music = lib.getExe pkgs.spotify;
     email = lib.getExe pkgs.evolution;
-    media = "${lib.getExe config.programs.kodi.package} --windowing=x11";
   };
 
   appMenu = ''${lib.getExe config.programs.rofi.finalPackage} -p "Run what?" -show drun'';
@@ -288,7 +287,6 @@ in
     "Mod+Ctrl+N".action = spawn "rofi-network-manager";
     "Mod+Ctrl+P".action = spawn "rofi-pass";
     "Mod+Ctrl+V".action = launch (lib.getExe pkgs.pavucontrol);
-    "Mod+Shift+M".action = launch apps.media;
 
     # alternative f-row actions
     XF86LaunchA = {
