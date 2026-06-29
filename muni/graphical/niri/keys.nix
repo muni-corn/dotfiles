@@ -13,7 +13,6 @@ let
   apps = {
     browser = lib.getExe config.programs.firefox.package;
     music = lib.getExe pkgs.spotify;
-    email = lib.getExe pkgs.evolution;
   };
 
   appMenu = ''${lib.getExe config.programs.rofi.finalPackage} -p "Run what?" -show drun'';
