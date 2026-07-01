@@ -21,7 +21,7 @@
       default_agent = "plan";
 
       # configure models
-      model = "opencode/claude-sonnet-4-6";
+      model = "opencode/claude-sonnet-5";
       small_model = "opencode/claude-haiku-4-5";
       agent = {
         plan = {
