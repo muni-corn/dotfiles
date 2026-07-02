@@ -18,6 +18,7 @@
 
     # utilities
     fend
+    file
     fortune
     internetarchive
     llmfit
