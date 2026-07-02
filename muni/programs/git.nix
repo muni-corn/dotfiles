@@ -153,6 +153,7 @@
             gitaddtoannex = true;
             initgroups = "client";
             jobs = 8;
+            largefiles = "mimeencoding=binary or largerthan=100kb";
             maxextensionlength = 5;
             mincopies = 2;
             numcopies = 3;
