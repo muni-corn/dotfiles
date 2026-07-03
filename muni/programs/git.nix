@@ -20,6 +20,7 @@
         enable = true;
         mode = "both";
       };
+      jujutsu.enable = true;
       options = {
         context = 5;
         display = "side-by-side-show-both";
@@ -249,10 +250,15 @@
       '';
     };
 
+    jujutsu = {
+      enable = true;
+      settings = { };
+    };
+
     mergiraf = {
       enable = true;
       enableGitIntegration = true;
+      enableJujutsuIntegration = true;
     };
   };
-
 }
