@@ -6,7 +6,6 @@
 {
   imports = [
     ./extra-modules/nixos/xdg-sound-theme.nix
-    ./auto-upgrade.nix
     ./flatpak.nix
     ./greetd.nix
     ./niri.nix
