@@ -41,6 +41,7 @@
         checkout = "git clone git@github.com:muni-corn/${newName}.git";
         fixups = toString (fixupGitHubFork upstreamOwner upstreamRepoName newName);
         update = "git fetch --all";
+        push = "git push --tags musicaloft; git push --tags";
       };
       fromGitHubFork =
         upstreamOwner: upstreamRepoName:
@@ -56,7 +57,10 @@
     {
       enable = true;
       settings = {
-        DEFAULT.update = "git pull --rebase=true";
+        DEFAULT = {
+          update = "git pull --prune --tags --rebase=true";
+          push = "git push --tags";
+        };
 
         # home-level repos
         dotfiles = fromMuni "dotfiles";
