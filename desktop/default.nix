@@ -134,12 +134,6 @@
       ];
     };
 
-    # btrfs auto scrubbing (defaults to monthly scrubs)
-    btrfs.autoScrub = {
-      enable = true;
-      fileSystems = [ "/" ];
-    };
-
     # enable fstrim for btrfs
     fstrim.enable = true;
 
