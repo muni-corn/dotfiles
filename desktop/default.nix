@@ -20,8 +20,6 @@
     ./hardware.nix
   ];
 
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
-
   hardware = {
     amdgpu = {
       initrd.enable = true;
