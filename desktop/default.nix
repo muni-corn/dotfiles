@@ -49,9 +49,6 @@
       hyprlock.settings = (import ../utils.nix { inherit config lib; }).mkHyprlockSettings "DP-2";
 
       niri.settings.outputs = {
-        # soundbar
-        "Samsung Electric Company SAMSUNG 0x00000001".enable = false;
-
         "Acer Technologies SB220Q 0x103035FB".position = {
           x = 0;
           y = 0;
