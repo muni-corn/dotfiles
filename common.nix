@@ -57,6 +57,7 @@
       dmidecode
       lsof
       keychron-udev-rules
+      pciutils
       powertop
       psmisc
       rsync
