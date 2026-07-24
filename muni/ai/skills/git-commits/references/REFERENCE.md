@@ -43,8 +43,12 @@ We use these types for commits:
 | `fix`      | Bug fixes (bumps PATCH version)                |
 | `perf`     | Performance improvements                       |
 | `refactor` | Code changes without feature/fix               |
-| `style`    | Formatting only (not CSS)                      |
+| `revert`   | Reverting a previous commit                    |
+| `style`    | Code formatting only (not CSS)                 |
 | `test`     | Changes or additions to testing suites         |
+
+Read [`commit-types.md`](./commit-types.md) for a full understanding of the different commit types,
+when to use them, and examples.
 
 ## Scope rules
 
