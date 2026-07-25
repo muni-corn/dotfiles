@@ -96,6 +96,7 @@
         # forked repos
         "code/devenv" = fromGitHubFork "cachix" "devenv";
         "code/difftastic" = fromGitHubFork "Wilfred" "difftastic";
+        "code/dioxus" = fromGitHubFork "DioxusLabs" "dioxus";
         "code/home-manager" = fromGitHubFork "nix-community" "home-manager";
         "code/matugen" = fromGitHubFork "InioX" "matugen";
         "code/niri-flake" = fromGitHubFork "sodiboo" "niri-flake";
