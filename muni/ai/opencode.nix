@@ -25,20 +25,20 @@
       small_model = "opencode/claude-haiku-4-5";
       agent = {
         plan = {
-          model = "opencode/claude-opus-4-8";
+          model = "anthropic/claude-opus-5";
           permission = {
             edit."docs/plans/*" = "allow";
             write."docs/plans/*" = "allow";
           };
         };
-        review.model = "opencode/gemini-3-pro";
+        review.model = "opencode/gemini-3.1-pro";
       };
 
       # configure api keys
       provider = {
-        anthropic.options = {
-          apiKey = "{file:${config.sops.secrets.opencode_anthropic_api_key.path}}";
-          thinking = "adaptive";
+        anthropic = {
+          options.apiKey = "{file:${config.sops.secrets.opencode_anthropic_api_key.path}}";
+          models."claude-opus-5".options.thinking.type = "adaptive";
         };
         opencode.options.apiKey = "{file:${config.sops.secrets.opencode_zen_api_key.path}}";
       };
