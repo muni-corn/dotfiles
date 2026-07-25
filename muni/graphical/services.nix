@@ -5,11 +5,11 @@
       enable = true;
       provider = "geoclue2";
       temperature = {
-        day = 6500;
-        night = 2500;
+        day = 6500; # daylight
+        night = 1900; # candlelight
       };
 
-      dawnTime = "05:30-06:00";
+      dawnTime = "07:00-09:00";
       duskTime = "20:30-21:00";
 
       settings.general.adjustment-method = "wayland";
