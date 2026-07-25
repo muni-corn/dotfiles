@@ -210,8 +210,8 @@ in
 
     # screenshots
     # de-sugared temporary workarounds
-    "Mod+Print".action.screenshot-window.write-to-disk = true;
-    "Mod+Ctrl+Print".action.screenshot = [ ];
+    "Mod+Grave".action.screenshot-window.write-to-disk = true;
+    "Mod+Ctrl+Grave".action.screenshot = [ ];
 
     # applications such as remote-desktop clients and software kvm switches may
     # request that niri stops processing the keyboard shortcuts defined here
@@ -221,7 +221,7 @@ in
     #
     # the allow-inhibiting=false property can be applied to other binds as well,
     # which ensures niri always processes them, even when an inhibitor is active.
-    "Mod+Grave" = {
+    "Mod+Backslash" = {
       action = toggle-keyboard-shortcuts-inhibit;
       allow-inhibiting = false;
     };
