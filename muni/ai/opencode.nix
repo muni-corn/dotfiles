@@ -38,7 +38,33 @@
       provider = {
         anthropic = {
           options.apiKey = "{file:${config.sops.secrets.opencode_anthropic_api_key.path}}";
-          models."claude-opus-5".options.thinking.type = "adaptive";
+          models."claude-opus-5".variants = {
+            low.thinking = {
+              type = "adaptive";
+              display = "summarized";
+              effort = "low";
+            };
+            medium.thinking = {
+              type = "adaptive";
+              display = "summarized";
+              effort = "medium";
+            };
+            high.thinking = {
+              type = "adaptive";
+              display = "summarized";
+              effort = "high";
+            };
+            xhigh.thinking = {
+              type = "adaptive";
+              display = "summarized";
+              effort = "xhigh";
+            };
+            max.thinking = {
+              type = "adaptive";
+              display = "summarized";
+              effort = "max";
+            };
+          };
         };
         opencode.options.apiKey = "{file:${config.sops.secrets.opencode_zen_api_key.path}}";
       };
