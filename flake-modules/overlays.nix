@@ -23,6 +23,8 @@ let
         doCheck = false;
       });
 
+      secretspec = inputs.nixpkgs-small.legacyPackages.${final.system}.secretspec;
+
       muni-scripts = inputs.muni-scripts.packages.${final.system}.default;
 
       videoduplicatefinder = final.callPackage ../pkgs/videoduplicatefinder { };
