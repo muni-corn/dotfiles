@@ -24,14 +24,22 @@
       model = "opencode/claude-sonnet-5";
       small_model = "opencode/claude-haiku-4-5";
       agent = {
-        plan = {
-          model = "anthropic/claude-opus-5";
-          permission = {
-            edit."docs/plans/*" = "allow";
-            write."docs/plans/*" = "allow";
-          };
-        };
+        plan.model = "anthropic/claude-opus-5";
         review.model = "opencode/gemini-3.1-pro";
+      };
+
+      permission = {
+        edit = {
+          "docs/plans/*" = "allow";
+          "docs/notes/*" = "allow";
+        };
+        external_directory = {
+          "~/.cargo/registry/src/**" = "allow";
+        };
+        write = {
+          "docs/plans/*" = "allow";
+          "docs/notes/*" = "allow";
+        };
       };
 
       # configure api keys
