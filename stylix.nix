@@ -24,7 +24,7 @@
       "${arpeggioPalette}/palette.yaml";
 
     # background
-    image = ./2024_11_19__you_and_me__by_brittney_ackerman.png;
+    image = ./2026_07_26__what_is_this_place__by_brittney_ackerman.png;
 
     # cursor
     cursor = {
