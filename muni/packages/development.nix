@@ -6,7 +6,6 @@
 
     # development environments
     devenv
-    secretspec
 
     # git & version control
     gh
