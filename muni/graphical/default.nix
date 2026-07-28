@@ -31,7 +31,6 @@
 
       # development/programming
       alcom
-      mongodb-compass
 
       # photo
       hugin
@@ -155,31 +154,8 @@
 
   systemd.user.startServices = "sd-switch";
 
-  xdg = {
-    # manual full override for mongodb compass so it can handle secrets
-    desktopEntries.mongodb-compass = {
-      name = "MongoDB Compass";
-      comment = "The MongoDB GUI";
-      genericName = "MongoDB Compass";
-      exec = "mongodb-compass --password-store=\"gnome-libsecret\" --ignore-additional-command-line-flags %U";
-      icon = "mongodb-compass";
-      type = "Application";
-      startupNotify = true;
-      categories = [
-        "GNOME"
-        "GTK"
-        "Utility"
-      ];
-      mimeType = [
-        "x-scheme-handler/mongodb"
-        "x-scheme-handler/mongodb+srv"
-      ];
-
-    };
-
-    dataFile."sounds/__custom/index.theme".text = ''
-      [Sound Theme]
-      Inherits=cadenza
-    '';
-  };
+  xdg.dataFile."sounds/__custom/index.theme".text = ''
+    [Sound Theme]
+    Inherits=cadenza
+  '';
 }
