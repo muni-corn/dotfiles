@@ -17,7 +17,11 @@
 
       fetch = {
         command = "uvx";
-        args = [ "mcp-server-fetch" ];
+        args = [
+          "--with"
+          "mcp<2"
+          "mcp-server-fetch"
+        ];
       };
 
       context7 = {
@@ -37,7 +41,11 @@
 
       searxng = {
         command = "uvx";
-        args = [ "mcp-searxng" ];
+        args = [
+          "--with"
+          "mcp<2"
+          "mcp-searxng"
+        ];
         env.SEARXNG_URL = "https://search.musicaloft.com";
       };
 
