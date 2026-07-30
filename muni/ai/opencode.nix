@@ -1,11 +1,15 @@
 { config, pkgs, ... }:
 {
-  home.packages = [
-    pkgs.bun
+  home = {
+    packages = [
+      pkgs.bun
 
-    # needed, for some reason
-    pkgs.unzip
-  ];
+      # needed, for some reason
+      pkgs.unzip
+    ];
+
+    sessionVariables.OPENCODE_DISABLE_LSP_DOWNLOAD = "true";
+  };
 
   programs.opencode = {
     enable = true;
