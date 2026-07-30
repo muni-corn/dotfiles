@@ -15,15 +15,6 @@
     servers = {
       atlassian.url = "https://mcp.atlassian.com/v1/mcp";
 
-      fetch = {
-        command = "uvx";
-        args = [
-          "--with"
-          "mcp<2"
-          "mcp-server-fetch"
-        ];
-      };
-
       context7 = {
         url = "https://mcp.context7.com/mcp";
         headers.CONTEXT7_API_KEY = "{file:${config.sops.secrets.context7_key.path}}";
