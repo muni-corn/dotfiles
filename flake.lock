@@ -481,11 +481,11 @@
         "treefmt-nix": "treefmt-nix_4"
       },
       "locked": {
-        "lastModified": 1785179628,
-        "narHash": "sha256-ehBwFZTN2z4a/45frz+Za+5w8eZdVvxOoIvX63TYRVk=",
+        "lastModified": 1785410365,
+        "narHash": "sha256-MEe6ueBtk2kbiII6w9QA+Ylrab7f9s+KExe04szV5ug=",
         "owner": "muni-corn",
         "repo": "cadenza-shell",
-        "rev": "bdffb042dadc10efc09e3add12c716939238c341",
+        "rev": "0c5aa2977778d9809af93bd487666ea41e85f2b9",
         "type": "github"
       },
       "original": {
