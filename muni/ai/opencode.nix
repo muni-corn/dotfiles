@@ -8,7 +8,10 @@
       pkgs.unzip
     ];
 
-    sessionVariables.OPENCODE_DISABLE_LSP_DOWNLOAD = "true";
+    sessionVariables = {
+      OPENCODE_DISABLE_LSP_DOWNLOAD = "true";
+      OPENCODE_ENABLE_EXA = "true";
+    };
   };
 
   programs.opencode = {
