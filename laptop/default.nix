@@ -7,7 +7,7 @@
 {
   imports = [
     ../art.nix
-    ../docker.nix
+    ../virtualisation.nix
     ../firewall.nix
     ../gaming.nix
     ../local-hosts.nix
