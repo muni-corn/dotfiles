@@ -21,11 +21,7 @@
         mode = "both";
       };
       jujutsu.enable = true;
-      options = {
-        context = 5;
-        display = "side-by-side-show-both";
-        background = "dark";
-      };
+      options.context = 5;
     };
 
     fish = {
