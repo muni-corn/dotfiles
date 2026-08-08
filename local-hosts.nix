@@ -16,6 +16,7 @@
       "search.musicaloft.com"
       "ssh.muni.bot"
       "watch.musicaloft.com"
+      "links.twitchtrot.horse"
     ];
 
     "192.168.68.60" = [
