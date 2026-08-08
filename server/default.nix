@@ -35,6 +35,11 @@
     firewall.allowedTCPPorts = [ config.services.surrealdb.port ];
   };
 
+  nix.sshServe = {
+    enable = true;
+    keys = config.users.users.muni.openssh.authorizedKeys.keys;
+  };
+
   # Set your time zone.
   time.timeZone = lib.mkForce "America/Boise";
 
