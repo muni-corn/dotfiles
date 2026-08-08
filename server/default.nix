@@ -23,6 +23,7 @@
     ./peertube.nix
     ./searx.nix
     ./sops.nix
+    ../local-hosts.nix
     ../openssh.nix
     ../twitchtrot
 
