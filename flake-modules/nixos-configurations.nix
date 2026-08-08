@@ -66,7 +66,6 @@ let
     # hardware
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-pc
-    inputs.nixos-hardware.nixosModules.common-gpu-nvidia
 
     # extra software configuration modules
     inputs.munibot.nixosModules.default
