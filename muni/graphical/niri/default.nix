@@ -305,14 +305,6 @@ in
           ];
         }
 
-        # start openrgb
-        {
-          command = [
-            "openrgb"
-            "--startminimized"
-          ];
-        }
-
         # play startup sound
         {
           command = [
