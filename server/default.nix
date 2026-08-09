@@ -8,7 +8,6 @@
 {
   imports = [
     ./adguard.nix
-    ./ai.nix
     ./attic.nix
     ./forgejo.nix
     ./hardware.nix
