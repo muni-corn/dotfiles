@@ -47,10 +47,7 @@
   users.users.muni.extraGroups = [ "wheel" ];
 
   # Allow unfree packages
-  nixpkgs.config = {
-    allowUnfree = true;
-    cudaSupport = true;
-  };
+  nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
