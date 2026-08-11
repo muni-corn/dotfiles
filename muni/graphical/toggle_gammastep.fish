@@ -1,4 +1,4 @@
-#! /usr/bin/env fish
+#!/usr/bin/env fish
 
 set -l lock_file_path $HOME/.toggle_gammastep.lock
 
