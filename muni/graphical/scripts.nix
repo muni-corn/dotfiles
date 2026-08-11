@@ -61,7 +61,7 @@ in
 {
   quickCode = import ./quick-code-script.nix { inherit config lib pkgs; };
 
-  toggleGammastep = ./toggle_gammastep.fish;
+  toggleGammastep = writeFishScript "toggle-gammastep" (builtins.readFile ./toggle_gammastep.fish);
 
   timew =
     let
