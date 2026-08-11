@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   pkgs,
   ...
 }:
@@ -71,18 +70,13 @@
 
     mpv = {
       enable = true;
-      config = {
-        osc = "no";
-        hwdec = "auto";
-        force-window = "yes";
-      };
-      scripts = builtins.attrValues {
-        inherit (pkgs.mpvScripts)
-          mpris
-          thumbnail
-          quality-menu
-          ;
-      };
+      config.hwdec = "auto";
+      scripts = with pkgs.mpvScripts; [
+        modernx
+        mpris
+        mpv-discord
+        thumbfast
+      ];
     };
 
     obs-studio = {
