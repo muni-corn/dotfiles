@@ -2,6 +2,7 @@
 {
   home-manager.users.muni.home.packages = with pkgs; [
     blender
+    davinci-resolve
     # kdePackages.kdenlive
     losslesscut-bin
     movit
