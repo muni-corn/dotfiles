@@ -3,6 +3,7 @@
   home-manager.users.muni.home.packages = with pkgs; [
     blender
     davinci-resolve
+    friction-graphics
     # kdePackages.kdenlive
     losslesscut-bin
     movit
