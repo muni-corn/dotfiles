@@ -15,7 +15,7 @@
     ./hydra.nix
     ./immich.nix
     ./keycloak.nix
-    ./minecraft.nix
+    ./minecraft
     ./municorn.nix
     ./nextcloud.nix
     ./nix.nix
