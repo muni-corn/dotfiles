@@ -10,3 +10,7 @@ dependencies = [
 [project.scripts]
 timesheet = "muni_scripts.timesheet:main"
 new-timesheet = "muni_scripts.new_timesheet:main"
+
+[build-system]
+requires = ["uv_build>=0.12.5,<0.13"]
+build-backend = "uv_build"
