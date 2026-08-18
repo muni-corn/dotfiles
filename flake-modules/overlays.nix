@@ -25,7 +25,9 @@ let
 
       secretspec = inputs.nixpkgs-small.legacyPackages.${final.system}.secretspec;
 
-      muni-scripts = inputs.muni-scripts.packages.${final.system}.default;
+      muni-scripts = final.callPackage ../pkgs/muni-scripts {
+        env = inputs.muni-scripts.packages.${final.system}.default;
+      };
 
       videoduplicatefinder = final.callPackage ../pkgs/videoduplicatefinder { };
     })
