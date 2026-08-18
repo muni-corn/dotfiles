@@ -6,7 +6,7 @@ invokes the timesheet timew extension over the range from the day after
 that date to the start of the current ISO week (Monday).
 
 Usage:
-    python src/new_timesheet.py <TAG>
+    new-timesheet <TAG>
 
 The TAG must have a matching hourly rate in your timewarrior config:
     timew config reports.timesheet.rate.<TAG> <rate>
