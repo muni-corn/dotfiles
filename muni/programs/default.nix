@@ -24,7 +24,7 @@
   home.packages = [
     pkgs.cocoa
     pkgs.graph-cli
-    (lib.lowPrio pkgs.muni-scripts)
+    pkgs.muni-scripts
   ];
 
   programs = {
