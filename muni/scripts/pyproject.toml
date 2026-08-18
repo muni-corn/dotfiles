@@ -8,5 +8,5 @@ dependencies = [
 ]
 
 [project.scripts]
-timesheet = "timesheet:main"
-new-timesheet = "new_timesheet:main"
+timesheet = "muni_scripts.timesheet:main"
+new-timesheet = "muni_scripts.new_timesheet:main"
