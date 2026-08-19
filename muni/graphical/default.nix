@@ -45,10 +45,8 @@
       videoduplicatefinder
 
       # messaging
-      (import inputs.nixpkgs-small {
-        config.allowUnfree = true;
-        system = pkgs.stdenv.hostPlatform.system;
-      }).discord
+      discord
+      cinny-desktop
       element-desktop
       slack
       vesktop
