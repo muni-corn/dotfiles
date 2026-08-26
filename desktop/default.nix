@@ -48,37 +48,60 @@
     programs = {
       hyprlock.settings = (import ../utils.nix { inherit config lib; }).mkHyprlockSettings "DP-2";
 
-      niri.settings.outputs = {
-        "Acer Technologies SB220Q 0x103035FB".position = {
-          x = 0;
-          y = 0;
-        };
-
-        "ASUSTek COMPUTER INC VG27AQ3A RCLMAS002937" = {
-          mode = {
-            width = 2560;
-            height = 1440;
-          };
-          position = {
-            x = 1920;
+      niri.settings = {
+        outputs = {
+          "Acer Technologies SB220Q 0x103035FB".position = {
+            x = 0;
             y = 0;
           };
-          variable-refresh-rate = true;
+
+          "ASUSTek COMPUTER INC VG27AQ3A RCLMAS002937" = {
+            mode = {
+              width = 2560;
+              height = 1440;
+            };
+            position = {
+              x = 1920;
+              y = 0;
+            };
+            variable-refresh-rate = true;
+          };
+
+          # (let niri place DP-1 automatically)
+
+          "PNP(HAT) Kamvas 16 0xF000000F" = {
+            mode = {
+              width = 2560;
+              height = 1440;
+            };
+            position = {
+              x = 2000;
+              y = 1440;
+            };
+            scale = 1.5;
+          };
         };
 
-        # (let niri place DP-1 automatically)
+        # desktop-specific services to start with niri
+        spawn-at-startup = [
+          # start openrgb
+          {
+            command = [
+              "openrgb"
+              "--startminimized"
+            ];
+          }
 
-        "PNP(HAT) Kamvas 16 0xF000000F" = {
-          mode = {
-            width = 2560;
-            height = 1440;
-          };
-          position = {
-            x = 2000;
-            y = 1440;
-          };
-          scale = 1.5;
-        };
+          # start corectrl with the gaming profile
+          {
+            command = [
+              "corectrl"
+              "--minimize-systray"
+              "--activate-manual-profile"
+              "Gaming"
+            ];
+          }
+        ];
       };
     };
 
