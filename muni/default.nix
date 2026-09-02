@@ -2,7 +2,6 @@
 {
   imports = [
     ./ai
-    ./opencommit.nix
     ./packages
     ./programs
     ./sops
