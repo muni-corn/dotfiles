@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   ...
@@ -29,11 +28,8 @@
     ../extra-modules/nixos/timew-sync-server.nix
   ];
 
-  networking = {
-    # define hostname
-    hostName = "munibot";
-    firewall.allowedTCPPorts = [ config.services.surrealdb.port ];
-  };
+  # define hostname
+  networking.hostName = "munibot";
 
   nix.sshServe = {
     enable = true;
@@ -135,14 +131,6 @@
       enable = true;
       package = pkgs.mariadb;
       ensureDatabases = [ "munibot" ];
-    };
-
-    surrealdb = {
-      enable = true;
-      package = inputs.surrealdb.packages.x86_64-linux.default;
-      dbPath = "rocksdb:///var/lib/surrealdb";
-      host = "0.0.0.0";
-      port = 7654;
     };
 
     taskchampion-sync-server = {
