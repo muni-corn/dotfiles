@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, ... }:
 {
   imports = [ inputs.nix-minecraft.nixosModules.minecraft-servers ];
 
@@ -8,6 +8,7 @@
     openFirewall = true;
 
     servers.herd-world = {
+      enable = true;
       enableReload = true;
       operators.muni_corn = "30bb1692-6f6a-4103-9634-455e65d0269d";
       serverProperties = {
@@ -17,7 +18,7 @@
         enforce-secure-profile = true;
         enforce-whitelist = true;
         level-name = "herd_world";
-        motd = "muni's nixos minecraft server :3";
+        motd = "muni's herd house minecraft server :3";
         snooper-enabled = false;
         spawn-protection = 2;
         white-list = true;
