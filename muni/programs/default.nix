@@ -14,7 +14,6 @@
     ./git.nix
     ./helix.nix
     ./mr.nix
-    ./nnn.nix
     ./starship.nix
     ./taskwarrior.nix
     ./yazi.nix
