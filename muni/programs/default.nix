@@ -16,6 +16,7 @@
     ./mr.nix
     ./starship.nix
     ./taskwarrior.nix
+    ./tmux.nix
     ./yazi.nix
     ./zellij.nix
   ];
