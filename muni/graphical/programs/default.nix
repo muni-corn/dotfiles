@@ -20,6 +20,7 @@
     opencode-desktop
     revolt-desktop
     vial
+    fractal
   ];
 
   programs = {
