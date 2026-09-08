@@ -25,6 +25,10 @@
           time_zone = "America/Boise";
           name = "Sunni's Home";
         };
+        http = {
+          use_x_forwarded_for = true;
+          trusted_proxies = [ "127.0.0.1" ];
+        };
         scene = "!include scenes.yaml";
         automation = "!include automations.yaml";
       };
