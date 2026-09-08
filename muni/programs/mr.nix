@@ -100,6 +100,7 @@
         "code/matugen" = fromGitHubFork "InioX" "matugen";
         "code/niri-flake" = fromGitHubFork "sodiboo" "niri-flake";
         "code/nixpkgs" = fromGitHubFork "NixOS" "nixpkgs";
+        "code/rig" = fromGitHubFork "0xPlaygrounds" "rig";
         "code/relm4" = fromGitHubFork "Relm4" "relm4";
         "code/relm4-icons" = fromGitHubForkRenamed "Relm4" "icons" "relm4-icons";
         "code/rustledger" = fromGitHubFork "rustledger" "rustledger";
