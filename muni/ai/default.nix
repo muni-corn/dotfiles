@@ -1,5 +1,6 @@
 {
   imports = [
+    ./claude-code.nix
     ./mcp.nix
     ./opencode.nix
   ];
