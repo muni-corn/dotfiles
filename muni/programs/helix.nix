@@ -18,7 +18,7 @@
       rustledger
       sqruff
       tailwindcss-language-server
-      taplo
+      tombi
       tsgolint
       vscode-langservers-extracted
       vtsls
