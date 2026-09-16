@@ -1,7 +1,10 @@
-{ config, ... }:
+{ ... }:
 {
   networking.firewall = {
-    allowedTCPPorts = [ 4002 ];
+    allowedTCPPorts = [
+      8123
+      4002
+    ];
     allowedUDPPorts = [ 4002 ];
   };
 
@@ -11,13 +14,12 @@
       email = "caddy@musicaloft.com";
 
       virtualHosts."hass.municorn.me".extraConfig = ''
-        reverse_proxy 127.0.0.1:${toString config.services.home-assistant.config.http.server_port}
+        reverse_proxy 127.0.0.1:8123
       '';
     };
 
     home-assistant = {
       enable = true;
-      openFirewall = true;
       config = {
         default_config = { };
         homeassistant = {
@@ -38,6 +40,7 @@
         "esphome"
         "google_translate"
         "govee_light_local"
+        "http"
         "met"
         "tplink"
       ];
