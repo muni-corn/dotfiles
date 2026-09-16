@@ -15,14 +15,7 @@
   programs.rofi = {
     enable = true;
 
-    pass = {
-      enable = true;
-      package = pkgs.rofi-pass-wayland;
-      stores = [ "~/.local/share/password-store/" ];
-    };
-    plugins = with pkgs; [
-      rofi-calc
-    ];
+    plugins = with pkgs; [ rofi-calc ];
 
     cycle = true;
     font = lib.mkForce "sans 12";
