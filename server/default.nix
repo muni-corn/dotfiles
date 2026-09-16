@@ -102,6 +102,7 @@
               subvolume = {
                 home = { };
                 var = { };
+                srv = { };
               };
               snapshot_dir = "/snaps";
             };
@@ -118,6 +119,7 @@
               subvolume = {
                 home = { };
                 var = { };
+                srv = { };
               };
               target = "/crypt/backup/munibot";
               snapshot_dir = "/snaps";
