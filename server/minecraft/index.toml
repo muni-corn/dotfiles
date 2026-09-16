@@ -1,0 +1,36 @@
+hash-format = "sha256"
+
+[[files]]
+file = "mods/collective.pw.toml"
+hash = "8b3bbd261c8e3692775873b9c470cb6f7c9a21d96a3eac7a3e7ff7bc8b39ba32"
+metafile = true
+
+[[files]]
+file = "mods/fabric-api.pw.toml"
+hash = "37069be1c7d23b2fe463a98297d1f12eb8875f0d3be651a3a6cadc868752ab5a"
+metafile = true
+
+[[files]]
+file = "mods/geyser.pw.toml"
+hash = "71a040c2b27c9c981720dd5917a1a4916182f50027363feaca037a2e26dae870"
+metafile = true
+
+[[files]]
+file = "mods/lithium.pw.toml"
+hash = "a5ee497ec151dd6e6b946091e12e2c56362e5c772c4b8ea175b2e81277cc708d"
+metafile = true
+
+[[files]]
+file = "mods/tree-harvester.pw.toml"
+hash = "1477c5f03e64679f3c99456a4bb0af33f708f481747ccf2b8d9bcadbace1d9ce"
+metafile = true
+
+[[files]]
+file = "mods/viabackwards.pw.toml"
+hash = "3b1481901f1c2debba3e16b3821a484596076aef9d10244242ecdb54ee848176"
+metafile = true
+
+[[files]]
+file = "mods/viaversion.pw.toml"
+hash = "adda2badf71a4a10684c3c41e4d793cd26238494f74046a2920a54dc21375622"
+metafile = true

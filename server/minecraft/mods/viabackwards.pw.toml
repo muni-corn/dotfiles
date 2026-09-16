@@ -1,0 +1,13 @@
+name = "ViaBackwards"
+filename = "ViaBackwards-5.12.0-SNAPSHOT.jar"
+side = "both"
+
+[download]
+url = "https://cdn.modrinth.com/data/NpvuJQoq/versions/GB5LJQxR/ViaBackwards-5.12.0-SNAPSHOT.jar"
+hash-format = "sha512"
+hash = "07a30199ce6784fa48fe2809c24d4bfa11db91ab325764dad6545e69b487867665d3c09277e6fea27485e4f3a199e2b866d01ae7363f19667c5596a38536ea3c"
+
+[update]
+[update.modrinth]
+mod-id = "NpvuJQoq"
+version = "GB5LJQxR"
