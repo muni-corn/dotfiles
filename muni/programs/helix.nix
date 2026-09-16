@@ -368,7 +368,6 @@
           {
             name = "wgsl";
             auto-format = true;
-            formatter.command = "wgslfmt";
           }
 
           # yaml
