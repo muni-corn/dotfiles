@@ -28,11 +28,11 @@
       default_agent = "plan";
 
       # configure models
-      model = "opencode/claude-sonnet-5";
-      small_model = "opencode/claude-haiku-4-5";
+      model = "anthropic/claude-sonnet-5";
+      small_model = "anthropic/claude-haiku-4-5";
       agent = {
         plan.model = "anthropic/claude-opus-5";
-        review.model = "opencode/gemini-3.1-pro";
+        review.model = "anthropic/gemini-3.1-pro";
       };
 
       permission = {
@@ -81,7 +81,6 @@
             };
           };
         };
-        opencode.options.apiKey = "{file:${config.sops.secrets.opencode_zen_api_key.path}}";
       };
     };
 
