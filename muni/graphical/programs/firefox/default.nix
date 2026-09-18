@@ -1,8 +1,17 @@
-{ lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 {
   programs.firefox = {
     enable = true;
     package = pkgs.firefox;
+
+    # new default behavior
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
+
     profiles.muni = {
       containers = {
         Personal = {
