@@ -2,32 +2,23 @@
 {
   imports = [ ./sops.nix ];
 
-  services.caddy = {
-    enable = true;
-    email = "caddy@musicaloft.com";
+  services.caddy.virtualHosts."links.twitchtrot.horse".extraConfig = ''
+    reverse_proxy https://127.0.0.1:8999 {
+      header_up Host {host}
+      header_up X-Real-IP {remote_host}
+      header_up X-Forwarded-Proto https
+      header_up X-VerifiedViaNginx yes
+      header_up X-VerifiedViaCaddy yes
 
-    virtualHosts = {
-      "links.twitchtrot.horse" = {
-        extraConfig = ''
-          reverse_proxy https://127.0.0.1:8999 {
-            header_up Host {host}
-            header_up X-Real-IP {remote_host}
-            header_up X-Forwarded-Proto https
-            header_up X-VerifiedViaNginx yes
-            header_up X-VerifiedViaCaddy yes
+      transport http {
+        tls_insecure_skip_verify
+        read_timeout 60s
+        dial_timeout 60s
+      }
+    }
 
-            transport http {
-              tls_insecure_skip_verify
-              read_timeout 60s
-              dial_timeout 60s
-            }
-          }
-
-          header Content-Security-Policy "upgrade-insecure-requests"
-        '';
-      };
-    };
-  };
+    header Content-Security-Policy "upgrade-insecure-requests"
+  '';
 
   networking.firewall.allowedTCPPorts = [
     80

@@ -2,18 +2,9 @@
 {
   nix.settings.trusted-users = [ "builder" ];
   services = {
-    caddy = {
-      enable = true;
-      email = "caddy@musicaloft.com";
-
-      virtualHosts = {
-        "cache.musicaloft.com" = {
-          extraConfig = ''
-            reverse_proxy 127.0.0.1:${builtins.toString config.services.nix-serve.port}
-          '';
-        };
-      };
-    };
+    caddy.virtualHosts."cache.musicaloft.com".extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString config.services.nix-serve.port}
+    '';
 
     nix-serve = {
       enable = true;

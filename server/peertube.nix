@@ -38,17 +38,10 @@
       };
     };
 
-    caddy = {
-      enable = true;
-      email = "caddy@musicaloft.com";
-
-      virtualHosts.${config.services.peertube.localDomain} = {
-        extraConfig = ''
-          reverse_proxy 127.0.0.1:${toString config.services.peertube.listenHttp}
-          header Host watch.musicaloft.com
-        '';
-      };
-    };
+    caddy.virtualHosts.${config.services.peertube.localDomain}.extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString config.services.peertube.listenHttp}
+      header Host watch.musicaloft.com
+    '';
   };
 
   sops.secrets =

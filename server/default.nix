@@ -8,6 +8,7 @@
   imports = [
     ./adguard.nix
     ./attic.nix
+    ./caddy.nix
     ./forgejo.nix
     ./hardware.nix
     ./home-assistant.nix

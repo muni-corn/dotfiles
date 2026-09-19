@@ -24,15 +24,8 @@
       };
     };
 
-    caddy = {
-      enable = true;
-      email = "caddy@musicaloft.com";
-
-      virtualHosts."search.musicaloft.com" = {
-        extraConfig = ''
-          reverse_proxy 127.0.0.1:${builtins.toString config.services.searx.settings.server.port}
-        '';
-      };
-    };
+    caddy.virtualHosts."search.musicaloft.com".extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString config.services.searx.settings.server.port}
+    '';
   };
 }

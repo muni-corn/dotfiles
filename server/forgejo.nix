@@ -42,16 +42,9 @@
       };
     };
 
-    caddy = {
-      enable = true;
-      email = "caddy@musicaloft.com";
-
-      virtualHosts.${config.services.forgejo.settings.server.DOMAIN} = {
-        extraConfig = ''
-          reverse_proxy 127.0.0.1:${builtins.toString config.services.forgejo.settings.server.HTTP_PORT}
-        '';
-      };
-    };
+    caddy.virtualHosts.${config.services.forgejo.settings.server.DOMAIN}.extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString config.services.forgejo.settings.server.HTTP_PORT}
+    '';
   };
 
   networking.firewall.allowedTCPPorts = [ config.services.forgejo.settings.server.HTTP_PORT ];

@@ -4,16 +4,10 @@ let
 in
 {
   services = {
-    caddy = {
-      enable = true;
-      email = "caddy@musicaloft.com";
+    caddy.virtualHosts.${config.services.nextcloud.hostName}.extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString port}
+    '';
 
-      virtualHosts.${config.services.nextcloud.hostName} = {
-        extraConfig = ''
-          reverse_proxy 127.0.0.1:${builtins.toString port}
-        '';
-      };
-    };
     nextcloud = {
       enable = true;
       package = pkgs.nextcloud32;

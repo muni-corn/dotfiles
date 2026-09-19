@@ -2,14 +2,9 @@
 {
   services = {
     # external url configuration
-    caddy = {
-      enable = true;
-      email = "caddy@musicaloft.com";
-
-      virtualHosts."photos.musicaloft.com".extraConfig = ''
-        reverse_proxy 127.0.0.1:${toString config.services.immich.port}
-      '';
-    };
+    caddy.virtualHosts."photos.musicaloft.com".extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString config.services.immich.port}
+    '';
 
     # immich configuration
     immich = {

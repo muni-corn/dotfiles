@@ -9,14 +9,9 @@
   };
 
   services = {
-    caddy = {
-      enable = true;
-      email = "caddy@musicaloft.com";
-
-      virtualHosts."hass.municorn.me".extraConfig = ''
-        reverse_proxy 127.0.0.1:8123
-      '';
-    };
+    caddy.virtualHosts."hass.municorn.me".extraConfig = ''
+      reverse_proxy 127.0.0.1:8123
+    '';
 
     home-assistant = {
       enable = true;

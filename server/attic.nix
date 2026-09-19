@@ -8,20 +8,11 @@ in
     atticd = {
       enable = true;
       environmentFile = config.sops.secrets.atticd_env.path;
-      settings.listen = "[::]:${builtins.toString port}";
+      settings.listen = "[::]:${toString port}";
     };
 
-    caddy = {
-      enable = true;
-      email = "caddy@musicaloft.com";
-
-      virtualHosts = {
-        "attic.musicaloft.com" = {
-          extraConfig = ''
-            reverse_proxy 127.0.0.1:${builtins.toString port}
-          '';
-        };
-      };
-    };
+    caddy.virtualHosts."attic.musicaloft.com".extraConfig = ''
+      reverse_proxy 127.0.0.1:${toString port}
+    '';
   };
 }
