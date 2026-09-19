@@ -51,6 +51,7 @@
 
       # configure api keys
       provider = {
+        openai.options.apiKey = "{file:${config.sops.secrets.opencode_openai_api_key.path}}";
         anthropic = {
           options.apiKey = "{file:${config.sops.secrets.opencode_anthropic_api_key.path}}";
           models."claude-opus-5".variants = {
