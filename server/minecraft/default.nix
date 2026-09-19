@@ -32,7 +32,7 @@
 
         # settings
         serverProperties = {
-          "rcon.password" = "hunter2";
+          "rcon.password" = "@RCON_PASSWORD@";
           difficulty = "easy";
           enable-rcon = true;
           enforce-secure-profile = true;

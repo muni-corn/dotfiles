@@ -19,6 +19,7 @@
       atticd_env = { };
       searx_env = { };
       keycloak_database_password = { };
+      minecraft_env = { };
     };
   };
 
