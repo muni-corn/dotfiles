@@ -42,6 +42,9 @@
     # extra hardware configuration
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
 
+    # for up-to-date wivrn
+    nixpkgs-xr.url = "github:nix-community/nixpkgs-xr";
+
     # nix user repository (only used for firefox plugins)
     nur = {
       url = "github:nix-community/NUR";
