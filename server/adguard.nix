@@ -2,7 +2,7 @@
   services.adguardhome = {
     enable = true;
     allowDHCP = true;
-    openFirewall = true;
+    openFirewall = false;
     port = 3080;
   };
 }
