@@ -8,7 +8,6 @@
 
     keycloak = {
       enable = true;
-      initialAdminPassword = "verystrongpassword";
       database.passwordFile = config.sops.secrets.keycloak_database_password.path;
       settings = {
         hostname = "id.musicaloft.com";
