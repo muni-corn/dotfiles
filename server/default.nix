@@ -139,13 +139,13 @@
     taskchampion-sync-server = {
       enable = true;
       allowClientIds = [ "b3063e75-5cc7-4eaa-b8dd-b365774fb0eb" ];
-      host = "0.0.0.0";
-      openFirewall = true;
+      host = "127.0.0.1";
+      openFirewall = false;
     };
 
     timew-sync-server = {
       enable = true;
-      openFirewall = true;
+      openFirewall = false;
     };
 
     munibot = {
