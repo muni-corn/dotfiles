@@ -23,3 +23,13 @@ creation_rules:
       - age:
           - *munibot
           - *home_munibot
+  - path_regex: ^desktop/secrets.yaml$
+    key_groups:
+      - age:
+          - *desktop
+          - *home_desktop
+  - path_regex: ^laptop/secrets.yaml$
+    key_groups:
+      - age:
+          - *laptop
+          - *home_laptop
