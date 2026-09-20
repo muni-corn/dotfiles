@@ -11,6 +11,7 @@
       database.passwordFile = config.sops.secrets.keycloak_database_password.path;
       settings = {
         hostname = "id.musicaloft.com";
+        http-host = "127.0.0.1";
         http-port = 9080;
         https-port = 9443;
 
