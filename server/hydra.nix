@@ -5,6 +5,7 @@
       enable = true;
       buildMachinesFiles = [ ];
       hydraURL = "hydra.musicaloft.com";
+      listenHost = "localhost";
       notificationSender = "hello@hydra.musicaloft.com";
       useSubstitutes = true;
       port = 49372;
@@ -16,6 +17,4 @@
       reverse_proxy 127.0.0.1:${toString config.services.hydra.port}
     '';
   };
-
-  networking.firewall.allowedTCPPorts = [ config.services.hydra.port ];
 }
