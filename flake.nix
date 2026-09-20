@@ -72,6 +72,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # for hosting a tangled knot
+    tangled = {
+      url = "git+https://tangled.org/tangled.org/core";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     # for formatting this configuration
     treefmt-nix.url = "github:numtide/treefmt-nix";
 
