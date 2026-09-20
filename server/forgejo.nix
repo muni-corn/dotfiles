@@ -31,6 +31,7 @@
           POPULATE_SQUASH_COMMENT_WITH_COMMIT_MESSAGES = true;
         };
         server = {
+          HTTP_ADDR = "127.0.0.1";
           HTTP_PORT = 6448;
           DOMAIN = "git.musicaloft.com";
           COOKIE_SECURE = true;
@@ -46,8 +47,6 @@
       reverse_proxy 127.0.0.1:${toString config.services.forgejo.settings.server.HTTP_PORT}
     '';
   };
-
-  networking.firewall.allowedTCPPorts = [ config.services.forgejo.settings.server.HTTP_PORT ];
 
   users.users.git = {
     home = config.services.forgejo.stateDir;
