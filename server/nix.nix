@@ -8,8 +8,9 @@
 
     nix-serve = {
       enable = true;
-      openFirewall = true;
+      openFirewall = false;
       secretKeyFile = config.sops.secrets.nix_serve_secret_key.path;
+      bindAddress = "127.0.0.1";
     };
   };
 
