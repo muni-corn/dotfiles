@@ -1,12 +1,6 @@
 { ... }:
 {
-  networking.firewall = {
-    allowedTCPPorts = [
-      8123
-      4002
-    ];
-    allowedUDPPorts = [ 4002 ];
-  };
+  networking.firewall.allowedUDPPorts = [ 4002 ];
 
   services = {
     caddy.virtualHosts."hass.municorn.me".extraConfig = ''
