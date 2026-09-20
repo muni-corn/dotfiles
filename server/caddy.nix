@@ -19,6 +19,14 @@
           -Server
         }
       }
+
+      # restricts a vhost to clients on the lan or vpn. safe to import even
+      # before the vpn exists, since acme http challenges are solved before
+      # site matching and are never blocked by this snippet
+      (private_only) {
+        @disallowed not remote_ip private_ranges
+        respond @disallowed 403
+      }
     '';
   };
 }
