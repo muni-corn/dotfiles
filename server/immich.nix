@@ -3,6 +3,7 @@
   services = {
     # external url configuration
     caddy.virtualHosts."photos.musicaloft.com".extraConfig = ''
+      import security_headers
       reverse_proxy 127.0.0.1:${toString config.services.immich.port}
     '';
 

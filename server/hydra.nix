@@ -14,6 +14,7 @@
     };
 
     caddy.virtualHosts.${config.services.hydra.hydraURL}.extraConfig = ''
+      import security_headers
       reverse_proxy 127.0.0.1:${toString config.services.hydra.port}
     '';
   };

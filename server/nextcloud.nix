@@ -5,6 +5,7 @@ in
 {
   services = {
     caddy.virtualHosts.${config.services.nextcloud.hostName}.extraConfig = ''
+      import security_headers
       reverse_proxy 127.0.0.1:${toString port}
     '';
 

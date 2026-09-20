@@ -3,6 +3,8 @@
   imports = [ ./sops.nix ];
 
   services.caddy.virtualHosts."links.twitchtrot.horse".extraConfig = ''
+    import security_headers
+
     reverse_proxy https://127.0.0.1:8999 {
       header_up Host {host}
       header_up X-Real-IP {remote_host}

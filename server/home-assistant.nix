@@ -4,6 +4,7 @@
 
   services = {
     caddy.virtualHosts."hass.municorn.me".extraConfig = ''
+      import security_headers
       reverse_proxy 127.0.0.1:8123
     '';
 

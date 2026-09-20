@@ -44,6 +44,7 @@
     };
 
     caddy.virtualHosts.${config.services.forgejo.settings.server.DOMAIN}.extraConfig = ''
+      import security_headers
       reverse_proxy 127.0.0.1:${toString config.services.forgejo.settings.server.HTTP_PORT}
     '';
   };

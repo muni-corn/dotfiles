@@ -39,6 +39,7 @@
     };
 
     caddy.virtualHosts.${config.services.peertube.localDomain}.extraConfig = ''
+      import security_headers
       reverse_proxy 127.0.0.1:${toString config.services.peertube.listenHttp}
       header Host watch.musicaloft.com
     '';

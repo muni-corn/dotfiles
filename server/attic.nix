@@ -11,6 +11,7 @@ in
     };
 
     caddy.virtualHosts."attic.musicaloft.com".extraConfig = ''
+      import security_headers
       reverse_proxy 127.0.0.1:${toString port}
     '';
   };
