@@ -25,7 +25,7 @@
       };
 
       settings = {
-        listen.hostname = "0.0.0.0";
+        listen.hostname = "127.0.0.1";
         instance.hostname = "Musicaloft Watch";
 
         storage = {
