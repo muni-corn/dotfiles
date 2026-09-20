@@ -1,5 +1,5 @@
 [files]
-extend-exclude = ["**secrets**", "muni/programs/git.nix"]
+extend-exclude = ["**secrets**", "muni/programs/git.nix", "*.diff"]
 
 [default]
 # ignore hex codes and ssh keys
