@@ -62,8 +62,6 @@ in
     };
   };
 
-  networking.firewall.allowedTCPPorts = [ port ];
-
   sops.secrets =
     let
       mkSecret = {
