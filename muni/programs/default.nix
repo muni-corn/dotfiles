@@ -52,6 +52,8 @@
 
     gpg.enable = true;
 
+    java.enable = true;
+
     jq.enable = true;
 
     # fish integration enabled by default

@@ -7,6 +7,7 @@
       kdlfmt
       lldb_21
       ltex-ls-plus
+      jdt-language-server
       markdown-oxide
       mpls
       nixd
