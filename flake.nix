@@ -21,6 +21,9 @@
     # geonkick 2
     # geonkick-nixpkgs.url = "github:nixos/nixpkgs/1af754ac1e481efa5284df47d6e13be09f69bc53";
 
+    # up-to-date ai and llm packages
+    llm-agents.url = "github:numtide/llm-agents.nix";
+
     # realtime audio
     musnix = {
       url = "github:musnix/musnix";

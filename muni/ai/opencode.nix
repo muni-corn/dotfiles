@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 {
   home = {
     packages = [
@@ -16,6 +21,7 @@
 
   programs.opencode = {
     enable = true;
+    package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode2;
     enableMcpIntegration = true;
 
     agents = ./agents;
