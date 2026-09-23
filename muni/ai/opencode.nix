@@ -31,7 +31,7 @@
       model = "anthropic/claude-sonnet-5";
       small_model = "anthropic/claude-haiku-4-5";
       agent = {
-        plan.model = "anthropic/claude-opus-5";
+        plan.model = "anthropic/claude-opus-5-5";
         review.model = "anthropic/gemini-3.1-pro";
       };
 
@@ -54,7 +54,7 @@
         openai.options.apiKey = "{file:${config.sops.secrets.opencode_openai_api_key.path}}";
         anthropic = {
           options.apiKey = "{file:${config.sops.secrets.opencode_anthropic_api_key.path}}";
-          models."claude-opus-5".variants = {
+          models."claude-opus-5-5".variants = {
             low.thinking = {
               type = "adaptive";
               display = "summarized";
