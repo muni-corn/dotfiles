@@ -34,6 +34,9 @@
 
     playerctld.enable = true;
 
+    # profile sync daemon, for SSDs and browsers
+    psd.enable = true;
+
     taskwarrior-sync = {
       enable = true;
       package = pkgs.taskwarrior3;

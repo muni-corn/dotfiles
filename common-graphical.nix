@@ -156,9 +156,6 @@
       ];
     };
 
-    # profile sync daemon, for SSDs and browsers
-    psd.enable = true;
-
     # systemd name resolution
     resolved.enable = true;
 
