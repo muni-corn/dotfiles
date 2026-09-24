@@ -13,6 +13,8 @@
     configPath = "${config.xdg.configHome}/mozilla/firefox";
 
     profiles.muni = {
+      storeId = "b171c1bd";
+
       containers = {
         Personal = {
           icon = "fingerprint";
