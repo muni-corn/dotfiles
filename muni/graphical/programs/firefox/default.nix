@@ -79,7 +79,7 @@
             name = "Musicaloft";
             urls = [
               {
-                template = "https://search.musicaloft.com/search?q=%s";
+                template = "https://search.musicaloft.com/search";
                 params = [
                   {
                     name = "q";
