@@ -8,6 +8,15 @@
     enable = true;
     package = pkgs.aw-server-rust;
 
+    # enable ActivityWatch sync daemon
+    # this syncs data to the given folder every 5 minutes
+    # it can then be synced with syncthing/dropbox/etc
+    sync = {
+      enable = true;
+      syncDir = "${config.home.homeDirectory}/sync/aw";
+      verbose = true; # enable debug logging
+    };
+
     watchers.aw-watcher-window-wayland = {
       package = pkgs.aw-watcher-window-wayland;
       settings = {
@@ -15,15 +24,6 @@
         poll_time = 2;
       };
     };
-  };
-
-  # Enable ActivityWatch sync daemon
-  # This will sync data to ~/ActivityWatchSync every 5 minutes
-  # You can then sync this directory with Syncthing/Dropbox/etc
-  services.activitywatch.sync = {
-    enable = true;
-    syncDir = "${config.home.homeDirectory}/sync/aw";
-    verbose = true; # enable debug logging
   };
 
   systemd.user.services.activitywatch-watcher-aw-watcher-window-wayland = {
