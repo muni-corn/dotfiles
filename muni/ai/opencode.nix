@@ -21,7 +21,7 @@
 
   programs.opencode = {
     enable = true;
-    package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode2;
+    package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode;
     enableMcpIntegration = true;
 
     agents = ./agents;
