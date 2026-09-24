@@ -67,6 +67,53 @@
         "browser.newtabpage.activity-stream.showSponsored" = false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
       };
+
+      search = {
+        default = "musicaloft";
+        privateDefault = "musicaloft";
+        force = true;
+        engines = {
+          musicaloft = {
+            name = "Musicaloft";
+            urls = [
+              {
+                template = "https://search.musicaloft.com/search?q=%s";
+                params = [
+                  {
+                    name = "q";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+            definedAliases = [ "@m" ];
+          };
+          nix-packages = {
+            name = "Nix Packages";
+            urls = [
+              {
+                template = "https://search.nixos.org/packages";
+                params = [
+                  {
+                    name = "type";
+                    value = "packages";
+                  }
+                  {
+                    name = "query";
+                    value = "{searchTerms}";
+                  }
+                ];
+              }
+            ];
+
+            icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+            definedAliases = [
+              "@n"
+              "@np"
+            ];
+          };
+        };
+      };
     };
   };
 }
