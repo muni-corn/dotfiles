@@ -20,6 +20,7 @@
       searx_env = { };
       keycloak_database_password = { };
       minecraft_env = { };
+      wireguard_private_key = { };
     };
   };
 
