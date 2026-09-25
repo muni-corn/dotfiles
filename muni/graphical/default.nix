@@ -54,7 +54,7 @@
       # apps
       android-file-transfer
       ledger-live-desktop
-      libreoffice-fresh
+      libreoffice
       obsidian
 
       # keyboard config
