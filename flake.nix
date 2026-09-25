@@ -2,6 +2,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
+    nixpkgs-multiverse.url = "github:fzakaria/nixpkgs-multiverse";
 
     devenv = {
       url = "github:cachix/devenv";
@@ -134,6 +135,7 @@
 
       imports = [
         inputs.devenv.flakeModule
+        inputs.multiverse.nixosModules.default
 
         ./flake-modules/overlays.nix
         ./flake-modules/nixos-configurations.nix

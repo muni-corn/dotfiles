@@ -3884,6 +3884,21 @@
         "type": "github"
       }
     },
+    "nixpkgs-multiverse": {
+      "locked": {
+        "lastModified": 1790255862,
+        "narHash": "sha256-IrSW6vJtG332HvF0t50NaO6h3+9WkzJ+KSpJ1CbNWYo=",
+        "owner": "fzakaria",
+        "repo": "nixpkgs-multiverse",
+        "rev": "fba6691c6c064212a8683ba81708076c7f8f683c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "fzakaria",
+        "repo": "nixpkgs-multiverse",
+        "type": "github"
+      }
+    },
     "nixpkgs-small": {
       "locked": {
         "lastModified": 1790297907,
@@ -4481,6 +4496,7 @@
         "nix-minecraft": "nix-minecraft",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs_7",
+        "nixpkgs-multiverse": "nixpkgs-multiverse",
         "nixpkgs-small": "nixpkgs-small",
         "nixpkgs-xr": "nixpkgs-xr",
         "nur": "nur",
