@@ -13,7 +13,6 @@
       hledger
       hledger-fmt
       ledger2beancount
-      ledger-autosync
       rustfava
       puffin
 
