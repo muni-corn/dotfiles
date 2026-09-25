@@ -135,7 +135,6 @@
 
       imports = [
         inputs.devenv.flakeModule
-        inputs.multiverse.nixosModules.default
 
         ./flake-modules/overlays.nix
         ./flake-modules/nixos-configurations.nix

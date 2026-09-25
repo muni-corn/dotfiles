@@ -27,6 +27,8 @@ let
     inputs.home-manager.nixosModules.home-manager
     homeManagerModule
 
+    inputs.nixpkgs-multiverse.nixosModules.default
+
     ../common.nix
   ];
 
