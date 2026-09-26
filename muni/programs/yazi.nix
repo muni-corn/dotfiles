@@ -117,24 +117,12 @@
         image_filter = "lanczos3";
         image_quality = 85;
       };
-      plugin.prepend_previewers =
-        let
-          ouch = mime: {
-            inherit mime;
-            run = "ouch";
-          };
-        in
-        [
-          (ouch "application/*zip")
-          (ouch "application/x-tar")
-          (ouch "application/x-bzip2")
-          (ouch "application/x-7z-compressed")
-          (ouch "application/x-rar")
-          (ouch "application/x-xz")
-          (ouch "application/x-zstd")
-          (ouch "application/xz")
-          (ouch "application/zstd")
-        ];
+      plugin.prepend_previewers = [
+        {
+          mime = "application/{*zip,tar,bzip2,7z*,rar,xz,zstd,java-archive}";
+          run = "ouch";
+        }
+      ];
     };
   };
 
