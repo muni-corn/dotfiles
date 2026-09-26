@@ -102,6 +102,14 @@
         sort_translit = true;
         linemode = "size";
       };
+      icon.prepend_globs = [
+        # for showing all LICENSE-* files as license files
+        {
+          url = "LICENSE-*";
+          text = "";
+          fg = "#d0bf41";
+        }
+      ];
       opener.extract = [
         {
           run = ''ouch d -y "$@"'';
