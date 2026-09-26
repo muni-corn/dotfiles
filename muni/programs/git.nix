@@ -7,7 +7,9 @@
 {
   home.packages = with pkgs; [
     git-absorb
-    git-annex
+    (git-annex.overrideAttrs (_: {
+      doCheck = false;
+    }))
     git-crypt
     git-filter-repo
     git-wt
