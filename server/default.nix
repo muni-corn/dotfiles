@@ -24,6 +24,7 @@
     ./searx.nix
     ./sops.nix
     ./tangled.nix
+    ./wireguard.nix
     ../local-hosts.nix
     ../openssh.nix
     ../twitchtrot
