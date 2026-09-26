@@ -66,11 +66,6 @@
             desc = "Open shell here";
           }
           {
-            on = "<C-n>";
-            run = ''shell -- ${lib.getExe pkgs.dragon-drop} -x -T "$1"'';
-            desc = "Open dragon dialog";
-          }
-          {
             on = "C";
             run = "plugin ouch";
             desc = "Compress with ouch";
