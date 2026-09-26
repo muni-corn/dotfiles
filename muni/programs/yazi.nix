@@ -107,9 +107,8 @@
       ];
       opener.extract = [
         {
-          run = ''ouch d -y "$@"'';
+          run = "ouch d -y %s";
           desc = "Extract here with ouch";
-          for = "unix";
         }
       ];
       preview = {
