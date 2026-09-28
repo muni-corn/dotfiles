@@ -68,6 +68,7 @@
         "browser.newtabpage.activity-stream.newtabWallpapers.highlightDismissed" = true;
         "browser.newtabpage.activity-stream.showSponsored" = false;
         "browser.newtabpage.activity-stream.showSponsoredTopSites" = false;
+        "gnomeTheme.allTabsButton" = true;
       };
 
       search = {
