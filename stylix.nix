@@ -77,7 +77,6 @@
 
   home-manager.users.muni.stylix.targets.firefox = {
     profileNames = [ "muni" ];
-    colorTheme.enable = true;
     firefoxGnomeTheme.enable = true;
   };
 }
