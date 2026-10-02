@@ -15,6 +15,7 @@
     ../sops
     ./btrbk.nix
     ./hardware.nix
+    ./monitors.nix
   ];
 
   boot.loader = {
