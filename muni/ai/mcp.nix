@@ -47,7 +47,7 @@
 
       firefox = {
         command = "npx";
-        args = [ "@padenot/firefox-devtools-mcp" ];
+        args = [ "@padenot/firefox-devtools-mcp@latest" ];
       };
     };
   };
