@@ -24,6 +24,7 @@
     ./peertube.nix
     ./searx.nix
     ./sops.nix
+    ./sync.nix
     ./wireguard.nix
     ../local-hosts.nix
     ../openssh.nix

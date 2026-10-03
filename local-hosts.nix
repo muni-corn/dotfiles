@@ -16,6 +16,8 @@
       "nixbld.musicaloft.com"
       "search.musicaloft.com"
       "ssh.muni.bot"
+      "tasks.musicaloft.com"
+      "time.musicaloft.com"
       "watch.musicaloft.com"
       "links.twitchtrot.horse"
     ];
