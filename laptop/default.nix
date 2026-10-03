@@ -16,6 +16,7 @@
     ./btrbk.nix
     ./hardware.nix
     ./monitors.nix
+    ./wireguard.nix
   ];
 
   boot.loader = {
