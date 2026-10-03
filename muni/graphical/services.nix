@@ -45,7 +45,7 @@
     timewarrior-sync = {
       enable = true;
       settings = {
-        Server.BaseURL = "http://192.168.68.70:8463";
+        Server.BaseURL = "https://time.musicaloft.com";
         Client.UserID = 0;
       };
       periodicSync.enable = true;
