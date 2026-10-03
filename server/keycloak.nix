@@ -4,6 +4,7 @@
     # external url configuration
     caddy.virtualHosts.${config.services.keycloak.settings.hostname}.extraConfig = ''
       import security_headers
+      import private_only
       reverse_proxy 127.0.0.1:${toString config.services.keycloak.settings.http-port}
     '';
 
