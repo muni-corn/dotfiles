@@ -9,6 +9,8 @@ let
     "hass.municorn.me"
     "hydra.musicaloft.com"
     "id.musicaloft.com"
+    "tasks.musicaloft.com"
+    "time.musicaloft.com"
   ];
 in
 {
