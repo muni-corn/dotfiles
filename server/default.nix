@@ -24,15 +24,12 @@
     ./peertube.nix
     ./searx.nix
     ./sops.nix
-    ./tangled.nix
     ./wireguard.nix
     ../local-hosts.nix
     ../openssh.nix
     ../twitchtrot
 
     ../extra-modules/nixos/timew-sync-server.nix
-
-    inputs.tangled.nixosModules.knot
   ];
 
   # define hostname

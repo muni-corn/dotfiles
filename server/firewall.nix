@@ -3,12 +3,9 @@ let
   lanSubnet = "192.168.68.0/24";
 in
 {
-  # sshd and the tangled knot both open port 22 globally by default. the rules
-  # below replace that with ones scoped to the lan and the vpn.
-  services = {
-    openssh.openFirewall = false;
-    tangled.knot.openFirewall = false;
-  };
+  # sshd opens port 22 globally by default. the rules
+  # below replace that with one scoped to the lan and the vpn.
+  services.openssh.openFirewall = false;
 
   networking.firewall = {
     # vpn clients may use ssh and dns (adguard)
