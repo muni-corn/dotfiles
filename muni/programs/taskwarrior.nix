@@ -121,7 +121,7 @@
         search.case.sensitive = false;
 
         # sync setting
-        sync.server.url = "http://192.168.68.70:10222";
+        sync.server.url = "https://tasks.musicaloft.com";
 
         # custom urgency values
         urgency = {
