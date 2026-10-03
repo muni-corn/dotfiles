@@ -58,7 +58,7 @@ After phase 0, `ss -tlnp` on munibot should show only `:22`, `:80`, `:443`, `:53
 | 1.3 | `feat(server/caddy): add private-only snippet for lan and vpn restricted sites` | Snippet `(private_only)`: `@public not remote_ip private_ranges` → `respond @public 403`. ACME challenges still complete because Caddy solves them before site routing                                                                                                                         |
 | 1.4 | `chore(sops): add per-host secret files for desktop and laptop`                 | `.sops.yaml` creation rules for `desktop/secrets.yaml` (desktop key only) and `laptop/secrets.yaml` (laptop key only), so wg private keys aren't decryptable by every machine                                                                                                                  |
 
-### Phase 2: WireGuard and network segmentation
+### Phase 2: WireGuard and network segmentation — done
 
 WireGuard is hosted on munibot. Tunnels are **on-demand, not always-on**: at home,
 clients reach the LAN directly; away from home, they bring the tunnel up. This sidesteps
@@ -75,12 +75,23 @@ hairpin NAT entirely (see risks).
 | 2.7 | `feat(server/adguard): expose admin ui through caddy on a private-only vhost`          | New vhost `dns.musicaloft.com` → `127.0.0.1:3080` with `private_only`; add to `local-hosts.nix`                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | 2.8 | `feat(server/adguard): add dns rewrites for private-only hostnames`                    | `services.adguardhome.settings.filtering.rewrites` mapping `id.`, `hydra.`, `dns.musicaloft.com` and `hass.municorn.me` → `192.168.68.70`. `tasks.` and `time.` are added alongside their vhosts in phase 3. Lists are replaced on merge, so rewrites added through the web UI get overwritten. Without this, a phone on the tunnel resolves those hostnames to the public IP over cellular DNS and gets a `private_only` 403 instead of reaching Caddy over the tunnel                                                                                           |
 
-### Phase 3: sync servers get TLS
+### Phase 3: sync servers get TLS — done
 
-| #   | Commit                                                                       | What                                                                                                                   |
-| --- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| 3.1 | `feat(server/caddy): add private-only vhosts for task and time sync servers` | `tasks.musicaloft.com` → `:10222`, `time.musicaloft.com` → `:8463`, both `private_only`; add both to `local-hosts.nix` |
-| 3.2 | `fix(muni/programs/taskwarrior): use https sync url`                         | `sync.server.url = "https://tasks.musicaloft.com"`                                                                     |
+| #   | Commit                                                                       | What                                                                                                                                            |
+| --- | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| 3.1 | `feat(server/caddy): add private-only vhosts for task and time sync servers` | New `server/sync.nix`: `tasks.musicaloft.com` → `:10222`, `time.musicaloft.com` → `:8463`, both `private_only`; both added to `local-hosts.nix` |
+| 3.2 | `feat(server/adguard): add dns rewrites for sync server hostnames`           | Adds both hostnames to the private-only rewrites from 2.8                                                                                       |
+| 3.3 | `fix(muni/programs/taskwarrior): use https sync url`                         | `sync.server.url = "https://tasks.musicaloft.com"`                                                                                              |
+| 3.4 | `fix(muni/graphical/services): use https timew sync url`                     | `Server.BaseURL = "https://time.musicaloft.com"`. Missed in the original plan; the timew client has its own URL setting                         |
+
+timew-sync-server has no bind-address flag (only `-port`), so it listens on all interfaces
+rather than loopback. It isn't reachable from the LAN anyway: `server/firewall.nix` only
+admits specific ports and `8463` isn't one of them, so Caddy is the only way in. If the
+firewall is ever loosened, revisit this.
+
+Deploy order matters: switch the server first, then the clients. Until the vhosts are live,
+the clients' https URLs fail to sync. Both hostnames also need public DNS records so Caddy
+can get certificates via HTTP-01.
 
 ### Phase 4: identity, SSH, and privilege
 
