@@ -5,6 +5,7 @@
       "attic.musicaloft.com"
       "cache.musicaloft.com"
       "cloud.musicaloft.com"
+      "dns.musicaloft.com"
       "photos.musicaloft.com"
       "git.musicaloft.com"
       "hass.municorn.me"
