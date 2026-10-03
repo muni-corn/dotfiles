@@ -10,6 +10,7 @@
     ./adguard.nix
     ./attic.nix
     ./caddy.nix
+    ./firewall.nix
     ./forgejo.nix
     ./hardware.nix
     ./home-assistant.nix

@@ -1,7 +1,6 @@
 { ... }:
 {
-  networking.firewall.allowedUDPPorts = [ 4002 ];
-
+  # lan-only udp 4002 for govee_light_local is opened in firewall.nix
   services = {
     caddy.virtualHosts."hass.municorn.me".extraConfig = ''
       import security_headers
