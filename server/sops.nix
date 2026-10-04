@@ -20,6 +20,15 @@
       searx_env = { };
       keycloak_database_password = { };
       minecraft_env = { };
+
+      # the muni account's password hash. it lives in the shared secrets file,
+      # and must be decrypted before users are created because mutableUsers is
+      # false; otherwise the account would come up with no password
+      muni = {
+        sopsFile = ../sops/secrets/default.yaml;
+        neededForUsers = true;
+      };
+
       wireguard_private_key = { };
     };
   };
