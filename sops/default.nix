@@ -17,10 +17,8 @@
     };
   };
 
-  environment = {
-    systemPackages = with pkgs; [
-      sops
-      age
-    ];
-  };
+  environment.systemPackages = with pkgs; [
+    sops
+    age
+  ];
 }
