@@ -1,10 +1,11 @@
 # enables sshd on devices
+{ lib, ... }:
 {
   services.openssh = {
     enable = true;
     allowSFTP = true;
     settings = {
-      X11Forwarding = true;
+      X11Forwarding = lib.mkDefault true;
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";

@@ -20,6 +20,7 @@
     ./municorn.nix
     ./nextcloud.nix
     ./nix.nix
+    ./openssh.nix
     ./peertube.nix
     ./searx.nix
     ./sops.nix
