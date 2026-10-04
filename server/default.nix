@@ -1,6 +1,5 @@
 {
   config,
-  inputs,
   lib,
   pkgs,
   ...
@@ -44,8 +43,11 @@
   # Set your time zone.
   time.timeZone = lib.mkForce "America/Boise";
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.muni.extraGroups = [ "wheel" ];
+  # Define user accounts.
+  users = {
+    mutableUsers = false;
+    users.muni.extraGroups = [ "wheel" ];
+  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
