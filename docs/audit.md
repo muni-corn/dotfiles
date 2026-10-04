@@ -93,16 +93,34 @@ Deploy order matters: switch the server first, then the clients. Until the vhost
 the clients' https URLs fail to sync. Both hostnames also need public DNS records so Caddy
 can get certificates via HTTP-01.
 
-### Phase 4: identity, SSH, and privilege
+### Phase 4: identity, SSH, and privilege — done, with three items deliberately not applied
 
-| #   | Commit                                                           | What                                                                                                                                                                                                                                                                                                                                             |
-| --- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 4.1 | `feat(server/nix): serve nix store over ssh with write access`   | `nix.sshServe.write = true` (creates `nix-ssh` with forced command, no shell)                                                                                                                                                                                                                                                                    |
-| 4.2 | `refactor(server/nix)!: remove builder user in favor of nix-ssh` | Delete `users.users.builder`, `builder.pub`, `nix_builder_passwd`, drop `builder` from `trusted-users` in both `server/nix.nix` and `common.nix`. **Verify first**: what currently SSHes in as `builder`? (nothing in this repo does; check Hydra's `/etc/nix/machines` and any external machines). Clients switch to `ssh-ng://nix-ssh@munibot` |
-| 4.3 | `feat(openssh): tighten sshd settings`                           | `X11Forwarding = false` (server), `KbdInteractiveAuthentication = false`, `AllowUsers = [ "muni" "git" "btrbk" "nix-ssh" ]`, `MaxAuthTries 3`, `LoginGraceTime 30`. Split so laptop/desktop keep X11 if you use it                                                                                                                               |
-| 4.4 | `feat(common): restrict sudo to wheel group binary`              | `security.sudo.execWheelOnly = true`                                                                                                                                                                                                                                                                                                             |
-| 4.5 | `feat(server): make user accounts declarative`                   | `users.mutableUsers = false` + `hashedPasswordFile` for `muni` from sops                                                                                                                                                                                                                                                                         |
-| 4.6 | `fix(server): remove btrbk delete role from client backup keys`  | Drop `"delete"` from both `sshAccess` roles; add a server-side `btrbk` instance that prunes `/crypt/backup/{breezi,cherri}` with `target_preserve`. Clients remove `target_preserve` (they can't prune anymore). Breaking for the clients' btrbk runs until updated together                                                                     |
+| #   | Commit                                                                                         | Outcome                                                                                                                                                                                                                                                                                                                                             |
+| --- | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 4.1 | `feat(server/nix): serve nix store over ssh with write access`                                 | **Skipped.** It only mattered as a replacement for `builder`, and nothing uses `builder`. `write` alone can't accept unsigned builds, and `trusted = true` would add a trusted nix user nobody needs. Revisit if remote builds to munibot are wanted. Note `ssh-ng://` needs `nix.sshServe.protocol = "ssh-ng"`; the plan wrongly implied otherwise |
+| 4.2 | `refactor(server/nix)!: remove builder user`                                                   | Done, plus `refactor(common): drop builder from nix trusted users`. The encrypted `nix_builder_passwd` and `nix_builder_private_key` values are still in `server/secrets.yaml`; remove them with `sops unset`                                                                                                                                       |
+| 4.3 | `feat(openssh): ...`, `feat(server): disable x11 ...`, `feat(server): restrict ssh logins ...` | Done in three commits. Shared: `KbdInteractiveAuthentication = false`, `LoginGraceTime = 30`, `MaxAuthTries = 3`. Server only: `X11Forwarding = false` and `AllowUsers = muni, btrbk, nix-ssh, git`. `git` (forgejo) has no keys in the nix config because forgejo manages them, so it is read from `services.forgejo.user`                         |
+| 4.4 | `feat(common): restrict sudo to wheel group binary`                                            | **Not applied.** The btrbk module runs its timer services as the non-wheel `btrbk` user and calls `sudo` (backend `btrfs-progs-sudo`) on **all three hosts**. `execWheelOnly` would stop every snapshot and backup. Default sudoers is already restrictive: only root, `wheel`, and btrbk's narrow `btrfs` rule have any rights                     |
+| 4.5 | `feat(server): make user accounts declarative`                                                 | Done by hand. A follow-up fix was needed: `fix(server/sops): decrypt muni password before users are created`. munibot never declared the `muni` secret (so it failed to evaluate), and without `neededForUsers` the hash would be decrypted after user creation, leaving `muni` with no password and `sudo` unusable                                |
+| 4.6 | `fix(server): remove btrbk delete role from client backup keys`                                | **Deferred, needs a design decision.** See below                                                                                                                                                                                                                                                                                                    |
+
+#### Why 4.6 is deferred
+
+Clients push backups to munibot and also prune them there, which needs the `delete` role. Removing it
+means munibot has to prune instead. btrbk's documented backup-server pattern is **pull-based**: the
+server fetches from the client over ssh and owns the `target_preserve` policy. We found no documented
+way to prune backups that were pushed to a target in place, and it can't be tested without root on a
+btrfs filesystem. A wrong guess either fills `/crypt` (nothing pruned) or deletes backups (policy
+mismatch), so we didn't guess. Options:
+
+1. **Pull-based backups.** breezi and cherri run sshd with a restricted btrbk key granting only `source`
+   and `info`; munibot pulls and prunes. Strongest, but it reverses the ssh direction and means
+   clients accept inbound ssh.
+2. **Keep push, accept the risk.** A compromised client can delete its own backups on munibot. Add a
+   periodic read-only snapshot of `/crypt/backup` on munibot so deletions are recoverable.
+3. **Try a server-side prune config** and verify it with `btrbk dryrun` on munibot before removing
+   `delete`. Clients must then drop `target_preserve` **and** set `target_preserve_min = "all"`:
+   `latest` combined with an unset `target_preserve` deletes everything except the newest backup.
 
 ### Phase 5: application-level hardening
 
@@ -178,10 +196,9 @@ mesh's main node terminates the VPN).
   HA/IoT, but anything doing per-IP allowlisting on the LAN won't distinguish between
   munibot and a connected phone.
 - **Keycloak restricted to private** assumes no one but you logs in via SSO. If PeerTube/Nextcloud users use Keycloak, it must stay public (then: rely on Keycloak's own brute-force detection + fail2ban jail instead).
-- **`builder` removal** (4.2): confirm nothing external depends on it before deleting.
-- **btrbk role change** (4.6) must land on all three machines in the same deploy window or the laptops' backups fail with permission errors until they're rebuilt.
+- **btrbk role change** (4.6) is deferred; see the phase 4 notes above.
 - **Nextcloud `https = true`** can cause a redirect loop if `overwriteprotocol` isn't also set; the commit sets both.
-- **`users.mutableUsers = false`** locks you out if the hashed password in sops is wrong. Test on a rebuild while you still have a root shell open.
+- **`users.mutableUsers = false`** locks you out if the hashed password in sops is wrong. Deploy while you still have an open root or `muni` session, and confirm `sudo` works in a second session before closing the first. Workstations still declare the `muni` secret without `neededForUsers`, so the hash is not applied there.
 - **Kernel sysctls** (7.1): `unprivileged_bpf_disabled` and `ptrace_scope` can break some desktop tools (e.g., debuggers attaching, some Wine bits). Fine for munibot; for workstations maybe only the network ones.
 
 Phases 0 and 1 are done. Next up: Phase 2, starting with 2.1 (wireguard server interface
