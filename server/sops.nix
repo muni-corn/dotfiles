@@ -13,8 +13,6 @@
     age.sshKeyPaths = [ "/etc/ssh/ssh_host_ed25519_key" ];
     secrets = {
       "munibot.env" = { };
-      nix_builder_private_key = { };
-      nix_builder_passwd = { };
       nix_serve_secret_key = { };
       atticd_env = { };
       searx_env = { };

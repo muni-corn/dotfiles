@@ -1,6 +1,5 @@
 { config, ... }:
 {
-  nix.settings.trusted-users = [ "builder" ];
   services = {
     caddy.virtualHosts."cache.musicaloft.com".extraConfig = ''
       import security_headers
@@ -13,18 +12,5 @@
       secretKeyFile = config.sops.secrets.nix_serve_secret_key.path;
       bindAddress = "127.0.0.1";
     };
-  };
-
-  users = {
-    users.builder = {
-      createHome = false;
-      group = "builder";
-      hashedPasswordFile = config.sops.secrets.nix_builder_passwd.path;
-      isNormalUser = true;
-      openssh.authorizedKeys.keyFiles = [
-        ./builder.pub
-      ];
-    };
-    groups.builder = { };
   };
 }
