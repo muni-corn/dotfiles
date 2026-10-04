@@ -240,6 +240,7 @@
     users.muni = {
       description = "municorn";
       extraGroups = [ "networkmanager" ];
+      hashedPasswordFile = config.sops.secrets.muni.path;
       isNormalUser = true;
       uid = 1001;
 

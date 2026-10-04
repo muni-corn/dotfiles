@@ -14,6 +14,7 @@
     secrets = {
       cachix_token = { };
       cachix_signing_key = { };
+      muni = { };
     };
   };
 
