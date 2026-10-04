@@ -131,7 +131,6 @@
       auto-optimise-store = true;
       allowed-users = [ "muni" ];
       trusted-users = [
-        "builder"
         "muni"
         "root"
       ];
