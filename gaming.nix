@@ -57,7 +57,6 @@
     steam = {
       package = pkgs.steam.override {
         extraEnv.TZDIR = "/usr/share/zoneinfo";
-        extraArgs = "-system-composer";
       };
       enable = true;
       extest.enable = true;
