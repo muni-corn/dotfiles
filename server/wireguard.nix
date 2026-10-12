@@ -16,7 +16,6 @@
       listenPort = 51820;
       privateKeyFile = config.sops.secrets.wireguard_private_key.path;
 
-      # phone isn't added yet; its public key will land in a follow-up commit
       peers = [
         {
           name = "breezi";
@@ -27,6 +26,11 @@
           name = "cherri";
           publicKey = "lGaNT9cb0k3MNq3mxK43oIjClUVB/UNX4YU3F7T/ewM=";
           allowedIPs = [ "10.100.0.3/32" ];
+        }
+        {
+          name = "sunni";
+          publicKey = "5j1Bc+ipXIX8AmP0JSfrj1pSi231tbAJxrUAA0Oz9z4=";
+          allowedIPs = [ "10.100.0.4/32" ];
         }
       ];
     };
