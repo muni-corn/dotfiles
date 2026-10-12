@@ -238,7 +238,10 @@
   users = {
     users.muni = {
       description = "municorn";
-      extraGroups = [ "networkmanager" ];
+      extraGroups = [
+        "networkmanager"
+        "dialout" # for xteink flasher
+      ];
       hashedPasswordFile = config.sops.secrets.muni.path;
       isNormalUser = true;
       uid = 1001;
