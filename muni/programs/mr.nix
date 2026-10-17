@@ -68,7 +68,6 @@
 
         # annex repos
         "annex/photo_albums" = annex 18;
-        "annex/vrchat" = annex 19;
         Documents = annex 1;
         Music = annex 90; # since this one takes its GOSH DARN TIME
         Pictures = annex 20;
