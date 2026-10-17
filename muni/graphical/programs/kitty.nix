@@ -23,6 +23,8 @@
       copy_on_select = true;
       momentum_scroll = 0.98;
       notify_on_cmd_finish = "unfocused 15 notify";
+      scrollback_fill_enlarged_window = true;
+      scrollback_pager_history_size = 4000; # 4GB
       strip_trailing_spaces = "always";
 
       # give rows some space to breathe
