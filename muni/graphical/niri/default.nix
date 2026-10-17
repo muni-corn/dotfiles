@@ -226,7 +226,6 @@ in
             { app-id = "Slack"; }
             { app-id = "equicord"; }
             { app-id = "cinny"; }
-            { app-id = "discord"; }
           ];
 
           block-out-from = "screen-capture";
