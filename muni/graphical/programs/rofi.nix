@@ -17,12 +17,7 @@
 
     plugins = with pkgs; [ rofi-calc ];
 
-    cycle = true;
-    font = lib.mkForce "sans 12";
-    location = "center";
-    terminal = lib.getExe config.programs.kitty.package;
-    yoffset = 32;
-    extraConfig = {
+    settings = {
       auto-select = false;
       case-sensitive = false;
       columns = 1;
@@ -48,8 +43,12 @@
       sorting-method = "fzf";
       ssh-client = "ssh";
       ssh-command = "{terminal} {ssh-client} {host}";
-      terminal = "kitty";
       window-format = "{t}";
+      cycle = true;
+      font = lib.mkForce "sans 12";
+      location = 0;
+      terminal = lib.getExe config.programs.kitty.package;
+      yoffset = 32;
     };
 
     theme =
