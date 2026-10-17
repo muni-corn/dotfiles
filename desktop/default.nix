@@ -48,26 +48,41 @@
     programs = {
       hyprlock.settings = (import ../utils.nix { inherit config lib; }).mkHyprlockSettings "DP-2";
 
-      # desktop-specific services to start with niri
-      niri.settings.spawn-at-startup = [
-        # start openrgb
-        {
-          command = [
-            "openrgb"
-            "--startminimized"
-          ];
-        }
+      niri.settings = {
+        # open games on main monitor
+        window-rules = [
+          {
+            matches = [
+              {
+                app-id = "^steam_app.*$";
+              }
+            ];
 
-        # start corectrl with the gaming profile
-        {
-          command = [
-            "corectrl"
-            "--minimize-systray"
-            "--activate-manual-profile"
-            "Gaming"
-          ];
-        }
-      ];
+            open-on-output = "DP-2";
+          }
+        ];
+
+        # desktop-specific services to start with niri
+        spawn-at-startup = [
+          # start openrgb
+          {
+            command = [
+              "openrgb"
+              "--startminimized"
+            ];
+          }
+
+          # start corectrl with the gaming profile
+          {
+            command = [
+              "corectrl"
+              "--minimize-systray"
+              "--activate-manual-profile"
+              "Gaming"
+            ];
+          }
+        ];
+      };
     };
 
     services = {

@@ -248,6 +248,18 @@ in
           open-focused = false;
         }
 
+        # open games fullscreen
+        {
+          matches = [
+            {
+              app-id = "^steam_app.*$";
+            }
+          ];
+
+          open-on-output = "DP-2";
+          open-fullscreen = true;
+        }
+
         # TODO old hyprland window rules
         #
         # (r "float" "title:^(Firefox — Sharing Indicator)$")
