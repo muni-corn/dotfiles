@@ -15,6 +15,7 @@
       "munibot.env" = { };
       nix_serve_secret_key = { };
       atticd_env = { };
+      ddclient_password = { };
       searx_env = { };
       keycloak_database_password = { };
       minecraft_env = { };
