@@ -293,6 +293,18 @@ in
 
           open-floating = true;
         }
+
+        # unity opens these popups with no sensible size of its own
+        {
+          matches = [
+            { title = "^UnityEditorInternal\\.AddCurvesPopup$"; }
+            { title = "^UnityEditor\\.Graphs\\.LayerSettingsWindow$"; }
+          ];
+
+          open-floating = true;
+          default-column-width.fixed = 600;
+          default-window-height.fixed = 400;
+        }
       ];
 
       layer-rules = [
@@ -372,10 +384,7 @@ in
       # (r "rounding 0" "floating:0, onworkspace:f[1]")
 
       # # unity fixes ugh
-      # (r "size 600 400" "title:^(UnityEditorInternal.AddCurvesPopup)$")
-      # (r "size 600 400" "title:^(UnityEditor.Graphs.LayerSettingsWindow)$")
       # (r "stayfocused" "initialTitle:^(Unity.*Selector),floating:1")
-      # (r "center" "initialTitle:^(Unity.*Selector),floating:1")
 
       debug.honor-xdg-activation-with-invalid-serial = { };
     };
