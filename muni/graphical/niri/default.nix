@@ -155,14 +155,18 @@ in
           open-floating = true;
           default-column-width.fixed = 480;
           default-window-height.fixed = 270;
+          default-floating-position = {
+            x = 8;
+            y = 8;
+            relative-to = "top-right";
+          };
 
-          # TODO: rules from hyprland
-          # float
-          # move 100%-480 32
-          # idleinhibit always
-          # keepaspectratio
-          # pin
-          # suppressevent fullscreen maximize activate activatefocus
+          # never let the player steal focus or go fullscreen on its own
+          on-xdg-activate = "ignore";
+          open-fullscreen = false;
+
+          # niri has no equivalents for these hyprland rules:
+          # idleinhibit always, keepaspectratio, pin
         }
 
         # enable rounded corners for all windows.
