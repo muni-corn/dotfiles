@@ -12,7 +12,6 @@
       "hydra.musicaloft.com"
       "id.musicaloft.com"
       "munibot"
-      "musicaloft.tplinkdns.com"
       "nixbld.musicaloft.com"
       "search.musicaloft.com"
       "ssh.muni.bot"
