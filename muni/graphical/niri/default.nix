@@ -263,14 +263,28 @@ in
           open-fullscreen = true;
         }
 
+        # keep the screen sharing indicator out of the way at the top of the screen
+        {
+          matches = [ { title = "^Firefox — Sharing Indicator$"; } ];
+
+          open-floating = true;
+          open-focused = false;
+          default-floating-position = {
+            x = 0;
+            y = 0;
+            relative-to = "top";
+          };
+        }
+
+        {
+          matches = [ { title = "^Close Firefox$"; } ];
+
+          open-floating = true;
+        }
+
         # TODO old hyprland window rules
         #
-        # (r "float" "title:^(Firefox — Sharing Indicator)$")
-        # (r "nofocus" "title:^(Firefox — Sharing Indicator)$")
-        # (r "move 50% 0" "title:^(Firefox — Sharing Indicator)$")
-        # (r "noblur" "title:^(Firefox — Sharing Indicator)$")
         # (r "float" "class:^(xdg-desktop-portal-gtk)$")
-        # (r "float" "title:^(Close Firefox)$")
         # (r "float" "class:^(openrgb)$")
         # (r "float" "title:^(Slack - Huddle)$")
         # (r "float" "class:^(zenity)$")
