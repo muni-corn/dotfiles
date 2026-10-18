@@ -55,6 +55,12 @@
     hostName = "cherri";
     networkmanager.wifi.powersave = true;
 
+    # for private addresses
+    hosts."192.168.68.70" = [
+      "tasks.musicaloft.com"
+      "time.musicaloft.com"
+    ];
+
     # for development
     firewall.allowedTCPPorts = [ 3000 ];
   };
