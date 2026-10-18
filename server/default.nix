@@ -9,6 +9,7 @@
     ./adguard.nix
     ./attic.nix
     ./caddy.nix
+    ./ddclient.nix
     ./firewall.nix
     ./forgejo.nix
     ./hardware.nix
