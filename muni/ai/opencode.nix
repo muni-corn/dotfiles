@@ -24,7 +24,6 @@
     package = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode;
     enableMcpIntegration = true;
 
-    agents = ./agents;
     context = ./context.md;
     skills = ./skills;
 
