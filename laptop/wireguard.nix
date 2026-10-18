@@ -37,7 +37,7 @@ in
       wireguard.private-key = "$WG_PRIVATE_KEY";
 
       "wireguard-peer.${munibotPublicKey}" = {
-        endpoint = "musicaloft.tplinkdns.com:51820";
+        endpoint = "a.musicaloft.com:51820";
         allowed-ips = "10.100.0.0/24;192.168.68.0/24;";
         persistent-keepalive = 25;
       };
