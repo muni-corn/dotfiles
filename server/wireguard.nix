@@ -16,12 +16,8 @@
       listenPort = 51820;
       privateKeyFile = config.sops.secrets.wireguard_private_key.path;
 
+      # breezi isn't a peer because it never leaves home
       peers = [
-        {
-          name = "breezi";
-          publicKey = "qH/vjLm+Fh8y1dFzbLmKyCYS9CXlaH/lKNDTkLDAll4=";
-          allowedIPs = [ "10.100.0.2/32" ];
-        }
         {
           name = "cherri";
           publicKey = "lGaNT9cb0k3MNq3mxK43oIjClUVB/UNX4YU3F7T/ewM=";
