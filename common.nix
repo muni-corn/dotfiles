@@ -96,16 +96,7 @@
 
   hardware.enableRedistributableFirmware = true;
 
-  networking = {
-    nameservers = [
-      "1.1.1.1"
-      "1.0.0.1"
-      "8.8.8.8"
-      "8.8.4.4"
-    ];
-
-    nftables.enable = true;
-  };
+  networking.nftables.enable = true;
 
   nix = {
     package = pkgs.nixVersions.latest;

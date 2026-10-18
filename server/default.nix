@@ -33,8 +33,21 @@
     ../extra-modules/nixos/timew-sync-server.nix
   ];
 
-  # define hostname
-  networking.hostName = "munibot";
+  networking = {
+    # define hostname
+    hostName = "munibot";
+
+    # munibot is the lan's dns server (adguard), so it needs its own upstream
+    # resolvers. workstations deliberately don't set any: forcing public
+    # resolvers there makes them race the lan's split-horizon dns and sometimes
+    # resolve private-only hostnames to the public address
+    nameservers = [
+      "1.1.1.1"
+      "1.0.0.1"
+      "8.8.8.8"
+      "8.8.4.4"
+    ];
+  };
 
   nix.sshServe = {
     enable = true;
