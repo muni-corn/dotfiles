@@ -34,7 +34,7 @@
 
       # configure models
       model = "anthropic/claude-sonnet-5";
-      small_model = "anthropic/claude-haiku-4-5";
+      small_model = "anthropic/claude-haiku-5-5";
       agent = {
         plan.model = "anthropic/claude-opus-5-5";
         review.model = "anthropic/gemini-3.1-pro";
