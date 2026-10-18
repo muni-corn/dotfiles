@@ -29,6 +29,13 @@ munibot itself. We considered hosting the VPN on the Deco X55/X20 mesh instead; 
 5. **Harden the Deco mesh itself**, regardless of who hosts the VPN: disable UOnP, WPS,
    remote management, and TR-069/CWMP; confirm auto-update is on; use a strong, unique
    admin password. The Deco is the actual internet edge here.
+6. **Dynamic DNS at Namecheap, not the Deco**: enable Dynamic DNS for `musicaloft.com`, add an
+   `A + Dynamic DNS` record for host `a`, and store the generated password as `ddclient_password` in
+   `server/secrets.yaml`. Every public name (the `musicaloft.com` CNAMEs, `hass.municorn.me`,
+   `mc.muni.horse`, the apex ALIAS records on `municorn.me`, `muni.horse`, and `municorn.horse`, and
+   `links.twitchtrot.horse` at Cloudflare) points at `a.musicaloft.com.`. Don't point anything at
+   `musicaloft.tplinkdns.com` again. After deploying, `journalctl -u ddclient` on munibot should log
+   a successful update, and `dig +short a.musicaloft.com` should return the home public address.
 
 ## Commit plan
 
@@ -96,13 +103,18 @@ separate causes:
    hard-codes everything.
 2. **Hairpin gives a public source address.** See manual step 2: the Deco has to hand out AdGuard
    as the only DNS server.
-3. **No certificate for `tasks.` and `time.`.** Caddy on munibot answers those names with a TLS
-   `internal error` on both the LAN and public addresses, while `git.` has a valid certificate.
-   This is **not fixed by anything in this repository**, and the cause is unconfirmed. Public DNS
-   records exist and no CAA record blocks issuance. Check
-   `journalctl -u caddy --since -2d | grep -E '(time|tasks)\.musicaloft'` on munibot. Either munibot
-   isn't running the phase 3 build yet (deploy it), or an early ACME failure left Caddy in retry
-   backoff (`systemctl restart caddy`).
+3. **Certificates failed because of the tp-link ddns name, not `private_only`.** Every public
+   hostname was a CNAME to the Deco's `musicaloft.tplinkdns.com`. TP-Link's nameservers answer that
+   name correctly for A but return `NXDOMAIN` for AAAA (verified on all four of them, repeatedly).
+   `NXDOMAIN` means "this name doesn't exist", so strict resolvers, including Let's Encrypt's and
+   ZeroSSL's, then failed A lookups too, and every challenge failed with `DNS problem: NXDOMAIN` or
+   `SERVFAIL`. `private_only` couldn't have caused it: the CA never reached munibot, and
+   `tls-alpn-01` is answered during the TLS handshake, before any route runs. `git.`, `cloud.`, and
+   the others only had certificates from earlier issuance, and their renewals were exposed to the
+   same failure (`id.musicaloft.com` expires on 2026-10-30). Fixed by
+   `feat(server): keep a.musicaloft.com updated through namecheap dynamic dns` and repointing every
+   CNAME to `a.musicaloft.com` (manual step 6). The `timeout awaiting response headers` errors
+   against ZeroSSL are separate; Caddy falls back to Let's Encrypt.
 
 The cherri `networking.hosts` entries for `tasks.` and `time.` (`aab6d660`) are now redundant, but
 harmless.
