@@ -323,6 +323,17 @@ in
           block-out-from = "screencast";
         }
 
+        # blur behind shell surfaces
+        {
+          matches = [
+            { namespace = "^bar$"; }
+            { namespace = "^menu$"; }
+            { namespace = "^notifications$"; }
+            { namespace = "^rofi$"; }
+          ];
+          background-effect.blur = true;
+        }
+
         {
           matches = [
             { namespace = "^rofi$"; }
@@ -361,12 +372,8 @@ in
         }
       ];
 
-      # layer rules
+      # layer rules with no niri equivalent
       #
-      # (r "blur" "bar")
-      # (r "blur" "menu")
-      # (r "blur" "notifications")
-      # (r "blur" "rofi")
       # (r "dimaround" "rofi")
       # (r "ignorealpha 0.5" "bar")
       # (r "ignorealpha 0.5" "gtk-layer-shell")
