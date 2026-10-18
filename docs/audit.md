@@ -18,9 +18,14 @@ munibot itself. We considered hosting the VPN on the Deco X55/X20 mesh instead; 
 ## Manual steps you do before or alongside (not commits)
 
 1. **Router**: delete the `53` forward _today_. Delete `2270` once WireGuard is verified. Add `51820/udp`.
-2. **Test NAT loopback** on the TP-Link: from a LAN device, `nc -zvu musicaloft.tplinkdns.com 51820` after wg is up. If hairpin fails, the always-on tunnel design below needs a tweak (see risks).
+2. **Deco DHCP DNS**: hand out only `192.168.68.70` (AdGuard) as the DNS server, and remove
+   `1.1.1.1`. Every LAN device, phones included, then resolves private-only hostnames to the LAN
+   address. The router does loop traffic back to munibot's public address, but Caddy then sees a
+   public source and answers `403` on private-only vhosts (verified: `hass.municorn.me` is `200` via
+   the LAN IP and `403` via the public IP). The trade-off is that LAN DNS goes down whenever munibot
+   does.
 3. Rotate the Minecraft rcon password (just picking a new one in sops is enough since the server reads it on restart).
-4. Generate wg keypairs for munibot, breezi, cherri, phone; put private keys in the per-host sops files created in phase 1.
+4. Generate wg keypairs for munibot, cherri, and phone (breezi has no tunnel); put private keys in the per-host sops files created in phase 1.
 5. **Harden the Deco mesh itself**, regardless of who hosts the VPN: disable UOnP, WPS,
    remote management, and TR-069/CWMP; confirm auto-update is on; use a strong, unique
    admin password. The Deco is the actual internet edge here.
@@ -61,19 +66,60 @@ After phase 0, `ss -tlnp` on munibot should show only `:22`, `:80`, `:443`, `:53
 ### Phase 2: WireGuard and network segmentation — done
 
 WireGuard is hosted on munibot. Tunnels are **on-demand, not always-on**: at home,
-clients reach the LAN directly; away from home, they bring the tunnel up. This sidesteps
-hairpin NAT entirely (see risks).
+clients reach the LAN directly; away from home, they bring the tunnel up. Hairpinning
+through the router doesn't work for private-only sites, so at home clients must get the
+LAN address from AdGuard (see the follow-up below).
 
 | #   | Commit                                                                                 | What                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --- | -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 2.1 | `feat(server): add wireguard server interface`                                         | New `server/wireguard.nix`: `networking.wireguard.interfaces.wg0` at `10.100.0.1/24`, `listenPort = 51820`, `privateKeyFile` from sops, peers for breezi/cherri/phone (public keys inline), `allowedUDPPorts = [ 51820 ]`. Also enables `networking.nat = { enable = true; internalInterfaces = [ "wg0" ]; externalInterface = "enp4s0"; }` and `boot.kernel.sysctl."net.ipv4.ip_forward" = 1`, since the Deco can't add a static route to `10.100.0.0/24` and clients need to reach the whole LAN, not just munibot                                              |
 | 2.2 | `feat(server): restrict ssh and dns to lan and vpn interfaces`                         | New `server/firewall.nix`: `interfaces.wg0` allows `22` and `53`. The LAN is matched by **source address** (`ip saddr 192.168.68.0/24` in `extraInputRules`) for `22`, `53`, and `4002/udp` (Govee), plus `67/udp` (AdGuard DHCP) by interface, because traffic the Deco port-forwards from the internet also arrives on `enp4s0`. Sets `openFirewall = false` for sshd and for the tangled knot (both open `22` globally by default). No `listenAddresses`: sshd could fail to bind `10.100.0.1` before `wg0` is up. Set `logRefusedConnections = false` (noise) |
-| 2.3 | `feat(desktop): add wireguard client to munibot`                                       | `desktop/wireguard.nix`: peer to `musicaloft.tplinkdns.com:51820`, `AllowedIPs = 10.100.0.0/24, 192.168.68.0/24`, `DNS = 192.168.68.70`, `persistentKeepalive = 25`, private key from `desktop/secrets.yaml`. **`autostart = false`**: always-on at home would push all lan traffic out through the router and back                                                                                                                                                                                                                                               |
-| 2.4 | `feat(laptop): add wireguard client to munibot`                                        | Same for cherri                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| 2.3 | `feat(desktop): add on-demand wireguard tunnel to munibot`                             | **Later removed** by `refactor(desktop)!: remove the munibot tunnel`. breezi never leaves home, and its hosts file pins the tunnel endpoint to the LAN address, so it could never connect.                                                                                                                                                                                                                                                                                                                                                                        |
+| 2.4 | `feat(laptop): add on-demand wireguard tunnel to munibot`                              | **Later replaced** by `feat(laptop): manage the munibot tunnel with networkmanager`: a NetworkManager profile (private key through a sops template), so it can be toggled without root. See the follow-up below.                                                                                                                                                                                                                                                                                                                                                  |
 | 2.5 | `fix(local-hosts): correct known host address for munibot`                             | `common.nix` `knownHosts.munibot` says `192.168.0.70`; fix to `192.168.68.70`                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | 2.6 | `feat(server/caddy): restrict keycloak, hydra, and home assistant to private networks` | `import private_only` on `id.`, `hydra.`, `hass.` vhosts                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
 | 2.7 | `feat(server/adguard): expose admin ui through caddy on a private-only vhost`          | New vhost `dns.musicaloft.com` → `127.0.0.1:3080` with `private_only`; add to `local-hosts.nix`                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | 2.8 | `feat(server/adguard): add dns rewrites for private-only hostnames`                    | `services.adguardhome.settings.filtering.rewrites` mapping `id.`, `hydra.`, `dns.musicaloft.com` and `hass.municorn.me` → `192.168.68.70`. `tasks.` and `time.` are added alongside their vhosts in phase 3. Lists are replaced on merge, so rewrites added through the web UI get overwritten. Without this, a phone on the tunnel resolves those hostnames to the public IP over cellular DNS and gets a `private_only` 403 instead of reaching Caddy over the tunnel                                                                                           |
+
+#### Follow-up: home dns and the networkmanager tunnel
+
+Deploying phase 2 broke cherri at home: git over ssh, `tasks.`, and `time.` all failed. Three
+separate causes:
+
+1. **DNS race.** `common.nix` forced `1.1.1.1` and `8.8.8.8` as global resolvers on every host.
+   systemd-resolved raced those against the DHCP-provided servers (`192.168.68.70 1.1.1.1`), so
+   some names resolved to the LAN address and others to the public one. `git.musicaloft.com`
+   resolved publicly, and the router doesn't forward port 22. Fixed by
+   `fix(common): stop overriding dns on workstations`; munibot now pins its own resolvers in
+   `server/default.nix`. resolved already falls back to public resolvers when a network provides
+   none, so no fallback setting is needed. breezi only worked because `local-hosts.nix`
+   hard-codes everything.
+2. **Hairpin gives a public source address.** See manual step 2: the Deco has to hand out AdGuard
+   as the only DNS server.
+3. **No certificate for `tasks.` and `time.`.** Caddy on munibot answers those names with a TLS
+   `internal error` on both the LAN and public addresses, while `git.` has a valid certificate.
+   This is **not fixed by anything in this repository**, and the cause is unconfirmed. Public DNS
+   records exist and no CAA record blocks issuance. Check
+   `journalctl -u caddy --since -2d | grep -E '(time|tasks)\.musicaloft'` on munibot. Either munibot
+   isn't running the phase 3 build yet (deploy it), or an early ACME failure left Caddy in retry
+   backoff (`systemctl restart caddy`).
+
+The cherri `networking.hosts` entries for `tasks.` and `time.` (`aab6d660`) are now redundant, but
+harmless.
+
+**Using the tunnel (cherri).** The profile is `munibot`. No sudo is needed: NetworkManager lets
+active local sessions activate connections, and the profile is restricted to `muni`.
+
+```sh
+nmcli connection up munibot
+nmcli connection down munibot
+nmcli -t -f NAME,STATE connection show --active
+```
+
+For the desktop shell, use NetworkManager's D-Bus API: `ActivateConnection` and
+`DeactivateConnection` on `org.freedesktop.NetworkManager`, and watch `ActiveConnections` (or the
+connection's `StateChanged`) for live status. While the tunnel is up, `musicaloft.com` and
+`municorn.me` lookups go to AdGuard over the tunnel (routing-only domains), and nothing else does.
 
 ### Phase 3: sync servers get TLS — done
 
@@ -186,11 +232,12 @@ mesh's main node terminates the VPN).
 
 ## Risks and things to double-check
 
-- **Hairpin NAT is a non-issue** because phase 2.3/2.4 tunnels are on-demand, not
-  always-on: at home, clients hit the LAN directly; away from home, they bring the
-  tunnel up and hit `192.168.68.0/24` through munibot's NAT. If we ever switch to
-  always-on tunnels, hairpin NAT support on the TP-Link would need testing first (`nc
--zvu musicaloft.tplinkdns.com 51820` from a LAN device).
+- **Hairpin NAT does not work for private-only sites.** The Deco loops traffic back to munibot, but
+  Caddy sees the router's public address and answers `403`. At home, clients must resolve those
+  names to `192.168.68.70` through AdGuard (manual step 2). Any new private-only hostname needs an
+  AdGuard rewrite as well as the Caddy `private_only` import.
+- **AdGuard is now a single point of failure for LAN DNS** once the Deco hands out only
+  `192.168.68.70`. If munibot is down, devices at home can't resolve anything.
 - **NAT masks client identity on the LAN.** With `networking.nat` on munibot (2.1), other
   LAN devices see wg clients as `192.168.68.70`, not their real wg IP. Fine for
   HA/IoT, but anything doing per-IP allowlisting on the LAN won't distinguish between
@@ -201,5 +248,5 @@ mesh's main node terminates the VPN).
 - **`users.mutableUsers = false`** locks you out if the hashed password in sops is wrong. Deploy while you still have an open root or `muni` session, and confirm `sudo` works in a second session before closing the first. Workstations still declare the `muni` secret without `neededForUsers`, so the hash is not applied there.
 - **Kernel sysctls** (7.1): `unprivileged_bpf_disabled` and `ptrace_scope` can break some desktop tools (e.g., debuggers attaching, some Wine bits). Fine for munibot; for workstations maybe only the network ones.
 
-Phases 0 and 1 are done. Next up: Phase 2, starting with 2.1 (wireguard server interface
-on munibot).
+Phases 0 through 4 are done (4.1, 4.4, and 4.6 deliberately not applied). Next up: phase 5,
+application-level hardening.
