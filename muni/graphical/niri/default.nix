@@ -282,12 +282,17 @@ in
           open-floating = true;
         }
 
-        # TODO old hyprland window rules
-        #
-        # (r "float" "class:^(xdg-desktop-portal-gtk)$")
-        # (r "float" "class:^(openrgb)$")
-        # (r "float" "title:^(Slack - Huddle)$")
-        # (r "float" "class:^(zenity)$")
+        # small utility windows that make no sense tiled
+        {
+          matches = [
+            { app-id = "^xdg-desktop-portal-gtk$"; }
+            { app-id = "^openrgb$"; }
+            { app-id = "^zenity$"; }
+            { title = "^Slack - Huddle$"; }
+          ];
+
+          open-floating = true;
+        }
       ];
 
       layer-rules = [
