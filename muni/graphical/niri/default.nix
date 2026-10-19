@@ -331,7 +331,10 @@ in
             { namespace = "^notifications$"; }
             { namespace = "^rofi$"; }
           ];
-          background-effect.blur = true;
+          background-effect = {
+            blur = true;
+            xray = false;
+          };
         }
 
         {
