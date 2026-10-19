@@ -14,6 +14,7 @@
     in
     {
       checks = {
+        munibot-sandbox = mkTest ../tests/munibot-sandbox.nix;
         timew-sync-server-sandbox = mkTest ../tests/timew-sync-server-sandbox.nix;
       };
     };
