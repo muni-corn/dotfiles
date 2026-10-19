@@ -1,6 +1,11 @@
 {
   networking.hosts = {
     "192.168.68.70" = [
+      "munibot"
+      "ssh.muni.bot"
+
+      "hass.municorn.me"
+
       "ai.musicaloft.com"
       "attic.musicaloft.com"
       "cache.musicaloft.com"
@@ -8,16 +13,14 @@
       "dns.musicaloft.com"
       "photos.musicaloft.com"
       "git.musicaloft.com"
-      "hass.municorn.me"
       "hydra.musicaloft.com"
       "id.musicaloft.com"
-      "munibot"
       "nixbld.musicaloft.com"
       "search.musicaloft.com"
-      "ssh.muni.bot"
       "tasks.musicaloft.com"
       "time.musicaloft.com"
       "watch.musicaloft.com"
+
       "links.twitchtrot.horse"
     ];
 
