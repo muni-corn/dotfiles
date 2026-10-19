@@ -10,7 +10,6 @@
     ../virtualisation.nix
     ../firewall.nix
     ../gaming.nix
-    ../local-hosts.nix
     ../music-production.nix
     ../openssh.nix
     ../sops
