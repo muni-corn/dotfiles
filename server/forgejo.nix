@@ -61,7 +61,11 @@
 
   users.users.git = {
     home = config.services.forgejo.stateDir;
-    useDefaultShell = true;
+
+    # sshd runs forgejo's forced command through this shell. bash is
+    # predictable here; the default login shell (fish) reads its own config
+    # files on every git operation
+    shell = pkgs.bashInteractive;
     group = config.services.forgejo.group;
     isSystemUser = true;
   };
