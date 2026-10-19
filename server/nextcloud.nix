@@ -21,6 +21,10 @@ in
       hostName = "cloud.musicaloft.com";
       maxUploadSize = "10G";
 
+      # caddy terminates tls, so tell nextcloud it's served over https: links
+      # are generated as https and session cookies are marked secure
+      https = true;
+
       # notify_push.enable = true;
 
       config = {
@@ -43,6 +47,7 @@ in
           "OC\\Preview\\XBitmap"
           "OC\\Preview\\HEIC"
         ];
+        overwriteprotocol = "https";
         trusted_proxies = [ "127.0.0.1" ];
       };
     };
