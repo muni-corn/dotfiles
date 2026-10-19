@@ -46,7 +46,12 @@
           };
           environmentFiles = [ config.sops.secrets.twitchtrot-linkstack-env.path ];
           hostname = "twitchtrot-linkstack";
-          image = "docker.io/linkstackorg/linkstack:latest";
+          # pinned by digest so the image can't change underneath us. with
+          # `latest`, podman only pulled once, so the running version was
+          # whatever happened to be current on first start. to update, look up
+          # the new digest (`skopeo inspect docker://docker.io/linkstackorg/linkstack:latest`)
+          # and replace this one
+          image = "docker.io/linkstackorg/linkstack@sha256:1c8b05399ee459ac601bac3eede7fbe765d1b6b7be725663b57f3220610958bf";
           ports = [
             "127.0.0.1:8998:80"
             "127.0.0.1:8999:443"
