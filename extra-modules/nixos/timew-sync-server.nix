@@ -72,6 +72,53 @@ in
                 -keys-location "${cfg.dataDir}/authorized_keys/" \
                 -sqlite-db "${cfg.dataDir}/sqlite.db"
             '';
+
+            # the server can't bind to a specific address, so it listens on all
+            # interfaces. only accept connections from this machine, where a
+            # reverse proxy is expected to sit in front of it
+            IPAddressAllow = "localhost";
+            IPAddressDeny = "any";
+
+            # filesystem: read-only everywhere except the data directory
+            ProtectSystem = "strict";
+            ReadWritePaths = [ cfg.dataDir ];
+            ProtectHome = true;
+            PrivateTmp = true;
+            PrivateDevices = true;
+            UMask = "0077";
+
+            # privileges
+            CapabilityBoundingSet = "";
+            NoNewPrivileges = true;
+            PrivateUsers = true;
+            RestrictSUIDSGID = true;
+            RemoveIPC = true;
+
+            # kernel and process visibility
+            ProtectKernelTunables = true;
+            ProtectKernelModules = true;
+            ProtectKernelLogs = true;
+            ProtectControlGroups = true;
+            ProtectClock = true;
+            ProtectHostname = true;
+            ProtectProc = "invisible";
+            ProcSubset = "pid";
+
+            # syscalls and other kernel features
+            RestrictAddressFamilies = [
+              "AF_INET"
+              "AF_INET6"
+            ];
+            RestrictNamespaces = true;
+            RestrictRealtime = true;
+            LockPersonality = true;
+            MemoryDenyWriteExecute = true;
+            SystemCallArchitectures = "native";
+            SystemCallFilter = [
+              "@system-service"
+              "~@privileged"
+              "~@resources"
+            ];
           };
         };
 
