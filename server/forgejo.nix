@@ -37,6 +37,16 @@
           ROOT_URL = "https://git.musicaloft.com/";
         };
         session.COOKIE_SECURE = true;
+
+        # accounts are created by an admin, not by visitors
+        service.DISABLE_REGISTRATION = true;
+
+        # applies when a password is set or changed, not to existing passwords.
+        # the pwned check sends only a hash prefix to haveibeenpwned.com
+        security = {
+          MIN_PASSWORD_LENGTH = 16;
+          PASSWORD_CHECK_PWN = true;
+        };
         ui = {
           SHOW_USER_EMAIL = false;
         };
