@@ -130,6 +130,7 @@
       imports = [
         inputs.devenv.flakeModule
 
+        ./flake-modules/checks.nix
         ./flake-modules/overlays.nix
         ./flake-modules/nixos-configurations.nix
       ];
