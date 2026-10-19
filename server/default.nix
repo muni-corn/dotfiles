@@ -23,6 +23,7 @@
     ./nix.nix
     ./openssh.nix
     ./peertube.nix
+    ./postfix.nix
     ./searx.nix
     ./sops.nix
     ./sync.nix

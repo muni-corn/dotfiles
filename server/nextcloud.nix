@@ -62,10 +62,6 @@ in
       enable = true;
       package = pkgs.postgresql_17;
     };
-    postfix = {
-      enable = true;
-      settings.main.myhostname = "mail.musicaloft.com";
-    };
   };
 
   sops.secrets =
