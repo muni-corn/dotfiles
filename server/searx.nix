@@ -23,6 +23,11 @@
 
           # rate-limits and bot-checks public clients, using the local redis
           limiter = true;
+
+          # fetch result images through searx so visitors' browsers don't
+          # contact image hosts directly. urls are signed with the secret key,
+          # so this isn't an open proxy
+          image_proxy = true;
         };
       };
 
