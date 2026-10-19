@@ -9,6 +9,7 @@
     stockfish
 
     # mods and compat tools
+    protonplus
     protonup-ng
     protonup-qt
     r2modman
