@@ -1,6 +1,12 @@
+# yaml-language-server: $schema=https://devenv.sh/devenv.schema.json
 inputs:
   cocoa:
     url: github:muni-corn/cocoa
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  disko:
+    url: github:nix-community/disko
     inputs:
       nixpkgs:
         follows: nixpkgs

@@ -204,6 +204,26 @@
         "type": "github"
       }
     },
+    "disko": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1792522401,
+        "narHash": "sha256-r3C+5Gk2ex6Q2ZX3tgTbOHyKBYLYD+bmunnvebErqZA=",
+        "owner": "nix-community",
+        "repo": "disko",
+        "rev": "fb50c22daa522e9a155ff18f9730ec6013e3fc7d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nix-community",
+        "repo": "disko",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "locked": {
         "lastModified": 1733328505,
@@ -686,6 +706,7 @@
       "inputs": {
         "cocoa": "cocoa",
         "devenv": "devenv_2",
+        "disko": "disko",
         "git-hooks": "git-hooks_3",
         "musicaloft-shell": "musicaloft-shell_2",
         "nixpkgs": "nixpkgs_2",
