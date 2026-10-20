@@ -81,6 +81,8 @@
     };
   };
 
+  hardware.facter.reportPath = ./facter.json;
+
   swapDevices = [
     {
       device = "/dev/disk/by-partuuid/49585f15-1805-1345-b3f6-94cca10eb4f9";
@@ -97,6 +99,6 @@
     networkmanager.unmanaged = [ "wlp15s0" ];
   };
   systemd.network.netdevs.wlp15s0.enable = false;
-  nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
+
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
