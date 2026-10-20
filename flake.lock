@@ -3950,11 +3950,11 @@
         "treefmt-nix": "treefmt-nix_14"
       },
       "locked": {
-        "lastModified": 1780509558,
-        "narHash": "sha256-c0pmsrroFLseFhpRS7UyFGnrUFQ7jf+nYywwc6edrFo=",
+        "lastModified": 1791172413,
+        "narHash": "sha256-J4Wm30Y581FGWG4DZL1Smc03mmSqprsFIjAbFktMCbs=",
         "owner": "muni-corn",
         "repo": "pinentry-cadenza",
-        "rev": "74b0236fc6c5c1996052e194940796bdce8f01da",
+        "rev": "29ec66b000d9abd0269f980afbb81045781f2a28",
         "type": "github"
       },
       "original": {
