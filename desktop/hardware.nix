@@ -91,20 +91,11 @@
     }
   ];
 
+  # disable the wireless interface, because it causes issues for some reason
   networking = {
-    useDHCP = lib.mkDefault true;
-
-    interfaces = {
-      enp14s0 = {
-        useDHCP = true;
-        wakeOnLan.enable = true;
-      };
-      wlp15s0.useDHCP = false;
-    };
-
+    interfaces.wlp15s0.useDHCP = false;
     networkmanager.unmanaged = [ "wlp15s0" ];
   };
-
   systemd.network.netdevs.wlp15s0.enable = false;
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
