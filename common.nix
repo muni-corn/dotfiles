@@ -194,6 +194,7 @@
   };
 
   services = {
+    # setup automatic local device discovery, for e.g. printers
     avahi.enable = true;
 
     fail2ban = {

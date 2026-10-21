@@ -118,9 +118,6 @@
     # automatic timezone based on location
     automatic-timezoned.enable = true;
 
-    # setup automatic local device discovery, for e.g. printers
-    avahi.enable = true;
-
     # bluetooth manager gui
     blueman.enable = true;
 
