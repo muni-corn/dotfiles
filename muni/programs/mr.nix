@@ -90,7 +90,7 @@
         "code/musicaloft-shell" = fromMusicaloft "musicaloft" "musicaloft-shell";
         "code/musicaloft-web" = fromMusicaloft "musicaloft" "musicaloft-web";
         "code/unity/muni-vrc" = fromMuni "muni-vrc";
-        "notebook/stories" = fromMuni "stories";
+        "notebook/stories/public" = fromMuni "stories";
 
         # forked repos
         "code/devenv" = fromGitHubFork "cachix" "devenv";
