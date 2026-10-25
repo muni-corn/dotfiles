@@ -23,6 +23,9 @@
       mcVersion = modpack.versions.minecraft;
       fabricVersion = modpack.versions.fabric;
       serverVersion = lib.replaceStrings [ "." ] [ "_" ] "fabric-${mcVersion}";
+
+      # the downloaded mod jars. ./mods only holds packwiz metadata
+      modpackFiles = pkgs.callPackage ./modpack.nix { };
     in
     {
       enable = true;
@@ -47,7 +50,7 @@
               };
 
               # mods
-              symlinks.mods = ./mods;
+              symlinks.mods = "${modpackFiles}/mods";
 
               # settings
               serverProperties = {
