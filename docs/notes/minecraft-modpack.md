@@ -29,8 +29,5 @@ Forgetting step 2 makes the build fail with a hash mismatch rather than silently
 ## Things that have bitten us
 
 - ViaVersion and ViaBackwards need ViaFabric on Fabric. Without it the loader refuses to start.
-- Every server loads Geyser. Its default Bedrock port (UDP 19132) can only be bound once, and the
-  server that loses the race crashes. `default.nix` sets `bedrock.clone-remote-port`, so each
-  server's Bedrock port equals its Java port (herd-world on UDP 25567, mm on UDP 25566).
-- Those Bedrock ports are not in the firewall and not forwarded on the router. Bedrock players can't
-  join until the ports are opened, and gate can't route them because UDP carries no hostname.
+- Every server shares this pack, so a mod that binds a fixed port can only be in it if just one
+  server runs at a time. Geyser was removed for this reason, see `minecraft-routing.md`.
