@@ -10,9 +10,6 @@
     ./caddy.nix
   ];
 
-  # explicitly enable only the server port, not the rcon port
-  networking.firewall.allowedTCPPorts = [ 25565 ];
-
   services.minecraft-servers =
     let
       modpack = fromTOML (builtins.readFile ./pack.toml);
