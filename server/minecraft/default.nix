@@ -29,7 +29,7 @@
               name,
               motd,
               whitelist,
-              port ? 25565,
+              port,
             }:
             {
               enable = true;
@@ -69,6 +69,7 @@
           herd-world = mkServer {
             motd = "muni's herd house minecraft server :3";
             name = "herd-world";
+            port = 25567;
             whitelist = {
               Alilunaa = "a78bff88-4df0-4768-b2b7-0bbbc2cd2c69";
               Archycmd = "821e3d50-3d3f-4865-8cb4-80922cb22e8e";
