@@ -7,7 +7,6 @@
 {
   imports = [
     inputs.nix-minecraft.nixosModules.minecraft-servers
-    ./caddy.nix
     ./gate.nix
   ];
 
