@@ -8,7 +8,15 @@
   imports = [
     inputs.nix-minecraft.nixosModules.minecraft-servers
     ./caddy.nix
+    ./gate.nix
   ];
+
+  # players join with these hostnames on the default port. gate reads the
+  # hostname from the handshake and forwards to the matching server
+  services.minecraft-gate.hostnames = {
+    herd-world = "mc.muni.horse";
+    mm = "mm.mc.muni.horse";
+  };
 
   services.minecraft-servers =
     let
