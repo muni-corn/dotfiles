@@ -20,7 +20,7 @@
     {
       enable = true;
       eula = true;
-      openFirewall = false;
+      openFirewall = true;
 
       servers =
         let
@@ -34,6 +34,8 @@
             {
               enable = true;
               enableReload = true;
+              openFirewall = true;
+
               package = pkgs.fabricServers.${serverVersion}.override {
                 loaderVersion = fabricVersion;
                 jre_headless = pkgs.jdk25_headless;
