@@ -28,7 +28,6 @@
     {
       enable = true;
       eula = true;
-      openFirewall = true;
 
       servers =
         let
@@ -42,7 +41,6 @@
             {
               enable = true;
               enableReload = true;
-              openFirewall = true;
 
               package = pkgs.fabricServers.${serverVersion}.override {
                 loaderVersion = fabricVersion;
@@ -60,6 +58,9 @@
                 enforce-secure-profile = true;
                 enforce-whitelist = true;
                 level-name = name;
+
+                # only gate (which proxies to loopback) should reach the server
+                server-ip = "127.0.0.1";
                 server-port = port;
                 snooper-enabled = false;
                 spawn-protection = 2;
