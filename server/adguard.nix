@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 let
   # hostnames served only to private clients (see the private_only caddy
   # snippet). answering them with the lan address means vpn clients reach caddy
@@ -12,6 +12,10 @@ let
     "tasks.musicaloft.com"
     "time.musicaloft.com"
   ];
+
+  # minecraft hostnames are public, but lan clients should still go straight to
+  # gate on munibot instead of leaving through the router and hairpinning back
+  minecraftHostnames = lib.attrValues config.services.minecraft-gate.hostnames;
 in
 {
   services = {
@@ -30,7 +34,7 @@ in
         inherit domain;
         answer = "192.168.68.70";
         enabled = true;
-      }) privateHostnames;
+      }) (privateHostnames ++ minecraftHostnames);
     };
 
     caddy.virtualHosts."dns.musicaloft.com".extraConfig = ''
