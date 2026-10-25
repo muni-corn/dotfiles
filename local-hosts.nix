@@ -21,6 +21,9 @@
       "time.musicaloft.com"
       "watch.musicaloft.com"
 
+      "mc.muni.horse"
+      "mm.mc.muni.horse"
+
       "links.twitchtrot.horse"
     ];
 
