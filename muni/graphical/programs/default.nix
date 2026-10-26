@@ -87,6 +87,8 @@
       ];
     };
 
+    prismlauncher.enable = true;
+
     zathura.enable = true;
   };
 }

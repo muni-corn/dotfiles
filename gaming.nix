@@ -16,7 +16,6 @@
 
     # launchers
     itch
-    prismlauncher
 
     # to configure mangohud
     mangojuice
