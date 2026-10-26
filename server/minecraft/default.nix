@@ -79,7 +79,7 @@
         {
           herd-world = mkServer {
             motd = "muni's herd house minecraft server :3";
-            name = "herd-world";
+            name = "herd_world";
             port = 25567;
             whitelist = {
               Alilunaa = "a78bff88-4df0-4768-b2b7-0bbbc2cd2c69";
