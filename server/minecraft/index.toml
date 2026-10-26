@@ -11,11 +11,6 @@ hash = "37069be1c7d23b2fe463a98297d1f12eb8875f0d3be651a3a6cadc868752ab5a"
 metafile = true
 
 [[files]]
-file = "mods/geyser.pw.toml"
-hash = "71a040c2b27c9c981720dd5917a1a4916182f50027363feaca037a2e26dae870"
-metafile = true
-
-[[files]]
 file = "mods/lithium.pw.toml"
 hash = "a5ee497ec151dd6e6b946091e12e2c56362e5c772c4b8ea175b2e81277cc708d"
 metafile = true
