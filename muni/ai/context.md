@@ -194,15 +194,14 @@ SECRETSPEC_REASON="running tests" devenv shell cargo nextest run
 
 ## Planning
 
-- When making plans or architecting, make a detailed step-by-step task list, _and also_ split the
-  work into the smallest, most incremental, most atomic git commit messages possible. Include each
-  commit message alongside its respective task.
-- Do NOT build code with comments like "this will be implemented in phase 4" or "default to x for
-  now until commit 8". To avoid letting other agents do this, you should plan code additions and
-  changes in this order:
+When making plans or architecting, make a detailed step-by-step "commit recipe".
+
+- Split the work into a sequential list of atomic git commits.
+- List each step with a summary of implementation details and its entire git commit message: a
+  one-line summary, and a message body explaining _why_ the change or addition is made.
+- NEVER write code comments that mention steps or phases by name (e.g. "this will be implemented in
+  phase 4" or "default to x for now until commit 8"). To avoid letting other agents do this, you
+  should plan changes in **dependency order**:
   1. New types, structures, interfaces
   2. New configuration options, CLI options
   3. New functionality
-
-NEVER commit code without seeking and receiving permission first. ALWAYS pause after each "commit"
-you build to let the user make the commit, unless you're instructed otherwise.
