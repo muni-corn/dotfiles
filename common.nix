@@ -197,6 +197,8 @@
     # setup automatic local device discovery, for e.g. printers
     avahi.enable = true;
 
+    dictd.enable = true;
+
     fail2ban = {
       enable = true;
       bantime = "72h";
