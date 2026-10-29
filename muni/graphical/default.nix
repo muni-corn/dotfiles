@@ -32,7 +32,8 @@
       # development/programming
       alcom
 
-      # photo
+      # photography and graphics
+      friction-graphics
       hugin
       kdePackages.gwenview
       krita
