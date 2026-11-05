@@ -7,24 +7,12 @@ let
     inherit inputs;
   };
 
-  homeManagerModule = {
-    home-manager = {
-      backupFileExtension = "backup";
-      extraSpecialArgs = specialArgs;
-      overwriteBackup = true;
-      useGlobalPkgs = true;
-      useUserPackages = true;
-      users.muni = ../muni;
-    };
-  };
-
   commonModules = [
     ../machines/profiles/overlays.nix
 
     ../machines/profiles/binary-caches.nix
 
-    inputs.home-manager.nixosModules.home-manager
-    homeManagerModule
+    ../machines/profiles/home-manager.nix
 
     inputs.nixpkgs-multiverse.nixosModules.default
 
