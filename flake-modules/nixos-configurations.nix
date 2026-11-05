@@ -22,7 +22,7 @@ let
   commonModules = [
     self.nixosModules.overlays
 
-    ./binary-caches.nix
+    ../machines/profiles/binary-caches.nix
 
     inputs.home-manager.nixosModules.home-manager
     homeManagerModule
