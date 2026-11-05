@@ -249,6 +249,13 @@
 
       shell = config.home-manager.users.muni.programs.fish.package;
     };
+
+    # devenv machines deploys over root ssh. only the personal key is
+    # authorized, so a compromised munibot can't escalate to root elsewhere
+    users.root.openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpFoYAj02WzgnBokgr2ZzFKOaffOVRK5Ru7Ngh53sjr (none)"
+    ];
+
     defaultUserShell = pkgs.fish;
   };
 }
