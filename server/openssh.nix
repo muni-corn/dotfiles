@@ -8,6 +8,7 @@
     # authorized keys for its own account, so it won't show up in the nix
     # configuration even though git pushes need it
     AllowUsers = [
+      "root" # key-only deployments from devenv machines
       "muni"
       "btrbk" # remote backups from breezi and cherri
       "nix-ssh" # serving the nix store
