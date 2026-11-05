@@ -104,6 +104,9 @@
           "*.wav binary"
           "*.ogg binary"
           "*.oga binary"
+          "Cargo.lock mergiraf.language=toml"
+          "flake.lock mergiraf.language=json"
+          "devenv.lock mergiraf.language=json"
         ];
 
         ignores = [
