@@ -20,7 +20,6 @@
     hybridreverb2
     dragonfly-reverb
     mooSpace
-    ir-lv2
     fverb
   ];
 
