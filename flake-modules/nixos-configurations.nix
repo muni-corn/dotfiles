@@ -7,45 +7,24 @@ let
     inherit inputs;
   };
 
-  commonModules = [
-    ../machines/profiles/overlays.nix
-
-    ../machines/profiles/binary-caches.nix
-
-    ../machines/profiles/home-manager.nix
-
-    inputs.nixpkgs-multiverse.nixosModules.default
-
-    ../common.nix
-  ];
-
-  commonGraphicalModules = [
-    {
-      home-manager.users.muni = ../muni/graphical;
-    }
-    inputs.musnix.nixosModules.musnix
-    inputs.niri.nixosModules.niri
-    inputs.nur.modules.nixos.default
-    ../stylix.nix
-    ../common-graphical.nix
-  ];
+  profiles = import ../machines/profiles { inherit inputs; };
 
   laptopModules =
-    commonModules
-    ++ commonGraphicalModules
+    profiles.base
+    ++ profiles.graphical
     ++ [
       inputs.nixos-hardware.nixosModules.framework-16-7040-amd
       ../laptop
     ];
 
   desktopModules =
-    commonModules
-    ++ commonGraphicalModules
+    profiles.base
+    ++ profiles.graphical
     ++ [
       ../desktop
     ];
 
-  munibotModules = commonModules ++ [
+  munibotModules = profiles.base ++ [
     # hardware
     inputs.nixos-hardware.nixosModules.common-cpu-amd
     inputs.nixos-hardware.nixosModules.common-pc
