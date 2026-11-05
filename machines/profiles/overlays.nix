@@ -1,6 +1,8 @@
+# overlays for the custom packages and for the flake inputs that provide their
+# own. `inputs` comes from the machine's specialArgs
 { inputs, ... }:
-let
-  overlaysList = [
+{
+  nixpkgs.overlays = [
     inputs.cadenza-sounds.overlay
     inputs.devenv.overlays.default
     inputs.niri.overlays.niri
@@ -15,7 +17,7 @@ let
       pinentry-cadenza = inputs.pinentry-cadenza.packages.${final.system}.default;
 
       # my timesheet scripts in python, baked into a submodule
-      muni-scripts = final.callPackage ../pkgs/muni-scripts {
+      muni-scripts = final.callPackage ../../pkgs/muni-scripts {
         env = inputs.muni-scripts.packages.${final.system}.default;
       };
 
@@ -26,19 +28,7 @@ let
       });
 
       # package for videoduplicatefinder
-      videoduplicatefinder = final.callPackage ../pkgs/videoduplicatefinder { };
+      videoduplicatefinder = final.callPackage ../../pkgs/videoduplicatefinder { };
     })
   ];
-in
-{
-  perSystem =
-    { system, ... }:
-    {
-      _module.args.pkgs = import inputs.nixpkgs {
-        inherit system;
-        overlays = overlaysList;
-      };
-    };
-
-  flake.nixosModules.overlays.nixpkgs.overlays = overlaysList;
 }

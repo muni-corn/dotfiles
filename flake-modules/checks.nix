@@ -2,8 +2,10 @@
 { inputs, ... }:
 {
   perSystem =
-    { pkgs, ... }:
+    { system, ... }:
     let
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
+
       # tests can import flake inputs' modules through specialArgs
       mkTest =
         test:

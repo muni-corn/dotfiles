@@ -1,6 +1,5 @@
 {
   inputs,
-  self,
   ...
 }:
 let
@@ -20,7 +19,7 @@ let
   };
 
   commonModules = [
-    self.nixosModules.overlays
+    ../machines/profiles/overlays.nix
 
     ../machines/profiles/binary-caches.nix
 
