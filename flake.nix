@@ -4,10 +4,7 @@
     nixpkgs-small.url = "github:nixos/nixpkgs/nixos-unstable-small";
     nixpkgs-multiverse.url = "github:fzakaria/nixpkgs-multiverse";
 
-    devenv = {
-      url = "github:cachix/devenv";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    devenv.url = "github:cachix/devenv";
 
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
