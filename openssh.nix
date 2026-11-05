@@ -8,7 +8,8 @@
       X11Forwarding = lib.mkDefault true;
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
-      PermitRootLogin = "no";
+      # key-only, so devenv machines can deploy as root
+      PermitRootLogin = "prohibit-password";
 
       # fail2ban handles repeated attempts; these just keep a single
       # connection from lingering or guessing for long
