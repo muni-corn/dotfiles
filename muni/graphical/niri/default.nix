@@ -55,7 +55,6 @@ in
           trigger-height = 100;
           delay-ms = 1000;
         };
-        hot-corners.enable = true;
       };
 
       input = {
