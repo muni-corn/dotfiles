@@ -87,7 +87,11 @@
     # for fingerprint reader support
     fprintd.enable = true;
 
-    logind.settings.Login.HandleLidSwitch = "suspend-then-hibernate";
+    logind.settings.Login = {
+      HandleLidSwitch = "suspend-then-hibernate";
+      HandleLidSwitchExternalPower = "suspend";
+      HandleLidSwitchDocked = "ignore";
+    };
 
     power-profiles-daemon.enable = false;
 
