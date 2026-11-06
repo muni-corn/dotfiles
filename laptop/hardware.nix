@@ -24,14 +24,10 @@
       ];
       kernelModules = [ ];
 
-      luks = {
-        fido2Support = false;
-        devices.cryptmain = {
-          bypassWorkqueues = true;
-          crypttabExtraOpts = [ "fido2-device=auto" ];
-        };
+      luks.devices.cryptmain = {
+        bypassWorkqueues = true;
+        crypttabExtraOpts = [ "fido2-device=auto" ];
       };
-      systemd.enable = true;
     };
     kernelModules = [ "kvm-amd" ];
     extraModulePackages = [ ];
