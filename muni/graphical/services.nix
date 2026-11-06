@@ -9,7 +9,7 @@
         night = 1900; # candlelight
       };
 
-      dawnTime = "07:00-08:00";
+      dawnTime = "06:30-07:00";
       duskTime = "20:30-21:00";
 
       settings.general.adjustment-method = "wayland";
