@@ -34,6 +34,7 @@
       libcanberra
       libcanberra-gtk3
       v4l-utils
+      wev
 
       # needed for xdg-open and such
       xdg-utils
