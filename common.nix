@@ -253,9 +253,14 @@
 
     # devenv machines deploys over root ssh. only the personal key is
     # authorized, so a compromised munibot can't escalate to root elsewhere
-    users.root.openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpFoYAj02WzgnBokgr2ZzFKOaffOVRK5Ru7Ngh53sjr (none)"
-    ];
+    users.root = {
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMpFoYAj02WzgnBokgr2ZzFKOaffOVRK5Ru7Ngh53sjr (none)"
+      ];
+
+      # devenv machines runs posix sh scripts over ssh, which fish can't parse
+      shell = pkgs.bashInteractive;
+    };
 
     defaultUserShell = pkgs.fish;
   };
