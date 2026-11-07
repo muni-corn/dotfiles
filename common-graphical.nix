@@ -67,6 +67,7 @@
     # bluetooth
     bluetooth = {
       enable = true;
+      input.General.UserspaceHID = true;
       settings = {
         General.Experimental = true;
         Policy.AutoEnable = true;
