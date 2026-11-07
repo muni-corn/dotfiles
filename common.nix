@@ -50,6 +50,7 @@
       ntfs3g
 
       # misc
+      busybox
       cachix
       clinfo
       dmidecode
@@ -60,7 +61,6 @@
       psmisc
       rsync
       ssh-to-age
-      toybox
       trash-cli
       vulkan-tools
       wget
