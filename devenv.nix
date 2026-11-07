@@ -1,6 +1,8 @@
 { pkgs, ... }:
 # musicaloft-shell already takes care of mostly everything
 {
+  imports = [ ./machines ];
+
   packages = with pkgs; [
     # for managing minecraft server modpacks
     packwiz
