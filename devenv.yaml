@@ -20,7 +20,7 @@ inputs:
   musicaloft-shell:
     url: github:musicaloft/musicaloft-shell
   nixpkgs:
-    url: github:cachix/devenv-nixpkgs/rolling
+    url: github:nixos/nixpkgs/nixos-unstable
   treefmt-nix:
     url: github:numtide/treefmt-nix
     inputs:
