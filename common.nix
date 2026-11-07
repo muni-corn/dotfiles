@@ -60,6 +60,7 @@
       psmisc
       rsync
       ssh-to-age
+      toybox
       trash-cli
       vulkan-tools
       wget
