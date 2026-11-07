@@ -72,5 +72,48 @@ inputs:
     inputs:
       nixpkgs:
         follows: nixpkgs
+  llm-agents:
+    url: github:numtide/llm-agents.nix
+  rustfava:
+    url: github:rustledger/rustfava
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  rustledger:
+    url: github:rustledger/rustledger/v0.16.5
+  arpeggio:
+    url: github:muni-corn/arpeggio
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  cadenza-shell:
+    url: github:muni-corn/cadenza-shell
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  cadenza-sounds:
+    url: github:muni-corn/cadenza-sounds
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  pinentry-cadenza:
+    url: github:muni-corn/pinentry-cadenza
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  plymouth-theme-musicaloft-rainbow:
+    url: github:muni-corn/plymouth-theme-musicaloft-rainbow
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  muni-scripts:
+    url: path:./muni/scripts
+    inputs:
+      devenv:
+        follows: devenv
+      musicaloft-shell:
+        follows: musicaloft-shell
+      nixpkgs:
+        follows: nixpkgs
 imports:
   - musicaloft-shell
