@@ -107,6 +107,7 @@
           "Cargo.lock mergiraf.language=toml"
           "flake.lock mergiraf.language=json"
           "devenv.lock mergiraf.language=json"
+          "*.canvas mergiraf.language=json"
         ];
 
         ignores = [
