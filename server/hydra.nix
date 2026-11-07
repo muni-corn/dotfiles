@@ -3,7 +3,6 @@
   services = {
     hydra = {
       enable = true;
-      buildMachinesFiles = [ ];
       hydraURL = "hydra.musicaloft.com";
       listenHost = "localhost";
       notificationSender = "hello@hydra.musicaloft.com";

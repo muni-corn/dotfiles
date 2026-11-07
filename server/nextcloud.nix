@@ -27,11 +27,7 @@ in
 
       # notify_push.enable = true;
 
-      config = {
-        adminuser = "municorn";
-        adminpassFile = config.sops.secrets.nextcloud_admin_pass.path;
-        dbtype = "pgsql";
-      };
+      config.dbtype = "pgsql";
 
       settings = {
         enabledPreviewProviders = [
