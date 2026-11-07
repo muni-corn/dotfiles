@@ -311,6 +311,10 @@ in
       action = spawn "loginctl" "lock-session";
       allow-when-locked = true;
     };
+    XF86ScreenSaver = {
+      action = spawn "loginctl" "lock-session";
+      allow-when-locked = true;
+    };
 
     # notifications
     "Ctrl+Escape".action = spawn (lib.getExe pkgs.cadenza-shell) "noti" "dismiss";
