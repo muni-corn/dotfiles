@@ -62,6 +62,7 @@
     nushell = {
       enable = true;
       shellAliases = config.programs.fish.shellAliases // config.programs.fish.shellAbbrs;
+      loadSessionVariables = true;
     };
 
     password-store = {
