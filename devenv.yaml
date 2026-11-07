@@ -26,5 +26,51 @@ inputs:
     inputs:
       nixpkgs:
         follows: nixpkgs
+  home-manager:
+    url: github:nix-community/home-manager
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  musnix:
+    url: github:musnix/musnix
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  niri:
+    url: github:epireyn/niri-flake
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  nix-minecraft:
+    url: github:Infinidoge/nix-minecraft
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  nixos-hardware:
+    url: github:NixOS/nixos-hardware/master
+  nixpkgs-multiverse:
+    url: github:fzakaria/nixpkgs-multiverse
+  nixpkgs-xr:
+    url: github:nix-community/nixpkgs-xr
+  nur:
+    url: github:nix-community/NUR
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  sops-nix:
+    url: github:Mic92/sops-nix
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  stylix:
+    url: github:nix-community/stylix
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  munibot:
+    url: github:muni-corn/munibot
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
 imports:
   - musicaloft-shell
