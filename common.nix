@@ -152,10 +152,9 @@
       pinentryPackage = pkgs.pinentry-cadenza;
     };
 
-    nh = {
-      enable = true;
-      flake = "/home/muni/dotfiles";
-    };
+    # only used for `nh clean` and `nh search`; hosts are deployed with
+    # devenv machines
+    nh.enable = true;
 
     nix-ld.enable = true;
 
