@@ -100,6 +100,13 @@
       dc = "devenv container";
       di = "devenv init";
       dia = "devenv inputs add";
+      dma = "devenv machines apply";
+      dmc = "devenv machines check";
+      dmd = "devenv machines deploy";
+      dmi = "devenv machines info";
+      dmp = "devenv machines plan";
+      dmr = "devenv machines rollback";
+      dms = "devenv machines status";
       dp = "devenv processes";
       dr = "devenv repl";
       ds = "devenv search";
@@ -114,12 +121,8 @@
       hlr = "hledger register";
 
       # nh abbrs
-      nB = "nh os boot";
       nC = "nh clean all";
       nS = "nh search";
-      nb = "nh os build";
-      ns = "nh os switch";
-      nt = "nh os test";
 
       # opencode abbrs
       o = "opencode";
