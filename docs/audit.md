@@ -39,7 +39,7 @@ munibot itself. We considered hosting the VPN on the Deco X55/X20 mesh instead; 
 
 ## Commit plan
 
-Scopes follow your `server/<module>` convention. Each commit is independently buildable with `nh os build` / `nix build .#nixosConfigurations.munibot.config.system.build.toplevel`.
+Scopes follow your `server/<module>` convention. Each commit is independently buildable with `devenv build machines.munibot.build.nixos`.
 
 ### Phase 0: stop the bleeding (no architecture changes) — done
 
@@ -195,16 +195,12 @@ mismatch), so we didn't guess. Options:
 
 Every change was checked with `systemd-analyze security --offline` and in a NixOS VM test that
 boots the real unit and compares it with the same program run without the sandbox. The tests are
-flake checks (`flake-modules/checks.nix`, `tests/*.nix`, needs KVM). Each one was also checked to
+devenv outputs (`tests/default.nix`, `tests/*.nix`, needs KVM). Each one was also checked to
 fail when its sandbox is broken. Run them with:
 
 ```sh
-nix build .#checks.x86_64-linux.{hdparm,munibot,timew-sync-server}-sandbox
+devenv build outputs.checks.{hdparm,munibot,timew-sync-server}-sandbox
 ```
-
-`nix flake check` doesn't reach them yet: devenv's flake outputs fail to evaluate. Its dev shell
-needs `--no-pure-eval`, and its `container-shell` package needs the `nix2container` and
-`mk-shell-bin` inputs, which this flake doesn't have. That predates the checks.
 
 | #   | Commit(s)                                                                                                       | Score           | Outcome                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | --- | --------------------------------------------------------------------------------------------------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
