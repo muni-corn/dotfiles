@@ -24,23 +24,24 @@ in
       allowDHCP = true;
 
       # the admin ui is only reachable through the private-only caddy vhost below
-      host = "127.0.0.1";
       openFirewall = false;
-      port = 3080;
 
       # merged into the existing config on start. lists are replaced, not
       # appended, so rewrites added through the web ui will be overwritten
-      settings.filtering.rewrites = map (domain: {
-        inherit domain;
-        answer = "192.168.68.70";
-        enabled = true;
-      }) (privateHostnames ++ minecraftHostnames);
+      settings = {
+        http.address = "127.0.0.1:3080";
+        filtering.rewrites = map (domain: {
+          inherit domain;
+          answer = "192.168.68.70";
+          enabled = true;
+        }) (privateHostnames ++ minecraftHostnames);
+      };
     };
 
     caddy.virtualHosts."dns.musicaloft.com".extraConfig = ''
       import security_headers
       import private_only
-      reverse_proxy 127.0.0.1:${toString config.services.adguardhome.port}
+      reverse_proxy ${config.services.adguardhome.settings.http.address}
     '';
   };
 }
