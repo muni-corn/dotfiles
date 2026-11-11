@@ -45,6 +45,10 @@
           };
           environmentFiles = [ config.sops.secrets.twitchtrot-linkstack-env.path ];
           hostname = "twitchtrot-linkstack";
+
+          # needed because a linkstack image update made it so the image runs as a non-root user. this only changes the container's network namespace, so munibot keeps the usual 1024 minimum. this also (almost) matches Docker's default behavior, which upstream linkstack supports (instead of podman because they're stinky like that).
+          extraOptions = [ "--sysctl=net.ipv4.ip_unprivileged_port_start=80" ];
+
           # pinned by digest so the image can't change underneath us. with
           # `latest`, podman only pulled once, so the running version was
           # whatever happened to be current on first start. to update, look up
