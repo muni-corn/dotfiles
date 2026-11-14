@@ -67,7 +67,6 @@
       libnotify
       kdePackages.kalgebra
       proton-vpn
-      xournalpp
     ];
 
     pointerCursor = {
