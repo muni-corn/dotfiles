@@ -307,19 +307,22 @@ in
       ];
 
       layer-rules = [
-        # put shadows on all layers but bars and notifications
+        # put shadows on all layers except the status bar
         {
-          excludes = [
-            { namespace = "bar"; }
-            { namespace = "notifications"; }
-          ];
+          excludes = [ { namespace = "bar"; } ];
           shadow.enable = true;
         }
 
         # hide notifications from screencasts
         {
-          matches = [ { namespace = "^notifications$"; } ];
+          matches = [ { namespace = "^notifications?$"; } ];
           block-out-from = "screencast";
+          geometry-corner-radius = {
+            bottom-left = 12.;
+            bottom-right = 12.;
+            top-left = 12.;
+            top-right = 12.;
+          };
         }
 
         # blur behind shell surfaces
@@ -327,7 +330,8 @@ in
           matches = [
             { namespace = "^bar$"; }
             { namespace = "^menu$"; }
-            { namespace = "^notifications$"; }
+            { namespace = "^notifications?$"; }
+            { namespace = "^action-panel$"; }
             { namespace = "^rofi$"; }
           ];
           background-effect = {
@@ -340,6 +344,7 @@ in
           matches = [
             { namespace = "^rofi$"; }
             { namespace = "^action-panel$"; }
+            { namespace = "^.*-menu$"; }
           ];
           geometry-corner-radius = {
             bottom-left = 16.;
