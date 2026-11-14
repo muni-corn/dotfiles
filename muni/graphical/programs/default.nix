@@ -17,7 +17,6 @@
     digikam
     dragon-drop
     geogebra6
-    logseq
     opencode-desktop
     revolt-desktop
     vial
