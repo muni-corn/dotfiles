@@ -2,22 +2,27 @@
 
 ## Target end state
 
-**Reachable from the internet** (router forwards `80`, `443`, `25565`, `51820/udp`; **remove** `53` and `2270`):
-Caddy → Nextcloud, Forgejo, PeerTube, Immich, SearXNG, Attic, nix-serve, Linkstack, redirect domains. Minecraft (whitelisted, all servers behind gate on `25565`; see `docs/notes/minecraft-routing.md`). WireGuard.
+**Reachable from the internet** (router forwards `80`, `443`, `25565`, `51820/udp`; **remove** `53`
+and `2270`): Caddy → Nextcloud, Forgejo, PeerTube, Immich, SearXNG, Attic, nix-serve, Linkstack,
+redirect domains. Minecraft (whitelisted, all servers behind gate on `25565`; see
+`docs/notes/minecraft-routing.md`). WireGuard.
 
-**Reachable only from LAN or WireGuard** (Caddy `remote_ip private_ranges` guard, or interface-scoped firewall rules):
-Keycloak, Home Assistant, Hydra, AdGuard UI + DNS, taskchampion, timew-sync, SSH.
+**Reachable only from LAN or WireGuard** (Caddy `remote_ip private_ranges` guard, or
+interface-scoped firewall rules): Keycloak, Home Assistant, Hydra, AdGuard UI + DNS, taskchampion,
+timew-sync, SSH.
 
-**Bound to `127.0.0.1` only:** every backend. Nothing but Caddy, sshd, wg, gate (the minecraft router), and DNS ever owns a non-loopback socket.
+**Bound to `127.0.0.1` only:** every backend. Nothing but Caddy, sshd, wg, gate (the minecraft
+router), and DNS ever owns a non-loopback socket.
 
-WireGuard is hosted on munibot (not the Deco mesh). munibot masquerades wg clients onto
-the LAN, so a connected phone or laptop can reach `192.168.68.0/24` in full, not just
-munibot itself. We considered hosting the VPN on the Deco X55/X20 mesh instead; see
-"Deco vs munibot for WireGuard" below for why we didn't.
+WireGuard is hosted on munibot (not the Deco mesh). munibot masquerades wg clients onto the LAN, so
+a connected phone or laptop can reach `192.168.68.0/24` in full, not just munibot itself. We
+considered hosting the VPN on the Deco X55/X20 mesh instead; see "Deco vs munibot for WireGuard"
+below for why we didn't.
 
 ## Manual steps you do before or alongside (not commits)
 
-1. **Router**: delete the `53` forward _today_. Delete `2270` once WireGuard is verified. Add `51820/udp`.
+1. **Router**: delete the `53` forward _today_. Delete `2270` once WireGuard is verified. Add
+   `51820/udp`.
 2. **Deco DHCP DNS**: hand out only `192.168.68.70` (AdGuard) as the DNS server, and remove
    `1.1.1.1`. Every LAN device, phones included, then resolves private-only hostnames to the LAN
    address. The router does loop traffic back to munibot's public address, but Caddy then sees a
@@ -25,10 +30,11 @@ munibot itself. We considered hosting the VPN on the Deco X55/X20 mesh instead; 
    the LAN IP and `403` via the public IP). The trade-off is that LAN DNS goes down whenever munibot
    does.
 3. ~~Rotate the Minecraft rcon password.~~ Not needed any more: rcon was removed entirely.
-4. Generate wg keypairs for munibot, cherri, and phone (breezi has no tunnel); put private keys in the per-host sops files created in phase 1.
-5. **Harden the Deco mesh itself**, regardless of who hosts the VPN: disable UOnP, WPS,
-   remote management, and TR-069/CWMP; confirm auto-update is on; use a strong, unique
-   admin password. The Deco is the actual internet edge here.
+4. Generate wg keypairs for munibot, cherri, and phone (breezi has no tunnel); put private keys in
+   the per-host sops files created in phase 1.
+5. **Harden the Deco mesh itself**, regardless of who hosts the VPN: disable UOnP, WPS, remote
+   management, and TR-069/CWMP; confirm auto-update is on; use a strong, unique admin password. The
+   Deco is the actual internet edge here.
 6. **Dynamic DNS at Namecheap, not the Deco**: enable Dynamic DNS for `musicaloft.com`, add an
    `A + Dynamic DNS` record for host `a`, and store the generated password as `ddclient_password` in
    `server/secrets.yaml`. Every public name (the `musicaloft.com` CNAMEs, `hass.municorn.me`,
@@ -39,7 +45,8 @@ munibot itself. We considered hosting the VPN on the Deco X55/X20 mesh instead; 
 
 ## Commit plan
 
-Scopes follow your `server/<module>` convention. Each commit is independently buildable with `devenv build machines.munibot.build.nixos`.
+Scopes follow your `server/<module>` convention. Each commit is independently buildable with
+`devenv build machines.munibot.build.nixos`.
 
 ### Phase 0: stop the bleeding (no architecture changes) — done
 
@@ -59,7 +66,8 @@ Scopes follow your `server/<module>` convention. Each commit is independently bu
 | 0.12 | `fix(server/nextcloud): remove unnecessary firewall opening`            | Delete `allowedTCPPorts = [ port ]` (nginx is already loopback-only)                                                                                                                                                                                                                                                                                          |
 | 0.13 | `fix(server): bind task and time sync servers to loopback`              | taskchampion `host = "127.0.0.1"`, both `openFirewall = false` (they get Caddy vhosts in phase 3)                                                                                                                                                                                                                                                             |
 
-After phase 0, `ss -tlnp` on munibot should show only `:22`, `:80`, `:443`, `:53`, `:25565` on non-loopback addresses.
+After phase 0, `ss -tlnp` on munibot should show only `:22`, `:80`, `:443`, `:53`, `:25565` on
+non-loopback addresses.
 
 ### Phase 1: shared Caddy module and per-host secrets (types and options before functionality) — done
 
@@ -72,10 +80,10 @@ After phase 0, `ss -tlnp` on munibot should show only `:22`, `:80`, `:443`, `:53
 
 ### Phase 2: WireGuard and network segmentation — done
 
-WireGuard is hosted on munibot. Tunnels are **on-demand, not always-on**: at home,
-clients reach the LAN directly; away from home, they bring the tunnel up. Hairpinning
-through the router doesn't work for private-only sites, so at home clients must get the
-LAN address from AdGuard (see the follow-up below).
+WireGuard is hosted on munibot. Tunnels are **on-demand, not always-on**: at home, clients reach the
+LAN directly; away from home, they bring the tunnel up. Hairpinning through the router doesn't work
+for private-only sites, so at home clients must get the LAN address from AdGuard (see the follow-up
+below).
 
 | #   | Commit                                                                                 | What                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | --- | -------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -94,15 +102,15 @@ Deploying phase 2 broke cherri at home: git over ssh, `tasks.`, and `time.` all 
 separate causes:
 
 1. **DNS race.** `common.nix` forced `1.1.1.1` and `8.8.8.8` as global resolvers on every host.
-   systemd-resolved raced those against the DHCP-provided servers (`192.168.68.70 1.1.1.1`), so
-   some names resolved to the LAN address and others to the public one. `git.musicaloft.com`
-   resolved publicly, and the router doesn't forward port 22. Fixed by
+   systemd-resolved raced those against the DHCP-provided servers (`192.168.68.70 1.1.1.1`), so some
+   names resolved to the LAN address and others to the public one. `git.musicaloft.com` resolved
+   publicly, and the router doesn't forward port 22. Fixed by
    `fix(common): stop overriding dns on workstations`; munibot now pins its own resolvers in
    `server/default.nix`. resolved already falls back to public resolvers when a network provides
-   none, so no fallback setting is needed. breezi only worked because `local-hosts.nix`
-   hard-codes everything.
-2. **Hairpin gives a public source address.** See manual step 2: the Deco has to hand out AdGuard
-   as the only DNS server.
+   none, so no fallback setting is needed. breezi only worked because `local-hosts.nix` hard-codes
+   everything.
+2. **Hairpin gives a public source address.** See manual step 2: the Deco has to hand out AdGuard as
+   the only DNS server.
 3. **Certificates failed because of the tp-link ddns name, not `private_only`.** Every public
    hostname was a CNAME to the Deco's `musicaloft.tplinkdns.com`. TP-Link's nameservers answer that
    name correctly for A but return `NXDOMAIN` for AAAA (verified on all four of them, repeatedly).
@@ -142,14 +150,14 @@ connection's `StateChanged`) for live status. While the tunnel is up, `musicalof
 | 3.3 | `fix(muni/programs/taskwarrior): use https sync url`                         | `sync.server.url = "https://tasks.musicaloft.com"`                                                                                              |
 | 3.4 | `fix(muni/graphical/services): use https timew sync url`                     | `Server.BaseURL = "https://time.musicaloft.com"`. Missed in the original plan; the timew client has its own URL setting                         |
 
-timew-sync-server has no bind-address flag (only `-port`), so it listens on all interfaces
-rather than loopback. It isn't reachable from the LAN anyway: `server/firewall.nix` only
-admits specific ports and `8463` isn't one of them, so Caddy is the only way in. If the
-firewall is ever loosened, revisit this.
+timew-sync-server has no bind-address flag (only `-port`), so it listens on all interfaces rather
+than loopback. It isn't reachable from the LAN anyway: `server/firewall.nix` only admits specific
+ports and `8463` isn't one of them, so Caddy is the only way in. If the firewall is ever loosened,
+revisit this.
 
-Deploy order matters: switch the server first, then the clients. Until the vhosts are live,
-the clients' https URLs fail to sync. Both hostnames also need public DNS records so Caddy
-can get certificates via HTTP-01.
+Deploy order matters: switch the server first, then the clients. Until the vhosts are live, the
+clients' https URLs fail to sync. Both hostnames also need public DNS records so Caddy can get
+certificates via HTTP-01.
 
 ### Phase 4: identity, SSH, and privilege — done, with three items deliberately not applied
 
@@ -164,16 +172,16 @@ can get certificates via HTTP-01.
 
 #### Why 4.6 is deferred
 
-Clients push backups to munibot and also prune them there, which needs the `delete` role. Removing it
-means munibot has to prune instead. btrbk's documented backup-server pattern is **pull-based**: the
-server fetches from the client over ssh and owns the `target_preserve` policy. We found no documented
-way to prune backups that were pushed to a target in place, and it can't be tested without root on a
-btrfs filesystem. A wrong guess either fills `/crypt` (nothing pruned) or deletes backups (policy
-mismatch), so we didn't guess. Options:
+Clients push backups to munibot and also prune them there, which needs the `delete` role. Removing
+it means munibot has to prune instead. btrbk's documented backup-server pattern is **pull-based**:
+the server fetches from the client over ssh and owns the `target_preserve` policy. We found no
+documented way to prune backups that were pushed to a target in place, and it can't be tested
+without root on a btrfs filesystem. A wrong guess either fills `/crypt` (nothing pruned) or deletes
+backups (policy mismatch), so we didn't guess. Options:
 
-1. **Pull-based backups.** breezi and cherri run sshd with a restricted btrbk key granting only `source`
-   and `info`; munibot pulls and prunes. Strongest, but it reverses the ssh direction and means
-   clients accept inbound ssh.
+1. **Pull-based backups.** breezi and cherri run sshd with a restricted btrbk key granting only
+   `source` and `info`; munibot pulls and prunes. Strongest, but it reverses the ssh direction and
+   means clients accept inbound ssh.
 2. **Keep push, accept the risk.** A compromised client can delete its own backups on munibot. Add a
    periodic read-only snapshot of `/crypt/backup` on munibot so deletions are recoverable.
 3. **Try a server-side prune config** and verify it with `btrbk dryrun` on munibot before removing
@@ -193,10 +201,10 @@ mismatch), so we didn't guess. Options:
 
 ### Phase 6: systemd sandboxing — done
 
-Every change was checked with `systemd-analyze security --offline` and in a NixOS VM test that
-boots the real unit and compares it with the same program run without the sandbox. The tests are
-devenv outputs (`tests/default.nix`, `tests/*.nix`, needs KVM). Each one was also checked to
-fail when its sandbox is broken. Run them with:
+Every change was checked with `systemd-analyze security --offline` and in a NixOS VM test that boots
+the real unit and compares it with the same program run without the sandbox. The tests are devenv
+outputs (`tests/default.nix`, `tests/*.nix`, needs KVM). Each one was also checked to fail when its
+sandbox is broken. Run them with:
 
 ```sh
 devenv build outputs.checks.{hdparm,munibot,timew-sync-server}-sandbox
@@ -225,31 +233,28 @@ devenv build outputs.checks.{hdparm,munibot,timew-sync-server}-sandbox
 
 ## Deco vs munibot for WireGuard
 
-The Deco X55 nodes support a built-in WireGuard VPN server. We considered hosting there
-instead of on munibot and decided against it as the default:
+The Deco X55 nodes support a built-in WireGuard VPN server. We considered hosting there instead of
+on munibot and decided against it as the default:
 
-- **Key custody.** The Deco app generates the server keypair _and every peer's private
-  key_ and hands them to you through the app, which talks to TP-Link's cloud when you're
-  remote. With munibot as server, each client generates its own key locally and the
-  server only ever sees public keys.
-- **Track record in exactly this feature.** A February 2026 advisory covered
-  authenticated command injection in TP-Link's "VPN Modules", "VPN Connection Service",
-  and "VPN Server Configuration Module" (CVE-2026-0631, -22221, -22223, -22225, -22226)
-  on Archer BE230/AXE75/AX73, plus a Deco BE25 config-import RCE (CVE-2026-22229 /
-  CVE-2026-0654, CVSS 8.5). All required authenticated or adjacent-network access, not
-  WAN-remote, but it's a signal about code quality in that subsystem.
-- **Not declarative.** The Deco's VPN config lives in an app, not this repo. Nothing here
-  can review, diff, or reproduce it.
-- **The main claimed benefit isn't unique to Deco.** "Reach the whole LAN remotely" is
-  equally achievable with munibot as the server (2.1's NAT/forwarding setup), so there's
-  no real functionality gap.
+- **Key custody.** The Deco app generates the server keypair _and every peer's private key_ and
+  hands them to you through the app, which talks to TP-Link's cloud when you're remote. With munibot
+  as server, each client generates its own key locally and the server only ever sees public keys.
+- **Track record in exactly this feature.** A February 2026 advisory covered authenticated command
+  injection in TP-Link's "VPN Modules", "VPN Connection Service", and "VPN Server Configuration
+  Module" (CVE-2026-0631, -22221, -22223, -22225, -22226) on Archer BE230/AXE75/AX73, plus a Deco
+  BE25 config-import RCE (CVE-2026-22229 / CVE-2026-0654, CVSS 8.5). All required authenticated or
+  adjacent-network access, not WAN-remote, but it's a signal about code quality in that subsystem.
+- **Not declarative.** The Deco's VPN config lives in an app, not this repo. Nothing here can
+  review, diff, or reproduce it.
+- **The main claimed benefit isn't unique to Deco.** "Reach the whole LAN remotely" is equally
+  achievable with munibot as the server (2.1's NAT/forwarding setup), so there's no real
+  functionality gap.
 
-The one advantage Deco-hosted has: it stays up even if munibot is down or being
-rebuilt. If that out-of-band access matters later, a reasonable hybrid is enabling the
-Deco's WireGuard server as a break-glass peer on just your phone, left disabled day to
-day, while munibot stays the primary VPN. Our X55 nodes are on TP-Link's supported list
-if we want to revisit this (the X20 satellite node's support is irrelevant since only the
-mesh's main node terminates the VPN).
+The one advantage Deco-hosted has: it stays up even if munibot is down or being rebuilt. If that
+out-of-band access matters later, a reasonable hybrid is enabling the Deco's WireGuard server as a
+break-glass peer on just your phone, left disabled day to day, while munibot stays the primary VPN.
+Our X55 nodes are on TP-Link's supported list if we want to revisit this (the X20 satellite node's
+support is irrelevant since only the mesh's main node terminates the VPN).
 
 ## Risks and things to double-check
 
@@ -259,15 +264,22 @@ mesh's main node terminates the VPN).
   AdGuard rewrite as well as the Caddy `private_only` import.
 - **AdGuard is now a single point of failure for LAN DNS** once the Deco hands out only
   `192.168.68.70`. If munibot is down, devices at home can't resolve anything.
-- **NAT masks client identity on the LAN.** With `networking.nat` on munibot (2.1), other
-  LAN devices see wg clients as `192.168.68.70`, not their real wg IP. Fine for
-  HA/IoT, but anything doing per-IP allowlisting on the LAN won't distinguish between
-  munibot and a connected phone.
-- **Keycloak restricted to private** assumes no one but you logs in via SSO. If PeerTube/Nextcloud users use Keycloak, it must stay public (then: rely on Keycloak's own brute-force detection + fail2ban jail instead).
+- **NAT masks client identity on the LAN.** With `networking.nat` on munibot (2.1), other LAN
+  devices see wg clients as `192.168.68.70`, not their real wg IP. Fine for HA/IoT, but anything
+  doing per-IP allowlisting on the LAN won't distinguish between munibot and a connected phone.
+- **Keycloak restricted to private** assumes no one but you logs in via SSO. If PeerTube/Nextcloud
+  users use Keycloak, it must stay public (then: rely on Keycloak's own brute-force detection +
+  fail2ban jail instead).
 - **btrbk role change** (4.6) is deferred; see the phase 4 notes above.
-- **Nextcloud `https = true`** can cause a redirect loop if `overwriteprotocol` isn't also set; the commit sets both.
-- **`users.mutableUsers = false`** locks you out if the hashed password in sops is wrong. Deploy while you still have an open root or `muni` session, and confirm `sudo` works in a second session before closing the first. Workstations still declare the `muni` secret without `neededForUsers`, so the hash is not applied there.
-- **Kernel sysctls** (7.1): `unprivileged_bpf_disabled` and `ptrace_scope` can break some desktop tools (e.g., debuggers attaching, some Wine bits). Fine for munibot; for workstations maybe only the network ones.
+- **Nextcloud `https = true`** can cause a redirect loop if `overwriteprotocol` isn't also set; the
+  commit sets both.
+- **`users.mutableUsers = false`** locks you out if the hashed password in sops is wrong. Deploy
+  while you still have an open root or `muni` session, and confirm `sudo` works in a second session
+  before closing the first. Workstations still declare the `muni` secret without `neededForUsers`,
+  so the hash is not applied there.
+- **Kernel sysctls** (7.1): `unprivileged_bpf_disabled` and `ptrace_scope` can break some desktop
+  tools (e.g., debuggers attaching, some Wine bits). Fine for munibot; for workstations maybe only
+  the network ones.
 
 Phases 0 through 6 are done (4.1, 4.4, 4.6, and parts of 5.1, 5.5, and 5.6 deliberately not
 applied). Next up: phase 7, kernel, surface reduction, and ops.

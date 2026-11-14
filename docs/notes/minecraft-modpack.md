@@ -4,8 +4,8 @@ The mods for every server on munibot come from one packwiz pack in `server/minec
 
 - `pack.toml`, `index.toml`, and `mods/*.pw.toml` are packwiz metadata. They only describe the mods
   and hold no jars.
-- `server/minecraft/modpack.nix` runs nix-minecraft's `fetchPackwizModpack`, which downloads the real
-  jars and checks them against the hashes in the metadata.
+- `server/minecraft/modpack.nix` runs nix-minecraft's `fetchPackwizModpack`, which downloads the
+  real jars and checks them against the hashes in the metadata.
 - `server/minecraft/default.nix` symlinks the result's `mods/` directory into every server.
 
 ## Changing the mods
