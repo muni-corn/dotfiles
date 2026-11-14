@@ -339,7 +339,7 @@ in
         {
           matches = [
             { namespace = "^rofi$"; }
-            { namespace = "^notification-center$"; }
+            { namespace = "^action-panel$"; }
           ];
           geometry-corner-radius = {
             bottom-left = 16.;
