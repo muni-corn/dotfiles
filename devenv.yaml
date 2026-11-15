@@ -88,9 +88,6 @@ inputs:
         follows: nixpkgs
   cadenza-shell:
     url: github:muni-corn/cadenza-shell
-    inputs:
-      nixpkgs:
-        follows: nixpkgs
   cadenza-sounds:
     url: github:muni-corn/cadenza-sounds
     inputs:
