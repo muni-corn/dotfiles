@@ -97,7 +97,7 @@
   networking.nftables.enable = true;
 
   nix = {
-    package = pkgs.nixVersions.latest;
+    package = pkgs.lixPackageSets.stable.lix;
 
     # enables flakes
     extraOptions = ''

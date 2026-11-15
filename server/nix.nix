@@ -8,7 +8,7 @@
 
     nix-serve = {
       enable = true;
-      package = pkgs.nix-serve-ng;
+      package = pkgs.lixPackageSets.stable.nix-serve-ng;
       openFirewall = false;
       secretKeyFile = config.sops.secrets.nix_serve_secret_key.path;
       bindAddress = "127.0.0.1";
