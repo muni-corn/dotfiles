@@ -330,9 +330,11 @@ in
           matches = [
             { namespace = "^bar$"; }
             { namespace = "^menu$"; }
+            { namespace = "^.*-menu$"; }
             { namespace = "^notifications?$"; }
             { namespace = "^action-panel$"; }
             { namespace = "^rofi$"; }
+            { namespace = "^kitty-quick-access$"; }
           ];
           background-effect = {
             blur = true;
