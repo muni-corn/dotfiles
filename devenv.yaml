@@ -83,9 +83,6 @@ inputs:
     url: github:rustledger/rustledger/v0.16.5
   arpeggio:
     url: github:muni-corn/arpeggio
-    inputs:
-      nixpkgs:
-        follows: nixpkgs
   cadenza-shell:
     url: github:muni-corn/cadenza-shell
   cadenza-sounds:
