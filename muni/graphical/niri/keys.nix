@@ -128,10 +128,13 @@ in
     "Mod+WheelScrollRight".action = focus-column-right;
     "Mod+WheelScrollLeft".action = focus-column-left;
 
-    # Usually scrolling up and down with Shift in applications results in
+    # usually scrolling up and down with Shift in applications results in
     # horizontal scrolling; these binds replicate that.
+    # ALTernatively, Alt is bound as well, since that's what i expected recently.
     "Mod+Shift+WheelScrollDown".action = focus-column-right;
     "Mod+Shift+WheelScrollUp".action = focus-column-left;
+    "Mod+Alt+WheelScrollDown".action = focus-column-right;
+    "Mod+Alt+WheelScrollUp".action = focus-column-left;
 
     # Similarly, you can bind touchpad scroll "ticks".
     # Touchpad scrolling is continuous, so for these binds it is split into
