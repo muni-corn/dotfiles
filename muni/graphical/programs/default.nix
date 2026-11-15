@@ -15,12 +15,8 @@
   home.packages = with pkgs; [
     blanket
     digikam
-    dragon-drop
     geogebra6
-    opencode-desktop
-    revolt-desktop
     vial
-    fractal
   ];
 
   programs = {
