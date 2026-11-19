@@ -18,6 +18,7 @@
     ./btrbk.nix
     ./hardware.nix
     ./monitors.nix
+    ./wireguard.nix
   ];
 
   hardware = {
