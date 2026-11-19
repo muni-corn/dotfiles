@@ -56,6 +56,7 @@
       dmidecode
       lsof
       keychron-udev-rules
+      nmap
       pciutils
       powertop
       psmisc
