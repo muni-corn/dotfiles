@@ -93,7 +93,7 @@
       bp = "bugwarrior pull";
 
       # devenv abbrs
-      dS = "devenv shell";
+      dS = "devenv search";
       dT = "devenv tasks";
       dU = "devenv update";
       db = "devenv build";
@@ -109,7 +109,7 @@
       dms = "devenv machines status";
       dp = "devenv processes";
       dr = "devenv repl";
-      ds = "devenv search";
+      ds = "devenv shell";
       dt = "devenv test";
       du = "devenv up";
 
