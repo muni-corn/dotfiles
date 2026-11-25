@@ -54,7 +54,7 @@
           # whatever happened to be current on first start. to update, look up
           # the new digest (`skopeo inspect docker://docker.io/linkstackorg/linkstack:latest`)
           # and replace this one
-          image = "docker.io/linkstackorg/linkstack@sha256:1c8b05399ee459ac601bac3eede7fbe765d1b6b7be725663b57f3220610958bf";
+          image = "docker.io/linkstackorg/linkstack@sha256:2920f70e15ae01a9d943cc90b96fc6198f6ac79260491deabf96103c42d49357";
           ports = [
             "127.0.0.1:8998:80"
             "127.0.0.1:8999:443"
