@@ -9,7 +9,6 @@
     ./packages
     ./programs
     ./sops
-    ./podman.nix
     ./syncthing.nix
     ./tmpfiles.nix
   ];

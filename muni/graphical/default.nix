@@ -10,6 +10,7 @@
     ./activitywatch.nix
     ./hypridle.nix
     ./niri
+    ./podman.nix
     ./programs
     ./services.nix
     ./systemd.nix
