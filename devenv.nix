@@ -12,5 +12,8 @@
 
     # for formatting markdown files in this repo
     oxfmt
+
+    # for updating the twitchtrot linkstack image
+    skopeo
   ];
 }
