@@ -11,6 +11,7 @@
     ./sops
     ./syncthing.nix
     ./tmpfiles.nix
+    ./trash-cleanup.nix
   ];
 
   home = {
