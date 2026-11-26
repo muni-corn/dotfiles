@@ -1,11 +1,5 @@
 { pkgs, ... }:
 {
-  home.file = {
-    ".mrtrust".text = ''
-      ~/code/orosa/.mrconfig
-    '';
-  };
-
   programs.mr =
     let
       # fixups
