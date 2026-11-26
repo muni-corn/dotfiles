@@ -70,7 +70,9 @@ in
           Unit.Description = "Sync timewarrior data";
           Service = {
             Type = "oneshot";
-            ExecStart = "${lib.getExe pkgs.bash} -c '${lib.getExe config.programs.timewarrior.package} || ${lib.getExe cfg.package}'";
+            # nixpkgs sets meta.mainProgram to "timew-sync-client", but the binary is named timewsync,
+            # so lib.getExe would point at a file that doesn't exist
+            ExecStart = "${lib.getExe pkgs.bash} -c '${lib.getExe config.programs.timewarrior.package} || ${lib.getExe' cfg.package "timewsync"}'";
           };
         };
 
