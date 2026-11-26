@@ -4,9 +4,6 @@
     # create the downloads subvolume with cleanup after 30 days
     "v ${config.xdg.userDirs.download} - - - 30d -"
 
-    # automatically delete trash entries older than 30 days
-    "v ${config.xdg.dataHome}/Trash - - - 30d -"
-
     # create xdg directories as subvolumes;
     # these are also git-annex repositories
     # and subvolumes backed up with btrbk
