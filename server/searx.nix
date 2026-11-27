@@ -35,7 +35,7 @@
       # for X-Forwarded-For. lan and vpn clients skip the limiter entirely, so
       # scripted json queries (like the mcp server) aren't blocked as bots
       limiterSettings.botdetection.ip_lists.pass_ip = [
-        "192.168.68.0/24"
+        "192.168.68.0/22"
         "10.100.0.0/24"
       ];
     };
