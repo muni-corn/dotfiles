@@ -38,7 +38,7 @@ in
 
       "wireguard-peer.${munibotPublicKey}" = {
         endpoint = "a.musicaloft.com:51820";
-        allowed-ips = "10.100.0.0/24;192.168.68.0/24;";
+        allowed-ips = "10.100.0.0/24;192.168.68.0/22;";
         persistent-keepalive = 25;
       };
 
