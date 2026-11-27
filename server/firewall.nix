@@ -1,6 +1,6 @@
 { ... }:
 let
-  lanSubnet = "192.168.68.0/24";
+  lanSubnet = "192.168.68.0/22";
 in
 {
   # sshd opens port 22 globally by default. the rules
