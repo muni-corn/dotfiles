@@ -18,14 +18,14 @@ in
     };
 
     # match on source address rather than interface: traffic the deco
-    # port-forwards from the internet also arrives on enp4s0, but keeps its
+    # port-forwards from the internet also arrives on enp6s0, but keeps its
     # public source address, so it won't match these rules
     extraInputRules = ''
       ip saddr ${lanSubnet} tcp dport { 22, 53 } accept
       ip saddr ${lanSubnet} udp dport { 53, 4002 } accept
 
       # dhcp clients have no source address yet (0.0.0.0), so match the interface
-      iifname "enp4s0" udp dport 67 accept
+      iifname "enp6s0" udp dport 67 accept
     '';
   };
 }
