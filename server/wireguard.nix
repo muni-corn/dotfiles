@@ -8,7 +8,7 @@
     nat = {
       enable = true;
       internalInterfaces = [ "wg0" ];
-      externalInterface = "enp4s0";
+      externalInterface = "enp6s0";
     };
 
     wireguard.interfaces.wg0 = {
