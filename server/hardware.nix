@@ -112,7 +112,7 @@
   networking = {
     useDHCP = lib.mkDefault true;
     interfaces = {
-      enp4s0.useDHCP = lib.mkDefault true;
+      enp6s0.useDHCP = lib.mkDefault true;
       wlan0.useDHCP = lib.mkDefault true;
     };
   };
