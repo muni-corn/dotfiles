@@ -18,7 +18,8 @@ let
       trash="''${XDG_DATA_HOME:-$HOME/.local/share}/Trash"
       cutoff=$(date -d "$max_age_days days ago" +%s)
 
-      shopt -s nullglob
+      # dotglob so trashed dotfiles and dot-directories are cleaned up too
+      shopt -s nullglob dotglob
       for info in "$trash"/info/*.trashinfo; do
         name=$(basename "$info" .trashinfo)
         deleted=$(sed -n 's/^DeletionDate=//p' "$info" | head -n 1)
