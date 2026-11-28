@@ -85,6 +85,7 @@
         "notebook/stories/public" = fromMuni "stories";
 
         # forked repos
+        "code/crosspoint-reader" = fromGitHubFork "crosspoint-reader" "crosspoint-reader";
         "code/devenv" = fromGitHubFork "cachix" "devenv";
         "code/difftastic" = fromGitHubFork "Wilfred" "difftastic";
         "code/dioxus" = fromGitHubFork "DioxusLabs" "dioxus";
