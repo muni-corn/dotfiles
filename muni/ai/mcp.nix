@@ -13,8 +13,6 @@
   programs.mcp = {
     enable = true;
     servers = {
-      atlassian.url = "https://mcp.atlassian.com/v1/mcp";
-
       context7 = {
         url = "https://mcp.context7.com/mcp";
         headers.CONTEXT7_API_KEY = "{file:${config.sops.secrets.context7_key.path}}";
